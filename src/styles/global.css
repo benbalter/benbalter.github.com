@@ -597,9 +597,9 @@
     text-decoration-color: currentColor;
   }
 
-  article a:not(.anchor-link):focus,
-  .content a:not(.anchor-link):focus,
-  main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):focus {
+  article a:not(.anchor-link):focus-visible,
+  .content a:not(.anchor-link):focus-visible,
+  main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):focus-visible {
     @apply outline-2 outline-primary outline-offset-2 rounded;
   }
 
@@ -1179,33 +1179,19 @@
   }
 
   /* Link Secondary (accessible contrast) */
-  footer .link-secondary,
-  nav.border-top .link-secondary,
-  article .link-secondary {
+  footer .link-secondary {
     @apply text-gray-700;
   }
 
   footer .link-secondary:hover,
-  footer .link-secondary:focus,
-  nav.border-top .link-secondary:hover,
-  nav.border-top .link-secondary:focus,
-  article .link-secondary:hover,
-  article .link-secondary:focus {
+  footer .link-secondary:focus {
     @apply text-gray-800;
   }
 
   @media (prefers-color-scheme: dark) {
     footer .link-secondary,
-    nav.border-top .link-secondary,
-    article .link-secondary {
-      @apply text-gray-300;
-    }
     footer .link-secondary:hover,
-    footer .link-secondary:focus,
-    nav.border-top .link-secondary:hover,
-    nav.border-top .link-secondary:focus,
-    article .link-secondary:hover,
-    article .link-secondary:focus {
+    footer .link-secondary:focus {
       @apply text-gray-300;
     }
   }
@@ -1223,41 +1209,6 @@
     .post-content > p:first-of-type {
       @apply text-gray-300;
     }
-  }
-
-  /* Section Headers */
-  .section-header {
-    @apply font-semibold;
-    letter-spacing: -0.02em;
-  }
-
-  /* Featured Post Card */
-  .featured-post-card {
-    @apply relative border-2 rounded-lg overflow-hidden;
-    @apply bg-white;
-    transition: box-shadow 300ms ease-out, border-color 300ms ease-out;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .featured-post-card {
-      @apply bg-gray-800;
-    }
-  }
-
-  .featured-post-card:hover {
-    @apply shadow-card-hover border-primary;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .featured-post-card:hover {
-      @apply shadow-card-hover-dark;
-    }
-  }
-
-  .featured-post-card .card-title {
-    @apply font-bold static;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
   }
 
 }

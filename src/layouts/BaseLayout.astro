@@ -201,10 +201,6 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           { rel: 'author', type: 'text/plain', href: '/humans.txt' },
           // Social Links (rel=me for verification)
           ...socialLinks.map((link) => ({ rel: 'me', href: link.url })),
-          // DNS prefetch for origins used on some pages (low cost when unused,
-          // unlike preconnect which opens full TCP+TLS connections)
-          { rel: 'dns-prefetch', href: 'https://images.amazon.com' },
-          { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },
           // RSS Feed
           { rel: 'alternate', type: 'application/rss+xml', title: `${siteConfig.name} - RSS Feed`, href: '/feed.xml' },
           // standard.site (https://standard.site/) AT Protocol verification:
@@ -229,10 +225,6 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
        guaranteeing the real font always ends up rendered. */}
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
-
-    <!-- Prefetch Kit API for faster subscribe form submission -->
-    <link rel="dns-prefetch" href="https://app.kit.com" />
-    <link rel="preconnect" href="https://app.kit.com" crossorigin />
 
     <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
          are all declared in the SEO component above. Do not duplicate them here. -->

@@ -81,8 +81,21 @@ const showEmail = Boolean(siteConfig.kitFormId);
     import { onPageLoad } from '../scripts/on-page-load';
     import { track } from '../scripts/track';
 
+    // Warm the Kit connection once someone starts filling in a form, rather
+    // than preconnecting on every page view (the idle socket would be closed
+    // long before most readers submit).
+    function preconnectKit() {
+      if (document.querySelector('link[rel="preconnect"][href="https://app.kit.com"]')) return;
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = 'https://app.kit.com';
+      link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+
     onPageLoad(() => {
       document.querySelectorAll<HTMLFormElement>('form[data-kit-form]').forEach((form) => {
+        form.addEventListener('focusin', preconnectKit, { once: true });
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
 

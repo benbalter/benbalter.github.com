@@ -586,16 +586,16 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('should have resource hints for external domains', async ({ page }) => {
+  test('preconnects to Kit only once the subscribe form is focused', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
-    
-    // preconnect implies dns-prefetch and is the preferred modern approach
-    const preconnect = page.locator('link[rel="preconnect"]');
-    const dnsPrefetch = page.locator('link[rel="dns-prefetch"]');
-    const preconnectCount = await preconnect.count();
-    const dnsPrefetchCount = await dnsPrefetch.count();
-    expect(preconnectCount + dnsPrefetchCount).toBeGreaterThan(0);
+
+    // No site-wide preconnect: the idle socket would close before most readers submit.
+    const kitPreconnect = page.locator('link[rel="preconnect"][href="https://app.kit.com"]');
+    await expect(kitPreconnect).toHaveCount(0);
+
+    await page.locator('form[data-kit-form] input[type="email"]').first().focus();
+    await expect(kitPreconnect).toHaveCount(1);
   });
 });
 

@@ -18,14 +18,12 @@ interface Props {
 const { readingTime = 0 } = Astro.props;
 ---
 
+<!-- Decorative: hidden from assistive tech so a constantly-changing
+     progressbar isn't announced mid-article. -->
 <div
   id="reading-progress"
   class="reading-progress"
-  role="progressbar"
-  aria-label="Reading progress"
-  aria-valuemin="0"
-  aria-valuemax="100"
-  aria-valuenow="0"
+  aria-hidden="true"
   data-reading-time={readingTime}
 >
   <div id="reading-progress-bar" class="reading-progress-bar"></div>
@@ -68,9 +66,8 @@ const { readingTime = 0 } = Astro.props;
     function updateProgress() {
       const offset = window.scrollY - bodyTop;
       const ratio = scrollRange > 0 ? Math.min(Math.max(offset / scrollRange, 0), 1) : 0;
-      const progress = ratio * 100;
-      bar.style.width = `${progress}%`;
-      container.setAttribute('aria-valuenow', Math.round(progress).toString());
+      // scaleX instead of width: compositor-only, no layout on every scroll frame.
+      bar.style.transform = `scaleX(${ratio})`;
 
       if (labelEl && readingTime > 0) {
         const text = formatTimeRemaining(readingTime, ratio);
@@ -123,10 +120,11 @@ const { readingTime = 0 } = Astro.props;
 
   .reading-progress-bar {
     height: 100%;
-    width: 0%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
     background: var(--color-primary);
-    transition: width 0.1s linear;
-    border-radius: 0 1px 1px 0;
+    transition: transform 0.1s linear;
   }
 
   .reading-progress-label {
