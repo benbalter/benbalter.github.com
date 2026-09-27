@@ -160,7 +160,7 @@ jobs:
       # No npm ci: npx fetches @lhci/cli on its own, and it needs nothing from
       # the project's dependencies.
       - name: Run Lighthouse CI
-        run: npx --yes @lhci/cli@0.14.0 autorun --collect.url="http://localhost/${PAGE}"
+        run: npx --yes @lhci/cli@0.15.1 autorun --collect.url="http://localhost/${PAGE}"
         env:
           PAGE: ${{ matrix.page }}
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
