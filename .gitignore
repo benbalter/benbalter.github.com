@@ -4,10 +4,6 @@ node_modules
 .github/styles/*
 # Local Vale style is checked in; synced packages above are not
 !.github/styles/AIPatterns
-.frontmatter
-assets/css/style.css
-assets/js/bundle.js
-assets/js/bundle.js.LICENSE.txt
 # Astro build artifacts
 dist-astro/
 .astro/
@@ -20,6 +16,10 @@ dist-astro/
 
 # Lighthouse CI artifacts
 .lighthouseci/
+
+# lychee link-check cache and report (links.yml)
+.lycheecache
+lychee-report.md
 
 # Playwright artifacts
 test-results/
@@ -35,13 +35,7 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
-.env
 screenshots/
-
-# Ruby/bundler artifacts
-vendor/
-.bundle/
-Gemfile.lock
 
 # Local analytics report (contains specific stats; do not commit)
 analytics-report.md
@@ -57,3 +51,6 @@ audit/
 
 # AI-generated engagement audit (script/foundry-engagement.ts) — review notes
 engage/
+
+# Throwaway local probes and experiments
+*-tmp.*

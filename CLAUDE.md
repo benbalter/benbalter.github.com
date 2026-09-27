@@ -1,6 +1,6 @@
 # benbalter.github.com
 
-Personal website and blog for Ben Balter. Astro 6 static site hosted on Cloudflare Workers.
+Personal website and blog for Ben Balter. Astro 7 static site hosted on Cloudflare Workers.
 
 ## Commands
 
@@ -21,7 +21,7 @@ npm run lint           # All linters
 - `src/components/` — Reusable Astro components
 - `src/content/` — Content collections (posts, pages, resume-positions)
 - `src/content.config.ts` — Collection schemas (NOT `src/content/config.ts`)
-- `src/data/` — YAML data files
+- `src/data/` — YAML data files (plus a few typed `.ts` data modules)
 - `src/utils/` — TypeScript utilities (unit tests in `*.test.ts` alongside source)
 - `src/lib/` — Remark/rehype plugins
 - `src/styles/global.css` — Tailwind v4 config + custom styles
@@ -30,7 +30,7 @@ npm run lint           # All linters
 
 ## Tech Stack
 
-- **Astro 6**, Vite 7, TypeScript, Node 22+
+- **Astro 7**, Vite 8, TypeScript, Node 22+
 - **Tailwind CSS v4** via `@tailwindcss/vite` — config lives in `src/styles/global.css` via `@theme` (no `tailwind.config.js`)
 - **Zod 4** — import `z` from `astro/zod` (not `astro:content`)
 - **Cloudflare Workers** static hosting
@@ -64,7 +64,7 @@ npm run lint-md
 npm run lint
 ```
 
-### Astro Content Collections (v6 API)
+### Astro Content Collections (v6+ API)
 
 ```typescript
 // Config: src/content.config.ts (NOT src/content/config.ts)
@@ -117,11 +117,11 @@ Distribution leans on sharing (social, direct) more than search, so shareability
 matter more than SEO. The AI angle tends to land best when tied to firsthand
 management/GitHub experience rather than as a generic tooling take.
 
-See `src/content/posts/CLAUDE.md` for detailed writing voice and SEO guidance.
+See `src/content/CLAUDE.md` for detailed writing voice and SEO guidance.
 
 ## Testing
 
-- Unit tests (Vitest): `src/utils/*.test.ts`
+- Unit tests (Vitest): `*.test.ts` alongside source, mostly `src/utils/` and `src/lib/`, plus `worker/index.test.js`
 - E2E tests (Playwright): `e2e/`
 - Run `npm run check` before committing Astro/TypeScript changes
 - HTML must pass validation; images need alt text; links must be valid

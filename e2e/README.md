@@ -28,7 +28,7 @@ npx playwright install
 ### Local Development
 
 ```bash
-# Run all tests (starts Jekyll server automatically)
+# Run all tests (builds the site and starts `npm run preview` automatically)
 npm run test:e2e
 
 # Run tests in headed mode (see browser)
@@ -57,22 +57,14 @@ npx playwright test --grep "accessibility"
 npx playwright test --project=chromium
 ```
 
-### Testing Different Builds
+### Testing Against an Existing Server
 
-The tests can be run against different builds:
+Playwright reuses a preview server that's already running on `localhost:4321`.
+To test a different server or port, set `BASE_URL`:
 
 ```bash
-# Run tests for Jekyll build (default)
-npm run test:e2e
-
-# Run tests for Astro build
-npm run test:e2e:astro
+BASE_URL=http://127.0.0.1:4330 npx playwright test
 ```
-
-## Test Configurations
-
-- **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
-- **Astro Tests**: `playwright-astro.config.ts` - Tests Astro build at `localhost:4321`
 
 ## Test Coverage
 
@@ -148,7 +140,7 @@ The Playwright configuration is in [`playwright.config.ts`](../playwright.config
 
 Key settings:
 
-- **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
+- **Base URL**: `http://localhost:4321` (can be overridden with `BASE_URL` env var)
 - **Browser**: Chromium (Desktop Chrome)
 - **Workers**: 50% of CPUs in CI for parallel execution, unlimited locally
 - **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)
