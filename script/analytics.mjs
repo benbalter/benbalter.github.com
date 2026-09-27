@@ -25,6 +25,7 @@
  */
 
 import { argv } from 'node:process';
+import { parseArgs } from 'node:util';
 
 const GQL_URL = 'https://api.cloudflare.com/client/v4/graphql';
 const API_BASE = 'https://api.cloudflare.com/client/v4';
@@ -42,21 +43,25 @@ if (!TOKEN) {
   process.exit(1);
 }
 
-/** Minimal flag parser: --days 30, --host x, --day YYYY-MM-DD, --limit N */
-function parseArgs(args) {
-  const opts = { days: 7, host: 'ben.balter.com', day: null, limit: 25 };
-  for (let i = 0; i < args.length; i++) {
-    const a = args[i];
-    if (a === '--days') opts.days = parseInt(args[++i], 10);
-    else if (a === '--host') opts.host = args[++i];
-    else if (a === '--day') opts.day = args[++i];
-    else if (a === '--limit') opts.limit = parseInt(args[++i], 10);
-    else if (a === '--help' || a === '-h') opts.help = true;
-  }
-  return opts;
-}
-
-const opts = parseArgs(argv.slice(2));
+// Flags: --days 30, --host x, --day YYYY-MM-DD, --limit N
+const { values } = parseArgs({
+  args: argv.slice(2),
+  options: {
+    days: { type: 'string', default: '7' },
+    host: { type: 'string', default: 'ben.balter.com' },
+    day: { type: 'string' },
+    limit: { type: 'string', default: '25' },
+    help: { type: 'boolean', short: 'h' },
+  },
+  strict: false,
+});
+const opts = {
+  days: parseInt(String(values.days), 10),
+  host: String(values.host),
+  day: typeof values.day === 'string' ? values.day : null,
+  limit: parseInt(String(values.limit), 10),
+  help: values.help === true,
+};
 if (opts.help) {
   console.log(
     'Usage: node script/analytics.mjs [--days N] [--host HOST] [--day YYYY-MM-DD] [--limit N]'

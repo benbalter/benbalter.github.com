@@ -35,6 +35,7 @@
 
 import { readFileSync, readdirSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import { parseArgs } from 'node:util';
 import matter from 'gray-matter';
 import { siteConfig } from '../../src/config';
 import { getPostUrl, getDateFromSlug } from '../../src/utils/post-urls';
@@ -135,12 +136,18 @@ async function deleteEntireCollection(session: Session | null, dryRun: boolean):
 }
 
 async function main(): Promise<void> {
-  const args = process.argv.slice(2);
-  const dryRun = args.includes('--dry-run');
-  const all = args.includes('--all');
-  const force = args.includes('--force');
-  const del = args.includes('--delete');
-  const fileArgs = args.filter((a: string) => !a.startsWith('--'));
+  // Strict: a mistyped flag (e.g. --dryrun) must fail loudly rather than be
+  // ignored and fall through to a real write against the PDS.
+  const { values, positionals: fileArgs } = parseArgs({
+    options: {
+      'dry-run': { type: 'boolean', default: false },
+      all: { type: 'boolean', default: false },
+      force: { type: 'boolean', default: false },
+      delete: { type: 'boolean', default: false },
+    },
+    allowPositionals: true,
+  });
+  const { 'dry-run': dryRun, all, force, delete: del } = values;
 
   const session = dryRun ? null : await login();
 

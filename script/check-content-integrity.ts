@@ -21,6 +21,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { parseArgs } from 'node:util';
 import {
   BULK_POST_THRESHOLD,
   comparePost,
@@ -45,10 +46,9 @@ const showOrNull = (ref: string, path: string): string | null => {
   }
 };
 
-function arg(name: string): string | undefined {
-  const prefix = `--${name}=`;
-  return process.argv.find((a) => a.startsWith(prefix))?.slice(prefix.length);
-}
+const { values: args } = parseArgs({
+  options: { base: { type: 'string' }, head: { type: 'string' } },
+});
 
 const isPost = (path: string) => POST_DIRS.some((d) => path.startsWith(d)) && POST_EXT.test(path);
 
@@ -92,8 +92,8 @@ function describe(finding: Finding): string[] {
 }
 
 function main(): void {
-  const head = arg('head') ?? (process.env.CONTENT_INTEGRITY_HEAD || 'HEAD');
-  const baseRef = arg('base') ?? (process.env.CONTENT_INTEGRITY_BASE || 'origin/main');
+  const head = args.head ?? (process.env.CONTENT_INTEGRITY_HEAD || 'HEAD');
+  const baseRef = args.base ?? (process.env.CONTENT_INTEGRITY_BASE || 'origin/main');
   // GitHub sends an all-zero `before` SHA on a branch's first push.
   if (/^0+$/.test(baseRef)) {
     console.log('Content integrity: no base commit (new branch); skipping.');
