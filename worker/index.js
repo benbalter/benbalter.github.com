@@ -108,18 +108,20 @@ export default {
         const mdResponse = await env.ASSETS.fetch(mdRequest);
         if (mdResponse.ok) {
           const markdown = await mdResponse.text();
-          const headers = new Headers({
-            'Content-Type': 'text/markdown; charset=utf-8',
-            // Distinguish this representation from the HTML at the same URL for
-            // any cache that honors Vary. Cloudflare's edge cache does not vary
-            // on Accept, so `private` also keeps shared caches from serving this
-            // Markdown to HTML clients while still allowing the agent's own
-            // client to cache it.
-            Vary: 'Accept',
-            'Cache-Control': 'private, max-age=300',
-            // Optional per the spec — a cheap ~4-chars-per-token estimate.
-            'x-markdown-tokens': String(Math.ceil(markdown.length / 4)),
-          });
+          // Start from the asset's headers so `_headers` rules (CSP, Link,
+          // Permissions-Policy, ...) still apply, then override what differs.
+          const headers = new Headers(mdResponse.headers);
+          headers.set('Content-Type', 'text/markdown; charset=utf-8');
+          // Distinguish this representation from the HTML at the same URL for
+          // any cache that honors Vary. Cloudflare's edge cache does not vary
+          // on Accept, so `private` also keeps shared caches from serving this
+          // Markdown to HTML clients while still allowing the agent's own
+          // client to cache it.
+          headers.append('Vary', 'Accept');
+          headers.set('Cache-Control', 'private, max-age=300');
+          // Optional per the spec — a cheap ~4-chars-per-token estimate.
+          headers.set('x-markdown-tokens', String(Math.ceil(markdown.length / 4)));
+          headers.delete('Content-Length');
           return new Response(request.method === 'HEAD' ? null : markdown, {
             status: 200,
             headers,
@@ -129,6 +131,14 @@ export default {
       }
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    // Pages have a Markdown variant, so the HTML must say it varies on Accept
+    // too, or a client cache could reuse it for a later Markdown request.
+    if (markdownPathFor(url.pathname)) {
+      const varied = new Response(response.body, response);
+      varied.headers.append('Vary', 'Accept');
+      return varied;
+    }
+    return response;
   },
 };

@@ -459,13 +459,16 @@ export default defineConfig({
     // Tailwind CSS v4 uses the Vite plugin instead of the deprecated @astrojs/tailwind integration
     plugins: [
       tailwindcss(),
-      // Bundle size analysis — generates dist-astro/stats.html on production builds
-      visualizer({
-        filename: 'dist-astro/stats.html',
-        gzipSize: true,
-        brotliSize: true,
-        emitFile: false,
-      }),
+      // Bundle size analysis, opt-in via ANALYZE=1. Written outside dist-astro/
+      // so the report never ships to production.
+      ...(process.env.ANALYZE
+        ? [visualizer({
+          filename: '.astro/stats.html',
+          gzipSize: true,
+          brotliSize: true,
+          emitFile: false,
+        })]
+        : []),
     ],
     // Ensure compatibility with existing build tools
     build: {

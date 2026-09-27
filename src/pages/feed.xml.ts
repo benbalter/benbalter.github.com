@@ -79,7 +79,7 @@ export async function GET(context: APIContext) {
         content,
         link,
         pubDate,
-        author: siteConfig.email,
+        author: `${siteConfig.email} (${siteConfig.author})`,
       };
     })
   );

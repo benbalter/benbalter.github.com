@@ -140,7 +140,7 @@ describe('feed.xml', () => {
       item.content.indexOf(siteConfig.bookUrlEmail),
     );
     expect(item.link).toBe('https://ben.balter.com/2024/06/15/my-post/');
-    expect(item.author).toBe(siteConfig.email);
+    expect(item.author).toBe(`${siteConfig.email} (${siteConfig.author})`);
     expect(item.pubDate).toBeInstanceOf(Date);
   });
 

@@ -157,7 +157,7 @@ export function generateBlogPostingSchema(props: {
   const { title, description, url, publishedTime, modifiedTime, image, author, wordCount } = props;
 
   const absoluteImage = image
-    ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
+    ? new URL(image, siteConfig.url).toString()
     : `${siteConfig.url}/assets/img/headshot.jpg`;
 
   // Our generated OG cards (/og/…png) are always 1200x630, so expose them as an

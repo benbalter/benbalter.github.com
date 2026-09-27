@@ -38,7 +38,7 @@ export const GET: APIRoute = async () => {
     '',
     ...recent.map((post) => `- [${post.data.title}](${siteConfig.url}${getPostUrl(post.id)})`),
     '',
-    `See [all posts](${siteConfig.url}/posts/) or the [Atom feed](${siteConfig.url}/feed.xml).`,
+    `See [all posts](${siteConfig.url}/posts/) or the [RSS feed](${siteConfig.url}/feed.xml).`,
     '',
   ];
 
