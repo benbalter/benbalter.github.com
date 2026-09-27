@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 env:
   NODE_VERSION: 24
@@ -28,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -95,14 +96,3 @@ jobs:
           name: lychee-report
           path: ./lychee-report.md
           retention-days: 30
-
-      - name: Create issue on failure (scheduled runs only)
-        # lychee-action sets outputs.exit_code regardless of the `fail` input,
-        # so this fires on scheduled runs even though `fail` is false there
-        # (which keeps the workflow itself green while still surfacing rot).
-        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != '0'
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
-        with:
-          title: 'Broken links detected by lychee'
-          content-filepath: ./lychee-report.md
-          labels: bug, links
