@@ -303,14 +303,8 @@ test.describe('Screen Reader Accessibility', () => {
   });
   
   test('form inputs should have associated labels', async ({ page }) => {
-    // Try to navigate to contact page, skip if it doesn't exist
     const response = await page.goto('/contact/');
-    
-    // Skip test if page doesn't exist
-    if (!response || response.status() === 404) {
-      test.skip(true, 'Page returned 404 or does not exist');
-      return;
-    }
+    expect(response?.status()).toBe(200);
     
     const inputs = await page.locator('input, select, textarea').all();
     
@@ -407,12 +401,7 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
       test(`${name} page should pass Axe accessibility scan (${scheme} mode)`, async ({ page }) => {
         await page.emulateMedia({ colorScheme: scheme });
         const response = await page.goto(url);
-
-        // Skip test if page doesn't exist
-        if (!response || response.status() === 404) {
-          test.skip(true, 'Page returned 404 or does not exist');
-          return;
-        }
+        expect(response?.status()).toBe(200);
 
         const accessibilityScanResults = await new AxeBuilder({ page })
           .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForPageReady, isAstroBuild } from './helpers';
+import { waitForPageReady } from './helpers';
 
 test.describe('Related Posts', () => {
   test('should display related posts as an unordered list with bullets', async ({ page }) => {
@@ -25,13 +25,6 @@ test.describe('Related Posts', () => {
     
     await page.goto(firstPostUrl);
     await waitForPageReady(page);
-    
-    const astro = await isAstroBuild(page);
-    
-    if (!astro) {
-      test.skip(true, 'Test only applies to Astro build');
-      return;
-    }
     
     // Check if related posts section exists
     const relatedPostsSection = page.locator('.related-posts');

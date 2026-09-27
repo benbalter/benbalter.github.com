@@ -28,12 +28,14 @@ export function stripMdxSyntax(body: string): string {
 
   const lines = body.split('\n');
   const out: string[] = [];
-  let fenceChar: string | null = null; // '`' or '~' while inside a fenced block
+  let fence: string | null = null; // the opening fence while inside a fenced block
   let inEsm = false; // inside a multi-line import/export statement
 
   // An ESM statement opener: `import ...` or `export default|const|...`.
+  // `import` must be followed by a specifier, `{`, `*`, or a binding plus
+  // `from`/`,`, so a prose line that happens to start with "import" survives.
   const isEsmStart = (l: string) =>
-    /^import\b/.test(l) ||
+    /^import\s+(?:['"{*]|[\w$]+\s*(?:,|from\b))/.test(l) ||
     /^export\s+(?:default|const|let|var|function|class|async|\*|\{)/.test(l);
   // An ESM statement terminates on a trailing `;` or a `from '…'` specifier.
   const isEsmEnd = (l: string) =>
@@ -45,16 +47,18 @@ export function stripMdxSyntax(body: string): string {
   for (const line of lines) {
     const trimmed = line.trimStart();
 
-    // Toggle fenced-code state; never touch a fence's contents.
-    const fence = trimmed.match(/^(```+|~~~+)/);
-    if (fence) {
-      const char = fence[1][0];
-      if (fenceChar === null) fenceChar = char;
-      else if (char === fenceChar) fenceChar = null;
+    // Toggle fenced-code state; never touch a fence's contents. Per CommonMark,
+    // a fence closes only on the same character, at least as long as the
+    // opener, with no info string, so a ```` block can show a ``` sample.
+    const marker = trimmed.match(/^(`{3,}|~{3,})(.*)$/);
+    if (marker) {
+      const [, run, rest] = marker;
+      if (fence === null) fence = run;
+      else if (run[0] === fence[0] && run.length >= fence.length && !rest.trim()) fence = null;
       out.push(line);
       continue;
     }
-    if (fenceChar !== null) {
+    if (fence !== null) {
       out.push(line);
       continue;
     }

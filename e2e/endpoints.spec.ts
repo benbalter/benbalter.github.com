@@ -23,6 +23,8 @@ const endpoints: Array<{
     contains: '# 15 rules for communicating at GitHub',
   },
   { path: '/.well-known/security.txt', contentType: /text\/plain/, contains: 'Contact:' },
+  { path: '/humans.txt', contentType: /text\/plain/, contains: '/* SITE */' },
+  { path: '/posts-meta.json', contentType: /json/, contains: '"title":' },
 ];
 
 test.describe('Machine-readable endpoints', () => {
@@ -46,5 +48,10 @@ test.describe('Machine-readable endpoints', () => {
     const bytes = await res.body();
     // .docx is a zip archive: "PK\x03\x04".
     expect(bytes.subarray(0, 4).toString('latin1')).toBe('PK\x03\x04');
+  });
+
+  test('unknown paths return a real 404', async ({ request }) => {
+    const res = await request.get('/this-page-does-not-exist/');
+    expect(res.status()).toBe(404);
   });
 });
