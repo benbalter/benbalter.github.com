@@ -2,7 +2,9 @@
 /**
  * Search Modal Component
  *
- * Full-screen search overlay powered by Pagefind.
+ * Search overlay powered by Pagefind, built on a native <dialog> opened with
+ * showModal(), so focus containment, Esc, and the backdrop come from the
+ * browser rather than hand-rolled JS.
  * Opens via search button in Navigation, `/`, or ⌘K / Ctrl+K.
  * ↑/↓ (or j/k once focus is in the list) walk the results; Enter opens one.
  * Loads Pagefind JS only when search is first opened; the modal's own CSS
@@ -10,31 +12,31 @@
  */
 ---
 
-<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
-  <div class="search-backdrop" data-search-close></div>
-  <div class="search-container">
-    <div class="search-header">
-      <div class="search-input-wrapper">
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
-        </svg>
-        <input
-          id="search-input"
-          type="search"
-          placeholder="Search posts…"
-          autocomplete="off"
-          autofocus
-          class="search-field"
-          aria-label="Search posts"
-        />
-        <button type="button" class="search-close-btn" data-search-close aria-label="Close search">
-          <kbd class="search-kbd" aria-hidden="true">Esc</kbd>
-        </button>
-      </div>
+<dialog id="search-modal" class="search-modal" aria-label="Search">
+  <div class="search-header">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
+      </svg>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="Search posts…"
+        autocomplete="off"
+        autofocus
+        class="search-field"
+        aria-label="Search posts"
+      />
+      <button type="button" class="search-close-btn" data-search-close aria-label="Close search">
+        <kbd class="search-kbd" aria-hidden="true">Esc</kbd>
+      </button>
     </div>
-    <div id="search-results" class="search-results" aria-live="polite"></div>
   </div>
-</div>
+  <div id="search-results" class="search-results"></div>
+  <!-- Announces only the result count; the list itself isn't a live region, so
+       screen readers don't re-read every result on each keystroke. -->
+  <div id="search-status" class="sr-only" role="status"></div>
+</dialog>
 
 <script>
   import '../scripts/search-modal.ts';

@@ -6,45 +6,48 @@
  * since Astro hoists CSS reachable from a page's client scripts.
  */
 
+/* The <dialog> is the panel itself. global.css resets margins broadly, and
+   the UA centers a modal dialog vertically, so pin it explicitly: horizontally
+   centered, 10vh from the top. */
 .search-modal {
   position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 10vh;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.search-modal.open {
-  opacity: 1;
-}
-
-.search-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.search-container {
-  position: relative;
-  width: 100%;
+  inset: 10vh 0 auto;
+  margin: 0 auto;
+  width: calc(100% - 2rem);
   max-width: 40rem;
   max-height: 70vh;
-  margin: 0 1rem;
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   overflow: hidden;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100;
+  opacity: 0;
   transform: translateY(-8px) scale(0.98);
-  transition: transform 0.2s ease;
+  /* allow-discrete keeps the dialog in the top layer while it fades out */
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    overlay 0.2s ease allow-discrete,
+    display 0.2s ease allow-discrete;
 }
 
-.search-modal.open .search-container {
+/* Only while open: an unconditional display would override the UA's
+   dialog:not([open]) { display: none } and leave the panel on screen. */
+.search-modal[open] {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+@starting-style {
+  .search-modal[open] {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+}
+
+.search-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .search-header {
@@ -177,8 +180,7 @@ mark.search-highlight {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .search-modal,
-  .search-container {
+  .search-modal {
     transition: none;
   }
 }

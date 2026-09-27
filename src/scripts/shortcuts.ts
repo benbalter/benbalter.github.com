@@ -35,8 +35,8 @@ function getDialog() {
 
 /** True when the search modal is open, so its keys win over the global ones. */
 function isSearchOpen() {
-  const modal = document.getElementById('search-modal');
-  return !!modal && !modal.hidden;
+  const modal = document.getElementById('search-modal') as HTMLDialogElement | null;
+  return !!modal?.open;
 }
 
 function disarmChord() {
