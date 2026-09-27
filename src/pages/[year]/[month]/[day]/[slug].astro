@@ -5,6 +5,8 @@ import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils
 import { getPostUrl, parsePostId } from '../../../../utils/post-urls';
 import { isPublished, isListablePost } from '../../../../utils/post-filtering';
 import { calculateReadingTime } from '../../../../utils/reading-time';
+import { buildLastmodIndex, lastmodForUrl } from '../../../../utils/sitemap-lastmod';
+import { siteConfig } from '../../../../config';
 
 // Generate static paths for all blog posts with Jekyll URL structure.
 // Archived posts are published (with a warning banner) and must be built, so
@@ -16,14 +18,19 @@ export async function getStaticPaths() {
   // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation
   initializeRelatedPostsCache(posts);
 
+  // Git-based last-modified dates, shared with the sitemap's <lastmod> so
+  // dateModified and article:modified_time agree with it.
+  const lastmodIndex = buildLastmodIndex();
+
   return posts.map((post: CollectionEntry<'posts'>) => {
     // Extract date from id (YYYY-MM-DD-slug format)
     const parts = parsePostId(post.id);
     
     if (parts) {
+      const lastmod = lastmodForUrl(`${siteConfig.url}${getPostUrl(post.id)}`, lastmodIndex);
       return {
         params: parts,
-        props: { post, allPosts: posts },
+        props: { post, allPosts: posts, lastmod },
       };
     }
     
@@ -36,14 +43,22 @@ export async function getStaticPaths() {
 interface Props {
   post: CollectionEntry<'posts'>;
   allPosts: CollectionEntry<'posts'>[];
+  lastmod?: string | undefined;
 }
 
-const { post, allPosts } = Astro.props;
+const { post, allPosts, lastmod } = Astro.props;
 const { Content, headings } = await render(post);
 
 // Extract date from params for display (use URL params to ensure consistency with the route)
 const { year, month, day, slug } = Astro.params;
 const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+// Only report a modification when it lands on a later day than publication;
+// the commit that adds a post is its publish, not an update.
+const lastmodDate = lastmod ? new Date(lastmod) : undefined;
+const updatedDate = lastmodDate && lastmodDate.getTime() - pubDate.getTime() >= 24 * 60 * 60 * 1000
+  ? lastmodDate
+  : undefined;
 
 // Generate OG image URL for this post
 // If post has a custom image, use that, otherwise use the dynamically generated one
@@ -75,6 +90,7 @@ const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(next
   description={post.data.description}
   tldr={post.data.tldr}
   pubDate={pubDate}
+  updatedDate={updatedDate}
   image={ogImageUrl}
   relatedPosts={relatedPosts}
   prevPost={prevPost}

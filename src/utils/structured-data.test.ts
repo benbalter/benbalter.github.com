@@ -57,6 +57,11 @@ describe('generateBlogPostingSchema', () => {
     expect(schema.image).toBe('https://example.com/custom.jpg');
   });
 
+  it('resolves a protocol-relative image without doubling the host', () => {
+    const schema = generateBlogPostingSchema({ ...base, image: '//ben.balter.com/wp-content/uploads/a.png' });
+    expect(schema.image).toBe('https://ben.balter.com/wp-content/uploads/a.png');
+  });
+
   it('falls back to the headshot URL when no image is provided', () => {
     const schema = generateBlogPostingSchema({ ...base });
     expect(typeof schema.image).toBe('string');

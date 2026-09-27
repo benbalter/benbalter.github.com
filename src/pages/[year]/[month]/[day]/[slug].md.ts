@@ -10,7 +10,8 @@
  * representation is the source itself — we only prepend the title as an H1 and
  * a canonical link. MDX-only syntax (ESM imports/exports and JSX component
  * tags) is stripped via stripMdxSyntax so it doesn't leak into the plain-text
- * representation agents consume.
+ * representation agents consume, and root-relative links are made absolute so
+ * agents can follow them.
  */
 
 import type { APIRoute, GetStaticPaths } from 'astro';
@@ -18,6 +19,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { isPublished } from '../../../../utils/post-filtering';
 import { siteConfig } from '../../../../config';
 import { stripMdxSyntax } from '../../../../utils/strip-mdx-syntax';
+import { absolutizeMarkdownLinks } from '../../../../utils/absolutize-markdown-links';
 import { parsePostId } from '../../../../utils/post-urls';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -46,7 +48,7 @@ export const GET: APIRoute = ({ props, params }) => {
     parts.push(`*${post.data.description}*`, '');
   }
   parts.push(`[View on ${siteConfig.name}'s site](${canonical})`, '', '---', '');
-  parts.push(stripMdxSyntax(post.body ?? '').trim(), '');
+  parts.push(absolutizeMarkdownLinks(stripMdxSyntax(post.body ?? ''), siteConfig.url).trim(), '');
 
   const markdown = parts.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
 

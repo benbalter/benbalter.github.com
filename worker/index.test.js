@@ -10,7 +10,7 @@ function makeEnv(files = {}) {
       fetch: vi.fn(async (request) => {
         const { pathname } = new URL(request.url);
         return pathname in files
-          ? new Response(files[pathname], { status: 200, headers: { 'Content-Type': 'text/html' } })
+          ? new Response(files[pathname], { status: 200, headers: { 'Content-Type': 'text/html', 'Content-Security-Policy': "default-src 'self'" } })
           : new Response('Not found', { status: 404 });
       }),
     },
@@ -47,6 +47,12 @@ describe('Markdown content negotiation', () => {
     expect(res.headers.get('x-markdown-tokens')).toBe('3');
   });
 
+  it('keeps the asset headers from _headers', async () => {
+    const env = makeEnv({ '/about.md': '# About' });
+    const res = await worker.fetch(md('/about/'), env);
+    expect(res.headers.get('Content-Security-Policy')).toBe("default-src 'self'");
+  });
+
   it('returns no body for HEAD', async () => {
     const env = makeEnv({ '/about.md': '# About' });
     const res = await worker.fetch(md('/about/', { method: 'HEAD' }), env);
@@ -67,12 +73,14 @@ describe('Markdown content negotiation', () => {
     });
     const res = await worker.fetch(req, env);
     expect(await res.text()).toBe('<html>');
+    expect(res.headers.get('Vary')).toBe('Accept');
   });
 
   it('does not negotiate file assets', async () => {
     const env = makeEnv({ '/feed.xml': '<rss>' });
     const res = await worker.fetch(md('/feed.xml'), env);
     expect(await res.text()).toBe('<rss>');
+    expect(res.headers.get('Vary')).toBeNull();
   });
 });
 
