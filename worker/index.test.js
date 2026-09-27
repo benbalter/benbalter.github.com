@@ -13,7 +13,14 @@ function makeEnv(files = {}) {
       fetch: vi.fn(async (/** @type {RequestInfo | URL} */ input) => {
         const { pathname } = new URL(input instanceof Request ? input.url : input);
         return pathname in files
-          ? new Response(files[pathname], { status: 200, headers: { 'Content-Type': 'text/html', 'Content-Security-Policy': "default-src 'self'" } })
+          ? new Response(files[pathname], {
+              status: 200,
+              headers: {
+                'Content-Type': 'text/html',
+                'Content-Security-Policy': "default-src 'self'",
+                'Referrer-Policy': 'no-referrer-when-downgrade',
+              },
+            })
           : new Response('Not found', { status: 404 });
       }),
     },
@@ -77,6 +84,12 @@ describe('Markdown content negotiation', () => {
     const res = await worker.fetch(req, env);
     expect(await res.text()).toBe('<html>');
     expect(res.headers.get('Vary')).toBe('Accept');
+  });
+
+  it('enforces the recommended referrer policy on page responses', async () => {
+    const env = makeEnv({ '/': '<html>' });
+    const res = await worker.fetch(new Request('https://ben.balter.com/'), env);
+    expect(res.headers.get('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
   });
 
   it('does not negotiate file assets', async () => {

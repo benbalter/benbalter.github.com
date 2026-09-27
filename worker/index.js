@@ -137,6 +137,8 @@ export default {
     if (markdownPathFor(url.pathname)) {
       const varied = new Response(response.body, response);
       varied.headers.append('Vary', 'Accept');
+      // Enforce the source policy on Worker-served pages if edge asset headers lag.
+      varied.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
       return varied;
     }
     return response;
