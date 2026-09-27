@@ -13,7 +13,14 @@ function makeEnv(files = {}) {
       fetch: vi.fn(async (/** @type {RequestInfo | URL} */ input) => {
         const { pathname } = new URL(input instanceof Request ? input.url : input);
         return pathname in files
-          ? new Response(files[pathname], { status: 200, headers: { 'Content-Type': 'text/html', 'Content-Security-Policy': "default-src 'self'" } })
+          ? new Response(files[pathname], {
+              status: 200,
+              headers: {
+                'Content-Type': 'text/html',
+                'Content-Security-Policy': "default-src 'self'",
+                'Referrer-Policy': 'no-referrer-when-downgrade',
+              },
+            })
           : new Response('Not found', { status: 404 });
       }),
     },
