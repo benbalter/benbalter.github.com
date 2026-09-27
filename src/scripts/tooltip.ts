@@ -112,9 +112,10 @@ const showTooltip = (target: HTMLElement) => {
   tooltipEl.style.top = `${top}px`;
   tooltipEl.style.visibility = '';
 
-  // Fade in on next frame
+  // Fade in on next frame, unless it was hidden first (e.g. a click right
+  // after mouseenter), or a dismissed tooltip would reappear.
   requestAnimationFrame(() => {
-    tooltipEl.classList.add('show');
+    if (activeTooltips.get(target) === tooltipEl) tooltipEl.classList.add('show');
   });
 };
 

@@ -42,6 +42,21 @@ describe('stripMdxSyntax', () => {
     );
   });
 
+  it('keeps a longer fence open across a shorter nested fence', () => {
+    const body = '````md\n```js\nimport Foo from \'./Foo\';\n```\n<Foo />\n````\n\nProse.';
+    expect(stripMdxSyntax(body)).toBe(body);
+  });
+
+  it('keeps prose lines that merely start with "import"', () => {
+    const body = 'import tariffs rose sharply that year.\n\nMore prose.';
+    expect(stripMdxSyntax(body)).toBe(body);
+  });
+
+  it('still removes namespace and default-plus-named imports', () => {
+    const body = "import * as utils from './utils';\nimport A, { b } from './a';\n\nHello.";
+    expect(stripMdxSyntax(body).trim()).toBe('Hello.');
+  });
+
   it('preserves a JSX tag shown inside a tilde-fenced code block', () => {
     const body = '~~~\n<BookCta />\n~~~\n\nProse.';
     expect(stripMdxSyntax(body)).toBe('~~~\n<BookCta />\n~~~\n\nProse.');

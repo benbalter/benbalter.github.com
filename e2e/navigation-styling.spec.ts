@@ -7,19 +7,13 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { waitForPageReady, isAstroBuild } from './helpers';
+import { waitForPageReady } from './helpers';
 
 test.describe('Navigation Styling - Initial Page Load', () => {
   test('should have rounded top corners on non-hero pages', async ({ page }) => {
     // Navigate to About page (non-hero page)
     await page.goto('/about/');
     await waitForPageReady(page);
-    
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
     
     const nav = page.locator('nav.navbar');
     
@@ -48,12 +42,6 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     // Navigate to homepage (hero page)
     await page.goto('/');
     await waitForPageReady(page);
-    
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
     
     const nav = page.locator('nav.navbar');
     
@@ -84,12 +72,6 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
-    
     let nav = page.locator('nav.navbar');
     await expect(nav).toHaveAttribute('data-has-hero', 'true');
     
@@ -107,12 +89,6 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     // Start on homepage (hero page)
     await page.goto('/');
     await waitForPageReady(page);
-    
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
     
     const nav = page.locator('nav.navbar');
     
@@ -158,12 +134,6 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     await page.goto('/about/');
     await waitForPageReady(page);
     
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
-    
     const nav = page.locator('nav.navbar');
     
     // Verify initial state (non-hero page) - fully rounded
@@ -204,14 +174,8 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
   });
   
   test('should maintain styling through multiple page navigations', async ({ page }) => {
-    // Skip test if not Astro build
     await page.goto('/');
     await waitForPageReady(page);
-    
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
     
     const nav = page.locator('nav.navbar');
     
@@ -238,14 +202,8 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
   });
   
   test('should handle browser back/forward navigation correctly', async ({ page }) => {
-    // Skip test if not Astro build
     await page.goto('/');
     await waitForPageReady(page);
-    
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
     
     const nav = page.locator('nav.navbar');
     
@@ -279,12 +237,6 @@ test.describe('Navigation Styling - Edge Cases', () => {
     await page.goto('/2015/11/23/why-open-source/');
     await waitForPageReady(page);
     
-    // Skip test if not Astro build or post doesn't exist
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
-    
     const nav = page.locator('nav.navbar');
     
     // Blog posts don't have hero images, so should have full rounding
@@ -298,12 +250,6 @@ test.describe('Navigation Styling - Edge Cases', () => {
     await page.goto('/about/');
     await waitForPageReady(page);
     
-    // Skip test if not Astro build
-    if (!await isAstroBuild(page)) {
-      test.skip(true, 'Test requires Astro build');
-      return;
-    }
-    
     const nav = page.locator('nav.navbar');
     
     // Take initial measurement
@@ -315,8 +261,6 @@ test.describe('Navigation Styling - Edge Cases', () => {
     await page.locator('a[href="/contact/"]').first().click();
     await page.waitForURL('**/contact/');
     
-    // Wait a moment for any transitions
-    await page.waitForTimeout(100);
     await waitForPageReady(page);
     
     // Navigation should still be visible and properly positioned
@@ -324,10 +268,14 @@ test.describe('Navigation Styling - Edge Cases', () => {
     const finalBox = await nav.boundingBox();
     expect(finalBox).toBeTruthy();
     
-    // Navigation position should be stable (allowing for small differences)
+    // Navigation position should be stable (allowing for small differences),
+    // polled so any in-flight view transition can settle
     // Note: We navigate between non-hero pages to ensure consistent layout
-    if (initialBox && finalBox) {
-      expect(Math.abs(finalBox.y - initialBox.y)).toBeLessThan(5);
+    if (initialBox) {
+      await expect.poll(async () => {
+        const box = await nav.boundingBox();
+        return box ? Math.abs(box.y - initialBox.y) : Infinity;
+      }).toBeLessThan(5);
     }
   });
 });

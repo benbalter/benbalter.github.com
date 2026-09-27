@@ -86,8 +86,8 @@ test.describe('Astro View Transitions Navigation', () => {
     // Scroll down on the about page
     await page.evaluate(() => window.scrollTo(0, 100));
     
-    // Wait a moment for scroll to complete
-    await page.waitForTimeout(100);
+    // Wait for the scroll to land
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(100);
     
     // Navigate to contact page
     const contactLink = page.locator('a[href="/contact/"]').first();

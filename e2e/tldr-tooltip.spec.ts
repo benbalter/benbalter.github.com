@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForPageReady, isAstroBuild } from './helpers';
+import { waitForPageReady } from './helpers';
 
 test.describe('TLDR Tooltip', () => {
   // Use a known blog post with description that displays TLDR
@@ -9,248 +9,216 @@ test.describe('TLDR Tooltip', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    // Check TLDR component is visible
+    const tldr = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldr).toBeVisible();
+    await expect(tldr).toHaveText('TL;DR');
 
-    if (astro) {
-      // Check TLDR component is visible
-      const tldr = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldr).toBeVisible();
-      await expect(tldr).toHaveText('TL;DR');
+    // Check tooltip attributes are present
+    await expect(tldr).toHaveAttribute('data-tooltip', 'true');
+    await expect(tldr).toHaveAttribute('data-tooltip-text');
 
-      // Check tooltip attributes are present
-      await expect(tldr).toHaveAttribute('data-tooltip', 'true');
-      await expect(tldr).toHaveAttribute('data-tooltip-text');
-
-      // Verify tooltip text contains expected content
-      const tooltipText = await tldr.getAttribute('data-tooltip-text');
-      expect(tooltipText).toContain('Too Long');
-      expect(tooltipText).toContain('Didn\'t Read');
-    }
+    // Verify tooltip text contains expected content
+    const tooltipText = await tldr.getAttribute('data-tooltip-text');
+    expect(tooltipText).toContain('Too Long');
+    expect(tooltipText).toContain('Didn\'t Read');
   });
 
   test('should show tooltip on hover (desktop)', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Hover over the TLDR element
+    await tldrElement.hover();
 
-      // Hover over the TLDR element
-      await tldrElement.hover();
+    // Check tooltip is visible (wait up to 1s)
+    const tooltip = page.locator('.custom-tooltip.show');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
+    await expect(tooltip).toContainText('Too Long');
 
-      // Check tooltip is visible (wait up to 1s)
-      const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tooltip).toContainText('Too Long');
+    // Move mouse away
+    await page.mouse.move(0, 0);
 
-      // Move mouse away
-      await page.mouse.move(0, 0);
-
-      // Tooltip should be gone (wait up to 1s for removal)
-      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-    }
+    // Tooltip should be gone (wait up to 1s for removal)
+    await expect(tooltip).not.toBeAttached({ timeout: 1000 });
   });
 
   test('should toggle tooltip on click/tap (mobile)', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Dispatch click event to simulate pure tap without mouse events
+    await tldrElement.dispatchEvent('click');
 
-      // Dispatch click event to simulate pure tap without mouse events
-      await tldrElement.dispatchEvent('click');
+    // Check tooltip is visible (wait up to 1s)
+    const tooltip = page.locator('.custom-tooltip.show');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
+    await expect(tooltip).toContainText('Too Long');
 
-      // Check tooltip is visible (wait up to 1s)
-      const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tooltip).toContainText('Too Long');
+    // Dispatch click again to hide tooltip
+    await tldrElement.dispatchEvent('click');
 
-      // Dispatch click again to hide tooltip
-      await tldrElement.dispatchEvent('click');
-
-      // Tooltip should be completely gone from DOM (wait up to 1s)
-      const anyTooltip = page.locator('.custom-tooltip');
-      await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
-    }
+    // Tooltip should be completely gone from DOM (wait up to 1s)
+    const anyTooltip = page.locator('.custom-tooltip');
+    await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
   });
 
   test('should close tooltip when clicking outside', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Dispatch a bare click to show the tooltip. Playwright's click() also
+    // hovers, and on hover-capable devices that shows it first, so the click
+    // would toggle it straight back off.
+    await tldrElement.dispatchEvent('click');
 
-      // Click to show tooltip
-      await tldrElement.click();
+    // Check tooltip is visible (wait up to 1s)
+    const tooltip = page.locator('.custom-tooltip.show');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
 
-      // Check tooltip is visible (wait up to 1s)
-      const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
+    // Click somewhere else on the page
+    await page.locator('body').click({ position: { x: 100, y: 100 } });
 
-      // Click somewhere else on the page
-      await page.locator('body').click({ position: { x: 100, y: 100 } });
-
-      // Tooltip should be completely gone from DOM (wait up to 1s)
-      const anyTooltip = page.locator('.custom-tooltip');
-      await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
-    }
+    // Tooltip should be completely gone from DOM (wait up to 1s)
+    const anyTooltip = page.locator('.custom-tooltip');
+    await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
   });
 
   test('should close tooltip when scrolling', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Dispatch a bare click to show the tooltip. Playwright's click() also
+    // hovers, and on hover-capable devices that shows it first, so the click
+    // would toggle it straight back off.
+    await tldrElement.dispatchEvent('click');
 
-      // Click to show tooltip
-      await tldrElement.click();
+    // Check tooltip is visible (wait up to 1s)
+    const tooltip = page.locator('.custom-tooltip.show');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
 
-      // Check tooltip is visible (wait up to 1s)
-      const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
+    // Scroll the page
+    await page.evaluate(() => window.scrollBy(0, 100));
 
-      // Scroll the page
-      await page.evaluate(() => window.scrollBy(0, 100));
-
-      // Tooltip should be completely gone from DOM (wait up to 1s)
-      const anyTooltip = page.locator('.custom-tooltip');
-      await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
-    }
+    // Tooltip should be completely gone from DOM (wait up to 1s)
+    const anyTooltip = page.locator('.custom-tooltip');
+    await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
   });
 
   test('should have proper accessibility attributes', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Check for help cursor style
+    const cursorStyle = await tldrElement.evaluate((el) => {
+      return window.getComputedStyle(el).cursor;
+    });
+    expect(cursorStyle).toBe('help');
 
-      // Check for help cursor style
-      const cursorStyle = await tldrElement.evaluate((el) => {
-        return window.getComputedStyle(el).cursor;
-      });
-      expect(cursorStyle).toBe('help');
-
-      // Check element is clickable and interactive
-      await expect(tldrElement).toHaveAttribute('data-tooltip', 'true');
-      await expect(tldrElement).toHaveAttribute('data-tooltip-text');
-      
-      // WAI-ARIA tooltip pattern: an abbreviation with a description, not a
-      // button. It's focusable (tabindex) and carries a native title, but has
-      // no role/aria-expanded — the tooltip is associated via aria-describedby
-      // only while shown (see the keyboard tests below).
-      await expect(tldrElement).toHaveAttribute('tabindex', '0');
-      await expect(tldrElement).toHaveAttribute('title');
-      expect(await tldrElement.getAttribute('role')).toBeNull();
-      expect(await tldrElement.getAttribute('aria-expanded')).toBeNull();
-    }
+    // Check element is clickable and interactive
+    await expect(tldrElement).toHaveAttribute('data-tooltip', 'true');
+    await expect(tldrElement).toHaveAttribute('data-tooltip-text');
+    
+    // WAI-ARIA tooltip pattern: an abbreviation with a description, not a
+    // button. It's focusable (tabindex) and carries a native title, but has
+    // no role/aria-expanded — the tooltip is associated via aria-describedby
+    // only while shown (see the keyboard tests below).
+    await expect(tldrElement).toHaveAttribute('tabindex', '0');
+    await expect(tldrElement).toHaveAttribute('title');
+    expect(await tldrElement.getAttribute('role')).toBeNull();
+    expect(await tldrElement.getAttribute('aria-expanded')).toBeNull();
   });
 
   test('should support keyboard navigation', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Focusing the element reveals the tooltip (tooltip pattern shows on
+    // hover AND keyboard focus).
+    await tldrElement.focus();
 
-      // Focusing the element reveals the tooltip (tooltip pattern shows on
-      // hover AND keyboard focus).
-      await tldrElement.focus();
+    // Check tooltip is visible and the description is associated via ARIA.
+    const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
+    await expect(tldrElement).toHaveAttribute('aria-describedby');
 
-      // Check tooltip is visible and the description is associated via ARIA.
-      const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-describedby');
+    // Press Escape to hide tooltip
+    await page.keyboard.press('Escape');
 
-      // Press Escape to hide tooltip
-      await page.keyboard.press('Escape');
-
-      // Tooltip should be gone and the association cleared
-      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-      expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
-    }
+    // Tooltip should be gone and the association cleared
+    await expect(tooltip).not.toBeAttached({ timeout: 1000 });
+    expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
   });
 
   test('should handle Space key to toggle tooltip', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const astro = await isAstroBuild(page);
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-    if (astro) {
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
+    // Focusing reveals the tooltip; Space then toggles it.
+    await tldrElement.focus();
+    const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
 
-      // Focusing reveals the tooltip; Space then toggles it.
-      await tldrElement.focus();
-      const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
+    // Press Space to toggle the tooltip off
+    await page.keyboard.press('Space');
+    await expect(tooltip).not.toBeAttached({ timeout: 1000 });
+    expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
 
-      // Press Space to toggle the tooltip off
-      await page.keyboard.press('Space');
-      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-      expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
-
-      // Press Space again to toggle it back on
-      await page.keyboard.press('Space');
-      await expect(page.locator('.custom-tooltip[role="tooltip"]')).toBeVisible({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-describedby');
-    }
+    // Press Space again to toggle it back on
+    await page.keyboard.press('Space');
+    await expect(page.locator('.custom-tooltip[role="tooltip"]')).toBeVisible({ timeout: 1000 });
+    await expect(tldrElement).toHaveAttribute('aria-describedby');
   });
 
   test('should work after navigation via View Transitions', async ({ page }) => {
-    const astro = await isAstroBuild(page);
+    // Start on the posts listing (the test post is too old for the homepage)
+    await page.goto('/posts/');
+    await waitForPageReady(page);
 
-    if (astro) {
-      // Start on homepage
-      await page.goto('/');
-      await waitForPageReady(page);
+    // Navigate to a post with TLDR using a link (this triggers View Transitions)
+    await page.click('a[href*="/2015/12/08/types-of-pull-requests/"]');
+    await page.waitForURL('**/2015/12/08/types-of-pull-requests/');
+    await waitForPageReady(page);
 
-      // Navigate to a post with TLDR using a link (this triggers View Transitions)
-      await page.click('a[href*="/2015/12/08/types-of-pull-requests/"]');
-      await page.waitForURL('**/2015/12/08/types-of-pull-requests/');
-      await waitForPageReady(page);
+    // Check TLDR component is visible after navigation
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
+    await expect(tldrElement).toBeVisible();
 
-      // Wait a moment for Astro View Transitions to complete
-      await page.waitForTimeout(500);
+    // Wait for the tooltip runtime to wire up the new page's TLDR
+    await expect(tldrElement).toHaveAttribute('data-tooltip-initialized', 'true');
+    await expect(tldrElement).toHaveText('TL;DR');
 
-      // Check TLDR component is visible after navigation
-      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-      await expect(tldrElement).toBeVisible();
-      await expect(tldrElement).toHaveText('TL;DR');
+    // Verify tooltip still works after navigation (bare click; see above)
+    await tldrElement.dispatchEvent('click');
 
-      // Verify tooltip still works after navigation
-      await tldrElement.click();
+    // Check tooltip is visible
+    const tooltip = page.locator('.custom-tooltip.show');
+    await expect(tooltip).toBeVisible({ timeout: 1000 });
+    await expect(tooltip).toContainText('Too Long');
 
-      // Check tooltip is visible
-      const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tooltip).toContainText('Too Long');
-
-      // Clean up - click again to hide
-      await tldrElement.click();
-      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-    }
+    // Clean up - click again to hide
+    await tldrElement.dispatchEvent('click');
+    await expect(tooltip).not.toBeAttached({ timeout: 1000 });
   });
 });
