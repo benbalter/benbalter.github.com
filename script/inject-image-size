@@ -10,8 +10,9 @@
  * Run after `astro build`, before pagefind.
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
+import { globSync } from 'glob';
 import { imageSize } from 'image-size';
 
 const DIST_DIR = resolve(import.meta.dirname, '..', 'dist-astro');
@@ -23,18 +24,6 @@ const REMOTE_CACHE_PATH = resolve(import.meta.dirname, 'remote-image-dimensions.
 const remoteCache = existsSync(REMOTE_CACHE_PATH)
   ? JSON.parse(readFileSync(REMOTE_CACHE_PATH, 'utf8'))
   : {};
-
-function walkHtmlFiles(dir, files = []) {
-  for (const entry of readdirSync(dir)) {
-    const full = resolve(dir, entry);
-    if (statSync(full).isDirectory()) {
-      walkHtmlFiles(full, files);
-    } else if (entry.endsWith('.html')) {
-      files.push(full);
-    }
-  }
-  return files;
-}
 
 // Cache dimensions to avoid reading the same file multiple times
 const dimensionCache = new Map();
@@ -74,7 +63,7 @@ function getDimensions(src) {
 let totalModified = 0;
 let totalFixed = 0;
 
-const htmlFiles = walkHtmlFiles(DIST_DIR);
+const htmlFiles = globSync('**/*.html', { cwd: DIST_DIR, absolute: true, dot: true });
 
 for (const htmlFile of htmlFiles) {
   let html = readFileSync(htmlFile, 'utf8');

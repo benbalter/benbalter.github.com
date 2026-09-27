@@ -13,24 +13,13 @@
  * Run after `astro build`, before pagefind.
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { globSync } from 'glob';
 import { init, parse } from 'es-module-lexer';
 
 // Optional first argument overrides the output directory (used by tests).
 const DIST_DIR = resolve(process.argv[2] ?? resolve(import.meta.dirname, '..', 'dist-astro'));
-
-function walkHtmlFiles(dir, files = []) {
-  for (const entry of readdirSync(dir)) {
-    const full = resolve(dir, entry);
-    if (statSync(full).isDirectory()) {
-      walkHtmlFiles(full, files);
-    } else if (entry.endsWith('.html')) {
-      files.push(full);
-    }
-  }
-  return files;
-}
 
 await init;
 
@@ -63,7 +52,7 @@ function resolveImportUrl(scriptUrl, relImport) {
 let totalModified = 0;
 let totalPreloads = 0;
 
-const htmlFiles = walkHtmlFiles(DIST_DIR);
+const htmlFiles = globSync('**/*.html', { cwd: DIST_DIR, absolute: true, dot: true });
 
 for (const htmlFile of htmlFiles) {
   let html = readFileSync(htmlFile, 'utf8');
