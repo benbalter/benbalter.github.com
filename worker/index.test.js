@@ -2,13 +2,16 @@
 import { describe, it, expect, vi } from 'vitest';
 import worker from './index.js';
 
-/** Fake ASSETS binding serving a fixed map of pathname -> body. */
+/**
+ * Fake ASSETS binding serving a fixed map of pathname -> body.
+ * @param {Record<string, string>} [files]
+ */
 function makeEnv(files = {}) {
   const writeDataPoint = vi.fn();
   return {
     ASSETS: {
-      fetch: vi.fn(async (request) => {
-        const { pathname } = new URL(request.url);
+      fetch: vi.fn(async (/** @type {RequestInfo | URL} */ input) => {
+        const { pathname } = new URL(input instanceof Request ? input.url : input);
         return pathname in files
           ? new Response(files[pathname], { status: 200, headers: { 'Content-Type': 'text/html', 'Content-Security-Policy': "default-src 'self'" } })
           : new Response('Not found', { status: 404 });
@@ -18,7 +21,7 @@ function makeEnv(files = {}) {
   };
 }
 
-const md = (path, init = {}) =>
+const md = (/** @type {string} */ path, /** @type {RequestInit} */ init = {}) =>
   new Request(`https://ben.balter.com${path}`, {
     ...init,
     headers: { Accept: 'text/markdown', ...(init.headers ?? {}) },
@@ -85,7 +88,7 @@ describe('Markdown content negotiation', () => {
 });
 
 describe('POST /api/event', () => {
-  const post = (body) =>
+  const post = (/** @type {unknown} */ body) =>
     new Request('https://ben.balter.com/api/event', {
       method: 'POST',
       body: typeof body === 'string' ? body : JSON.stringify(body),

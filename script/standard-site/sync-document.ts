@@ -64,7 +64,7 @@ function stripMarkdown(markdown: string): string {
     .trim();
 }
 
-interface DocumentRecord {
+type DocumentRecord = {
   $type: 'site.standard.document';
   site: string;
   title: string;
@@ -73,7 +73,7 @@ interface DocumentRecord {
   description?: string;
   tags?: string[];
   textContent?: string;
-}
+};
 
 function buildRecord(postId: string, pubDate: Date, data: Record<string, unknown>, body: string): DocumentRecord {
   const record: DocumentRecord = {

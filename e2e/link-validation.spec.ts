@@ -1,6 +1,4 @@
 import { test, expect, type APIRequestContext } from '@playwright/test';
-import fs from 'fs';
-import path from 'path';
 
 /**
  * Link Validation Tests

@@ -215,6 +215,10 @@ jobs:
       - name: Run Astro Check
         run: npm run check
 
+      # scripts, worker, e2e, and tool configs sit outside tsconfig.astro.json.
+      - name: Type-check tooling (script/, worker/, e2e/)
+        run: npm run check:tooling
+
   vitest:
     name: Run Vitest Tests
     runs-on: ubuntu-latest
