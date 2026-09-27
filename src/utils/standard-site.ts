@@ -13,24 +13,10 @@
  * See the lexicon: https://standard.site/docs/lexicons/document/
  */
 
+import { TID } from '@atproto/common-web';
 import { siteConfig } from '../config';
 
-// AT Protocol base32-sortable alphabet (a.k.a. s32). Lexicographic order of the
-// encoded string matches numeric order of the value.
-const S32_CHARS = '234567abcdefghijklmnopqrstuvwxyz';
-const TID_LEN = 13;
 const TID_CLOCKID_MAX = 1024; // 10 bits
-
-/** Encode a non-negative integer as a base32-sortable string. */
-function s32encode(value: number): string {
-  let n = value;
-  let out = '';
-  while (n > 0) {
-    out = S32_CHARS.charAt(n % 32) + out;
-    n = Math.floor(n / 32);
-  }
-  return out;
-}
 
 /**
  * Stable, deterministic 32-bit string hash (FNV-1a). Used to derive a TID
@@ -75,10 +61,10 @@ function postTimestampMicros(postId: string, pubDate: Date): number {
 export function getDocumentRkey(postId: string, pubDate: Date): string {
   const timestampMicros = postTimestampMicros(postId, pubDate);
   const clockid = hashString(postId) % TID_CLOCKID_MAX;
-  const tid =
-    s32encode(timestampMicros).padStart(TID_LEN - 2, '2') +
-    s32encode(clockid).padStart(2, '2');
-  return tid;
+  // fromTime base32-sortable-encodes both parts. Timestamps from Sept 2005 to
+  // the year 3111 fill the 11-char prefix exactly; outside that range it throws
+  // rather than emitting a malformed key.
+  return TID.fromTime(timestampMicros, clockid).toString();
 }
 
 /**
