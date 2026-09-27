@@ -18,8 +18,10 @@
     "@textlint/textlint-plugin-markdown",
     // Referenced by string in .remarkrc.js's remark-textr plugin list.
     "typographic-copyright",
-    // Required by the extensionless script/inject-image-size, which knip can't parse.
-    "image-size"
+    // Required by the extensionless script/inject-image-size and
+    // script/inject-modulepreload, which knip can't parse.
+    "image-size",
+    "es-module-lexer"
   ],
   // System tools installed in CI, not npm packages.
   "ignoreBinaries": ["vale", "yamllint"],
