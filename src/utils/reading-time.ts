@@ -20,7 +20,20 @@ import { markdownToText } from './strip-markdown';
  * count as words. Without this, long annotated posts read about twice as long
  * on their own page as on the cards linking to them.
  */
+const countableTextCache = new Map<string, string>();
+
 function toCountableText(content: string): string {
+  // Every card re-counts its post's body (a post can appear in dozens of
+  // "Keep reading" lists) and post pages count once for reading time and once
+  // for word count, so memoize the parse.
+  const cached = countableTextCache.get(content);
+  if (cached !== undefined) return cached;
+  const countable = computeCountableText(content);
+  countableTextCache.set(content, countable);
+  return countable;
+}
+
+function computeCountableText(content: string): string {
   const withoutHtmlFootnotes = content
     .replace(/<section\b[^>]*\bdata-footnotes\b[^>]*>[\s\S]*?<\/section>/g, ' ')
     .replace(/<a\b[^>]*\bdata-footnote-ref\b[^>]*>[\s\S]*?<\/a>/g, '')
