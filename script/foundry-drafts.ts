@@ -30,6 +30,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { execFileSync } from 'child_process';
 import matter from 'gray-matter';
+import { markdownToText } from '../src/utils/strip-markdown';
 import {
   hasFlag,
   intFlag,
@@ -83,21 +84,10 @@ interface Post {
   body: string;
 }
 
-function toPlain(md: string): string {
-  return md
-    .replace(/```[\s\S]*?```/g, ' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/[#*_>`]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 function loadCorpus(): Post[] {
   return loadPosts(ROOT)
     .map((p) => {
-      const plain = toPlain(p.body);
+      const plain = markdownToText(p.body, { code: false });
       return {
         ...p,
         excerpt: plain.split(' ').slice(0, 180).join(' '),

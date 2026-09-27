@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { stripMarkdown } from './strip-markdown';
+import { markdownToText, stripMarkdown } from './strip-markdown';
 
 describe('stripMarkdown', () => {
   describe('basic functionality', () => {
@@ -115,5 +115,40 @@ describe('stripMarkdown', () => {
     it('should trim leading and trailing whitespace', () => {
       expect(stripMarkdown('  text with spaces  ')).toBe('text with spaces');
     });
+  });
+});
+
+describe('markdownToText', () => {
+  it('drops footnote references and definitions', () => {
+    const md = 'A claim.[^1] Another.[^note]\n\n[^1]: The source.\n\n[^note]: More detail\n    spanning lines.';
+    expect(markdownToText(md)).toBe('A claim. Another.');
+  });
+
+  it('keeps code text by default and drops it with code: false', () => {
+    const md = 'Run `npm test` first.\n\n```sh\nnpm ci\n```\n\nThen ship.';
+    expect(markdownToText(md)).toBe('Run npm test first. npm ci Then ship.');
+    expect(markdownToText(md, { code: false })).toBe('Run first. Then ship.');
+  });
+
+  it('separates blocks so words from adjacent blocks do not run together', () => {
+    const md = '# Heading\n\nParagraph one.\n\n- item one\n- item two\n\n> quoted';
+    expect(markdownToText(md)).toBe('Heading Paragraph one. item one item two quoted');
+  });
+
+  it('reduces tables to cell text', () => {
+    expect(markdownToText('| a | b |\n|---|---|\n| 1 | 2 |')).toBe('a b 1 2');
+  });
+
+  it('drops images and reference definitions, keeps link text', () => {
+    const md = '![alt text](/img.png) See [the docs][docs] and <https://example.com>.\n\n[docs]: https://docs.example.com';
+    expect(markdownToText(md)).toBe('See the docs and https://example.com.');
+  });
+
+  it('reduces raw HTML to its text and treats hard breaks as spaces', () => {
+    expect(markdownToText('<div>\nBlock <b>html</b>\n</div>\n\nline one  \nline two')).toBe('Block html line one line two');
+  });
+
+  it('keeps intraword underscores and strips strikethrough', () => {
+    expect(markdownToText('snake_case_name and ~~struck~~ text')).toBe('snake_case_name and struck text');
   });
 });

@@ -41,7 +41,7 @@ import { siteConfig } from '../../src/config';
 import { getPostUrl, getDateFromSlug } from '../../src/utils/post-urls';
 import { getDocumentRkey, qualifiesForStandardSite } from '../../src/utils/standard-site';
 import { stripMdxSyntax } from '../../src/utils/strip-mdx-syntax';
-import { stripHtmlTags } from '../../src/utils/strip-html';
+import { markdownToText } from '../../src/utils/strip-markdown';
 import { login, type Session } from './auth';
 
 const COLLECTION = 'site.standard.document';
@@ -50,20 +50,6 @@ const POSTS_DIR = 'src/content/posts';
 // Keep textContent well under atproto's per-record size ceiling (~64KB for the
 // whole record); truncate very long posts rather than failing the putRecord.
 const MAX_TEXT_CONTENT = 50_000;
-
-/** Reduce markdown to a plaintext approximation for the document's textContent. */
-function stripMarkdown(markdown: string): string {
-  return stripHtmlTags(markdown, ' ') // raw HTML tags
-    .replace(/```[\s\S]*?```/g, ' ') // fenced code blocks
-    .replace(/`[^`]*`/g, ' ') // inline code
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links → text
-    .replace(/^\s{0,3}#{1,6}\s+/gm, '') // headings
-    .replace(/^\s{0,3}>\s?/gm, '') // blockquotes
-    .replace(/[*_~]{1,3}/g, '') // emphasis markers
-    .replace(/\s+/g, ' ')
-    .trim();
-}
 
 type DocumentRecord = {
   $type: 'site.standard.document';
@@ -90,7 +76,8 @@ function buildRecord(postId: string, pubDate: Date, data: Record<string, unknown
   if (Array.isArray(data.categories) && data.categories.length > 0) {
     record.tags = data.categories.map((c) => String(c));
   }
-  let textContent = stripMarkdown(stripMdxSyntax(body));
+  // Prose only: code is dropped from the document's plaintext.
+  let textContent = markdownToText(stripMdxSyntax(body), { code: false });
   if (textContent.length > MAX_TEXT_CONTENT) {
     console.warn(`⚠️  ${postId}: textContent truncated from ${textContent.length} to ${MAX_TEXT_CONTENT} chars`);
     textContent = textContent.slice(0, MAX_TEXT_CONTENT);

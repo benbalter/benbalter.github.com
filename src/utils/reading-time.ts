@@ -7,40 +7,7 @@
 
 import readingTime from 'reading-time';
 import { stripHtmlTags } from './strip-html';
-
-/**
- * Strip markdown footnotes (definitions + inline references) so they don't
- * inflate the reading-time estimate. Footnote bodies are supplemental and
- * most readers skim or skip them — counting them overstates time-to-read.
- */
-function stripFootnotes(content: string): string {
-  // Remove footnote definitions first. A definition starts at the beginning
-  // of a line with `[^label]:` and extends through any subsequent indented
-  // lines (the GFM footnote body). We stop at the first non-indented,
-  // non-empty line that isn't another definition. Note: this must run before
-  // inline-ref stripping, or `[^1]:` would be corrupted into `:`.
-  const lines = content.split('\n');
-  const kept: string[] = [];
-  let inDef = false;
-
-  for (const line of lines) {
-    if (/^\[\^[^\]]+\]:/.test(line)) {
-      inDef = true;
-      continue;
-    }
-    if (inDef) {
-      // Indented continuation lines and blank lines stay inside the definition.
-      if (/^[ \t]+\S/.test(line) || line.trim() === '') {
-        continue;
-      }
-      inDef = false;
-    }
-    kept.push(line);
-  }
-
-  // Remove inline footnote references like [^1], [^note-a], etc.
-  return kept.join('\n').replace(/\[\^[^\]]+\]/g, '');
-}
+import { markdownToText } from './strip-markdown';
 
 /**
  * Reduce Markdown or rendered HTML to the prose a reader actually reads.
@@ -58,7 +25,10 @@ function toCountableText(content: string): string {
     .replace(/<section\b[^>]*\bdata-footnotes\b[^>]*>[\s\S]*?<\/section>/g, ' ')
     .replace(/<a\b[^>]*\bdata-footnote-ref\b[^>]*>[\s\S]*?<\/a>/g, '')
     .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, ' ');
-  return stripHtmlTags(stripFootnotes(withoutHtmlFootnotes), ' ');
+  // markdownToText drops Markdown footnotes (refs and definitions) and reduces
+  // Markdown and raw HTML to text; the final tag strip catches markup that
+  // survives as code text (e.g. indented HTML parsed as a code block).
+  return stripHtmlTags(markdownToText(withoutHtmlFootnotes), ' ');
 }
 
 /**

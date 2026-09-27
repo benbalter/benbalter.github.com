@@ -58,6 +58,7 @@
     "markdownlint-cli2": "^0.23.2",
     "markdownlint-cli2-formatter-pretty": "^0.0.10",
     "mdast-util-find-and-replace": "^3.0.2",
+    "mdast-util-to-string": "4.0.0",
     "pagefind": "^1.5.2",
     "pdf-lib": "^1.17.1",
     "rehype-accessible-emojis": "^0.3.2",
