@@ -8,6 +8,7 @@
  * The first paragraph is automatically extracted for the mini-bio.
  */
 
+import { Marked } from 'marked';
 import { escapeHtml } from '../utils/html-escape';
 
 export const aboutContent = `I'm Ben Balter, and I write here about product, engineering leadership, open source, and showing your work. I wrote [Open and Async](https://open-and-async.com/), the playbook for remote and distributed teams. My open source projects have hundreds of millions of downloads. Most recently I was Director of Hubber Enablement at [GitHub](https://github.com/about), where I owned the internal platform 4,000+ GitHubbers use to get their work done. Before that: Chief of Staff for Security, five years running trust and safety, and GitHub's first Government Evangelist. Before GitHub: attorney, Presidential Innovation Fellow, and member of the White House's first agile development team.
@@ -37,18 +38,28 @@ function isValidUrl(url: string): boolean {
 }
 
 /**
- * Simple markdown link converter: [text](url) => <a href="url">text</a>
- * Only allows http(s) and relative URLs for security, escapes HTML
+ * Inline Markdown renderer for the bio. Plain text passes through as written
+ * (the output goes to `set:html` and to plain-text consumers like llms.txt,
+ * which shouldn't see `&#39;`), raw HTML is escaped so link text can't inject
+ * markup, and only http(s) and root-relative URLs render as links; anything
+ * else (e.g. `javascript:`) is left as the original Markdown, escaped.
  */
+const bioMarked = new Marked({
+  renderer: {
+    text({ text }) {
+      return text;
+    },
+    html({ text }) {
+      return escapeHtml(text);
+    },
+    link({ href, raw }) {
+      return isValidUrl(href) ? false : escapeHtml(raw);
+    },
+  },
+});
+
 function convertMarkdownLinks(text: string): string {
-  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
-    // Validate URL for security
-    if (isValidUrl(url)) {
-      return `<a href="${escapeHtml(url)}">${escapeHtml(linkText)}</a>`;
-    }
-    // Return original text if URL is not valid
-    return match;
-  });
+  return bioMarked.parseInline(text, { async: false });
 }
 
 /**

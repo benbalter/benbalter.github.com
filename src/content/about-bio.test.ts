@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { aboutContent, getFirstSentence } from './about-bio';
+import { aboutContent, getBioParagraphs, getFirstSentence } from './about-bio';
 
 describe('getFirstSentence', () => {
   it('extracts a single first sentence from bio content', () => {
@@ -39,5 +39,18 @@ describe('getFirstSentence', () => {
     const testContent = 'This is a single sentence.';
     const result = getFirstSentence(testContent);
     expect(result).toBe('This is a single sentence.');
+  });
+});
+
+describe('getBioParagraphs', () => {
+  it('renders Markdown links as anchors', () => {
+    const [para] = getBioParagraphs('See [my resume](/resume/) and [GitHub](https://github.com/about).');
+    expect(para).toBe('See <a href="/resume/">my resume</a> and <a href="https://github.com/about">GitHub</a>.');
+  });
+
+  it('leaves links with unsafe protocols as escaped text', () => {
+    const [para] = getBioParagraphs('Click [here](javascript:alert(1)) or [there](//evil.example).');
+    expect(para).not.toContain('<a');
+    expect(para).toContain('[here](javascript:alert(1))');
   });
 });
