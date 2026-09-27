@@ -8,9 +8,10 @@
  *    activation), so this must happen in the same tick as the click/keydown.
  *    Unlike the async Clipboard API, it reports failure honestly: it returns
  *    false instead of resolving without writing. That matters because of
- *    #1683: on iPadOS Safari, `navigator.clipboard.writeText()` resolved but
- *    left the clipboard blank, which a writeText-first-then-fallback helper
- *    can't detect. Switching the LinkedIn page to this path fixed it.
+ *    #1683: on iPadOS Safari, `navigator.clipboard.writeText()` was reported to
+ *    resolve but leave the clipboard blank, which a writeText-first-then-
+ *    fallback helper can't detect. The issue was closed by switching the
+ *    LinkedIn page to this path.
  * 2. `navigator.clipboard.writeText()`, only if the legacy path failed (e.g. a
  *    browser that removed `execCommand`). This is also called synchronously
  *    within the gesture, so no awaits may be added ahead of it.
