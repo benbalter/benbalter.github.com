@@ -1,7 +1,13 @@
 import { isTypingTarget } from '../utils/is-typing-target';
 
+export interface PagefindResultData {
+  url: string;
+  meta?: { title?: string };
+  excerpt: string;
+}
+
 interface PagefindResult {
-  data(): Promise<{ url: string; meta?: { title?: string }; excerpt: string }>;
+  data(): Promise<PagefindResultData>;
 }
 
 interface PagefindSearch {
@@ -17,41 +23,62 @@ let pagefindLoaded = false;
 let pagefind: Pagefind | null = null;
 let previouslyFocusedElement: HTMLElement | null = null;
 
-const FOCUSABLE_SELECTOR = 'input, button, a[href], [tabindex]:not([tabindex="-1"])';
+const EMPTY_PROMPT = '<div class="search-empty">Type to search posts, pages, and more…</div>';
 
 function getModal() {
-  return document.getElementById('search-modal');
+  return document.getElementById('search-modal') as HTMLDialogElement | null;
 }
 
 function getInput() {
   return document.getElementById('search-input') as HTMLInputElement | null;
 }
 
-function trapFocus(e: KeyboardEvent) {
-  if (e.key !== 'Tab') return;
+/** Screen-reader text for a result count. */
+export function resultCountLabel(count: number): string {
+  if (count === 0) return 'No results';
+  return count === 1 ? '1 result' : `${count} results`;
+}
 
-  const modal = getModal();
-  if (!modal || modal.hidden) return;
+/**
+ * Set the visually hidden role="status" region. It carries only a count, so
+ * assistive tech hears "5 results" rather than the whole list re-read on
+ * every keystroke.
+ */
+function announce(message: string) {
+  const status = document.getElementById('search-status');
+  if (status) status.textContent = message;
+}
 
-  const focusable = [...modal.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)].filter(
-    (el) => el.offsetParent !== null
-  );
-  if (focusable.length === 0) return;
+/**
+ * Replace the contents of `container` with one link per result. Titles go in
+ * as text; excerpts are Pagefind's own markup (only <mark> highlights around
+ * escaped page text), so they are trusted as HTML.
+ */
+export function renderResults(container: HTMLElement, results: PagefindResultData[]) {
+  container.innerHTML = '';
+  results.forEach((result) => {
+    const link = document.createElement('a');
+    link.href = result.url;
+    link.className = 'search-result';
+    link.setAttribute('data-search-close', '');
 
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'search-result-title';
+    titleSpan.textContent = result.meta?.title || 'Untitled';
+    link.appendChild(titleSpan);
 
-  if (e.shiftKey) {
-    if (document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    }
-  } else {
-    if (document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  }
+    const excerptSpan = document.createElement('span');
+    excerptSpan.className = 'search-result-excerpt';
+    excerptSpan.innerHTML = result.excerpt; // Pagefind excerpt contains safe HTML markup
+    link.appendChild(excerptSpan);
+
+    container.appendChild(link);
+  });
+}
+
+/** Markup for the empty state when a query matches nothing. */
+export function noResultsMessage(query: string): string {
+  return `<div class="search-empty">No results for "<strong>${escapeHtml(query)}</strong>"</div>`;
 }
 
 async function loadPagefind() {
@@ -77,7 +104,8 @@ async function performSearch(query: string) {
   delete resultsContainer.dataset.query;
 
   if (!query.trim()) {
-    resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
+    resultsContainer.innerHTML = EMPTY_PROMPT;
+    announce('');
     return;
   }
 
@@ -88,12 +116,13 @@ async function performSearch(query: string) {
 
   if (!pagefind) {
     resultsContainer.innerHTML = '<div class="search-empty">Search unavailable</div>';
+    announce('Search unavailable');
     return;
   }
 
   // A pending debounce can land after the user has arrowed into the list. The
   // re-render below destroys the focused anchor, which would drop focus to
-  // <body> and kill both the focus trap and result navigation. The result set
+  // <body> and kill result navigation. The result set
   // is changing anyway, so the old selection is meaningless: send focus back
   // to the input, where the user can keep typing or arrow down again.
   const focusWasInResults = resultsContainer.contains(document.activeElement);
@@ -101,7 +130,9 @@ async function performSearch(query: string) {
   const search = await pagefind.search(query);
 
   if (search.results.length === 0) {
-    resultsContainer.innerHTML = `<div class="search-empty">No results for "<strong>${escapeHtml(query)}</strong>"</div>`;
+    resultsContainer.innerHTML = noResultsMessage(query);
+    announce(resultCountLabel(0));
+    if (focusWasInResults) getInput()?.focus();
     return;
   }
 
@@ -109,25 +140,8 @@ async function performSearch(query: string) {
     search.results.slice(0, 8).map((r) => r.data())
   );
 
-  resultsContainer.innerHTML = '';
-  results.forEach((result) => {
-    const link = document.createElement('a');
-    link.href = result.url;
-    link.className = 'search-result';
-    link.setAttribute('data-search-close', '');
-
-    const titleSpan = document.createElement('span');
-    titleSpan.className = 'search-result-title';
-    titleSpan.textContent = result.meta?.title || 'Untitled';
-    link.appendChild(titleSpan);
-
-    const excerptSpan = document.createElement('span');
-    excerptSpan.className = 'search-result-excerpt';
-    excerptSpan.innerHTML = result.excerpt; // Pagefind excerpt contains safe HTML markup
-    link.appendChild(excerptSpan);
-
-    resultsContainer.appendChild(link);
-  });
+  renderResults(resultsContainer, results);
+  announce(resultCountLabel(results.length));
 
   resultsContainer.dataset.query = query.trim();
 
@@ -149,7 +163,7 @@ function getResults(): HTMLAnchorElement[] {
  * Stepping up past the first result returns focus to the input so the user can
  * keep refining the query.
  */
-function moveSelection(delta: number) {
+export function moveSelection(delta: number) {
   const results = getResults();
   if (results.length === 0) return;
 
@@ -179,7 +193,7 @@ function moveSelection(delta: number) {
  * ordinary characters in a query — the same split GitHub uses between its
  * palette and its issue lists.
  */
-function handleResultNavigation(e: KeyboardEvent) {
+export function handleResultNavigation(e: KeyboardEvent) {
   if (e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
 
   const typing = isTypingTarget(e);
@@ -214,7 +228,7 @@ function handleResultNavigation(e: KeyboardEvent) {
   }
 }
 
-function escapeHtml(str: string) {
+export function escapeHtml(str: string) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
@@ -222,38 +236,38 @@ function escapeHtml(str: string) {
 
 function openSearch() {
   const modal = getModal();
-  const input = getInput();
-  if (!modal) return;
+  if (!modal || modal.open) return;
 
   previouslyFocusedElement = document.activeElement as HTMLElement | null;
-  modal.hidden = false;
   document.body.style.overflow = 'hidden';
   loadPagefind();
 
-  requestAnimationFrame(() => {
-    modal.classList.add('open');
-    input?.focus();
-  });
+  // showModal() makes the rest of the page inert, contains focus, and focuses
+  // the autofocus input. Focus explicitly too, in case an engine skips it.
+  modal.showModal();
+  getInput()?.focus();
 }
 
 function closeSearch() {
-  const modal = getModal();
+  getModal()?.close();
+}
+
+/**
+ * Reset state after the dialog closes, however it closed: Esc, ⌘K, the close
+ * button, a backdrop click, or a result click.
+ */
+function handleClose() {
   const input = getInput();
-  if (!modal) return;
-
-  modal.classList.remove('open');
   document.body.style.overflow = '';
-
-  setTimeout(() => {
-    modal.hidden = true;
-    if (input) input.value = '';
-    const resultsContainer = document.getElementById('search-results');
-    if (resultsContainer) {
-      resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
-    }
-    previouslyFocusedElement?.focus();
-    previouslyFocusedElement = null;
-  }, 200);
+  if (input) input.value = '';
+  const resultsContainer = document.getElementById('search-results');
+  if (resultsContainer) {
+    resultsContainer.innerHTML = EMPTY_PROMPT;
+    delete resultsContainer.dataset.query;
+  }
+  announce('');
+  previouslyFocusedElement?.focus();
+  previouslyFocusedElement = null;
 }
 
 function initSearch() {
@@ -274,6 +288,8 @@ function initSearch() {
     el.addEventListener('click', () => closeSearch());
   });
 
+  modal.addEventListener('close', handleClose);
+
   // Search input
   let debounceTimer: ReturnType<typeof setTimeout>;
   input?.addEventListener('input', () => {
@@ -283,9 +299,6 @@ function initSearch() {
     }, 200);
   });
 
-  // Focus trap
-  document.addEventListener('keydown', trapFocus);
-
   // Result navigation is scoped to the modal so j/k stay free page-wide
   modal.addEventListener('keydown', handleResultNavigation);
 
@@ -294,11 +307,10 @@ function initSearch() {
     // ⌘K or Ctrl+K to toggle
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
-      const m = getModal();
-      if (m?.hidden) {
-        openSearch();
-      } else {
+      if (getModal()?.open) {
         closeSearch();
+      } else {
+        openSearch();
       }
     }
 
@@ -307,27 +319,37 @@ function initSearch() {
     // on shiftKey: `/` is a shifted key on AZERTY and other layouts, and
     // e.key already reports the produced character.
     if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && !isTypingTarget(e)) {
-      const m = getModal();
-      if (m?.hidden) {
+      if (!getModal()?.open) {
         // Firefox binds `/` to quick-find; claim it before that happens.
         e.preventDefault();
         openSearch();
       }
     }
 
-    // Escape to close
-    if (e.key === 'Escape') {
-      const m = getModal();
-      if (m && !m.hidden) {
-        e.preventDefault();
-        closeSearch();
-      }
+    // Escape to close. A <dialog> closes on Esc by itself, but a search input
+    // holding a query can spend the first Esc clearing its value; close in one
+    // press, as before.
+    if (e.key === 'Escape' && getModal()?.open) {
+      e.preventDefault();
+      closeSearch();
     }
   }
   document.addEventListener('keydown', handleKeyboardShortcut);
 
-  // Close on result click (navigate) and store query for highlighting
+  // Close on backdrop or result click; a result click also stores the query
+  // for highlighting on the destination page.
   modal.addEventListener('click', (e) => {
+    // A <dialog> stretches its backdrop over the whole viewport but reports
+    // clicks on it as clicks on the dialog, so compare against the panel's own
+    // box. Keyboard-triggered clicks report 0,0; ignore those.
+    if (e.target === modal) {
+      const box = modal.getBoundingClientRect();
+      const outside =
+        e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom;
+      if (outside && (e.clientX !== 0 || e.clientY !== 0)) closeSearch();
+      return;
+    }
+
     const target = e.target as HTMLElement;
     if (target.closest('.search-result')) {
       const query = input?.value?.trim();
