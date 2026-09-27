@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
     paths:
       - 'src/**'
       - 'astro.config.mjs'
@@ -73,10 +72,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The build renders /resume.pdf via astro-pdf, which downloads Chromium
+      # into node_modules/.astro/chrome. Same cache as build-and-deploy.yml.
+      - name: Cache astro-pdf Chromium
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        with:
+          path: node_modules/.astro/chrome
+          key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            astro-pdf-chrome-${{ runner.os }}-
+
       - name: Cache Astro build artifacts
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
-          path: node_modules/.astro
+          path: |
+            node_modules/.astro
+            !node_modules/.astro/chrome
           # The pipeline fingerprint (remark/rehype plugins, their config wiring, and
           # deps) is a distinct key segment AND the restore-keys prefix. Astro caches
           # rendered markdown per content-file digest and reuses it for unchanged files

@@ -10,11 +10,12 @@ permissions:
 
 concurrency:
   group: "deploy"
-  cancel-in-progress: true
+  # Never cancel a running deploy: killing `wrangler deploy` mid-upload can
+  # leave a partial release. A newer push still replaces any queued run.
+  cancel-in-progress: false
 
 env:
   NODE_VERSION: 24
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -67,7 +68,11 @@ jobs:
       - name: Cache Astro build artifacts
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
-          path: node_modules/.astro
+          # Chromium has its own cache above; keep ~150MB of browser out of
+          # every build-cache entry.
+          path: |
+            node_modules/.astro
+            !node_modules/.astro/chrome
           # The pipeline fingerprint (remark/rehype plugins, their config wiring, and
           # deps) is a distinct key segment AND the restore-keys prefix. Astro caches
           # rendered markdown per content-file digest and reuses it for unchanged files
