@@ -105,6 +105,10 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      # Final file = public/_redirects + rules generated from front matter.
+      - name: Validate built _redirects
+        run: script/validate-redirects dist-astro/_redirects
+
       - name: Deploy to Cloudflare Workers
         run: npx wrangler deploy
         env:

@@ -43,7 +43,7 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
-| `validate-redirects` | Check `public/_redirects` syntax (field count, status codes, duplicate sources, loops) | `script/validate-redirects` | After editing `_redirects` |
+| `validate-redirects` | Check `_redirects` syntax (field count, status codes, duplicate sources, loops). Defaults to `public/_redirects`; pass `dist-astro/_redirects` to check the built file, which adds front matter redirects | `script/validate-redirects [file]` | After editing `_redirects` or `redirect_from`/`redirect_to` front matter |
 | `validate-seo.ts` | Check all pages for SEO issues (missing titles, duplicate titles, meta descriptions, heading hierarchy, image alt text) | `npm run validate-seo` | Before publishing new content |
 | `check-content-integrity.ts` | Flag post changes that go beyond prose: >10% word loss, or any edit to code blocks, inline code, scripts/styles, URLs, or blockquote text. Fails only for bulk diffs (6+ posts) without a `Content-Integrity: reviewed` commit trailer; smaller diffs get warnings | `npm run check-content-integrity -- --base=<ref>` | Runs in CI; run locally before committing any automated pass over the archive |
 

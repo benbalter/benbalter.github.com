@@ -2,20 +2,26 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-// Parse the Cloudflare Pages _redirects file once for all tests
-const redirectsPath = resolve(process.cwd(), 'public/_redirects');
-const redirectsContent = readFileSync(redirectsPath, 'utf-8');
-const redirectLines = redirectsContent
-  .split('\n')
-  .filter((line) => line.trim() && !line.startsWith('#'))
-  .map((line) => {
-    const parts = line.trim().split(/\s+/);
-    return { source: parts[0], destination: parts[1], status: parts[2] };
-  });
+// Parse the built _redirects file once, on first use. It's public/_redirects
+// plus the rules generated from redirect_from / redirect_to front matter, so
+// it only exists after `npm run build` (read lazily so test collection
+// doesn't fail before the webServer build runs).
+type RedirectLine = { source: string; destination: string; status: string };
+let redirectLines: RedirectLine[] | undefined;
+const getRedirectLines = (): RedirectLine[] => {
+  redirectLines ??= readFileSync(resolve(process.cwd(), 'dist-astro/_redirects'), 'utf-8')
+    .split('\n')
+    .filter((line) => line.trim() && !line.startsWith('#'))
+    .map((line) => {
+      const [source = '', destination = '', status = ''] = line.trim().split(/\s+/);
+      return { source, destination, status };
+    });
+  return redirectLines;
+};
 
 /** Assert that the _redirects file contains a 301 mapping from source to destination */
 const expectRedirect = (source: string, destination: string) => {
-  const match = redirectLines.find(
+  const match = getRedirectLines().find(
     (r) => r.source === source && r.destination === destination && r.status === '301',
   );
   expect(match, `Expected 301 redirect from ${source} to ${destination}`).toBeDefined();
