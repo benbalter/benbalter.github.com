@@ -115,6 +115,10 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      # Final file = public/_redirects + rules generated from front matter.
+      - name: Validate built _redirects
+        run: script/validate-redirects dist-astro/_redirects
+
       # html-validate only: it's deterministic and takes seconds. The lychee
       # link check stays in links.yml, which is disabled.
       - name: Validate HTML (html-validate)

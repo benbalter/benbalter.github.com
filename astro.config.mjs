@@ -20,6 +20,13 @@ import {
   sharedRehypePlugins,
 } from './src/lib/markdown-pipeline.ts';
 import { buildLastmodIndex, lastmodForUrl } from './src/utils/sitemap-lastmod.ts';
+import {
+  loadRoutedEntries,
+  sitemapExclusions,
+  frontMatterRedirects,
+  formatRedirects,
+  redirectSources,
+} from './src/utils/front-matter-routes.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -28,17 +35,22 @@ const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
 // Used in Vite config below to rename shared CSS bundles
 const PAGE_NAME_PATTERN = /^[a-z0-9-]+$/;
 
-// Pages that should be excluded from sitemap
-// Add pages here that have sitemap: false in their front matter
+// Posts and pages front matter, read once at config load. Drives sitemap
+// exclusions (`sitemap: false`, `redirect_to`) and the generated `_redirects`
+// rules (`redirect_from`, `redirect_to`). See src/utils/front-matter-routes.ts.
+const routedEntries = loadRoutedEntries();
+
+// Pages excluded from the sitemap. Content entries opt out with
+// `sitemap: false` in front matter; only non-content routes (.astro pages
+// without front matter) belong in the hardcoded list.
 // Format: Use the final URL path with trailing slash
 const EXCLUDED_PAGES = [
   '/404/',
   '/_not-found/',
-  '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
+  '/fine-print/', // Legal boilerplate; had sitemap: false in the Jekyll source
   '/resume/linkedin/', // Utility page, not for search engines
   '/resume/print/', // Print-only PDF source (noindex), rendered to /resume.pdf
-  // To exclude posts/pages from content collections with sitemap: false,
-  // add their URLs here (e.g., '/2024/01/01/post-slug/')
+  ...sitemapExclusions(routedEntries),
 ];
 
 
@@ -243,8 +255,7 @@ export default defineConfig({
     sitemap({
       // Customize sitemap generation
       filter: (page) => {
-        // Exclude pages explicitly marked with sitemap: false
-        // This includes 404, not-found, and pages like fine-print
+        // Exclude non-content utility pages and front matter opt-outs
         return !EXCLUDED_PAGES.some(pattern => page.includes(pattern));
       },
       // Customize URL entries with priority and changefreq
@@ -303,6 +314,32 @@ export default defineConfig({
           }
           await writeFile(dest, contents);
           logger.info('Copied sitemap-0.xml to sitemap.xml');
+        },
+      },
+    },
+    // Append front matter redirects (`redirect_from`, `redirect_to`) to the
+    // built _redirects. public/_redirects keeps only the non-content rules;
+    // Cloudflare static assets read the final file from the output dir.
+    {
+      name: 'front-matter-redirects',
+      hooks: {
+        'astro:build:done': async ({ dir, logger }) => {
+          const file = join(fileURLToPath(dir), '_redirects');
+          const existing = await readFile(file, 'utf-8');
+          const lines = formatRedirects(frontMatterRedirects(routedEntries));
+          const seen = new Set(redirectSources(existing));
+          for (const line of lines) {
+            const [source] = line.split(' ');
+            if (seen.has(source)) {
+              throw new Error(
+                `front-matter-redirects: duplicate source ${source}. Remove it from public/_redirects or front matter, not both.`
+              );
+            }
+            seen.add(source);
+          }
+          const block = ['', '# Generated at build from redirect_from / redirect_to front matter', ...lines, ''];
+          await writeFile(file, existing.replace(/\n*$/, '\n') + block.join('\n'));
+          logger.info(`Appended ${lines.length} front matter redirects to _redirects`);
         },
       },
     },

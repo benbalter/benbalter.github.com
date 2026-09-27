@@ -136,8 +136,8 @@ test.describe('Other Recommended Reading Page', () => {
 });
 
 test.describe('Other Recommended Reading Redirects', () => {
-  const redirectsPath = resolve(process.cwd(), 'public/_redirects');
-  const redirectsContent = readFileSync(redirectsPath, 'utf-8');
+  // Built file: these rules come from the page's redirect_from front matter.
+  const readRedirects = () => readFileSync(resolve(process.cwd(), 'dist-astro/_redirects'), 'utf-8');
 
   const oldUrls = [
     '/books/',
@@ -147,7 +147,7 @@ test.describe('Other Recommended Reading Redirects', () => {
 
   oldUrls.forEach((url) => {
     test(`should redirect from ${url} to /other-recommended-reading`, () => {
-      expect(redirectsContent).toContain(`${url} /other-recommended-reading/ 301`);
+      expect(readRedirects()).toContain(`${url} /other-recommended-reading/ 301`);
     });
   });
 });
