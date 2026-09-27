@@ -124,7 +124,6 @@
   },
   "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
   "license": "CC-BY-3.0",
-  "main": "astro.config.mjs",
   "name": "benbalter.github.com",
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Built with Astro and hosted on Cloudflare Pages.
+The personal site of Ben Balter. Built with Astro and hosted on Cloudflare Workers (static assets).
 
 ## Setup
 
@@ -15,7 +15,7 @@ The Astro setup is configured to:
 - Support **TypeScript** for type-safe components
 - Export to `dist-astro/` directory
 - Run development server on port 4321
-- Full Cloudflare Pages compatibility with trailing slashes and directory-based URLs
+- Full Cloudflare Workers static-asset compatibility with trailing slashes and directory-based URLs
 
 ### Commands
 
@@ -40,7 +40,7 @@ See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
 This repository includes a VS Code Dev Container configuration for a consistent development environment. The devcontainer includes:
 
-- **Node.js 24** (for build tools)
+- **Node.js 22+** (CI uses 24)
 - **Playwright** with Chromium for E2E testing
 - **VS Code extensions** for JavaScript, Markdown, YAML, and more
 

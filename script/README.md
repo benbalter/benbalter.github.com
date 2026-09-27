@@ -37,12 +37,13 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
-| `super-linter` | Run [GitHub Super Linter](https://github.com/super-linter/super-linter) locally via Docker | `script/super-linter` | To replicate CI linting locally |
+| `super-linter` | Run [GitHub Super Linter](https://github.com/super-linter/super-linter) locally via Docker (not part of CI) | `script/super-linter` | For an optional broad lint sweep |
 
 ### SEO and validation
 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
+| `validate-redirects` | Check `public/_redirects` syntax (field count, status codes, duplicate sources, loops) | `script/validate-redirects` | After editing `_redirects` |
 | `validate-seo.ts` | Check all pages for SEO issues (missing titles, duplicate titles, meta descriptions, heading hierarchy, image alt text) | `npm run validate-seo` | Before publishing new content |
 | `check-content-integrity.ts` | Flag post changes that go beyond prose: >10% word loss, or any edit to code blocks, inline code, scripts/styles, URLs, or blockquote text. Fails only for bulk diffs (6+ posts) without a `Content-Integrity: reviewed` commit trailer; smaller diffs get warnings | `npm run check-content-integrity -- --base=<ref>` | Runs in CI; run locally before committing any automated pass over the archive |
 
@@ -53,6 +54,15 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | `alphabetize-dictionary` | Sort and deduplicate entries in `dictionary.txt` (used by spellcheck) | `script/alphabetize-dictionary` | After adding words to the dictionary |
 | `branding` | Print the ASCII art banner | `script/branding` | Called by `bootstrap` and `cibuild-content` |
 | `title` | Print a section-title banner (used by `cibuild-content` to separate steps) | `script/title "step name"` | Called internally by other scripts |
+| `new` | Scaffold a new post in `src/content/posts/` | `script/new <title>` | When starting a post |
+| `changed-content` | Print Markdown content files changed between two commits | `script/changed-content <base> <head>` | Used by CI to lint only what a PR touched |
+| `build-remote-image-dimensions` | Cache dimensions of remote `<img>` URLs for `inject-image-size` | `script/build-remote-image-dimensions` | After adding posts with remote images |
+| `update-ai-tells` / `vale-ai-tells` | Bump the pinned `vale-ai-tells` release; run its advisory, non-gating check | `script/update-ai-tells`, `script/vale-ai-tells` | Run by `update-ai-tells.yml`; advisory locally |
+| `analytics.mjs` | Print a Cloudflare Web Analytics (RUM) report | `node script/analytics.mjs` | Ad hoc traffic checks |
+| `design-shots.mjs` | Screenshot key pages for design review | `node script/design-shots.mjs` | Before and after visual changes |
+| `email-broadcast.mjs` | Send a Kit broadcast for newly published posts | Run by `email-broadcast.yml` | Automatic after deploy |
+| `standard-site/` | Publish posts to AT Protocol (standard.site) | `npm run standard-site:*` | Automatic after deploy; manual for backfills |
+| `foundry-*.ts` | Azure AI Foundry batch passes over the archive (QA, fixes, classification, interlinks, engagement, drafts) | `npx tsx script/foundry-<name>.ts` | Ad hoc archive audits |
 
 ## Prerequisites
 

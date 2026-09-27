@@ -7,8 +7,7 @@ script/branding
 
 script/title "checking markdown"
 # Check-only (no --fix): markdownlint must FAIL CI on violations. script/remark
-# is the local auto-fixer; it swallows failures (no set -e, ends on fix-lint),
-# so it can't gate. cibuild-content runs under `set -e`, so a non-zero exit here
+# is report-only and has no set -e, so it can't gate. cibuild-content runs under `set -e`, so a non-zero exit here
 # fails the job.
 npm run lint-md-check
 
