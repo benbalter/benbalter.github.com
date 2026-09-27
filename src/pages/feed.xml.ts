@@ -36,15 +36,8 @@ const markdownProcessor = unified({
 });
 
 export async function GET(context: APIContext) {
-  // Get all published posts, sorted by date (newest first)
-  const posts = await getPublishedPosts();
-  
-  // Sort posts by filename date (newest first)
-  const sortedPosts = posts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
-    const dateA = getDateFromSlug(a.id);
-    const dateB = getDateFromSlug(b.id);
-    return dateB.getTime() - dateA.getTime();
-  });
+  // Published posts, newest first
+  const sortedPosts = await getPublishedPosts({ sorted: true });
 
   // Await the markdown processor initialization
   const processor = await markdownProcessor;

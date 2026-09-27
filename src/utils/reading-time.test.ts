@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { calculateReadingTime, formatReadingTime } from './reading-time';
+import { calculateReadingTime, calculateWordCount, formatReadingTime } from './reading-time';
 
 describe('calculateReadingTime', () => {
   it('should return 0 for empty content', () => {
@@ -109,6 +109,30 @@ describe('calculateReadingTime', () => {
     const content = `${body}[^1]\n\n[^1]: ${line1}\n    ${line2}\n\nTrailing paragraph.`;
     // Reading time should reflect body + trailing only, not the 300 footnote words.
     expect(calculateReadingTime(content)).toBe(1);
+  });
+});
+
+describe('rendered HTML matches the Markdown source', () => {
+  const prose = Array.from({ length: 400 }, (_, i) => `word${i}`).join(' ');
+  const notes = Array.from({ length: 600 }, (_, i) => `note${i}`).join(' ');
+
+  it('ignores a rendered footnotes section', () => {
+    const html = `<p>${prose}<sup><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<section class="footnotes" aria-label="Footnotes" data-footnotes=""><ol><li id="fn-1"><p>${notes}</p></li></ol></section>`;
+    expect(calculateReadingTime(html)).toBe(calculateReadingTime(`${prose}[^1]\n\n[^1]: ${notes}`));
+  });
+
+  it('does not count tag attributes as words', () => {
+    const wrapped = prose
+      .split(' ')
+      .map((w) => `<abbr class="initialism" title="expanded form here" data-tooltip="x">${w}</abbr>`)
+      .join(' ');
+    expect(calculateWordCount(wrapped)).toBe(calculateWordCount(prose));
+  });
+
+  it('ignores script and style contents', () => {
+    const html = `<p>${prose}</p><script>${notes}</script><style>${notes}</style>`;
+    expect(calculateWordCount(html)).toBe(calculateWordCount(prose));
   });
 });
 

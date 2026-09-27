@@ -6,6 +6,7 @@
  */
 
 import readingTime from 'reading-time';
+import { stripHtmlTags } from './strip-html';
 
 /**
  * Strip markdown footnotes (definitions + inline references) so they don't
@@ -42,6 +43,25 @@ function stripFootnotes(content: string): string {
 }
 
 /**
+ * Reduce Markdown or rendered HTML to the prose a reader actually reads.
+ *
+ * Post pages count their rendered HTML while cards count the raw Markdown
+ * body, so both paths must drop the same things: footnotes (Markdown
+ * `[^1]` refs and definitions, or their rendered `data-footnote-ref` links
+ * and `<section data-footnotes>`),
+ * `<script>`/`<style>` contents, and tag markup, whose attributes otherwise
+ * count as words. Without this, long annotated posts read about twice as long
+ * on their own page as on the cards linking to them.
+ */
+function toCountableText(content: string): string {
+  const withoutHtmlFootnotes = content
+    .replace(/<section\b[^>]*\bdata-footnotes\b[^>]*>[\s\S]*?<\/section>/g, ' ')
+    .replace(/<a\b[^>]*\bdata-footnote-ref\b[^>]*>[\s\S]*?<\/a>/g, '')
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, ' ');
+  return stripHtmlTags(stripFootnotes(withoutHtmlFootnotes), ' ');
+}
+
+/**
  * Calculate reading time for content
  * @param content - The HTML or markdown content to analyze
  * @param wordsPerMinute - Average reading speed (default: 200)
@@ -52,7 +72,7 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200): num
     return 0;
   }
 
-  const cleaned = stripFootnotes(content);
+  const cleaned = toCountableText(content);
   const stats = readingTime(cleaned, { wordsPerMinute });
 
   // Return minutes, ensuring minimum of 1 minute
@@ -62,7 +82,7 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200): num
 /**
  * Calculate the word count for content.
  *
- * Strips footnotes (consistent with reading-time) and uses the reading-time
+ * Strips footnotes and markup (consistent with reading-time) and uses the reading-time
  * library's tokenizer so the word count matches what's used for the
  * reading-time estimate.
  *
@@ -74,7 +94,7 @@ export function calculateWordCount(content: string): number {
     return 0;
   }
 
-  const cleaned = stripFootnotes(content);
+  const cleaned = toCountableText(content);
   const stats = readingTime(cleaned);
   return stats.words;
 }
