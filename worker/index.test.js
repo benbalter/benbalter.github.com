@@ -79,6 +79,12 @@ describe('Markdown content negotiation', () => {
     expect(res.headers.get('Vary')).toBe('Accept');
   });
 
+  it('enforces the recommended referrer policy on page responses', async () => {
+    const env = makeEnv({ '/': '<html>' });
+    const res = await worker.fetch(new Request('https://ben.balter.com/'), env);
+    expect(res.headers.get('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
+  });
+
   it('does not negotiate file assets', async () => {
     const env = makeEnv({ '/feed.xml': '<rss>' });
     const res = await worker.fetch(md('/feed.xml'), env);
