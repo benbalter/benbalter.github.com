@@ -195,10 +195,7 @@ Best of all, since Ansible is idempotent by design, upgrading the underlying dis
 
 Here's the minimum playbook you should use to set up Docker Compose on your Raspberry Pi:
 
-<details class="mb-3">
-<summary>Example Ansible <code>playbook.yml</code> file for running Docker Compose services</summary>
-
-```yml
+```yml title="playbook.yml" {61-68} collapse={3-54}
 - hosts: all
   tasks:
     - name: Install docker dependencies
@@ -268,8 +265,6 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
         remove_orphans: true
       register: output
 ```
-
-</details>
 
 Beyond the above, here are a few nice automations to simplify provisioning and maintenance:
 

@@ -8,6 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import { rehypeFigure } from './rehype-figure';
 
@@ -18,15 +19,15 @@ describe('rehypeFigure', () => {
     .use(rehypeFigure)
     .use(rehypeStringify);
 
-  it('should wrap a standalone image in <figure> with <figcaption>', async () => {
+  it('should keep descriptive alt text accessible without duplicating it as a caption', async () => {
     const markdown = '![A cat sitting on a mat](cat.jpg)';
     const result = await processor.process(markdown);
     const html = String(result);
 
     expect(html).toContain('<figure>');
     expect(html).toContain('<img src="cat.jpg" alt="A cat sitting on a mat">');
-    expect(html).toContain('<figcaption>A cat sitting on a mat</figcaption>');
     expect(html).toContain('</figure>');
+    expect(html).not.toContain('<figcaption>');
     expect(html).not.toContain('<p>');
   });
 
@@ -39,6 +40,20 @@ describe('rehypeFigure', () => {
     expect(html).toContain('<img src="photo.jpg" alt="">');
     expect(html).not.toContain('<figcaption>');
     expect(html).toContain('</figure>');
+  });
+
+  it('should preserve captions authored explicitly in HTML', async () => {
+    const htmlProcessor = unified()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeFigure)
+      .use(rehypeStringify);
+    const result = await htmlProcessor.process(
+      '<figure><img src="cat.jpg" alt="A cat"><figcaption>A cat on a mat</figcaption></figure>',
+    );
+
+    expect(String(result)).toContain('<figcaption>A cat on a mat</figcaption>');
   });
 
   it('should not wrap images mixed with text in a paragraph', async () => {
@@ -58,8 +73,9 @@ describe('rehypeFigure', () => {
 
     const figureCount = (html.match(/<figure>/g) || []).length;
     expect(figureCount).toBe(2);
-    expect(html).toContain('<figcaption>First</figcaption>');
-    expect(html).toContain('<figcaption>Second</figcaption>');
+    expect(html).toContain('alt="First"');
+    expect(html).toContain('alt="Second"');
+    expect(html).not.toContain('<figcaption>');
   });
 
   it('should not affect non-image paragraphs', async () => {
