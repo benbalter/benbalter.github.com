@@ -330,7 +330,16 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  * Handles both single schemas and arrays of schemas
  */
 export function schemaToJsonLd(schema: SiteSchema | SiteSchema[]): string {
-  return JSON.stringify(schema, null, 2);
+  return escapeJsonForScript(JSON.stringify(schema, null, 2));
+}
+
+/**
+ * Escape `<` in serialized JSON so a string value containing `</script>` can't
+ * close the inline <script type="application/ld+json"> it's rendered into.
+ * `\u003c` is the same character to any JSON parser.
+ */
+function escapeJsonForScript(json: string): string {
+  return json.replace(/</g, '\\u003c');
 }
 
 /**
@@ -347,7 +356,7 @@ export function schemaToGraphJsonLd(schemas: SiteSchema[]): string {
       return rest as Thing;
     }),
   };
-  return JSON.stringify(graph, null, 2);
+  return escapeJsonForScript(JSON.stringify(graph, null, 2));
 }
 
 /**

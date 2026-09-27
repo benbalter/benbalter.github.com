@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
-  escapeHtml,
   handleResultNavigation,
   moveSelection,
   noResultsMessage,
@@ -33,12 +32,6 @@ function key(target: HTMLElement, k: string) {
   target.dispatchEvent(e);
   return e;
 }
-
-describe('escapeHtml', () => {
-  it('escapes markup characters', () => {
-    expect(escapeHtml('<img src=x onerror="alert(1)">&')).toBe('&lt;img src=x onerror="alert(1)"&gt;&amp;');
-  });
-});
 
 describe('noResultsMessage', () => {
   it('escapes the query it echoes back', () => {

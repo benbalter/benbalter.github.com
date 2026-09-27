@@ -13,6 +13,14 @@ import {
 } from './structured-data';
 
 describe('schemaToJsonLd', () => {
+  it('escapes < so string values cannot close the script tag', () => {
+    const schema = { ...generatePersonSchema(), name: '</script><script>alert(1)</script>' };
+    for (const jsonLd of [schemaToJsonLd(schema), schemaToGraphJsonLd([schema])]) {
+      expect(jsonLd).not.toContain('<');
+      expect(JSON.stringify(JSON.parse(jsonLd))).toContain('</script><script>alert(1)</script>');
+    }
+  });
+
   it('should convert schema to JSON-LD string', () => {
     const schema = generatePersonSchema();
     const jsonLd = schemaToJsonLd(schema);
