@@ -27,13 +27,11 @@ function extractWords(text: string): string[] {
     return [];
   }
   
-  const withoutFrontMatter = text
-    .toLowerCase()
-    // Remove YAML front matter
-    .replace(/^---[\s\S]*?---/m, ' ');
-
+  // Callers pass titles, descriptions, and `post.body`, which Astro already
+  // returns without front matter, so there's nothing to strip here. (A
+  // front-matter regex would also eat prose between `---` thematic breaks.)
   // Remove HTML tags (repeat-until-stable, so nested fragments can't survive)
-  return stripHtmlTags(withoutFrontMatter, ' ')
+  return stripHtmlTags(text.toLowerCase(), ' ')
     // Remove URLs
     .replace(/https?:\/\/[^\s]+/g, ' ')
     // Remove code blocks
