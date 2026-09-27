@@ -29,6 +29,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { execFileSync } from 'child_process';
+import matter from 'gray-matter';
 import {
   hasFlag,
   intFlag,
@@ -325,20 +326,8 @@ function stripEchoedFrontmatter(body: string): string {
 function assembleMarkdown(title: string, description: string, body: string): string {
   body = stripEchoedFrontmatter(body);
   // Deterministic, valid front matter — the model supplies prose, not YAML.
-  // Escape backslashes before quotes so a literal `\` in the prose can't
-  // combine with the following char to break out of the quoted YAML string.
-  const esc = (s: string) =>
-    `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
-  const fm = [
-    '---',
-    `title: ${esc(title)}`,
-    `description: ${esc(description)}`,
-    'published: false',
-    `date: ${TODAY}`,
-    '---',
-    '',
-  ].join('\n');
-  return fm + body.trim() + '\n';
+  // gray-matter's YAML dumper quotes/escapes whatever the model wrote.
+  return matter.stringify(body.trim() + '\n', { title, description, published: false, date: TODAY });
 }
 
 async function draftIdea(idea: Idea, exemplars: Post[]): Promise<DraftResult> {
