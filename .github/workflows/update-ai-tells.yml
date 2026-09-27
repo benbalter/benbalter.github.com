@@ -40,6 +40,10 @@ jobs:
         if: steps.bump.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
+          # PRs opened with the default GITHUB_TOKEN don't trigger other
+          # workflows, so the bump PR would get no CI. A PAT does; fall back to
+          # the default token if the secret is unset.
+          token: ${{ secrets.ACTIONS_TOKEN || github.token }}
           branch: chore/update-ai-tells
           base: main
           title: 'Update ai-tells to ${{ steps.bump.outputs.new }}'
