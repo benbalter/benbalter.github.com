@@ -1,50 +1,9 @@
-/**
- * Copy text to clipboard with fallback for Safari/iPad OS.
- * Safari silently resolves navigator.clipboard.writeText() without actually
- * writing to the clipboard (the promise succeeds but content is blank), so we
- * cannot use the modern Clipboard API with a catch fallback. Instead, we use
- * textarea + execCommand('copy') which works reliably across all browsers.
- */
-export function copyToClipboard(text: string, triggerElement?: Element): boolean {
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'fixed';
-  textarea.style.left = '-9999px';
-  textarea.style.top = '-9999px';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-
-  // iOS/iPad Safari requires both selection methods
-  textarea.select();
-  textarea.setSelectionRange(0, textarea.value.length);
-
-  let success = false;
-  try {
-    // Intentional legacy fallback for browsers without Clipboard API.
-    // Cast through a structural type to silence ts(6387) without removing
-    // the deprecated runtime call, which we still need.
-     
-    const legacyDocument = document as unknown as {
-      execCommand(commandId: string): boolean;
-    };
-    success = legacyDocument.execCommand('copy');
-  } catch {
-    success = false;
-  }
-  document.body.removeChild(textarea);
-
-  // Restore focus to the trigger element after textarea removal
-  if (triggerElement instanceof HTMLElement) {
-    triggerElement.focus();
-  }
-
-  return success;
-}
+import { copyToClipboard } from '../utils/copy-to-clipboard';
+import { onPageLoad } from './on-page-load';
 
 function initCopyButtons() {
   document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       let textToCopy = '';
 
       if (btn.classList.contains('copy-description')) {
@@ -54,7 +13,8 @@ function initCopyButtons() {
         textToCopy = btn.getAttribute('data-copy') || '';
       }
 
-      const success = copyToClipboard(textToCopy, btn);
+      // No awaits before this call: the copy must run inside the click gesture.
+      const success = await copyToClipboard(textToCopy, btn);
 
       if (success) {
         const original = btn.textContent;
@@ -78,5 +38,4 @@ function initCopyButtons() {
 
 // Re-initialize after navigation. Without ClientRouter every navigation is a
 // full page load, so `DOMContentLoaded` (or immediate if ready) is sufficient.
-import { onPageLoad } from './on-page-load';
 onPageLoad(initCopyButtons);

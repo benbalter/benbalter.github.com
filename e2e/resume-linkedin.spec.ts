@@ -105,8 +105,8 @@ test.describe('Resume LinkedIn Format Page', () => {
     expect(newlineCount).toBeGreaterThanOrEqual(bulletCount - 1);
   });
 
-  test('should copy field text to clipboard when copy button is clicked', async ({ page, context }) => {
-    // Grant clipboard permissions for Chromium
+  test('should copy field text to clipboard when copy button is clicked', async ({ page, context, browserName }) => {
+    test.skip(browserName !== 'chromium', 'clipboard permissions are Chromium-only; clipboard.spec.ts covers WebKit');
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
 
     // Click the first non-description copy button (e.g., Title)
@@ -122,7 +122,8 @@ test.describe('Resume LinkedIn Format Page', () => {
     expect(clipboardText).toBe(expectedText);
   });
 
-  test('should restore focus to copy button after clicking', async ({ page, context }) => {
+  test('should restore focus to copy button after clicking', async ({ page, context, browserName }) => {
+    test.skip(browserName !== 'chromium', 'clipboard permissions are Chromium-only; clipboard.spec.ts covers WebKit');
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
 
     const firstCopyBtn = page.locator('.copy-btn').first();

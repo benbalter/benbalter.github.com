@@ -198,7 +198,8 @@ test.describe('Site-wide keyboard shortcuts', () => {
     await expect(page.locator('#shortcuts-modal')).toBeVisible();
   });
 
-  test('y copies the canonical URL and confirms', async ({ page, context }) => {
+  test('y copies the canonical URL and confirms', async ({ page, context, browserName }) => {
+    test.skip(browserName !== 'chromium', 'clipboard permissions are Chromium-only; clipboard.spec.ts covers WebKit');
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
 

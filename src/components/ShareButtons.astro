@@ -3,8 +3,8 @@
  * Share Buttons Component
  *
  * Zero-JavaScript social sharing links for blog posts, plus a small
- * copy-link button that uses the Clipboard API (with a graceful fallback
- * via execCommand for insecure contexts / older browsers).
+ * copy-link button backed by the shared copyToClipboard helper
+ * (src/utils/copy-to-clipboard.ts).
  */
 
 import Icon from './Icon.astro';
@@ -101,7 +101,7 @@ const shareLinks = networks.map((n) => linkDefs[n]);
     const done = button.querySelector<HTMLElement>('.share-copy-done');
     const live = button.querySelector<HTMLElement>('.share-copy-live');
 
-    const ok = await copyToClipboard(url);
+    const ok = await copyToClipboard(url, button);
     const message = ok ? 'Link copied' : 'Copy failed — press Ctrl/Cmd + C';
 
     if (ok && idle && done) {
