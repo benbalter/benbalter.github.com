@@ -13,21 +13,16 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getPostUrlOrNull } from '../utils/post-urls';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
-import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
-import { isListablePost } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
+import { stripHtmlTags } from '../utils/strip-html';
 
 // Constants
-const EXCERPT_LENGTH = 100;
 const CULTURE_POST_ID = '2021-02-01-what-to-read-before-starting-or-interviewing-at-github';
 
 export const GET: APIRoute = async () => {
-  // Fetch listable (published, non-archived) posts, newest first. Post IDs
-  // start with YYYY-MM-DD, so a descending id sort is newest-first.
-  const allPosts = await getCollection('posts', isListablePost);
-  const sortedPosts = [...allPosts].sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-    b.id.localeCompare(a.id),
-  );
-  const recentPosts = sortedPosts.slice(0, 10);
+  // Listable (published, non-archived) posts, newest first
+  const allPosts = await getPublishedPosts({ sorted: true });
+  const recentPosts = allPosts.slice(0, 10);
 
   // Fetch pages from content collection (only has some pages like resume)
   const allPages = await getCollection('pages');
@@ -38,8 +33,7 @@ export const GET: APIRoute = async () => {
 
   // Mini bio - extracted from centralized about-bio.ts
   // getFirstParagraph() converts Markdown links to HTML, so strip HTML for plain text
-  const miniBio = getFirstParagraph(aboutContent)
-    .replace(/<a[^>]*>([^<]*)<\/a>/g, '$1');
+  const miniBio = stripHtmlTags(getFirstParagraph(aboutContent));
 
   // Build the content
   let content = `# ${siteConfig.name}\n\n`;
@@ -67,18 +61,7 @@ export const GET: APIRoute = async () => {
     const postUrl = getPostUrlOrNull(post.id);
     if (!postUrl) continue; // Skip posts with invalid id format
     
-    // Get description or excerpt (first EXCERPT_LENGTH characters of body)
-    let description = post.data.description;
-    if (!description) {
-      const excerpt = stripMdxSyntax(post.body)
-        .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
-        .replace(/[#*`]/g, '')
-        .trim()
-        .substring(0, EXCERPT_LENGTH);
-      description = excerpt + (excerpt.length >= EXCERPT_LENGTH ? '...' : '');
-    }
-    
-    content += `* [${post.data.title}](${siteConfig.url}${postUrl}): ${description}\n`;
+    content += `* [${post.data.title}](${siteConfig.url}${postUrl}): ${post.data.description}\n`;
   }
 
   // Add GitHub Culture section if the post exists
