@@ -30,17 +30,21 @@ const EVENTS = new Set(['subscribe', 'book-cta']);
 
 /**
  * True when the client explicitly asks for Markdown via the Accept header.
- * Only an explicit `text/markdown` media range counts — browsers (text/html,
- * ..., *​/*) and default clients keep getting HTML.
+ * Only an explicit `text/markdown` media range with a non-zero q-value counts.
+ * Browsers (text/html, ..., *​/*), default clients, and `text/markdown;q=0`
+ * (an explicit refusal, RFC 9110 §12.4.2) keep getting HTML.
  * @param {Request} request
  * @returns {boolean}
  */
 function wantsMarkdown(request) {
   const accept = request.headers.get('Accept');
   if (!accept) return false;
-  return accept
-    .split(',')
-    .some((range) => range.trim().toLowerCase().startsWith('text/markdown'));
+  return accept.split(',').some((range) => {
+    const [type, ...params] = range.split(';').map((part) => part.trim().toLowerCase());
+    if (type !== 'text/markdown') return false;
+    const q = params.find((param) => /^q\s*=/.test(param));
+    return q === undefined || Number(q.split('=')[1]) > 0;
+  });
 }
 
 /**
