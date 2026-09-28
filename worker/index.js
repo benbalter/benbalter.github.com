@@ -2,7 +2,7 @@
  * Cloudflare Worker entry: static assets + first-party engagement events +
  * Markdown content negotiation.
  *
- * `assets.run_worker_first` (wrangler.json) routes page requests through this
+ * `assets.runWorkerFirst` (cloudflare.config.ts) routes page requests through this
  * Worker before the assets layer (static asset buckets like /assets/* are
  * excluded and served directly). Requests are handled as follows:
  *   - `POST /api/event` records a conversion event (e.g. newsletter subscribe,

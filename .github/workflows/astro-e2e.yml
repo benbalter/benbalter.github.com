@@ -19,7 +19,8 @@ on:
       - 'script/inject-*'
       - 'script/remote-image-dimensions.json'
       - 'worker/**'
-      - 'wrangler.json'
+      - 'cloudflare.config.ts'
+      - 'wrangler.config.ts'
       - '.github/workflows/astro-e2e.yml'
   pull_request:
     paths:
@@ -37,7 +38,8 @@ on:
       - 'script/inject-*'
       - 'script/remote-image-dimensions.json'
       - 'worker/**'
-      - 'wrangler.json'
+      - 'cloudflare.config.ts'
+      - 'wrangler.config.ts'
       - '.github/workflows/astro-e2e.yml'
 
 permissions:

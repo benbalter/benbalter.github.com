@@ -4,13 +4,14 @@ This document explains how the site is deployed to Cloudflare Workers using Work
 
 ## Overview
 
-The site is deployed directly to Cloudflare Workers via Wrangler. Cloudflare Workers Static Assets automatically handles serving static files, so no manual cache purging is needed.
+The site is deployed directly to Cloudflare Workers via the [`cf` CLI](https://blog.cloudflare.com/cloudflare-cf-cli-launch/). Cloudflare Workers Static Assets automatically handles serving static files, so no manual cache purging is needed.
 
 ## How It Works
 
 1. **Build**: GitHub Actions builds the Astro site, outputting static files to `dist-astro/`
-2. **Deploy**: The `cloudflare/wrangler-action` runs `npx wrangler deploy` to upload the build output to Cloudflare Workers
-3. **Cache**: Cloudflare Workers automatically invalidates its cache on each new deployment. Astro also generates content-hashed filenames for JS/CSS assets (e.g., `global.E-nqILv5.css`), providing additional cache busting.
+2. **Bundle**: `npx cf-wrangler build` bundles the Worker and copies `dist-astro/` into `.cloudflare/output/`
+3. **Deploy**: `npx cf deploy --prebuilt` uploads that output to Cloudflare Workers. `--prebuilt` matters: cf detects Astro and would otherwise run bare `astro build`, skipping pagefind and the inject scripts
+4. **Cache**: Cloudflare Workers automatically invalidates its cache on each new deployment. Astro also generates content-hashed filenames for JS/CSS assets (e.g., `global.E-nqILv5.css`), providing additional cache busting.
 
 ## Configuration
 
@@ -37,18 +38,12 @@ The deployment workflow requires two GitHub repository secrets:
 
 ### Project Configuration
 
-The Cloudflare Workers project is configured in `wrangler.json`:
+The Cloudflare Workers project is configured in two files:
 
-```json
-{
-  "name": "benbalter-github-com",
-  "assets": {
-    "directory": "./dist-astro",
-    "not_found_handling": "404-page"
-  },
-  "compatibility_date": "2025-03-19"
-}
-```
+- `cloudflare.config.ts`: the Worker itself (name, entrypoint, bindings, `runWorkerFirst` routing, observability)
+- `wrangler.config.ts`: build-tool settings for Wrangler, which `cf` delegates to (the `dist-astro/` assets directory)
+
+To deploy locally: `npm run build && npx cf-wrangler build && npx cf deploy --prebuilt`.
 
 ### Custom Domain
 

@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: "deploy"
-  # Never cancel a running deploy: killing `wrangler deploy` mid-upload can
+  # Never cancel a running deploy: killing `cf deploy` mid-upload can
   # leave a partial release. A newer push still replaces any queued run.
   cancel-in-progress: false
 
@@ -109,8 +109,14 @@ jobs:
       - name: Validate built _redirects
         run: script/validate-redirects dist-astro/_redirects
 
+      # cf detects Astro and would run bare `astro build` (skipping pagefind and
+      # the inject scripts), so build above with npm, let Wrangler's cf delegate
+      # bundle the Worker into .cloudflare/output, then deploy that as-is.
+      - name: Bundle Worker build output
+        run: npx cf-wrangler build
+
       - name: Deploy to Cloudflare Workers
-        run: npx wrangler deploy
+        run: npx cf deploy --prebuilt
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
