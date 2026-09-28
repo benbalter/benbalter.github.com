@@ -86,6 +86,26 @@ describe('Markdown content negotiation', () => {
     expect(res.headers.get('Vary')).toBe('Accept');
   });
 
+  it('serves HTML when text/markdown is refused with q=0', async () => {
+    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
+    for (const accept of ['text/markdown;q=0', 'text/html, text/markdown; q=0.0', 'TEXT/MARKDOWN ; Q=0']) {
+      const res = await worker.fetch(md('/about/', { headers: { Accept: accept } }), env);
+      expect(await res.text()).toBe('<html>');
+    }
+  });
+
+  it('serves Markdown for a non-zero q-value', async () => {
+    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
+    const res = await worker.fetch(md('/about/', { headers: { Accept: 'text/html;q=0.9, text/markdown;q=0.5' } }), env);
+    expect(await res.text()).toBe('# About');
+  });
+
+  it('does not treat other media types with a text/markdown prefix as Markdown', async () => {
+    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
+    const res = await worker.fetch(md('/about/', { headers: { Accept: 'text/markdown-foo' } }), env);
+    expect(await res.text()).toBe('<html>');
+  });
+
   it('enforces the recommended referrer policy on page responses', async () => {
     const env = makeEnv({ '/': '<html>' });
     const res = await worker.fetch(new Request('https://ben.balter.com/'), env);

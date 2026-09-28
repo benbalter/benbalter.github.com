@@ -36,6 +36,20 @@ describe('getDocumentRkey', () => {
     expect(a).toBe(b);
   });
 
+  // Golden values produced by the original hand-rolled encoder. Published
+  // records (and the AT-URIs in every built page) use these keys, so any
+  // encoder change must reproduce them byte-for-byte.
+  it.each([
+    ['2010-09-12-wordpress-resume-plugin', '2010-09-12', '36k2mong222bc'],
+    ['2026-06-15-my-post', '2026-06-15', '3moby2z4c22gr'],
+    ['2026-06-15-second-post', '2026-06-15', '3moby2z4c22ep'],
+    ['2020-02-29-leap-day', '2020-02-29', '3gzpildus22du'],
+    ['post-id', '2026-07-20T12:34:56Z', '3mr3cl5ur22j5'],
+    ['2099-12-31-far-future', '2099-12-31', '5on4ezmss227e'],
+  ])('keeps the published key for %s', (postId, date, expected) => {
+    expect(getDocumentRkey(postId, new Date(date))).toBe(expected);
+  });
+
   it('sorts lexicographically by publish time', () => {
     const earlier = getDocumentRkey('post', new Date('2026-06-15'));
     const later = getDocumentRkey('post', new Date('2026-07-20'));

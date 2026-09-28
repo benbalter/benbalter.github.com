@@ -16,7 +16,7 @@ export default defineConfig({
     environment: 'happy-dom',
     
     // Include test files
-    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'worker/**/*.test.js'],
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'worker/**/*.test.js', 'script/**/*.test.ts'],
     
     // Exclude patterns
     exclude: [

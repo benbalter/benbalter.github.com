@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 import { commitGraphPaths } from './book-cta';
+import { stripMarkdown } from '../utils/strip-markdown';
 
 // Reuse the site's commit-graph motif (also on the book CTAs) as an ownable OG
 // signature. Recolored to the card's blue plus one pink branch — a non-blue pop
@@ -30,7 +31,8 @@ const MOTIF_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60"
 const MOTIF_DATA_URI = `data:image/svg+xml;utf8,${encodeURIComponent(MOTIF_SVG)}`;
 
 // Auto-invalidating cache version: a hash of the source files that determine a
-// card's pixels (this generator, the config, and the shared motif). Any design
+// card's pixels (this generator, the config, the shared motif, and the
+// Markdown stripping applied to the description). Any design
 // or logic change reproduces a new key, so cached cards regenerate without a
 // manual bump. Falls back to a fixed salt if the source isn't readable in this
 // runtime (build-time only reads source; keep the salt as an escape hatch).
@@ -38,7 +40,7 @@ function computeDesignVersion(): string {
   try {
     const dir = dirname(fileURLToPath(import.meta.url));
     const hash = createHash('sha256');
-    for (const file of ['og-image-generator.ts', 'og-config.ts', 'book-cta.ts']) {
+    for (const file of ['og-image-generator.ts', 'og-config.ts', 'book-cta.ts', '../utils/strip-markdown.ts', '../utils/strip-html.ts']) {
       hash.update(readFileSync(join(dir, file)));
     }
     return hash.digest('hex').slice(0, 16);
@@ -158,15 +160,10 @@ async function loadHeadshot(config: OGImageConfig): Promise<string> {
 /**
  * Truncate text to a maximum number of characters
  * Adds ellipsis if truncated
- * Also strips markdown links and formatting
+ * Also strips Markdown formatting
  */
 export function truncateDescription(text: string, maxLength: number = 300): string {
-  // Remove markdown links and formatting
-  const cleanText = text
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // [text](url) -> text
-    .replace(/~~([^~]+)~~/g, '$1')  // ~~strikethrough~~ -> strikethrough
-    .replace(/[*_`]/g, '')  // Remove remaining markdown formatting (* _ `)
-    .trim();
+  const cleanText = stripMarkdown(text);
   
   if (cleanText.length <= maxLength) {
     return cleanText;

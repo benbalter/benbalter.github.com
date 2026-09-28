@@ -1,3 +1,4 @@
+import { escapeHtml } from '../utils/html-escape';
 import { isTypingTarget } from '../utils/is-typing-target';
 
 export interface PagefindResultData {
@@ -226,12 +227,6 @@ export function handleResultNavigation(e: KeyboardEvent) {
       first.click();
     }
   }
-}
-
-export function escapeHtml(str: string) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
 }
 
 function openSearch() {

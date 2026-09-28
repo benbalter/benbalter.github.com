@@ -13,63 +13,46 @@
  * Run after `astro build`, before pagefind.
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { globSync } from 'glob';
+import { init, parse } from 'es-module-lexer';
 
-const DIST_DIR = resolve(import.meta.dirname, '..', 'dist-astro');
+// Optional first argument overrides the output directory (used by tests).
+const DIST_DIR = resolve(process.argv[2] ?? resolve(import.meta.dirname, '..', 'dist-astro'));
 
-function walkHtmlFiles(dir, files = []) {
-  for (const entry of readdirSync(dir)) {
-    const full = resolve(dir, entry);
-    if (statSync(full).isDirectory()) {
-      walkHtmlFiles(full, files);
-    } else if (entry.endsWith('.html')) {
-      files.push(full);
-    }
-  }
-  return files;
-}
+await init;
 
-// Extract static imports from a JS file (one level deep)
+// Extract static relative imports (one level deep), including side-effect
+// imports like import"./x.js" and re-exports like export*from"./x.js".
+// Dynamic imports are skipped: they load on demand, so preloading them would
+// fetch code the page may never run.
 function getStaticImports(jsPath) {
+  let code;
   try {
-    const code = readFileSync(jsPath, 'utf8');
-    const imports = [];
-    // Match minified: import{x}from"./chunk.js" or import"./chunk.js"
-    const re = /from\s*["'](\.[^"']+)["']/g;
-    let m;
-    while ((m = re.exec(code)) !== null) {
-      imports.push(m[1]);
-    }
-    return imports;
+    code = readFileSync(jsPath, 'utf8');
+  } catch {
+    return [];
+  }
+  try {
+    const [imports] = parse(code);
+    return imports
+      .filter((imp) => imp.d === -1 && imp.n && /^\.{1,2}\//.test(imp.n))
+      .map((imp) => imp.n);
   } catch {
     return [];
   }
 }
 
-// Resolve a relative import path to an absolute URL path
+// Resolve a relative import against the importing script's URL path
 function resolveImportUrl(scriptUrl, relImport) {
-  const scriptDir = scriptUrl.substring(0, scriptUrl.lastIndexOf('/'));
-  // Simple resolution for ./foo.js style imports
-  if (relImport.startsWith('./')) {
-    return scriptDir + '/' + relImport.slice(2);
-  }
-  if (relImport.startsWith('../')) {
-    const parts = scriptDir.split('/');
-    let rel = relImport;
-    while (rel.startsWith('../')) {
-      parts.pop();
-      rel = rel.slice(3);
-    }
-    return parts.join('/') + '/' + rel;
-  }
-  return relImport;
+  return new URL(relImport, new URL(scriptUrl, 'https://placeholder.invalid')).pathname;
 }
 
 let totalModified = 0;
 let totalPreloads = 0;
 
-const htmlFiles = walkHtmlFiles(DIST_DIR);
+const htmlFiles = globSync('**/*.html', { cwd: DIST_DIR, absolute: true, dot: true });
 
 for (const htmlFile of htmlFiles) {
   let html = readFileSync(htmlFile, 'utf8');

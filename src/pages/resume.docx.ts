@@ -29,6 +29,7 @@ import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
 import { RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
 import { siteConfig } from '../config';
+import { stripHtmlComments } from '../utils/strip-html';
 
 // Brand palette (mirrors the print résumé at /resume/print). NAVY is the deep
 // sidebar color; ACCENT/ACCENT_DARK are the blue used for rules, dates, links.
@@ -132,13 +133,7 @@ function listItemInline(item: Tokens.ListItem): Token[] {
 
 /** Strip HTML comments (markdownlint directives) and trailing whitespace. */
 function cleanHeading(text: string): string {
-  let current = text;
-  let previous: string;
-  do {
-    previous = current;
-    current = current.replace(/<!--[\s\S]*?-->/g, '');
-  } while (current !== previous);
-  return current.trim();
+  return stripHtmlComments(text).trim();
 }
 
 /** Render a position's markdown body to a flat list of docx Paragraphs. */

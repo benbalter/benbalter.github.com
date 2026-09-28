@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { normalizePath, isPostLink, escapeHtml } from './link-previews';
+import { normalizePath, isPostLink } from './link-previews';
 
 describe('normalizePath', () => {
   it('returns path and empty hash for path with trailing slash', () => {
@@ -184,43 +184,5 @@ describe('isPostLink', () => {
     // Pattern starts with ^/ and requires 4-digit year, 2-digit month/day
     const anchor = createAnchor('/blog/2024/01/15/my-post/');
     expect(isPostLink(anchor)).toBe(false);
-  });
-});
-
-describe('escapeHtml', () => {
-  // Note: This is a DOM-based escaper (textContent → innerHTML).
-  // It escapes <, >, and & but does NOT escape quotes in text content,
-  // unlike the string-based escapeHtml in src/utils/html-escape.ts.
-
-  it('escapes less-than signs', () => {
-    expect(escapeHtml('<')).toBe('&lt;');
-  });
-
-  it('escapes greater-than signs', () => {
-    expect(escapeHtml('>')).toBe('&gt;');
-  });
-
-  it('escapes ampersands', () => {
-    expect(escapeHtml('&')).toBe('&amp;');
-  });
-
-  it('returns empty string for empty input', () => {
-    expect(escapeHtml('')).toBe('');
-  });
-
-  it('does not alter plain text without special characters', () => {
-    expect(escapeHtml('Hello World')).toBe('Hello World');
-  });
-
-  it('escapes a full HTML tag string', () => {
-    const result = escapeHtml('<script>alert("xss")</script>');
-    expect(result).toContain('&lt;script&gt;');
-    expect(result).toContain('&lt;/script&gt;');
-    expect(result).not.toContain('<script>');
-  });
-
-  it('escapes mixed content with ampersands and angle brackets', () => {
-    const result = escapeHtml('A < B & C > D');
-    expect(result).toBe('A &lt; B &amp; C &gt; D');
   });
 });

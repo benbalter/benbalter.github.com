@@ -13,15 +13,24 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { parseArgs } from 'node:util';
 import { glob } from 'glob';
 import matter from 'gray-matter';
 import { getPostUrlOrNull } from '../../src/utils/post-urls';
 
 // ---------------------------------------------------------------- CLI args ---
-export const hasFlag = (argv: string[], f: string) => argv.includes(f);
+// Each script declares its flags ad hoc, so parse leniently (strict: false) for
+// just the one flag asked about; other flags and positionals are ignored.
+const parseFlag = (argv: string[], f: string, type: 'boolean' | 'string') => {
+  const name = f.replace(/^--/, '');
+  return parseArgs({ args: argv, options: { [name]: { type } }, strict: false, allowPositionals: true }).values[name];
+};
+export const hasFlag = (argv: string[], f: string) => parseFlag(argv, f, 'boolean') === true;
+/** String flag value (`--f value` or `--f=value`), or `d` if absent/empty. A
+ *  following flag (`--f --other`) isn't taken as the value. */
 export const flagVal = (argv: string[], f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
+  const v = parseFlag(argv, f, 'string');
+  return typeof v === 'string' && v && !v.startsWith('--') ? v : d;
 };
 
 /** Like flagVal, but validated as a positive integer. A bad value (e.g.

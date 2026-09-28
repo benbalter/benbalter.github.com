@@ -6,7 +6,7 @@
  */
 
 import type { CollectionEntry } from 'astro:content';
-import { stripHtmlTags } from './strip-html';
+import { markdownToText } from './strip-markdown';
 
 /**
  * Stop words to exclude from analysis (common English words)
@@ -27,27 +27,13 @@ function extractWords(text: string): string[] {
     return [];
   }
   
-  const withoutFrontMatter = text
+  // Prose only: markup, code, images, and footnotes are dropped, links keep
+  // their text. (Callers pass titles, descriptions, and `post.body`, which
+  // Astro already returns without front matter.)
+  return markdownToText(text, { code: false })
     .toLowerCase()
-    // Remove YAML front matter
-    .replace(/^---[\s\S]*?---/m, ' ');
-
-  // Remove HTML tags (repeat-until-stable, so nested fragments can't survive)
-  return stripHtmlTags(withoutFrontMatter, ' ')
-    // Remove URLs
+    // Remove URLs (bare or autolinked URLs survive as link text)
     .replace(/https?:\/\/[^\s]+/g, ' ')
-    // Remove code blocks
-    .replace(/```[\s\S]*?```/g, ' ')
-    // Remove inline code
-    .replace(/`[^`]*`/g, ' ')
-    // Remove markdown image syntax ![alt](url)
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    // Remove markdown link URLs, keeping link text: [text](url) → text
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    // Remove footnote references [^1]
-    .replace(/\[\^[^\]]*\]/g, ' ')
-    // Remove markdown heading markers
-    .replace(/^#{1,6}\s+/gm, '')
     // Remove punctuation except apostrophes
     .replace(/[^\w\s']/g, ' ')
     // Split on whitespace

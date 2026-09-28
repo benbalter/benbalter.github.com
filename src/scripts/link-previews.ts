@@ -13,6 +13,8 @@
 
 import { autoUpdate, computePosition, flip, offset, shift, size } from '@floating-ui/dom';
 
+import { escapeHtml } from '../utils/html-escape';
+
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
 const POST_URL_PATTERN = /^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/?/;
 
@@ -220,12 +222,6 @@ function renderCard(meta: PostMeta, hash: string) {
     <div class="link-preview-description">${escapeHtml(meta.description)}</div>
     ${sectionHtml}
   `;
-}
-
-export function escapeHtml(str: string): string {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
 }
 
 async function showPreview(anchor: HTMLAnchorElement) {
