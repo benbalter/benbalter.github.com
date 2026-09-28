@@ -9,10 +9,11 @@
  * and intraword underscores like `snake_case` survive intact.
  */
 
-import type { Nodes, Parent, Root, Text } from 'mdast';
+import type { Nodes, Root } from 'mdast';
 import { toString } from 'mdast-util-to-string';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
+import stripMarkdownPlugin, { type Options as StripOptions } from 'strip-markdown';
 import { unified } from 'unified';
 import { SKIP, visit } from 'unist-util-visit';
 import { stripHtmlTags } from './strip-html';
@@ -25,7 +26,27 @@ export interface MarkdownToTextOptions {
   code?: boolean;
 }
 
-const processor = unified().use(remarkParse).use(remarkGfm);
+/**
+ * strip-markdown options. Its defaults already drop footnotes, definitions,
+ * and front matter; on top of that, keep table text, drop images (their alt
+ * text is not prose), and reduce raw HTML to its text content.
+ */
+function stripOptions(code: boolean): StripOptions {
+  return {
+    keep: code ? ['code', 'table', 'tableCell'] : ['table', 'tableCell'],
+    remove: [
+      'image',
+      'imageReference',
+      ['html', (node) => ({ type: 'text', value: stripHtmlTags(node.value ?? '', ' ') })],
+      ...(code ? [] : (['inlineCode'] as const)),
+    ],
+  };
+}
+
+const processors = {
+  code: unified().use(remarkParse).use(remarkGfm).use(stripMarkdownPlugin, stripOptions(true)),
+  prose: unified().use(remarkParse).use(remarkGfm).use(stripMarkdownPlugin, stripOptions(false)),
+};
 
 /** Nodes whose text is a single run of prose, emitted as one chunk. */
 const TEXT_BLOCKS = new Set(['paragraph', 'heading', 'tableCell']);
@@ -44,36 +65,14 @@ export function markdownToText(markdown: string, { code = true }: MarkdownToText
     return '';
   }
 
+  const processor = code ? processors.code : processors.prose;
   const tree = processor.runSync(processor.parse(markdown)) as Root;
-
-  // Rewrite or drop nodes before extracting text.
-  visit(tree, (node, index, parent: Parent | undefined) => {
-    if (!parent || index === undefined) return;
-    const drop =
-      node.type === 'footnoteReference' ||
-      node.type === 'footnoteDefinition' ||
-      node.type === 'definition' ||
-      node.type === 'image' ||
-      node.type === 'imageReference' ||
-      (!code && (node.type === 'code' || node.type === 'inlineCode'));
-    if (drop) {
-      parent.children.splice(index, 1);
-      return [SKIP, index];
-    }
-    if (node.type === 'html' || node.type === 'break') {
-      const value = 'value' in node && typeof node.value === 'string' ? stripHtmlTags(node.value, ' ') : ' ';
-      const text: Text = { type: 'text', value };
-      parent.children.splice(index, 1, text);
-      return SKIP;
-    }
-    return undefined;
-  });
 
   const chunks: string[] = [];
   visit(tree, (node: Nodes) => {
     if (TEXT_BLOCKS.has(node.type) || node.type === 'code' || node.type === 'text') {
-      // Headings, paragraphs, and cells are phrasing containers: toString
-      // joins their inline children without adding spaces inside words.
+      // Paragraphs and cells are phrasing containers: toString joins their
+      // inline children without adding spaces inside words.
       chunks.push(toString(node, { includeImageAlt: false }));
       return SKIP;
     }

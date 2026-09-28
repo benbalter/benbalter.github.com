@@ -1,15 +1,16 @@
 /**
  * Rehype plugin to wrap standalone images in <figure> elements
  *
- * Replaces <p><img></p> patterns with <figure><img><figcaption></figure>,
- * using the image's alt text as the figcaption content.
+ * Replaces <p><img></p> patterns with <figure><img></figure>. Image alt text
+ * stays an accessible description; visible captions must be authored as
+ * <figcaption> content instead of being duplicated from alt text.
  *
  * This replaces rehype-unwrap-images with proper semantic HTML.
  * Must run after rehype-raw so raw HTML images are proper elements.
  */
 
 import { visit } from 'unist-util-visit';
-import type { Root, Element, Text } from 'hast';
+import type { Root, Element } from 'hast';
 
 export function rehypeFigure() {
   return (tree: Root) => {
@@ -26,29 +27,11 @@ export function rehypeFigure() {
       const img = meaningful[0];
       if (img.type !== 'element' || img.tagName !== 'img') return;
 
-      const alt = String(img.properties?.alt || '').trim();
-
-      const figcaptionChildren: Text[] = alt
-        ? [{ type: 'text', value: alt }]
-        : [];
-
       const figure: Element = {
         type: 'element',
         tagName: 'figure',
         properties: {},
-        children: [
-          img,
-          ...(figcaptionChildren.length
-            ? [
-                {
-                  type: 'element' as const,
-                  tagName: 'figcaption',
-                  properties: {},
-                  children: figcaptionChildren,
-                } satisfies Element,
-              ]
-            : []),
-        ],
+        children: [img],
       };
 
       parent.children[index] = figure;

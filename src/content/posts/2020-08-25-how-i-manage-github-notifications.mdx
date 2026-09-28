@@ -75,7 +75,7 @@ While not GitHub-notification specific, [gmailctl](https://github.com/mbrt/gmail
 <details markdown="1">
   <summary>Filters</summary>
 
-```jsonnet
+```jsonnet title="filters.jsonnet" {20-23,26-29}
 // Non-@mention GitHub notifications
 local notifications = [
   { type: 'assign', label: 'assign' },

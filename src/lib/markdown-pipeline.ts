@@ -24,7 +24,7 @@ import { remarkObjectionDirectives } from './remark-objection-directives';
 import { remarkQuoteDirective } from './remark-quote-directive';
 import { remarkDirectiveFallback } from './remark-directive-fallback';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
-import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
+import { rehypeTailwindTables } from './rehype-tailwind-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
 import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
@@ -106,7 +106,7 @@ export const sharedRehypePlugins = [
   rehypeAccessibleEmojis,
   rehypeRelativeUrls,
   rehypeRaw,
-  rehypeBootstrapTables,
+  rehypeTailwindTables,
   rehypeFigure,
   rehypeFootnoteA11y,
   rehypeImageLoading,
@@ -130,7 +130,7 @@ export function syndicationRehypePlugins(siteUrl: string) {
     rehypeSlug,
     rehypeAccessibleEmojis,
     rehypeRaw,
-    rehypeBootstrapTables,
+    rehypeTailwindTables,
     rehypeFigure,
     rehypeImageLoading,
     // Degrade web-only media (<style>, <video>, <audio>) to email-safe fallbacks.

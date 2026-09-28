@@ -7,6 +7,7 @@ import favicons from 'astro-favicons';
 import compress from '@playform/compress';
 import checks from '@nuasite/checks';
 import expressiveCode from 'astro-expressive-code';
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 import AutoImport from 'astro-auto-import';
 import pdf from 'astro-pdf';
 import { preview as astroPreview } from 'astro';
@@ -227,6 +228,10 @@ export default defineConfig({
     // Expressive Code for enhanced code blocks (must be before mdx)
     expressiveCode({
       themes: ['github-light', 'github-dark'],
+      plugins: [pluginCollapsibleSections()],
+      defaultProps: {
+        collapseStyle: 'collapsible-auto',
+      },
       styleOverrides: {
         borderRadius: '0.375rem',
       },

@@ -1422,8 +1422,9 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
  * Tooltip cards shown when hovering internal post links
  * ============================================================================ */
 .link-preview-card {
-  position: absolute;
+  position: fixed;
   z-index: 50;
+  width: 320px;
   max-width: 320px;
   padding: 0.75rem 1rem;
   background: white;

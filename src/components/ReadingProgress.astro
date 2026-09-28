@@ -89,18 +89,24 @@ const { readingTime = 0 } = Astro.props;
       }
     }
 
-    cacheBodyMetrics();
+    function refresh() {
+      cacheBodyMetrics();
+      updateProgress();
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => {
-      cacheBodyMetrics();
-      updateProgress();
-    }, { passive: true });
-    // Recompute after images/fonts settle.
-    window.addEventListener('load', () => {
-      cacheBodyMetrics();
-      updateProgress();
-    });
-    updateProgress();
+    // Viewport height changes the scroll range without resizing the body.
+    window.addEventListener('resize', () => requestAnimationFrame(refresh), { passive: true });
+
+    // Measure from a ResizeObserver rather than synchronously at startup:
+    // its callback runs after layout, so reading geometry there doesn't
+    // force a reflow (Lighthouse flagged ~64ms of forced reflow here). It
+    // fires once on observe and again as images and fonts settle.
+    if (bodyEl && 'ResizeObserver' in window) {
+      new ResizeObserver(refresh).observe(bodyEl);
+    } else {
+      requestAnimationFrame(refresh);
+    }
   }
 
   initReadingProgress();

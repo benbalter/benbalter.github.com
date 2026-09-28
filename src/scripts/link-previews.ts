@@ -11,6 +11,8 @@
  * - Initializes on DOMContentLoaded (or immediately if already loaded)
  */
 
+import { autoUpdate, computePosition, flip, offset, shift, size } from '@floating-ui/dom';
+
 import { escapeHtml } from '../utils/html-escape';
 
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
@@ -109,6 +111,7 @@ let card: HTMLDivElement | null = null;
 let showTimer: ReturnType<typeof setTimeout> | null = null;
 let hideTimer: ReturnType<typeof setTimeout> | null = null;
 let activeAnchor: HTMLAnchorElement | null = null;
+let stopPositioning: (() => void) | null = null;
 
 function getOrCreateCard(): HTMLDivElement {
   // Check if card is still in the DOM (View Transitions swap the body)
@@ -144,9 +147,12 @@ function clearHideTimer() {
 function hideCard() {
   clearShowTimer();
   clearHideTimer();
+  stopPositioning?.();
+  stopPositioning = null;
 
   if (card) {
     card.style.display = 'none';
+    card.style.visibility = '';
     card.innerHTML = '';
   }
   activeAnchor = null;
@@ -157,41 +163,46 @@ function scheduleHide() {
   hideTimer = setTimeout(hideCard, HIDE_DELAY);
 }
 
-function positionCard(anchor: HTMLAnchorElement) {
+async function positionCard(anchor: HTMLAnchorElement) {
   if (!card) return;
 
-  const rect = anchor.getBoundingClientRect();
-  const cardWidth = 320;
-  const gap = 8;
+  const floating = card;
+  floating.style.visibility = 'hidden';
+  floating.style.display = 'block';
 
-  // Horizontal: center on link, clamp to viewport
-  let left = rect.left + rect.width / 2 - cardWidth / 2;
-  left = Math.max(12, Math.min(left, window.innerWidth - cardWidth - 12));
+  const updatePosition = async () => {
+    const { x, y, placement } = await computePosition(anchor, floating, {
+      strategy: 'fixed',
+      placement: 'top',
+      middleware: [
+        offset(8),
+        flip({ padding: 12 }),
+        shift({ padding: 12 }),
+        size({
+          padding: 12,
+          apply({ availableWidth, elements }) {
+            elements.floating.style.maxWidth = `${Math.max(0, availableWidth)}px`;
+          },
+        }),
+      ],
+    });
 
-  // Vertical: prefer above the link, fall back to below
-  card.style.left = `${left + window.scrollX}px`;
-  card.style.width = `${cardWidth}px`;
+    if (activeAnchor !== anchor || !floating.isConnected || floating.style.display === 'none') return;
+    floating.style.left = `${x}px`;
+    floating.style.top = `${y}px`;
+    floating.classList.toggle('above', placement.startsWith('top'));
+    floating.classList.toggle('below', placement.startsWith('bottom'));
+  };
 
-  // Temporarily show off-screen to measure height
-  card.style.visibility = 'hidden';
-  card.style.display = 'block';
-  const cardHeight = card.offsetHeight;
-  card.style.visibility = '';
+  stopPositioning?.();
+  stopPositioning = null;
+  await updatePosition();
+  if (activeAnchor !== anchor) return;
 
-  const spaceAbove = rect.top;
-  const spaceBelow = window.innerHeight - rect.bottom;
-
-  if (spaceAbove >= cardHeight + gap || spaceAbove > spaceBelow) {
-    // Place above
-    card.style.top = `${rect.top + window.scrollY - cardHeight - gap}px`;
-    card.classList.add('above');
-    card.classList.remove('below');
-  } else {
-    // Place below
-    card.style.top = `${rect.bottom + window.scrollY + gap}px`;
-    card.classList.add('below');
-    card.classList.remove('above');
-  }
+  floating.style.visibility = '';
+  stopPositioning = autoUpdate(anchor, floating, () => {
+    void updatePosition();
+  });
 }
 
 function renderCard(meta: PostMeta, hash: string) {
@@ -225,8 +236,7 @@ async function showPreview(anchor: HTMLAnchorElement) {
   if (!postMeta || activeAnchor !== anchor) return;
 
   renderCard(postMeta, hash);
-  positionCard(anchor);
-  getOrCreateCard().style.display = 'block';
+  await positionCard(anchor);
 }
 
 // --- Event handlers ---

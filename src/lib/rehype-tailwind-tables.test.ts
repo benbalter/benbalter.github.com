@@ -1,5 +1,5 @@
 /**
- * Tests for rehype-bootstrap-tables plugin
+ * Tests for Tailwind table styling and accessible header scopes
  *
  * Verifies that Tailwind table classes are added to markdown tables
  */
@@ -9,15 +9,16 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
-import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
+import { rehypeTailwindTables } from './rehype-tailwind-tables';
 
-describe('rehypeBootstrapTables', () => {
+describe('rehypeTailwindTables', () => {
   const processor = unified()
     .use(remarkParse)
     .use(remarkGfm) // Required for table parsing
     .use(remarkRehype)
-    .use(rehypeBootstrapTables)
+    .use(rehypeTailwindTables)
     .use(rehypeStringify);
 
   it('should add Tailwind table classes to markdown table', async () => {
@@ -51,7 +52,41 @@ describe('rehypeBootstrapTables', () => {
     expect(html).toContain('<td>Alice</td>');
   });
 
-  it('should add scope="col" to th elements', async () => {
+  it('should set column-header scope in the head and row-header scope in the body', async () => {
+    const htmlProcessor = unified()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeTailwindTables)
+      .use(rehypeStringify);
+    const markdown = `
+<table>
+  <thead><tr><th>Column</th></tr></thead>
+  <tbody><tr><th>Row</th><td>Value</td></tr></tbody>
+</table>
+`;
+    const result = await htmlProcessor.process(markdown);
+    const html = String(result);
+
+    expect(html).toContain('<th scope="col">Column</th>');
+    expect(html).toContain('<th scope="row">Row</th>');
+  });
+
+  it('should preserve an explicit header scope', async () => {
+    const htmlProcessor = unified()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeTailwindTables)
+      .use(rehypeStringify);
+    const result = await htmlProcessor.process(
+      '<table><tbody><tr><th scope="colgroup">Group</th></tr></tbody></table>',
+    );
+
+    expect(String(result)).toContain('<th scope="colgroup">Group</th>');
+  });
+
+  it('should add column scope to Markdown table headers', async () => {
     const markdown = `
 | Header 1 | Header 2 |
 | -------- | -------- |
@@ -85,8 +120,8 @@ describe('rehypeBootstrapTables', () => {
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkRehype)
-      .use(rehypeBootstrapTables)
-      .use(rehypeBootstrapTables) // Apply twice
+      .use(rehypeTailwindTables)
+      .use(rehypeTailwindTables) // Apply twice
       .use(rehypeStringify);
 
     const markdown = `
