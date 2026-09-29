@@ -17,7 +17,7 @@ This is the personal website of Ben Balter. The site serves as a personal blog, 
 
 ### Core Technologies
 
-* **Astro**: 6.x (Static site generator, Vite 7)
+* **Astro**: static site generator (see `package.json` for the current version)
 * **Node.js**: 22+ for JavaScript tooling and build processes
 * **TypeScript**: For Astro components and utilities
 * **Cloudflare Workers**: Hosting platform
@@ -91,7 +91,7 @@ npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
 ```
 
-**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `npm run lint-md` runs remark report-only (no `-o`), so it's safe and `script/fix-lint` is not needed.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` also runs `markdownlint-cli2 --fix` on every Markdown file, so lint single files instead (see Notes for Copilot).
 
 ## Project Structure
 
@@ -128,9 +128,8 @@ npm run lint-yaml      # Lint YAML files
 
 ## Coding Standards and Best Practices
 
-### JavaScript (Webpack, Build Tools)
+### JavaScript (Build Tools)
 
-* Follow ESLint rules in `.eslintrc.yml`
 * Use ES module syntax (`type: "module"` in package.json)
 * Follow the ESLint config in eslint.config.js (2-space indentation)
 * Lint JSON files with ESLint
@@ -222,10 +221,10 @@ Blog posts must include:
 * Use inclusive language (checked via retext-equality)
 * Maintain readability (checked via retext-readability)
 * Check spelling and grammar (retext-spell, textlint)
-* Use proper typographic conventions (em dashes with no spaces, en dashes for ranges, Oxford comma always)
+* Use proper typographic conventions (no em dashes, en dashes for ranges, Oxford comma always)
 * Avoid corporate buzzwords and clichés—use precise, specific language instead
 * Avoid AI-like writing patterns (excessive hedging, formulaic transitions, hollow summarization, meta-commentary)
-* Use contractions naturally, sentence fragments for emphasis, and em-dashes for conversational asides
+* Use contractions naturally, sentence fragments for emphasis, and parentheses or commas for conversational asides
 * Write for a global audience—avoid cultural idioms, use unambiguous date formats, consider neurodiversity
 * Apply the three litmus tests: the coffee test, the "anyone test", and the "explain to a new hire" test
 * See the Writing Agent (`writing.md`) for comprehensive voice and style guidance
@@ -279,8 +278,8 @@ This repository includes specialized GitHub Copilot custom agents in `.github/ag
 
 Specialized for code-related tasks including:
 
-* **JavaScript/TypeScript** (webpack, build tools, Astro 6 components, linting)
-* **Astro 6 components** (.astro files)
+* **JavaScript/TypeScript** (build tools, Astro components, linting)
+* **Astro components** (.astro files)
 * **Tailwind CSS/CSS styling**
 * **Configuration files** (YAML, JSON, TypeScript config)
 
@@ -323,10 +322,4 @@ Use this agent for SEO audits, optimizing meta information, implementing structu
 * Test changes thoroughly with the existing test suite
 * Maintain the site's clean, minimal aesthetic
 * Prioritize performance and accessibility
-* **CRITICAL: Make MINIMAL changes**:
-  * **ONLY modify files directly related to the feature or bug fix**
-  * **DO NOT run linters (npm run lint-md, remark, etc.) on all files**
-  * **DO NOT auto-fix formatting on unrelated files**
-  * If you must lint, target specific files: `npx eslint path/to/file.js`
-  * Running `npm run lint-md` reformats ALL markdown files—avoid this
-  * Only run broad linters if explicitly asked by the user
+* Make minimal changes: only modify files directly related to the feature or bug fix. Lint the files you changed (`npx eslint path/to/file.js`, `remark path/to/post.md`), and run repo-wide linters like `npm run lint-md` only when asked, because they auto-fix every Markdown file and bury the real change in formatting noise.

@@ -1,6 +1,6 @@
 ---
 name: code
-description: Specialized agent for code changes in this Astro project including JavaScript/TypeScript, Astro components, and SCSS/CSS
+description: Specialized agent for code changes in this Astro project including JavaScript/TypeScript, Astro components, and Tailwind CSS
 tools:
   - "*"
 ---
@@ -11,7 +11,7 @@ You are a specialized coding agent for Ben Balter's personal website repository.
 
 You specialize in:
 
-* **JavaScript/TypeScript**: Astro components, webpack configuration, ES modules
+* **JavaScript/TypeScript**: Astro components, Vite/Astro configuration, ES modules
 * **Astro Components**: Page layouts, reusable components, content collections
 * **Tailwind CSS**: Utility-first styling with Tailwind CSS v4, responsive design
 * **Configuration**: YAML, JSON, JavaScript config files
@@ -20,9 +20,8 @@ You specialize in:
 
 ### JavaScript/TypeScript
 
-* Follow ESLint rules in `.eslintrc.yml`
 * Use ES module syntax (`type: "module"` in package.json)
-* Follow the ESLint config in eslint.config.js (2-space indentation)
+* Follow the ESLint config in `eslint.config.js` (2-space indentation)
 * Use TypeScript for Astro components when applicable
 * Prefer modern JavaScript features
 
@@ -119,7 +118,7 @@ npm run lint-js        # Lint JavaScript
 npm run lint-json      # Lint JSON files
 ```
 
-**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `npm run lint-md` runs remark report-only (no `-o`), so it's safe and `script/fix-lint` is not needed.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` is not safe to run casually: it also runs `markdownlint-cli2 --fix` on every Markdown file.
 
 ### Building
 
@@ -150,17 +149,11 @@ When working with Astro code:
    * E2E tests (Playwright): Test full page rendering and interactions
 7. **Performance**: Keep JavaScript minimal - avoid `client:*` directives
 8. **Documentation**: Refer to `docs/ASTRO-*.md` files for implementation details
-9. **Runtime**: Astro 6, Vite 7, Zod 4, Shiki 4, Node 22+
+9. **Runtime**: Node 22+; see `package.json` for current Astro, Zod, and Shiki versions
 
 ## Important Considerations
 
-1. **Minimal Changes**: Make the smallest possible changes to achieve the goal
-   - **CRITICAL**: Only modify files directly related to the feature or bug fix
-   - **DO NOT** run linters (npm run lint, npm run lint-md, remark, etc.) without specific file targets
-   - **DO NOT** auto-fix formatting on unrelated files (markdown, YAML, etc.)
-   - If you must lint, use file-specific commands: `npx eslint path/to/file.js` or `remark path/to/file.md`
-   - Example BAD: `npm run lint-md` (lints ALL markdown files)
-   - Example GOOD: `remark path/to/my-post.md` (report-only; never use `-o`, which adds escaping)
+1. **Minimal Changes**: Only modify files directly related to the feature or bug fix. Run linters on the files you changed (`npx eslint path/to/file.js`, `remark path/to/my-post.md`), not repo-wide: `npm run lint` and `npm run lint-md` auto-fix every file and bury the real change in formatting noise. Never use `remark -o`, which adds escaping.
 2. **Preserve Functionality**: Never break existing working code
 3. **Test Early**: Run tests and linters frequently on files you modify
 4. **Follow Patterns**: Use existing code patterns as examples
@@ -193,7 +186,7 @@ When working with Astro code:
 1. Understand existing code patterns first
 2. Write or update tests as needed
 3. Follow the project's coding standards
-4. Run linters and fix issues (run `script/fix-lint` after markdown linting)
+4. Run linters on the files you changed and fix issues
 5. Test your changes thoroughly
 6. Ensure builds pass
 7. Keep changes focused and minimal

@@ -45,7 +45,7 @@ You specialize in:
 * Structures arguments with clear numbered or bulleted lists
 * Ends posts with actionable takeaways or thought-provoking conclusions
 
-### Opening Hooks (CRITICAL)
+### Opening Hooks
 
 Every post should grab the reader immediately. Don't start with throat-clearing or definitions. Choose one of these patterns:
 
@@ -65,8 +65,8 @@ That opening paragraph should make readers nod in recognition or lean in with cu
 Use vivid comparisons to make abstract concepts tangible:
 
 * **Technical analogies**: "Think of it like a well-maintained git history: future contributors can trace the evolution of the codebase."
-* **Everyday comparisons**: "Working loudly is like attaching bells to your ankles when hiking through bear country—you're announcing your presence so others can choose how to engage."
-* **Problem framing**: "Clear writing is like type-safe code—it catches errors at 'compile time' (when you write) rather than 'runtime' (when someone misinterprets your message days later)."
+* **Everyday comparisons**: "Working loudly is like attaching bells to your ankles when hiking through bear country: you're announcing your presence so others can choose how to engage."
+* **Problem framing**: "Clear writing is like type-safe code. It catches errors at 'compile time' (when you write) rather than 'runtime' (when someone misinterprets your message days later)."
 
 Good analogies make complex ideas click instantly. If you have to explain the analogy, it's not the right one.
 
@@ -180,16 +180,16 @@ Use AI as a thinking tool (brainstorm, structure, draft), but treat its output a
 * Use "you" and "your" to speak directly to the reader
 * Occasionally break "rules" for effect
 * Trust the reader to draw conclusions without spelling everything out
-* Use em-dashes for conversational asides—they're more natural than parentheses
+* Use parentheses or commas for conversational asides, never em dashes (they read as an AI tell)
 * Name-drop real tools, companies, and experiences (GitHub, Slack, Microsoft Teams) rather than "a company" or "a tool"
 
 **Examples of authentic voice:**
 
 Instead of: "It is important to consider that clear communication is essential for remote teams."
-Write: "Clear writing is like type-safe code—it catches errors at 'compile time' rather than 'runtime.'"
+Write: "Clear writing is like type-safe code. It catches errors at 'compile time' rather than 'runtime.'"
 
 Instead of: "Organizations should implement transparency practices to improve outcomes."
-Write: "Organizations that struggle most with remote work are often those that never had strong documentation habits. They relied on proximity and institutional memory—two things that don't survive the transition to distributed teams."
+Write: "Organizations that struggle most with remote work are often those that never had strong documentation habits. They relied on proximity and institutional memory, two things that don't survive the transition to distributed teams."
 
 Instead of: "There are several benefits to asynchronous communication."
 Write: "Here's a dirty secret about knowledge work: your best idea this month might arrive at 2 AM while you're half-asleep."
@@ -230,7 +230,7 @@ Remote teams are diverse. You're likely writing for people from different countr
 ### Grammar Rules (never stylistic choices)
 
 * **Subject-verb agreement**: "The team are" → "The team is"; "Each of the engineers have" → "Each of the engineers has"
-* **Comma splices**: "Remote work is hard, it requires discipline" → "Remote work is hard—it requires discipline" (or use a semicolon, or split into two sentences)
+* **Comma splices**: "Remote work is hard, it requires discipline" → "Remote work is hard. It requires discipline." (or use a semicolon)
 * **Dangling modifiers**: "Working remotely, the commute disappeared" → "Working remotely, engineers found the commute disappeared"
 * **Tense consistency**: Within a paragraph, don't shift between present and past tense without reason. Use present tense for advice ("Write clearly") and past tense for anecdotes ("GitHub adopted this practice in 2013")
 * **Parallel structure**: In lists and series, all items should follow the same grammatical pattern
@@ -238,10 +238,10 @@ Remote teams are diverse. You're likely writing for people from different countr
 
 ### Punctuation
 
-* **Em dashes** (`—`): No spaces. Use for conversational asides and abrupt shifts. "Remote work—when done right—transforms teams."
+* **Em dashes** (`—`): don't use them. They read as the top AI tell. Use a comma, colon, parentheses, or two sentences. "Remote work, when done right, transforms teams."
 * **En dashes** (`–`): For ranges ("2013–2020") and compound modifiers ("manager–IC dynamic")
 * **Serial comma**: Always use the Oxford comma. "Issues, pull requests, and discussions."
-* **Semicolons**: Use sparingly. Prefer em dashes or separate sentences for a conversational voice.
+* **Semicolons**: Use sparingly. Prefer separate sentences for a conversational voice.
 * **Colons**: Lowercase after a colon unless what follows is a complete sentence or a proper noun.
 * **Quotation marks**: Periods and commas go inside. "Like this." Colons and semicolons go outside.
 
@@ -416,12 +416,12 @@ Use footnotes to:
 ### Linting and Validation
 
 ```bash
-npm run lint-md        # Lint Markdown (remark report-only + markdownlint)
+npm run lint-md        # Lint ALL Markdown (remark report-only + markdownlint --fix, rewrites files)
 npm run lint-text      # Check text quality (textlint)
 remark src/content/posts/my-post.md   # Check one file — report-only, no rewrite
 ```
 
-**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. Report-only remark (no `-o`, as `npm run lint-md` uses) leaves files untouched, so `script/fix-lint` is not needed.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. Report-only remark leaves files untouched, so `script/fix-lint` is not needed. `npm run lint-md` also runs `markdownlint-cli2 --fix` across every Markdown file, so for a single post run `remark` and `markdownlint-cli2 --fix` on that file only.
 
 ### Testing
 
@@ -445,7 +445,7 @@ npm run dev            # Start Astro server to preview posts
 5. **Format**: Use proper Markdown and headings
 6. **Links**: Add relevant internal links to related posts
 7. **Coffee test**: Read aloud—does it sound like a conversation or a manual?
-8. **Lint**: Run linting tools and fix issues (run `script/fix-lint` after markdown linting)
+8. **Lint**: Run linting tools on the files you changed and fix issues
 9. **Test**: Preview the post locally
 10. **Metadata**: Verify front matter is complete and correct
 
@@ -522,7 +522,7 @@ Before finalizing content:
 * [ ] **Conclusion**: Memorable takeaway or call to action
 * [ ] **Spelling and grammar**: Correct and consistent
 * [ ] **No corporate buzzwords or AI-like patterns**: Passes the coffee test
-* [ ] **Linters pass**: Without errors (ran `script/fix-lint` after markdown linting)
+* [ ] **Linters pass**: Without errors
 * [ ] **Preview**: Post looks good in the Astro development server
 
 ## Example Post Patterns

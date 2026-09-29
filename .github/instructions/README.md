@@ -27,9 +27,8 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
   * Performance and accessibility guidelines
 
 * **`styles.instructions.md`**
-  * Applies to: `sass/**/*.scss`, `assets/**/*.css`, `app/**/*.css`
-  * CSS and SCSS best practices
-  * Bootstrap usage
+  * Applies to: `src/styles/**/*.css`, `src/**/*.astro`
+  * Tailwind CSS v4 utilities and `@layer components`
   * Responsive design patterns
 
 ### Configuration and Testing

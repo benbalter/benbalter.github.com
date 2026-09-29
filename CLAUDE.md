@@ -100,17 +100,17 @@ This is a production website. Be conservative:
 
 ### What the most-read posts tend to have in common
 
-Not a formula or a requirement—plenty of good posts skip some of these. These are just
+Not a formula or a requirement; plenty of good posts skip some of these. These are just
 observations: posts that resonate tend to share most of these traits, so they're a useful
 lens when weighing a new idea:
 
-1. **Personal, data-backed sourcing** — a number, a spreadsheet, a lived count, not just an
+1. **Personal, data-backed sourcing**: a number, a spreadsheet, a lived count, not just an
    opinion.
-2. **A named professional pain** — speaks to a specific anxiety a reader can name (reorgs,
+2. **A named professional pain**: speaks to a specific anxiety a reader can name (reorgs,
    getting promoted remotely, interviewing).
-3. **A copy-pasteable playbook** — an actionable checklist, template, or steps people can
+3. **A copy-pasteable playbook**: an actionable checklist, template, or steps people can
    bookmark and reuse.
-4. **One punchy, contrarian-but-true thesis** — a single clear claim, not a survey of
+4. **One punchy, contrarian-but-true thesis**: a single clear claim, not a survey of
    everything.
 
 Distribution leans on sharing (social, direct) more than search, so shareability tends to

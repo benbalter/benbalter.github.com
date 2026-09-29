@@ -38,8 +38,7 @@ When working with YAML and JSON configuration files, follow these guidelines:
 
 ### Tool Configuration
 
-* ESLint: `.eslintrc.yml`
-* Prettier: `frontmatter.json`
+* ESLint: `eslint.config.js`
 * Astro: `astro.config.mjs`
 * TypeScript: `tsconfig.astro.json`
 
