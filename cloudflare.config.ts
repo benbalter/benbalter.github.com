@@ -21,6 +21,14 @@ export default defineConfig({
 				persist: true,
 				headSamplingRate: 1,
 			},
+			// Real-time issue detection: groups uncaught exceptions, 5xx responses,
+			// and console.error() calls into Issues in the dashboard. It has to be
+			// set here, because a dashboard-only toggle gets turned off by the next
+			// deploy.
+			// https://developers.cloudflare.com/workers/observability/issues/
+			issues: {
+				enabled: true,
+			},
 		},
 		assets: {
 			notFoundHandling: "404-page",
