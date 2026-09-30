@@ -80,7 +80,11 @@ jobs:
           # rules out newer deploys that finished first. Fall back to HEAD~1.
           AFTER="$HEAD_COMMIT_ID"
           BEFORE="${HEAD_COMMIT_ID}~1"
-          for sha in $(gh api "repos/${REPO}/actions/workflows/build-and-deploy.yml/runs?branch=main&status=success&per_page=20" --jq '.workflow_runs[].head_sha' 2>/dev/null); do
+          # Filter on conclusion in jq rather than the API's status=success:
+          # that filter can return a stale, months-old page instead of the
+          # newest runs, which picked a July base commit on 2026-09-30 and
+          # re-broadcast an old post to every subscriber.
+          for sha in $(gh api "repos/${REPO}/actions/workflows/build-and-deploy.yml/runs?branch=main&status=completed&per_page=20" --jq '.workflow_runs[] | select(.conclusion == "success") | .head_sha' 2>/dev/null); do
             if [ "$sha" != "$AFTER" ] && git merge-base --is-ancestor "$sha" "$AFTER" 2>/dev/null; then
               BEFORE="$sha"
               break
