@@ -37,6 +37,9 @@
       "enabled": false,
       "persist": true,
       "head_sampling_rate": 1
+    },
+    "issues": {
+      "enabled": true
     }
   }
 }
