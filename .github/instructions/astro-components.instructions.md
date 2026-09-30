@@ -312,11 +312,11 @@ import myImage from '../assets/image.png';
 ## Running and Testing
 
 ```bash
-npm run astro:dev         # Start dev server with hot reload
-npm run astro:build       # Build for production
-npm run astro:check       # Type-check TypeScript
+npm run dev               # Start dev server with hot reload
+npm run build             # Build for production
+npm run check             # Type-check TypeScript
 npm run test:vitest       # Run unit tests
-npm run test:e2e:astro    # Run E2E tests
+npm run test:e2e          # Run E2E tests
 ```
 
 ## Common Patterns
@@ -369,7 +369,7 @@ const items = ['one', 'two', 'three'];
 
 - [Astro Documentation](https://docs.astro.build/)
 - [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
-- [Astro Best Practices](../docs/ASTRO-BEST-PRACTICES.md)
-- [Astro Architecture](../docs/ASTRO-ARCHITECTURE.md)
+- [Astro Best Practices](../../docs/ASTRO-BEST-PRACTICES.md)
+- [Astro Architecture](../../docs/ASTRO-ARCHITECTURE.md)
 
 Remember: **Performance and accessibility first**. Keep components lightweight, semantic, and accessible.

@@ -8,7 +8,7 @@ Personal website and blog for Ben Balter. Astro 7 static site hosted on Cloudfla
 npm run dev            # Dev server (port 4321)
 npm run build          # Build → dist-astro/
 npm run check          # Type-check Astro TypeScript
-npm test               # Type check + linting
+npm test               # Type checks + lint checks + Vitest unit tests
 npm run test:e2e       # Playwright E2E tests
 npm run test:vitest    # Vitest unit tests
 npm run lint           # All linters

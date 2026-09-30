@@ -219,7 +219,6 @@ npm run preview          # Preview production build
 ## Browser Support
 
 * Modern browsers (last 2 versions)
-* Autoprefixer runs automatically via PostCSS
 * Test critical pages in Chrome, Firefox, Safari, Edge
 * Graceful degradation for older browsers
 

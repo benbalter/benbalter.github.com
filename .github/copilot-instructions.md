@@ -75,7 +75,7 @@ npm install            # Install Node.js dependencies
 ### Testing
 
 ```bash
-npm test               # Run type check and linting
+npm test               # Run type checks, lint checks, and Vitest unit tests
 npm run test:e2e       # Run Playwright E2E tests
 npm run test:vitest    # Run Vitest unit tests
 ```
@@ -122,9 +122,9 @@ npm run lint-yaml      # Lint YAML files
 * `package.json`: Node.js dependencies and scripts
 * `astro.config.mjs`: Astro configuration and fonts config
 * `tsconfig.astro.json`: TypeScript configuration for Astro
-* `llms.txt`: LLM/AI assistant context about the site
-* `humans.txt`: Credits and site information
-* `robots.txt`: Search engine crawler rules
+* `src/pages/llms.txt.ts`: LLM/AI assistant context about the site
+* `src/pages/humans.txt.ts`: Credits and site information
+* `src/pages/robots.txt.ts`: Search engine crawler rules
 
 ## Coding Standards and Best Practices
 
@@ -209,7 +209,7 @@ Blog posts must include:
 
 * Never commit secrets or tokens to the repository
 * Use environment variables for sensitive data
-* Keep dependencies up to date via Dependabot
+* Keep dependencies up to date via Renovate
 * Follow security best practices for static sites
 * Validate and sanitize user input in forms
 * Use Content Security Policy (CSP) headers
@@ -218,8 +218,8 @@ Blog posts must include:
 
 * **Professional, not formal**: Professionalism is mastery of craft—clear, efficient, and direct. Formality is strict adherence to rules at the expense of clarity. Warmth and competence aren't opposites.
 * Write direct, opinionated, conversational prose—like a smart colleague over coffee, not a corporate memo or AI-generated text
-* Use inclusive language (checked via retext-equality)
-* Maintain readability (checked via retext-readability)
+* Use inclusive language (checked via Vale)
+* Maintain readability
 * Check spelling and grammar (retext-spell, textlint)
 * Use proper typographic conventions (no em dashes, en dashes for ranges, Oxford comma always)
 * Avoid corporate buzzwords and clichés—use precise, specific language instead

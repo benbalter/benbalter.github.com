@@ -39,6 +39,7 @@ When working with YAML and JSON configuration files, follow these guidelines:
 ### Tool Configuration
 
 * ESLint: `eslint.config.js`
+* Front Matter CMS: `frontmatter.json`
 * Astro: `astro.config.mjs`
 * TypeScript: `tsconfig.astro.json`
 
@@ -73,7 +74,7 @@ Category Name:
 
 * Use `.env` for local development (don't commit!)
 * Document required environment variables in README
-* Use `.env.example` or `.env.astro.example` as a template
+* Use `.env.astro.example` as a template
 
 ## Testing Configuration Changes
 

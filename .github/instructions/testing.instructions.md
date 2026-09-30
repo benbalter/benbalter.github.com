@@ -90,11 +90,11 @@ test.describe('Feature', () => {
 
 ```bash
 # Run all tests
-npm test                           # Type check + linting
+npm test                           # Type checks + lint checks + unit tests
 npm run test:e2e                   # E2E tests (if applicable)
 
 # Run specific test suites
-npm run lint                       # Only linting
+npx eslint path/to/file.ts         # Lint only the files you changed
 npm run test:vitest                # Only unit tests
 ```
 
