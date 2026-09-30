@@ -397,6 +397,10 @@ export default defineConfig({
         // ~150 chars are optimized for SERP (see CLAUDE.md / script/validate-seo.ts).
         // The >160 warning is a false positive for this site's policy.
         'seo/description-length': false,
+        // Titles are an editorial call, and the 60-char limit counts the
+        // " | Ben Balter" suffix. It flagged ~90 existing posts on every build,
+        // burying any new warning. Distribution is share-driven, not SERP-driven.
+        'seo/title-length': false,
       },
     }),
     // Render the print-only /resume/print page to a downloadable /resume.pdf.
