@@ -29,6 +29,117 @@
 /open-sourcing-government/ https://speakerdeck.com/benbalter 301
 /open-sourcing-government https://speakerdeck.com/benbalter 301
 
+# Former GitHub Pages project sites. GitHub still sends benbalter.github.io/<repo>/
+# to ben.balter.com/<repo>/ (this site's custom domain), but those sites were
+# never ported to Cloudflare. Bookmarklets now live on /bookmarklets/.
+/copy-issue-link-bookmarklet/ /bookmarklets/#copy-issue-link 301
+/copy-issue-link-bookmarklet /bookmarklets/#copy-issue-link 301
+/increment-url-bookmarklet/ /bookmarklets/#increment-url 301
+/increment-url-bookmarklet /bookmarklets/#increment-url 301
+
+# Project site whose write-up lives on this site as a post.
+/2021-analysis-of-federal-dotgov-domains/ /2021/01/11/analysis-of-federal-dotgov-domains-pre-biden-edition/ 301
+/2021-analysis-of-federal-dotgov-domains /2021/01/11/analysis-of-federal-dotgov-domains-pre-biden-edition/ 301
+
+# Live projects whose Pages site (app or docs) has no new home yet. 302, not
+# 301, so browsers don't cache these if the site moves somewhere else later.
+/gman/ https://github.com/benbalter/gman 302
+/gman https://github.com/benbalter/gman 302
+/markdown-to-word-js/ https://github.com/benbalter/markdown-to-word-js 302
+/markdown-to-word-js https://github.com/benbalter/markdown-to-word-js 302
+/situation-clock/ https://github.com/benbalter/situation-clock 302
+/situation-clock https://github.com/benbalter/situation-clock 302
+/wordpress-static-site-exporter/ https://github.com/benbalter/wordpress-static-site-exporter 302
+/wordpress-static-site-exporter https://github.com/benbalter/wordpress-static-site-exporter 302
+
+# Archived projects (slides, demos, docs, and experiments) → the source repo.
+/agency-open-source-cloud/ https://github.com/benbalter/agency-open-source-cloud 301
+/agency-open-source-cloud https://github.com/benbalter/agency-open-source-cloud 301
+/another-repo/ https://github.com/benbalter/another-repo 301
+/another-repo https://github.com/benbalter/another-repo 301
+/api-legal-considerations/ https://github.com/benbalter/api-legal-considerations 301
+/api-legal-considerations https://github.com/benbalter/api-legal-considerations 301
+/apis-you-didnt-know-already-existed/ https://github.com/benbalter/apis-you-didnt-know-already-existed 301
+/apis-you-didnt-know-already-existed https://github.com/benbalter/apis-you-didnt-know-already-existed 301
+/behind-github-geojson/ https://github.com/benbalter/behind-github-geojson 301
+/behind-github-geojson https://github.com/benbalter/behind-github-geojson 301
+/benbalter-com-sandbox/ https://github.com/benbalter/benbalter-com-sandbox 301
+/benbalter-com-sandbox https://github.com/benbalter/benbalter-com-sandbox 301
+/build-revision-test/ https://github.com/benbalter/build-revision-test 301
+/build-revision-test https://github.com/benbalter/build-revision-test 301
+/collaborative-policymaking/ https://github.com/benbalter/collaborative-policymaking 301
+/collaborative-policymaking https://github.com/benbalter/collaborative-policymaking 301
+/congressional-districts/ https://github.com/benbalter/congressional-districts 301
+/congressional-districts https://github.com/benbalter/congressional-districts 301
+/dc-wifi-social/ https://github.com/benbalter/dc-wifi-social 301
+/dc-wifi-social https://github.com/benbalter/dc-wifi-social 301
+/dgs-gen-jekyll-test/ https://github.com/benbalter/dgs-gen-jekyll-test 301
+/dgs-gen-jekyll-test https://github.com/benbalter/dgs-gen-jekyll-test 301
+/digital-government-strategy/ https://github.com/benbalter/digital-government-strategy 301
+/digital-government-strategy https://github.com/benbalter/digital-government-strategy 301
+/digital-strategy-reporting/ https://github.com/benbalter/digital-strategy-reporting 301
+/digital-strategy-reporting https://github.com/benbalter/digital-strategy-reporting 301
+/dont-build-an-api/ https://github.com/benbalter/dont-build-an-api 301
+/dont-build-an-api https://github.com/benbalter/dont-build-an-api 301
+/github-pages-with-jekyll/ https://github.com/benbalter/github-pages-with-jekyll 301
+/github-pages-with-jekyll https://github.com/benbalter/github-pages-with-jekyll 301
+/github-widgets/ https://github.com/benbalter/github-widgets 301
+/github-widgets https://github.com/benbalter/github-widgets 301
+/government-glossary/ https://github.com/benbalter/government-glossary 301
+/government-glossary https://github.com/benbalter/government-glossary 301
+/hacking-apis-from-the-inside-out-disruptively/ https://github.com/benbalter/hacking-apis-from-the-inside-out-disruptively 301
+/hacking-apis-from-the-inside-out-disruptively https://github.com/benbalter/hacking-apis-from-the-inside-out-disruptively 301
+/jekyll-auth/ https://github.com/benbalter/jekyll-auth 301
+/jekyll-auth https://github.com/benbalter/jekyll-auth 301
+/jekyll-example-site/ https://github.com/benbalter/jekyll-example-site 301
+/jekyll-example-site https://github.com/benbalter/jekyll-example-site 301
+/jekyll-restful-api-generator/ https://github.com/benbalter/jekyll-restful-api-generator 301
+/jekyll-restful-api-generator https://github.com/benbalter/jekyll-restful-api-generator 301
+/jekyll-style-guide/ https://github.com/benbalter/jekyll-style-guide 301
+/jekyll-style-guide https://github.com/benbalter/jekyll-style-guide 301
+/make-education-better-together/ https://github.com/benbalter/make-education-better-together 301
+/make-education-better-together https://github.com/benbalter/make-education-better-together 301
+/make-government-better-together/ https://github.com/benbalter/make-government-better-together 301
+/make-government-better-together https://github.com/benbalter/make-government-better-together 301
+/make-maps-better-together/ https://github.com/benbalter/make-maps-better-together 301
+/make-maps-better-together https://github.com/benbalter/make-maps-better-together 301
+/make-reporting-better-together/ https://github.com/benbalter/make-reporting-better-together 301
+/make-reporting-better-together https://github.com/benbalter/make-reporting-better-together 301
+/mygov-bar/ https://github.com/benbalter/mygov-bar 301
+/mygov-bar https://github.com/benbalter/mygov-bar 301
+/open-source-demistified/ https://github.com/benbalter/open-source-demistified 301
+/open-source-demistified https://github.com/benbalter/open-source-demistified 301
+/open-source-software-licensing/ https://github.com/benbalter/open-source-software-licensing 301
+/open-source-software-licensing https://github.com/benbalter/open-source-software-licensing 301
+/our-data-browser/ https://github.com/benbalter/our-data-browser 301
+/our-data-browser https://github.com/benbalter/our-data-browser 301
+/our-data-middleman/ https://github.com/benbalter/our-data-middleman 301
+/our-data-middleman https://github.com/benbalter/our-data-middleman 301
+/pages-toggle-bookmarklet/ https://github.com/benbalter/pages-toggle-bookmarklet 301
+/pages-toggle-bookmarklet https://github.com/benbalter/pages-toggle-bookmarklet 301
+/pages-tutorial/ https://github.com/benbalter/pages-tutorial 301
+/pages-tutorial https://github.com/benbalter/pages-tutorial 301
+/primer-example/ https://github.com/benbalter/primer-example 301
+/primer-example https://github.com/benbalter/primer-example 301
+/simple-api/ https://github.com/benbalter/simple-api 301
+/simple-api https://github.com/benbalter/simple-api 301
+/state-of-open-source-in-government/ https://github.com/benbalter/state-of-open-source-in-government 301
+/state-of-open-source-in-government https://github.com/benbalter/state-of-open-source-in-government 301
+/the-dynamic-site-is-dead/ https://github.com/benbalter/the-dynamic-site-is-dead 301
+/the-dynamic-site-is-dead https://github.com/benbalter/the-dynamic-site-is-dead 301
+/the-next-cultural-commons/ https://github.com/benbalter/the-next-cultural-commons 301
+/the-next-cultural-commons https://github.com/benbalter/the-next-cultural-commons 301
+/uncle-sams-list/ https://github.com/benbalter/uncle-sams-list 301
+/uncle-sams-list https://github.com/benbalter/uncle-sams-list 301
+/view-without-cache-bookmarklet/ https://github.com/benbalter/view-without-cache-bookmarklet 301
+/view-without-cache-bookmarklet https://github.com/benbalter/view-without-cache-bookmarklet 301
+/w3-open-data-proof-of-concept/ https://github.com/benbalter/w3-open-data-proof-of-concept 301
+/w3-open-data-proof-of-concept https://github.com/benbalter/w3-open-data-proof-of-concept 301
+/wordpress-unix-theme/ https://github.com/benbalter/wordpress-unix-theme 301
+/wordpress-unix-theme https://github.com/benbalter/wordpress-unix-theme 301
+/wtp-swagger/ https://github.com/benbalter/wtp-swagger 301
+/wtp-swagger https://github.com/benbalter/wtp-swagger 301
+
 # Content redirects (page renames, syndicated posts, slug corrections) come
 # from `redirect_from` / `redirect_to` front matter and are appended to the
 # built dist-astro/_redirects by the front-matter-redirects integration in
