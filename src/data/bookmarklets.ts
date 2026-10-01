@@ -34,7 +34,16 @@ export const bookmarklets: Bookmarklet[] = [
     name: 'Increment URL',
     description:
       'Goes to the next page by adding one to the number at the end of the URL. Handy for paging through issues, photos, or anything else with sequential IDs.',
+    repo: 'https://github.com/benbalter/increment-url-bookmarklet',
     code: code['increment-url'],
+  },
+  {
+    id: 'view-without-cache',
+    name: 'View without cache',
+    description:
+      'Reloads the page with a unique dontCache query parameter, so CDNs and other caches miss and the server sends a fresh copy. Handy when checking whether a change has really shipped.',
+    repo: 'https://github.com/benbalter/view-without-cache-bookmarklet',
+    code: code['view-without-cache'],
   },
 ];
 

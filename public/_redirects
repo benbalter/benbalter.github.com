@@ -36,6 +36,8 @@
 /copy-issue-link-bookmarklet /bookmarklets/#copy-issue-link 301
 /increment-url-bookmarklet/ /bookmarklets/#increment-url 301
 /increment-url-bookmarklet /bookmarklets/#increment-url 301
+/view-without-cache-bookmarklet/ /bookmarklets/#view-without-cache 301
+/view-without-cache-bookmarklet /bookmarklets/#view-without-cache 301
 
 # Project site whose write-up lives on this site as a post.
 /2021-analysis-of-federal-dotgov-domains/ /2021/01/11/analysis-of-federal-dotgov-domains-pre-biden-edition/ 301
@@ -131,8 +133,6 @@
 /the-next-cultural-commons https://github.com/benbalter/the-next-cultural-commons 301
 /uncle-sams-list/ https://github.com/benbalter/uncle-sams-list 301
 /uncle-sams-list https://github.com/benbalter/uncle-sams-list 301
-/view-without-cache-bookmarklet/ https://github.com/benbalter/view-without-cache-bookmarklet 301
-/view-without-cache-bookmarklet https://github.com/benbalter/view-without-cache-bookmarklet 301
 /w3-open-data-proof-of-concept/ https://github.com/benbalter/w3-open-data-proof-of-concept 301
 /w3-open-data-proof-of-concept https://github.com/benbalter/w3-open-data-proof-of-concept 301
 /wordpress-unix-theme/ https://github.com/benbalter/wordpress-unix-theme 301
