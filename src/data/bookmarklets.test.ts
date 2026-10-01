@@ -15,8 +15,9 @@ describe('bookmarklets', () => {
   it('builds a javascript: href that decodes back to the exact code', () => {
     for (const { code } of bookmarklets) {
       const href = bookmarkletHref(code);
-      expect(href.startsWith('javascript:')).toBe(true);
-      expect(decodeURIComponent(href.slice('javascript:'.length))).toBe(code);
+      const scheme = 'javascript:';
+      expect(href.slice(0, scheme.length)).toBe(scheme);
+      expect(decodeURIComponent(href.slice(scheme.length))).toBe(code);
     }
   });
 
