@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Refreshes src/data/bookmarklets.json from each bookmarklet repo's built
+# dist/bookmark.js, which /bookmarklets/ turns into its install links.
+#
+# The code is vendored (committed) rather than fetched at build time because
+# increment-url-bookmarklet is a private repo: CI has no token for it and
+# Renovate can't track it. This uses authenticated `gh api` instead of raw
+# URLs, so run it locally after either bookmarklet ships a new build:
+#
+#   script/update-bookmarklets
+#
+# Keys must match the `id`s in src/data/bookmarklets.ts.
+
+set -euo pipefail
+
+OUT="$(cd "$(dirname "$0")/.." && pwd)/src/data/bookmarklets.json"
+
+fetch() {
+  gh api "repos/benbalter/$1/contents/dist/bookmark.js" -H 'Accept: application/vnd.github.raw'
+}
+
+jq -n \
+  --rawfile copy <(fetch copy-issue-link-bookmarklet) \
+  --rawfile increment <(fetch increment-url-bookmarklet) \
+  '{
+    "copy-issue-link": ($copy | rtrimstr("\n")),
+    "increment-url": ($increment | rtrimstr("\n"))
+  }' > "$OUT"
+
+echo "Updated $OUT"
