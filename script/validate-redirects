@@ -8,6 +8,8 @@
 #   - Status codes (when present) are valid redirect codes
 #   - No duplicate source paths
 #   - No redirect loops (A→B→A)
+#   - Cloudflare's limits: 2,000 static and 100 dynamic rules, where every rule
+#     after the first splat/placeholder rule counts as dynamic
 #
 # Exit codes:
 #   0 - No issues found
@@ -25,6 +27,9 @@ fi
 errors=0
 line_number=0
 total_redirects=0
+static_redirects=0
+dynamic_redirects=0
+first_dynamic_line=""
 
 # Parallel arrays (Bash 3 compatible) for tracking sources and destinations
 all_sources=()
@@ -115,6 +120,18 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
   total_redirects=$((total_redirects + 1))
 
+  # Cloudflare treats a rule as dynamic if its source has a splat or
+  # placeholder, and also counts every rule after the first dynamic one as
+  # dynamic (static rules must come first).
+  if [[ -z "$first_dynamic_line" && ( "$source" == *'*'* || "$source" == *:* ) ]]; then
+    first_dynamic_line=$line_number
+  fi
+  if [[ -n "$first_dynamic_line" ]]; then
+    dynamic_redirects=$((dynamic_redirects + 1))
+  else
+    static_redirects=$((static_redirects + 1))
+  fi
+
 done < "$REDIRECTS_FILE"
 
 # Check for redirect loops (A→B→C→...→A)
@@ -142,8 +159,19 @@ while (( i < ${#all_sources[@]} )); do
   i=$((i + 1))
 done
 
+# Cloudflare _redirects limits
+# https://developers.cloudflare.com/workers/platform/limits/#static-assets
+if (( dynamic_redirects > 100 )); then
+  echo "  $dynamic_redirects dynamic redirects (limit 100). Every rule after the first dynamic rule (line $first_dynamic_line) counts as dynamic; move splat/placeholder rules to the end." >&2
+  errors=$((errors + 1))
+fi
+if (( static_redirects > 2000 )); then
+  echo "  $static_redirects static redirects (limit 2000)." >&2
+  errors=$((errors + 1))
+fi
+
 # Summary
-echo "Checked $total_redirects redirect(s) across $line_number lines."
+echo "Checked $total_redirects redirect(s) across $line_number lines ($static_redirects static, $dynamic_redirects dynamic)."
 
 if (( errors > 0 )); then
   echo "Found $errors issue(s)." >&2

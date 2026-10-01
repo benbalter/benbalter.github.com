@@ -10,7 +10,7 @@
 
 # Retired quote destinations: the /quotes wall and the old /q/<id> share pages.
 # Inline pull-quotes still live in their posts; these standalone pages are gone.
-/q/* /posts/ 301
+# (The /q/* splat is at the end of this file; see the note there.)
 /quotes/ /posts/ 301
 /quotes /posts/ 301
 
@@ -172,3 +172,10 @@
 /2021/03/26/n-things-a-technicalp-program-manager-does /2021/03/26/nine-things-a-technical-program-manager-does/ 301
 /2023/12/07/cathedral-bazaar-management/ /2023/12/08/cathedral-bazaar-management/ 301
 /2023/12/07/cathedral-bazaar-management /2023/12/08/cathedral-bazaar-management/ 301
+
+# Dynamic (splat/placeholder) rules go last. Cloudflare counts every rule after
+# the first dynamic one as dynamic, and caps dynamic rules at 100, so a splat
+# near the top fails the deploy once enough static rules follow it. The
+# front-matter redirects appended at build land after this one, so keep that
+# block small or move this rule. script/validate-redirects enforces the limit.
+/q/* /posts/ 301
