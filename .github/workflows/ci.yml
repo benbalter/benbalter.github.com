@@ -193,6 +193,11 @@ jobs:
       - name: Validate redirects
         run: script/validate-redirects
 
+      # Renovate bumps the bookmarklets commit in src/data/bookmarklets.json;
+      # this fails (with the fix) if the vendored code doesn't match it.
+      - name: Check vendored bookmarklets
+        run: script/update-bookmarklets --check
+
   check:
     name: Run Astro Check
     runs-on: ubuntu-latest
