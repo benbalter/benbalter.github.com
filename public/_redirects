@@ -38,6 +38,8 @@
 /increment-url-bookmarklet /bookmarklets/#increment-url 301
 /view-without-cache-bookmarklet/ /bookmarklets/#view-without-cache 301
 /view-without-cache-bookmarklet /bookmarklets/#view-without-cache 301
+/pages-toggle-bookmarklet/ /bookmarklets/#pages-toggle 301
+/pages-toggle-bookmarklet /bookmarklets/#pages-toggle 301
 
 # Project site whose write-up lives on this site as a post.
 /2021-analysis-of-federal-dotgov-domains/ /2021/01/11/analysis-of-federal-dotgov-domains-pre-biden-edition/ 301
@@ -117,8 +119,6 @@
 /our-data-browser https://github.com/benbalter/our-data-browser 301
 /our-data-middleman/ https://github.com/benbalter/our-data-middleman 301
 /our-data-middleman https://github.com/benbalter/our-data-middleman 301
-/pages-toggle-bookmarklet/ https://github.com/benbalter/pages-toggle-bookmarklet 301
-/pages-toggle-bookmarklet https://github.com/benbalter/pages-toggle-bookmarklet 301
 /pages-tutorial/ https://github.com/benbalter/pages-tutorial 301
 /pages-tutorial https://github.com/benbalter/pages-tutorial 301
 /primer-example/ https://github.com/benbalter/primer-example 301

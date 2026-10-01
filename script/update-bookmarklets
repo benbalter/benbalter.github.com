@@ -1,31 +1,78 @@
 #!/usr/bin/env bash
-# Refreshes src/data/bookmarklets.json from each bookmarklet repo's built
-# dist/bookmark.js, which /bookmarklets/ turns into its install links.
+# Refreshes src/data/bookmarklets.json, the vendored build of
+# https://github.com/benbalter/bookmarklets that /bookmarklets/ turns into its
+# install links. The JSON records the bookmarklets commit it came from plus
+# each bookmarklet's dist/<id>.js at that commit.
 #
-# The code is vendored (committed) rather than fetched at build time so the
-# build doesn't depend on GitHub being reachable. Run this locally (it uses
-# authenticated `gh api`) after a bookmarklet ships a new build:
+#   script/update-bookmarklets           re-fetch the code for the recorded commit
+#   script/update-bookmarklets --latest  move to the tip of main, then fetch
+#   script/update-bookmarklets --check   fail if the code doesn't match the commit (CI)
 #
-#   script/update-bookmarklets
+# Renovate bumps "commit" whenever the bookmarklets repo's main moves (see the
+# custom manager in renovate.json). If that changed dist/, --check fails on the
+# PR until someone runs this script on the branch and pushes the result.
 #
-# Keys must match the `id`s in src/data/bookmarklets.ts.
+# The code is vendored rather than fetched at build time so the build doesn't
+# depend on GitHub. The repo is public, so this needs no token. Keys must
+# match the `id`s in src/data/bookmarklets.ts.
 
 set -euo pipefail
 
+REPO=benbalter/bookmarklets
+IDS=(copy-issue-link increment-url view-without-cache pages-toggle)
 OUT="$(cd "$(dirname "$0")/.." && pwd)/src/data/bookmarklets.json"
+MODE="${1:-}"
 
-fetch() {
-  gh api "repos/benbalter/$1/contents/dist/bookmark.js" -H 'Accept: application/vnd.github.raw'
-}
+case "$MODE" in
+  --latest)
+    commit="$(git ls-remote "https://github.com/$REPO" refs/heads/main | cut -f1)"
+    ;;
+  "" | --check)
+    commit="$(jq -r .commit "$OUT")"
+    ;;
+  *)
+    echo "Usage: $0 [--latest | --check]" >&2
+    exit 2
+    ;;
+esac
 
-jq -n \
-  --rawfile copy <(fetch copy-issue-link-bookmarklet) \
-  --rawfile increment <(fetch increment-url-bookmarklet) \
-  --rawfile cache <(fetch view-without-cache-bookmarklet) \
-  '{
-    "copy-issue-link": ($copy | rtrimstr("\n")),
-    "increment-url": ($increment | rtrimstr("\n")),
-    "view-without-cache": ($cache | rtrimstr("\n"))
-  }' > "$OUT"
+if [[ ! "$commit" =~ ^[0-9a-f]{40}$ ]]; then
+  echo "Error: couldn't determine the $REPO commit (got '$commit')" >&2
+  exit 1
+fi
 
-echo "Updated $OUT"
+# Fetch by commit, not branch: raw.githubusercontent.com caches branch URLs.
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+args=(--arg commit "$commit")
+for id in "${IDS[@]}"; do
+  curl -fsSL --retry 3 "https://raw.githubusercontent.com/$REPO/$commit/dist/$id.js" -o "$tmp/$id.js"
+  args+=(--rawfile "$id" "$tmp/$id.js")
+done
+
+# shellcheck disable=SC2016 # $ARGS is jq, not shell
+jq -n "${args[@]}" '{
+  commit: $commit,
+  code: ($ARGS.named | del(.commit) | map_values(rtrimstr("\n")))
+}' > "$tmp/bookmarklets.json"
+
+if [[ "$MODE" == "--check" ]]; then
+  if ! diff -u "$OUT" "$tmp/bookmarklets.json"; then
+    cat >&2 <<MSG
+
+::error::src/data/bookmarklets.json doesn't match $REPO@$commit.
+The vendored bookmarklet code is out of date for the commit it records. On this
+branch, run:
+
+  script/update-bookmarklets
+  git commit -am "Update vendored bookmarklets to ${commit:0:7}"
+  git push
+MSG
+    exit 1
+  fi
+  echo "src/data/bookmarklets.json matches $REPO@$commit"
+  exit 0
+fi
+
+mv "$tmp/bookmarklets.json" "$OUT"
+echo "Updated $OUT to $REPO@$commit"

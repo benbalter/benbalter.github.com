@@ -1,12 +1,43 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>benbalter/renovate-config:instant"],
+  "extends": [
+    "github>benbalter/renovate-config:instant"
+  ],
   "packageRules": [
     {
       "description": "Hold TypeScript on 6.x: TypeScript 7 crashes @typescript-eslint v8 (ESLint: \"Cannot read properties of undefined (reading 'Cjs')\") and breaks astro check. Remove once the toolchain supports it.",
-      "matchPackageNames": ["typescript"],
-      "matchUpdateTypes": ["major"],
+      "matchPackageNames": [
+        "typescript"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "enabled": false
+    },
+    {
+      "description": "Merge bookmarklets bumps as soon as CI passes. git-refs digests have no release timestamp, so skip the shared preset's minimumReleaseAge, which would otherwise hold them.",
+      "matchDepNames": [
+        "benbalter/bookmarklets"
+      ],
+      "minimumReleaseAge": null,
+      "automerge": true,
+      "commitMessageTopic": "vendored bookmarklets"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track the benbalter/bookmarklets commit vendored in src/data/bookmarklets.json. Renovate only bumps the commit; CI (script/update-bookmarklets --check) fails if the vendored code needs refreshing.",
+      "managerFilePatterns": [
+        "/^src/data/bookmarklets\\.json$/"
+      ],
+      "matchStrings": [
+        "\"commit\": \"(?<currentDigest>[0-9a-f]{40})\""
+      ],
+      "depNameTemplate": "benbalter/bookmarklets",
+      "packageNameTemplate": "https://github.com/benbalter/bookmarklets",
+      "datasourceTemplate": "git-refs",
+      "currentValueTemplate": "main"
     }
   ]
 }

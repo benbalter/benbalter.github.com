@@ -81,6 +81,22 @@ import { render } from 'astro:content';
 const { Content } = await render(post);
 ```
 
+### Bookmarklets
+
+[`/bookmarklets/`](src/pages/bookmarklets.astro) is the install page for
+[benbalter/bookmarklets](https://github.com/benbalter/bookmarklets). Their
+built code is vendored in [`src/data/bookmarklets.json`](src/data/bookmarklets.json)
+with the bookmarklets commit it came from; metadata is in
+[`src/data/bookmarklets.ts`](src/data/bookmarklets.ts).
+
+- Renovate (custom manager in [`renovate.json`](renovate.json)) opens a PR
+  bumping `commit` whenever the bookmarklets repo's `main` moves.
+- CI's `script/update-bookmarklets --check` fails if the vendored code doesn't
+  match that commit. When it does, run [`script/update-bookmarklets`](script/update-bookmarklets)
+  on the PR branch and push; `--latest` moves to the tip of `main` by hand.
+- Adding a bookmarklet: add its id to `IDS` in the script, run it with
+  `--latest`, and add an entry to `bookmarklets.ts`.
+
 ### Component Patterns
 
 - Zero JavaScript by default — avoid `client:*` directives unless interactivity is required

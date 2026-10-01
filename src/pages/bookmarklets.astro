@@ -2,8 +2,9 @@
 /**
  * Bookmarklets Page
  *
- * Install links for my bookmarklets, which used to live on their own GitHub
- * Pages sites. Data (and the vendored, built code) is in src/data/bookmarklets.ts.
+ * Install links for my bookmarklets, built from
+ * https://github.com/benbalter/bookmarklets. Data (and the vendored, built
+ * code) is in src/data/bookmarklets.ts.
  *
  * The install links can't run from this page: the per-page CSP blocks
  * `javascript:` navigation. That's fine, since they're meant to be dragged to
@@ -15,7 +16,7 @@ import { bookmarklets, bookmarkletHref } from '../data/bookmarklets';
 
 const title = 'Bookmarklets';
 const description =
-  'Small browser bookmarklets I use every day: copy a Markdown link to the GitHub issue you’re viewing, jump to the next page by incrementing the number at the end of the URL, or reload a page without the cache.';
+  'Small browser bookmarklets I use every day: copy a Markdown link to the GitHub issue you’re viewing, jump to the next page by incrementing the number at the end of the URL, reload a page without the cache, or toggle between a GitHub Pages site and its source.';
 ---
 
 <PageLayout title={title} description={description}>
@@ -49,4 +50,16 @@ const description =
       </section>
     ))}
   </div>
+
+  <h2 id="limitations">Limitations</h2>
+  <ul>
+    <li>Browsers only allow clipboard writes right after a user action, so Copy issue link has to be clicked from the bookmarks bar.</li>
+    <li>Pages toggle works by reading the URL, so it can’t recognize GitHub Pages sites on custom domains.</li>
+    <li>Some sites’ Content Security Policy blocks bookmarklets in Firefox.</li>
+    <li>They’re tested in Chromium and Firefox. They may work in other browsers, but I haven’t checked.</li>
+  </ul>
+
+  <p>
+    The source and tests are in <a href="https://github.com/benbalter/bookmarklets">benbalter/bookmarklets</a>.
+  </p>
 </PageLayout>
