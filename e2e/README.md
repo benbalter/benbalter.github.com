@@ -59,8 +59,7 @@ npx playwright test --project=chromium
 
 ### Testing Against an Existing Server
 
-Playwright reuses a preview server that's already running on `localhost:4321`.
-To test a different server or port, set `BASE_URL`:
+Playwright reuses a preview server that's already running on `localhost:4321`. To test a different server or port, set `BASE_URL`:
 
 ```bash
 BASE_URL=http://127.0.0.1:4330 npx playwright test
