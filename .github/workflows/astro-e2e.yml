@@ -59,12 +59,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -75,7 +75,7 @@ jobs:
       # The build renders /resume.pdf via astro-pdf, which downloads Chromium
       # into node_modules/.astro/chrome. Same cache as build-and-deploy.yml.
       - name: Cache astro-pdf Chromium
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6
         with:
           path: node_modules/.astro/chrome
           key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
@@ -83,7 +83,7 @@ jobs:
             astro-pdf-chrome-${{ runner.os }}-
 
       - name: Cache Astro build artifacts
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6
         with:
           path: |
             node_modules/.astro
@@ -105,7 +105,7 @@ jobs:
       # Same OG card cache as build-and-deploy.yml, so PR builds only render
       # cards for new or changed posts. Keep the key in sync with that file.
       - name: Cache OG images
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6
         with:
           path: .cache/og-cache
           key: og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-${{ github.sha }}
@@ -125,7 +125,7 @@ jobs:
         run: npm run lint-html
 
       - name: Upload Astro build artifacts
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@v7
         with:
           name: dist-astro
           path: dist-astro/
@@ -151,12 +151,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Download Astro build artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        uses: actions/download-artifact@v8
         with:
           name: dist-astro
           path: dist-astro
@@ -193,12 +193,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -207,7 +207,7 @@ jobs:
         run: npm ci
 
       - name: Download Astro build artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        uses: actions/download-artifact@v8
         with:
           name: dist-astro
           path: dist-astro
@@ -219,7 +219,7 @@ jobs:
         run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
 
       - name: Cache Playwright Browsers
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -248,7 +248,7 @@ jobs:
           CI: true
 
       - name: Upload Playwright Report
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
@@ -256,7 +256,7 @@ jobs:
           retention-days: 14
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: test-results
