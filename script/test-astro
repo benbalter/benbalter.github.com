@@ -43,7 +43,7 @@ fi
 
 echo "✓ Homepage contains expected content"
 
-# Check file size (basic sanity check)
+# Check file size (basic spot-check)
 size=$(wc -c < dist-astro/index.html)
 if [ "$size" -lt 1000 ]; then
     echo "❌ Error: Homepage is suspiciously small ($size bytes)"
