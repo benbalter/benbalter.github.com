@@ -1,0 +1,1 @@
+../../.github/instructions/astro-components.instructions.md

@@ -1,5 +1,7 @@
 ---
 applyTo: ["**/*.{yml,yaml,json}", "!node_modules/**", "!package-lock.json"]
+paths:
+  - "**/*.{yml,yaml,json}"
 ---
 
 # Configuration Files Instructions

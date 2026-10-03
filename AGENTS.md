@@ -1,32 +1,46 @@
 # benbalter.github.com
 
-Personal website and blog for Ben Balter. [Astro](https://astro.build) 7 static site hosted on [Cloudflare Workers](https://developers.cloudflare.com/workers/).
+Read by GitHub Copilot and, through [`CLAUDE.md`](CLAUDE.md), by Claude Code.
+
+Personal website and blog for Ben Balter. [Astro](https://astro.build) 7 static site hosted on [Cloudflare Workers](https://developers.cloudflare.com/workers/). It serves the blog (with related-post suggestions and RSS feeds), the résumé, and Ben's professional profile, and pulls some metadata from GitHub.
 
 ## Commands
 
 ```bash
 npm run dev            # Dev server (port 4321)
 npm run build          # Build → dist-astro/
+npm run preview        # Preview the production build
 npm run check          # Type-check Astro TypeScript
 npm test               # Type checks + lint checks + Vitest unit tests
 npm run test:e2e       # Playwright E2E tests
 npm run test:vitest    # Vitest unit tests
-npm run lint           # All linters
+npm run test:vitest:coverage  # Vitest with coverage
+npm run lint           # All linters (JS, JSON, Markdown), with --fix
+npm run lint-js        # ESLint, JavaScript/TypeScript (--fix)
+npm run lint-json      # ESLint, JSON (--fix)
+npm run lint-md        # remark (report-only), then markdownlint-cli2 --fix on every Markdown file
+npm run lint-text      # textlint, dry run
+npm run lint-yaml      # yamllint
 ```
 
 ## Project Structure
 
-- [`src/pages/`](src/pages/): File-based routes
-- [`src/layouts/`](src/layouts/): Page layouts (BaseLayout.astro, PostLayout.astro)
-- [`src/components/`](src/components/): Reusable Astro components
-- [`src/content/`](src/content/): Content collections (posts, pages, resume-positions)
-- [`src/content.config.ts`](src/content.config.ts): Collection schemas (NOT `src/content/config.ts`)
-- [`src/data/`](src/data/): YAML data files (plus a few typed `.ts` data modules)
-- [`src/utils/`](src/utils/): TypeScript utilities (unit tests in `*.test.ts` alongside source)
-- [`src/lib/`](src/lib/): Remark/rehype plugins
-- [`src/styles/global.css`](src/styles/global.css): Tailwind v4 config + custom styles
-- [`e2e/`](e2e/): Playwright E2E tests
-- [`script/`](script/): Build and utility scripts
+- [`src/pages/`](src/pages/: File-based routes
+- [`src/layouts/`](src/layouts/: Page layouts (BaseLayout.astro, PostLayout.astro)
+- [`src/components/`](src/components/: Reusable Astro components
+- [`src/content/`](src/content/: Content collections (posts, pages, resume-positions)
+- [`src/content.config.ts`](src/content.config.ts: Collection schemas (NOT `src/content/config.ts`)
+- [`src/data/`](src/data/: YAML data files (plus a few typed `.ts` data modules)
+- [`src/utils/`](src/utils/: TypeScript utilities (unit tests in `*.test.ts` alongside source)
+- [`src/lib/`](src/lib/: Remark/rehype plugins
+- [`src/styles/global.css`](src/styles/global.css: Tailwind v4 config + custom styles
+- [`e2e/`](e2e/: Playwright E2E tests
+- [`src/scripts/`](src/scripts/: Client-side scripts
+- [`public/`](public/: Static assets
+- [`script/`](script/: Build and utility scripts
+- [`docs/`](docs/: Implementation notes, including [`ASTRO.md`](docs/ASTRO.md), [`ASTRO-ARCHITECTURE.md`](docs/ASTRO-ARCHITECTURE.md), and [`ASTRO-BEST-PRACTICES.md`](docs/ASTRO-BEST-PRACTICES.md)
+- [`astro.config.mjs`](astro.config.mjs: Astro config, including fonts; [`tsconfig.astro.json`](tsconfig.astro.json) is the TypeScript config `npm run check` uses
+- [`src/pages/llms.txt.ts`](src/pages/llms.txt.ts), [`humans.txt.ts`](src/pages/humans.txt.ts), [`robots.txt.ts`](src/pages/robots.txt.ts: Generated `llms.txt` (site context for LLMs), `humans.txt`, and `robots.txt`
 
 ## Tech Stack
 
@@ -34,12 +48,15 @@ npm run lint           # All linters
 - **[Tailwind CSS v4](https://tailwindcss.com/docs)** via `@tailwindcss/vite`: config lives in `src/styles/global.css` via `@theme` (no `tailwind.config.js`)
 - **[Zod 4](https://zod.dev)**: import `z` from `astro/zod` (not `astro:content`)
 - **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** static hosting
+- `@tailwindcss/typography` for prose styling in content areas
+- Astro's Fonts API self-hosts Inter via Fontsource (no third-party font requests), and view transitions handle page navigation
+- Linters: [ESLint](eslint.config.js) for JS/TS and JSON (2-space indent), markdownlint ([`.markdownlint-cli2.cjs`](.markdownlint-cli2.cjs)), remark, textlint, retext-spell, [Vale](https://vale.sh) (`script/vale`, including the custom `AIPatterns` style), and yamllint
 
 ## Critical Conventions
 
 ### Markdown Linting
 
-[`remark`](https://github.com/remarkjs/remark-lint) runs report-only: `npm run lint-md` runs `remark .` (no `-o`), which checks Markdown without rewriting it. **Never run `remark <file> -o`**: the `-o` write-back is the one thing that adds excessive backslash escaping (`\[`, `\_`, `\&`) and breaks the build. Typography (smart quotes, em/en dashes) is applied at render via `sharedRemarkPlugins`, so `-o` buys nothing. [`script/fix-lint`](script/fix-lint) only exists to undo `-o` damage; with report-only remark it's a no-op you shouldn't need.
+[`remark`](https://github.com/remarkjs/remark-lint) runs report-only: `npm run lint-md` runs `remark .` (no `-o`), which checks Markdown without rewriting it, and then runs `markdownlint-cli2 --fix` over every Markdown file outside `.github/`, which does rewrite them. **Never run `remark <file> -o`**: the `-o` write-back is the one thing that adds excessive backslash escaping (`\[`, `\_`, `\&`) and breaks the build. Typography (smart quotes, em/en dashes) is applied at render via `sharedRemarkPlugins`, so `-o` buys nothing. [`script/fix-lint`](script/fix-lint) only exists to undo `-o` damage; with report-only remark it's a no-op you shouldn't need.
 
 ```bash
 # Check a specific file (report-only, does NOT modify it):
@@ -94,15 +111,21 @@ const { Content } = await render(post);
 - Zero JavaScript by default; avoid `client:*` directives unless interactivity is required
 - TypeScript interfaces for all component props
 - Tailwind utilities first; `@layer components` in `global.css` for reusable patterns; `<style>` scoped blocks only when Tailwind can't cover it
+- Prefer static generation over server-side rendering; see [`docs/ASTRO-BEST-PRACTICES.md`](docs/ASTRO-BEST-PRACTICES.md)
+- Document complex components with JSDoc comments
 
 ## Content Guidelines
 
 This is a production website, so be conservative with changes.
 
+- Preserve existing functionality and the site's clean, minimal look; performance and accessibility come first
 - Write like a smart colleague over coffee: direct, opinionated, conversational
 - Avoid AI-like patterns: excessive hedging, formulaic transitions ("Furthermore…"), hollow summarization
 - **No em dashes (`—`).** They read as the top AI tell; use a comma, colon, parentheses, or split into two sentences. En dashes (`–`) for ranges are fine. Oxford comma always, contractions naturally
-- Blog posts: `src/content/posts/YYYY-MM-DD-title.md`
+- Blog posts: `src/content/posts/YYYY-MM-DD-title.md`; resume positions: `src/content/resume-positions/position-name.md`; data: `src/data/filename.yml`
+- Write for a global audience: avoid cultural idioms, use unambiguous date formats, consider neurodiversity
+- Use inclusive language (Vale checks it)
+- Three litmus tests: the coffee test, the "anyone test", and the "explain to a new hire" test
 
 ### What the most-read posts tend to have in common
 
@@ -120,13 +143,14 @@ See [`src/content/CLAUDE.md`](src/content/CLAUDE.md) for detailed writing voice 
 ## Testing
 
 - Unit tests ([Vitest](https://vitest.dev)): `*.test.ts` alongside source, mostly `src/utils/` and `src/lib/`, plus [`worker/index.test.js`](worker/index.test.js)
-- E2E tests ([Playwright](https://playwright.dev)): [`e2e/`](e2e/)
+- E2E tests ([Playwright](https://playwright.dev)): [`e2e/`](e2e/), with axe-core accessibility checks; CI also runs Lighthouse ([`.lighthouserc.json`](.lighthouserc.json))
+- Use happy-dom when a unit test needs a DOM
 - Run `npm run check` before committing Astro/TypeScript changes
 - HTML must pass validation; images need alt text; links must be valid
 
 ## Front Matter
 
-Blog posts require:
+Blog posts and pages require:
 
 ```yaml
 ---
@@ -136,3 +160,9 @@ description: Brief description for SEO (first 150 chars after stripping Markdown
 ```
 
 Optional: `comments`, `redirect_from`, `image`, `redirect_to`
+
+## Agent configuration
+
+- [`.github/agents/`](.github/agents/) holds the `code`, `writing`, and `seo` agents. Copilot reads them there; [`.claude/agents/`](.claude/agents/) symlinks them for Claude Code. Use `writing` for posts and docs, `seo` for meta tags and structured data, and `code` for everything else.
+- [`.github/instructions/`](.github/instructions/) holds path-scoped instructions. Each file carries Copilot's `applyTo:` and Claude Code's `paths:`, and [`.claude/rules/`](.claude/rules/) symlinks them.
+- [`.github/workflows/copilot-setup-steps.yml`](.github/workflows/copilot-setup-steps.yml) installs Node and dependencies for Copilot's cloud agent.

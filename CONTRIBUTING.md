@@ -191,22 +191,25 @@ npm run test:e2e:headed  # Watch tests run in browser
 - **Update documentation** if needed
 - **Respond to feedback** promptly and professionally
 
-## GitHub Copilot Instructions
+## Coding Agent Instructions
 
-This repository includes comprehensive instructions for GitHub Copilot coding agents:
+GitHub Copilot and Claude Code share one set of instructions:
 
 ### General Instructions
 
-- **`.github/copilot-instructions.md`** - Repository-wide context and guidelines
+- **[`AGENTS.md`](AGENTS.md)** - Repository-wide context and guidelines. Copilot reads it directly; [`CLAUDE.md`](CLAUDE.md) imports it for Claude Code.
 
 ### Custom Agents
 
-- **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
+- **`.github/agents/code.md`** - Specialized agent for code changes (Astro, TypeScript, CSS, configuration)
 - **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
+- **`.github/agents/seo.md`** - Specialized agent for meta tags, structured data, and search visibility
+
+`.claude/agents/` symlinks these for Claude Code.
 
 ### Scoped Instructions
 
-The `.github/instructions/` directory contains targeted instructions for specific areas:
+The `.github/instructions/` directory contains targeted instructions for specific areas. Each file has Copilot's `applyTo:` and Claude Code's `paths:` frontmatter, and `.claude/rules/` symlinks them:
 
 - **`astro-components.instructions.md`** - Astro components and layouts
 - **`styles.instructions.md`** - CSS and SCSS files

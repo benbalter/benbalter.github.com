@@ -1,0 +1,1 @@
+../../.github/agents/seo.md

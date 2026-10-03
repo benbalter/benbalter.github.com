@@ -1,6 +1,6 @@
-# GitHub Copilot Instructions
+# Scoped Agent Instructions
 
-This directory contains scoped instruction files for GitHub Copilot coding agents. These instructions provide context-specific guidance when working with different parts of the codebase.
+This directory contains scoped instruction files for GitHub Copilot and Claude Code. These instructions provide context-specific guidance when working with different parts of the codebase.
 
 ## How It Works
 
@@ -8,12 +8,16 @@ Each `.instructions.md` file uses YAML frontmatter to scope when it applies:
 
 ```yaml
 ---
-applyTo: "path/pattern/**/*.ext"
-excludeAgent: "code-review"  # Optional: exclude specific agents
+applyTo: "path/pattern/**/*.ext"   # Copilot
+excludeAgent: "code-review"         # Optional, Copilot only: exclude specific agents
+paths:                              # Claude Code (same globs, no ! negations)
+  - "path/pattern/**/*.ext"
 ---
 
 # Instructions content here
 ```
+
+Claude Code loads them through the symlinks in [`.claude/rules/`](../../.claude/rules/). When you add a file here, add its `paths:` and a matching symlink there.
 
 ## Instruction Files
 
@@ -48,9 +52,10 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
 
 ## Related Files
 
-* **`../.github/copilot-instructions.md`** - General repository instructions
-* **`../.github/agents/code.md`** - Custom code agent
-* **`../.github/agents/writing.md`** - Custom writing agent
+* **[`AGENTS.md`](../../AGENTS.md)** - General repository instructions
+* **[`../agents/code.md`](../agents/code.md)** - Custom code agent
+* **[`../agents/writing.md`](../agents/writing.md)** - Custom writing agent
+* **[`../agents/seo.md`](../agents/seo.md)** - Custom SEO agent
 
 ## Learn More
 

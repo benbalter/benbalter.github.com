@@ -30,11 +30,11 @@ else
 	# on any output instead.
 	echo "Checking agent-instruction files for em dashes..."
 	emdash=$(vale --filter='.Name=="AIPatterns.EmDash"' --output=line \
-		./CLAUDE.md src/content/CLAUDE.md .github/copilot-instructions.md \
+		./AGENTS.md src/content/CLAUDE.md \
 		.github/agents/*.md .github/instructions/*.md)
 	if [ -n "$emdash" ]; then
 		echo "$emdash"
-		echo "ERROR: em dashes in agent-instruction files (see CLAUDE.md writing rules)." >&2
+		echo "ERROR: em dashes in agent-instruction files (see AGENTS.md writing rules)." >&2
 		exit 1
 	fi
 fi
