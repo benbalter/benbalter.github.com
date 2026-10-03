@@ -1039,8 +1039,6 @@ wellbeing
 Werner
 WESCON
 WestLaw
-whitelisted
-whitelists
 whitespace
 Wi
 wifi
