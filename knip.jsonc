@@ -23,8 +23,10 @@
     "image-size",
     "es-module-lexer"
   ],
-  // System tools installed in CI, not npm packages.
-  "ignoreBinaries": ["vale", "yamllint"],
+  // System tools, not npm packages: vale and yamllint are installed in CI;
+  // op is the 1Password CLI that script/analytics.mjs shells out to locally
+  // to resolve op:// references in .env.
+  "ignoreBinaries": ["vale", "yamllint", "op"],
   // Unused files, dependencies, and unlisted imports fail; unused exports only warn.
   "rules": {
     "exports": "warn",
