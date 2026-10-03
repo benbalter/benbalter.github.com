@@ -24,6 +24,7 @@
  *     approximate. The 7-day window is the trustworthy one.
  */
 
+import { execFileSync } from 'node:child_process';
 import { argv } from 'node:process';
 import { parseArgs } from 'node:util';
 
@@ -37,7 +38,12 @@ try {
   /* .env not present or already loaded — rely on process.env */
 }
 
-const TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+let TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+// .env holds a 1Password op:// reference rather than the token, so the secret
+// never sits on disk in plain text. Resolve it with the 1Password CLI.
+if (TOKEN?.startsWith('op://')) {
+  TOKEN = execFileSync('op', ['read', TOKEN], { encoding: 'utf8' }).trim();
+}
 if (!TOKEN) {
   console.error('Missing CLOUDFLARE_API_TOKEN (expected in .env or environment).');
   process.exit(1);
