@@ -36,7 +36,7 @@ These make writing feel machine-generated:
 **The coffee test**: read aloud. Does it sound like something you'd actually say to a colleague?
 **The "anyone test"**: could this have been written by literally anyone? If there's no personality, rewrite it.
 
-Many of these patterns are enforced mechanically by the custom `AIPatterns` Vale style (`.github/styles/AIPatterns/`), which runs in CI via `script/vale`. Unambiguous AI tells (hedging openers, meta-commentary, "This ensures…", performative enthusiasm) are errors and block CI; transitions and setup phrases are warnings. Em dashes are flagged by the `AIPatterns.EmDash` rule (warning, being cleaned up retroactively). Run `vale <file> --minAlertLevel=suggestion` to see everything.
+Many of these patterns are enforced mechanically by the custom `AIPatterns` [Vale](https://vale.sh) style ([`.github/styles/AIPatterns/`](../../.github/styles/AIPatterns/)), which runs in CI via [`script/vale`](../../script/vale). Unambiguous AI tells (hedging openers, meta-commentary, "This ensures…", performative enthusiasm) are errors and block CI; transitions and setup phrases are warnings. Em dashes are flagged by the `AIPatterns.EmDash` rule (warning, being cleaned up retroactively). Run `vale <file> --minAlertLevel=suggestion` to see everything.
 
 ## Grammar and Mechanics
 
