@@ -1,0 +1,1 @@
+../../.github/instructions/configuration.instructions.md

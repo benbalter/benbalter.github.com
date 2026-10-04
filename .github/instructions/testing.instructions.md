@@ -1,6 +1,10 @@
 ---
 applyTo: ["**/*.test.{js,ts,jsx,tsx}", "e2e/**/*", "playwright*.config.ts"]
 excludeAgent: "code-review"
+paths:
+  - "**/*.test.{js,ts,jsx,tsx}"
+  - "e2e/**/*"
+  - "playwright*.config.ts"
 ---
 
 # Testing Instructions

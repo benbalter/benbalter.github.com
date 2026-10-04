@@ -1,5 +1,8 @@
 ---
 applyTo: ["src/**/*.astro", "src/**/*.ts", "!src/**/*.test.ts", "!src/**/*.spec.ts"]
+paths:
+  - "src/**/*.astro"
+  - "src/**/*.ts"
 ---
 
 # Astro Components and TypeScript Instructions

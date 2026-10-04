@@ -1,0 +1,1 @@
+../../.github/agents/writing.md

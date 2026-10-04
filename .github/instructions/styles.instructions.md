@@ -1,5 +1,8 @@
 ---
 applyTo: ["src/styles/**/*.css", "src/**/*.astro"]
+paths:
+  - "src/styles/**/*.css"
+  - "src/**/*.astro"
 ---
 
 # Styles Instructions
