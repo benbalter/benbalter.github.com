@@ -1,114 +1,33 @@
-# CI Required Checks for Branch Protection
+# CI required checks
 
-This document outlines the suggested required checks for GitHub branch protection rules.
+The `Main` repository ruleset decides what a PR needs before it can merge. It's the source of truth, so check it rather than a copy:
 
-## Recommended Required Status Checks
-
-The following checks should be required to pass before merging pull requests:
-
-### Core CI Checks (ci.yml)
-
-| Check Name | Description | Workflow |
-|------------|-------------|----------|
-| `Content Linting` | Validates markdown, text linting (textlint), and prose (Vale) | ci.yml |
-| `LanguageTool` | Grammar checking via LanguageTool | ci.yml |
-| `Code Tests` | Lints JavaScript, JSON, YAML files and runs TypeScript type checking | ci.yml |
-| `Unit Tests` | Runs Vitest unit tests with coverage | ci.yml |
-
-### E2E Tests (astro-e2e.yml)
-
-| Check Name | Description | Workflow |
-|------------|-------------|----------|
-| `Build Astro Site` | Builds the Astro site (required by downstream jobs) | astro-e2e.yml |
-| `Lighthouse CI` | Performance, accessibility, SEO, and best practices audits | astro-e2e.yml |
-| `Playwright Tests` | End-to-end browser tests for functionality validation | astro-e2e.yml |
-
-## Suggested Branch Protection Configuration
-
-For the `main` branch, configure the following settings:
-
-### Required Status Checks
-
-```
-✓ Require status checks to pass before merging
-  ✓ Require branches to be up to date before merging
-
-  Required checks:
-  - Content Linting
-  - LanguageTool
-  - Code Tests
-  - Unit Tests
-  - Build Astro Site
-  - Lighthouse CI
-  - Playwright Tests
+```bash
+gh api repos/benbalter/benbalter.github.com/rules/branches/main
 ```
 
-### Additional Recommended Settings
+As of October 2026 it requires these status checks, plus CodeQL results (the ruleset's code scanning rule):
 
-```
-✓ Require a pull request before merging
-  ✓ Require approvals (1 or more)
-  ✓ Dismiss stale pull request approvals when new commits are pushed
+| Check | Workflow |
+| --- | --- |
+| `Content Linting` | [`ci.yml`](../.github/workflows/ci.yml) |
+| `Code Tests` | [`ci.yml`](../.github/workflows/ci.yml) |
+| `Run Astro Check` | [`ci.yml`](../.github/workflows/ci.yml) |
+| `Run Vitest Tests` | [`ci.yml`](../.github/workflows/ci.yml) |
+| `Build Astro Site` | [`astro-e2e.yml`](../.github/workflows/astro-e2e.yml) |
+| `Lighthouse CI` | [`astro-e2e.yml`](../.github/workflows/astro-e2e.yml) |
+| `Playwright Tests` | [`astro-e2e.yml`](../.github/workflows/astro-e2e.yml) |
 
-✓ Do not allow bypassing the above settings
-```
+`LanguageTool Grammar` (`ci.yml`) runs on every PR but isn't required.
 
-## Workflow Triggers
+## Never path-filter a required workflow
 
-### ci.yml Triggers
+A workflow with a `paths` or `paths-ignore` filter on its `push`/`pull_request` triggers doesn't run at all when the filter excludes a PR. Its checks then never report, and a required check that never reports blocks the merge with everything else green. The only way past it is an admin bypass.
 
-Content and code changes that trigger CI:
+This has bitten three times: E2E checks on Actions-only PRs (#2064), CI checks on PRs touching only `public/` or Vale config (#2066), and CodeQL on post-only PRs once the ruleset gained the code scanning rule (#2072).
 
-- `src/**` - Source files
-- `*.md` - Root markdown files
-- `dictionary.txt` - Spell check dictionary
-- `.remarkrc.js`, `.remarkignore` - Remark configuration
-- `.textlintrc` - Textlint configuration
-- `.vale.ini` - Vale configuration
-- `.markdown-lint.yml`, `.markdownlint-cli2.cjs` - Markdown lint configuration
-- `script/**` - Build and lint scripts
-- `**/*.js`, `**/*.ts` - JavaScript/TypeScript files
-- `**/*.json` - JSON files
-- `**/*.yml`, `**/*.yaml` - YAML files
-- `package*.json` - Package configuration
-- `astro.config.mjs` - Astro configuration
-- `tsconfig*.json` - TypeScript configuration
-- `vitest.config.ts` - Vitest configuration
-- `eslint.config.js` - ESLint configuration
-- `.yamllint.yml` - YAML lint configuration
-- `assets/**` - Asset files
-- `.github/workflows/ci.yml` - CI workflow itself
+So:
 
-### astro-e2e.yml Triggers
-
-Files that trigger E2E tests:
-
-- `src/**` - Source files
-- `astro.config.mjs` - Astro configuration
-- `tsconfig.astro.json` - TypeScript configuration
-- `public/**` - Public/static files
-- `*.md` - Root markdown files
-- `e2e/**` - E2E test files
-- `playwright.config.ts` - Playwright configuration
-- `.lighthouserc.json` - Lighthouse configuration
-- `package*.json` - Package configuration
-- `.github/workflows/astro-e2e.yml` - E2E workflow itself
-
-## Notes
-
-- **Super Linter (`lint.yml`)** is disabled as it duplicates checks from `ci.yml`
-- **Dependabot auto-merge** (`approve-and-merge-dependabot-prs.yml`) runs on all PRs but only acts on Dependabot PRs
-- **Build and Deploy** (`build-and-deploy.yml`) only runs on the `main` branch for production deployments
-- **Copilot Setup Steps** (`copilot-setup-steps.yml`) is for GitHub Copilot agent environment setup
-
-## Updating Required Checks
-
-When adding new jobs to workflows, update this document and consider whether the new check should be required for branch protection.
-
-To configure branch protection:
-
-1. Go to **Settings** → **Branches** → **Branch protection rules**
-2. Click **Add rule** or edit the existing rule for `main`
-3. Enable **Require status checks to pass before merging**
-4. Search for and add each required check by name
-5. Save changes
+- **Workflows that report required checks, or that the code scanning rule waits on, have no trigger-level path filter.** That covers `ci.yml`, `astro-e2e.yml`, and `codeql.yml`.
+- **To skip expensive work, filter inside the workflow.** `astro-e2e.yml` has a `changes` job ([`dorny/paths-filter`](https://github.com/dorny/paths-filter)) and gates the build on its output. GitHub counts a skipped job as passing a required check, while a workflow that never ran counts as missing.
+- **When adding a required check to the ruleset**, confirm its workflow runs on every PR, then update the table above.

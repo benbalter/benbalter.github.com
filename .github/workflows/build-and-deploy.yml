@@ -52,55 +52,9 @@ jobs:
       - name: Run unit tests (Vitest)
         run: npm run test:vitest
 
-      # astro-pdf renders /resume to /resume.pdf at build time via Chromium.
-      # It auto-installs Chrome for Testing into node_modules/.astro/chrome if
-      # none is found; cache that (stable key, so it survives content changes)
-      # to avoid re-downloading ~150MB each deploy. Runs after `npm ci`, which
-      # would otherwise wipe node_modules.
-      - name: Cache astro-pdf Chromium
-        uses: actions/cache@v6
-        with:
-          path: node_modules/.astro/chrome
-          key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            astro-pdf-chrome-${{ runner.os }}-
-
-      - name: Cache Astro build artifacts
-        uses: actions/cache@v6
-        with:
-          # Chromium has its own cache above; keep ~150MB of browser out of
-          # every build-cache entry.
-          path: |
-            node_modules/.astro
-            !node_modules/.astro/chrome
-          # The pipeline fingerprint (remark/rehype plugins, their config wiring, and
-          # deps) is a distinct key segment AND the restore-keys prefix. Astro caches
-          # rendered markdown per content-file digest and reuses it for unchanged files
-          # regardless of plugin code, so a broad `astro-cache-<os>-` restore-key would
-          # resurrect HTML built by an old pipeline (e.g. retired /q/<id> quote links)
-          # and deploy it. Folding the pipeline hash into the prefix busts the cache when
-          # rendering changes, while still reusing it across content-only edits.
-          #
-          # src/data/acronyms.yml is part of the fingerprint because
-          # src/lib/rehype-acronyms.ts reads it at module load: it is rendering
-          # input, not content. Without it, adding a glossary term changes the
-          # exact key, misses, and then restore-keys resurrects HTML rendered
-          # against the old glossary, so the new tooltips never ship.
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
-          restore-keys: |
-            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
-
-      # Persist generated OG cards across deploys. The key's hash segment busts
-      # the cache when the OG generator/config/motif/fonts change (fresh cards);
-      # the run-id suffix + restore-keys prefix let content-only edits reuse the
-      # cache so only new/changed posts regenerate.
-      - name: Cache OG images
-        uses: actions/cache@v6
-        with:
-          path: .cache/og-cache
-          key: og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-${{ github.sha }}
-          restore-keys: |
-            og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-
+      # Chromium, Astro render, and OG card caches; shared with astro-e2e.yml.
+      - name: Restore build caches
+        uses: ./.github/actions/astro-build-caches
 
       # "Most read this month" on /posts/ comes from Cloudflare Web Analytics.
       # The JSON holds traffic counts, so it's generated here and gitignored

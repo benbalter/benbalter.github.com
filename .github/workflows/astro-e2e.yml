@@ -86,45 +86,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # The build renders /resume.pdf via astro-pdf, which downloads Chromium
-      # into node_modules/.astro/chrome. Same cache as build-and-deploy.yml.
-      - name: Cache astro-pdf Chromium
-        uses: actions/cache@v6
-        with:
-          path: node_modules/.astro/chrome
-          key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            astro-pdf-chrome-${{ runner.os }}-
-
-      - name: Cache Astro build artifacts
-        uses: actions/cache@v6
-        with:
-          path: |
-            node_modules/.astro
-            !node_modules/.astro/chrome
-          # The pipeline fingerprint (remark/rehype plugins, their config wiring, and
-          # deps) is a distinct key segment AND the restore-keys prefix. Astro caches
-          # rendered markdown per content-file digest and reuses it for unchanged files
-          # regardless of plugin code, so a broad `astro-cache-<os>-` restore-key would
-          # resurrect HTML built by an old pipeline (e.g. retired /q/<id> quote links).
-          # Folding the pipeline hash into the prefix busts the cache when rendering
-          # changes, while still reusing it across content-only edits.
-          # src/data/acronyms.yml is rendering input (src/lib/rehype-acronyms.ts reads
-          # it at module load), so it's part of the fingerprint too. Keep this key in
-          # sync with build-and-deploy.yml.
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
-          restore-keys: |
-            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
-
-      # Same OG card cache as build-and-deploy.yml, so PR builds only render
-      # cards for new or changed posts. Keep the key in sync with that file.
-      - name: Cache OG images
-        uses: actions/cache@v6
-        with:
-          path: .cache/og-cache
-          key: og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-${{ github.sha }}
-          restore-keys: |
-            og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-
+      # Chromium, Astro render, and OG card caches; shared with build-and-deploy.yml.
+      - name: Restore build caches
+        uses: ./.github/actions/astro-build-caches
 
       - name: Build Astro site
         run: npm run build
