@@ -5,6 +5,8 @@
  * `assets.run_worker_first` (wrangler.json) routes page requests through this
  * Worker before the assets layer (static asset buckets like /assets/* are
  * excluded and served directly). Requests are handled as follows:
+ *   - `/api/subscribe` takes newsletter sign-ups (Turnstile-verified, then
+ *     sent to Kit directly or through a queue; see worker/subscribe.js).
  *   - `POST /api/event` records a conversion event (e.g. newsletter subscribe,
  *     book CTA click — sent by src/scripts/track.ts) to Workers Analytics
  *     Engine.
@@ -24,6 +26,8 @@
  * No cookies, no IPs, no user identifiers are stored — only event name,
  * page path, and the origin of the page's inbound referrer (blob3).
  */
+
+import { consumeSubscribeQueue, handleSubscribe } from './subscribe.js';
 
 /** Allowed event names — reject anything else so the dataset stays clean. */
 const EVENTS = new Set(['subscribe', 'book-cta']);
@@ -84,11 +88,15 @@ function markdownPathFor(pathname) {
 export default {
   /**
    * @param {Request} request
-   * @param {{ ASSETS: { fetch: typeof fetch }, ENGAGEMENT?: { writeDataPoint: (point: object) => void } }} env
+   * @param {{ ASSETS: { fetch: typeof fetch }, ENGAGEMENT?: { writeDataPoint: (point: object) => void } } & import('./subscribe.js').SubscribeEnv} env
    * @returns {Promise<Response>}
    */
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/subscribe') {
+      return handleSubscribe(request, env);
+    }
 
     if (url.pathname === '/api/event' && request.method === 'POST') {
       let payload;
@@ -165,5 +173,14 @@ export default {
       return varied;
     }
     return response;
+  },
+
+  /**
+   * Consumer for the optional `SUBSCRIBE_QUEUE` (see worker/subscribe.js).
+   * @param {{ messages: readonly import('./subscribe.js').QueueMessage[] }} batch
+   * @param {import('./subscribe.js').SubscribeEnv} env
+   */
+  async queue(batch, env) {
+    await consumeSubscribeQueue(batch, env);
   },
 };

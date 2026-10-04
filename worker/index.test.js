@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import worker from './index.js';
 
 /**
@@ -181,5 +181,270 @@ describe('POST /api/event', () => {
     const env = makeEnv();
     const res = await worker.fetch(post('{not json'), env);
     expect(res.status).toBe(400);
+  });
+});
+
+describe('/api/subscribe', () => {
+  const EMAIL = 'reader@example.com';
+  const IP = '203.0.113.7';
+  const SITEVERIFY = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+  /** @type {import('vitest').Mock<(url: string, init?: any) => Promise<Response>>} */
+  let fetchMock;
+  /** @type {Array<import('vitest').MockInstance>} */
+  let consoleSpies;
+
+  /**
+   * Route outbound fetches: siteverify answers `turnstile`, Kit answers
+   * `kitStatus` for every call.
+   * @param {{ turnstile?: boolean, kitStatus?: number }} [options]
+   */
+  function mockUpstreams({ turnstile = true, kitStatus = 201 } = {}) {
+    fetchMock = vi.fn(async (/** @type {string} */ url) => {
+      if (url === SITEVERIFY) return Response.json({ success: turnstile });
+      return new Response('{}', { status: kitStatus });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+  }
+
+  /** @param {Record<string, unknown>} [extra] */
+  const subscribeEnv = (extra = {}) => ({
+    ...makeEnv(),
+    TURNSTILE_SECRET_KEY: 'turnstile-secret',
+    KIT_API_KEY: 'kit-key',
+    ...extra,
+  });
+
+  /**
+   * A sign-up request, form-encoded by default (a plain HTML form post).
+   * @param {Record<string, string>} fields
+   * @param {{ json?: boolean, method?: string }} [options]
+   */
+  function signup(fields, { json = false, method = 'POST' } = {}) {
+    /** @type {Record<string, string>} */
+    const headers = { 'CF-Connecting-IP': IP };
+    if (json) {
+      headers['Content-Type'] = 'application/json';
+      headers.Accept = 'application/json';
+    }
+    /** @type {RequestInit} */
+    const init = { method, headers };
+    if (method !== 'GET') {
+      init.body = json ? JSON.stringify(fields) : new URLSearchParams(fields);
+    }
+    return new Request('https://ben.balter.com/api/subscribe', init);
+  }
+
+  const valid = { email: EMAIL, 'cf-turnstile-response': 'token-123' };
+
+  /** Every argument passed to console.* during the test, as one string. */
+  const logged = () =>
+    consoleSpies.flatMap((spy) => spy.mock.calls.flat().map((arg) => String(arg))).join('\n');
+
+  beforeEach(() => {
+    consoleSpies = [
+      vi.spyOn(console, 'log').mockImplementation(() => {}),
+      vi.spyOn(console, 'info').mockImplementation(() => {}),
+      vi.spyOn(console, 'warn').mockImplementation(() => {}),
+      vi.spyOn(console, 'error').mockImplementation(() => {}),
+      vi.spyOn(console, 'debug').mockImplementation(() => {}),
+    ];
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('rejects methods other than POST', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(signup({}, { method: 'GET' }), subscribeEnv());
+    expect(res.status).toBe(405);
+    expect(res.headers.get('Allow')).toBe('POST');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects a missing Turnstile token without calling siteverify', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(signup({ email: EMAIL }, { json: true }), subscribeEnv());
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ ok: false, error: 'missing-token' });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects a malformed email', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(
+      signup({ ...valid, email: 'not-an-email' }, { json: true }),
+      subscribeEnv(),
+    );
+    expect(res.status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('fakes success for a filled honeypot and does nothing', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(
+      signup({ ...valid, website: 'spam' }, { json: true }),
+      subscribeEnv(),
+    );
+    expect(res.status).toBe(200);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('fails closed when the Turnstile secret is missing', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(
+      signup(valid, { json: true }),
+      subscribeEnv({ TURNSTILE_SECRET_KEY: undefined }),
+    );
+    expect(res.status).toBe(503);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('sends the token, client IP, and an idempotency key to siteverify', async () => {
+    mockUpstreams();
+    await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    const [url, init] = fetchMock.mock.calls[0] ?? [];
+    expect(url).toBe(SITEVERIFY);
+    const params = new URLSearchParams(init.body);
+    expect(params.get('secret')).toBe('turnstile-secret');
+    expect(params.get('response')).toBe('token-123');
+    expect(params.get('remoteip')).toBe(IP);
+    expect(params.get('idempotency_key')).toMatch(/^[0-9a-f-]{36}$/);
+  });
+
+  it('rejects a token Turnstile does not verify, without calling Kit', async () => {
+    mockUpstreams({ turnstile: false });
+    const res = await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    expect(res.status).toBe(403);
+    expect(await res.json()).toEqual({ ok: false, error: 'turnstile-failed' });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('creates an inactive subscriber, then adds it to the form', async () => {
+    mockUpstreams();
+    const res = await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ ok: true });
+
+    const kitCalls = fetchMock.mock.calls.slice(1);
+    expect(kitCalls.map(([url]) => url)).toEqual([
+      'https://api.kit.com/v4/subscribers',
+      'https://api.kit.com/v4/forms/9381290/subscribers',
+    ]);
+    expect(JSON.parse(kitCalls[0]?.[1].body)).toEqual({ email_address: EMAIL, state: 'inactive' });
+    expect(JSON.parse(kitCalls[1]?.[1].body)).toEqual({ email_address: EMAIL });
+    for (const [, init] of kitCalls) {
+      expect(init.headers['X-Kit-Api-Key']).toBe('kit-key');
+    }
+  });
+
+  it('lets a KIT_FORM_ID secret override the published form ID', async () => {
+    mockUpstreams();
+    await worker.fetch(signup(valid, { json: true }), subscribeEnv({ KIT_FORM_ID: '42' }));
+    expect(fetchMock.mock.calls[2]?.[0]).toBe('https://api.kit.com/v4/forms/42/subscribers');
+  });
+
+  it('enqueues the address instead of calling Kit when the queue is bound', async () => {
+    mockUpstreams();
+    const send = vi.fn(async () => {});
+    const res = await worker.fetch(
+      signup(valid, { json: true }),
+      subscribeEnv({ SUBSCRIBE_QUEUE: { send } }),
+    );
+    expect(res.status).toBe(200);
+    expect(send).toHaveBeenCalledWith({ email: EMAIL });
+    expect(fetchMock).toHaveBeenCalledTimes(1); // siteverify only
+  });
+
+  it('reports a Kit failure on the inline path', async () => {
+    mockUpstreams({ kitStatus: 500 });
+    const res = await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    expect(res.status).toBe(502);
+    expect(await res.json()).toEqual({ ok: false, error: 'upstream' });
+  });
+
+  it('redirects a plain form post back to the subscribe page', async () => {
+    mockUpstreams();
+    const ok = await worker.fetch(signup(valid), subscribeEnv());
+    expect(ok.status).toBe(303);
+    expect(ok.headers.get('Location')).toBe('https://ben.balter.com/subscribe/#subscribe-thanks');
+
+    mockUpstreams({ turnstile: false });
+    const bad = await worker.fetch(signup(valid), subscribeEnv());
+    expect(bad.status).toBe(303);
+    expect(bad.headers.get('Location')).toBe('https://ben.balter.com/subscribe/#subscribe-error');
+  });
+
+  it('never logs the email address or IP', async () => {
+    mockUpstreams({ kitStatus: 503 });
+    await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    mockUpstreams({ kitStatus: 422 });
+    await worker.fetch(signup(valid, { json: true }), subscribeEnv());
+    await worker.fetch(signup(valid, { json: true }), subscribeEnv({ TURNSTILE_SECRET_KEY: '' }));
+
+    expect(logged()).not.toBe('');
+    expect(logged()).not.toContain(EMAIL);
+    expect(logged()).not.toContain(IP);
+  });
+
+  describe('queue consumer', () => {
+    /** @param {number} [attempts] */
+    function message(attempts = 1) {
+      return { body: { email: EMAIL }, attempts, ack: vi.fn(), retry: vi.fn() };
+    }
+
+    it('acks after Kit accepts the sign-up', async () => {
+      mockUpstreams({ kitStatus: 200 });
+      const msg = message();
+      await worker.queue({ messages: [msg] }, subscribeEnv());
+      expect(msg.ack).toHaveBeenCalled();
+      expect(msg.retry).not.toHaveBeenCalled();
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it.each([429, 500, 503])('retries with backoff when Kit returns %i', async (status) => {
+      mockUpstreams({ kitStatus: status });
+      const first = message(1);
+      const third = message(3);
+      await worker.queue({ messages: [first, third] }, subscribeEnv());
+      expect(first.retry).toHaveBeenCalledWith({ delaySeconds: 30 });
+      expect(third.retry).toHaveBeenCalledWith({ delaySeconds: 120 });
+      expect(first.ack).not.toHaveBeenCalled();
+    });
+
+    it('retries on a network error', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => {
+        throw new TypeError('network');
+      }));
+      const msg = message();
+      await worker.queue({ messages: [msg] }, subscribeEnv());
+      expect(msg.retry).toHaveBeenCalled();
+    });
+
+    it('caps the backoff at 15 minutes', async () => {
+      mockUpstreams({ kitStatus: 500 });
+      const msg = message(20);
+      await worker.queue({ messages: [msg] }, subscribeEnv());
+      expect(msg.retry).toHaveBeenCalledWith({ delaySeconds: 900 });
+    });
+
+    it('drops a message Kit rejects outright', async () => {
+      mockUpstreams({ kitStatus: 422 });
+      const msg = message();
+      await worker.queue({ messages: [msg] }, subscribeEnv());
+      expect(msg.ack).toHaveBeenCalled();
+      expect(msg.retry).not.toHaveBeenCalled();
+    });
+
+    it('retries rather than drops when the Kit key is missing', async () => {
+      mockUpstreams();
+      const msg = message();
+      await worker.queue({ messages: [msg] }, subscribeEnv({ KIT_API_KEY: undefined }));
+      expect(msg.retry).toHaveBeenCalled();
+      expect(fetchMock).not.toHaveBeenCalled();
+      expect(logged()).not.toContain(EMAIL);
+    });
   });
 });

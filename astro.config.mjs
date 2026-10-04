@@ -93,16 +93,18 @@ export default defineConfig({
         "default-src 'self'",
         "img-src 'self' data: https:",
         "font-src 'self' data:",
-        "connect-src 'self' https://cloudflareinsights.com https://api.github.com https://app.kit.com",
-        'frame-src https://www.youtube-nocookie.com https://www.youtube.com',
+        "connect-src 'self' https://cloudflareinsights.com https://api.github.com",
+        // challenges.cloudflare.com: the Turnstile widget on the subscribe form.
+        'frame-src https://www.youtube-nocookie.com https://www.youtube.com https://challenges.cloudflare.com',
         "object-src 'none'",
         "base-uri 'self'",
-        "form-action 'self' https://app.kit.com https://app.convertkit.com",
+        "form-action 'self'",
         'upgrade-insecure-requests',
       ],
       scriptDirective: {
         // 'wasm-unsafe-eval' lets Pagefind instantiate its WebAssembly index.
-        resources: ["'self'", "'wasm-unsafe-eval'", 'https://static.cloudflareinsights.com'],
+        // challenges.cloudflare.com serves Turnstile, loaded when the subscribe form gets focus.
+        resources: ["'self'", "'wasm-unsafe-eval'", 'https://static.cloudflareinsights.com', 'https://challenges.cloudflare.com'],
       },
       styleDirective: {
         resources: ["'self'", "'unsafe-inline'"],
