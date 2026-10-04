@@ -5,6 +5,7 @@ import {
   noResultsMessage,
   renderResults,
   resultCountLabel,
+  searchQueryFromUrl,
 } from './search-modal';
 
 function mountModal() {
@@ -142,5 +143,17 @@ describe('result navigation', () => {
     Object.defineProperty(e, 'target', { value: input });
     handleResultNavigation(e);
     expect(document.activeElement).toBe(input);
+  });
+});
+
+describe('searchQueryFromUrl', () => {
+  it('returns the trimmed q parameter', () => {
+    expect(searchQueryFromUrl('https://ben.balter.com/?q=%20remote%20work%20')).toBe('remote work');
+  });
+
+  it('returns null when q is absent or blank', () => {
+    expect(searchQueryFromUrl('https://ben.balter.com/')).toBeNull();
+    expect(searchQueryFromUrl('https://ben.balter.com/?q=')).toBeNull();
+    expect(searchQueryFromUrl('https://ben.balter.com/?q=%20%20')).toBeNull();
   });
 });

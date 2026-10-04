@@ -40,8 +40,9 @@
     window.addEventListener('scroll', update, { passive: true });
     update();
 
-    // Hide when footer is in view (footer has its own back-to-top link)
-    const footer = document.querySelector('footer');
+    // Hide when the site footer is in view (it has its own back-to-top link).
+    // Not the first <footer>: on posts that's the article's post-footer.
+    const footer = document.getElementById('site-footer');
     if (footer) {
       const observer = new IntersectionObserver(
         ([entry]) => { footerVisible = entry.isIntersecting; update(); },

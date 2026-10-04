@@ -126,10 +126,13 @@ const hero = getPostMetadata(heroPost);
 <style>
   @reference "../styles/global.css";
 
-  /* Hide items before JS reveal to avoid CLS from post-paint opacity changes */
-  [data-keep-reading] {
-    opacity: 0;
-    transform: translateY(1.25rem);
+  /* Hide items before JS reveal to avoid CLS from post-paint opacity changes.
+     Only when scripts run, so the cards stay visible with JS off. */
+  @media (scripting: enabled) {
+    [data-keep-reading] {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -82,5 +82,11 @@ export async function GET(context: APIContext) {
     description: siteConfig.description,
     site: baseUrl,
     items,
+    // A self link and language, which feed validators expect.
+    xmlns: { atom: 'http://www.w3.org/2005/Atom' },
+    customData: [
+      `<atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml"/>`,
+      '<language>en-us</language>',
+    ].join(''),
   });
 }
