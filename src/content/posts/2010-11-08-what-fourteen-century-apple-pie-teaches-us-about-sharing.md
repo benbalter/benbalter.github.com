@@ -43,7 +43,7 @@ The story, illustrating the true mob-power of the internet, might be even more i
 
 [^6]: *See generally* [Goodwin's Law](http://en.wikipedia.org/wiki/Godwin's_law).
 
-[^7]: internet Justice (*n.*) – a form of justice only slightly less barbaric than the [Thunderdome](http://www.youtube.com/watch?v=3hQC3nkftrk).
+[^7]: internet Justice (*n.*) – a form of justice only slightly less barbaric than the Thunderdome.
 
 [^8]: *See generally supra notes* 1–7.
 

@@ -7,7 +7,7 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 [Slides](https://ben.balter.com/wordpress-as-a-collaboration-platform/)
 
-Watch the recording of the presentation on [UStream](http://www.ustream.tv/recorded/22454841) (starts at the 10:00 mark).
+Watch the recording of the presentation on UStream (starts at the 10:00 mark).
 
 ## Plugins Mentioned
 
