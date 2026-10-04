@@ -49,7 +49,7 @@ jobs:
       security-events: write
       contents: read
       actions: read
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.1
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.6.0
     with:
       scan-args: |-
         --lockfile=package-lock.json
@@ -65,7 +65,7 @@ jobs:
       security-events: write
       contents: read
       actions: read
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.5.1
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.6.0
     with:
       scan-args: |-
         --lockfile=package-lock.json
@@ -87,7 +87,7 @@ jobs:
           persist-credentials: false
 
       - name: actionlint
-        uses: docker://rhysd/actionlint:1.7.7
+        uses: docker://rhysd/actionlint:1.7.12
         with:
           args: -color
 
