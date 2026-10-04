@@ -69,6 +69,13 @@ export const siteConfig = {
   // Find this in your Kit dashboard under Forms → form embed code.
   kitFormId: '9381290',
 
+  // Cloudflare Turnstile site key for the subscribe form (public by design;
+  // the matching secret is the TURNSTILE_SECRET_KEY Worker secret). Empty
+  // falls back to Turnstile's always-pass testing key, which production's
+  // secret rejects, so set this before the subscribe proxy ships.
+  // PUBLIC_TURNSTILE_SITE_KEY overrides it at build time.
+  turnstileSiteKey: '',
+
   // Book — launched July 21, 2026. The sitewide BookCta, the launch post's
   // BookLaunchCta, and the feed CTA all sell ("Buy it — bookPrice") to match
   // the marketing site. bookLaunch is retained for reference/metadata.

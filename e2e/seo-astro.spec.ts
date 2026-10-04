@@ -582,16 +582,21 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('preconnects to Kit only once the subscribe form is focused', async ({ page }) => {
+  test('loads Turnstile only once the subscribe form is focused', async ({ page }) => {
+    // Don't depend on the third-party script in tests: an empty stub is enough
+    // to see whether (and when) the page asks for it.
+    await page.route('https://challenges.cloudflare.com/**', (route) =>
+      route.fulfill({ contentType: 'text/javascript', body: '' }),
+    );
     await page.goto('/');
     await waitForPageReady(page);
 
-    // No site-wide preconnect: the idle socket would close before most readers submit.
-    const kitPreconnect = page.locator('link[rel="preconnect"][href="https://app.kit.com"]');
-    await expect(kitPreconnect).toHaveCount(0);
+    // Not on every page view: most readers never touch the form.
+    const turnstileScript = page.locator('script[src^="https://challenges.cloudflare.com/turnstile/"]');
+    await expect(turnstileScript).toHaveCount(0);
 
-    await page.locator('form[data-kit-form] input[type="email"]').first().focus();
-    await expect(kitPreconnect).toHaveCount(1);
+    await page.locator('form[data-subscribe-form] input[type="email"]').first().focus();
+    await expect(turnstileScript).toHaveCount(1);
   });
 });
 

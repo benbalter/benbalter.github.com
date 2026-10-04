@@ -11,8 +11,9 @@ dist-astro/
 # Build caches (OG images, etc.) — restored/saved by CI, never committed
 .cache/
 
-# Cloudflare Wrangler local state
+# Cloudflare Wrangler local state, and local Worker secrets for `wrangler dev`
 .wrangler/
+.dev.vars*
 
 # Lighthouse CI artifacts
 .lighthouseci/
