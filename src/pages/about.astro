@@ -7,9 +7,10 @@ import ContactLinks from '../components/ContactLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
-import { isListablePost } from '../utils/post-filtering';
+import { pickPostsBySlug } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
 
 const title = 'About Ben Balter';
 const description = siteConfig.aboutDescription;
@@ -26,11 +27,8 @@ function renderPost(post: CollectionEntry<'posts'>): PostItem {
   return { postDate, title: post.data.title, url: getPostUrl(post.id) };
 }
 
-const allPosts = await getCollection('posts', isListablePost);
-const popularPostItems: PostItem[] = popularPostSlugs
-  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
-  .filter((p): p is CollectionEntry<'posts'> => p !== undefined)
-  .map(renderPost);
+const allPosts = await getPublishedPosts();
+const popularPostItems: PostItem[] = pickPostsBySlug(allPosts, popularPostSlugs).map(renderPost);
 ---
 
 <PageLayout title={title} description={description}>

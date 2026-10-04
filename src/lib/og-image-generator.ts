@@ -182,7 +182,7 @@ export function truncateDescription(text: string, maxLength: number = 300): stri
  * At feed-thumbnail size the headline is the only element doing engagement work,
  * so short titles get hero-sized type.
  */
-export function titleFontSize(length: number): number {
+function titleFontSize(length: number): number {
   if (length <= 25) return 76;
   if (length <= 45) return 64;
   if (length <= 70) return 56;
@@ -196,7 +196,7 @@ export function titleFontSize(length: number): number {
  * navy field, the description directly beneath, and an author lockup (headshot +
  * name + domain) anchored in the footer.
  */
-export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
+async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
   validateDimensions(config.width, config.height);
   

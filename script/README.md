@@ -31,7 +31,7 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | `vale` | Run [Vale](https://vale.sh) prose style and grammar checks on markdown | `script/vale` | Before committing prose changes |
 | `harper` | Run [Harper](https://github.com/Automattic/harper) offline grammar checker on posts | `script/harper` | Before committing prose changes |
 | `languagetool` | Run [LanguageTool](https://languagetool.org) grammar checker against a local server | `script/languagetool [file...]` | During CI or locally with a running LanguageTool server |
-| `cibuild-content` | Run all content-quality checks in sequence (remark → textlint → Vale → Harper → LanguageTool) | `script/cibuild-content` | In CI; or locally to run the full prose-lint suite |
+| `cibuild-content` | Run all content-quality checks in sequence (markdownlint → textlint → Vale → Harper → SEO); LanguageTool runs as its own CI job | `script/cibuild-content` | In CI; or locally to run the full prose-lint suite |
 
 ### Linting — code
 
@@ -76,7 +76,7 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | Harper | `harper` | <https://github.com/Automattic/harper> |
 | LanguageTool server | `languagetool` | `docker run -d -p 8010:8010 erikvl87/languagetool` |
 
-Vale and Harper are optional — scripts that depend on them print an install hint and exit gracefully if the tool is not found. LanguageTool requires a running server (defaults to `http://localhost:8010`); the script skips silently if the server is unreachable.
+Vale and Harper are optional — scripts that depend on them print an install hint and exit gracefully if the tool is not found. LanguageTool requires a running server (defaults to `http://localhost:8010`); locally the script skips if the server is unreachable, and in GitHub Actions it fails instead.
 
 ## npm script mappings
 

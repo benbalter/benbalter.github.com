@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 import { popularPostSlugs, siteConfig } from '../config';
 import { getPublishedPosts } from '../utils/posts';
+import { pickPostsBySlug } from '../utils/post-filtering';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import BookCta from '../components/BookCta.astro';
@@ -20,10 +21,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
 );
 
 // Get popular posts based on configured slugs
-const postsBySlug = new Map(allPosts.map((p: CollectionEntry<'posts'>) => [p.id, p]));
-const popularPosts = popularPostSlugs
-  .map(slug => postsBySlug.get(slug))
-  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
 
 // Split into featured (top 3) and regular posts, skipping posts already shown
 // in the Popular section so no card appears twice on the homepage

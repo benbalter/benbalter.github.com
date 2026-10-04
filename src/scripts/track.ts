@@ -12,7 +12,7 @@
  * local dev/preview (where the Worker isn't running) the endpoint 404s.
  */
 
-export interface TrackPayload {
+interface TrackPayload {
   event: string;
   path: string;
   referrer: string;

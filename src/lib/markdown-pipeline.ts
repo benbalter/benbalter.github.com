@@ -43,12 +43,12 @@ import typographicSingleSpaces from 'typographic-single-spaces';
 import typographicTrademark from 'typographic-trademark';
 
 // Shared rehype plugin configurations
-export const rehypeExternalLinksConfig = [rehypeExternalLinks, {
+const rehypeExternalLinksConfig = [rehypeExternalLinks, {
   target: '_blank',
   rel: ['noopener', 'noreferrer'],
 }];
 
-export const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
+const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   behavior: 'append',
   properties: {
     className: ['anchor-link'],
@@ -63,7 +63,7 @@ export const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 }];
 
 // Typography plugin configuration for remark-textr
-export const remarkTextrConfig = [remarkTextr, {
+const remarkTextrConfig = [remarkTextr, {
   options: {
     locale: 'en-us',
   },

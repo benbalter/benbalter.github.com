@@ -13,11 +13,11 @@
  */
 
 import type { APIRoute } from 'astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig, popularPostSlugs, contactLinks } from '../config';
 import { aboutContent } from '../content/about-bio';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
-import { isListablePost } from '../utils/post-filtering';
+import { pickPostsBySlug } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
 
 export const GET: APIRoute = async () => {
   // Bio paragraphs are already valid Markdown (links intact) — keep them as-is.
@@ -27,10 +27,8 @@ export const GET: APIRoute = async () => {
     .filter((p) => p.length > 0);
 
   // Popular posts, resolved from slugs (same list the HTML page renders).
-  const allPosts = await getCollection('posts', isListablePost);
-  const popularPosts = popularPostSlugs
-    .map((slug) => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
-    .filter((p): p is CollectionEntry<'posts'> => p !== undefined);
+  const allPosts = await getPublishedPosts();
+  const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
 
   const lines: string[] = [];
 

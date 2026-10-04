@@ -21,7 +21,7 @@
 import type { Root, Node, RootContent } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
-export const QUOTE_DIRECTIVE_NAME = 'quote';
+const QUOTE_DIRECTIVE_NAME = 'quote';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

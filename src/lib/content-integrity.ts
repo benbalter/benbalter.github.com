@@ -27,12 +27,12 @@ import remarkMdx from 'remark-mdx';
 /** A diff touching at least this many existing posts is a bulk pass and gates CI. */
 export const BULK_POST_THRESHOLD = 6;
 /** Word loss is flagged only when both limits are exceeded. */
-export const WORD_LOSS_RATIO = 0.1;
-export const WORD_LOSS_MIN = 40;
+const WORD_LOSS_RATIO = 0.1;
+const WORD_LOSS_MIN = 40;
 /** Commit-message trailer that acknowledges findings as deliberate. */
-export const REVIEW_TRAILER = /^Content-Integrity:\s*reviewed\s*$/im;
+const REVIEW_TRAILER = /^Content-Integrity:\s*reviewed\s*$/im;
 
-export type RegionKind = 'code block' | 'inline code' | 'script/style' | 'url' | 'blockquote';
+type RegionKind = 'code block' | 'inline code' | 'script/style' | 'url' | 'blockquote';
 
 export interface Regions {
   'code block': string[];

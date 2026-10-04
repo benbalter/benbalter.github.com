@@ -96,6 +96,12 @@ except Exception as e:
 
 # Check if LanguageTool is reachable
 if ! curl -sS -f "${LANGUAGETOOL_URL}/v2/languages" > /dev/null 2>&1; then
+  # Fail loud in GitHub Actions, where the LanguageTool Grammar job starts a
+  # server: a check that can't run must not pass as green. Locally, skip.
+  if [ -n "$GITHUB_ACTIONS" ]; then
+    echo "ERROR: LanguageTool server not reachable at ${LANGUAGETOOL_URL} in CI." >&2
+    exit 1
+  fi
   echo "LanguageTool server not reachable at ${LANGUAGETOOL_URL}"
   echo "To run locally: docker run -d -p 8010:8010 erikvl87/languagetool"
   echo "Skipping grammar checking with LanguageTool."

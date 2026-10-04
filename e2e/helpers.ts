@@ -55,61 +55,6 @@ export async function checkSocialMeta(page: Page) {
 }
 
 /**
- * Check for no console errors
- */
-export async function checkNoConsoleErrors(page: Page, allowedPatterns: RegExp[] = []) {
-  const errors: string[] = [];
-  
-  page.on('console', message => {
-    if (message.type() === 'error') {
-      const text = message.text();
-      const isAllowed = allowedPatterns.some(pattern => pattern.test(text));
-      if (!isAllowed) {
-        errors.push(text);
-      }
-    }
-  });
-  
-  // Return a function to check errors later
-  return () => {
-    if (errors.length > 0) {
-      throw new Error(`Console errors detected:\n${errors.join('\n')}`);
-    }
-  };
-}
-
-/**
- * Check for valid links (no 404s)
- */
-export async function checkLinksValid(page: Page, selector = 'a[href]') {
-  const links = await page.locator(selector).all();
-  
-  for (const link of links) {
-    const href = await link.getAttribute('href');
-    
-    // Skip dangerous schemes first
-    if (!href ||
-        href.startsWith('javascript:') ||
-        href.startsWith('data:') ||
-        href.startsWith('vbscript:')) {
-      continue;
-    }
-    // Then skip external links and anchors
-    if (href.startsWith('http://') ||
-        href.startsWith('https://') ||
-        href.startsWith('#')) {
-      continue;
-    }
-    
-    // Check internal link is valid
-    const isVisible = await link.isVisible();
-    if (isVisible) {
-      await expect(link).toHaveAttribute('href');
-    }
-  }
-}
-
-/**
  * Wait for page to be fully loaded including images
  * Uses networkidle which waits for no more than 2 network connections for at least 500ms
  * This is slower but more thorough
@@ -141,23 +86,4 @@ export async function waitForTldrSettled(page: Page) {
   await page
     .locator('.tldr-container')
     .evaluate((el) => Promise.all(el.getAnimations().map((animation) => animation.finished)));
-}
-
-/**
- * Check accessibility basics
- */
-export async function checkBasicAccessibility(page: Page) {
-  // Check for skip link or main landmark
-  const main = page.locator('main, [role="main"]');
-  await expect(main).toHaveCount(1);
-  
-  // Check images have alt text
-  const images = await page.locator('img').all();
-  for (const img of images) {
-    const isVisible = await img.isVisible();
-    if (isVisible) {
-      const alt = await img.getAttribute('alt');
-      expect(alt !== null).toBeTruthy();
-    }
-  }
 }

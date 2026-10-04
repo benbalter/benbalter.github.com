@@ -13,32 +13,23 @@
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
 import { popularPostSlugs } from '../config';
 import { getPostUrl } from '../utils/post-urls';
-import { isListablePost } from '../utils/post-filtering';
+import { pickPostsBySlug } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
 import SubscribeCta from '../components/SubscribeCta.astro';
 
 const title = 'Page not found';
 const description = 'The page you are trying to view does not exist.';
 
-// Get all published, non-archived posts
-const allPosts = await getCollection('posts', isListablePost);
-
-// Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
-const sortedPosts: CollectionEntry<'posts'>[] = allPosts
-  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-    b.id.localeCompare(a.id)
-  );
+// Published, non-archived posts, newest first
+const allPosts = await getPublishedPosts({ sorted: true });
 
 // Recent posts: top 3 most recent
-const recentPosts = sortedPosts.slice(0, 3);
+const recentPosts = allPosts.slice(0, 3);
 
 // Popular posts: resolve slugs from config, preserving config order
-const postsBySlug = new Map(allPosts.map((post: CollectionEntry<'posts'>) => [post.id, post]));
-const popularPosts = popularPostSlugs
-  .map((slug) => postsBySlug.get(slug))
-  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -99,9 +90,8 @@ const popularPosts = popularPostSlugs
 
   <!-- Client-side script to fetch sitemap and suggest similar URL -->
   <script>
-    import { closest } from 'fastest-levenshtein';
+    import { closestPath } from '../utils/closest-path';
 
-    const MAX_URLS = 500;
     const FETCH_TIMEOUT_MS = 2000;
 
     const suggestionSpan = document.getElementById('four-oh-four-suggestion');
@@ -121,21 +111,18 @@ const popularPosts = popularPostSlugs
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, 'application/xml');
 
-        // Limit comparisons to prevent freezing on large sitemaps
-        const urls = Array.from(xml.querySelectorAll('urlset > url > loc'))
-          .slice(0, MAX_URLS)
-          .map((el) => el.textContent || '');
+        // Compare paths, not full URLs: the sitemap's host differs from a
+        // preview or local host, and that difference would swamp the match.
+        const paths = Array.from(xml.querySelectorAll('urlset > url > loc'))
+          .map((el) => new URL(el.textContent || '/', window.location.origin).pathname);
 
-        if (urls.length === 0) throw new Error('No URLs found');
-
-        // Find closest matching URL
-        const urlString = closest(window.location.href, urls);
-        const url = new URL(urlString);
+        const path = closestPath(window.location.pathname, paths);
+        if (!path) throw new Error('No URLs found');
 
         // Create link element safely (avoid XSS)
         const link = document.createElement('a');
-        link.href = url.href;
-        link.textContent = url.pathname;
+        link.href = path;
+        link.textContent = path;
         suggestionSpan.replaceChildren(link);
 
         // The paragraph ships hidden so readers never see an empty
