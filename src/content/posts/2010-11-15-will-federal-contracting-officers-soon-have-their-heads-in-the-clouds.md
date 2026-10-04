@@ -91,7 +91,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^20]: `Apps.Gov` Now, General Services Administration
 
-[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jHTML?articleID=224701861>.
+[^21]: Cloud Services, Federal Business Opportunities (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jHTML?articleID=224701861>.
 
 [^22]: Federal Information Security Management Act of 2002.
 

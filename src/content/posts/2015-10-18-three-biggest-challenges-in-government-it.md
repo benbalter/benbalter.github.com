@@ -7,7 +7,7 @@ It's often said that government IT is 5–10 years behind the private sector, an
 
 ## Change aversion
 
-If there's one thing that defines government IT, it's [the culture of "no"](http://blog.dobt.co/2015/02/24/culture-of-no/). If you're a change agent, a technologist, heck, even someone that wants to use an iPhone instead of your government-mandated Blackberry, at every potential turn, [the organizational immune system](https://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) will release risk-reducing antibodies any time it so much as sniffs something it doesn't recognize.
+If there's one thing that defines government IT, it's [the culture of "no"](https://web.archive.org/web/20151002151257/http://blog.dobt.co/2015/02/24/culture-of-no/). If you're a change agent, a technologist, heck, even someone that wants to use an iPhone instead of your government-mandated Blackberry, at every potential turn, [the organizational immune system](https://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) will release risk-reducing antibodies any time it so much as sniffs something it doesn't recognize.
 
 This risk-reduction comes in the form of process: it's the procurement process designed to ensure only established firms are qualified to bid. It's the ATO process designed to ensure only applications that complete a six-month, 150-page security checklist can be brought online. It's the hiring process that disqualifies applicants without a traditional education. The process is designed to reduce risk, but almost without exception, it serves to increase it. This happens in three ways:
 
