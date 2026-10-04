@@ -6,9 +6,8 @@ export CI=1
 script/branding
 
 script/title "checking markdown"
-# Check-only (no --fix): markdownlint must FAIL CI on violations. script/remark
-# is report-only and has no set -e, so it can't gate. cibuild-content runs under `set -e`, so a non-zero exit here
-# fails the job.
+# Check-only (no --fix): markdownlint must FAIL CI on violations.
+# cibuild-content runs under `set -e`, so a non-zero exit here fails the job.
 npm run lint-md-check
 
 script/title "checking text"
