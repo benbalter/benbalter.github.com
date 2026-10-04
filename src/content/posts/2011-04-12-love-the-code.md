@@ -5,7 +5,7 @@ tldr: "I gave a brief lightning talk at April's WordPress DC Meetup on the basic
 archived: true
 ---
 
-I gave a brief [lightning talk at April's WordPress DC Meetup](http://www.meetup.com/wordpressdc/events/16887732/) on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your site if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
+I gave a brief [lightning talk at April's WordPress DC Meetup](https://www.meetup.com/wordpressdc/events/16887732/) on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your site if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
 
 ## The Cliff's Notes are
 
@@ -34,19 +34,19 @@ I gave a brief [lightning talk at April's WordPress DC Meetup](http://www.meetup
 - HTML
 
   - [Google: HTML, CSS, & JavaScript from the Ground Up](https://www.youtube.com/playlist?list=PL697D36B35F92E9E4)
-  - [HTML Dog](http://htmldog.com)
+  - [HTML Dog](https://htmldog.com)
   - [W3 Learning Wiki](http://www.w3.org/wiki/HTML/Training)
   - [W3 Element Wiki](http://www.w3.org/wiki/HTML/Elements)
 
 - Text Editor
 
-  - [Notepad++](http://notepad-plus-plus.org/) (Windows)
+  - [Notepad++](https://notepad-plus-plus.org/) (Windows)
   - ~~TextWrangler~~ [Atom](https://atom.io)
-  - [Coda](http://www.panic.com/coda/) (Mac)
+  - [Coda](https://www.panic.com/coda/) (Mac)
 
 - FTP Client (to connect to server)
 
-  - [WinSCP](http://winscp.net/eng/index.php), Notepad++ (Windows)
+  - [WinSCP](https://winscp.net/eng/index.php), Notepad++ (Windows)
   - [CyberDuck](http://cyberduck.ch/), Coda (Mac)
 
 - WordPress

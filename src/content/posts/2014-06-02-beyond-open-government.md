@@ -40,4 +40,4 @@ Last, be a good open source ambassador. Help your home city or state get involve
 
 As technology makes it easier to work together, geeks can help make our government not just open, but collaborative. Government is the world's largest and longest-running open source project (bugs, trolls, and all). It's time we start treating it like one.
 
-*This post originally published on [opensource.com](http://opensource.com/government/14/5/open-collaborative-government).*
+*This post originally published on [opensource.com](https://opensource.com/government/14/5/open-collaborative-government).*

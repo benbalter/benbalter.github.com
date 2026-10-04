@@ -14,7 +14,7 @@ Making code public is the last thing we should be worrying about. Lining up at t
 
 ## Open source ≠ public
 
-We can make all the arguments we want for why open source produces better, more secure software, how it's already paid for by the tax payers, how it reduces duplication of efforts, or prevents vendor lock in. But none of that matters if the workflow on the other side of the (fire)wall is predicated on a culture of distrust. We need to make the plea further up the value chain. It's time to [backwards integrate](http://en.wikipedia.org/wiki/Vertical_integration).
+We can make all the arguments we want for why open source produces better, more secure software, how it's already paid for by the tax payers, how it reduces duplication of efforts, or prevents vendor lock in. But none of that matters if the workflow on the other side of the (fire)wall is predicated on a culture of distrust. We need to make the plea further up the value chain. It's time to [backwards integrate](https://en.wikipedia.org/wiki/Vertical_integration).
 
 We should focus our efforts on the 99% of the process that happens before the code makes it out the door, the bulk of the iceberg that's hiding below the water's surface. [Open source was never intended to be a verb](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/), and we shouldn't treat it that way. Open source has little to do with code being public. Hitting a publish button does nothing to change the underlying worldview that technology has long since deprecated.
 

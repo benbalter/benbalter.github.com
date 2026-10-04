@@ -43,7 +43,7 @@ In a nutshell:
   2. Two sided non-conflict changes – automatically merge
   3. Conflicted changes – note conflicts in fork and prepare for re-merge
 
-Post forking may make for a killer plugin [^2] or piece of core functionality… and imagine if it could integrate with other collaboration tools like [Edit Flow](http://editflow.org/), or [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)? As in Wired's example, it has the potential to fundamentally change newsrooms and other editorial workflows. All of a sudden, any content becomes either publicly or privately collaborative. Pretty cool, huh? While it may be a bit ahead of its time from a human standpoint, from a technical standpoint, the technology's there — it's nothing new — just a matter of building it, and hopefully solving the dreaded "are you out yet?" problem.
+Post forking may make for a killer plugin [^2] or piece of core functionality… and imagine if it could integrate with other collaboration tools like [Edit Flow](https://editflow.org/), or [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)? As in Wired's example, it has the potential to fundamentally change newsrooms and other editorial workflows. All of a sudden, any content becomes either publicly or privately collaborative. Pretty cool, huh? While it may be a bit ahead of its time from a human standpoint, from a technical standpoint, the technology's there — it's nothing new — just a matter of building it, and hopefully solving the dreaded "are you out yet?" problem.
 
 Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](https://ben.balter.com/contact/), or let me know in the comments below?
 
@@ -53,7 +53,7 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 **Update (6/13):** Stay tuned. This may yet become a reality after all. ETA end of summer-ish.
 
-**Update (10/1):** Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
+**Update (10/1):** Introducing [Post Forking for WordPress](https://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
 [^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software](https://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/) — I know first-hand how off-putting GitHub can be to non-technical users.
 

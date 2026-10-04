@@ -212,7 +212,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [<img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" class="aligncenter" />](https://creativecommons.org/licenses/by/2.0/)
 
-*Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
+*Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
 [^1]: This holds true for both civilian and military procurement systems. *See generally* Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) [hereinafter DoD Acquisition Report].
 
@@ -522,6 +522,6 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^156]: FAR 36.602–1.
 
-[^157]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer](http://www.bls.gov/soc/soc_structure_2010.pdf). Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
+[^157]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](https://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer](https://www.bls.gov/soc/soc_structure_2010.pdf). Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
 
 [^158]: FAR 39.103 (implementing the Clinger-Cohen Act of 1996, Pub. L. No. 104–106).

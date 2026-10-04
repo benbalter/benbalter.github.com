@@ -5,9 +5,9 @@ tldr: "The internet naturally converges on elegant standards. For WordPress to k
 published: true
 ---
 
-The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as opposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of experimentation.
+The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as opposed to say [Gopher](https://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of experimentation.
 
-Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
+Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
 
 WordPress, for the most part, does this well. Each post is given a unique permalink (for example, `2012-12-15-why-wordpress...`) that always points to that post. The problem is, however, in WordPress's sense, it points to the *display* of that content, not the content itself. When editing, for example, that same content may be represented as `/wp-admin/post.php?p=1234`, clearly a different URL, and if you'd like to programmatically access the underlying data (say to build a mobile app, or some sort of external widget), you're pretty much SOL in terms of WordPress's core vision.
 
@@ -31,7 +31,7 @@ At the least, let's expose all WordPress content in a machine readable format. T
 
 ## Walk
 
-Access to content is half the equation. Allow programmatic management of WordPress content as well. Conceptually, this is nothing radical. WordPress allows remote management of content through the [XML-RPC](http://en.wikipedia.org/wiki/XML-RPC) protocol, a blog-specific format that was designed some 15 years ago. We're just talking about an upgrade.
+Access to content is half the equation. Allow programmatic management of WordPress content as well. Conceptually, this is nothing radical. WordPress allows remote management of content through the [XML-RPC](https://en.wikipedia.org/wiki/XML-RPC) protocol, a blog-specific format that was designed some 15 years ago. We're just talking about an upgrade.
 
 1. Use the existing `admin-ajax` infrastructure to consistently expose administrative functions in a programmatic way. For example, POSTing to `admin-ajax.php?action=create` should allow me to create a new post, just as `admin-ajax.php?action=update&p=123` or `?action=delete&p=1234` should do the same. Again, the basic plumbing's already there, it's just a matter of abstracting it out and aligning with modern conventions.
 
@@ -41,7 +41,7 @@ Access to content is half the equation. Allow programmatic management of WordPre
 
 We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the platform of the future and tackle the next generation of web-based applications in the "WordPress way". It's simply a matter of positioning.
 
-1. Transparently map the already-exposed permalink endpoints (for example, `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routing system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so with the traditional WordPress finesse.
+1. Transparently map the already-exposed permalink endpoints (for example, `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routing system (to understand [HTTP verbs](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so with the traditional WordPress finesse.
 
 2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the frontend as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire site. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
 

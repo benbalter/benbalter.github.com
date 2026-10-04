@@ -30,7 +30,7 @@ For things like books, the year of publication is really easy to determine. If y
 
 But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a site, as that's the most common means of publishing an open source project, for example, via GitHub's web interface) "published"?
 
-In this case, of a site like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, which are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
+In this case, of a site like [choosealicense.com](https://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, which are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
 If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 - 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
 

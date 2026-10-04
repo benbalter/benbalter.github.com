@@ -44,7 +44,7 @@ friday: 9-3
 
 That makes sense, because my bakery's hours is a relatively small dataset. But trying to represent all my baked goods in that format (or worse posts), would quickly get out of hand. That type of information is better represented as individual Markdown files with front matter, not one giant YAML file that will quickly become unwieldy with complexity; and rather than create the data, and pages to display the data, or the data and a plugin to turn it into pages; using collections allows the site owner to focus on the content.
 
-For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html).
+For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](https://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html).
 
 ### Other use-cases
 

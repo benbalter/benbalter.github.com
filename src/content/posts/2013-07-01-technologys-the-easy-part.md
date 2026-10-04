@@ -16,7 +16,7 @@ We're geeks. We're good at building things. Heck, it's fun, and it's what we do 
 
 ## Dat Elegant solution
 
-There was a [recent exchange on the Twitters](https://twitter.com/dan_munz/status/351065902642503681) with some members of the open government community whom I respect greatly about [a recent proposal](https://github.com/maxogden/dat/blob/master/README.md) that I'm afraid is a bit ahead of its time. The need for a distributed version control system to handle real time and large-scale government data would be a great problem to have. It'd be great because it'd mean that the supply side was already there and demanding it. Unfortunately, it's not, at least not yet, and no amount of [OT](http://en.wikipedia.org/wiki/Operational_transformation) can overcome the challenges we currently face:
+There was a [recent exchange on the Twitters](https://twitter.com/dan_munz/status/351065902642503681) with some members of the open government community whom I respect greatly about [a recent proposal](https://github.com/dat-ecosystem/dat/blob/master/README.md) that I'm afraid is a bit ahead of its time. The need for a distributed version control system to handle real time and large-scale government data would be a great problem to have. It'd be great because it'd mean that the supply side was already there and demanding it. Unfortunately, it's not, at least not yet, and no amount of [OT](https://en.wikipedia.org/wiki/Operational_transformation) can overcome the challenges we currently face:
 
 I watch day in and day out as many of my former colleagues fight tooth-and-nail trying to convince well-meaning government bureaucrats to toss a scrap of government data over the firewall. It's a tiring process. After all, whack-a-mole is, by definition, a losing game. But the answer's not Yet Another Mallet, nor is it to give up and build our own mole management solution. We should be making it dumb-simple to do the right thing. We should be building really, really boring stuff. The more boring the better. In many cases, we probably shouldn't be building anything at all. This is one of them.
 
@@ -28,7 +28,7 @@ We should be co-opting proven tools already in the hands of public servants and 
 
 ## Baby steps
 
-Complex, bleeding edge tools aren't the solution to making government more open. Even our [flagship efforts](http://healthcare.gov) expose that well-established solutions are unfortunately light years ahead of the anachronism that is DC and simply serve to baffle those the government trusts to implement them.[^2] Instead, it's about baby steps. It's about starting with a small real-world proof of concept at each agency, heck, maybe even each bureau, and gradually showing those individuals that may not even realize it, that they are, in fact, empowered to fundamentally reimagine the relationship between citizens and government.
+Complex, bleeding edge tools aren't the solution to making government more open. Even our [flagship efforts](https://www.healthcare.gov) expose that well-established solutions are unfortunately light years ahead of the anachronism that is DC and simply serve to baffle those the government trusts to implement them.[^2] Instead, it's about baby steps. It's about starting with a small real-world proof of concept at each agency, heck, maybe even each bureau, and gradually showing those individuals that may not even realize it, that they are, in fact, empowered to fundamentally reimagine the relationship between citizens and government.
 
 <!--lint ignore retext-indefinite-article-->
 
