@@ -21,14 +21,14 @@
 
 import { execFileSync } from 'node:child_process';
 
-export const LASTMOD_SOURCE_DIRS = [
+const LASTMOD_SOURCE_DIRS = [
   'src/content/posts',
   'src/content/pages',
   'src/content/resume-positions',
 ];
 
 /** A commit touching more posts than this is an archive-wide sweep. */
-export const SWEEP_THRESHOLD = 5;
+const SWEEP_THRESHOLD = 5;
 
 const POSTS_DIR = 'src/content/posts/';
 const POST_URL_PATTERN = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/$/;

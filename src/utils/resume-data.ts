@@ -13,11 +13,11 @@
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
-export type PositionEntry = CollectionEntry<'resume-positions'> & {
+type PositionEntry = CollectionEntry<'resume-positions'> & {
   Content: Awaited<ReturnType<typeof render>>['Content'];
 };
 
-export interface GroupedPositions {
+interface GroupedPositions {
   employer: string;
   positions: PositionEntry[];
 }

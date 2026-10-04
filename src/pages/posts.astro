@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
+import { pickPostsBySlug } from '../utils/post-filtering';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import PopularPosts from '../components/PopularPosts.astro';
@@ -18,9 +19,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
   b.id.localeCompare(a.id)
 );
 
-const popularPosts = popularPostSlugs
-  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
-  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
 
 const postsByYear = new Map<number, CollectionEntry<'posts'>[]>();
 for (const post of posts) {

@@ -27,9 +27,11 @@
   // op is the 1Password CLI that script/analytics.mjs shells out to locally
   // to resolve op:// references in .env.
   "ignoreBinaries": ["vale", "yamllint", "op"],
-  // Unused files, dependencies, and unlisted imports fail; unused exports only warn.
+  // Unused files, dependencies, imports, exports, and exported types all fail.
+  // Constants exported only "for documentation" read as public API; keep them
+  // module-private unless something imports them.
   "rules": {
-    "exports": "warn",
-    "types": "warn"
+    "exports": "error",
+    "types": "error"
   }
 }

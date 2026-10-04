@@ -6,7 +6,7 @@
  * (modal-scoped) and `src/scripts/shortcuts.ts` (site-wide).
  */
 
-export interface Shortcut {
+interface Shortcut {
   /** Key groups. Each inner array is a set of alternatives, joined with "or". */
   keys: string[][];
   /** Press the groups in sequence rather than as interchangeable options. */

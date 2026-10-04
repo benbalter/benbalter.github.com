@@ -69,10 +69,12 @@ test.describe('Astro View Transitions Navigation', () => {
     await expect(page.locator('h1')).toContainText('About');
   });
 
+  // FIXME: not flaky, it fails every time. Back navigation lands at scrollY 0
+  // on this site, in production as well as preview, while a plain two-page
+  // control site restores scroll in the same headless Chromium. Disabling
+  // `scroll-behavior: smooth` and `@view-transition` doesn't change it, so the
+  // cause is something else on the page. Investigate before re-enabling.
   test.fixme('should preserve scroll position on back navigation', async ({ page }) => {
-    // FIXME: This test is flaky due to timing issues with view transitions and scroll restoration
-    // Scroll position restoration behavior is inconsistent in test environment
-    
     // Start on homepage
     await page.goto('/');
     await waitForPageReady(page);
@@ -103,15 +105,15 @@ test.describe('Astro View Transitions Navigation', () => {
     // Verify we're on the about page
     await expect(page).toHaveURL(/\/about\//);
     
-    // Verify scroll position was preserved (with tolerance for slight variations)
-    const scrollY = await page.evaluate(() => window.scrollY);
-    expect(scrollY).toBeCloseTo(100, -1);
+    // The router restores scroll after the swap, not at the URL change, so poll
+    // rather than reading scrollY once (the old race that made this flaky).
+    await expect
+      .poll(() => page.evaluate(() => window.scrollY))
+      .toBeGreaterThan(90);
+    expect(await page.evaluate(() => window.scrollY)).toBeLessThan(110);
   });
 
-  test.fixme('should update browser history correctly', async ({ page }) => {
-    // FIXME: This test is flaky due to timing issues with view transitions
-    // Browser history navigation behavior is inconsistent in test environment
-    
+  test('should update browser history correctly', async ({ page }) => {
     // Start on homepage
     await page.goto('/');
     await waitForPageReady(page);
@@ -134,11 +136,13 @@ test.describe('Astro View Transitions Navigation', () => {
     await waitForPageReady(page);
     
     await page.goBack();
-    await page.waitForURL(/^\/$|\/index/);
+    // waitForURL matches the full URL, so compare the pathname; the old
+    // /^\/$/ regex could never match and made this test time out.
+    await page.waitForURL((url) => url.pathname === '/');
     await waitForPageReady(page);
     
     // Verify we're back on homepage
-    await expect(page).toHaveURL(/^\/$|\/index/);
+    expect(new URL(page.url()).pathname).toBe('/');
   });
 
   test('should handle external links normally without interception', async ({ page }) => {

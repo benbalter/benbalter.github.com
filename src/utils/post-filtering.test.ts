@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { isPublished, isListablePost } from './post-filtering';
+import { isPublished, isListablePost, pickPostsBySlug } from './post-filtering';
 
 /** Helper to create a minimal post-like object for testing */
 function makePost(data: { published?: boolean; archived?: boolean }) {
@@ -51,5 +51,17 @@ describe('isListablePost', () => {
 
   it('returns true when archived is explicitly false', () => {
     expect(isListablePost(makePost({ archived: false }) as any)).toBe(true);
+  });
+});
+
+describe('pickPostsBySlug', () => {
+  const posts = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+
+  it('returns posts in slug order, not collection order', () => {
+    expect(pickPostsBySlug(posts, ['c', 'a']).map((p) => p.id)).toEqual(['c', 'a']);
+  });
+
+  it('skips slugs with no matching post', () => {
+    expect(pickPostsBySlug(posts, ['b', 'gone']).map((p) => p.id)).toEqual(['b']);
   });
 });
