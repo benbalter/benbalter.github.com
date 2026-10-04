@@ -1,10 +1,16 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
 
-/* Where `npm run preview:worker` (wrangler dev) listens. Keep in sync with
-   that script's --port in package.json. Not 4321 (Astro's default, used by
-   other local projects) or 8787 (wrangler's default), so Playwright never
-   reuses some other project's server by accident. */
-const WORKER_URL = 'http://127.0.0.1:8792';
+/* Where `npm run preview:worker` (wrangler dev) listens, read from that
+   script's --port in package.json so the two can't drift. The port is
+   neither 4321 (Astro's default, used by other local projects) nor 8787
+   (wrangler's default), so Playwright never reuses another project's server. */
+const { scripts } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8')) as {
+  scripts: Record<string, string>;
+};
+const workerPort = scripts['preview:worker']?.match(/--port\s+(\d+)/)?.[1];
+if (!workerPort) throw new Error('package.json preview:worker script must set --port');
+const WORKER_URL = `http://127.0.0.1:${workerPort}`;
 
 /**
  * Playwright configuration for Ben Balter's website
