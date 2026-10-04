@@ -63,6 +63,10 @@ Cloudflare Workers Static Assets uses files in the `public/` directory:
 
 These are automatically picked up by Cloudflare Workers Static Assets during deployment.
 
+### Which requests run the Worker
+
+- **`assets.run_worker_first`** in `wrangler.json` sends page URLs (paths ending in `/`) and `POST /api/event` through [`worker/index.js`](../worker/index.js), which handles Markdown content negotiation, `Vary: Accept`, and engagement events. Static files are excluded with negative patterns (`!/assets/*`, `!/.well-known/*`, `!/*.xml`, `!/*.txt`, `!/*.md`, images, and so on) and served straight from the asset layer, where `_headers` and `_redirects` still apply; any path the list doesn't cover still runs the Worker. The Worker would only pass those files through anyway, and every invocation counts against the account's Workers Free daily request cap (past the cap, [requests matching `run_worker_first` get a 429](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/) while excluded ones keep serving), so feed readers, crawlers, and favicon fetches shouldn't spend it. In these patterns `*` matches across `/`, so `!/*.xml` covers `.xml` files at any depth. [`worker/routing.test.js`](../worker/routing.test.js) fails if an exclusion would ever match a page URL or `/api/event`.
+
 ## Security Best Practices
 
 1. **Minimal Permissions**: API token should only have Cloudflare Workers edit permission
