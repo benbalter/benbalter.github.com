@@ -16,37 +16,37 @@ npm run lint           # All linters
 
 ## Project Structure
 
-- [`src/pages/`](src/pages/) — File-based routes
-- [`src/layouts/`](src/layouts/) — Page layouts (BaseLayout.astro, PostLayout.astro)
-- [`src/components/`](src/components/) — Reusable Astro components
-- [`src/content/`](src/content/) — Content collections (posts, pages, resume-positions)
-- [`src/content.config.ts`](src/content.config.ts) — Collection schemas (NOT `src/content/config.ts`)
-- [`src/data/`](src/data/) — YAML data files (plus a few typed `.ts` data modules)
-- [`src/utils/`](src/utils/) — TypeScript utilities (unit tests in `*.test.ts` alongside source)
-- [`src/lib/`](src/lib/) — Remark/rehype plugins
-- [`src/styles/global.css`](src/styles/global.css) — Tailwind v4 config + custom styles
-- [`e2e/`](e2e/) — Playwright E2E tests
-- [`script/`](script/) — Build and utility scripts
+- [`src/pages/`](src/pages/): File-based routes
+- [`src/layouts/`](src/layouts/): Page layouts (BaseLayout.astro, PostLayout.astro)
+- [`src/components/`](src/components/): Reusable Astro components
+- [`src/content/`](src/content/): Content collections (posts, pages, resume-positions)
+- [`src/content.config.ts`](src/content.config.ts): Collection schemas (NOT `src/content/config.ts`)
+- [`src/data/`](src/data/): YAML data files (plus a few typed `.ts` data modules)
+- [`src/utils/`](src/utils/): TypeScript utilities (unit tests in `*.test.ts` alongside source)
+- [`src/lib/`](src/lib/): Remark/rehype plugins
+- [`src/styles/global.css`](src/styles/global.css): Tailwind v4 config + custom styles
+- [`e2e/`](e2e/): Playwright E2E tests
+- [`script/`](script/): Build and utility scripts
 
 ## Tech Stack
 
 - **Astro 7**, Vite 8, TypeScript, Node 22+
-- **[Tailwind CSS v4](https://tailwindcss.com/docs)** via `@tailwindcss/vite` — config lives in `src/styles/global.css` via `@theme` (no `tailwind.config.js`)
-- **[Zod 4](https://zod.dev)** — import `z` from `astro/zod` (not `astro:content`)
+- **[Tailwind CSS v4](https://tailwindcss.com/docs)** via `@tailwindcss/vite`: config lives in `src/styles/global.css` via `@theme` (no `tailwind.config.js`)
+- **[Zod 4](https://zod.dev)**: import `z` from `astro/zod` (not `astro:content`)
 - **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** static hosting
 
 ## Critical Conventions
 
 ### Markdown Linting
 
-[`remark`](https://github.com/remarkjs/remark-lint) runs report-only: `npm run lint-md` runs `remark .` (no `-o`), which checks Markdown without rewriting it. **Never run `remark <file> -o`** — the `-o` write-back is the one thing that adds excessive backslash escaping (`\[`, `\_`, `\&`) and breaks the build. Typography (smart quotes, em/en dashes) is applied at render via `sharedRemarkPlugins`, so `-o` buys nothing. [`script/fix-lint`](script/fix-lint) only exists to undo `-o` damage; with report-only remark it's a no-op you shouldn't need.
+[`remark`](https://github.com/remarkjs/remark-lint) runs report-only: `npm run lint-md` runs `remark .` (no `-o`), which checks Markdown without rewriting it. **Never run `remark <file> -o`**: the `-o` write-back is the one thing that adds excessive backslash escaping (`\[`, `\_`, `\&`) and breaks the build. Typography (smart quotes, em/en dashes) is applied at render via `sharedRemarkPlugins`, so `-o` buys nothing. [`script/fix-lint`](script/fix-lint) only exists to undo `-o` damage; with report-only remark it's a no-op you shouldn't need.
 
 ```bash
-# Check a specific file — report-only, does NOT modify it:
+# Check a specific file (report-only, does NOT modify it):
 remark src/content/posts/my-post.md
 
 # markdownlint --fix is safe (no escaping) but rewrites every file with a
-# violation — target a specific file to keep the diff small:
+# violation; target a specific file to keep the diff small:
 markdownlint-cli2 --fix src/content/posts/my-post.md
 ```
 
@@ -59,7 +59,7 @@ markdownlint-cli2 --fix src/content/posts/my-post.md
 npx eslint src/utils/my-util.ts
 remark src/content/posts/my-post.md
 
-# Bad — reformats everything
+# Bad: reformats everything
 npm run lint-md
 npm run lint
 ```
@@ -91,7 +91,7 @@ const { Content } = await render(post);
 
 ### Component Patterns
 
-- Zero JavaScript by default — avoid `client:*` directives unless interactivity is required
+- Zero JavaScript by default; avoid `client:*` directives unless interactivity is required
 - TypeScript interfaces for all component props
 - Tailwind utilities first; `@layer components` in `global.css` for reusable patterns; `<style>` scoped blocks only when Tailwind can't cover it
 

@@ -7,6 +7,9 @@ on:
     paths:
       - 'src/**'
       - '*.md'
+      - '.github/agents/**'
+      - '.github/instructions/**'
+      - '.github/copilot-instructions.md'
       - 'dictionary.txt'
       - '.remarkrc.js'
       - '.remarkignore'
@@ -40,6 +43,9 @@ on:
     paths:
       - 'src/**'
       - '*.md'
+      - '.github/agents/**'
+      - '.github/instructions/**'
+      - '.github/copilot-instructions.md'
       - 'dictionary.txt'
       - '.remarkrc.js'
       - '.remarkignore'

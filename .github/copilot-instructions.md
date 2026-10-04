@@ -91,7 +91,7 @@ npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
 ```
 
-**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` also runs `markdownlint-cli2 --fix` on every Markdown file, so lint single files instead (see Notes for Copilot).
+**Important**: Never run `remark <file> -o`: the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` also runs `markdownlint-cli2 --fix` on every Markdown file, so lint single files instead (see Notes for Copilot).
 
 ## Project Structure
 
@@ -216,16 +216,16 @@ Blog posts must include:
 
 ## Content Guidelines
 
-* **Professional, not formal**: Professionalism is mastery of craft—clear, efficient, and direct. Formality is strict adherence to rules at the expense of clarity. Warmth and competence aren't opposites.
-* Write direct, opinionated, conversational prose—like a smart colleague over coffee, not a corporate memo or AI-generated text
+* **Professional, not formal**: Professionalism is mastery of craft: clear, efficient, and direct. Formality is strict adherence to rules at the expense of clarity. Warmth and competence aren't opposites.
+* Write direct, opinionated, conversational prose, like a smart colleague over coffee, not a corporate memo or AI-generated text
 * Use inclusive language (checked via Vale)
 * Maintain readability
 * Check spelling and grammar (retext-spell, textlint)
 * Use proper typographic conventions (no em dashes, en dashes for ranges, Oxford comma always)
-* Avoid corporate buzzwords and clichés—use precise, specific language instead
+* Avoid corporate buzzwords and clichés; use precise, specific language instead
 * Avoid AI-like writing patterns (excessive hedging, formulaic transitions, hollow summarization, meta-commentary)
 * Use contractions naturally, sentence fragments for emphasis, and parentheses or commas for conversational asides
-* Write for a global audience—avoid cultural idioms, use unambiguous date formats, consider neurodiversity
+* Write for a global audience: avoid cultural idioms, use unambiguous date formats, consider neurodiversity
 * Apply the three litmus tests: the coffee test, the "anyone test", and the "explain to a new hire" test
 * See the Writing Agent (`writing.md`) for comprehensive voice and style guidance
 
@@ -289,7 +289,7 @@ Use this agent for development tasks that involve modifying or creating code fil
 
 Specialized for content creation and editing that authentically matches Ben Balter's distinctive writing voice:
 
-* **Writing voice**: Direct, opinionated, conversational—like a smart colleague over coffee, not a corporate memo
+* **Writing voice**: Direct, opinionated, conversational, like a smart colleague over coffee, not a corporate memo
 * **Blog posts**: Technology leadership, open source, remote work, collaboration
 * **Anti-AI patterns**: Avoids hedging, formulaic transitions, hollow summarization, and other machine-generated tells
 * **Language principles**: Plain language, active voice, specific and concrete, no buzzwords or clichés
@@ -316,7 +316,7 @@ Use this agent for SEO audits, optimizing meta information, implementing structu
 
 ## Notes for Copilot
 
-* This is a **production website**—be conservative with changes
+* This is a **production website**, so be conservative with changes
 * Preserve existing functionality unless explicitly asked to modify
 * Follow the established patterns in the codebase
 * Test changes thoroughly with the existing test suite
