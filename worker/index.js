@@ -22,11 +22,30 @@
  *   GROUP BY event, path ORDER BY count DESC
  *
  * No cookies, no IPs, no user identifiers are stored — only event name,
- * page path, and referrer.
+ * page path, and the origin of the page's inbound referrer (blob3).
  */
 
 /** Allowed event names — reject anything else so the dataset stays clean. */
 const EVENTS = new Set(['subscribe', 'book-cta']);
+
+/**
+ * The origin of the page's inbound referrer (`document.referrer`, sent by the
+ * client), or '' when absent or not an http(s) URL. Only the origin is kept,
+ * so search terms, campaign params, and paths on other sites never reach the
+ * dataset. Not the request's own `Referer` header: on a same-origin beacon
+ * that's just the current page's URL, query string included.
+ * @param {unknown} value
+ * @returns {string}
+ */
+function referrerOrigin(value) {
+  if (typeof value !== 'string' || value === '') return '';
+  try {
+    const { protocol, origin } = new URL(value);
+    return protocol === 'http:' || protocol === 'https:' ? origin : '';
+  } catch {
+    return '';
+  }
+}
 
 /**
  * True when the client explicitly asks for Markdown via the Accept header.
@@ -79,7 +98,7 @@ export default {
         return new Response('Bad request', { status: 400 });
       }
 
-      const { event, path } = payload ?? {};
+      const { event, path, referrer } = payload ?? {};
       if (
         typeof event !== 'string' ||
         !EVENTS.has(event) ||
@@ -90,7 +109,7 @@ export default {
       }
 
       env.ENGAGEMENT?.writeDataPoint({
-        blobs: [event, path, request.headers.get('referer') ?? ''],
+        blobs: [event, path, referrerOrigin(referrer)],
         doubles: [1],
         indexes: [event],
       });

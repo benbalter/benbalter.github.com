@@ -138,6 +138,32 @@ describe('POST /api/event', () => {
     });
   });
 
+  it('records only the origin of the inbound referrer', async () => {
+    const env = makeEnv();
+    const res = await worker.fetch(
+      post({
+        event: 'book-cta',
+        path: '/about/',
+        referrer: 'https://www.google.com/search?q=ben+balter',
+      }),
+      env,
+    );
+    expect(res.status).toBe(204);
+    expect(env.ENGAGEMENT.writeDataPoint).toHaveBeenCalledWith(
+      expect.objectContaining({ blobs: ['book-cta', '/about/', 'https://www.google.com'] }),
+    );
+  });
+
+  it('ignores the request Referer header and non-http referrers', async () => {
+    const env = makeEnv();
+    const req = post({ event: 'subscribe', path: '/about/', referrer: 'javascript:alert(1)' });
+    req.headers.set('Referer', 'https://ben.balter.com/about/?utm_source=email');
+    await worker.fetch(req, env);
+    expect(env.ENGAGEMENT.writeDataPoint).toHaveBeenCalledWith(
+      expect.objectContaining({ blobs: ['subscribe', '/about/', ''] }),
+    );
+  });
+
   it('rejects unknown events', async () => {
     const env = makeEnv();
     const res = await worker.fetch(post({ event: 'nope', path: '/' }), env);
