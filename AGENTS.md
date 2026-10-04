@@ -10,6 +10,7 @@ Personal website and blog for Ben Balter. [Astro](https://astro.build) 7 static 
 npm run dev            # Dev server (port 4321)
 npm run build          # Build → dist-astro/
 npm run preview        # Preview the production build
+npm run preview:worker # Serve the build through the production Worker (wrangler dev --local, port 8792); E2E runs against this
 npm run check          # Type-check Astro TypeScript
 npm test               # Type checks + lint checks + Vitest unit tests
 npm run test:e2e       # Playwright E2E tests
