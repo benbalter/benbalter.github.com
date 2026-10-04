@@ -4,7 +4,7 @@ description: "Government agencies can't agree to your standard terms of service.
 tldr: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS so 2.7 million government employees can use your product."
 ---
 
-If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
+If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
 
 ## Why federal agencies can't agree to your terms of service
 
@@ -29,7 +29,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 [Office of Management and Budget Memorandum M-13–10](https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/memoranda/2013/m-13-10.pdf) outlines a standard process for government agencies to sign up for social media services (with a definition of "social media" encompassing most web-based services). At a high level, the process looks something like this:
 
 1. A staffer decides a service will further the agency's mission
-2. The staffer checks [GSA's list of pre-negotiated TOS amendments](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
+2. The staffer checks [GSA's list of pre-negotiated TOS amendments](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
 3. If the service has pre-negotiated a TOS amendment, the staffer submits the document to their agency's general counsel for review
 4. If the service has not yet negotiated an agreement with the government, they reach out to the service directly to negotiate a custom amendment
 5. If all goes well, the agency can use the service (and can create as many accounts as they'd like)
@@ -66,7 +66,7 @@ Last, I've purposely avoided discussing procurement, which is a much larger issu
 
 - [How to Amend Your App's Terms of Service for Federal Agencies](https://zapier.com/blog/federal-government-terms-of-service-amendment/)
 - [Federal-Compatible Terms of Service Agreements](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
-- [Negotiated Terms of Service Agreements](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
+- [Negotiated Terms of Service Agreements](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
 - [Model TOS template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc)
 - [OMB Memorandum M-13–10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/memoranda/2013/m-13-10.pdf)
 

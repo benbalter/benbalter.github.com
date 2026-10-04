@@ -52,6 +52,6 @@ To use, you can [download the plugin file](https://github.com/benbalter/Convert-
 
 Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code.
 
-[^1]: Licensed under [GPLv2](http://wordpress.org/about/gpl/)
+[^1]: Licensed under [GPLv2](https://web.archive.org/web/20110224192520/http://wordpress.org/about/gpl/)
 
 [^2]: You can even [Fork the plugin over on GitHub](https://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
