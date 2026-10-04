@@ -74,3 +74,16 @@ export async function waitForPageReady(page: Page) {
   await page.waitForLoadState('load');
 }
 
+/**
+ * Wait for the TL;DR box's entrance animation (`tldr-enter` in Tldr.astro)
+ * to finish. While it slides in, Playwright sees the element as "not stable"
+ * and retries the tap after scrolling, and with `scroll-behavior: smooth`
+ * that scroll keeps animating after the tap lands, so the tooltip's
+ * close-on-scroll handler hides it again. A fast server (the local Worker)
+ * makes the tap race the animation.
+ */
+export async function waitForTldrSettled(page: Page) {
+  await page
+    .locator('.tldr-container')
+    .evaluate((el) => Promise.all(el.getAnimations().map((animation) => animation.finished)));
+}

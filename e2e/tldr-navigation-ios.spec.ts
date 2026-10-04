@@ -1,5 +1,5 @@
 import { test, expect, devices } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { waitForPageReady, waitForTldrSettled } from './helpers';
 
 /**
  * Test for TLDR tooltip functionality after View Transitions navigation on iOS/iPadOS
@@ -27,6 +27,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await expect(tldrElement).toHaveAttribute('data-tooltip-initialized', 'true');
 
     // Verify tooltip still works (this is where it fails after View Transitions)
+    await waitForTldrSettled(page);
     await tldrElement.tap();
 
     // Check tooltip is visible
@@ -49,6 +50,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await expect(tldrElement2).toBeVisible();
     await expect(tldrElement2).toHaveAttribute('data-tooltip-initialized', 'true');
     
+    await waitForTldrSettled(page);
     await tldrElement2.tap();
     const tooltip2 = page.locator('.custom-tooltip.show');
     await expect(tooltip2).toBeVisible({ timeout: 2000 });
@@ -75,6 +77,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await expect(tldrElement).toHaveAttribute('data-tooltip-initialized', 'true');
 
     // Verify tooltip still works after navigation on iPad (touch interaction)
+    await waitForTldrSettled(page);
     await tldrElement.tap();
 
     // Check tooltip is visible

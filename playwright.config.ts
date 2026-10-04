@@ -1,4 +1,16 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
+
+/* Where `npm run preview:worker` (wrangler dev) listens, read from that
+   script's --port in package.json so the two can't drift. The port is
+   neither 4321 (Astro's default, used by other local projects) nor 8787
+   (wrangler's default), so Playwright never reuses another project's server. */
+const { scripts } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8')) as {
+  scripts: Record<string, string>;
+};
+const workerPort = scripts['preview:worker']?.match(/--port\s+(\d+)/)?.[1];
+if (!workerPort) throw new Error('package.json preview:worker script must set --port');
+const WORKER_URL = `http://127.0.0.1:${workerPort}`;
 
 /**
  * Playwright configuration for Ben Balter's website
@@ -25,8 +37,8 @@ export default defineConfig({
   /* Retry on CI only - reduced from 2 to 1 since static sites have fewer flaky tests */
   retries: process.env.CI ? 1 : 0,
   
-  /* One worker per core on CI: tests hit a static preview server, so they're
-     cheap to run side by side (385 tests took 1.7m at '50%', i.e. 2 workers) */
+  /* One worker per core on CI: tests hit a local static-asset Worker, so
+     they're cheap to run side by side (385 tests took 1.7m at '50%', i.e. 2 workers) */
   workers: process.env.CI ? '100%' : undefined,
   
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -37,7 +49,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || 'http://localhost:4321',
+    baseURL: process.env.BASE_URL || WORKER_URL,
     
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -83,17 +95,22 @@ export default defineConfig({
       : []),
   ],
 
-  /* Run a local preview server before starting the tests.
-   * Uses the built output (not `astro dev`) for two reasons:
-   *   1. It matches CI, which runs against `npm run preview` (see astro-e2e.yml),
-   *      so tests like sitemap/CSS-bundle that depend on built output behave the same.
-   *   2. Astro 7's `astro dev` daemonizes itself, so Playwright's webServer command
-   *      would exit immediately ("Process from config.webServer exited early").
-   * `reuseExistingServer` skips the rebuild when a preview server is already running. */
-  webServer: process.env.CI ? undefined : {
-    command: 'npm run build && npm run preview',
-    url: 'http://localhost:4321',
-    reuseExistingServer: !process.env.CI,
+  /* Serve the built site through the production Worker before the tests.
+   * `wrangler dev --local` runs worker/index.js on workerd with dist-astro/ as
+   * its assets, so tests exercise what production serves: the Worker's
+   * routing (Markdown content negotiation, POST /api/event), public/_headers,
+   * the built _redirects, trailing-slash redirects, and the 404 page.
+   * `astro preview` applies none of those. Local mode needs no Cloudflare
+   * login; the ENGAGEMENT Analytics Engine binding is simulated locally.
+   * CI starts the same server itself (see astro-e2e.yml) and sets BASE_URL,
+   * and so can you, e.g. to test against an already-running server:
+   * `BASE_URL=http://127.0.0.1:8792 npx playwright test`. Either way,
+   * Playwright doesn't start one. `reuseExistingServer` skips the rebuild
+   * when the Worker is already running on WORKER_URL. */
+  webServer: process.env.CI || process.env.BASE_URL ? undefined : {
+    command: 'npm run build && npm run preview:worker',
+    url: WORKER_URL,
+    reuseExistingServer: true,
     timeout: 180 * 1000,
   },
 });

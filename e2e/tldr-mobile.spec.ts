@@ -1,5 +1,5 @@
 import { test, expect, devices } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { waitForPageReady, waitForTldrSettled } from './helpers';
 
 /**
  * Mobile-specific tests for TLDR tooltip
@@ -36,6 +36,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip
+    await waitForTldrSettled(page);
     await tldrElement.tap();
 
     // Wait for tooltip to appear
@@ -66,6 +67,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await expect(tldrElement).toBeVisible();
 
     // Tap the element to show tooltip
+    await waitForTldrSettled(page);
     await tldrElement.tap();
 
     // Wait for tooltip to appear
@@ -157,6 +159,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip (touch interaction)
+    await waitForTldrSettled(page);
     await tldrElement.tap();
 
     // Wait for tooltip to appear

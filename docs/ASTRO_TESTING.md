@@ -46,7 +46,7 @@ In CI environments, you need to:
 
 The Astro test configuration is in `playwright-astro.config.ts`:
 
-- **Base URL**: `http://localhost:4321` (Astro's default port)
+- **Base URL**: `http://127.0.0.1:8792`, the production Worker served locally by `npm run preview:worker` (`wrangler dev --local`); see [`e2e/README.md`](../e2e/README.md)
 - **Test Directory**: `./e2e` (shared with other builds)
 - **Timeout**: 30 seconds per test
 - **Retries**: 2 retries in CI, 0 locally

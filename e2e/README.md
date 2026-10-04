@@ -28,7 +28,7 @@ npx playwright install
 ### Local Development
 
 ```bash
-# Run all tests (builds the site and starts `npm run preview` automatically)
+# Run all tests (builds the site and starts the local Worker, `npm run preview:worker`, automatically)
 npm run test:e2e
 
 # Run tests in headed mode (see browser)
@@ -59,7 +59,17 @@ npx playwright test --project=chromium
 
 ### Testing Against an Existing Server
 
-Playwright reuses a preview server that's already running on `localhost:4321`. To test a different server or port, set `BASE_URL`:
+Tests run against the production Worker ([`worker/index.js`](../worker/index.js)) served locally by `wrangler dev --local` on `127.0.0.1:8792`, not `astro preview`. That way they cover what production serves: Markdown content negotiation, `POST /api/event`, `public/_headers`, the built `_redirects`, trailing-slash redirects, and the 404 page. Local mode needs no Cloudflare login.
+
+Playwright reuses a Worker that's already running on that port, so you can keep one up between runs:
+
+```bash
+SKIP_PDF=1 npm run build     # skip /resume.pdf to build faster (its link check then fails)
+npm run preview:worker       # serves dist-astro/ on http://127.0.0.1:8792
+npx playwright test          # in another terminal
+```
+
+To test a different server or port, set `BASE_URL`. Playwright then starts no server of its own:
 
 ```bash
 BASE_URL=http://127.0.0.1:4330 npx playwright test
@@ -139,7 +149,7 @@ The Playwright configuration is in [`playwright.config.ts`](../playwright.config
 
 Key settings:
 
-- **Base URL**: `http://localhost:4321` (can be overridden with `BASE_URL` env var)
+- **Base URL**: `http://127.0.0.1:8792`, the local Worker (can be overridden with `BASE_URL` env var)
 - **Browser**: Chromium (Desktop Chrome)
 - **Workers**: 50% of CPUs in CI for parallel execution, unlimited locally
 - **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)

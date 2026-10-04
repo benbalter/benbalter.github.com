@@ -216,19 +216,28 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Start Astro preview server
-        run: |
-          npm run preview -- --host &
+      # Serve the build through the production Worker (worker/index.js on
+      # workerd, via wrangler dev in local mode) rather than astro preview, so
+      # the tests cover the Worker's routing, _headers, _redirects, and the
+      # 404 page. Local mode needs no Cloudflare credentials.
+      - name: Start local Worker
+        run: npm run preview:worker > wrangler-dev.log 2>&1 &
+        env:
+          WRANGLER_SEND_METRICS: false
 
       - name: Wait for server to be ready
         run: |
-          timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
+          timeout 60 bash -c 'until curl -sf -o /dev/null http://127.0.0.1:8792/; do sleep 1; done' || { cat wrangler-dev.log; exit 1; }
 
       - name: Run Playwright tests
         run: npm run test:e2e
         env:
-          BASE_URL: http://localhost:4321
+          BASE_URL: http://127.0.0.1:8792
           CI: true
+
+      - name: Show Worker log
+        if: ${{ failure() }}
+        run: cat wrangler-dev.log
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v7

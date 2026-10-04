@@ -138,6 +138,7 @@
     "build": "astro build && script/inject-modulepreload && script/inject-image-size && pagefind --site dist-astro",
     "dev": "astro dev",
     "preview": "astro preview",
+    "preview:worker": "wrangler dev --local --ip 127.0.0.1 --port 8792 --show-interactive-dev-session=false",
     "check": "astro check --tsconfig tsconfig.astro.json",
     "check:tooling": "tsc -p tsconfig.tooling.json",
     "validate-seo": "tsx script/validate-seo.ts",
