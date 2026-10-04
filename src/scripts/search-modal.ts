@@ -425,9 +425,38 @@ function highlightSearchTerms() {
   }
 }
 
+/**
+ * The search query in a URL's `?q=` parameter, or null when absent or blank.
+ * The WebSite JSON-LD advertises `/?q={search_term_string}` as the site's
+ * search URL, so search engines and browser keyword searches link here.
+ */
+export function searchQueryFromUrl(url: string): string | null {
+  const query = new URL(url).searchParams.get('q')?.trim();
+  return query ? query : null;
+}
+
+/**
+ * Open the dialog with results for a `?q=` query, then drop the parameter so
+ * a reload or Back doesn't reopen it.
+ */
+function openSearchFromUrl() {
+  const query = searchQueryFromUrl(location.href);
+  const input = getInput();
+  if (!query || !input) return;
+
+  const url = new URL(location.href);
+  url.searchParams.delete('q');
+  history.replaceState(history.state, '', url);
+
+  openSearch();
+  input.value = query;
+  performSearch(query);
+}
+
 // Initialize on each page load.
 import { onPageLoad } from './on-page-load';
 onPageLoad(() => {
   initSearch();
   highlightSearchTerms();
+  openSearchFromUrl();
 });
