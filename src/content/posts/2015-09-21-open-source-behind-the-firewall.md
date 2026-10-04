@@ -6,7 +6,7 @@ tldr: "You don't have to publish your code to benefit from open source. Adopting
 
 <!--lint ignore no-emphasis-as-heading-->
 
-*This post originally published on [DLT's Technically Speaking](http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*
+*This post originally published on [DLT's Technically Speaking](https://web.archive.org/web/20150920184536/http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*
 
 Open source has changed the way we build software. A fully distributed team of strangers, rarely working on the same thing at the same time or in the same place at the same time, yet open source projects consistently produce better software than their closed-source and proprietary counterparts. How then, can this reimagined software development workflow be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source?
 
@@ -42,7 +42,7 @@ The tools you choose matter. Tools are more than mere convenience. Tools force t
 
 Open source tools tend to be more organic, rather than process-driven, and prefer social norms to technical constraints. Open source tools must also be able to support the constraints of distributed, open source teams. For example, a 9:00 AM standup meeting is not an option when your development team spans every timezone, let alone, isn't in the same office.
 
-When it comes to how they work, open source teams are bound by [four distinct constraints](http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints):
+When it comes to how they work, open source teams are bound by [four distinct constraints](https://web.archive.org/web/20150909021925/http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints):
 
 > - **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 >
