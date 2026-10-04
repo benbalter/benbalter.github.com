@@ -30,4 +30,4 @@ Ironically, HTTPS is about more than keeping things hidden. It's about keeping t
 
 [^3]: Obviously, a country should have the right to enforce its own social norms, but when such technical implementations are often overinclusive and trivial to bypass by even non-technical users switching protocols, DNS servers, or routing traffic through a proxy or VPN, such ends may be better accomplished by more narrowly tailored, non-technical means.
 
-[^5]: Yeah, yeah, yeah, [I know](https://konklone.com/post/github-pages-now-supports-https-so-use-it).
+[^5]: Yeah, yeah, yeah, [I know](https://web.archive.org/web/20141027132245/https://konklone.com/post/github-pages-now-supports-https-so-use-it).

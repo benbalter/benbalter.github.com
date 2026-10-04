@@ -35,9 +35,9 @@ Notes:
 
 [^3]: Miniwatts, [Internet World Stats](http://www.internetworldstats.com/stats7.htm), *Internet World Users by Language: Top Ten Languages* (chart) (Sept. 30, 2009); Int'l Telecom. Union [ITU], *The World in 2009: ICT Facts and Figures* 1 (2009). The total number of fixed broadband subscribers reached nearly 500 million by the end of 2009. *ID.* at 5.
 
-[^5]: U.S. Census Bureau, *[Estimated Quarterly U.S. Retail Sales (Adjusted): Total and E-commerce (chart)](http://www.census.gov/mrts/www/data/html/09Q1table3.html)* (May 15, 2009).
+[^5]: U.S. Census Bureau, *[Estimated Quarterly U.S. Retail Sales (Adjusted): Total and E-commerce (chart)](https://web.archive.org/web/20090522185223/http://www.census.gov/mrts/www/data/html/09Q1table3.html)* (May 15, 2009).
 
-[^6]: Int'l Telecom. Union [ITU], [*digital.life: ITU internet Report 2006*](http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf) 73 (2006).
+[^6]: Int'l Telecom. Union [ITU], [*digital.life: ITU internet Report 2006*](https://web.archive.org/web/20100528211544/http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf) 73 (2006).
 
 [^7]: Marc D. Nawyn, *Code Red: Responding to the Moral Hazards Facing U.S. Information Technology Companies in China*, 2007 Colum. Bus. L. Rev. 505 (2007).
 

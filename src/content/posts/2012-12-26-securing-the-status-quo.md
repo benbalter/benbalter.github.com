@@ -123,7 +123,7 @@ Last, and most importantly, congress should carve a pilot program exception with
 
 Congress has imposed on federal executive agencies an onerous system to ensure information security benchmarks are met. Despite OMB's best efforts, however, compliance is low, and successful attacks continue. Agencies are finding it difficult to complete the myriad requirements that become increasingly ambiguous in sight of an ever-changing technology landscape. This may be due, at least in part, to an indifference endemic of both agency implementers and the public. Such requirements, however, do not come without a cost. FISMA creates significant administrative overhead for agencies looking to innovate, and in many cases, may do so to such an extent so as to retard or otherwise prevent adoption. As a result, some argue, that by inhibiting such innovation, today's federal security policies simply secure nothing more than the status quo. As communications technology becomes increasingly consumerized, the opportunity for federal agencies to do more with less, and to streamline the delivery of, or expand into new citizen services has never been more apparent. Yet at the same time, public sector adoption is increasingly falling behind private sector counterparts. Instead, OMB should seek to incentivize those agencies that best secure federal information assets and seek out innovative, secure solutions to transacting the nations business. Existing requirements can be streamlined, such as breaking security analyses into the disparate technology components they represent, and allowing such modules of certification to be shared among systems and agencies. Finally, a formal grace period, for low risk, high impact, citizen-facing systems can usher in a new era of transparency and collaborative democracy yet unimagined. Our nations information is one of its chief resources, and great care should be taken to secure it, just as we secure our territories and tangible interests. Such security, however, and the overhead required to implement it, should be proportionate to the risk involved, and should secure the information systems of tomorrow, not simply the status quo.
 
-[^1]: Ctr. for Strategic & Int'l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <https://csis.org/files/media/csis/pubs/081208_securingcyberspace_44.PDF>
+[^1]: Ctr. for Strategic & Int'l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <https://web.archive.org/web/20120916222741/https://csis.org/files/media/csis/pubs/081208_securingcyberspace_44.PDF>
 
 [^2]: Chief Financial Officers Act of 1990, `Pub.L.` 101–576, Nov. 15, 1990, 104 Stat. 2838.
 
@@ -133,7 +133,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^5]: Cybersecurity: Next Steps To Protect Our Critical Infrastructure: Hearing Before the S. Comm. on Commerce, Science & Transportation, 111th Cong. (Feb. 23, 2010) (statement of Sen. Rockefeller) (A major cyberattack could shut down our nation's most critical infrastructure….), <http://1.usa.gov/TLlgEh>; Senate Comm. on Commerce, Science & Transportation, Press Release, Rockefeller and Snowe Gain Momentum for Landmark Cybersecurity Act (Mar. 24, 2010) (statement of Sen. Snowe) (cyber intrusions and attacks represent both a potential national security and economic catastrophe), [`https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8–47F4-A86C-2F71F15892BD`](https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8-47F4-A86C-2F71F15892BD).
 
-[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011, <http://archive.defense.gov/news/newsarticle.aspx?id=64946>.
+[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011.
 
 [^7]: Rethinking FISMA and Federal Information Security Policy, 81 N.Y.U. L. Rev. 1844, 1846 (2006), citing Catriona Davies, US Army Computers Shut Down by Hacker, Daily Telegraph (London), July 28, 2005, at 11 (internal quotation marks omitted).
 
@@ -277,7 +277,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^74]: *ID*. at 1853.
 
-[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://www.fedtek.com/wp-content/uploads/2010/05/fisma_broch.PDF>. *See generally* White, 79 Fordham L. Rev. 369, 405.
+[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005). *See generally* White, 79 Fordham L. Rev. 369, 405.
 
 [^76]: Silvers, 81 N.Y.U. L. Rev. 1844, 1859–60 (citing L.L. Cummings & Donald P. Schwab, Performance in Organizations: Determinants and Appraisals 90–101 (1973)).
 

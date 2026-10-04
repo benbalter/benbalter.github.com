@@ -6,7 +6,7 @@ archived: true
 
 <img src="https://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg" alt="Close up of a copier control panel" title="Copier" class="float-left mr-3" />
 
-The internet's *laissez-faire* internet ecosystem of liberal excerpting is often at odds with both [traditional](http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html) [media](http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/) and [the law](http://ilt.eff.org/index.php/Copyright:_Fair_Use), but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
+The internet's *laissez-faire* internet ecosystem of liberal excerpting is often at odds with both [traditional](http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html) [media](http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/) and [the law](https://web.archive.org/web/20100317144513/http://ilt.eff.org/index.php/Copyright:_Fair_Use), but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
 
 I was recently asked by an aspiring "content producer," what the "rules" were for copying or excerpting content from other sites. From their questions, it quickly became clear to me, that they were missing the point of having a site altogether. [^1]
 
@@ -22,7 +22,7 @@ The culture of the internet is not that it's okay to *copy* others, but that it'
 
 ## Is it copyrighted
 
-If a work is no longer subject to copyright claims (and thus falls in the [public domain](http://www.law.duke.edu/cspd/comics/zoomcomic.html)), the discussion of fair use becomes a moot point. Such a determination does not, strictly speaking turn on the inclusion of the copyright symbol. [^3] Instead, a work is [in the public domain](http://www.unc.edu/~unclng/public-d.htm) if it was created:
+If a work is no longer subject to copyright claims (and thus falls in the [public domain](http://www.law.duke.edu/cspd/comics/zoomcomic.html)), the discussion of fair use becomes a moot point. Such a determination does not, strictly speaking turn on the inclusion of the copyright symbol. [^3] Instead, a work is [in the public domain](https://web.archive.org/web/20110422234233/http://www.unc.edu/~unclng/public-d.htm) if it was created:
 
 - by the federal government, at any time,
 - between 1964–1977 without a copyright notice.

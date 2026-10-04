@@ -49,9 +49,9 @@ Finally, earlier this summer, Google announced FISMA moderate certification of i
 
 Whether a federal contracting officer or a provider of IT services, just as the internet has revolutionized countless aspects of every day life, it is clear that so too will the emerging cloud computing front forever shape the contours of Federal IT procurement in the years to come.
 
-*This article originally published in the [Federal Bar Association Government Contracts Section](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx) [Fall 2010 Newsletter](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf) (PDF, p. 6).*
+*This article originally published in the [Federal Bar Association Government Contracts Section](https://web.archive.org/web/20101215052648/http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx) [Fall 2010 Newsletter](https://web.archive.org/web/20101122032204/http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf) (PDF, p. 6).*
 
-[^1]: Stephen Lawson, *Cloud is internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, <http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120> (quoting HP CTO Russ Daniels).
+[^1]: Stephen Lawson, *Cloud is internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, <https://web.archive.org/web/20100606171739/http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120> (quoting HP CTO Russ Daniels).
 
 [^2]: *See Generally* Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010).
 

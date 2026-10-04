@@ -65,7 +65,7 @@ Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoint
 
 3. `brew services start caddy`. Note: You will be asked to `sudo` as Caddy creates a locally trusted certificate.
 
-4. Install [the Safari extension](https://apps.apple.com/us/app/languagetool-grammar-checker/id1534275760)
+4. Install [the Safari extension](https://web.archive.org/web/20250124095059/https://apps.apple.com/us/app/languagetool-grammar-checker/id1534275760)
 
 5. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
 
