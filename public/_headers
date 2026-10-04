@@ -1,10 +1,12 @@
 # Cloudflare headers configuration
-# https://developers.cloudflare.com/pages/configuration/headers/
+# https://developers.cloudflare.com/workers/static-assets/headers/
 
 # Default headers for all pages: security + short cache with background revalidation
 # For a static site, short browser caching avoids network round-trips during a
 # browsing session while stale-while-revalidate ensures freshness in background.
-# Cloudflare automatically purges CDN cache on deploy.
+# Cloudflare automatically purges CDN cache on deploy. Rules that match the
+# same path append values instead of replacing them, so every narrower block
+# below detaches the inherited Cache-Control (`! Cache-Control`) first.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
@@ -31,56 +33,74 @@
 
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
 # Open Graph / social card images are meant to be embedded cross-origin (social
 # platforms, previews, other sites), so override the site-wide CORP:same-origin
 # and allow cross-origin fetches (e.g. fetch()/canvas from other origins).
+# Matching rules append rather than replace, so detach the /* value first;
+# otherwise both values ship and browsers ignore the unparseable pair.
 /og/*
+  ! Cross-Origin-Resource-Policy
   Cross-Origin-Resource-Policy: cross-origin
   Access-Control-Allow-Origin: *
   # Cards change only on retitle; Cloudflare purges the CDN on deploy, so a
   # longer browser cache with background revalidation is safe.
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # RSS/Atom feeds - 1 hour cache with background revalidation
 /feed.xml
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # Sitemaps - 1 hour cache with background revalidation
 /sitemap-index.xml
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 /sitemap-0.xml
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # Search index (pagefind) - 5 min cache, stable within a browsing session
 /pagefind/*
+  ! Cache-Control
   Cache-Control: public, max-age=300, stale-while-revalidate=3600
 
 # Static assets (favicons, manifest) - 30 day cache
 /favicon.ico
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 /site.webmanifest
+  ! Cache-Control
   Cache-Control: public, max-age=2592000
 /apple-touch-icon.png
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 /android-chrome-*.png
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 /favicon-*.png
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 /mstile-*.png
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 
 # Legacy WordPress uploads (archived 2010-2015 images, never change)
 /wp-content/*
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, immutable
 
 # AI/LLM context files - 1 hour cache with background revalidation
 /llms.txt
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # API catalog (RFC 9727) is a linkset document (RFC 9264) but has no file
 # extension, so set its media type explicitly to match the Link header hint.
 /.well-known/api-catalog
   Content-Type: application/linkset+json; charset=utf-8
+  ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
