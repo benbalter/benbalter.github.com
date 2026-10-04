@@ -40,6 +40,10 @@ screenshots/
 # Local analytics report (contains specific stats; do not commit)
 analytics-report.md
 
+# Popular posts with traffic counts, generated at deploy by
+# script/popular-posts.ts. The repo is public, so never commit it.
+src/data/popular-posts.json
+
 # AI-generated post drafts (script/foundry-drafts.ts) — scratch, edit before publishing
 drafts/
 

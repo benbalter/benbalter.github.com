@@ -102,6 +102,21 @@ jobs:
           restore-keys: |
             og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-
 
+      # "Most read this month" on /posts/ comes from Cloudflare Web Analytics.
+      # The JSON holds traffic counts, so it's generated here and gitignored
+      # rather than committed to this public repo. Runs after the cache steps
+      # because the Astro cache key hashes src/**, and a fresh file each deploy
+      # would miss it every time. Best effort: the script exits 0 without a
+      # file on any failure, and the build renders without the list. Needs a
+      # separate token with "Account Analytics: Read"; the deploy token is
+      # scoped to Workers.
+      - name: Fetch popular posts
+        continue-on-error: true
+        timeout-minutes: 2
+        run: npm run popular-posts
+        env:
+          CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
+
       - name: Build Astro site
         run: npm run build
 
