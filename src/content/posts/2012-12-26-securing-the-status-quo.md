@@ -133,7 +133,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^5]: Cybersecurity: Next Steps To Protect Our Critical Infrastructure: Hearing Before the S. Comm. on Commerce, Science & Transportation, 111th Cong. (Feb. 23, 2010) (statement of Sen. Rockefeller) (A major cyberattack could shut down our nation's most critical infrastructure….), <http://1.usa.gov/TLlgEh>; Senate Comm. on Commerce, Science & Transportation, Press Release, Rockefeller and Snowe Gain Momentum for Landmark Cybersecurity Act (Mar. 24, 2010) (statement of Sen. Snowe) (cyber intrusions and attacks represent both a potential national security and economic catastrophe), [`https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8–47F4-A86C-2F71F15892BD`](https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8-47F4-A86C-2F71F15892BD).
 
-[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011, <http://archive.defense.gov/news/newsarticle.aspx?id=64946>.
+[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011.
 
 [^7]: Rethinking FISMA and Federal Information Security Policy, 81 N.Y.U. L. Rev. 1844, 1846 (2006), citing Catriona Davies, US Army Computers Shut Down by Hacker, Daily Telegraph (London), July 28, 2005, at 11 (internal quotation marks omitted).
 
@@ -277,7 +277,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^74]: *ID*. at 1853.
 
-[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://www.fedtek.com/wp-content/uploads/2010/05/fisma_broch.PDF>. *See generally* White, 79 Fordham L. Rev. 369, 405.
+[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005). *See generally* White, 79 Fordham L. Rev. 369, 405.
 
 [^76]: Silvers, 81 N.Y.U. L. Rev. 1844, 1859–60 (citing L.L. Cummings & Donald P. Schwab, Performance in Organizations: Determinants and Appraisals 90–101 (1973)).
 
