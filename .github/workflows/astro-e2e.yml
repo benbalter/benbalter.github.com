@@ -1,44 +1,15 @@
 name: Astro E2E Tests
 
+# No `paths` filter on the triggers: Build Astro Site, Lighthouse CI and
+# Playwright Tests are required checks, and a path-filtered workflow never
+# reports them, which left PRs that only touch other files (e.g. Actions
+# bumps) unmergeable without an admin bypass. The `changes` job applies the
+# filter instead; skipped jobs count as passing required checks.
 on:
   push:
     branches:
       - main
-    paths:
-      - 'src/**'
-      - 'astro.config.mjs'
-      - 'tsconfig.astro.json'
-      - 'public/**'
-      - '*.md'
-      - 'e2e/**'
-      - 'playwright.config.ts'
-      - '.lighthouserc.json'
-      - '.htmlvalidate.json'
-      - 'package*.json'
-      - 'assets/**'
-      - 'script/inject-*'
-      - 'script/remote-image-dimensions.json'
-      - 'worker/**'
-      - 'wrangler.json'
-      - '.github/workflows/astro-e2e.yml'
   pull_request:
-    paths:
-      - 'src/**'
-      - 'astro.config.mjs'
-      - 'tsconfig.astro.json'
-      - 'public/**'
-      - '*.md'
-      - 'e2e/**'
-      - 'playwright.config.ts'
-      - '.lighthouserc.json'
-      - '.htmlvalidate.json'
-      - 'package*.json'
-      - 'assets/**'
-      - 'script/inject-*'
-      - 'script/remote-image-dimensions.json'
-      - 'worker/**'
-      - 'wrangler.json'
-      - '.github/workflows/astro-e2e.yml'
 
 permissions:
   contents: read
@@ -52,8 +23,51 @@ env:
   NODE_VERSION: 24
 
 jobs:
+  changes:
+    name: Detect site changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      site: ${{ steps.filter.outputs.site }}
+    steps:
+      # Push events diff against the previous commit, which needs a checkout.
+      # Pull requests use the API instead.
+      - name: Checkout repository
+        if: github.event_name == 'push'
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Filter paths
+        id: filter
+        uses: dorny/paths-filter@v4
+        with:
+          filters: |
+            site:
+              - 'src/**'
+              - 'astro.config.mjs'
+              - 'tsconfig.astro.json'
+              - 'public/**'
+              - '*.md'
+              - 'e2e/**'
+              - 'playwright.config.ts'
+              - '.lighthouserc.json'
+              - '.htmlvalidate.json'
+              - 'package*.json'
+              - 'assets/**'
+              - 'script/inject-*'
+              - 'script/remote-image-dimensions.json'
+              - 'worker/**'
+              - 'wrangler.json'
+              - '.github/workflows/astro-e2e.yml'
+
   build:
     name: Build Astro Site
+    needs: changes
+    if: needs.changes.outputs.site == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -170,20 +184,25 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
   # Keeps the "Lighthouse CI" required status check: it passes only if every
-  # page in the matrix passed.
+  # page in the matrix passed, or if no site files changed. It runs even when
+  # upstream jobs fail, so it checks the changes job too rather than treating
+  # a skipped matrix as a pass.
   lighthouse-result:
     name: Lighthouse CI
-    needs: lighthouse
+    needs: [changes, lighthouse]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Check Lighthouse results
         env:
+          CHANGES: ${{ needs.changes.result }}
+          SITE: ${{ needs.changes.outputs.site }}
           RESULT: ${{ needs.lighthouse.result }}
         run: |
-          echo "Lighthouse matrix result: $RESULT"
-          [ "$RESULT" = success ]
+          echo "Changes: $CHANGES, site changed: $SITE, Lighthouse matrix result: $RESULT"
+          [ "$CHANGES" = success ] || exit 1
+          [ "$SITE" != true ] || [ "$RESULT" = success ]
 
   playwright:
     name: Playwright Tests
