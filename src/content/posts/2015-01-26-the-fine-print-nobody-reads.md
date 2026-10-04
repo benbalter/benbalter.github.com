@@ -4,7 +4,7 @@ description: "Government agencies can't agree to your standard terms of service.
 tldr: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS so 2.7 million government employees can use your product."
 ---
 
-If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
+If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://web.archive.org/web/20150120095029/https://collaborate.fosterly.com/) conference in Washington, D.C.:
 
 ## Why federal agencies can't agree to your terms of service
 
