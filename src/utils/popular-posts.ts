@@ -16,8 +16,8 @@ import { getPostUrl } from './post-urls';
 export const GRAPHQL_URL = 'https://api.cloudflare.com/client/v4/graphql';
 
 /** Traffic sources that skew the counts (scrapers and headless clients). */
-export const EXCLUDED_COUNTRIES = ['CN', 'SG'];
-export const EXCLUDED_BROWSERS = ['Unknown'];
+const EXCLUDED_COUNTRIES = ['CN', 'SG'];
+const EXCLUDED_BROWSERS = ['Unknown'];
 
 export interface RumQueryOptions {
   token: string;
@@ -50,7 +50,7 @@ export interface PopularPostsData {
 
 const iso = (d: Date) => d.toISOString().replace(/\.\d+Z$/, 'Z');
 
-export const RUM_QUERY = `query PopularPosts($accountTag: String!, $start: Time!, $end: Time!, $host: String!, $limit: Int!, $countries: [String!], $browsers: [String!]) {
+const RUM_QUERY = `query PopularPosts($accountTag: String!, $start: Time!, $end: Time!, $host: String!, $limit: Int!, $countries: [String!], $browsers: [String!]) {
   viewer {
     accounts(filter: { accountTag: $accountTag }) {
       rumPageloadEventsAdaptiveGroups(
