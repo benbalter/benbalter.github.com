@@ -5,6 +5,7 @@ import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
+import PopularPosts from '../components/PopularPosts.astro';
 import { popularPostSlugs, siteConfig } from '../config';
 import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
 
@@ -83,6 +84,8 @@ const collectionSchema = generateCollectionPageSchema({
       </div>
     </section>
   )}
+
+  <PopularPosts exclude={popularPostSlugs} />
 
   {years.map((year) => {
     const yearPosts = postsByYear.get(year)!;

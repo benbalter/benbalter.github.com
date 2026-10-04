@@ -1,0 +1,56 @@
+---
+/**
+ * PopularPosts Component
+ *
+ * "Most read this month": the top posts by real-browser pageviews, from
+ * src/data/popular-posts.json. That file is generated at deploy time by
+ * script/popular-posts.ts and gitignored (it holds traffic counts, and this
+ * repo is public). Counts are never rendered.
+ *
+ * The file is optional: when it's missing, empty, or malformed (local builds,
+ * forks, an analytics outage), this component renders nothing.
+ */
+
+import type { CollectionEntry } from 'astro:content';
+import { getPublishedPosts } from '../utils/posts';
+import { getPostUrl } from '../utils/post-urls';
+import { selectPopularPostIds } from '../utils/popular-posts';
+
+interface Props {
+  /** Post ids to leave out, e.g. ones already shown nearby on the page */
+  exclude?: string[];
+  /** Max posts to list */
+  limit?: number;
+}
+
+const { exclude = [], limit = 5 } = Astro.props;
+
+// import.meta.glob resolves to {} when the file doesn't exist, so the build
+// never depends on the analytics fetch having run.
+const modules = import.meta.glob<{ default: unknown }>('../data/popular-posts.json', { eager: true });
+const data = Object.values(modules)[0]?.default;
+
+const posts = await getPublishedPosts();
+const postsById = new Map(posts.map((post: CollectionEntry<'posts'>) => [post.id, post]));
+const popular = selectPopularPostIds(data, postsById.keys(), { exclude, limit })
+  .map((id) => postsById.get(id))
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+---
+
+{popular.length > 0 && (
+  <section class="mb-12" aria-labelledby="most-read-heading">
+    <h2 id="most-read-heading" class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Most read this month</h2>
+    <ol class="list-none p-0 m-0 space-y-2">
+      {popular.map((post) => (
+        <li class="m-0">
+          <a
+            href={getPostUrl(post.id)}
+            class="text-gray-900 dark:text-gray-100 no-underline font-medium hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
+          >
+            {post.data.title}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

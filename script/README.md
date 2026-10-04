@@ -57,6 +57,7 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | `new` | Scaffold a new post in `src/content/posts/` | `script/new <title>` | When starting a post |
 | `changed-content` | Print Markdown content files changed between two commits | `script/changed-content <base> <head>` | Used by CI to lint only what a PR touched |
 | `build-remote-image-dimensions` | Cache dimensions of remote `<img>` URLs for `inject-image-size` | `script/build-remote-image-dimensions` | After adding posts with remote images |
+| `popular-posts.ts` | Write the gitignored `src/data/popular-posts.json` (top posts by Cloudflare Web Analytics pageviews, trailing 30 days) for the "Most read this month" list on `/posts/`. Needs `CLOUDFLARE_ANALYTICS_API_TOKEN` with Account Analytics: Read; skips quietly without it | `npm run popular-posts` | Runs in the deploy workflow before the build; locally to preview the list |
 | `update-ai-tells` / `vale-ai-tells` | Bump the pinned `vale-ai-tells` release; run its advisory, non-gating check | `script/update-ai-tells`, `script/vale-ai-tells` | Run by `update-ai-tells.yml`; advisory locally |
 | `analytics.mjs` | Print a Cloudflare Web Analytics (RUM) report | `node script/analytics.mjs` | Ad hoc traffic checks |
 | `design-shots.mjs` | Screenshot key pages for design review | `node script/design-shots.mjs` | Before and after visual changes |
