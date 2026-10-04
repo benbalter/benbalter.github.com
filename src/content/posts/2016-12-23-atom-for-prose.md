@@ -3,7 +3,7 @@ title: How I Atom (for prose)
 description: A detailed look at the packages, prose linters, and configuration tweaks I use to turn the Atom text editor into a powerful Markdown writing environment.
 ---
 
-Inspired by @srobert's ["How I Atom" post](https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
+Inspired by @srobert's ["How I Atom" post](https://web.archive.org/web/20160310161436/https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://web.archive.org/web/20140421210430/https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
 
 While at its core, Atom is a simple, hackable text editor, what makes Atom so powerful is its extensibility and its ecosystem. There are [some 5,000 community-contributed packages](https://atom.io/packages) (and counting) that extend Atom's functionality and it's relatively easy to customize Atom's behavior using just HTML, CSS, and JavaScript.
 
@@ -13,7 +13,7 @@ Spending so much time in Atom, I've taken a great deal of care to shape every fa
 
 ## Atom packages I use
 
-I highly recommend [taking a look at the packages @sroberts mentioned](https://sroberts.github.io/2015/06/06/how-i-atom/), if you haven't already, as I used most of them every day. Beyond that:
+I highly recommend [taking a look at the packages @sroberts mentioned](https://web.archive.org/web/20160310161436/https://sroberts.github.io/2015/06/06/how-i-atom/), if you haven't already, as I used most of them every day. Beyond that:
 
 ### Quality of life
 

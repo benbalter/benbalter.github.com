@@ -27,7 +27,7 @@ I am working on submitting this idea as a proposed [Google Summer of Code](https
 
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted](http://wordpress.org/news/2008/07/wordpress-26-tyner/), "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system."
 
-[^3]: *See, for example,* WordPress as an [email newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/), [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
+[^3]: *See, for example,* WordPress as an [email newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/), [CRM](https://web.archive.org/web/20101127162357/http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
 
 [^4]: Let's just call it "Frupal" for the sake of discussion.
 
