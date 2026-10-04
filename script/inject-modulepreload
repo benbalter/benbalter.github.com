@@ -37,8 +37,13 @@ function getStaticImports(jsPath) {
   try {
     const [imports] = parse(code);
     return imports
-      .filter((imp) => imp.d === -1 && imp.n && /^\.{1,2}\//.test(imp.n))
-      .map((imp) => imp.n);
+      .filter(
+        (imp) =>
+          (imp.type === 'static' || imp.type === 'reexport-star') &&
+          imp.specifier &&
+          /^\.{1,2}\//.test(imp.specifier),
+      )
+      .map((imp) => imp.specifier);
   } catch {
     return [];
   }
