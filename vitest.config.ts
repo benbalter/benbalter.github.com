@@ -30,9 +30,13 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
-      include: ['src/**/*.{ts,tsx}'],
+      // The Worker has its own tests; without it here its coverage never shows
+      // up even though they run. script/ is left out: it's mostly untested CLI
+      // glue, and counting it would bury real regressions in the total.
+      include: ['src/**/*.{ts,tsx}', 'worker/**/*.js'],
       exclude: [
         'src/**/*.{test,spec}.{ts,tsx}',
+        'worker/**/*.test.js',
         'src/**/*.d.ts',
         'src/**/*.astro',
         'src/content.config.ts', // Content collections schema (no logic to test)
