@@ -8,14 +8,14 @@ In [2011](https://ben.balter.com/2011/09/07/analysis-of-federal-executive-domain
 
 You can always compare them to the original [2011](https://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) or [2014](https://ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) crawls, or browse the entire dataset for yourself, but here are some highlights of what I found:
 
-- 1177 of those domains [are live](https://dotgov-browser.herokuapp.com/domains?up=true) (about 86%, up from 83% last year, and 73% originally)
-- Of those live domains [only 75% are reachable without the `www.` prefix](https://dotgov-browser.herokuapp.com/domains?root=true&up=true), down from 83% last year
+- 1177 of those domains are live (about 86%, up from 83% last year, and 73% originally)
+- Of those live domains only 75% are reachable without the `www.` prefix, down from 83% last year
 - [722 sites](https://web.archive.org/web/20140722085446/https://dotgov-browser.herokuapp.com/domains?ipv6=true) return an `AAAA` record, the first step towards IPv6 compliance (up from 64 last year, and 10 before that, more than a 10x increase)
-- [344 sites](https://dotgov-browser.herokuapp.com/domains?https=true) are reachable via HTTPS (stagnant at one in four from last year), and like last year, only one in ten enforce it.
+- 344 sites are reachable via HTTPS (stagnant at one in four from last year), and like last year, only one in ten enforce it.
 - 87% of sites have no decreeable CMS (the same as last year), with Drupal leading the pack with 123 sites, WordPress with 29 sites (double from last year), and Joomla powering 8 (up one from last year)
 - Just shy of 40% of sites advertise that they are powered by open source server software (For example, Apache, Nginx), up from about a third last year, with about one in five sites responding that they are powered by closed source software (for example, Microsoft, Oracle, Sun)
 - [61 sites](https://web.archive.org/web/20140722085513/https://dotgov-browser.herokuapp.com/domains?server=Microsoft-IIS%2F6.0) are still somehow running IIS 6.0 (down from 74 last year), a 10+ year old server
-- HHS is still the biggest perpetrator of domain sprawl with [117 domains](https://dotgov-browser.herokuapp.com/domains?agency=department-of-health-and-human-services) (up from 110 last year), followed by GSA ([104](https://dotgov-browser.herokuapp.com/domains?agency=general-services-administration), down from 105), Treasury ([95](https://dotgov-browser.herokuapp.com/domains?agency=department-of-the-treasury), up from 92), and Interior (86, down from 89)
+- HHS is still the biggest perpetrator of domain sprawl with 117 domains (up from 110 last year), followed by GSA (104, down from 105), Treasury (95, up from 92), and Interior (86, down from 89)
 - Only 67 domains have a `/developer` page, 99 have a `/data` page, and 74 have a `/data.json` file, all significantly down from past years, due to more accurate means of calculation, which brings us to
 - 255, or just shy of 20% of domains, don't properly return "page not found" or 404 errors, meaning if you programmatically request their `/data.json` file (or any other non-existent URL), the server will tell you that it's found the requested file, but really respond with a human-readable "page not found" error, making machine readability especially challenging
 
