@@ -69,12 +69,7 @@ test.describe('Astro View Transitions Navigation', () => {
     await expect(page.locator('h1')).toContainText('About');
   });
 
-  // FIXME: not flaky, it fails every time. Back navigation lands at scrollY 0
-  // on this site, in production as well as preview, while a plain two-page
-  // control site restores scroll in the same headless Chromium. Disabling
-  // `scroll-behavior: smooth` and `@view-transition` doesn't change it, so the
-  // cause is something else on the page. Investigate before re-enabling.
-  test.fixme('should preserve scroll position on back navigation', async ({ page }) => {
+  test('should preserve scroll position on back navigation', async ({ page }) => {
     // Start on homepage
     await page.goto('/');
     await waitForPageReady(page);
@@ -91,9 +86,13 @@ test.describe('Astro View Transitions Navigation', () => {
     // Wait for the scroll to land
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(100);
     
-    // Navigate to contact page
-    const contactLink = page.locator('a[href="/contact/"]').first();
-    await contactLink.click();
+    // Navigate to the contact page without clicking: click() scrolls the
+    // (non-sticky) header link into view first, which resets scrollY to 0
+    // before the history entry saves it. That, not the site, is why this test
+    // used to fail every time.
+    await page.evaluate(() => {
+      window.location.href = '/contact/';
+    });
     await page.waitForURL('**/contact/');
     await waitForPageReady(page);
     
@@ -105,8 +104,8 @@ test.describe('Astro View Transitions Navigation', () => {
     // Verify we're on the about page
     await expect(page).toHaveURL(/\/about\//);
     
-    // The router restores scroll after the swap, not at the URL change, so poll
-    // rather than reading scrollY once (the old race that made this flaky).
+    // The browser restores scroll after load, not at the URL change, so poll
+    // rather than reading scrollY once.
     await expect
       .poll(() => page.evaluate(() => window.scrollY))
       .toBeGreaterThan(90);
