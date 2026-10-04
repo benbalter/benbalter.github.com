@@ -24,7 +24,7 @@ It's next to impossible to say a given language is "insecure." That'd be like sa
 
 Put another way, unlike many of its commercial counterparts for which obfuscation is a security staple, open source relies on inherently sound security practices to ensure that whatever you want to remain private, remains private.
 
-Last, because open-source projects like PHP are almost always monitored 24/7 by the prying eyes of countless developers scattered around the globe, if a vulnerability does arise, [it's often addressed in hours](https://twitter.com/#!/nacin/status/9753986051604480), and you're not left waiting days or [months as in some commercial products](http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/) for a patch from on high.
+Last, because open-source projects like PHP are almost always monitored 24/7 by the prying eyes of countless developers scattered around the globe, if a vulnerability does arise, [it's often addressed in hours](https://twitter.com/#!/nacin/status/9753986051604480), and you're not left waiting days or [months as in some commercial products](https://web.archive.org/web/20111217100556/http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/) for a patch from on high.
 
 Is there insecure PHP code out there? No doubt. I've seen it. Does that mean all PHP is insecure? Far from it. Next time someone you know says something to the contrary, subtly mention in passing that you're really surprised to hear that the company behind their favorite piece of commercial software recently announced they were sunsetting the project, and see how they handle a taste of their own FUD.
 

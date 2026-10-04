@@ -10,6 +10,6 @@ I was thrilled to come across [this comprehensive list of open-source options fo
 
 With a little find-and-replace magic, I converted the PDF into a stand-alone web page (based on [Twitter's open-source Bootstrap](http://getbootstrap.com/) and [Jekyll](https://github.com/mojombo/jekyll)), cleaned up a few typos, and [published it to GitHub](https://github.com/benbalter/open-source-alternatives) in hopes that it can be collaboratively edited by the broader open-source community.
 
-Please browse the list, and if you find any additions, corrections, or improvements, [fork the page on GitHub](https://github.com/benbalter/open-source-alternatives) and [submit a pull request](http://help.github.com/send-pull-requests/).
+Please browse the list, and if you find any additions, corrections, or improvements, [fork the page on GitHub](https://github.com/benbalter/open-source-alternatives) and [submit a pull request](https://web.archive.org/web/20120225141642/http://help.github.com/send-pull-requests/).
 
 Live Site: **[Open-Source Alternatives to Proprietary Enterprise Software](https://ben.balter.com/open-source-alternatives/)**

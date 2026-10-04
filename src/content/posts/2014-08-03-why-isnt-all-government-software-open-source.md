@@ -26,7 +26,7 @@ But even if the agency's using a closed-source platform, there's no reason their
 
 ## Contributing to open source
 
-With the exception of [18F](https://18f.gsa.gov), [CFPB](http://cfpb.github.io), and a few others, government doesn't actually write code. In fact, it rarely has the human know how to do so if it wanted. Instead, the agency traditionally plays the role of a non-technical program manager, providing specs for the functional requirements, and selecting a contractor to deliver the end functionality. The points of contact at the agency overseeing the contract are rarely engaged with the open source community, let alone passionate about open source. As a result, open source traditionally isn't even part of the conversation. Why would it be?
+With the exception of [18F](https://web.archive.org/web/20140626163855/https://18f.gsa.gov/), [CFPB](http://cfpb.github.io), and a few others, government doesn't actually write code. In fact, it rarely has the human know how to do so if it wanted. Instead, the agency traditionally plays the role of a non-technical program manager, providing specs for the functional requirements, and selecting a contractor to deliver the end functionality. The points of contact at the agency overseeing the contract are rarely engaged with the open source community, let alone passionate about open source. As a result, open source traditionally isn't even part of the conversation. Why would it be?
 
 ### Closed source workflows
 
