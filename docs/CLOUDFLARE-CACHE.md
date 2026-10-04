@@ -58,11 +58,17 @@ Cloudflare Workers Static Assets uses files in the `public/` directory:
 
 These are automatically picked up by Cloudflare Workers Static Assets during deployment.
 
+### Which requests run the Worker
+
+- **`assets.run_worker_first`** in `wrangler.json` sends page URLs (paths ending in `/`) and `POST /api/event` through [`worker/index.js`](../worker/index.js), which handles Markdown content negotiation, `Vary: Accept`, and engagement events. Static files are excluded with negative patterns (`!/assets/*`, `!/.well-known/*`, `!/*.xml`, `!/*.txt`, `!/*.md`, images, and so on) and served straight from the asset layer, where `_headers` and `_redirects` still apply; any path the list doesn't cover still runs the Worker. The Worker would only pass those files through anyway, and every invocation counts against the account's Workers Free daily request cap (past the cap, [requests matching `run_worker_first` get a 429](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/) while excluded ones keep serving), so feed readers, crawlers, and favicon fetches shouldn't spend it. In these patterns `*` matches across `/`, so `!/*.xml` covers `.xml` files at any depth. [`worker/routing.test.js`](../worker/routing.test.js) fails if an exclusion would ever match a page URL or `/api/event`.
+
 ## Zone-level config (dashboard, not in this repo)
 
 Some settings live on the `balter.com` zone in the Cloudflare dashboard. Zone response Transform Rules and Redirect Rules run around the Worker and override `_headers` and `_redirects`, so anything here silently wins over the repo. Keep this list short, and keep headers and site redirects in the repo.
 
 - **Redirect Rule**: `balter.com` and `www.balter.com` → `https://ben.balter.com/`. It can't live in `_redirects` because those hosts don't route to the Worker.
+- **WAF custom rule**: blocks WordPress and PHP probe paths (`*.php`, `/wp-admin`, `/wp-includes`, `/xmlrpc.php`) at the edge; `/wp-content/` stays served.
+- **Rate limiting rule**: `/api/event` is capped per IP (Free plan: path-only match, 10-second window).
 - **Speed and TLS**: HTTP/3, 0-RTT, Early Hints, Speed Brain, Brotli, tiered cache, DNSSEC, strict SSL, and HSTS are all on.
 - **No response header Transform Rules.** If a header in `_headers` isn't showing up live, check Rules → Transform Rules and Settings → Managed Transforms first.
 
