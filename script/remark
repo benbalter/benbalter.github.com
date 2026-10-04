@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# remark runs report-only (lint-md uses `remark .`, no `-o`), so it never
-# rewrites files and never introduces the backslash escaping that `remark -o`
-# does. script/fix-lint is therefore unnecessary here — it survives only as a
-# manual rescue if someone runs `remark -o` by hand.
-npm run lint-md
+# Report-only Markdown lint: remark (no `-o`, so no backslash escaping) and
+# markdownlint without --fix, so neither rewrites files. `npm run lint-md` is
+# the fixing variant: it runs `markdownlint-cli2 --fix` over every Markdown
+# file. script/fix-lint is unnecessary here; it survives only as a manual
+# rescue if someone runs `remark -o` by hand.
+npx remark . && npm run lint-md-check

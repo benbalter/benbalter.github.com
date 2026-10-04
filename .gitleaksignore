@@ -1,0 +1,14 @@
+# Reviewed gitleaks findings in history (fingerprint: commit:file:rule:line).
+# Not secrets, but history can't be rewritten, so the weekly full-history
+# scan in supply-chain.yml needs them listed.
+
+# Placeholder `YOUR_ZONE_ID` / token examples in the Cloudflare cache docs.
+a170e0d5615727470464761c9df1de0681c85e79:docs/CLOUDFLARE-CACHE.md:curl-auth-header:152
+f4d160048584f072c2d3965a95cf2303ee3e4179:docs/CLOUDFLARE-CACHE.md:curl-auth-header:108
+# Next.js build cache committed during the old Next.js setup: local preview-mode
+# signing keys generated per build, never used in production.
+157fcbe1c0a125a289c769c97420158ae6089509:.next/cache/.previewinfo:generic-api-key:1
+157fcbe1c0a125a289c769c97420158ae6089509:.next/cache/.rscinfo:generic-api-key:1
+# Disqus public API key (2012 Jekyll config). Disqus public keys are meant to
+# be embedded client-side; Disqus is no longer used.
+02f7f39548d93199f56b0623b3ef6e3118187c6a:_config.yml:generic-api-key:51

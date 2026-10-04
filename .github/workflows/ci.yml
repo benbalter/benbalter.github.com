@@ -1,78 +1,16 @@
 name: CI
 
+# No `paths` filter: Content Linting, Code Tests, Run Astro Check and Run
+# Vitest Tests are required checks, and a path-filtered workflow never reports
+# them, so PRs touching only filtered-out files (public/ assets, Vale configs)
+# couldn't merge without an admin bypass. The filter excluded only those few
+# files anyway, so it saved little; see astro-e2e.yml for the job-level
+# alternative used where skipping does save time.
 on:
   push:
     branches:
       - main
-    paths:
-      - 'src/**'
-      - '*.md'
-      - '.github/agents/**'
-      - '.github/instructions/**'
-      - 'dictionary.txt'
-      - '.remarkrc.js'
-      - '.remarkignore'
-      - '.textlintrc'
-      - '.vale.ini'
-      - '.markdown-lint.yml'
-      - '.markdownlint-cli2.cjs'
-      - 'script/cibuild-content'
-      - 'script/remark'
-      - 'script/lint-text'
-      - 'script/vale'
-      - 'script/harper'
-      - 'script/languagetool'
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.json'
-      - '**/*.yml'
-      - '**/*.yaml'
-      - 'package*.json'
-      - 'astro.config.mjs'
-      - 'tsconfig*.json'
-      - 'vitest.config.ts'
-      - 'assets/**'
-      - 'script/**'
-      - 'eslint.config.js'
-      - 'knip.jsonc'
-      - '.yamllint.yml'
-      - 'public/_redirects'
-      - '.github/workflows/ci.yml'
   pull_request:
-    paths:
-      - 'src/**'
-      - '*.md'
-      - '.github/agents/**'
-      - '.github/instructions/**'
-      - 'dictionary.txt'
-      - '.remarkrc.js'
-      - '.remarkignore'
-      - '.textlintrc'
-      - '.vale.ini'
-      - '.markdown-lint.yml'
-      - '.markdownlint-cli2.cjs'
-      - 'script/cibuild-content'
-      - 'script/remark'
-      - 'script/lint-text'
-      - 'script/vale'
-      - 'script/harper'
-      - 'script/languagetool'
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.json'
-      - '**/*.yml'
-      - '**/*.yaml'
-      - 'package*.json'
-      - 'astro.config.mjs'
-      - 'tsconfig*.json'
-      - 'vitest.config.ts'
-      - 'assets/**'
-      - 'script/**'
-      - 'eslint.config.js'
-      - 'knip.jsonc'
-      - '.yamllint.yml'
-      - 'public/_redirects'
-      - '.github/workflows/ci.yml'
 
 permissions:
   contents: read
