@@ -42,7 +42,7 @@ Instead, there are two things you can do to streamline the process:
 
 1. Start the discussion by using [GSA Standard TOS Amendment Template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc). This boilerplate amendment brings many common TOS clauses to a place where the government can agree to them, and will provide a common framework between agencies, facilitating reuse.
 
-2. Once an amendment is negotiated with a single agency, [reach out to GSA](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/) to get the signed amendment added to their list of social media providers. Beyond the practicalities of a standard starting point to each negotiation, being listed will provide you with greater visibility among government staffers.
+2. Once an amendment is negotiated with a single agency, [reach out to GSA](https://web.archive.org/web/20150118022301/https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/) to get the signed amendment added to their list of social media providers. Beyond the practicalities of a standard starting point to each negotiation, being listed will provide you with greater visibility among government staffers.
 
 ## An even smarter approach
 
@@ -65,7 +65,7 @@ Last, I've purposely avoided discussing procurement, which is a much larger issu
 ## Additional resources
 
 - [How to Amend Your App's Terms of Service for Federal Agencies](https://zapier.com/blog/federal-government-terms-of-service-amendment/)
-- [Federal-Compatible Terms of Service Agreements](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
+- [Federal-Compatible Terms of Service Agreements](https://web.archive.org/web/20150118022301/https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
 - [Negotiated Terms of Service Agreements](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
 - [Model TOS template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc)
 - [OMB Memorandum M-13–10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf)
