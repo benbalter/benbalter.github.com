@@ -76,10 +76,10 @@ const posts = defineCollection({
 import { getCollection } from 'astro:content';
 const posts = await getCollection('posts');
 
-// Fetch single entry — use entry.id (not entry.slug)
+// Fetch single entry: use entry.id (not entry.slug)
 const post = await getEntry('posts', 'my-post-id');
 
-// Render — use render(entry) (not entry.render())
+// Render: use render(entry) (not entry.render())
 import { render } from 'astro:content';
 const { Content } = await render(post);
 
@@ -118,7 +118,7 @@ npm run lint-js        # Lint JavaScript
 npm run lint-json      # Lint JSON files
 ```
 
-**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` is not safe to run casually: it also runs `markdownlint-cli2 --fix` on every Markdown file.
+**Important**: Never run `remark <file> -o`: the `-o` write-back adds excessive backslash escaping and breaks the build. `script/fix-lint` only undoes `-o` damage and is not needed. `npm run lint-md` is not safe to run casually: it also runs `markdownlint-cli2 --fix` on every Markdown file.
 
 ### Building
 
