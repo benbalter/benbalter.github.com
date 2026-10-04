@@ -9,7 +9,7 @@ The site is deployed directly to Cloudflare Workers via Wrangler. Cloudflare Wor
 ## How It Works
 
 1. **Build**: GitHub Actions builds the Astro site, outputting static files to `dist-astro/`
-2. **Deploy**: The `cloudflare/wrangler-action` runs `npx wrangler deploy` to upload the build output to Cloudflare Workers
+2. **Deploy**: [`build-and-deploy.yml`](../.github/workflows/build-and-deploy.yml) runs `npx wrangler deploy` to upload the build output and the Worker in [`worker/index.js`](../worker/index.js)
 3. **Cache**: Cloudflare Workers automatically invalidates its cache on each new deployment. Astro also generates content-hashed filenames for JS/CSS assets (e.g., `global.E-nqILv5.css`), providing additional cache busting.
 
 ## Configuration
@@ -39,16 +39,11 @@ The deployment workflow requires two GitHub repository secrets:
 
 The Cloudflare Workers project is configured in `wrangler.json`:
 
-```json
-{
-  "name": "benbalter-github-com",
-  "assets": {
-    "directory": "./dist-astro",
-    "not_found_handling": "404-page"
-  },
-  "compatibility_date": "2025-03-19"
-}
-```
+See [`wrangler.json`](../wrangler.json) for the full config. The parts worth knowing:
+
+- `main: worker/index.js`: a small Worker that handles `POST /api/event` (Analytics Engine) and `Accept: text/markdown` negotiation, and passes everything else to `env.ASSETS`.
+- `assets.run_worker_first`: page requests hit the Worker first; `/assets/*`, `/pagefind/*`, `/og/*`, and `/wp-content/*` go straight to static assets.
+- `analytics_engine_datasets`: the `ENGAGEMENT` binding.
 
 ### Custom Domain
 
@@ -62,6 +57,14 @@ Cloudflare Workers Static Assets uses files in the `public/` directory:
 - **`public/_redirects`**: URL redirects (301s for old slugs, feed URLs, etc.)
 
 These are automatically picked up by Cloudflare Workers Static Assets during deployment.
+
+## Zone-level config (dashboard, not in this repo)
+
+Some settings live on the `balter.com` zone in the Cloudflare dashboard. Zone response Transform Rules and Redirect Rules run around the Worker and override `_headers` and `_redirects`, so anything here silently wins over the repo. Keep this list short, and keep headers and site redirects in the repo.
+
+- **Redirect Rule**: `balter.com` and `www.balter.com` → `https://ben.balter.com/`. It can't live in `_redirects` because those hosts don't route to the Worker.
+- **Speed and TLS**: HTTP/3, 0-RTT, Early Hints, Speed Brain, Brotli, tiered cache, DNSSEC, strict SSL, and HSTS are all on.
+- **No response header Transform Rules.** If a header in `_headers` isn't showing up live, check Rules → Transform Rules and Settings → Managed Transforms first.
 
 ## Security Best Practices
 

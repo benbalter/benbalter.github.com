@@ -1,12 +1,14 @@
-# Cloudflare Pages edge redirects
-# https://developers.cloudflare.com/pages/configuration/redirects/
+# Cloudflare Workers Static Assets redirects
+# https://developers.cloudflare.com/workers/static-assets/redirects/
 # Processed at the edge before serving static files (faster than HTML meta refresh)
 
 # Feed redirect
 /feed/index.xml /feed.xml 301
 
-# Sitemap (Jekyll legacy path → @astrojs/sitemap output)
-/sitemap.xml /sitemap-index.xml 301
+# Sitemap. /sitemap.xml is a real file (the sitemap-xml-alias integration in
+# astro.config.mjs), so don't redirect it. Only the WordPress-era underscore
+# name needs one.
+/sitemap_index.xml /sitemap-index.xml 301
 
 # Retired quote destinations: the /quotes wall and the old /q/<id> share pages.
 # Inline pull-quotes still live in their posts; these standalone pages are gone.

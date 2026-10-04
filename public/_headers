@@ -1,5 +1,5 @@
 # Cloudflare headers configuration
-# https://developers.cloudflare.com/pages/configuration/headers/
+# https://developers.cloudflare.com/workers/static-assets/headers/
 
 # Default headers for all pages: security + short cache with background revalidation
 # For a static site, short browser caching avoids network round-trips during a
@@ -36,7 +36,10 @@
 # Open Graph / social card images are meant to be embedded cross-origin (social
 # platforms, previews, other sites), so override the site-wide CORP:same-origin
 # and allow cross-origin fetches (e.g. fetch()/canvas from other origins).
+# Matching rules append rather than replace, so detach the /* value first;
+# otherwise both values ship and browsers ignore the unparseable pair.
 /og/*
+  ! Cross-Origin-Resource-Policy
   Cross-Origin-Resource-Policy: cross-origin
   Access-Control-Allow-Origin: *
   # Cards change only on retitle; Cloudflare purges the CDN on deploy, so a
