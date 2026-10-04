@@ -3,7 +3,7 @@ title: Welcome to the Post-CMS World
 description: 'Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content.'
 ---
 
-You may notice things are a bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^1]
+You may notice things are a bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-static-site-exporter) the site from WordPress, to [Jekyll](https://github.com/jekyll/jekyll).[^1]
 
 Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, 130 outages over the past six months (totaling more than a day's worth of downtime), left a bit to be desired in terms of hosting.
 
@@ -13,7 +13,7 @@ Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/ex
 
 But as much as it pains the developer in me, just like fixies, PBR, and JavaScript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
-The pitch is straightforward. It leads to simple, flexible, and reliable sites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
+The pitch is straightforward. It leads to simple, flexible, and reliable sites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](https://developmentseed.org/) (also powered by Jekyll) [put it best](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
 > In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble web pages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses predefined page layout templates to format content that's stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system…
 >

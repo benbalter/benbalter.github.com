@@ -10,7 +10,7 @@ tldr: "With GitHub's protected branches feature, you can grant collaborators per
 
 Out of the box, GitHub enables you to grant collaborators [read, write, or admin permissions](https://help.github.com/articles/repository-permission-levels-for-an-organization/) to a project. It's not uncommon, however, for open source communities to want to empower a class of non-code contributors to moderate comments, manage issues, or serve as project managers/team leads, even if they ultimately don't have permission to modify the code on the repository's primary branch.
 
-Fortunately, with [GitHub's protected branches feature](https://help.github.com/articles/about-protected-branches), you can grant contributors these permissions without also giving them the ability to merge pull requests or commit directly to `main`.
+Fortunately, with [GitHub's protected branches feature](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), you can grant contributors these permissions without also giving them the ability to merge pull requests or commit directly to `main`.
 
 If your project is owned by an organization, it's relatively easy to set up on a per-repository basis:
 

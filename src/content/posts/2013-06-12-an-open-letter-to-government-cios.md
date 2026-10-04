@@ -12,15 +12,15 @@ But hey, the good news is that you're not in it alone. We (the internet) are her
 
 ## Lean
 
-If there's a less heavyweight solution, and you're not using it, you've overengineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](http://jsonapi.org/) to [XML](https://web.archive.org/web/20130601010044/http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](http://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
+If there's a less heavyweight solution, and you're not using it, you've overengineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](https://jsonapi.org/) to [XML](https://web.archive.org/web/20130601010044/http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](https://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
 
 ## Iterative
 
-If you are not embarrassed by the first version of your product, you've launched [too late](http://www.businessinsider.com/the-iterate-fast-and-release-often-philosophy-of-entrepreneurship-2009-11#ixzz2U7lGAS2A). It doesn't need to be perfect or complete. Publicly ship 0.1, not 1.0. Start small and ramp up to where you want things to be. Watch how customers receive things and adapt accordingly. Be transparent, manage expectations. Let your vision evolve.
+If you are not embarrassed by the first version of your product, you've launched [too late](https://www.businessinsider.com/the-iterate-fast-and-release-often-philosophy-of-entrepreneurship-2009-11#ixzz2U7lGAS2A). It doesn't need to be perfect or complete. Publicly ship 0.1, not 1.0. Start small and ramp up to where you want things to be. Watch how customers receive things and adapt accordingly. Be transparent, manage expectations. Let your vision evolve.
 
 ## Decentralized
 
-Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in [locks](http://en.wikipedia.org/wiki/Lock_%28computer_science%29). Avoid blockers. Automate wherever possible. Eliminate all humans.
+Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in [locks](https://en.wikipedia.org/wiki/Lock_%28computer_science%29). Avoid blockers. Automate wherever possible. Eliminate all humans.
 
 ## Open
 

@@ -50,7 +50,7 @@ Because I have both web and email notifications enabled (and there's no way to o
 - `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for `@mentions`
 - `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non-`@mentions` are immediately archived
 
-You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERNAME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications.
+You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/subscriptions-and-notifications/get-started/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERNAME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications.
 
 ## Tools
 

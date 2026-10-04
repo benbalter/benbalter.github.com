@@ -25,7 +25,7 @@ So why do we care if a handful of countries do not enjoy unfettered access to Am
 
 The implications are clear. The fastest, most powerful commercial vehicle the world has ever seen is unavailable to its largest emerging market. To put it another way, countries that censor internet traffic are blocking the 21st century's busiest trade ports. It would be as if merchant ships in the 1500′s, full of goods from the New World, made their way back to Europe only to be turned away. Even in a post-dot-com-bubble world, with nearly ubiquitous free shipping, cyber Mondays, and an app store for everything from your phone to your toaster, it is not hard to imagine that the internet will soon become the dominant mechanism of international trade, if it has not earned such a title already. Today, one thing is certain: As the domestic e-commerce market reaches saturation, American firms will continue to seek out opportunities abroad despite censorship and restrictions. [^15] Their level of success, however, and the level of access available to users in the countries cited in the white paper, if any, remains to be seen.
 
-Photos courtesy [@stuckincustoms](http://www.flickr.com/photos/stuckincustoms/1194563275/) and [@winterkanal](http://www.flickr.com/photos/winterkanal/4273568581/)
+Photos courtesy [@stuckincustoms](https://www.flickr.com/photos/stuckincustoms/1194563275/) and [@winterkanal](https://www.flickr.com/photos/winterkanal/4273568581/)
 
 Notes:
 

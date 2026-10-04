@@ -5,9 +5,9 @@ tldr: "Slides from my presentation at Washington's CrushIQ on how to use WordPre
 archived: true
 ---
 
-Slides from my presentation at Washington's [CrushIQ](http://crushiq.com) on how to use WordPress to push content to social networks, pull social content in to your site, encourage sharing, engage visitors, and earn fans.
+Slides from my presentation at Washington's [CrushIQ](https://crushiq.com) on how to use WordPress to push content to social networks, pull social content in to your site, encourage sharing, engage visitors, and earn fans.
 
-View the slides on [SlideShare](http://www.slideshare.net/slideshow/embed_code/10156115).
+View the slides on [SlideShare](https://www.slideshare.net/slideshow/embed_code/10156115).
 
 ## Some of the plugins discussed
 

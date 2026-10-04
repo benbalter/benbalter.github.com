@@ -10,7 +10,7 @@ When innovating in government, [the technology's the easy part](https://ben.balt
 
 2. They reimagine long-assumed processes [from the citizen's perspective](https://twitter.com/BenBalter/status/444941012016713728).
 
-## The ultimate meta [yak shave](http://en.wiktionary.org/wiki/yak_shaving)
+## The ultimate meta [yak shave](https://en.wiktionary.org/wiki/yak_shaving)
 
 To innovate government, 90-day, 120-day, or six-month "fellowships" (read: glorified internships) aren't the way to do it, at least not alone. Talk to any Code for America or Presidential Innovation Fellow and you'll hear a common theme: absent sufficient cultural, administrative, and political support, between 30 and 60 percent of your time will be spent not doing what you were actually brought on to do, but rather convincing others that that's what you should be doing (or that they won't go to jail if they help).
 

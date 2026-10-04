@@ -20,7 +20,7 @@ Put another way, in most cases, code "ownership" doesn't change hands. As a user
 
 ## What an open source license does
 
-An open source license is a contract between the person who writes code (often a developer, but potentially a designer, translator, etc.), and any person who uses it. It's a contract just like your apartment lease or cell phone contract, except that the contract language is standardized into about [a dozen mainstream](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/) and [three primary](http://choosealicense.com/) licenses like the MIT, Apache, and GPL licenses (named after the organizations or open source projects that originally wrote and used them).
+An open source license is a contract between the person who writes code (often a developer, but potentially a designer, translator, etc.), and any person who uses it. It's a contract just like your apartment lease or cell phone contract, except that the contract language is standardized into about [a dozen mainstream](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/) and [three primary](https://choosealicense.com/) licenses like the MIT, Apache, and GPL licenses (named after the organizations or open source projects that originally wrote and used them).
 
 While the wording and specific terms may vary from license to license, most licenses include the following three things:
 
@@ -56,9 +56,9 @@ Unless your employer tells you that you need one, most open source projects will
 
 ## Copyright on GitHub
 
-If a project is on GitHub, in addition to the open source license (if any), there's a second legal document at play, GitHub's Terms of Service. Specifically, GitHub recently updated its terms of service to [explicitly include the otherwise-assumed `inbound=outbound` rule](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license), meaning that by submitting a pull request on GitHub, contributors agree to contribute under that code under the same license as your project (making a CLA unnecessary in most cases).
+If a project is on GitHub, in addition to the open source license (if any), there's a second legal document at play, GitHub's Terms of Service. Specifically, GitHub recently updated its terms of service to [explicitly include the otherwise-assumed `inbound=outbound` rule](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license), meaning that by submitting a pull request on GitHub, contributors agree to contribute under that code under the same license as your project (making a CLA unnecessary in most cases).
 
-Additionally, even if your project doesn't have a license, just by posting your code on GitHub, you grant certain rights to other users such as the right to view the code, or to fork it. Logically, you also give GitHub the right to display your code, if the repository's public. That said, if you want others to use your code, you should really [add an open source license](https://help.github.com/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository).
+Additionally, even if your project doesn't have a license, just by posting your code on GitHub, you grant certain rights to other users such as the right to view the code, or to fork it. Logically, you also give GitHub the right to display your code, if the repository's public. That said, if you want others to use your code, you should really [add an open source license](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository#including-an-open-source-license-in-your-repository).
 
 ## Patents
 

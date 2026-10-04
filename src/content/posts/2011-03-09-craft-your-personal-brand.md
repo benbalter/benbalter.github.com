@@ -4,7 +4,7 @@ description: Recording and slides from my brief talk at March's joint WordCampDC
 archived: true
 ---
 
-I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](http://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand. Below are slides and a recording of the livestream.
+I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](https://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand. Below are slides and a recording of the livestream.
 
 ## I invite you to watch, but in short, the main takeaways were
 
@@ -28,7 +28,7 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 
 ## Recording of the livestream
 
-*[Greg Linch](http://www.greglinch.com/) opens by discussing WordPress and Journalism, I begin at 30 minutes 10 seconds*
+*[Greg Linch](https://greglinch.com/) opens by discussing WordPress and Journalism, I begin at 30 minutes 10 seconds*
 
 ## For those interested in the plugins mentioned
 
@@ -38,8 +38,8 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 - [Google Analytics for WordPress](http://yoast.com/wordpress/google-analytics/)
 - [Simple Facebook Connect](http://ottopress.com/wordpress-plugins/simple-facebook-connect/)
 - [Simple Twitter Connect](http://ottopress.com/wordpress-plugins/simple-twitter-connect/)
-- [Subscribe to Comments](http://wordpress.org/plugins/subscribe-to-comments/)
-- [Syntax Highlighter Evolved](http://wordpress.org/plugins/syntaxhighlighter/)
+- [Subscribe to Comments](https://wordpress.org/plugins/subscribe-to-comments/)
+- [Syntax Highlighter Evolved](https://wordpress.org/plugins/syntaxhighlighter/)
 
 ## Additional Resources
 
