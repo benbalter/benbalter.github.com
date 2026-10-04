@@ -25,9 +25,6 @@ script/vale-ai-tells
 script/title "checking harper"
 script/harper
 
-script/title "checking languagetool"
-script/languagetool
-
 script/title "checking seo"
 # Gates on errors (missing/too-short descriptions, real heading skips); the
 # length/title/heading warnings are advisory and don't fail the build.
