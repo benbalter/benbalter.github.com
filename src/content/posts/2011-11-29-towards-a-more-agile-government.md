@@ -302,7 +302,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^45]: More formally, the standard waterfall process follows five distinct steps: (1) requirements are defined and documented, (2) the system is designed and architected, (3) development teams code the software, (4) the software is tested and validated against the requirements from step one, and finally (5) the system is deployed. *See ID*. at 328–29.
 
-[^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, <http://www.nextgov.com/nextgov/ng_20100923_7965.php>.
+[^46]: Richard K. Cheng, *On Being Agile*, NextGov, Sept. 23, 2010.
 
 [^47]: Szalvay, *supra* note 6, at 1–3; Course Manual, *supra* note 28, at 33. Such an approach makes sense when it is traced backed to its traditional roots. Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon. Software development, on the other hand, is not bound by the rules of the physical world. Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 
