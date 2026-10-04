@@ -52,7 +52,7 @@ markdownlint-cli2 --fix src/content/posts/my-post.md
 
 ### Linting Scope
 
-Target specific files only. Never run broad linters on unrelated files.
+`npm run lint` and `npm run lint-md` run `eslint --fix` and `markdownlint-cli2 --fix` across the whole repo, rewriting every file with a violation, so lint the specific files you changed instead.
 
 ```bash
 # Good
@@ -94,13 +94,11 @@ const { Content } = await render(post);
 - Zero JavaScript by default — avoid `client:*` directives unless interactivity is required
 - TypeScript interfaces for all component props
 - Tailwind utilities first; `@layer components` in `global.css` for reusable patterns; `<style>` scoped blocks only when Tailwind can't cover it
-- Run `npm run check` before committing any `.astro` or `.ts` changes
 
 ## Content Guidelines
 
-This is a production website. Be conservative:
+This is a production website, so be conservative with changes.
 
-- **Minimal changes**: only modify files directly related to the task
 - Write like a smart colleague over coffee: direct, opinionated, conversational
 - Avoid AI-like patterns: excessive hedging, formulaic transitions ("Furthermore…"), hollow summarization
 - **No em dashes (`—`).** They read as the top AI tell; use a comma, colon, parentheses, or split into two sentences. En dashes (`–`) for ranges are fine. Oxford comma always, contractions naturally

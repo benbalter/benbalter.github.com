@@ -37,8 +37,8 @@ describe('stripMarkdown', () => {
     });
 
     it('should handle complex text with multiple markdown links', () => {
-      const input = 'Specifically, [just a heads up](#just-a-heads-up), [sanity check](#sanity-check), and [early feedback](#early-feedback).';
-      const expected = 'Specifically, just a heads up, sanity check, and early feedback.';
+      const input = 'Specifically, [just a heads up](#just-a-heads-up), [spot-check](#spot-check), and [early feedback](#early-feedback).';
+      const expected = 'Specifically, just a heads up, spot-check, and early feedback.';
       expect(stripMarkdown(input)).toBe(expected);
     });
   });
