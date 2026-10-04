@@ -18,7 +18,7 @@
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 import type { Root, Element, Text, RootContent } from 'hast';
 
 interface AcronymEntry {
@@ -29,7 +29,7 @@ interface AcronymEntry {
 
 // Load and index the central acronym list once at module load.
 const acronymsPath = join(process.cwd(), 'src', 'data', 'acronyms.yml');
-const entries = (yaml.load(readFileSync(acronymsPath, 'utf-8')) as AcronymEntry[]) ?? [];
+const entries = (load(readFileSync(acronymsPath, 'utf-8')) as AcronymEntry[]) ?? [];
 
 // Exact acronym string -> displayed tooltip text.
 const tooltipByAcronym = new Map<string, string>();
