@@ -3,11 +3,10 @@ name: "CodeQL"
 on:
   push:
     branches: ["main"]
+  # No paths filter: the main ruleset's code scanning rule waits for CodeQL
+  # results on every PR, so a skipped run leaves post-only PRs unmergeable.
   pull_request:
     branches: ["main"]
-    # Post-only PRs have no code to analyze. Not a required check, so skipping is safe.
-    paths-ignore:
-      - "src/content/**"
   schedule:
     - cron: "30 1 * * 0"
 
