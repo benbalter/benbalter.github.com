@@ -2,6 +2,9 @@
 node_modules
 /tmp
 .github/styles/*
+# Keep the directory itself: Vale refuses to run (even `vale sync`) when
+# StylesPath doesn't exist, and every style is now a synced package.
+!.github/styles/.gitkeep
 # Astro build artifacts
 dist-astro/
 .astro/
