@@ -16,8 +16,9 @@ if ! [ -x "$(command -v vale)" ]; then
 	echo "Vale provides additional prose style and grammar checking."
 else
 	echo "Running Vale prose linter..."
-	# Sync packages on first run (the local AIPatterns style is checked in)
-	if [ ! -d ".github/styles/proselint" ]; then
+	# Sync packages on first run, or when a package was added (e.g. AIPatterns,
+	# which now ships from benbalter/vale-styles instead of being checked in)
+	if [ ! -d ".github/styles/proselint" ] || [ ! -d ".github/styles/AIPatterns" ]; then
 		vale sync
 	fi
 	# Note: /bin/sh may be dash (no brace expansion) — keep globs explicit

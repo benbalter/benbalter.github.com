@@ -2,8 +2,6 @@
 node_modules
 /tmp
 .github/styles/*
-# Local Vale style is checked in; synced packages above are not
-!.github/styles/AIPatterns
 # Astro build artifacts
 dist-astro/
 .astro/

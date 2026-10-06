@@ -38,6 +38,17 @@
       "packageNameTemplate": "https://github.com/benbalter/bookmarklets",
       "datasourceTemplate": "git-refs",
       "currentValueTemplate": "main"
+    },
+    {
+      "customType": "regex",
+      "description": "Track benbalter/vale-styles release zips (BenBalter, AIPatterns) pinned by URL in .vale.ini.",
+      "managerFilePatterns": [
+        "/^\\.vale\\.ini$/"
+      ],
+      "matchStrings": [
+        "https://github\\.com/(?<depName>benbalter/vale-styles)/releases/download/(?<currentValue>[^/]+)/"
+      ],
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
