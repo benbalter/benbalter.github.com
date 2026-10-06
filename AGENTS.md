@@ -51,7 +51,7 @@ npm run lint-yaml      # yamllint
 - **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** static hosting
 - `@tailwindcss/typography` for prose styling in content areas
 - Astro's Fonts API self-hosts Inter via Fontsource (no third-party font requests), and view transitions handle page navigation
-- Linters: [ESLint](eslint.config.js) for JS/TS and JSON (2-space indent), markdownlint ([`.markdownlint-cli2.cjs`](.markdownlint-cli2.cjs)), remark, textlint, retext-spell, [Vale](https://vale.sh) (`script/vale`, including the custom `AIPatterns` style), and yamllint
+- Linters: [ESLint](eslint.config.js) for JS/TS and JSON (2-space indent), markdownlint ([`.markdownlint-cli2.cjs`](.markdownlint-cli2.cjs)), remark, textlint, retext-spell, [Vale](https://vale.sh) (`script/vale`, including the `AIPatterns` style from [benbalter/vale-styles](https://github.com/benbalter/vale-styles)), and yamllint
 
 ## Critical Conventions
 
