@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# Checks Markdown content negotiation against the live site.
+#
+# Negotiation is done by Cloudflare zone rules (a URL Rewrite Rule plus
+# Response Header Transform Rules), which `wrangler dev` doesn't run, so the
+# e2e suite can't cover it. Run this after changing those rules or the Worker.
+#
+# Usage: script/check-markdown-negotiation [base-url]
+#
+# Exit codes:
+#   0 - All checks passed
+#   1 - One or more checks failed
+
+set -euo pipefail
+
+BASE="${1:-https://ben.balter.com}"
+POST="/2014/11/06/rules-of-communicating-at-github/"
+failures=0
+
+# Prints the lowercased response headers for a GET with the given Accept.
+headers() {
+  curl -sS -o /dev/null -D - -H "Accept: $2" "$BASE$1" | tr -d '\r' | tr '[:upper:]' '[:lower:]'
+}
+
+expect() {
+  local desc="$1" haystack="$2" needle="$3"
+  if grep -qF -- "$needle" <<<"$haystack"; then
+    echo "ok   $desc"
+  else
+    echo "FAIL $desc (expected: $needle)" >&2
+    failures=$((failures + 1))
+  fi
+}
+
+for path in / /about/ /resume/ "$POST"; do
+  h=$(headers "$path" "text/markdown")
+  expect "$path serves Markdown" "$h" "content-type: text/markdown; charset=utf-8"
+  expect "$path Markdown varies on Accept" "$h" "vary: accept"
+  expect "$path Markdown is privately cached" "$h" "cache-control: private"
+done
+
+h=$(headers "$POST" "text/markdown;q=0, text/html")
+expect "q=0 refusal gets HTML" "$h" "content-type: text/html"
+
+h=$(headers "/posts/" "text/markdown")
+expect "a page without a .md file falls back to HTML" "$h" "content-type: text/html"
+
+h=$(headers "$POST" "text/html,application/xhtml+xml,*/*;q=0.8")
+expect "browsers get HTML" "$h" "content-type: text/html"
+expect "HTML varies on Accept" "$h" "vary: accept"
+
+if (( failures > 0 )); then
+  echo "$failures check(s) failed." >&2
+  exit 1
+fi
+echo "All checks passed."

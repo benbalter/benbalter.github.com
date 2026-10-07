@@ -1,22 +1,23 @@
 /**
- * Cloudflare Worker entry: static assets + first-party engagement events +
- * Markdown content negotiation.
+ * Cloudflare Worker entry: static assets + first-party engagement events.
  *
- * `assets.run_worker_first` (wrangler.json) routes page and API requests
- * through this Worker before the assets layer. Static files (asset buckets
- * like /assets/*, plus feeds, sitemaps, .txt/.md/.json files, images, and
- * /.well-known/*) are excluded and served directly, since this Worker would
- * only pass them through. worker/routing.test.js keeps those exclusions from
- * swallowing a page or /api/event. Requests that reach it are handled as follows:
- *   - `POST /api/event` records a conversion event (e.g. newsletter subscribe,
- *     book CTA click — sent by src/scripts/track.ts) to Workers Analytics
- *     Engine.
- *   - GET/HEAD with `Accept: text/markdown` is served the pre-built `.md`
- *     representation of the page when one exists (see src/pages/**​/*.md.ts),
- *     falling back to HTML otherwise.
- *   - Everything else is delegated to the assets binding unchanged, so the
- *     `_headers` (Link, CSP, cache) and `not_found_handling` 404 page still
- *     apply exactly as before.
+ * `assets.run_worker_first` (wrangler.json) routes only /api/event through
+ * this Worker; every other request is served by the assets layer directly
+ * (with `_headers`, `_redirects`, and the `not_found_handling` 404 page), so
+ * page views don't count against the account's daily Worker request cap.
+ * worker/routing.test.js guards that list.
+ *
+ * `POST /api/event` records a conversion event (e.g. newsletter subscribe,
+ * book CTA click — sent by src/scripts/track.ts) to Workers Analytics Engine.
+ * Anything else that reaches the Worker falls through to the assets binding.
+ *
+ * Markdown content negotiation (`Accept: text/markdown` -> the page's
+ * pre-built `.md` sibling from src/pages/**​/*.md.ts, with `Vary: Accept`)
+ * used to live here but is now a Cloudflare URL Rewrite Rule plus Response
+ * Header Transform Rules on the zone, so it no longer needs a Worker run per
+ * page view. script/validate-markdown-siblings checks every page those rules
+ * rewrite has its `.md` file; script/check-markdown-negotiation checks the
+ * live behavior.
  *
  * Query events via the Analytics Engine SQL API, e.g.:
  *   SELECT blob1 AS event, blob2 AS path, SUM(_sample_interval) AS count
@@ -48,40 +49,6 @@ function referrerOrigin(value) {
   } catch {
     return '';
   }
-}
-
-/**
- * True when the client explicitly asks for Markdown via the Accept header.
- * Only an explicit `text/markdown` media range with a non-zero q-value counts.
- * Browsers (text/html, ..., *​/*), default clients, and `text/markdown;q=0`
- * (an explicit refusal, RFC 9110 §12.4.2) keep getting HTML.
- * @param {Request} request
- * @returns {boolean}
- */
-function wantsMarkdown(request) {
-  const accept = request.headers.get('Accept');
-  if (!accept) return false;
-  return accept.split(',').some((range) => {
-    const [type, ...params] = range.split(';').map((part) => part.trim().toLowerCase());
-    if (type !== 'text/markdown') return false;
-    const q = params.find((param) => /^q\s*=/.test(param));
-    return q === undefined || Number(q.split('=')[1]) > 0;
-  });
-}
-
-/**
- * Map a page pathname to the pathname of its pre-built `.md` sibling, or null
- * if the request isn't for a page (site uses `trailingSlash: 'always'`, so
- * pages end in `/`; anything else is a file asset with no Markdown variant).
- *   `/`                       -> `/index.md`
- *   `/2020/01/01/slug/`       -> `/2020/01/01/slug.md`
- * @param {string} pathname
- * @returns {string | null}
- */
-function markdownPathFor(pathname) {
-  if (pathname === '/') return '/index.md';
-  if (pathname.endsWith('/')) return `${pathname.slice(0, -1)}.md`;
-  return null;
 }
 
 export default {
@@ -120,53 +87,6 @@ export default {
       return new Response(null, { status: 204 });
     }
 
-    // Markdown content negotiation: serve the pre-built `.md` sibling when the
-    // client asks for it and one exists; otherwise fall through to HTML.
-    if (
-      (request.method === 'GET' || request.method === 'HEAD') &&
-      wantsMarkdown(request)
-    ) {
-      const mdPath = markdownPathFor(url.pathname);
-      if (mdPath) {
-        const mdRequest = new Request(new URL(mdPath, url.origin), {
-          method: 'GET',
-        });
-        const mdResponse = await env.ASSETS.fetch(mdRequest);
-        if (mdResponse.ok) {
-          const markdown = await mdResponse.text();
-          // Start from the asset's headers so `_headers` rules (CSP, Link,
-          // Permissions-Policy, ...) still apply, then override what differs.
-          const headers = new Headers(mdResponse.headers);
-          headers.set('Content-Type', 'text/markdown; charset=utf-8');
-          // Distinguish this representation from the HTML at the same URL for
-          // any cache that honors Vary. Cloudflare's edge cache does not vary
-          // on Accept, so `private` also keeps shared caches from serving this
-          // Markdown to HTML clients while still allowing the agent's own
-          // client to cache it.
-          headers.append('Vary', 'Accept');
-          headers.set('Cache-Control', 'private, max-age=300');
-          // Optional per the spec — a cheap ~4-chars-per-token estimate.
-          headers.set('x-markdown-tokens', String(Math.ceil(markdown.length / 4)));
-          headers.delete('Content-Length');
-          return new Response(request.method === 'HEAD' ? null : markdown, {
-            status: 200,
-            headers,
-          });
-        }
-        // No Markdown variant for this page — fall through to HTML below.
-      }
-    }
-
-    const response = await env.ASSETS.fetch(request);
-    // Pages have a Markdown variant, so the HTML must say it varies on Accept
-    // too, or a client cache could reuse it for a later Markdown request.
-    if (markdownPathFor(url.pathname)) {
-      const varied = new Response(response.body, response);
-      varied.headers.append('Vary', 'Accept');
-      // Enforce the source policy on Worker-served pages if edge asset headers lag.
-      varied.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-      return varied;
-    }
-    return response;
+    return env.ASSETS.fetch(request);
   },
 };
