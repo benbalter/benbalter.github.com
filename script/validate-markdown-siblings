@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# Validates that every page the Markdown content negotiation rewrite targets
+# has its pre-built .md sibling in the build output.
+#
+# Accept: text/markdown requests are rewritten by a Cloudflare URL Rewrite
+# Rule on the zone (not the Worker), which can't check whether a file exists:
+#   /                          -> /index.md
+#   /about/, /resume/          -> /about.md, /resume.md
+#   /2*/*/*/*/ (posts)         -> /YYYY/MM/DD/slug.md   (`*` spans `/`)
+# A page matching those patterns without a .md file would 404 for agents
+# instead of falling back to HTML. Keep the patterns here in sync with the
+# zone rule.
+#
+# Exit codes:
+#   0 - Every targeted page has its .md sibling
+#   1 - One or more are missing (or the build directory is missing)
+
+set -euo pipefail
+
+DIST="${1:-dist-astro}"
+
+if [[ ! -d "$DIST" ]]; then
+  echo "Error: Build directory not found: $DIST" >&2
+  exit 1
+fi
+
+missing=0
+checked=0
+
+check() {
+  local page="$1" md="$2"
+  checked=$((checked + 1))
+  if [[ ! -f "$DIST$md" ]]; then
+    echo "  $page has no $md" >&2
+    missing=$((missing + 1))
+  fi
+}
+
+check / /index.md
+check /about/ /about.md
+check /resume/ /resume.md
+
+# Posts: any page (dir/index.html) four or more segments deep under a
+# top-level directory starting with "2", matching the rule's /2*/*/*/*/.
+while IFS= read -r html; do
+  dir="${html#"$DIST"}"
+  dir="${dir%/index.html}"
+  check "$dir/" "$dir.md"
+done < <(find "$DIST" -path "$DIST/2*/*/*/*/index.html" -type f)
+
+if (( missing > 0 )); then
+  echo "Error: $missing of $checked negotiated pages are missing their .md sibling." >&2
+  exit 1
+fi
+
+echo "OK: all $checked negotiated pages have a .md sibling."

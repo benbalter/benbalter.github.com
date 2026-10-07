@@ -28,95 +28,19 @@ function makeEnv(files = {}) {
   };
 }
 
-const md = (/** @type {string} */ path, /** @type {RequestInit} */ init = {}) =>
-  new Request(`https://ben.balter.com${path}`, {
-    ...init,
-    headers: { Accept: 'text/markdown', ...(init.headers ?? {}) },
+describe('other requests', () => {
+  it('fall through to the assets binding unchanged', async () => {
+    const env = makeEnv({ '/about/': '<h1>About</h1>' });
+    const res = await worker.fetch(new Request('https://ben.balter.com/about/'), env);
+    expect(await res.text()).toBe('<h1>About</h1>');
+    expect(env.ASSETS.fetch).toHaveBeenCalledOnce();
   });
 
-describe('Markdown content negotiation', () => {
-  it('serves /index.md for the homepage', async () => {
-    const env = makeEnv({ '/index.md': '# Home' });
-    const res = await worker.fetch(md('/'), env);
-    expect(res.status).toBe(200);
-    expect(await res.text()).toBe('# Home');
-    expect(res.headers.get('Content-Type')).toBe('text/markdown; charset=utf-8');
-  });
-
-  it('maps a trailing-slash page to its .md sibling', async () => {
-    const env = makeEnv({ '/2020/01/01/slug.md': '# Post' });
-    const res = await worker.fetch(md('/2020/01/01/slug/'), env);
-    expect(await res.text()).toBe('# Post');
-  });
-
-  it('sets Vary, private caching, and a token estimate', async () => {
-    const env = makeEnv({ '/about.md': 'x'.repeat(10) });
-    const res = await worker.fetch(md('/about/'), env);
-    expect(res.headers.get('Vary')).toBe('Accept');
-    expect(res.headers.get('Cache-Control')).toBe('private, max-age=300');
-    expect(res.headers.get('x-markdown-tokens')).toBe('3');
-  });
-
-  it('keeps the asset headers from _headers', async () => {
-    const env = makeEnv({ '/about.md': '# About' });
-    const res = await worker.fetch(md('/about/'), env);
-    expect(res.headers.get('Content-Security-Policy')).toBe("default-src 'self'");
-  });
-
-  it('returns no body for HEAD', async () => {
-    const env = makeEnv({ '/about.md': '# About' });
-    const res = await worker.fetch(md('/about/', { method: 'HEAD' }), env);
-    expect(res.status).toBe(200);
-    expect(await res.text()).toBe('');
-  });
-
-  it('falls back to HTML when no .md sibling exists', async () => {
-    const env = makeEnv({ '/tags/': '<html>' });
-    const res = await worker.fetch(md('/tags/'), env);
-    expect(res.headers.get('Content-Type')).toBe('text/html');
-  });
-
-  it('serves HTML to browsers', async () => {
-    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
-    const req = new Request('https://ben.balter.com/about/', {
-      headers: { Accept: 'text/html,application/xhtml+xml,*/*;q=0.8' },
-    });
-    const res = await worker.fetch(req, env);
-    expect(await res.text()).toBe('<html>');
-    expect(res.headers.get('Vary')).toBe('Accept');
-  });
-
-  it('serves HTML when text/markdown is refused with q=0', async () => {
-    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
-    for (const accept of ['text/markdown;q=0', 'text/html, text/markdown; q=0.0', 'TEXT/MARKDOWN ; Q=0']) {
-      const res = await worker.fetch(md('/about/', { headers: { Accept: accept } }), env);
-      expect(await res.text()).toBe('<html>');
-    }
-  });
-
-  it('serves Markdown for a non-zero q-value', async () => {
-    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
-    const res = await worker.fetch(md('/about/', { headers: { Accept: 'text/html;q=0.9, text/markdown;q=0.5' } }), env);
-    expect(await res.text()).toBe('# About');
-  });
-
-  it('does not treat other media types with a text/markdown prefix as Markdown', async () => {
-    const env = makeEnv({ '/about/': '<html>', '/about.md': '# About' });
-    const res = await worker.fetch(md('/about/', { headers: { Accept: 'text/markdown-foo' } }), env);
-    expect(await res.text()).toBe('<html>');
-  });
-
-  it('enforces the recommended referrer policy on page responses', async () => {
-    const env = makeEnv({ '/': '<html>' });
-    const res = await worker.fetch(new Request('https://ben.balter.com/'), env);
-    expect(res.headers.get('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
-  });
-
-  it('does not negotiate file assets', async () => {
-    const env = makeEnv({ '/feed.xml': '<rss>' });
-    const res = await worker.fetch(md('/feed.xml'), env);
-    expect(await res.text()).toBe('<rss>');
-    expect(res.headers.get('Vary')).toBeNull();
+  it('serve GET /api/event from assets (only POST records events)', async () => {
+    const env = makeEnv();
+    const res = await worker.fetch(new Request('https://ben.balter.com/api/event'), env);
+    expect(res.status).toBe(404);
+    expect(env.ENGAGEMENT.writeDataPoint).not.toHaveBeenCalled();
   });
 });
 

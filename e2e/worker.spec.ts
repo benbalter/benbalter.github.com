@@ -6,40 +6,26 @@ import { test, expect } from '@playwright/test';
  * against `wrangler dev --local` (see playwright.config.ts), which applies all
  * of these the way production does. worker/index.test.js unit-tests the
  * Worker with a mocked ASSETS binding; these check the pieces wired together.
+ *
+ * Markdown content negotiation (Accept: text/markdown -> the page's .md file)
+ * is a Cloudflare zone rule, which `wrangler dev` doesn't run, so it's checked
+ * against production by script/check-markdown-negotiation instead.
  */
 
-const POST = '/2014/11/06/rules-of-communicating-at-github/';
+const POST_MD = '/2014/11/06/rules-of-communicating-at-github.md';
 const POST_HEADING = '# 15 rules for communicating at GitHub';
 
-test.describe('Markdown content negotiation', () => {
-  test('serves Markdown for Accept: text/markdown', async ({ request }) => {
-    const res = await request.get(POST, { headers: { Accept: 'text/markdown' } });
+test.describe('Markdown representations', () => {
+  test('serve the pre-built .md as UTF-8 Markdown with _headers applied', async ({ request }) => {
+    const res = await request.get(POST_MD);
     expect(res.status()).toBe(200);
     const headers = res.headers();
-    expect(headers['content-type']).toMatch(/^text\/markdown/);
-    expect(headers['vary']).toMatch(/\bAccept\b/i);
-    expect(headers['cache-control']).toContain('private');
-    // The Worker copies the asset's headers, so _headers rules survive.
+    expect(headers['content-type']).toBe('text/markdown; charset=utf-8');
     expect(headers['content-security-policy']).toContain("frame-ancestors 'none'");
     expect(headers['link']).toContain('rel="api-catalog"');
     const body = await res.text();
     expect(body).toContain(POST_HEADING);
     expect(body).not.toContain('<html');
-  });
-
-  test('serves HTML that varies on Accept by default', async ({ request }) => {
-    const res = await request.get(POST);
-    expect(res.status()).toBe(200);
-    expect(res.headers()['content-type']).toMatch(/^text\/html/);
-    expect(res.headers()['vary']).toMatch(/\bAccept\b/i);
-  });
-
-  test('treats text/markdown;q=0 as a refusal', async ({ request }) => {
-    const res = await request.get(POST, {
-      headers: { Accept: 'text/markdown;q=0, text/html' },
-    });
-    expect(res.status()).toBe(200);
-    expect(res.headers()['content-type']).toMatch(/^text\/html/);
   });
 });
 

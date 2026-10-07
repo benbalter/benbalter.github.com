@@ -104,3 +104,10 @@
   Content-Type: application/linkset+json; charset=utf-8
   ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Markdown representations of pages (src/pages/**/*.md.ts). Agents get these
+# both directly and through Accept: text/markdown content negotiation, which a
+# zone URL Rewrite Rule maps to the same file. Wrangler infers text/markdown
+# with no charset, and the posts aren't all ASCII.
+/*.md
+  Content-Type: text/markdown; charset=utf-8

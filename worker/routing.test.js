@@ -3,12 +3,12 @@ import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 
 /**
- * Guards `assets.run_worker_first` in wrangler.json. Requests it excludes skip
- * worker/index.js entirely, so a negative pattern that matches a page URL
- * would silently break Markdown content negotiation (and Vary: Accept), and
- * one that matches /api/event would drop engagement events.
+ * Guards `assets.run_worker_first` in wrangler.json. Only /api/event needs the
+ * Worker; anything else it matches is a Worker run (counted against the
+ * account's daily request cap) that just passes an asset through. Markdown
+ * content negotiation is done by zone rules, not the Worker, so pages must
+ * stay off this list too.
  */
-
 const { assets } = JSON.parse(
   readFileSync(new URL('../wrangler.json', import.meta.url), 'utf8'),
 );
@@ -31,18 +31,15 @@ const runsWorkerFirst = (/** @type {string} */ pathname) =>
   include.some((re) => re.test(pathname)) && !exclude.some((re) => re.test(pathname));
 
 describe('run_worker_first', () => {
-  it.each([
-    '/',
-    '/about/',
-    '/2020/01/02/some-post/',
-    '/2020/01/02/a.dotted.slug/',
-    '/posts/',
-    '/api/event',
-  ])('routes %s through the Worker', (pathname) => {
+  it.each(['/api/event'])('routes %s through the Worker', (pathname) => {
     expect(runsWorkerFirst(pathname)).toBe(true);
   });
 
   it.each([
+    '/',
+    '/about/',
+    '/2020/01/02/some-post/',
+    '/posts/',
     '/feed.xml',
     '/sitemap-index.xml',
     '/sitemap-0.xml',

@@ -41,8 +41,8 @@ The Cloudflare Workers project is configured in `wrangler.json`:
 
 See [`wrangler.json`](../wrangler.json) for the full config. The parts worth knowing:
 
-- `main: worker/index.js`: a small Worker that handles `POST /api/event` (Analytics Engine) and `Accept: text/markdown` negotiation, and passes everything else to `env.ASSETS`.
-- `assets.run_worker_first`: page requests hit the Worker first; `/assets/*`, `/pagefind/*`, `/og/*`, and `/wp-content/*` go straight to static assets.
+- `main: worker/index.js`: a small Worker that handles `POST /api/event` (Analytics Engine) and passes anything else to `env.ASSETS`.
+- `assets.run_worker_first`: only `/api/event` hits the Worker; everything else goes straight to static assets.
 - `analytics_engine_datasets`: the `ENGAGEMENT` binding.
 
 ### Custom Domain
@@ -60,13 +60,16 @@ These are automatically picked up by Cloudflare Workers Static Assets during dep
 
 ### Which requests run the Worker
 
-- **`assets.run_worker_first`** in `wrangler.json` sends page URLs (paths ending in `/`) and `POST /api/event` through [`worker/index.js`](../worker/index.js), which handles Markdown content negotiation, `Vary: Accept`, and engagement events. Static files are excluded with negative patterns (`!/assets/*`, `!/.well-known/*`, `!/*.xml`, `!/*.txt`, `!/*.md`, images, and so on) and served straight from the asset layer, where `_headers` and `_redirects` still apply; any path the list doesn't cover still runs the Worker. The Worker would only pass those files through anyway, and every invocation counts against the account's Workers Free daily request cap (past the cap, [requests matching `run_worker_first` get a 429](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/) while excluded ones keep serving), so feed readers, crawlers, and favicon fetches shouldn't spend it. In these patterns `*` matches across `/`, so `!/*.xml` covers `.xml` files at any depth. [`worker/routing.test.js`](../worker/routing.test.js) fails if an exclusion would ever match a page URL or `/api/event`.
+- **`assets.run_worker_first`** in `wrangler.json` sends only `/api/event` through [`worker/index.js`](../worker/index.js), which records engagement events. Every other request, pages included, is served straight from the asset layer, where `_headers` and `_redirects` still apply. Every Worker invocation counts against the account's Workers Free daily request cap (past the cap, [requests matching `run_worker_first` get a 429](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/) while the rest keep serving), so page views shouldn't spend it. [`worker/routing.test.js`](../worker/routing.test.js) fails if pages or static files would run the Worker, or if `/api/event` wouldn't.
+- **Markdown content negotiation** (`Accept: text/markdown` gets the page's pre-built `.md` from [`src/pages/**/*.md.ts`](../src/pages/)) is done by zone rules, not the Worker, so it doesn't cost a Worker run per page view. See the zone-level list below. [`script/validate-markdown-siblings`](../script/validate-markdown-siblings) runs after the build in CI and fails if a page those rules rewrite has no `.md` file, and [`script/check-markdown-negotiation`](../script/check-markdown-negotiation) checks the live behavior. `public/_headers` sets `charset=utf-8` on `.md` files.
 
 ## Zone-level config (dashboard, not in this repo)
 
 Some settings live on the `balter.com` zone in the Cloudflare dashboard. Zone response Transform Rules and Redirect Rules run around the Worker and override `_headers` and `_redirects`, so anything here silently wins over the repo. Keep this list short, and keep headers and site redirects in the repo.
 
 - **Redirect Rule**: `balter.com` and `www.balter.com` → `https://ben.balter.com/`. It can't live in `_redirects` because those hosts don't route to the Worker.
+- **URL Rewrite Rules** (Markdown content negotiation): a `GET`/`HEAD` that accepts `text/markdown` (and doesn't refuse it with `q=0`) for `/`, `/about/`, `/resume/`, or a post (`/2*/*/*/*/`) is rewritten to the matching `.md` file: `/` to `/index.md`, `/YYYY/MM/DD/slug/` to `/YYYY/MM/DD/slug.md`. Other pages keep serving HTML. Without regex on the Free plan, `text/markdown;q=0.5` counts as a refusal.
+- **Response header Transform Rules**: add `Vary: Accept` to page URLs, and set `Cache-Control: private, max-age=300` on negotiated Markdown so shared caches (Cloudflare's doesn't vary on `Accept`) never hand it to a browser. `Vary` uses `add`, so it never replaces a value from `_headers`, and the `Cache-Control` override applies only to negotiated Markdown.
 - **WAF custom rule**: blocks WordPress and PHP probe paths (`*.php`, `/wp-admin`, `/wp-includes`, `/xmlrpc.php`) at the edge; `/wp-content/` stays served.
 - **Rate limiting rule**: `/api/event` is capped per IP (Free plan: path-only match, 10-second window).
 - **Speed and TLS**: HTTP/3, 0-RTT, Early Hints, Speed Brain, Brotli, tiered cache, DNSSEC, strict SSL, and HSTS are all on.

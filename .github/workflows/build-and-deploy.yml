@@ -78,6 +78,11 @@ jobs:
       - name: Validate built _redirects
         run: script/validate-redirects dist-astro/_redirects
 
+      # The zone's Markdown negotiation rewrite can't check that a file exists,
+      # so a page without its .md sibling would 404 for agents.
+      - name: Validate Markdown siblings
+        run: script/validate-markdown-siblings dist-astro
+
       - name: Deploy to Cloudflare Workers
         run: npx wrangler deploy
         env:

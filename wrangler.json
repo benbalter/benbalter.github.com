@@ -6,31 +6,8 @@
     "directory": "./dist-astro",
     "not_found_handling": "404-page",
     "binding": "ASSETS",
-    "//": "Run the Worker first only where it does something: page URLs (Markdown content negotiation, Vary: Accept) and /api/event. Static files with the extensions below, plus /.well-known/*, are excluded via negative rules and served directly by the asset layer (_headers and _redirects still apply); anything unlisted still runs the Worker. Each Worker run counts against the account's daily request cap, and feed readers, crawlers, and favicons are most of the non-page traffic. In these patterns `*` matches any characters, including `/`, so `!/*.xml` covers .xml files at any depth. Never exclude a pattern that can match a page (paths ending in /) or /api/event; worker/routing.test.js guards this.",
-    "run_worker_first": [
-      "/*",
-      "!/assets/*",
-      "!/pagefind/*",
-      "!/og/*",
-      "!/wp-content/*",
-      "!/.well-known/*",
-      "!/*.xml",
-      "!/*.txt",
-      "!/*.md",
-      "!/*.json",
-      "!/*.webmanifest",
-      "!/*.vcf",
-      "!/*.asc",
-      "!/*.pdf",
-      "!/*.docx",
-      "!/*.ico",
-      "!/*.png",
-      "!/*.jpg",
-      "!/*.svg",
-      "!/*.mp3",
-      "!/*.mp4",
-      "!/*.webm"
-    ]
+    "//": "Run the Worker only for /api/event; every other request is served by the asset layer (_headers and _redirects still apply) without counting against the account's daily Worker request cap. Markdown content negotiation (Accept: text/markdown -> the page's .md sibling, plus Vary: Accept) is done by Cloudflare zone rules on the balter.com zone (a URL Rewrite Rule and Response Header Transform Rules), not here. worker/routing.test.js guards this list.",
+    "run_worker_first": ["/api/event"]
   },
   "analytics_engine_datasets": [
     {
