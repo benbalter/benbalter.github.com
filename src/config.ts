@@ -80,6 +80,8 @@ export const siteConfig = {
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
+  // Mid-post callout on posts adapted from or inspiring a chapter (rehype-book-inline-cta).
+  bookUrlInline: 'https://open-and-async.com/?utm_source=benbalter-inline',
   bookTitle: 'Open and Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',
