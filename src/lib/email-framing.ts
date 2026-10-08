@@ -11,10 +11,11 @@
  */
 
 import { siteConfig } from '../config';
+import { escapeHtml } from '../utils/html-escape';
 
-// Escape a raw ampersand for use inside HTML (this content is delivered as
-// HTML, e.g. rendered by Kit into email). Only the book title needs it today.
-const bookTitle = siteConfig.bookTitle.replace(/&/g, '&amp;');
+// This content is delivered as HTML (e.g. rendered by Kit into email), so
+// escape the title fully rather than just its ampersand.
+const bookTitle = escapeHtml(siteConfig.bookTitle);
 
 /**
  * A short framing line prepended to each post so email subscribers (and RSS
