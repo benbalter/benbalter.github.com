@@ -30,6 +30,7 @@ import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 import { rehypeAcronyms } from './rehype-acronyms';
+import { rehypeBookInlineCta } from './rehype-book-inline-cta';
 import { rehypeEmailQuotePlain } from './rehype-email-quote-plain';
 import { rehypeEmailMediaFallback } from './rehype-email-media-fallback';
 
@@ -111,6 +112,10 @@ export const sharedRehypePlugins = [
   rehypeFootnoteA11y,
   rehypeImageLoading,
   rehypeImageDimensions,
+  // Mid-post book callout on adapted/inspired posts. Web-only: it reads Astro
+  // frontmatter, which the feed and email pipelines don't have. Runs before
+  // rehypeExternalLinks so its link gets the same target/rel as other outbound links.
+  rehypeBookInlineCta,
   rehypeExternalLinksConfig,
   // Wrap first occurrence of listed acronyms in a tooltip <abbr>. Runs last so
   // links (rehypeExternalLinks) and other elements it must skip already exist.
