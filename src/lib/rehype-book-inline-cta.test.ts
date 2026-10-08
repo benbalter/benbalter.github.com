@@ -3,15 +3,13 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-import { VFile } from 'vfile';
 import { rehypeBookInlineCta } from './rehype-book-inline-cta';
 
 const processor = unified().use(remarkParse).use(remarkRehype).use(rehypeBookInlineCta).use(rehypeStringify);
 
 async function render(md: string, frontmatter?: Record<string, unknown>) {
-  const file = new VFile({ value: md });
-  if (frontmatter) file.data.astro = { frontmatter };
-  return String(await processor.process(file));
+  // unified accepts plain { value, data } in place of a VFile.
+  return String(await processor.process({ value: md, data: frontmatter ? { astro: { frontmatter } } : {} }));
 }
 
 const paragraphs = (n: number) => Array.from({ length: n }, (_, i) => `Paragraph ${i + 1}.`).join('\n\n');

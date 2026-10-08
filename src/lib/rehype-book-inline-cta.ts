@@ -14,7 +14,6 @@
  */
 
 import type { Root, Element, ElementContent } from 'hast';
-import type { VFile } from 'vfile';
 import { siteConfig } from '../config';
 
 const MIN_BLOCKS = 6;
@@ -52,8 +51,9 @@ function callout(relation: string): Element {
 }
 
 export function rehypeBookInlineCta() {
-  return (tree: Root, file: VFile) => {
-    const fm = (file.data as { astro?: { frontmatter?: Record<string, unknown> } }).astro?.frontmatter;
+  // Only file.data is needed, so type just that rather than depending on vfile.
+  return (tree: Root, file: { data: { astro?: { frontmatter?: Record<string, unknown> } } }) => {
+    const fm = file.data.astro?.frontmatter;
     const relation = fm?.bookRelation;
     if (typeof relation !== 'string' || !(relation in HEADLINES) || fm?.hideBookCta) return;
 
