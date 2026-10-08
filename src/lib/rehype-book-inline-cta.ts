@@ -28,7 +28,7 @@ function callout(relation: string): Element {
   return {
     type: 'element',
     tagName: 'aside',
-    properties: { className: ['callout', 'callout-tip', 'book-inline-cta'], role: 'note', ariaLabel: 'About the book' },
+    properties: { className: ['callout', 'book-inline-cta'], role: 'note', ariaLabel: 'About the book' },
     children: [
       {
         type: 'element',
