@@ -285,17 +285,11 @@ test.describe('Structured Data (JSON-LD)', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     // Get the URL and navigate directly
     const firstPostUrl = await postLinks.first().getAttribute('href');
-    if (!firstPostUrl) {
-      test.skip(true, 'Could not get blog post URL');
-      return;
-    }
+    if (!firstPostUrl) throw new Error('Could not get blog post URL');
     
     await page.goto(firstPostUrl);
     await waitForPageReady(page);
@@ -388,10 +382,7 @@ test.describe('Blog Post SEO', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     await postLinks.first().click();
     await waitForPageReady(page);
@@ -423,17 +414,11 @@ test.describe('Blog Post SEO', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     // Get the URL and navigate directly
     const firstPostUrl = await postLinks.first().getAttribute('href');
-    if (!firstPostUrl) {
-      test.skip(true, 'Could not get blog post URL');
-      return;
-    }
+    if (!firstPostUrl) throw new Error('Could not get blog post URL');
     
     await page.goto(firstPostUrl);
     await waitForPageReady(page);

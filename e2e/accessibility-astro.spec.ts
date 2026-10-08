@@ -89,12 +89,9 @@ test.describe('Accessibility - Blog Post', () => {
     // Navigate to a recent post
     await page.goto('/');
     
-    // Guard: skip if no article links exist
+    // The site always has posts, so a missing link means a broken selector
     const articleLinks = await page.locator('article a').count();
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     await page.click('article a'); // Click first post link
     await page.waitForLoadState('networkidle');
@@ -109,12 +106,9 @@ test.describe('Accessibility - Blog Post', () => {
   test('should have article semantic structure', async ({ page }) => {
     await page.goto('/');
     
-    // Guard: skip if no article links exist
+    // The site always has posts, so a missing link means a broken selector
     const articleLinks = await page.locator('article a').count();
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     await page.click('article a');
     await page.waitForLoadState('networkidle');
@@ -136,12 +130,9 @@ test.describe('Accessibility - Blog Post', () => {
   test('all images should have alt text', async ({ page }) => {
     await page.goto('/');
     
-    // Guard: skip if no article links exist
+    // The site always has posts, so a missing link means a broken selector
     const articleLinks = await page.locator('article a').count();
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     await page.click('article a');
     await page.waitForLoadState('networkidle');
@@ -505,12 +496,9 @@ test.describe('Accessibility - Dark Mode', () => {
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/');
     
-    // Guard: skip if no article links exist
+    // The site always has posts, so a missing link means a broken selector
     const articleLinks = await page.locator('article a').count();
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     await page.click('article a');
     await page.waitForLoadState('networkidle');

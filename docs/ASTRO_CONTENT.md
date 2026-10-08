@@ -327,17 +327,7 @@ const { Content } = await render(page);
 3. **Validate frontmatter**: Let the schema catch errors at build time
 4. **Keep slugs clean**: Use descriptive, URL-friendly slugs
 5. **Leverage components**: Create reusable MDX components for common patterns
-6. **Test locally**: Run `npm run astro:build` to catch errors
-
-## Migrating from Jekyll
-
-To migrate Jekyll posts to Astro:
-
-1. **Copy posts**: Move `.md` files from `_posts/` to `src/content/posts/`
-2. **Update frontmatter**: Ensure required fields (`title`, `description`) are present
-3. **Convert Liquid**: Replace Liquid tags with MDX components if needed
-4. **Test build**: Run `npm run astro:build` to validate
-5. **Update links**: Adjust internal links to match new URL structure
+6. **Test locally**: Run `npm run build` to catch errors
 
 ## Troubleshooting
 
@@ -347,7 +337,7 @@ If the build fails with frontmatter errors:
 
 1. Check `src/content.config.ts` for required fields
 2. Ensure all posts have `title` and `description`
-3. Run `npm run astro:check` for detailed errors
+3. Run `npm run check` for detailed errors
 
 ### Type Errors
 
@@ -355,7 +345,7 @@ If TypeScript complains:
 
 1. Import `CollectionEntry` type: `import type { CollectionEntry } from 'astro:content';`
 2. Use proper types for parameters: `({ data }: CollectionEntry<'posts'>)`
-3. Run `npm run astro:check` to verify
+3. Run `npm run check` to verify
 
 ### Content Not Appearing
 
@@ -364,7 +354,7 @@ If content doesn't show up:
 1. Check `published` field (must not be `false`)
 2. Verify file is in correct collection directory
 3. Ensure frontmatter is valid YAML
-4. Rebuild: `npm run astro:build`
+4. Rebuild: `npm run build`
 
 ## Resources
 

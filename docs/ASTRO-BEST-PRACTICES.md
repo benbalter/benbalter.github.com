@@ -40,7 +40,7 @@ Astro ships static HTML by default, only sending JavaScript for interactive comp
 **Verification:**
 
 ```bash
-npm run astro:build
+npm run build
 # Check dist-astro/assets/ for minimal JS bundles
 ```
 
@@ -54,7 +54,7 @@ Only hydrate components that need interactivity using `client:*` directives.
 
 - No `client:*` directives used (all components are server-only)
 - Client scripts loaded only where needed (FontAwesome, navigation toggle)
-- View Transitions API used for smooth navigation without full page reloads
+- Cross-document View Transitions in CSS animate normal page loads (no client-side router)
 
 **Best Practice:**
 
@@ -123,7 +123,7 @@ generating optimized images
 - **GitHub preconnect removed:** No external GitHub resources are loaded at runtime (avatar is fetched at build time and served as an optimized WebP image from the same domain)
 - **Font preloading not needed:** Site uses system font stack (no custom fonts to preload)
 - **Critical CSS inlined:** `inlineStylesheets: 'always'` in astro.config.mjs eliminates render-blocking CSS
-- **Minimal JavaScript:** Only View Transitions router script loads, which is essential for navigation
+- **Minimal JavaScript:** No client-side router; small page scripts load only where needed
 
 ### 5. Bundle Size Optimization ✅
 
@@ -153,7 +153,6 @@ du -sh dist-astro/assets/*.css
 
 **Current Bundle Sizes (approximate):**
 
-- JavaScript: ~15KB (View Transitions router only)
 - CSS: Inlined into HTML (no external CSS requests)
 - Tailwind utilities: Only used classes included (~10-15KB after compression)
 
@@ -161,22 +160,13 @@ du -sh dist-astro/assets/*.css
 
 **Status:** IMPLEMENTED
 
-**Implementation (BaseLayout.astro):**
-
-```astro
-import { ClientRouter } from 'astro:transitions';
-
-<head>
-  <ClientRouter />
-</head>
-```
+**Implementation:** cross-document view transitions, opted into with `@view-transition { navigation: auto; }` in `global.css`, plus a card → article morph in `src/scripts/view-transition-cards.ts`. The site deliberately does **not** use Astro's `<ClientRouter />`; see [ASTRO.md](ASTRO.md#view-transitions).
 
 **Benefits:**
 
-- Smooth page navigation without full reloads
-- Reduced server load (assets cached)
-- App-like user experience
-- Native browser API with progressive enhancement
+- Animated navigation with plain HTML pages and no router JavaScript
+- Progressive enhancement: unsupported browsers navigate normally
+- Respects `prefers-reduced-motion`
 
 ---
 
@@ -351,12 +341,12 @@ export default defineConfig({
 
 **Status:** IMPLEMENTED
 
-**Current Location:** `robots.txt` (root directory, processed at build time)
+**Current Location:** [`src/pages/robots.txt.ts`](../src/pages/robots.txt.ts) (generated at build time)
 
 **Features:**
 
 - ✅ User-agent directives for all crawlers
-- ✅ Specific disallow rules for assets, build directories, and deprecated pages
+- ✅ Disallow rules for `/404.html`, tag pages, and deprecated pages (never `/assets/`: crawlers need the images, scripts, and styles there)
 - ✅ Allow directive for main content
 - ✅ Sitemap references (sitemap-index.xml and sitemap.xml)
 - ✅ Preferred host declaration

@@ -9,9 +9,9 @@ This directory contains comprehensive end-to-end tests for Ben Balter's website 
 - **`blog-posts.spec.ts`**: Tests for blog post pages
 - **`resume.spec.ts`**: Tests for the resume page
 - **`pages.spec.ts`**: Tests for static pages (About, Contact, Press)
-- **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
-- **`performance.spec.ts`**: Performance and optimization tests
-- **`seo.spec.ts`**: General SEO and metadata tests
+- **`accessibility-astro.spec.ts`**: Accessibility tests (WCAG compliance)
+- **`performance-astro.spec.ts`**: Performance and optimization tests
+- **`seo-astro.spec.ts`**: General SEO and metadata tests
 
 ## Running Tests
 
@@ -129,7 +129,7 @@ BASE_URL=http://127.0.0.1:4330 npx playwright test
 
 ### SEO Tests
 
-**General SEO Tests (`seo.spec.ts`):**
+**General SEO Tests (`seo-astro.spec.ts`):**
 
 - Meta descriptions (with length validation)
 - Open Graph tags (og:title, og:description, og:type, og:url)
