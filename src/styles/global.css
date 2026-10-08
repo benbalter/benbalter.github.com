@@ -1,5 +1,12 @@
 /* Tailwind CSS v4 */
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+/* Scan only src/ for class names. Automatic detection also read docs/, test
+ * files, and any .claude/worktrees/ checkouts, so prose in the docs (e.g.
+ * `lg:prose-lg`) and test fixtures generated CSS that no page uses. */
+@source "../";
+@source not "../**/*.test.ts";
+@source not "../__tests__";
+@source not "../__mocks__";
 
 /* Modal styles. BaseLayout renders SearchModal and ShortcutsModal on every
  * page, so these rules belong in the sitewide stylesheet rather than in two
