@@ -5,7 +5,7 @@
     // Extensionless Node scripts run from package.json and CI.
     "script/{inject-image-size,inject-modulepreload,build-remote-image-dimensions}",
     // Auto-imported into MDX posts by astro-auto-import (astro.config.mjs).
-    "src/components/{Callout,GitHubCulture,FossAtScale,YouTube,BookLaunchCta}.astro"
+    "src/components/{GitHubCulture,FossAtScale,YouTube,BookLaunchCta}.astro"
   ],
   "project": [
     "src/**/*.{ts,astro,css,mdx}",

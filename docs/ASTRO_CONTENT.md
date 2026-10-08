@@ -109,43 +109,28 @@ title: "My MDX Post"
 description: "A post with components"
 ---
 
-import Callout from '../../components/Callout.astro';
-
 This is an **MDX** post with components.
 
-<Callout type="info">
-This is a callout component!
-</Callout>
+<YouTube id="dQw4w9WgXcQ" title="Video Title" />
 
 Regular Markdown content continues...
 ```
 
-### Available Components
+Site components (`GitHubCulture`, `FossAtScale`, `YouTube`, `BookLaunchCta`) and `astro-embed`'s `Tweet`, `Vimeo`, and `LinkPreview` are auto-imported into every MDX file, so they don't need an `import` line.
 
-#### Callout
+### Callouts
 
-Display important information, warnings, or notes:
+Callouts are plain Markdown directives, handled by [`remark-callout-directives.ts`](../src/lib/remark-callout-directives.ts), so they work in `.md` and `.mdx` alike:
 
-```mdx
-<Callout type="info" title="Optional Title">
+```markdown
+:::warning[Optional Title]
 Your content here...
-</Callout>
+:::
 ```
 
-Types: `info`, `warning`, `error`, `success`
+Types: `note`, `info`, `warning`, `error`, `success`, `tip`
 
-#### CodeBlock
-
-Enhanced code blocks with titles:
-
-```mdx
-<CodeBlock title="example.js" language="javascript">
-```javascript
-const message = 'Hello!';
-```
-
-</CodeBlock>
-```
+### Available Components
 
 #### YouTube
 

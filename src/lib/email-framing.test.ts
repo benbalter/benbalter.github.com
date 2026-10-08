@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { leadInHtml, bookCtaHtml } from './email-framing';
 import { siteConfig } from '../config';
 
@@ -30,6 +30,18 @@ describe('bookCtaHtml', () => {
   it('escapes ampersands in the book title', () => {
     const html = bookCtaHtml('adapted');
     expect(html).not.toMatch(/&(?![a-z]+;|#\d+;)/);
+  });
+
+  it('escapes every HTML special character in the book title', async () => {
+    vi.resetModules();
+    vi.doMock('../config', () => ({
+      siteConfig: { ...siteConfig, bookTitle: 'Tags <b> & "quotes"' },
+    }));
+    const { bookCtaHtml: mockedCta } = await import('./email-framing');
+    const html = mockedCta('adapted');
+    expect(html).toContain('Tags &lt;b&gt; &amp; &quot;quotes&quot;');
+    expect(html).not.toContain('<b>');
+    vi.doUnmock('../config');
   });
 
   it('is inline-styled with no class attributes', () => {

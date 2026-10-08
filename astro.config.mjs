@@ -240,7 +240,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         // Site components available in all MDX files without explicit imports
-        './src/components/Callout.astro',
         './src/components/GitHubCulture.astro',
         './src/components/FossAtScale.astro',
         './src/components/YouTube.astro',

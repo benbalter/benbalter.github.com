@@ -472,22 +472,18 @@ test.describe('Robots.txt', () => {
     expect(content).toContain('https://ben.balter.com/sitemap');
   });
 
-  test('should disallow /assets/', async ({ page }) => {
+  // Images, JS, and CSS all live under /assets/; crawlers need them to render
+  // pages and to index the images structured data points at.
+  test('should not disallow /assets/', async ({ page }) => {
     await page.goto('/robots.txt');
     const content = await page.textContent('body');
-    expect(content).toContain('Disallow: /assets/');
+    expect(content).not.toContain('Disallow: /assets/');
   });
 
   test('should disallow /404.html', async ({ page }) => {
     await page.goto('/robots.txt');
     const content = await page.textContent('body');
     expect(content).toContain('Disallow: /404.html');
-  });
-
-  test('should disallow /dist-astro/', async ({ page }) => {
-    await page.goto('/robots.txt');
-    const content = await page.textContent('body');
-    expect(content).toContain('Disallow: /dist-astro/');
   });
 });
 
