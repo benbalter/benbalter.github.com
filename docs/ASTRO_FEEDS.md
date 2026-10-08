@@ -2,25 +2,17 @@
 
 ## Overview
 
-The Astro site now generates an RSS feed at the same URL as the Jekyll site, ensuring compatibility with existing feed readers.
+The site generates an RSS 2.0 feed at `/feed.xml`, the same URL the old Jekyll site used, so existing subscribers kept working through the migration.
 
 ## Feed URLs
 
 1. **Main Blog Feed**: `/feed.xml`
    - Contains all published blog posts from `src/content/posts/`
-   - 186 posts as of implementation
    - Sorted by date (newest first)
 
 ## Feed Format
 
 The feed is generated in **RSS 2.0 format** using the `@astrojs/rss` package.
-
-### Differences from Jekyll
-
-- **Jekyll feeds**: Used Atom format via `jekyll-feed` plugin
-- **Astro feeds**: Use RSS 2.0 format via `@astrojs/rss` package
-
-Both formats are widely supported by feed readers, and RSS 2.0 is backward compatible with most Atom feed readers.
 
 ## Technical Implementation
 
@@ -71,7 +63,7 @@ Feed links are included in:
 To test the feed locally:
 
 ```bash
-npm run astro:build
+npm run build
 # Feed generated at: dist-astro/feed.xml
 ```
 
@@ -80,11 +72,3 @@ To validate the feed:
 ```bash
 python3 -c "import feedparser; print(feedparser.parse(open('dist-astro/feed.xml')).version)"
 ```
-
-## Migration Notes
-
-When migrating from Jekyll to Astro:
-
-- Feed URL remains the same (`/feed.xml`)
-- Feed format changes from Atom to RSS 2.0 (transparent to most readers)
-- All post metadata and links are preserved

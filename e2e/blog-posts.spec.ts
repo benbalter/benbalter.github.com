@@ -37,10 +37,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     // Click on the first post
     const firstPostUrl = await postLinks.first().getAttribute('href');
@@ -78,10 +75,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     
@@ -105,10 +99,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     
@@ -131,10 +122,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     
@@ -162,10 +150,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     
@@ -191,10 +176,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     
@@ -232,10 +214,7 @@ test.describe('Blog Posts', () => {
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
     
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
+    expect(count, 'No blog posts found').toBeGreaterThan(0);
     
     const firstPostUrl = await postLinks.first().getAttribute('href');
     

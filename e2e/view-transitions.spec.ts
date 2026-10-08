@@ -1,70 +1,25 @@
 /**
- * E2E tests for Astro View Transitions functionality
- * 
- * Astro View Transitions intercept link clicks and provide smooth page transitions
- * without full page reloads, providing a faster, app-like experience.
+ * E2E tests for navigation and cross-document view transitions.
+ *
+ * The site is a plain multi-page app: it does NOT use Astro's ClientRouter.
+ * Transitions come from CSS `@view-transition` (global.css) plus the card →
+ * article morph in src/scripts/view-transition-cards.ts, so every navigation
+ * is a real page load and these tests check that behavior.
  */
 
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 import { viewTransitionName } from '../src/utils/view-transition-name';
 
-test.describe('Astro View Transitions Navigation', () => {
-  test('should have View Transitions enabled on the page', async ({ page }) => {
+test.describe('Navigation', () => {
+  test('should navigate between pages via header links', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
-    
-    // Check whether View Transitions are enabled via Astro's meta tag.
-    // This site intentionally does NOT use Astro's ClientRouter / View Transitions
-    // (see src/scripts/on-page-load.ts for the DOMContentLoaded-based init).
-    // Skip this assertion if the meta tag isn't present rather than failing.
-    const viewTransitionsEnabled = await page.locator('meta[name="astro-view-transitions-enabled"]').count();
-    test.skip(viewTransitionsEnabled === 0, 'Site does not use Astro View Transitions');
-    expect(viewTransitionsEnabled).toBeGreaterThan(0);
-  });
 
-  test('should intercept link clicks for faster navigation', async ({ page }) => {
-    // Start on homepage
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    // Track full page loads using the load event
-    let fullPageLoadCount = 0;
-    page.on('load', () => {
-      fullPageLoadCount++;
-    });
-    
-    // Track Astro navigation events
-    await page.evaluate(() => {
-      document.addEventListener('astro:before-preparation', () => {
-        (window as any).astroBeforePreparation = true;
-      });
-      document.addEventListener('astro:page-load', () => {
-        (window as any).astroPageLoadFired = true;
-      });
-    });
-    
-    // Reset the counters after initial page load
-    fullPageLoadCount = 0;
-    
-    // Click a link to navigate to another page
-    const aboutLink = page.locator('a[href="/about/"]').first();
-    await aboutLink.click();
-    
-    // Wait for navigation to complete
+    await page.locator('a[href="/about/"]').first().click();
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
-    
-    // Check that Astro events were fired
-    const astroBeforePreparation = await page.evaluate(() => (window as any).astroBeforePreparation);
-    const astroPageLoadFired = await page.evaluate(() => (window as any).astroPageLoadFired);
-    
-    // Either Astro events should fire OR full page load should happen
-    // (Both are acceptable - View Transitions may not work in all browsers)
-    const navigationHappened = astroBeforePreparation || astroPageLoadFired || fullPageLoadCount > 0;
-    expect(navigationHappened).toBeTruthy();
-    
-    // Verify we're on the correct page
+
     await expect(page).toHaveURL(/\/about\//);
     await expect(page.locator('h1')).toContainText('About');
   });
@@ -226,7 +181,7 @@ test.describe('Astro View Transitions Navigation', () => {
   });
 });
 
-test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
+test.describe('Cross-page anchor links', () => {
   test('should handle direct navigation to another page with anchor', async ({ page }) => {
     // Navigate directly to a page with a hash anchor
     await page.goto('/2015/11/12/why-urls/#systems-that-naturally-capture-and-expose-process');
@@ -374,7 +329,7 @@ test.describe('Cross-document card → article "magic move"', () => {
   });
 });
 
-test.describe('Astro View Transitions Configuration', () => {
+test.describe('View transition edge cases', () => {
   test('should work with forms if present', async ({ page }) => {
     await page.goto('/contact/');
     await waitForPageReady(page);
@@ -394,19 +349,6 @@ test.describe('Astro View Transitions Configuration', () => {
     }
   });
   
-  test('should support data-astro-reload for full page refresh', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    // Check if any links have data-astro-reload attribute
-    // This would opt them out of View Transitions
-    const reloadLinks = await page.locator('a[data-astro-reload]').count();
-    
-    // This test just verifies the attribute is respected if present
-    // (There may be zero links with this attribute, which is fine)
-    expect(reloadLinks).toBeGreaterThanOrEqual(0);
-  });
-
   test('should respect prefers-reduced-motion accessibility preference', async ({ page }) => {
     // Emulate prefers-reduced-motion: reduce
     await page.emulateMedia({ reducedMotion: 'reduce' });

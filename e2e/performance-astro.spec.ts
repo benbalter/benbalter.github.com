@@ -104,11 +104,8 @@ test.describe('Core Web Vitals', () => {
     // Check if there are any article links
     const articleLinks = await page.locator('article a').count();
     
-    // Skip if no articles exist
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    // The site always has posts, so a missing link means a broken selector
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     await page.click('article a');
     await page.waitForLoadState('networkidle');
@@ -380,12 +377,9 @@ test.describe('View Transitions Performance', () => {
   test('navigation should be smooth with View Transitions', async ({ page }) => {
     await page.goto('/');
     
-    // Guard: skip if no article links exist
+    // The site always has posts, so a missing link means a broken selector
     const articleLinks = await page.locator('article a').count();
-    if (articleLinks === 0) {
-      test.skip(true, 'No blog post article links found on homepage');
-      return;
-    }
+    expect(articleLinks, 'No blog post article links found on homepage').toBeGreaterThan(0);
     
     // Click a link to navigate
     const startTime = Date.now();

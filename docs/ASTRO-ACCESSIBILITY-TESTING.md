@@ -438,7 +438,7 @@ jobs:
         run: npm ci
       
       - name: Build site
-        run: npm run astro:build
+        run: npm run build
       
       - name: Run accessibility tests
         run: npm run test:e2e:astro -- e2e/accessibility*.spec.ts

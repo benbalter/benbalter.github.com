@@ -1,67 +1,31 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
-test.describe('Related Posts', () => {
-  test('should display related posts as an unordered list with bullets', async ({ page }) => {
-    // Go to homepage to find a blog post
+// Related posts render through KeepReading.astro: an "Up next" hero card plus a
+// "More to explore" grid, all visible without JavaScript.
+test.describe('Related Posts (Keep reading)', () => {
+  test('shows related posts that link to other posts', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
-    
-    const postLinks = page.locator('a[href*="/20"]');
-    const count = await postLinks.count();
-    
-    if (count === 0) {
-      test.skip(true, 'No blog posts found');
-      return;
-    }
-    
-    // Navigate to the first post
-    const firstPostUrl = await postLinks.first().getAttribute('href');
-    
-    if (!firstPostUrl) {
-      test.skip(true, 'Could not get post URL');
-      return;
-    }
-    
+
+    const firstPostUrl = await page.locator('a[href*="/20"]').first().getAttribute('href');
+    if (!firstPostUrl) throw new Error('No blog post link found on the homepage');
+
     await page.goto(firstPostUrl);
     await waitForPageReady(page);
-    
-    // Check if related posts section exists
-    const relatedPostsSection = page.locator('.related-posts');
-    const sectionCount = await relatedPostsSection.count();
-    
-    if (sectionCount === 0) {
-      test.skip(true, 'No related posts section found on this post');
-      return;
+
+    const section = page.locator('section.keep-reading');
+    await expect(section).toHaveCount(1);
+    await expect(section).toHaveAttribute('aria-labelledby', 'keep-reading-heading');
+    await expect(section.getByText('Up next')).toBeVisible();
+
+    const links = section.locator('a[href*="/20"]');
+    expect(await links.count()).toBeGreaterThan(0);
+
+    // A post should never recommend itself.
+    const currentPath = new URL(page.url()).pathname;
+    for (const href of await links.evaluateAll((els) => els.map((el) => (el as HTMLAnchorElement).pathname))) {
+      expect(href).not.toBe(currentPath);
     }
-    
-    // Related posts section exists, verify it's a proper UL
-    const relatedPostsList = relatedPostsSection.locator('ul.related-posts-list');
-    await expect(relatedPostsList).toBeVisible();
-    
-    // Check that list items exist
-    const listItems = relatedPostsList.locator('li');
-    const itemCount = await listItems.count();
-    
-    if (itemCount === 0) {
-      test.skip(true, 'Related posts list has no items');
-      return;
-    }
-    
-    // Verify the list has disc style (bullets)
-    const listStyle = await relatedPostsList.evaluate((el) => {
-      return window.getComputedStyle(el).listStyleType;
-    });
-    
-    expect(listStyle).toBe('disc');
-    
-    // Verify padding is applied (so bullets are visible)
-    const paddingLeft = await relatedPostsList.evaluate((el) => {
-      return window.getComputedStyle(el).paddingLeft;
-    });
-    
-    // Should have meaningful padding (more than 0)
-    const paddingValue = parseFloat(paddingLeft);
-    expect(paddingValue).toBeGreaterThan(0);
   });
 });

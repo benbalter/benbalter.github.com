@@ -61,7 +61,7 @@ OG images are dynamically generated at build time for all blog posts. These imag
 All blog posts automatically get OG images generated at build time:
 
 ```bash
-npm run astro:build
+npm run build
 ```
 
 Generated images are placed in `dist-astro/og/{year}/{month}/{day}/{slug}.png`.
@@ -141,8 +141,8 @@ export const defaultOGConfig: OGImageConfig = {
 
 To preview generated OG images:
 
-1. Build the site: `npm run astro:build`
-2. Start preview server: `npm run astro:preview`
+1. Build the site: `npm run build`
+2. Start preview server: `npm run preview`
 3. Navigate to a post's OG image: `http://localhost:4321/og/{year}/{month}/{day}/{slug}.png`
 
 Or use a simple HTTP server:

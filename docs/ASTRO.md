@@ -74,14 +74,12 @@ The configuration is optimized for Cloudflare Workers Static Assets:
 - **Zero JavaScript by default**: Only ship JS when needed
 - **Optimized assets**: Automatic image optimization and bundling
 - **Fast builds**: Vite-powered build system
-- **View Transitions**: Smooth page navigation using [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-  - **JavaScript-based routing**: Astro's ClientRouter intercepts link clicks for smooth transitions
-  - **CSS View Transitions API styling**: Uses modern browser APIs for animation effects (Chrome/Edge 126+)
+- **View Transitions**: Cross-document (multi-page) view transitions in CSS; no client-side router
+  - Every navigation is a normal page load; `@view-transition { navigation: auto; }` animates it in browsers that support it
+  - Post cards morph into the article headline via [`view-transition-cards.ts`](../src/scripts/view-transition-cards.ts)
   - **Hover-based prefetching**: Links are prefetched on hover to balance speed with bandwidth
-  - **Persistent elements**: Navigation and footer persist across page changes without re-rendering
-  - **Semantic animations**: Smooth transitions for main content while keeping UI elements stable
   - **Accessibility**: Respects `prefers-reduced-motion` preference
-  - See [View Transitions Optimization](#view-transitions-optimization) section below for details
+  - See [View Transitions](#view-transitions) below for details
 
 ### Developer Experience
 
@@ -95,134 +93,29 @@ The configuration is optimized for Cloudflare Workers Static Assets:
 - **Meta tags**: SEO-friendly metadata
 - **Fast loading**: Excellent Core Web Vitals
 
-### View Transitions Optimization
+### View Transitions
 
-The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) as an experimental approach to enhance page navigation with smooth animations.
+The site is a plain multi-page app. It does **not** use Astro's `<ClientRouter />`: every navigation is a real page load, and the browser's cross-document View Transitions API animates it where supported. Browsers without support just navigate normally. Don't add `ClientRouter`; the `astro:page-load` and `astro:after-swap` events it provides never fire here, so client scripts initialize with [`onPageLoad()`](../src/scripts/on-page-load.ts) (a `DOMContentLoaded` wrapper) instead.
 
 **Implementation:**
 
-1. **View Transition Styling for Astro's Router**
+1. **Opt in with CSS** (`src/styles/global.css`):
 
    ```css
-   /* src/styles/global.css */
    @view-transition {
-       navigation: auto;
+     navigation: auto;
    }
    ```
 
-   - Styles Astro's JavaScript-driven View Transitions using the native CSS View Transitions API (Chrome/Edge 126+)
-   - Astro's ClientRouter (JavaScript) handles link interception and page transitions
-   - Graceful fallback to non-animated navigation when View Transitions are not supported
+   Unnamed content cross-fades as `root`. Only elements that should stay put or morph get a `view-transition-name`, such as `.navbar` (`site-header`). Naming large, variable-height containers makes them stretch between pages, which is why `.content` is no longer named.
 
-2. **Semantic Animations**
+2. **Card → article morph.** Each article `<h1>` carries a static `view-transition-name` derived from its path ([`view-transition-name.ts`](../src/utils/view-transition-name.ts)). On `pageswap`, [`view-transition-cards.ts`](../src/scripts/view-transition-cards.ts) names only the one card that links to the destination, so a page that lists the same post twice never has duplicate names (which would abort the transition).
 
-   ```css
-   .content {
-       view-transition-name: main-content;
-   }
-   ```
+3. **Hover-based prefetching** (`astro.config.mjs`): `prefetchAll` stays off because Cloudflare refuses speculative prefetch for Worker-served requests.
 
-   - Main content smoothly transitions between pages
-   - Hero unit view-transition-name removed to avoid conflicts (only exists on homepage)
+4. **Reduced motion:** under `prefers-reduced-motion: reduce`, navigation transitions and animations are turned off.
 
-3. **Persistent Elements with Active State Updates**
-
-   ```astro
-   // Navigation uses transition:persist with client-side active state management
-   <nav transition:persist="nav">
-     <script>
-       // Update active nav link state on page transitions
-       document.addEventListener('astro:page-load', () => {
-         // Update active class based on current URL
-       });
-     </script>
-   </nav>
-   <footer transition:persist>...</footer>
-   ```
-
-   - Navigation and footer don't re-render on page changes
-   - JavaScript updates active link highlighting after navigation
-   - Improves perceived performance and prevents layout shift
-
-4. **Hover-Based Prefetching**
-
-   ```js
-   // astro.config.mjs
-   prefetch: {
-     prefetchAll: false,
-     defaultStrategy: 'hover',
-   }
-   ```
-
-   - Links are prefetched when users hover over them (indicating intent)
-   - Balances navigation speed with bandwidth usage
-   - Better for users on slower connections or mobile data
-
-5. **Accessibility Support**
-
-   ```css
-   @media (prefers-reduced-motion: reduce) {
-       @view-transition {
-           navigation: none;
-       }
-       ::view-transition-group(*),
-       ::view-transition-old(*),
-       ::view-transition-new(*) {
-           animation: none !important;
-       }
-   }
-   ```
-
-   - Respects user's motion preferences
-   - Disables all view transition animations for accessibility
-   - Falls back to instant navigation
-
-**Benefits:**
-
-- **Smooth UX**: No white flashes or jarring page reloads
-- **Intent-based prefetching**: Hover strategy balances speed with bandwidth usage
-- **Better performance**: Persistent elements don't re-render
-- **Accessible**: Respects `prefers-reduced-motion` preference
-- **Progressive enhancement**: Works in all browsers with appropriate fallbacks
-
-**How it works:**
-
-- Astro's ClientRouter (JavaScript) intercepts link clicks
-- Instead of full page reloads, Astro fetches new pages and smoothly transitions
-- CSS View Transition API provides animation styling when supported
-- Browser history, scroll position, and page titles are managed automatically
-- Links are prefetched on hover for faster navigation
-
-**Implementation in BaseLayout:**
-
-```astro
-// src/layouts/BaseLayout.astro
-import { ClientRouter } from 'astro:transitions';
-
-<head>
-  <!-- ... other head elements ... -->
-  <ClientRouter />
-</head>
-```
-
-The `ClientRouter` component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the standard name for Astro's client-side router (the old `ViewTransitions` name was removed in Astro 6).
-
-**Disabling View Transitions for specific links:**
-
-```html
-<a href="/page/" data-astro-reload>Normal navigation</a>
-```
-
-**Testing:**
-
-E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
-
-- Link interception and navigation
-- Browser history management
-- Scroll position preservation
-- External link handling
-- View Transitions configuration
-- Accessibility (prefers-reduced-motion)
+**Testing:** [`e2e/view-transitions.spec.ts`](../e2e/view-transitions.spec.ts) covers navigation, history and scroll restoration, cross-page anchors, the card → article morph, and reduced motion.
 
 ## Integration with Content
 
