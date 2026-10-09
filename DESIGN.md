@@ -171,7 +171,7 @@ A single cool blue accent over Bootstrap's neutral grays, with a separate navy-l
 
 ### The Open and Async sub-brand
 
-These colors mirror open-and-async.com and appear only in `BookCta`, `BookLaunchCta`, and the mid-post book callout. They form a self-contained "book object" and are the same in both color schemes.
+These colors mirror open-and-async.com and appear only in `BookCta` and `BookLaunchCta`. They form a self-contained "book object" and are the same in both color schemes.
 
 - **Midnight Navy** (`brand-950`): The book card's base.
 - **Badge Navy** (`brand-900`): The "Out now" badge background.
@@ -214,7 +214,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it.
 
-Posts sit in a `max-w-4xl` column that widens to `max-w-6xl` at the `xl` breakpoint (1280px) to make room for a sticky table-of-contents sidebar. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
+Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
 Vertical rhythm is set in rems. Homepage sections are separated by 64px (32px on mobile), with a short 48×2px tinted rule under each section heading. Paragraphs get 28px below (24px on mobile), and `h2` gets 2.25em above inside prose.
 
@@ -247,8 +247,9 @@ Borders are 1px `gray-200` (`gray-700` in dark mode). Accent borders are reserve
 
 ### Buttons
 
-The site has no shared button class. `.btn` survives from Bootstrap only as a marker: it has no styles of its own, and `global.css` uses `main a:not(.btn)` to keep content-link underlines off the bookmarklet drag buttons. Two real buttons exist:
+The site has no shared button class. `.btn` survives from Bootstrap only as a marker: it has no styles of its own, and `global.css` uses `main a:not(.btn)` to keep content-link underlines off the bookmarklet drag buttons. Three real buttons exist:
 
+- **Share button:** The end-of-post primary action. Primary blue fill, white 16px semibold Inter, 8px corners, 44px tall, with a share icon. It opens the native share sheet where one exists and becomes "Copy link" (then "Link copied") elsewhere. Beside it, four 44px icon-only network links (LinkedIn, Bluesky, X, Email) tint to 10% blue on hover.
 - **Subscribe button:** Primary blue fill, white text, 14px semibold Inter, 6px corners, 6×16px padding. Hover drops to 90% opacity; focus shows a 2px 40%-blue ring with an offset. Disabled is 60% opacity with a spinner.
 - **Book buy button:** A lime-to-pink gradient fill with a navy label (white fails contrast on lime), 8px corners, 10×20px padding, and a trailing arrow that nudges 2px right on hover.
 
@@ -266,6 +267,14 @@ The site has no shared button class. `.btn` survives from Bootstrap only as a ma
 ### Navigation
 
 A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners, and `shadow-sm`. On the left are the brand name in bold Inter and four links (Posts, About, Resume, Contact). On the right are a search button and, from `lg` up, the tagline set off by a 2px tinted left rule. Links rest at `primary-800`; the active link turns `gray-900` and semibold, and a hidden bold copy reserves its width so the bar doesn't shift. Below 768px the links collapse behind a hamburger toggle with a max-height animation.
+
+### Post byline
+
+A 40px round headshot beside two lines of 14px Inter: "By **Ben Balter**, author of *Open and Async*", then the reading time with a clock icon. It sits directly under the post title. It never shows a date (posts are evergreen).
+
+### End of post
+
+The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, older/newer links, and a footer with the bio, publish date, revision history, and the open source link.
 
 ### Book CTA (signature component)
 

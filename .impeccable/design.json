@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-09T21:12:49+00:00",
+  "generatedAt": "2026-10-09T22:26:04+00:00",
   "title": "Design System: Ben Balter",
   "extensions": {
     "colorMeta": {
@@ -279,6 +279,14 @@
     ]
   },
   "components": [
+    {
+      "name": "Share Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "End-of-post primary action: native share sheet, or Copy link where unsupported; 44px network links beside it.",
+      "html": "<div class=\"ds-share\"><button class=\"ds-share-btn\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 2v13\"/><path d=\"m16 6-4-4-4 4\"/><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/></svg>Share this post</button><a class=\"ds-share-net\" href=\"#\" aria-label=\"Share by email\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-10 6L2 7\"/></svg></a></div>",
+      "css": ".ds-share{display:flex;align-items:center;gap:16px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}.ds-share-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border:0;border-radius:8px;background:#337ab7;color:#fff;font-size:16px;font-weight:600;cursor:pointer;transition:background-color .2s}.ds-share-btn:hover{background:#2a6493}.ds-share-btn:active{background:#204d6f}.ds-share-btn:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-share-net{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;color:#495057;transition:all .2s}.ds-share-net:hover{background:color-mix(in srgb,#337ab7 10%,transparent);color:#337ab7}.ds-share-net:focus-visible{outline:2px solid #337ab7;outline-offset:2px}"
+    },
     {
       "name": "Subscribe Button",
       "kind": "button",
