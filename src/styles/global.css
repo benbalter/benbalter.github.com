@@ -200,6 +200,10 @@
 /* Post content containment — isolates layout/paint for better INP */
 .post-content {
   contain: content;
+  /* Let long unbroken strings (bare URLs, long inline code) wrap instead of
+     running past the 40rem column into the table of contents or off-screen.
+     break-word only breaks a word when it can't fit on a line by itself. */
+  overflow-wrap: break-word;
 }
 
 /* Ensure post images are responsive and don't cause layout shift */
