@@ -114,8 +114,6 @@ generating optimized images
 <link rel="dns-prefetch" href="https://images.amazon.com" />
 <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
 
-<!-- Preload hero image on homepage -->
-{hero && <link rel="preload" href="/assets/img/header.jpg" as="image" fetchpriority="high" />}
 ```
 
 **Notes:**

@@ -9,16 +9,10 @@
 
 import { siteConfig } from '../config';
 
-interface Props {
-  hero?: boolean;
-}
-
 interface NavItem {
   title: string;
   url: string;
 }
-
-const { hero = false } = Astro.props;
 
 // Define navigation items (matching Jekyll's nav_pages)
 const navItems: NavItem[] = [
@@ -40,15 +34,10 @@ function isNavActive(itemUrl: string): boolean {
 // Base classes for navbar
 const baseClasses = "navbar flex flex-wrap items-center justify-between py-3 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4 max-md:mb-2";
 
-// Conditionally add rounded classes based on hero presence
-// For hero pages: round only bottom corners (top-left and top-right are 0)
-// For non-hero pages: round all corners
-const navClasses = hero 
-  ? `${baseClasses} rounded-t-none rounded-b-lg border-t-0`
-  : `${baseClasses} rounded-lg`;
+const navClasses = `${baseClasses} rounded-lg`;
 ---
 
-<nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
+<nav class={navClasses} aria-label="Main navigation">
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">
@@ -143,12 +132,12 @@ const navClasses = hero
   @media (width < 48rem) {
     /* Separator between nav items */
     .nav-item:not(:last-child) {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid var(--color-gray-200);
     }
 
     /* Expanded menu background separation */
     .nav-collapse.show {
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-top: 1px solid var(--color-gray-200);
       margin-top: 0.5rem;
       padding-top: 0.25rem;
     }
@@ -157,11 +146,11 @@ const navClasses = hero
   /* Dark mode variants for mobile */
   @media (width < 48rem) and (prefers-color-scheme: dark) {
     .nav-item:not(:last-child) {
-      border-bottom-color: rgba(255, 255, 255, 0.08);
+      border-bottom-color: var(--color-gray-700);
     }
 
     .nav-collapse.show {
-      border-top-color: rgba(255, 255, 255, 0.08);
+      border-top-color: var(--color-gray-700);
     }
   }
 </style>

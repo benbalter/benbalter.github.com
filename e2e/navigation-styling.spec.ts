@@ -1,281 +1,57 @@
 /**
- * E2E tests for navigation border and rounded corner styling
- * 
- * Tests verify that the navigation bar has correct border and rounded corner
- * styling on hero vs non-hero pages, both on initial page load and during
- * client-side navigation with Astro View Transitions.
+ * E2E tests for navigation bar styling
+ *
+ * The nav bar is a fully rounded, bordered card on every page, including the
+ * homepage, and keeps that styling through client-side navigation with Astro
+ * View Transitions. (The homepage used to have a hero image that squared off
+ * the nav's top corners; the hero was removed.)
  */
 
-import { test, expect } from '@playwright/test';
+import { test, expect, type Locator } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
-test.describe('Navigation Styling - Initial Page Load', () => {
-  test('should have rounded top corners on non-hero pages', async ({ page }) => {
-    // Navigate to About page (non-hero page)
-    await page.goto('/about/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Check classes - Tailwind uses rounded-lg for fully rounded corners
-    await expect(nav).toHaveClass(/rounded-lg/);
-    
-    // Verify computed styles
-    const borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-        bottomLeft: styles.borderBottomLeftRadius,
-        bottomRight: styles.borderBottomRightRadius,
-      };
-    });
-    
-    // All corners should be rounded (not 0px)
-    expect(borderRadius.topLeft).not.toBe('0px');
-    expect(borderRadius.topRight).not.toBe('0px');
-    expect(borderRadius.bottomLeft).not.toBe('0px');
-    expect(borderRadius.bottomRight).not.toBe('0px');
+async function cornerRadii(nav: Locator) {
+  return nav.evaluate((el) => {
+    const styles = window.getComputedStyle(el);
+    return [
+      styles.borderTopLeftRadius,
+      styles.borderTopRightRadius,
+      styles.borderBottomLeftRadius,
+      styles.borderBottomRightRadius,
+    ];
   });
-  
-  test('should NOT have rounded top corners on hero pages', async ({ page }) => {
-    // Navigate to homepage (hero page)
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Check classes - should have rounded-b-lg (bottom only) but NOT rounded-lg
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    await expect(nav).not.toHaveClass(/rounded-lg(?!-)/); // negative lookahead to not match rounded-lg-x
-    
-    // Verify computed styles
-    const borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-        bottomLeft: styles.borderBottomLeftRadius,
-        bottomRight: styles.borderBottomRightRadius,
-      };
-    });
-    
-    // Top corners should be square (0px), bottom corners rounded
-    expect(borderRadius.topLeft).toBe('0px');
-    expect(borderRadius.topRight).toBe('0px');
-    expect(borderRadius.bottomLeft).not.toBe('0px');
-    expect(borderRadius.bottomRight).not.toBe('0px');
-  });
-  
-  test('should have data-has-hero attribute matching page type', async ({ page }) => {
-    // Check hero page
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    let nav = page.locator('nav.navbar');
-    await expect(nav).toHaveAttribute('data-has-hero', 'true');
-    
-    // Check non-hero page
-    await page.goto('/about/');
-    await waitForPageReady(page);
-    
-    nav = page.locator('nav.navbar');
-    await expect(nav).toHaveAttribute('data-has-hero', 'false');
-  });
-});
+}
 
-test.describe('Navigation Styling - Client-Side Navigation', () => {
-  test('should update styling when navigating from hero to non-hero page', async ({ page }) => {
-    // Start on homepage (hero page)
+async function expectFullyRounded(nav: Locator) {
+  await expect(nav).toHaveClass(/rounded-lg/);
+  for (const radius of await cornerRadii(nav)) {
+    expect(radius).not.toBe('0px');
+  }
+}
+
+test.describe('Navigation Styling', () => {
+  for (const path of ['/', '/about/', '/2026/07/14/work-loudly/']) {
+    test(`is fully rounded on ${path}`, async ({ page }) => {
+      await page.goto(path);
+      await waitForPageReady(page);
+      await expectFullyRounded(page.locator('nav.navbar'));
+    });
+  }
+
+  test('stays fully rounded through client-side navigation and back', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
-    
     const nav = page.locator('nav.navbar');
-    
-    // Verify initial state (hero page) - should have rounded-b-lg only
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    
-    let borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-      };
-    });
-    
-    expect(borderRadius.topLeft).toBe('0px');
-    expect(borderRadius.topRight).toBe('0px');
-    
-    // Navigate to About page (non-hero) via client-side navigation
-    const aboutLink = page.locator('a[href="/about/"]').first();
-    await aboutLink.click();
-    await page.waitForURL('**/about/');
-    await waitForPageReady(page);
-    
-    // Verify styling updated (non-hero page)
-    await expect(nav).toHaveClass(/rounded-lg/);
-    await expect(nav).toHaveAttribute('data-has-hero', 'false');
-    
-    borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-      };
-    });
-    
-    // Top corners should now be rounded
-    expect(borderRadius.topLeft).not.toBe('0px');
-    expect(borderRadius.topRight).not.toBe('0px');
-  });
-  
-  test('should update styling when navigating from non-hero to hero page', async ({ page }) => {
-    // Start on About page (non-hero)
-    await page.goto('/about/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Verify initial state (non-hero page) - fully rounded
-    await expect(nav).toHaveClass(/rounded-lg/);
-    
-    let borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-      };
-    });
-    
-    expect(borderRadius.topLeft).not.toBe('0px');
-    expect(borderRadius.topRight).not.toBe('0px');
-    
-    // Navigate to homepage (hero) via client-side navigation
-    const homeLink = page.locator('a[href="/"]').first();
-    await homeLink.click();
-    await page.waitForURL('/');
-    await waitForPageReady(page);
-    
-    // Verify styling updated (hero page)
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    await expect(nav).toHaveAttribute('data-has-hero', 'true');
-    
-    borderRadius = await nav.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        topLeft: styles.borderTopLeftRadius,
-        topRight: styles.borderTopRightRadius,
-      };
-    });
-    
-    // Top corners should now be square
-    expect(borderRadius.topLeft).toBe('0px');
-    expect(borderRadius.topRight).toBe('0px');
-  });
-  
-  test('should maintain styling through multiple page navigations', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Hero page - should have bottom-only rounding
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    
-    // Navigate to About (non-hero)
+    await expectFullyRounded(nav);
+
     await page.locator('a[href="/about/"]').first().click();
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-lg/);
-    
-    // Navigate to Contact (non-hero)
-    await page.locator('a[href="/contact/"]').first().click();
-    await page.waitForURL('**/contact/');
-    await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-lg/);
-    
-    // Navigate back to hero page
-    await page.locator('a[href="/"]').first().click();
-    await page.waitForURL('/');
-    await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-  });
-  
-  test('should handle browser back/forward navigation correctly', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Start on hero page
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    
-    // Navigate to About page
-    await page.locator('a[href="/about/"]').first().click();
-    await page.waitForURL('**/about/');
-    await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-lg/);
-    
-    // Go back to hero page
+    await expectFullyRounded(nav);
+
     await page.goBack();
-    await page.waitForURL('/');
+    await page.waitForURL((url) => url.pathname === '/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-b-lg/);
-    
-    // Go forward to About page again
-    await page.goForward();
-    await page.waitForURL('**/about/');
-    await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-lg/);
-  });
-});
-
-test.describe('Navigation Styling - Edge Cases', () => {
-  test('should work correctly on blog post pages (non-hero)', async ({ page }) => {
-    // Navigate to a blog post (non-hero page)
-    // Use a well-known post that should exist
-    await page.goto('/2015/11/23/why-open-source/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Blog posts don't have hero images, so should have full rounding
-    await expect(nav).toHaveClass(/rounded-lg/);
-  });
-  
-  test('should not have visual glitches during transition', async ({ page }) => {
-    // Start on a non-hero page to keep layout consistent
-    // Navigate between two pages without heroes to ensure navigation position is stable
-    // (homepage has a hero, which would cause navigation to shift by ~400px)
-    await page.goto('/about/');
-    await waitForPageReady(page);
-    
-    const nav = page.locator('nav.navbar');
-    
-    // Take initial measurement
-    const initialBox = await nav.boundingBox();
-    expect(initialBox).toBeTruthy();
-    
-    // Navigate to another non-hero page (to keep layout consistent)
-    // Navigate to another page without a hero
-    await page.locator('a[href="/contact/"]').first().click();
-    await page.waitForURL('**/contact/');
-    
-    await waitForPageReady(page);
-    
-    // Navigation should still be visible and properly positioned
-    await expect(nav).toBeVisible();
-    const finalBox = await nav.boundingBox();
-    expect(finalBox).toBeTruthy();
-    
-    // Navigation position should be stable (allowing for small differences),
-    // polled so any in-flight view transition can settle
-    // Note: We navigate between non-hero pages to ensure consistent layout
-    if (initialBox) {
-      await expect.poll(async () => {
-        const box = await nav.boundingBox();
-        return box ? Math.abs(box.y - initialBox.y) : Infinity;
-      }).toBeLessThan(5);
-    }
+    await expectFullyRounded(nav);
   });
 });
