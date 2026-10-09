@@ -61,6 +61,9 @@
   --color-pink-400: #f070a8;   /* pink accent — shadows Tailwind's built-in pink-400 (unused elsewhere on the blog) */
 
   /* Gray scale for text and backgrounds */
+  /* gray-50 deliberately equals gray-100: Bootstrap's scale starts at 100.
+     Keep it defined so existing bg-gray-50 uses don't fall back to
+     Tailwind's default gray-50, a different color. */
   --color-gray-50: #f8f9fa;
   --color-gray-100: #f8f9fa;
   --color-gray-200: #e9ecef;
@@ -197,6 +200,10 @@
 /* Post content containment — isolates layout/paint for better INP */
 .post-content {
   contain: content;
+  /* Let long unbroken strings (bare URLs, long inline code) wrap instead of
+     running past the 40rem column into the table of contents or off-screen.
+     break-word only breaks a word when it can't fit on a line by itself. */
+  overflow-wrap: break-word;
 }
 
 /* Ensure post images are responsive and don't cause layout shift */
@@ -1572,27 +1579,6 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 
 .callout-icon {
   font-size: 1.125rem;
-}
-
-/* Mid-post book callout (rehype-book-inline-cta). Navy and lime in both color
-   schemes, matching BookCta's "book object" rather than the blue tip callout. */
-.book-inline-cta {
-  border-color: var(--color-accent-400);
-  background: var(--color-brand-950);
-  color: #e2e8f0;
-}
-
-.book-inline-cta > :first-child {
-  margin-top: 0;
-}
-
-.book-inline-cta a {
-  color: var(--color-accent-400);
-  text-decoration-color: color-mix(in srgb, var(--color-accent-400) 50%, transparent);
-}
-
-.book-inline-cta a:hover {
-  color: var(--color-pink-400);
 }
 
 /* Callout type variants */

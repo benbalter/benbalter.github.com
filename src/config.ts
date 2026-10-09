@@ -70,7 +70,7 @@ export const siteConfig = {
   kitFormId: '9381290',
 
   // Book — launched July 21, 2026. The sitewide BookCta, the launch post's
-  // BookLaunchCta, and the feed CTA all sell ("Buy it — bookPrice") to match
+  // BookLaunchCta, and the feed CTA all sell ("Buy it for bookPrice") to match
   // the marketing site. bookLaunch is retained for reference/metadata.
   //
   // Each buy surface gets a distinct utm_source (matching the site-wide
@@ -80,8 +80,10 @@ export const siteConfig = {
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
-  // Mid-post callout on posts adapted from or inspiring a chapter (rehype-book-inline-cta).
-  bookUrlInline: 'https://open-and-async.com/?utm_source=benbalter-inline',
+  // The launch announcement post. It's left out of a post's related posts when
+  // that post already shows a BookCta, so the end of the post doesn't point at
+  // the book twice (once to buy it, once to read about it).
+  bookLaunchPostId: '2026-07-21-open-and-async',
   bookTitle: 'Open and Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',
