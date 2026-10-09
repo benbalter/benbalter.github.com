@@ -1,5 +1,5 @@
 import { test, expect, devices } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { scrollIntoViewInstantly, waitForPageReady } from './helpers';
 
 /**
  * Test for acronym tooltip functionality after View Transitions navigation on iOS/iPadOS
@@ -27,6 +27,7 @@ test.describe('Acronym Tooltip - iOS/iPadOS Navigation', () => {
     await expect(acronym).toHaveAttribute('data-tooltip-initialized', 'true');
 
     // Verify tooltip still works (this is where it fails after View Transitions)
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Check tooltip is visible
@@ -35,6 +36,7 @@ test.describe('Acronym Tooltip - iOS/iPadOS Navigation', () => {
     await expect(tooltip).toContainText('Work in progress');
 
     // Clean up - tap again to hide
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
     await expect(tooltip).not.toBeAttached({ timeout: 1000 });
 
@@ -48,6 +50,7 @@ test.describe('Acronym Tooltip - iOS/iPadOS Navigation', () => {
     const acronym2 = page.locator('.post-content abbr.initialism');
     await expect(acronym2).toBeVisible();
     await expect(acronym2).toHaveAttribute('data-tooltip-initialized', 'true');
+    await scrollIntoViewInstantly(acronym2);
     await acronym2.tap();
     const tooltip2 = page.locator('.custom-tooltip.show');
     await expect(tooltip2).toBeVisible({ timeout: 2000 });
@@ -74,6 +77,7 @@ test.describe('Acronym Tooltip - iOS/iPadOS Navigation', () => {
     await expect(acronym).toHaveAttribute('data-tooltip-initialized', 'true');
 
     // Verify tooltip still works after navigation on iPad (touch interaction)
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Check tooltip is visible
@@ -82,6 +86,7 @@ test.describe('Acronym Tooltip - iOS/iPadOS Navigation', () => {
     await expect(tooltip).toContainText('Work in progress');
 
     // Clean up - tap again to hide
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
     await expect(tooltip).not.toBeAttached({ timeout: 1000 });
 

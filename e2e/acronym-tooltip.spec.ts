@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { scrollIntoViewInstantly, waitForPageReady } from './helpers';
 
 test.describe('Acronym Tooltip', () => {
   // A known post whose body has an auto-tooltipped acronym (WIP)
@@ -30,10 +30,8 @@ test.describe('Acronym Tooltip', () => {
     const acronym = page.locator('.post-content abbr.initialism');
     await expect(acronym).toBeVisible();
 
-    // The acronym is mid-article. Scroll it into view instantly first: hover()
-    // would scroll it with the page's smooth scrolling, and the tooltip runtime
-    // closes the tooltip on scroll.
-    await acronym.evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    await scrollIntoViewInstantly(acronym);
+
     await acronym.hover();
 
     // Check tooltip is visible (wait up to 1s)

@@ -1,5 +1,5 @@
 import { test, expect, devices } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { scrollIntoViewInstantly, waitForPageReady } from './helpers';
 
 /**
  * Mobile-specific tests for acronym tooltip
@@ -36,6 +36,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Wait for tooltip to appear
@@ -44,6 +45,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     await expect(tooltip).toContainText('Work in progress');
 
     // Tap again to hide
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Tooltip should be gone
@@ -66,6 +68,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     await expect(acronym).toBeVisible();
 
     // Tap the element to show tooltip
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Wait for tooltip to appear
@@ -96,6 +99,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     await expect(acronym).toBeVisible();
 
     // Try to hover (should not work on mobile)
+    await scrollIntoViewInstantly(acronym);
     await acronym.hover();
 
     // Tooltip should NOT appear on hover (mobile devices use tap, not hover)
@@ -157,6 +161,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip (touch interaction)
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Wait for tooltip to appear
@@ -165,6 +170,7 @@ test.describe('Acronym Tooltip - Mobile/iOS', () => {
     await expect(tooltip).toContainText('Work in progress');
 
     // Tap again to hide
+    await scrollIntoViewInstantly(acronym);
     await acronym.tap();
 
     // Tooltip should be gone
