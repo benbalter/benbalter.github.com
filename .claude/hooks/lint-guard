@@ -1,0 +1,41 @@
+#!/bin/bash
+# PreToolUse guard for Bash: blocks the two lint commands AGENTS.md says never
+# to run (Critical Conventions). settings.local.json allowlists `npm run *`, so
+# without this they'd run unprompted.
+#
+# - `npm run lint` / `lint-md` / `lint-js` / `lint-json` pass --fix across the
+#   whole repo and rewrite every file with a violation, burying the real change.
+#   The -check variants, lint-text (dry run), lint-yaml, and npm test are fine.
+# - `remark … -o` writes back the excessive escaping (\[, \_, \&) that breaks
+#   the build. Report-only `remark <file>` is fine.
+#
+# Input: the hook JSON on stdin. Output: a "deny" decision, or nothing.
+
+cmd=$(jq -r '.tool_input.command // ""')
+
+deny() {
+  jq -n --arg reason "$1" '{hookSpecificOutput: {
+    hookEventName: "PreToolUse",
+    permissionDecision: "deny",
+    permissionDecisionReason: $reason
+  }}'
+  exit 0
+}
+
+# Check each command in a chain or pipeline on its own, so `grep -o` after a
+# pipe or an unrelated `-o` elsewhere doesn't trip the remark check.
+while IFS= read -r seg; do
+  # Drop leading whitespace and VAR=value prefixes (e.g. `CI=1 npm run lint`).
+  seg=$(sed -E 's/^[[:space:]]*([A-Za-z_][A-Za-z0-9_]*=[^[:space:]]*[[:space:]]+)*//' <<<"$seg")
+
+  if grep -Eq '^npm[[:space:]]+(run|run-script)[[:space:]]+(lint|lint-md|lint-js|lint-json)([[:space:]]|$)' <<<"$seg"; then
+    deny "\`${seg%% --*}\` runs --fix across the whole repo (AGENTS.md, Linting Scope). Lint only the files you touched: \`npx eslint <file>\` for JS/TS/JSON, \`markdownlint-cli2 --fix <file>\` and \`remark <file>\` for Markdown. For a repo-wide check without rewriting, use \`npm run lint-check\` or \`npm test\`."
+  fi
+
+  if grep -Eq '^(npx[[:space:]]+)?([^[:space:]]*/)?remark([[:space:]]|$)' <<<"$seg" &&
+    grep -Eq '[[:space:]](-[A-Za-z]*o|--output)([[:space:]=]|$)' <<<"$seg"; then
+    deny "\`remark -o\` writes back excessive escaping (\\[, \\_, \\&) that breaks the build (AGENTS.md, Markdown Linting). Run \`remark <file>\` report-only, and \`markdownlint-cli2 --fix <file>\` to fix. If -o already ran, \`script/fix-lint\` undoes it."
+  fi
+done < <(sed -E 's/(&&|\|\||;|\|)/\n/g' <<<"$cmd")
+
+exit 0

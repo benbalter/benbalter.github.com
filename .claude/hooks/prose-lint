@@ -1,0 +1,49 @@
+#!/bin/bash
+# PostToolUse check for Edit/Write: runs the CI content gate (script/cibuild-content)
+# on just the edited Markdown file, check-only: markdownlint-cli2, then Vale at
+# --minAlertLevel=error on the paths script/vale covers. Catches a CI failure
+# while Claude still has the file open instead of after a push.
+#
+# Never rewrites the file: a --fix here would make Claude's next Edit fail on a
+# stale read. Vale is skipped quietly when it isn't installed or its styles
+# aren't synced, the same way script/vale degrades locally.
+#
+# Input: the hook JSON on stdin. Output: a "block" decision whose reason is fed
+# back to Claude (the edit itself stays), or nothing.
+
+file=$(jq -r '.tool_input.file_path // ""')
+[ -f "$file" ] || exit 0
+case "$file" in *.md | *.mdx) ;; *) exit 0 ;; esac
+root=$(git -C "$(dirname "$file")" rev-parse --show-toplevel 2>/dev/null) || exit 0
+rel=${file#"$root"/}
+cd "$root" || exit 0
+
+out=""
+
+# Same exclusions as `npm run lint-md-check`.
+case "$rel" in
+  node_modules/* | .github/* | .claude/*) ;;
+  *)
+    if [ -x node_modules/.bin/markdownlint-cli2 ]; then
+      md=$(node_modules/.bin/markdownlint-cli2 "$rel" 2>&1 | grep -E "^$rel:")
+      [ -n "$md" ] && out+="markdownlint:"$'\n'"$md"$'\n'
+    fi
+    ;;
+esac
+
+# Same files as script/vale.
+# script/vale's globs don't recurse, so match on the directory exactly.
+case "$(dirname "$rel"):$rel" in
+  .:*.md | src/content/posts:*.md | src/content/posts:*.mdx | src/content/resume-positions:*.md) vale_scope=yes ;;
+  *) vale_scope=no ;;
+esac
+if [ "$vale_scope" = yes ] && command -v vale >/dev/null && [ -d .github/styles/AIPatterns ]; then
+  v=$(vale --minAlertLevel=error --output=line "$rel" 2>&1)
+  [ -n "$v" ] && out+="vale (errors fail CI):"$'\n'"$v"$'\n'
+fi
+
+[ -n "$out" ] || exit 0
+jq -n --arg out "${out:0:4000}" '{
+  decision: "block",
+  reason: ("Content lint failures in the file you just edited (these fail script/cibuild-content in CI):\n" + $out)
+}'
