@@ -148,7 +148,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: 'Lora',
       cssVariable: '--font-lora',
-      weights: [400, 500, 700],
+      weights: ['400 700'],
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['Georgia', 'serif'],
