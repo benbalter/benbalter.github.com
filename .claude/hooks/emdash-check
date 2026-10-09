@@ -1,0 +1,56 @@
+#!/bin/bash
+# PostToolUse check for Edit/Write: flags em dashes (—) in lines just added to
+# posts, pages, and agent-instruction files. House style bans them (AGENTS.md,
+# Content Guidelines), but Vale's AIPatterns.EmDash stays a warning because the
+# post archive is full of them, so new prose has no error-level gate.
+#
+# Only added lines count (git diff against HEAD; every line of an untracked
+# file), so editing an old post doesn't demand rewriting it. Fenced code and
+# inline code spans are skipped, matching Vale.
+#
+# Input: the hook JSON on stdin. Output: a "block" decision whose reason is fed
+# back to Claude (the edit itself stays), or nothing.
+
+file=$(jq -r '.tool_input.file_path // ""')
+[ -f "$file" ] || exit 0
+dir=$(dirname "$file")
+root=$(git -C "$dir" rev-parse --show-toplevel 2>/dev/null) || exit 0
+rel=${file#"$root"/}
+
+case "$rel" in
+  src/content/*.md | src/content/*.mdx | \
+    .github/agents/*.md | .github/instructions/*.md | \
+    .claude/agents/*.md | .claude/rules/*.md) ;;
+  */*) exit 0 ;;
+  *.md) ;;
+  *) exit 0 ;;
+esac
+
+if git -C "$root" ls-files --error-unmatch -- "$rel" >/dev/null 2>&1; then
+  # Line numbers (in the new file) of every added line.
+  added=$(git -C "$root" diff -U0 HEAD -- "$rel" | awk '
+    /^@@/ { split($3, a, ","); n = substr(a[1], 2); next }
+    /^\+\+\+/ { next }
+    /^\+/ { print n++ }
+  ')
+else
+  added=all
+fi
+[ -n "$added" ] || exit 0
+
+hits=$(awk -v added="$(tr "\n" " " <<<"$added")" '
+  BEGIN { all = (added == "all"); split(added, a, " "); for (i in a) want[a[i]] = 1 }
+  /^[[:space:]]*(```|~~~)/ { fence = !fence; next }
+  fence { next }
+  all || (FNR in want) {
+    line = $0
+    gsub(/`[^`]*`/, "", line)
+    if (index(line, "—")) printf "%s:%d: %s\n", FILENAME, FNR, $0
+  }
+' "$file" | sed "s|^$root/||" | head -20)
+[ -n "$hits" ] || exit 0
+
+jq -n --arg hits "$hits" '{
+  decision: "block",
+  reason: ("Em dashes in newly added lines (AGENTS.md: no em dashes; use a comma, colon, parentheses, or two sentences):\n" + $hits)
+}'
