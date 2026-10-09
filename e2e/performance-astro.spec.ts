@@ -236,29 +236,16 @@ test.describe('Resource Performance', () => {
     }
   });
   
-  test('should use resource hints effectively', async ({ page }) => {
-    await page.goto('/');
-    
-    const resourceHints = await page.evaluate(() => {
-      const preconnect = Array.from(document.querySelectorAll('link[rel="preconnect"]'))
-        .map(l => l.getAttribute('href'));
-      const dnsPrefetch = Array.from(document.querySelectorAll('link[rel="dns-prefetch"]'))
-        .map(l => l.getAttribute('href'));
-      const preload = Array.from(document.querySelectorAll('link[rel="preload"]'))
-        .map(l => l.getAttribute('href'));
-      
-      return { preconnect, dnsPrefetch, preload };
-    });
-    
-    console.log('Resource hints:', resourceHints);
-    
-    // Should have some resource hints
-    const totalHints = 
-      resourceHints.preconnect.length + 
-      resourceHints.dnsPrefetch.length + 
-      resourceHints.preload.length;
-    
-    expect(totalHints).toBeGreaterThan(0);
+  test('preloads the homepage hero image from the response headers', async ({ request }) => {
+    // The hero is a CSS background found only after the inline CSS is parsed,
+    // so its preload ships as a Link header (public/_headers) that arrives
+    // before any HTML; a <link> tag would sit behind the inline CSS.
+    const home = await request.get('/');
+    expect(home.headers()['link']).toContain('</assets/img/header.avif>; rel="preload"; as="image"');
+
+    // Only the homepage shows the hero, so other pages don't preload it.
+    const about = await request.get('/about/');
+    expect(about.headers()['link'] ?? '').not.toContain('header.avif');
   });
 });
 
