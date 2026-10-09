@@ -8,8 +8,6 @@
  */
 
 import BaseLayout from './BaseLayout.astro';
-import { Image } from 'astro:assets';
-import headshotImage from '../../assets/img/headshot.jpg';
 import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
@@ -142,31 +140,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" style={`view-transition-name: ${titleTransitionName}`}>{title}</h1>
           
-          {/* Byline: most readers arrive from a shared link with no idea who
-              wrote this, so say so before they commit to reading. No date:
-              posts are evergreen, so publish dates stay out of the header. */}
-          <div class="mt-4 mb-6 flex items-center gap-3 font-sans text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
-            <Image
-              src={headshotImage}
-              alt=""
-              width={40}
-              height={40}
-              densities={[1, 2]}
-              loading="eager"
-              decoding="async"
-              class="h-10 w-10 shrink-0 rounded-full object-cover"
-            />
-            <p class="m-0 leading-snug">
-              <span class="block">
-                By <a href="/about/" class="font-semibold text-gray-900 no-underline hover:text-primary dark:text-gray-100 dark:hover:text-primary-300">{siteConfig.author}</a>, author of <a href={siteConfig.bookUrlByline} target="_blank" rel="noopener" data-track-book-cta class="italic">{siteConfig.bookTitle}</a>
+          {readingTime >= 1 && (
+            <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
+              <span class="inline-flex items-center gap-1">
+                <Icon name="clock" /> {readingTime} min read
               </span>
-              {readingTime >= 1 && (
-                <span class="inline-flex items-center gap-1">
-                  <Icon name="clock" /> {readingTime} min read
-                </span>
-              )}
-            </p>
-          </div>
+            </div>
+          )}
           
           {(tldr || description) && (
             <Tldr description={tldr || description} />

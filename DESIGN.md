@@ -268,13 +268,9 @@ The site has no shared button class. `.btn` survives from Bootstrap only as a ma
 
 A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners, and `shadow-sm`. On the left are the brand name in bold Inter and four links (Posts, About, Resume, Contact). On the right are a search button and, from `lg` up, the tagline set off by a 2px tinted left rule. Links rest at `primary-800`; the active link turns `gray-900` and semibold, and a hidden bold copy reserves its width so the bar doesn't shift. Below 768px the links collapse behind a hamburger toggle with a max-height animation.
 
-### Post byline
-
-A 40px round headshot beside two lines of 14px Inter: "By **Ben Balter**, author of *Open and Async*", then the reading time with a clock icon. It sits directly under the post title. It never shows a date (posts are evergreen).
-
 ### End of post
 
-The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, older/newer links, and a footer with the bio, publish date, revision history, and the open source link.
+Posts carry no byline: every post has the same author, and the name is already in the site title and the footer bio. The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, older/newer links, and a footer with the bio, publish date, revision history, and the open source link.
 
 ### Book CTA (signature component)
 

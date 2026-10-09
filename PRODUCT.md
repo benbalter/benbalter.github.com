@@ -74,7 +74,7 @@ Ben's writing draws on a decade inside GitHub: trust and safety, security, inter
 
 1. **Reading wins.** If a feature, call to action, or decoration gets between a reader and the post, the post comes first.
 2. **Built to be shared.** Every post should be easy to skim, quote, and link to, and should look right when it's shared or read somewhere else.
-3. **Promote the book without interrupting the reading.** *Open and Async* is the main conversion goal, so place it where a reader who's finished a post will see it: right after the share action at the end of a post, and as a quiet credential in the byline. Never inside the post body. A mid-post callout was tried and removed for breaking the reading.
+3. **Promote the book without interrupting the reading.** *Open and Async* is the main conversion goal, so place it where a reader who's finished a post will see it: right after the share action at the end of a post. Never inside the post body. A mid-post callout was tried and removed for breaking the reading.
 4. **Show your work.** The site practices what it argues for: open source, transparent, and fast.
 5. **Evergreen over timely.** Content and its presentation should still read as relevant years from now.
 

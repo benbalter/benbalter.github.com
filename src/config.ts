@@ -80,8 +80,6 @@ export const siteConfig = {
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
-  // The "author of Open and Async" link in each post's byline.
-  bookUrlByline: 'https://open-and-async.com/?utm_source=benbalter-byline',
   // The launch announcement post. It's left out of a post's related posts when
   // that post already shows a BookCta, so the end of the post doesn't point at
   // the book twice (once to buy it, once to read about it).
