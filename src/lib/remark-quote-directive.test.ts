@@ -28,19 +28,19 @@ const processor = unified()
 const render = (markdown: string) => processor.process(markdown).then(String);
 
 describe('remarkQuoteDirective', () => {
-  it('renders an inline shareable quote anchor deep-linking to itself', async () => {
+  it('renders highlighted quote text with a share link deep-linking to it', async () => {
     const html = await render('Ben says :quote[Show your work.]{#show-your-work} often.');
 
-    expect(html).toContain('class="quote-inline"');
-    expect(html).toContain('id="quote-show-your-work"');
+    expect(html).toContain('<span id="quote-show-your-work" class="quote-inline"');
     expect(html).toContain('href="#quote-show-your-work"');
     expect(html).toContain('data-quote-id="show-your-work"');
     // Quote text carries semantic emphasis inside a <mark>.
     expect(html).toContain('quote-inline-mark');
     expect(html).toContain('<strong>Show your work.</strong>');
-    // Progressive-enhancement affordances.
+    // Only the icon is interactive: a labeled share link, not the whole quote.
+    expect(html).toContain('<a class="quote-inline-share" href="#quote-show-your-work" aria-label="Share this quote"');
     expect(html).toContain('quote-inline-icon');
-    expect(html).toContain('(share this quote)');
+    expect(html).not.toContain('(share this quote)');
   });
 
   it('preserves inline markup inside the quote text', async () => {

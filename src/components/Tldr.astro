@@ -1,10 +1,15 @@
 ---
 /**
  * TL;DR Component
- * 
- * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
- * Uses Tailwind CSS for styling with custom tooltip implementation.
- * Matches the Jekyll tldr.html include functionality with markdown support.
+ *
+ * The post's one-paragraph thesis, set as an unboxed subtitle under the title.
+ *
+ * It used to be a boxed callout with an info icon, a blue left rule, an
+ * entrance animation, and a focusable tooltip on "TL;DR". On a phone that box
+ * wrapped to about nine lines and pushed the first paragraph below the fold,
+ * and the icon and rule made the thesis read like a system notice. Plain type
+ * keeps it the most prominent sentence after the title without the chrome.
+ * The audience knows "TL;DR", so it's no longer a tab stop with a tooltip.
  */
 
 import { marked } from 'marked';
@@ -14,83 +19,9 @@ interface Props {
 }
 
 const { description } = Astro.props;
-
-const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
 ---
 
-<div class="tldr-container font-sans text-lg">
-  <div class="tldr-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="M12 16v-4"></path>
-      <path d="M12 8h.01"></path>
-    </svg>
-  </div>
-  <div class="tldr-content">
-    <strong><abbr class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle} title={tooltipTitle} tabindex="0">TL;DR</abbr>:</strong>{' '}
-    <span set:html={marked.parseInline(description)} />
-  </div>
-</div>
-
-<!--
-  The tooltip runtime (JS) and the `.initialism` / `.custom-tooltip` styles are
-  site-wide: the script lives in `src/scripts/tooltip.ts` (imported in
-  BaseLayout) and the CSS in `src/styles/global.css`, so acronyms auto-wrapped
-  by rehype-acronyms get the same treatment on every page. Only the TL;DR
-  container styling stays scoped here.
--->
-<style>
-  @reference "../styles/global.css";
-
-  /* Enhanced TL;DR container with visual prominence */
-  .tldr-container {
-    position: relative;
-    @apply flex items-start gap-4 p-5 my-6 rounded-lg shadow-card;
-    @apply border-l-4 border-primary;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 5%, transparent),
-      color-mix(in srgb, var(--color-primary) 2%, transparent)
-    );
-    animation: tldr-enter 0.5s ease-out both;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .tldr-container {
-      animation: none;
-    }
-  }
-
-  @keyframes tldr-enter {
-    from {
-      opacity: 0;
-      transform: translateY(0.5rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Icon styling */
-  .tldr-icon {
-    @apply shrink-0 w-6 h-6 text-primary;
-    margin-top: 0.125rem;
-  }
-  
-  .tldr-content {
-    @apply flex-1;
-  }
-  
-  /* Dark mode adjustments */
-  @media (prefers-color-scheme: dark) {
-    .tldr-container {
-      background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-primary) 12%, transparent),
-        color-mix(in srgb, var(--color-primary) 6%, transparent)
-      );
-      @apply shadow-card-dark;
-    }
-  }
-</style>
+<p class="tldr mt-0 mb-8 font-sans text-lg leading-relaxed text-gray-700 md:text-xl md:leading-relaxed dark:text-gray-300">
+  <strong class="font-semibold text-gray-900 dark:text-gray-100">TL;DR:</strong>{' '}
+  <span set:html={marked.parseInline(description)} />
+</p>

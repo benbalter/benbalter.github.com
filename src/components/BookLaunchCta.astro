@@ -110,8 +110,10 @@ import coverImage from '../../assets/img/open-and-async-cover.webp';
   }
 
   /* Signature lime→pink gradient text (ampersand), with a solid fallback so the
-     character survives where background-clip:text is unsupported. */
-  .oa-amp {
+     character survives where background-clip:text is unsupported.
+     :global because the title comes from bookTitleHtml via set:html, and
+     Astro's scoped selectors never match injected markup. */
+  :global(.oa-amp) {
     color: var(--color-accent-400);
     background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
     -webkit-background-clip: text;

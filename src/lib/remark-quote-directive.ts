@@ -67,7 +67,7 @@ export function remarkQuoteDirective() {
 
       const id = quoteDirectiveId(n);
 
-      // Render as <a class="quote-inline"><mark><strong>…</strong></mark><icon></a>.
+      // Render as <span class="quote-inline"><mark><strong>…</strong></mark><a share></span>.
       // The quote text is authored as plain text in the directive label; the
       // <strong> is added here so the quoted phrase carries SEO-friendly semantic
       // emphasis in the post's indexed content (and any inline markup the label
@@ -81,32 +81,28 @@ export function remarkQuoteDirective() {
         data: { hName: 'mark', hProperties: { className: ['quote-inline-mark'] } },
         children: [strongNode],
       } as unknown as RootContent;
-      const iconNode = {
+      // Only the small share icon is interactive. The quote used to be one
+      // link wrapping the whole sentence: a stray tap while reading opened the
+      // share sheet, and screen readers announced every highlight as a link
+      // ending in "(share this quote)" mid-prose. Now the highlighted text is
+      // plain text and the icon is a labeled link. Its href is the quote's own
+      // deep link, so with no JS it jumps to and highlights the line (via
+      // :target) and puts the shareable URL in the address bar; quote-share.ts
+      // enhances the click into a one-tap share.
+      const shareNode = {
         type: 'html',
-        value: `<span class="quote-inline-icon">${SHARE_ICON_SVG}</span>`,
-      } as RootContent;
-      // Visually-hidden purpose hint. No aria-label on the link itself — that
-      // would override the accessible name and make screen readers skip the
-      // quote text while reading the surrounding prose. Leaving the link's name
-      // as the quote text (plus this hint) keeps the sentence readable in flow.
-      const srNode = {
-        type: 'html',
-        value: '<span class="sr-only"> (share this quote)</span>',
+        value: `<a class="quote-inline-share" href="#${quoteAnchorId(id)}" aria-label="Share this quote" title="Share this quote"><span class="quote-inline-icon">${SHARE_ICON_SVG}</span></a>`,
       } as RootContent;
 
-      // href is the quote's own in-post deep link. With no JS this jumps to and
-      // highlights the line (via :target) and puts the shareable URL in the
-      // address bar; quote-share.ts enhances the click into a one-tap share.
       n.data = {
-        hName: 'a',
+        hName: 'span',
         hProperties: {
           id: quoteAnchorId(id),
-          href: `#${quoteAnchorId(id)}`,
           className: ['quote-inline'],
           'data-quote-id': id,
         },
       } as DirectiveNode['data'];
-      n.children = [markNode, srNode, iconNode];
+      n.children = [markNode, shareNode];
 
       // Don't descend into the rewritten children (no nested quotes expected).
       return SKIP;

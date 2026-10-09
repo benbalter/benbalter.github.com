@@ -33,7 +33,7 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
           <li class:list={[h.level === 3 && 'ml-4']}>
             <a
               href={`#${h.id}`}
-              class="block text-sm py-0.5 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 no-underline transition-colors duration-150"
+              class="flex min-h-[44px] items-center py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 no-underline transition-colors duration-150"
             >
               {h.text}
             </a>

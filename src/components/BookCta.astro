@@ -48,6 +48,7 @@ const inlineHeadline =
     target="_blank"
     rel="noopener"
     data-track-book-cta
+    aria-label={`Buy ${siteConfig.bookTitle}, ${siteConfig.bookPrice} (opens in a new tab)`}
     class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
   >
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
@@ -55,7 +56,7 @@ const inlineHeadline =
       <div class="shrink-0 mx-auto md:mx-0">
         <Image
           src={coverImage}
-          alt="Open and Async book cover"
+          alt=""
           width={220}
           height={244}
           widths={[176, 224, 352, 448]}
@@ -136,8 +137,10 @@ const inlineHeadline =
   @reference "../styles/global.css";
 
   /* Signature lime→pink gradient text (ampersand). Solid color fallback
-     first so meaning survives if background-clip:text is unsupported. */
-  .oa-amp {
+     first so meaning survives if background-clip:text is unsupported.
+     :global because the title comes from bookTitleHtml via set:html, and
+     Astro's scoped selectors never match injected markup. */
+  :global(.oa-amp) {
     color: var(--color-accent-400);
     background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
     -webkit-background-clip: text;

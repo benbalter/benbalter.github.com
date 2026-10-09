@@ -50,9 +50,14 @@ const rehypeExternalLinksConfig = [rehypeExternalLinks, {
 
 const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   behavior: 'append',
+  // Decorative for assistive tech: inside the heading, an announced link made
+  // every heading's accessible name end in "Link to this section" and added an
+  // identically named tab stop per section. Mouse users still get the "#"
+  // permalink; keyboard and screen-reader users get section links from the TOC.
   properties: {
     className: ['anchor-link'],
-    ariaLabel: 'Link to this section',
+    ariaHidden: 'true',
+    tabIndex: -1,
   },
   content: {
     type: 'element',

@@ -199,7 +199,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             <p class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
               <span>Originally published {formattedDate}</span>
               <span aria-hidden="true">·</span>
-              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer">View revision history</a>
+              <a class="inline-flex min-h-[44px] items-center text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer">View revision history</a>
             </p>
           )}
 
@@ -282,7 +282,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       color-mix(in srgb, var(--color-primary) 3%, transparent),
       color-mix(in srgb, var(--color-primary) 1%, transparent)
     );
-    border-left: 3px solid var(--color-primary);
   }
 
   /* Open source edit CTA */

@@ -246,22 +246,20 @@
   }
 }
 
-/* Inline shareable quote (:quote[text]{#id}) — keeps the line in the flow of
- * the prose with a light brand-tint highlight and a one-tap share control that
- * shares the quote's in-post deep link (#quote-<id>).
+/* Inline shareable quote (:quote[text]{#id}): keeps the line in the flow of
+ * the prose with a light brand-tint highlight and a small share link that
+ * shares the quote's in-post deep link (#quote-<id>). Only the share link is
+ * interactive; the highlighted text is plain text.
  * Unlayered so it overrides the base article-link color/underline styles. */
 .quote-inline {
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
   /* Keep the line clear of the sticky header when deep-linked via #quote-<id>. */
   scroll-margin-top: 6rem;
-  border-radius: 0.2rem;
 }
 
-/* Transient "Copied" confirmation shown after the copy-link fallback fires
- * (desktop / no native share sheet). Anchored to the share icon. */
+/* Transient "Link copied" confirmation shown after the copy-link fallback fires
+ * (desktop / no native share sheet). Anchored to the share icon; quote-share.ts
+ * also announces it through a polite live region. */
 .quote-inline.is-copied .quote-inline-icon::after {
   content: 'Link copied';
   position: absolute;
@@ -296,11 +294,24 @@
   transition: background-color 0.15s ease;
 }
 
-.quote-inline .quote-inline-icon {
+/* The share link. Padding with an equal negative margin enlarges the tap area
+ * around the small icon without shifting the text around it. */
+.quote-inline .quote-inline-share {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  margin-left: 0.2em;
+  margin: -0.4em -0.4em -0.4em -0.2em;
+  padding: 0.4em;
+  border-radius: 0.35rem;
+  text-decoration: none;
   color: var(--color-primary);
+  touch-action: manipulation;
+}
+
+.quote-inline .quote-inline-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   opacity: 0.55;
   transition: opacity 0.15s ease;
 }
@@ -310,20 +321,32 @@
   height: 0.85em;
 }
 
-.quote-inline:hover .quote-inline-mark,
-.quote-inline:focus-visible .quote-inline-mark {
+.quote-inline:has(.quote-inline-share:hover, .quote-inline-share:focus-visible) .quote-inline-mark {
   background-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
 }
 
-.quote-inline:hover .quote-inline-icon,
-.quote-inline:focus-visible .quote-inline-icon {
+.quote-inline .quote-inline-share:hover .quote-inline-icon,
+.quote-inline .quote-inline-share:focus-visible .quote-inline-icon {
   opacity: 1;
+}
+
+.quote-inline .quote-inline-share:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   .quote-inline .quote-inline-mark {
     background-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
     color: var(--color-gray-100);
+  }
+
+  .quote-inline .quote-inline-share {
+    color: var(--color-primary-300);
+  }
+
+  .quote-inline .quote-inline-share:focus-visible {
+    outline-color: var(--color-primary-300);
   }
 }
 
@@ -499,6 +522,12 @@
     orphans: 3;
     widows: 3;
     hyphens: auto;
+    /* Only hyphenate longer words, and keep at least four letters on each side
+       of the break. At the 40rem measure, unlimited auto-hyphenation split
+       short words constantly ("visi-ble", "be-ing"), which slows reading. */
+    hyphenate-limit-chars: 8 4 4;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 4;
     text-wrap: pretty;
   }
 
@@ -680,9 +709,19 @@
     @apply text-gray-900;
   }
 
+  /* Typography's prose styles color linked code with the link blue, which is
+     only 4.3:1 on the code chip; the darker shade passes AA. */
+  .prose a code {
+    @apply text-primary-700;
+  }
+
   @media (prefers-color-scheme: dark) {
     a code {
       @apply text-gray-100;
+    }
+
+    .prose a code {
+      @apply text-primary-200;
     }
   }
 
@@ -926,55 +965,6 @@
     transform: translateY(0);
     outline: 3px solid white !important;
     outline-offset: -3px !important;
-  }
-
-  /* Hero Unit - Optimized for performance with contain */
-  .hero-unit {
-    /* Plain url() fallback first for browsers without image-set() support;
-       image-set() then serves AVIF/WebP to browsers that understand it,
-       falling back to the JPEG. */
-    background-image: url('/assets/img/header.jpg');
-    background-image: image-set(
-      url('/assets/img/header.avif') type('image/avif'),
-      url('/assets/img/header.webp') type('image/webp'),
-      url('/assets/img/header.jpg') type('image/jpeg')
-    );
-    background-size: cover;
-    background-position: top left;
-    @apply h-64 rounded-t-lg shadow-sm;
-    contain: layout paint;
-    position: relative;
-  }
-  
-  /* Hero gradient overlay for depth */
-  .hero-unit::before {
-    content: '';
-    @apply absolute inset-0 rounded-t-lg;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 5%, transparent) 0%,
-      color-mix(in srgb, var(--color-primary) 10%, transparent) 50%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
-    pointer-events: none;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .hero-unit::before {
-      background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
-        color-mix(in srgb, var(--color-primary) 15%, transparent) 50%,
-        rgba(0, 0, 0, 0.25) 100%
-      );
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero-unit {
-      height: 180px;
-    }
-    
   }
 
   /* Container */
@@ -1448,6 +1438,13 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   font-family: var(--font-sans);
   pointer-events: auto;
   animation: link-preview-fade-in 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-preview-card,
+  .link-preview-card.above {
+    animation: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
