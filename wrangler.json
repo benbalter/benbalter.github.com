@@ -17,6 +17,8 @@
   ],
   "workers_dev": false,
   "preview_urls": false,
+  "//routes": "The ben.balter.com custom domain, declared so it lives with the Worker: a redeploy (or a move to another Cloudflare account) recreates it instead of depending on a dashboard setting. Keeping an existing custom domain needs no extra token permission. ben.balter.com/tweets* belongs to the separate tweets Worker.",
+  "routes": [{ "pattern": "ben.balter.com", "custom_domain": true }],
   "compatibility_date": "2026-04-21",
   "observability": {
     "enabled": true,
