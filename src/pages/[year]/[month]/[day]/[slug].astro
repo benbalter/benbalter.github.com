@@ -69,8 +69,14 @@ const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 // and don't appear in the prev/next chain between current posts.
 const listablePosts = allPosts.filter(isListablePost);
 
-// Find related posts (limit to 10) - uses cached TF-IDF calculations
-const relatedPosts = await findRelatedPosts(post, listablePosts, 10);
+// Related posts: one "up next" card plus a short list. Kept to 4 so the end of
+// the post leads with sharing and the book rather than a wall of exit links.
+// When this post shows a BookCta, drop the launch post before limiting, so it
+// doesn't duplicate the CTA and the list still fills to 4.
+const relatedCandidates = post.data.hideBookCta
+  ? listablePosts
+  : listablePosts.filter((p) => p.id !== siteConfig.bookLaunchPostId);
+const relatedPosts = await findRelatedPosts(post, relatedCandidates, 4);
 
 // Find previous and next posts for sequential navigation
 const orderedPosts = [...listablePosts]

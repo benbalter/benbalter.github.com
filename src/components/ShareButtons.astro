@@ -2,9 +2,19 @@
 /**
  * Share Buttons Component
  *
- * Zero-JavaScript social sharing links for blog posts, plus a small
- * copy-link button backed by the shared copyToClipboard helper
- * (src/utils/copy-to-clipboard.ts).
+ * The end-of-post share bar. Sharing is one of the two things a visit is for
+ * (see PRODUCT.md), so it leads with one prominent button rather than a row of
+ * small icons:
+ *
+ * - Where the Web Share API exists (most phones), the button opens the native
+ *   share sheet, attaching the post's OG card when the platform accepts files.
+ * - Elsewhere (most desktops), it relabels itself "Copy link" and copies the
+ *   URL with visible and announced confirmation.
+ * - Without JavaScript the button is hidden; the network links are plain
+ *   anchors and keep working.
+ *
+ * Every control is at least 44×44px (WCAG 2.5.5, enforced by
+ * e2e/mobile-touch-targets.spec.ts).
  */
 
 import Icon from './Icon.astro';
@@ -15,16 +25,10 @@ type Network = 'linkedin' | 'bluesky' | 'twitter' | 'email';
 interface Props {
   title: string;
   url: string;
-  /** Which social links to render, in order. Defaults to all four. */
+  /** Which network links to render, in order. Defaults to all four. */
   networks?: Network[];
-  /**
-   * Render a native (Web Share API) button. Ships hidden and is revealed by
-   * JS only where `navigator.share` exists, so it never shows as a dead
-   * control on browsers without support (most desktops).
-   */
-  nativeShare?: boolean;
-  /** Absolute URL of an image (e.g. an OG card) to attach to the native share. */
-  shareImage?: string;
+  /** Absolute URL of an image (e.g. the OG card) to attach to the native share. */
+  shareImage?: string | undefined;
   /** Text for the native share sheet. Defaults to the title. */
   shareText?: string;
 }
@@ -33,7 +37,6 @@ const {
   title,
   url,
   networks = ['linkedin', 'bluesky', 'twitter', 'email'],
-  nativeShare = false,
   shareImage,
   shareText,
 } = Astro.props;
@@ -42,94 +45,51 @@ const urls = getShareUrls(title, url);
 const linkDefs: Record<Network, { name: string; icon: string; href: string }> = {
   linkedin: { name: 'LinkedIn', icon: 'linkedin', href: urls.linkedin },
   bluesky: { name: 'Bluesky', icon: 'bluesky', href: urls.bluesky },
-  twitter: { name: 'Twitter', icon: 'twitter', href: urls.twitter },
+  // The `twitter` icon is the X logo; name the network the way readers know it now.
+  twitter: { name: 'X', icon: 'twitter', href: urls.twitter },
   email: { name: 'Email', icon: 'envelope', href: urls.email },
 };
 const shareLinks = networks.map((n) => linkDefs[n]);
 ---
 
-<div class="flex items-center gap-3">
-  <span class="text-sm text-gray-600 dark:text-gray-300 font-medium">Share</span>
-  <div class="flex gap-1">
-    {nativeShare && (
-      <button
-        type="button"
-        data-share-native
-        data-share-url={url}
-        data-share-text={shareText ?? title}
-        data-share-image={shareImage}
-        aria-label="Share…"
-        hidden
-        class="share-link inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
-      >
-        <Icon name="share" />
-      </button>
-    )}
+<section class="post-share" aria-label="Share this post" data-pagefind-ignore>
+  <button
+    type="button"
+    class="post-share-primary"
+    data-share-primary
+    data-share-url={url}
+    data-share-text={shareText ?? title}
+    data-share-image={shareImage}
+  >
+    <span class="post-share-icon" data-share-icon="share"><Icon name="share" size="1.125em" /></span>
+    <span class="post-share-icon" data-share-icon="link" hidden><Icon name="link" size="1.125em" /></span>
+    <span class="post-share-icon" data-share-icon="check" hidden><Icon name="check" size="1.125em" /></span>
+    <span data-share-label>Share this post</span>
+  </button>
+  <ul class="post-share-networks" role="list">
     {shareLinks.map((link) => (
-      <a
-        href={link.href}
-        target={link.name === 'Email' ? undefined : '_blank'}
-        rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
-        aria-label={`Share on ${link.name}`}
-        class="share-link inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
-      >
-        <Icon name={link.icon} />
-      </a>
+      <li>
+        <a
+          href={link.href}
+          target={link.name === 'Email' ? undefined : '_blank'}
+          rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
+          aria-label={`Share on ${link.name}`}
+          title={`Share on ${link.name}`}
+          class="post-share-network"
+        >
+          <Icon name={link.icon} size="1.125em" />
+        </a>
+      </li>
     ))}
-    <button
-      type="button"
-      data-copy-link
-      data-copy-url={url}
-      aria-label="Copy link"
-      class="share-link share-copy inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
-    >
-      <span class="share-copy-idle" aria-hidden="false"><Icon name="link" /></span>
-      <span class="share-copy-done hidden text-primary dark:text-primary-300" aria-hidden="true"><Icon name="check" /></span>
-      <span class="sr-only share-copy-live" aria-live="polite"></span>
-    </button>
-  </div>
-</div>
+  </ul>
+  <span class="sr-only" aria-live="polite" data-share-live></span>
+</section>
 
 <script>
   import { copyToClipboard } from '../utils/copy-to-clipboard';
 
-  async function handleCopy(button: HTMLButtonElement) {
-    const url = button.getAttribute('data-copy-url');
-    if (!url) return;
-
-    const idle = button.querySelector<HTMLElement>('.share-copy-idle');
-    const done = button.querySelector<HTMLElement>('.share-copy-done');
-    const live = button.querySelector<HTMLElement>('.share-copy-live');
-
-    const ok = await copyToClipboard(url, button);
-    const message = ok ? 'Link copied' : 'Copy failed — press Ctrl/Cmd + C';
-
-    if (ok && idle && done) {
-      idle.classList.add('hidden');
-      done.classList.remove('hidden');
-      button.setAttribute('aria-label', 'Link copied');
-    }
-    if (live) live.textContent = message;
-
-    if (ok) {
-      window.setTimeout(() => {
-        idle?.classList.remove('hidden');
-        done?.classList.add('hidden');
-        button.setAttribute('aria-label', 'Copy link');
-        if (live) live.textContent = '';
-      }, 2000);
-    }
-  }
-
-  function initCopyButtons() {
-    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-copy-link]');
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => handleCopy(button));
-    });
-  }
-
   // Fetch an image (e.g. the OG card) as a File so the OS share sheet can post
-  // the image itself — images far outperform bare links in feeds. Returns [] on
+  // the image itself; images far outperform bare links in feeds. Returns [] on
   // any failure so the caller can fall back to a text + URL share.
   async function shareImageFiles(imageUrl: string | undefined): Promise<File[]> {
     if (!imageUrl) return [];
@@ -144,30 +104,114 @@ const shareLinks = networks.map((n) => linkDefs[n]);
     }
   }
 
-  async function handleNativeShare(button: HTMLButtonElement) {
-    const url = button.dataset.shareUrl ?? location.href;
-    const text = button.dataset.shareText ?? '';
-    const files = await shareImageFiles(button.dataset.shareImage);
-    try {
-      if (files.length && navigator.canShare?.({ files })) {
-        await navigator.share({ text, url, files });
-      } else {
-        await navigator.share({ text, url });
-      }
-    } catch {
-      /* user dismissed the sheet, or share failed — nothing to do */
-    }
-  }
-
-  function initNativeShare() {
-    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-share-native]');
-    if (typeof navigator.share !== 'function') return;
-    buttons.forEach((button) => {
-      button.hidden = false;
-      button.addEventListener('click', () => handleNativeShare(button));
+  function showIcon(button: HTMLElement, name: 'share' | 'link' | 'check') {
+    button.querySelectorAll<HTMLElement>('[data-share-icon]').forEach((el) => {
+      el.hidden = el.dataset.shareIcon !== name;
     });
   }
 
-  initCopyButtons();
-  initNativeShare();
+  function initShareButton(button: HTMLButtonElement) {
+    const label = button.querySelector<HTMLElement>('[data-share-label]');
+    const live = button.parentElement?.querySelector<HTMLElement>('[data-share-live]');
+    const url = button.dataset.shareUrl ?? location.href;
+    const canShare = typeof navigator.share === 'function';
+
+    if (!canShare) {
+      if (label) label.textContent = 'Copy link';
+      showIcon(button, 'link');
+    }
+
+    button.addEventListener('click', async () => {
+      if (canShare) {
+        const text = button.dataset.shareText ?? '';
+        const files = await shareImageFiles(button.dataset.shareImage);
+        try {
+          if (files.length && navigator.canShare?.({ files })) {
+            await navigator.share({ text, url, files });
+          } else {
+            await navigator.share({ text, url });
+          }
+        } catch {
+          /* user dismissed the sheet, or share failed; nothing to do */
+        }
+        return;
+      }
+
+      const ok = await copyToClipboard(url, button);
+      if (live) live.textContent = ok ? 'Link copied' : 'Copy failed. Press Ctrl or Cmd + C to copy the address.';
+      if (!ok || !label) return;
+      label.textContent = 'Link copied';
+      showIcon(button, 'check');
+      window.setTimeout(() => {
+        label.textContent = 'Copy link';
+        showIcon(button, 'link');
+        if (live) live.textContent = '';
+      }, 2000);
+    });
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-share-primary]').forEach(initShareButton);
 </script>
+
+<style>
+  @reference "../styles/global.css";
+
+  .post-share {
+    @apply mt-12 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-gray-200 pt-8 font-sans;
+  }
+
+  .post-share-primary {
+    @apply inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-base font-semibold;
+    @apply bg-primary text-white transition-colors duration-200 hover:bg-primary-600;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+    touch-action: manipulation;
+  }
+
+  .post-share-primary:active {
+    @apply bg-primary-700;
+  }
+
+  .post-share-icon {
+    @apply inline-flex;
+  }
+
+  .post-share-icon[hidden] {
+    display: none;
+  }
+
+  /* Nothing to do without JS; the network links still work. */
+  @media (scripting: none) {
+    .post-share-primary {
+      display: none;
+    }
+  }
+
+  .post-share-networks {
+    @apply m-0 flex list-none items-center gap-1 p-0;
+  }
+
+  .post-share-networks li {
+    @apply m-0 p-0;
+  }
+
+  .post-share-network {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-lg text-gray-700 no-underline transition-colors duration-200;
+    @apply hover:bg-primary/10 hover:text-primary;
+    touch-action: manipulation;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .post-share {
+      @apply border-gray-700;
+    }
+
+    /* primary-500 white text is 4.6:1; keep it in dark mode, but darken hover */
+    .post-share-primary:hover {
+      @apply bg-primary-600;
+    }
+
+    .post-share-network {
+      @apply text-gray-300 hover:bg-primary/20 hover:text-primary-300;
+    }
+  }
+</style>

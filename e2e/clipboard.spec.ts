@@ -144,14 +144,20 @@ test.describe('clipboard copy buttons', () => {
     await expectClipboard(page, expected);
   });
 
-  test('post share bar copy-link button', async ({ page }) => {
+  test('post share button copies the link when there is no share sheet', async ({ page, context }) => {
+    // WebKit exposes navigator.share, which would open the OS sheet instead of
+    // copying. Remove it so every engine exercises the copy fallback.
+    await context.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    });
     await page.goto(POST);
-    const btn = page.locator('[data-copy-link]').first();
-    const expected = (await btn.getAttribute('data-copy-url')) ?? '';
+    const btn = page.locator('[data-share-primary]').first();
+    await expect(btn).toHaveText('Copy link');
+    const expected = (await btn.getAttribute('data-share-url')) ?? '';
     expect(expected).toMatch(/^https?:\/\//);
 
     await btn.click();
-    await expect(btn).toHaveAttribute('aria-label', 'Link copied');
+    await expect(btn).toHaveText('Link copied');
     await expectClipboard(page, expected);
   });
 

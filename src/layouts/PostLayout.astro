@@ -26,7 +26,6 @@ import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
-import DiscussLinks from '../components/DiscussLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -70,7 +69,7 @@ const {
   nextPost,
   archived = false,
   hideBookCta = false,
-  bookCtaVariant = 'inline',
+  bookCtaVariant,
   bookRelation,
   robots,
   postId,
@@ -94,6 +93,12 @@ const titleTransitionName = viewTransitionName(Astro.url.pathname);
 // per-post OG card generated at /og/YYYY/MM/DD/slug.png. Without this, posts with
 // no frontmatter image (nearly all of them) advertise the generic /og/default.png.
 const socialImage = image ?? (ogImagePath(postId) ?? undefined);
+const socialImageUrl = socialImage ? new URL(socialImage, siteConfig.url).toString() : undefined;
+
+// Posts adapted from the book, or that inspired a chapter, are where a reader
+// is likeliest to want the book, so they get the large featured CTA by default.
+const resolvedBookCtaVariant =
+  bookCtaVariant ?? (bookRelation === 'adapted' || bookRelation === 'inspired' ? 'featured' : 'inline');
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
@@ -159,36 +164,40 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingProgress readingTime={readingTime} />
 
-        {!hideBookCta && <BookCta variant={bookCtaVariant} relation={bookRelation} />}
+        {/* End of post, in priority order (PRODUCT.md): share, then the book,
+            then where to go next. Subscribe follows the related posts rather
+            than preceding them: it isn't a success metric, and its five
+            controls competed with the share bar and the book for the reader
+            who just finished. */}
+        <ShareButtons title={title} url={postUrl} shareImage={socialImageUrl} />
 
-        {pubDate && (
-          <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
-            <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span>Originally published {formattedDate}</span>
-              <span aria-hidden="true">·</span>
-              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
-            </div>
-            <ShareButtons title={title} url={postUrl} />
+        {!hideBookCta && (
+          <div class="mt-10">
+            <BookCta variant={resolvedBookCtaVariant} relation={bookRelation} />
           </div>
         )}
-        
-        <DiscussLinks title={title} url={postUrl} />
 
-        {/* Subscribe before KeepReading: readers who just finished are the most
-            likely to subscribe, and the related-post cards below are exit points */}
-        <div class="mt-8" data-pagefind-ignore>
+        <KeepReading relatedPosts={relatedPosts} />
+
+        <div data-pagefind-ignore>
+        <div class="mt-12">
           <SubscribeCta />
         </div>
 
-        <KeepReading relatedPosts={relatedPosts} />
-        
-        <div data-pagefind-ignore>
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
           <div class="mini-bio-card mb-6 p-4 md:p-6">
             <MiniBio />
           </div>
+
+          {pubDate && (
+            <p class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
+              <span>Originally published {formattedDate}</span>
+              <span aria-hidden="true">·</span>
+              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer">View revision history</a>
+            </p>
+          )}
 
           <a
             href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postFileName}`}
