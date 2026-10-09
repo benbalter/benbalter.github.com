@@ -1577,27 +1577,6 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   font-size: 1.125rem;
 }
 
-/* Mid-post book callout (rehype-book-inline-cta). Navy and lime in both color
-   schemes, matching BookCta's "book object" rather than the blue tip callout. */
-.book-inline-cta {
-  border-color: var(--color-accent-400);
-  background: var(--color-brand-950);
-  color: #e2e8f0;
-}
-
-.book-inline-cta > :first-child {
-  margin-top: 0;
-}
-
-.book-inline-cta a {
-  color: var(--color-accent-400);
-  text-decoration-color: color-mix(in srgb, var(--color-accent-400) 50%, transparent);
-}
-
-.book-inline-cta a:hover {
-  color: var(--color-pink-400);
-}
-
 /* Callout type variants */
 .callout-note,
 .callout-info,
