@@ -131,9 +131,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   robots={robots}
   standardSiteDocumentUri={standardSiteDocumentUri}
 >
-  <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">
+  {/* Column width sets the reading measure: 40rem of 18px Lora is roughly
+      65–75 characters per line, the comfortable range for long-form reading.
+      The previous 56rem column ran about 90. At xl the extra width goes to the
+      sticky table of contents (14rem + 2rem gap), not to longer lines. */}
+  <div class="max-w-[42rem] mx-auto px-4 xl:max-w-[58rem]">
     <div class="xl:flex xl:gap-8">
-      <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-4xl">
+      <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-[40rem]">
         <Breadcrumbs title={title} />
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" style={`view-transition-name: ${titleTransitionName}`}>{title}</h1>
