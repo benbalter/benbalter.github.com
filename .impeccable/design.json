@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T21:12:49+00:00",
+  "title": "Design System: Ben Balter",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Ledger Blue",
+        "canonical": "#337ab7",
+        "tonalRamp": [
+          "#0d1f28",
+          "#17364b",
+          "#204d6f",
+          "#2a6493",
+          "#337ab7",
+          "#4d9edc",
+          "#80b9e6",
+          "#e0eef9"
+        ]
+      },
+      "gray-900": {
+        "role": "neutral",
+        "displayName": "Bootstrap Ink",
+        "canonical": "#212529",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "gray-800": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#343a40",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "gray-600": {
+        "role": "neutral",
+        "displayName": "Slate Gray",
+        "canonical": "#6c757d",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "gray-200": {
+        "role": "neutral",
+        "displayName": "Rule Gray",
+        "canonical": "#e9ecef",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "gray-100": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#f8f9fa",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#212529",
+          "#343a40",
+          "#495057",
+          "#6c757d",
+          "#adb5bd",
+          "#ced4da",
+          "#e9ecef",
+          "#f8f9fa"
+        ]
+      },
+      "brand-950": {
+        "role": "tertiary",
+        "displayName": "Midnight Navy",
+        "canonical": "#102038",
+        "tonalRamp": [
+          "#151c2a",
+          "#1e283c",
+          "#26334f",
+          "#2e3e62",
+          "#6d7891",
+          "#a1a8b8",
+          "#cbcfd8",
+          "#eef0f2"
+        ]
+      },
+      "brand-900": {
+        "role": "tertiary",
+        "displayName": "Badge Navy",
+        "canonical": "#1b2a47",
+        "tonalRamp": [
+          "#151c2a",
+          "#1e283c",
+          "#26334f",
+          "#2e3e62",
+          "#6d7891",
+          "#a1a8b8",
+          "#cbcfd8",
+          "#eef0f2"
+        ]
+      },
+      "brand-600": {
+        "role": "tertiary",
+        "displayName": "Spine Navy",
+        "canonical": "#2e3e62",
+        "tonalRamp": [
+          "#151c2a",
+          "#1e283c",
+          "#26334f",
+          "#2e3e62",
+          "#6d7891",
+          "#a1a8b8",
+          "#cbcfd8",
+          "#eef0f2"
+        ]
+      },
+      "accent-400": {
+        "role": "tertiary",
+        "displayName": "Commit Lime",
+        "canonical": "#d0d820",
+        "tonalRamp": [
+          "#3e4319",
+          "#6e741c",
+          "#9fa61e",
+          "#d0d820",
+          "#dee463",
+          "#eaed9b",
+          "#f3f5c7",
+          "#fbfced"
+        ]
+      },
+      "pink-400": {
+        "role": "tertiary",
+        "displayName": "Merge Pink",
+        "canonical": "#f070a8",
+        "tonalRamp": [
+          "#46293b",
+          "#7e4060",
+          "#b75884",
+          "#f070a8",
+          "#f49bc2",
+          "#f8bfd8",
+          "#fbdbe9",
+          "#fef4f8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page and post titles (h1)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings (h2)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subsections (h3) and featured card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All non-article text."
+      },
+      "prose": {
+        "displayName": "Prose",
+        "purpose": "Post bodies and blockquotes only, in Lora."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase small labels: h6, footnote headings, objection label."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code and the book badge."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06)",
+        "purpose": "Resting card (objection block, book CTA)."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.12)",
+        "purpose": "Hover state; always-on for floating link previews."
+      },
+      {
+        "name": "card-dark",
+        "value": "0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3)",
+        "purpose": "Resting card in dark mode."
+      },
+      {
+        "name": "card-hover-dark",
+        "value": "0 4px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.4)",
+        "purpose": "Hover card in dark mode."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hover-color",
+        "value": "150-200ms ease",
+        "purpose": "Link, nav, and card color changes."
+      },
+      {
+        "name": "fade-up",
+        "value": "0.5s ease-out, 0.75rem rise",
+        "purpose": "Featured book CTA entry; motion-safe only."
+      },
+      {
+        "name": "link-preview-in",
+        "value": "150ms ease-out, 4px rise",
+        "purpose": "Link-preview card appearance."
+      },
+      {
+        "name": "nav-collapse",
+        "value": "max-height 0.3s ease-out, opacity 0.2s",
+        "purpose": "Mobile menu open/close."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Subscribe Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The site's one real primary button, used in the email subscribe form.",
+      "html": "<button class=\"ds-btn-primary\">Subscribe</button>",
+      "css": ".ds-btn-primary{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:14px;font-weight:600;padding:6px 16px;border-radius:6px;border:0;background:var(--color-primary,#337ab7);color:#fff;cursor:pointer;min-height:44px;transition:background-color .2s}.ds-btn-primary:hover{background:color-mix(in srgb,#337ab7 90%,transparent)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px color-mix(in srgb,#337ab7 40%,transparent)}"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "Newsletter email field; blue border and ring on focus.",
+      "html": "<input class=\"ds-input-email\" type=\"email\" placeholder=\"you@example.com\" aria-label=\"Email\">",
+      "css": ".ds-input-email{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:14px;padding:6px 12px;border-radius:6px;border:1px solid #dee2e6;background:#fff;color:#212529;min-height:44px;transition:border-color .2s}.ds-input-email::placeholder{color:#ced4da}.ds-input-email:focus-visible{outline:none;border-color:#337ab7;box-shadow:0 0 0 2px color-mix(in srgb,#337ab7 40%,transparent)}"
+    },
+    {
+      "name": "Post Card",
+      "kind": "card",
+      "refersTo": "card-post",
+      "description": "Whole-card link to a post; border and title turn blue and the card lifts 1px on hover.",
+      "html": "<article class=\"ds-card-post\"><h3><a href=\"#\">Work loudly</a></h3><p class=\"ds-meta\">5 minute read</p><p class=\"ds-desc\">Make your work visible so the right people can find it, build on it, and give you credit.</p></article>",
+      "css": ".ds-card-post{position:relative;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:16px;max-width:340px;transition:all .15s}.ds-card-post h3{margin:0 0 8px;font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-0.01em}.ds-card-post a{color:#212529;text-decoration:none}.ds-card-post a::before{content:'';position:absolute;inset:0}.ds-card-post .ds-meta{margin:0 0 8px;font-size:14px;color:#6c757d}.ds-card-post .ds-desc{margin:0;font-size:14px;line-height:1.6;color:#495057}.ds-card-post:hover{border-color:#337ab7;transform:translateY(-1px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-card-post:hover a{color:#337ab7}.ds-card-post:focus-within{outline:2px solid #337ab7;outline-offset:2px}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "navbar",
+      "description": "Mist bar with brand, four links, and the tagline set off by a tinted rule.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Ben Balter</a><a class=\"ds-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-link\" href=\"#\">About</a><a class=\"ds-link\" href=\"#\">Resume</a><a class=\"ds-link\" href=\"#\">Contact</a><span class=\"ds-tag\">Product, leadership, and showing your work</span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:rgba(248,249,250,.95);border:1px solid #e9ecef;border-radius:8px;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-brand{font-weight:700;font-size:18px;color:#212529;text-decoration:none;letter-spacing:-0.02em;margin-right:8px}.ds-brand:hover{color:#337ab7}.ds-link{padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;color:#17364b;text-decoration:none;transition:color .2s}.ds-link:hover{color:#0d1f28}.ds-link:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-active{color:#212529;font-weight:600}.ds-tag{margin-left:auto;padding-left:16px;border-left:2px solid color-mix(in srgb,#337ab7 20%,transparent);font-size:14px;color:#495057}"
+    },
+    {
+      "name": "Book CTA",
+      "kind": "custom",
+      "refersTo": "book-cta",
+      "description": "Signature navy 'book object' with lime badge, gradient ampersand, and gradient buy button. Only place the sub-brand palette appears.",
+      "html": "<a class=\"ds-book\" href=\"#\"><span class=\"ds-badge\"><span>&gt;</span> Out now</span><span class=\"ds-book-title\">Open <span class=\"ds-amp\">&amp;</span> Async</span><span class=\"ds-book-desc\">The collaborative software development playbook for remote and distributed teams.</span><span class=\"ds-buy\">Buy it &rarr;</span></a>",
+      "css": ".ds-book{display:flex;flex-direction:column;gap:10px;max-width:460px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:#102038;border:1px solid #2e3e62;border-radius:12px;padding:32px;text-decoration:none;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.06);transition:all .2s}.ds-book:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 24px rgba(0,0,0,.12)}.ds-book:focus-visible{outline:2px solid #d0d820;outline-offset:2px}.ds-badge{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;background:#1b2a47;border:1px solid #2e3e62;border-radius:6px;padding:4px 12px}.ds-badge span{color:#d0d820}.ds-book-title{font-size:30px;font-weight:700;line-height:1.15}.ds-amp{color:#d0d820;background:linear-gradient(to right,#d0d820,#f070a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.ds-book-desc{font-size:15px;color:#cbd5e1}.ds-buy{align-self:flex-start;background:linear-gradient(to right,#d0d820,#f070a8);color:#102038;font-weight:600;font-size:14px;border-radius:8px;padding:10px 20px}.ds-book:hover .ds-buy{filter:brightness(1.05)}"
+    },
+    {
+      "name": "Blockquote",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Lora italic with a 3px primary rule; the clearest expression of the serif-for-content rule.",
+      "html": "<blockquote class=\"ds-quote\">If it's not written down, it didn't happen.</blockquote>",
+      "css": ".ds-quote{font-family:Lora,Georgia,serif;font-style:italic;font-size:17px;line-height:1.8;letter-spacing:.01em;color:#495057;border-left:3px solid #337ab7;padding:12px 0 12px 32px;margin:0;max-width:560px}"
+    },
+    {
+      "name": "Acronym Tooltip",
+      "kind": "custom",
+      "refersTo": "tooltip",
+      "description": "Dark bubble shown on first-use acronyms; inverts in dark mode.",
+      "html": "<span class=\"ds-abbr\" tabindex=\"0\">DRI<span class=\"ds-tip\">Directly Responsible Individual</span></span>",
+      "css": ".ds-abbr{position:relative;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;border-bottom:1px dotted currentColor;cursor:help}.ds-tip{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);white-space:nowrap;background:#212529;color:#f8f9fa;border-radius:4px;padding:8px 12px;font-size:14px;line-height:1.4;box-shadow:0 2px 8px rgba(0,0,0,.15);opacity:0;transition:opacity .2s}.ds-abbr:hover .ds-tip,.ds-abbr:focus-visible .ds-tip{opacity:.9}.ds-abbr:focus-visible{outline:2px solid #337ab7;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working Notebook",
+    "overview": "The site reads like a colleague's well-kept notes: plain, practical, and arranged for reading rather than for show. There's one blue, a neutral gray scale, a white page, and a serif body face that slows the eye down just enough for long-form argument. Interface chrome (navigation, cards, metadata) switches to a sans-serif so the reader can tell at a glance what's content and what's apparatus.\n\nIt's built entirely with Tailwind CSS v4: utilities in components, tokens in the `@theme` block of `src/styles/global.css`, `@tailwindcss/typography` for prose, and a small `@layer components` set for shared patterns. Bootstrap isn't a dependency. Its influence is visual heritage only, because the site started on Bootstrap 3 and kept its values when it moved to Tailwind: the primary blue is Bootstrap 3's link blue, the gray scale is Bootstrap's, and class names like `navbar`, `nav-link`, and `link-secondary` survive from that era. On top of that base, recent work added refinement: fluid type, Lora for prose, tuned link underlines, soft two-layer card shadows, view transitions, and careful dark mode. The result is competent and calm, though not distinctive. Its personality lives in the writing, not the frame.\n\nDensity is low. Posts get a single generous column, and index pages use a three-up card grid. Motion is minimal: hover lifts of a pixel or two, fades, and nothing that doesn't respect `prefers-reduced-motion`.",
+    "keyCharacteristics": [
+      "One accent color (primary blue) on a white or near-black page, with Bootstrap-derived grays.",
+      "Serif for reading (Lora), sans-serif for everything else (Inter).",
+      "Flat surfaces with soft, low shadows on cards; depth is a hover response.",
+      "Corners are gently rounded (8px), never sharp and never pill-shaped except for icon chips.",
+      "The *Open and Async* book promos are a deliberately foreign object: navy, lime, and pink inside an otherwise blue-gray site.",
+      "Dark mode follows the system setting only; there's no manual toggle."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "In the site's own UI, primary blue is the only chromatic color. Callout boxes (note, warning, error, success) use Tailwind's stock blue, yellow, red, and green for meaning, not decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Book Object Rule",
+        "body": "Navy, lime, and pink belong to the book and stay inside its container. Never use them for general site UI, and never put the site blue inside a book promo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Content Is Serif Rule",
+        "body": "Lora is only for what Ben wrote: post bodies and blockquotes. Anything the reader operates (navigation, cards, captions, footnotes, tables, asides, callouts) is Inter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Code Wraps Clean Rule",
+        "body": "Code never inherits prose letter or word spacing, and never hyphenates.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift Means Link Rule",
+        "body": "A card only gains shadow or moves (`-translate-y-px` to `-0.5`) when the whole card is one link. Static containers stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep primary blue as the only accent in site UI (The One Blue Rule).",
+      "**Do** set post bodies in Lora and everything else in Inter (The Content Is Serif Rule).",
+      "**Do** keep every tap target at least 44×44px and every link at 4.5:1 contrast in both color schemes.",
+      "**Do** pair every hover lift or fade with a `prefers-reduced-motion` fallback.",
+      "**Do** define dark-mode values next to their light-mode rules with `@media (prefers-color-scheme: dark)`, the pattern used across `global.css`.",
+      "**Do** use the `--shadow-card` tokens for new cards instead of ad hoc shadows."
+    ],
+    "donts": [
+      "**Don't** use navy, lime, or pink outside a book promo (The Book Object Rule).",
+      "**Don't** add shadows or lift to containers that aren't a single link (The Lift Means Link Rule).",
+      "**Don't** add `.btn` expecting Bootstrap styles; it only opts a link out of content-link styling.",
+      "**Don't** treat this file as a target. It records the incumbent system before a redesign, and PRODUCT.md makes no visual commitments."
+    ]
+  }
+}

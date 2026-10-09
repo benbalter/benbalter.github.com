@@ -62,3 +62,6 @@ engage/
 
 # Claude Code agent worktrees
 .claude/worktrees/
+
+# Impeccable per-machine settings (shared config lives in .impeccable/config.json)
+.impeccable/config.local.json

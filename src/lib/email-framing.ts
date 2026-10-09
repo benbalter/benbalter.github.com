@@ -56,7 +56,7 @@ export function bookCtaHtml(relation?: 'adapted' | 'cut' | 'inspired'): string {
     `<p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#57606a;">Out now</p>` +
     `<p style="margin:0 0 6px;font-size:16px;font-weight:600;color:#1f2328;">${headline}</p>` +
     `<p style="margin:0 0 12px;font-size:14px;color:#424a53;">${siteConfig.bookDescription}.</p>` +
-    `<a href="${siteConfig.bookUrlEmail}" style="font-size:14px;font-weight:600;color:#0969da;text-decoration:none;">Buy it — ${siteConfig.bookPrice} &rarr;</a>` +
+    `<a href="${siteConfig.bookUrlEmail}" style="font-size:14px;font-weight:600;color:#0969da;text-decoration:none;">Buy it for ${siteConfig.bookPrice} &rarr;</a>` +
     `</td></tr></table>`
   );
 }

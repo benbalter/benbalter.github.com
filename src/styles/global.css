@@ -61,6 +61,9 @@
   --color-pink-400: #f070a8;   /* pink accent — shadows Tailwind's built-in pink-400 (unused elsewhere on the blog) */
 
   /* Gray scale for text and backgrounds */
+  /* gray-50 deliberately equals gray-100: Bootstrap's scale starts at 100.
+     Keep it defined so existing bg-gray-50 uses don't fall back to
+     Tailwind's default gray-50, a different color. */
   --color-gray-50: #f8f9fa;
   --color-gray-100: #f8f9fa;
   --color-gray-200: #e9ecef;

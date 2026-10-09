@@ -70,7 +70,7 @@ export const siteConfig = {
   kitFormId: '9381290',
 
   // Book — launched July 21, 2026. The sitewide BookCta, the launch post's
-  // BookLaunchCta, and the feed CTA all sell ("Buy it — bookPrice") to match
+  // BookLaunchCta, and the feed CTA all sell ("Buy it for bookPrice") to match
   // the marketing site. bookLaunch is retained for reference/metadata.
   //
   // Each buy surface gets a distinct utm_source (matching the site-wide
