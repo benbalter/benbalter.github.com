@@ -126,7 +126,7 @@ jobs:
       security-events: write
       contents: read
     container:
-      image: semgrep/semgrep:1.178.0
+      image: semgrep/semgrep:1.179.0
     steps:
       - name: Checkout
         uses: actions/checkout@v7
