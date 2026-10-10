@@ -92,6 +92,6 @@ Second, there's a lot of proprietary metadata in there (everything that's orange
 
 There's a reason that content authored on the desktop is most commonly shared online as a PDF — a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
 
-If there's one thing I've learned trying to [convert Word documents to Markdown](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/), it's that Markdown is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
+If there's one thing I've learned trying to [convert Word documents to Markdown](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/), it's that [Markdown](/2023/03/02/github-for-non-technical-roles/#markdown) is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
 
 Next time you begin a new project for which the internet, not paper, is the primary output, think twice before firing up that desktop publishing platform. You'll gain more than mere semantics.
