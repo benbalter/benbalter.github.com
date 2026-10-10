@@ -741,10 +741,11 @@ The author avatar is a remote image, listed in `image.domains` in `astro.config.
 ---
 // MiniBio.astro
 import { Image } from 'astro:assets';
+import avatarImage from '../../assets/img/avatar.jpg';
 ---
 
 <Image
-  src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}`}
+  src={avatarImage}
   alt="Author name"
   width={100}
   height={100}

@@ -87,7 +87,7 @@ export default defineConfig({
 });
 ```
 
-**Note:** GitHub avatars are fetched at build time by the `fetch-avatar` integration and served as optimized WebP images, so `avatars.githubusercontent.com` is no longer in the remote domains list.
+**Note:** The author avatar is a local image (`assets/img/avatar.jpg`, built by `script/build-headshots`), not the GitHub avatar, so `avatars.githubusercontent.com` isn't in the remote domains list.
 
 **Build Output:**
 

@@ -12,6 +12,8 @@ import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
 import { aboutContent, getFirstParagraph } from '../content/about-bio';
 import Icon from './Icon.astro';
+// The same head-centered crop as the nav avatar, built by script/build-headshots.
+import avatarImage from '../../assets/img/avatar.jpg';
 
 const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
@@ -19,7 +21,7 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
 
 <div class="mini-bio">
   <Image 
-    src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}`}
+    src={avatarImage}
     alt={siteConfig.author}
     width={100}
     height={100}

@@ -194,8 +194,6 @@ export default defineConfig({
       },
     },
     domains: [
-      // Author avatar (MiniBio), optimized at build time like any remote image
-      'avatars.githubusercontent.com',
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
       // Post header images from various sources

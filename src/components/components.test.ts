@@ -116,14 +116,14 @@ describe('Tldr Component - Specification', () => {
 
 describe('MiniBio Component - Specification', () => {
   it('should use locally fetched avatar with proper dimensions', () => {
-    // Specification: Avatar is fetched at build time and served as optimized image
-    // The fetch-avatar integration downloads the avatar during astro:build:start
-    // and Astro's Image component outputs optimized formats (WebP/AVIF)
+    // Specification: the avatar is the local head crop built by
+    // script/build-headshots (not the GitHub avatar), and Astro's Image
+    // component outputs optimized formats (WebP/AVIF)
     const expectedWidth = 100;
     const expectedHeight = 100;
-    const avatarPath = '../../assets/img/avatar.png'; // Import path in MiniBio.astro
+    const avatarPath = '../../assets/img/avatar.jpg'; // Import path in MiniBio.astro
     
-    expect(avatarPath).toMatch(/avatar\.png$/);
+    expect(avatarPath).toMatch(/avatar\.jpg$/);
     expect(expectedWidth).toBe(100);
     expect(expectedHeight).toBe(100);
   });

@@ -12,6 +12,14 @@ import { aboutContent, getFirstSentence } from '../content/about-bio';
 
 const description = getFirstSentence(aboutContent);
 
+// The lead splits the same sentence for emphasis: the preamble ("I'm Ben
+// Balter, and I write here about") is muted because the nav already says it,
+// and the topics get full ink. If the bio's wording stops matching, the lead
+// falls back to the plain sentence.
+const aboutAt = description.indexOf(' about ');
+const leadPreamble = aboutAt === -1 ? null : description.slice(0, aboutAt + ' about'.length);
+const leadTopics = aboutAt === -1 ? '' : description.slice(aboutAt + ' about '.length);
+
 // Get all published posts (excluding archived), sorted by date (newest first)
 const allPosts = await getPublishedPosts();
 
@@ -40,7 +48,14 @@ const regularPosts = nonPopularPosts.slice(3);
       Ben up. It's the About bio's first sentence, so it stays in sync with
       src/content/about-bio.ts, and the nav hides its shorter tagline on this
       page so the two don't repeat. */}
-  <h1 class="mt-8 mb-12 text-[1.375rem] font-normal leading-snug tracking-tight text-pretty text-gray-900 md:text-[1.75rem] dark:text-gray-100 max-md:mt-5 max-md:mb-8">{description}</h1>
+  <h1 class="mt-8 mb-12 text-[1.375rem] font-normal leading-snug tracking-tight text-pretty text-gray-900 md:text-[1.75rem] dark:text-gray-100 max-md:mt-5 max-md:mb-8">
+    {leadPreamble ? (
+      <>
+        <span class="text-gray-600 dark:text-gray-400">{leadPreamble}</span>{' '}
+        <span class="font-medium">{leadTopics}</span>
+      </>
+    ) : description}
+  </h1>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
     <section class="mb-16 max-md:mb-8">

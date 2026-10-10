@@ -7,6 +7,9 @@
  *
  * - public/assets/img/avatar-{40,80,120}.{avif,webp}: the round headshot beside
  *   Ben's name in the navigation, cropped on the head so it reads at 40px.
+ * - assets/img/avatar.jpg: the same crop at 400px for the bio box after each
+ *   post (src/components/MiniBio.astro), which Astro's image pipeline
+ *   resizes and converts at build time.
  * - android-chrome-512x512.png (repo root and public/): the favicon source,
  *   same crop. astro-favicons (astro.config.mjs) generates every icon size from
  *   the root copy at build time, overwriting the older hand-made icons in
@@ -63,6 +66,8 @@ for (const scale of [1, 2, 3]) {
   await sharp(master).resize(px, px).avif({ quality: 60, effort: 9 }).toFile(`${base}.avif`);
   await sharp(master).resize(px, px).webp({ quality: 82 }).toFile(`${base}.webp`);
 }
+await sharp(photoPath).rotate().extract(crop).resize(400, 400).jpeg({ quality: 86, mozjpeg: true }).toFile(join(ROOT, 'assets', 'img', 'avatar.jpg'));
+
 // The repo-root copy is what astro-favicons reads; the public/ copy is served
 // as-is at /android-chrome-512x512.png. Keep them identical.
 const favicon = await sharp(photoPath).rotate().extract(crop).resize(512, 512).png({ compressionLevel: 9 }).toBuffer();
@@ -77,4 +82,4 @@ const portrait = () => sharp(photoPath).rotate().extract({ left: 0, top: 0, widt
 await portrait().resize(2048, 2048).jpeg({ quality: 86, mozjpeg: true }).toFile(join(ROOT, 'assets', 'img', 'headshot.jpg'));
 await portrait().resize(800, 800).jpeg({ quality: 85, mozjpeg: true }).toFile(join(OUT_DIR, 'headshot.jpg'));
 
-console.log(`Built the nav avatar and favicon source (from a ${side}px crop) and both headshot.jpg copies`);
+console.log(`Built the nav and bio-box avatars and the favicon source (from a ${side}px crop) and both headshot.jpg copies`);
