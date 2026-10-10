@@ -214,9 +214,7 @@ const itemListSchema = curatedUrls.length > 0
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
-          <div class="mini-bio-card mb-6 p-4 md:p-6">
-            <MiniBio />
-          </div>
+          <MiniBio class="mb-6" />
 
           {pubDate && (
             <p class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
@@ -300,16 +298,6 @@ const itemListSchema = curatedUrls.length > 0
 <style>
   @reference "../styles/global.css";
   
-  /* Enhanced mini bio card styling */
-  .mini-bio-card {
-    @apply rounded-lg shadow-card;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 3%, transparent),
-      color-mix(in srgb, var(--color-primary) 1%, transparent)
-    );
-  }
-
   /* Open source edit CTA */
   .open-source-cta {
     @apply flex items-center justify-between gap-4 px-4 py-3 rounded-lg;
@@ -335,15 +323,6 @@ const itemListSchema = curatedUrls.length > 0
   
   /* Dark mode adjustments */
   @media (prefers-color-scheme: dark) {
-    .mini-bio-card {
-      background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-primary) 8%, transparent),
-        color-mix(in srgb, var(--color-primary) 4%, transparent)
-      );
-      @apply shadow-card-dark;
-    }
-
     .open-source-cta {
       @apply border-gray-700;
     }

@@ -1,11 +1,16 @@
 ---
 /**
  * Mini Bio Component
- * 
- * Displays a brief author bio with avatar for blog posts.
+ *
+ * Displays a brief author bio card with avatar below blog posts.
  * Uses Tailwind CSS utilities for layout and styling.
  * Dynamically pulls the first paragraph from the about page content.
  * Replicates the Jekyll mini-bio.html include functionality.
+ *
+ * The whole card links to /about/ via a "stretched link": the "More about
+ * the author" anchor's ::after covers the card, so there's one real link
+ * (no nested anchors, one tab stop) and the inline bio and social links
+ * sit above it and stay independently clickable.
  */
 
 import { Image } from 'astro:assets';
@@ -15,12 +20,19 @@ import Icon from './Icon.astro';
 // The same head-centered crop as the nav avatar, built by script/build-headshots.
 import avatarImage from '../../assets/img/avatar.jpg';
 
+interface Props {
+  /** Extra classes for the card (e.g. margins from the parent layout) */
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
 const firstParagraph = getFirstParagraph(aboutContent);
-const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
+const bioHtml = `${firstParagraph} <a href="/about/" class="mini-bio-link">More about the author <span class="mini-bio-arrow" aria-hidden="true">&rarr;</span></a>`;
 ---
 
-<div class="mini-bio">
-  <Image 
+<div class:list={['mini-bio mini-bio-card relative p-4 md:p-6', className]}>
+  <Image
     src={avatarImage}
     alt={siteConfig.author}
     width={100}
@@ -31,7 +43,7 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
   />
   <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
   <p set:html={bioHtml} class="mb-0 leading-normal text-sm" />
-  <p class="mt-2 mb-0 leading-normal text-sm text-gray-600 dark:text-gray-300 flex flex-wrap items-center gap-x-3 gap-y-1 clear-none md:clear-none">
+  <p class="mini-bio-social mt-2 mb-0 leading-normal text-sm text-gray-600 dark:text-gray-300 flex flex-wrap items-center gap-x-3 gap-y-1 clear-none md:clear-none">
     <span>Follow along:</span>
     <a
       href={siteConfig.blueskyUrl}
@@ -54,3 +66,119 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
     </a>
   </p>
 </div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .mini-bio-card {
+    @apply rounded-lg shadow-card;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary) 3%, transparent),
+      color-mix(in srgb, var(--color-primary) 1%, transparent)
+    );
+    transition:
+      transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 250ms ease,
+      background-color 250ms ease;
+  }
+
+  /* Stretch the about link over the whole card */
+  .mini-bio-card :global(.mini-bio-link)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .mini-bio-card :global(.mini-bio-link) {
+    @apply font-medium whitespace-nowrap;
+  }
+
+  .mini-bio-card :global(.mini-bio-link:focus-visible) {
+    outline: none;
+  }
+
+  /* Every other link sits above the stretched link so it keeps its own target */
+  .mini-bio-card :global(a:not(.mini-bio-link)) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mini-bio-card :global(.mini-bio-arrow) {
+    display: inline-block;
+    transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .avatar {
+    transition:
+      transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 300ms ease;
+  }
+
+  /* Card is "active" when hovered (but not while pointing at one of the
+     other links, which go somewhere else) or when the about link has
+     keyboard focus. */
+  .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)),
+  .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) {
+    @apply shadow-card-hover;
+    transform: translateY(-2px);
+    background-color: color-mix(in srgb, var(--color-primary) 4%, transparent);
+  }
+
+  .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)) .avatar,
+  .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) .avatar {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  }
+
+  .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)) :global(.mini-bio-link),
+  .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) :global(.mini-bio-link) {
+    @apply underline underline-offset-4;
+  }
+
+  .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)) :global(.mini-bio-arrow),
+  .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) :global(.mini-bio-arrow) {
+    transform: translateX(4px);
+  }
+
+  .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .mini-bio-card {
+      background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-primary) 8%, transparent),
+        color-mix(in srgb, var(--color-primary) 4%, transparent)
+      );
+      @apply shadow-card-dark;
+    }
+
+    .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)),
+    .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) {
+      @apply shadow-card-hover-dark;
+      background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    }
+  }
+
+  /* Keep the color and shadow feedback, drop the movement */
+  @media (prefers-reduced-motion: reduce) {
+    .mini-bio-card,
+    .avatar,
+    .mini-bio-card :global(.mini-bio-arrow) {
+      transition: none;
+    }
+
+    .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)),
+    .mini-bio-card:has(:global(.mini-bio-link:focus-visible)),
+    .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)) .avatar,
+    .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) .avatar,
+    .mini-bio-card:hover:not(:has(a:not(.mini-bio-link):hover)) :global(.mini-bio-arrow),
+    .mini-bio-card:has(:global(.mini-bio-link:focus-visible)) :global(.mini-bio-arrow) {
+      transform: none;
+    }
+  }
+</style>
