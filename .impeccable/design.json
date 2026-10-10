@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-09T22:26:04+00:00",
+  "generatedAt": "2026-10-10T12:00:00+00:00",
   "title": "Design System: Ben Balter",
   "extensions": {
     "colorMeta": {
@@ -192,7 +192,7 @@
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section headings (h2)."
+        "purpose": "Section headings (h2) and the homepage lead h1, both through the --text-headline theme token."
       },
       "title": {
         "displayName": "Title",
@@ -204,7 +204,7 @@
       },
       "prose": {
         "displayName": "Prose",
-        "purpose": "Post bodies and blockquotes only, in Lora."
+        "purpose": "Post bodies and blockquotes, in Lora; plus the homepage lead's muted italic preamble, the one deliberate exception."
       },
       "label": {
         "displayName": "Label",
@@ -212,14 +212,14 @@
       },
       "mono": {
         "displayName": "Mono",
-        "purpose": "Code and the book badge."
+        "purpose": "Code, the book badge, and the In the book tag."
       }
     },
     "shadows": [
       {
         "name": "card",
         "value": "0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06)",
-        "purpose": "Resting card (objection block, book CTA)."
+        "purpose": "Resting card (objection block, both book CTA variants)."
       },
       {
         "name": "card-hover",
@@ -299,9 +299,9 @@
       "name": "Email Input",
       "kind": "input",
       "refersTo": "input-email",
-      "description": "Newsletter email field; blue border and ring on focus.",
+      "description": "Newsletter email field; gray-600 placeholder for 4.5:1, blue border and ring on focus.",
       "html": "<input class=\"ds-input-email\" type=\"email\" placeholder=\"you@example.com\" aria-label=\"Email\">",
-      "css": ".ds-input-email{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:14px;padding:6px 12px;border-radius:6px;border:1px solid #dee2e6;background:#fff;color:#212529;min-height:44px;transition:border-color .2s}.ds-input-email::placeholder{color:#ced4da}.ds-input-email:focus-visible{outline:none;border-color:#337ab7;box-shadow:0 0 0 2px color-mix(in srgb,#337ab7 40%,transparent)}"
+      "css": ".ds-input-email{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:14px;padding:6px 12px;border-radius:6px;border:1px solid #dee2e6;background:#fff;color:#212529;min-height:44px;transition:border-color .2s}.ds-input-email::placeholder{color:#6c757d}.ds-input-email:focus-visible{outline:none;border-color:#337ab7;box-shadow:0 0 0 2px color-mix(in srgb,#337ab7 40%,transparent)}"
     },
     {
       "name": "Post Card",
@@ -315,17 +315,25 @@
       "name": "Navigation Bar",
       "kind": "nav",
       "refersTo": "navbar",
-      "description": "Mist bar with brand, four links, and the tagline set off by a tinted rule.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Ben Balter</a><a class=\"ds-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-link\" href=\"#\">About</a><a class=\"ds-link\" href=\"#\">Resume</a><a class=\"ds-link\" href=\"#\">Contact</a><span class=\"ds-tag\">Product, leadership, and showing your work</span></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:rgba(248,249,250,.95);border:1px solid #e9ecef;border-radius:8px;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-brand{font-weight:700;font-size:18px;color:#212529;text-decoration:none;letter-spacing:-0.02em;margin-right:8px}.ds-brand:hover{color:#337ab7}.ds-link{padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;color:#17364b;text-decoration:none;transition:color .2s}.ds-link:hover{color:#0d1f28}.ds-link:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-active{color:#212529;font-weight:600}.ds-tag{margin-left:auto;padding-left:16px;border-left:2px solid color-mix(in srgb,#337ab7 20%,transparent);font-size:14px;color:#495057}"
+      "description": "Mist bar: 40px round headshot and brand, a 48px gap, four links centered on the midline with a hover underline, and (off the homepage) the tagline set off by a tinted rule.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-avatar\" aria-hidden=\"true\"></span>Ben Balter</a><a class=\"ds-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-link\" href=\"#\">About</a><a class=\"ds-link\" href=\"#\">Resume</a><a class=\"ds-link\" href=\"#\">Contact</a><span class=\"ds-tag\">Product, leadership, and showing your work</span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:rgba(248,249,250,.95);backdrop-filter:blur(4px);border:1px solid #e9ecef;border-radius:8px;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-brand{display:flex;align-items:center;min-height:44px;font-weight:700;font-size:18px;color:#212529;text-decoration:none;letter-spacing:-0.02em;white-space:nowrap;margin-right:32px;transition:color .2s}.ds-brand:hover{color:#337ab7}.ds-brand:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-avatar{display:inline-block;width:40px;height:40px;margin-right:12px;border-radius:9999px;background:linear-gradient(135deg,#adb5bd,#6c757d);box-shadow:0 0 0 2px #fff,0 1px 2px rgba(0,0,0,.05)}.ds-link{padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;color:#17364b;text-decoration:none;transition:color .2s}.ds-link:not(.ds-active):hover{color:#0d1f28;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;text-decoration-color:color-mix(in srgb,#337ab7 40%,transparent)}.ds-link:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-link:active{opacity:.8}.ds-active{color:#212529;font-weight:600}.ds-tag{margin-left:auto;padding-left:16px;border-left:2px solid color-mix(in srgb,#337ab7 20%,transparent);font-size:14px;color:#495057;white-space:nowrap}"
     },
     {
       "name": "Book CTA",
       "kind": "custom",
       "refersTo": "book-cta",
-      "description": "Signature navy 'book object' with lime badge, gradient ampersand, and gradient buy button. Only place the sub-brand palette appears.",
-      "html": "<a class=\"ds-book\" href=\"#\"><span class=\"ds-badge\"><span>&gt;</span> Out now</span><span class=\"ds-book-title\">Open <span class=\"ds-amp\">&amp;</span> Async</span><span class=\"ds-book-desc\">The collaborative software development playbook for remote and distributed teams.</span><span class=\"ds-buy\">Buy it &rarr;</span></a>",
-      "css": ".ds-book{display:flex;flex-direction:column;gap:10px;max-width:460px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:#102038;border:1px solid #2e3e62;border-radius:12px;padding:32px;text-decoration:none;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.06);transition:all .2s}.ds-book:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 24px rgba(0,0,0,.12)}.ds-book:focus-visible{outline:2px solid #d0d820;outline-offset:2px}.ds-badge{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;background:#1b2a47;border:1px solid #2e3e62;border-radius:6px;padding:4px 12px}.ds-badge span{color:#d0d820}.ds-book-title{font-size:30px;font-weight:700;line-height:1.15}.ds-amp{color:#d0d820;background:linear-gradient(to right,#d0d820,#f070a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.ds-book-desc{font-size:15px;color:#cbd5e1}.ds-buy{align-self:flex-start;background:linear-gradient(to right,#d0d820,#f070a8);color:#102038;font-weight:600;font-size:14px;border-radius:8px;padding:10px 20px}.ds-book:hover .ds-buy{filter:brightness(1.05)}"
+      "description": "Signature navy 'book object' with lime badge, gradient ampersand, and gradient buy button; data-nosnippet, with an sr-only new-tab cue. Only place the sub-brand palette appears.",
+      "html": "<a class=\"ds-book\" href=\"#\" target=\"_blank\" rel=\"noopener\" data-nosnippet><span class=\"ds-badge\"><span aria-hidden=\"true\">&gt;</span> Out now</span><span class=\"ds-book-title\">Open <span class=\"ds-amp\">&amp;</span> Async</span><span class=\"ds-book-desc\">The collaborative software development playbook for remote and distributed teams.</span><span class=\"ds-buy\">Buy it for $9.99 <span class=\"ds-arrow\" aria-hidden=\"true\">&rarr;</span></span><span class=\"ds-sr-only\"> (opens in a new tab)</span></a>",
+      "css": ".ds-book{display:flex;flex-direction:column;gap:10px;max-width:460px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:#102038;border:1px solid #2e3e62;border-radius:12px;padding:32px;text-decoration:none;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.06);transition:all .2s}.ds-book:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 24px rgba(0,0,0,.12)}.ds-book:focus-visible{outline:2px solid #d0d820;outline-offset:2px}.ds-badge{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;background:#1b2a47;border:1px solid #2e3e62;border-radius:6px;padding:4px 12px}.ds-badge span{color:#d0d820}.ds-book-title{font-size:30px;font-weight:700;line-height:1.15}.ds-amp{color:#d0d820;background:linear-gradient(to right,#d0d820,#f070a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.ds-book-desc{font-size:15px;color:#cbd5e1}.ds-buy{align-self:flex-start;background:linear-gradient(to right,#d0d820,#f070a8);color:#102038;font-weight:600;font-size:14px;border-radius:8px;padding:10px 20px}.ds-buy{display:inline-flex;align-items:center;gap:6px}.ds-arrow{transition:transform .2s}.ds-book:hover .ds-buy{filter:brightness(1.05)}.ds-book:hover .ds-arrow{transform:translateX(2px)}.ds-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}"
+    },
+    {
+      "name": "In the Book Tag",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Small navy tag with lime mono caps after a reading-list item adapted into, or inspiring, a book chapter; book palette per The Book Object Rule. Dropped from text outputs.",
+      "html": "<p class=\"ds-inbook-row\"><a href=\"#\">Work loudly</a><span class=\"ds-inbook\">In the book</span></p>",
+      "css": ".ds-inbook-row{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;color:#212529}.ds-inbook-row a{color:#337ab7}.ds-inbook{display:inline-block;margin-left:6px;white-space:nowrap;border-radius:4px;background:#102038;padding:1px 6px;vertical-align:0.1em;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:0.65rem;font-weight:600;text-transform:uppercase;line-height:1.5;letter-spacing:.05em;color:#d0d820}"
     },
     {
       "name": "Blockquote",
