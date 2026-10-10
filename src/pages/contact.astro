@@ -26,55 +26,56 @@ const pgpHalves = [pgpGroups.slice(0, 5).join(' '), pgpGroups.slice(5).join(' ')
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="max-w-2xl">
-    <p class="text-xl text-gray-800 dark:text-gray-200">
-      The best way to reach me is via email at <a href={`mailto:${siteConfig.email}`} class="font-semibold" data-contact-link>{siteConfig.email}</a>.
-    </p>
+  {/* No width caps of its own: PageLayout's centered post column sets the
+      measure, so this short page lines up with posts instead of sitting in a
+      narrow strip on the left. */}
+  <p class="text-xl text-gray-800 dark:text-gray-200">
+    The best way to reach me is via email at <a href={`mailto:${siteConfig.email}`} class="font-semibold" data-contact-link>{siteConfig.email}</a>.
+  </p>
 
-    <div class="not-prose font-sans flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 mb-10">
-      <button
-        type="button"
-        class="contact-copy hidden print:!hidden items-center gap-2 min-h-11 px-4 rounded-md bg-primary hover:bg-primary-600 text-white text-sm font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer"
-        data-copy={siteConfig.email}
-      >
-        <span class="contact-copy-icon inline-flex"><Icon name="copy" /></span>
-        <span class="contact-copy-done hidden"><Icon name="check" /></span>
-        <span class="contact-copy-label">Copy address</span>
-      </button>
-      <span class="sr-only" role="status" aria-live="polite" data-contact-copy-status></span>
-      {vcard && (
-        <a href={vcard.url} data-contact-link class="inline-flex items-center gap-2 min-h-11 text-sm font-medium !text-primary-800 dark:!text-primary-300 underline-offset-4">
-          <Icon name={vcard.icon} />
-          <span>{vcard.name} <span class="text-gray-600 dark:text-gray-400 font-normal">(vCard)</span></span>
-        </a>
-      )}
-    </div>
-
-    <p>I'm also <code>@{siteConfig.socialUsername}</code> most places online:</p>
-
-    <ul class="not-prose font-sans list-none p-0 m-0 max-w-sm divide-y divide-gray-200 dark:divide-gray-700 border-y border-gray-200 dark:border-gray-700">
-      {networks.map((link) => (
-        <li class="p-0">
-          <a href={link.url} rel="me" data-contact-link class="group flex items-center gap-3 min-h-11 py-2 !no-underline">
-            <span class="text-gray-600 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
-              <Icon name={link.icon} size="1.125rem" />
-            </span>
-            <span class="font-medium text-primary-800 dark:text-primary-300 group-hover:underline underline-offset-4">{link.name}</span>
-            <span class="ml-auto text-sm text-gray-600 dark:text-gray-400">{link.handle}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-
-    <p class="not-prose font-sans mt-10 text-sm text-gray-600 dark:text-gray-400">
-      <a href="/key.asc" class="group inline-flex flex-col min-h-11 justify-center !no-underline">
-        <span class="font-medium text-primary-800 dark:text-primary-300 group-hover:underline underline-offset-4">PGP key</span>
-        <code class="text-xs text-gray-700 dark:text-gray-300 tracking-wide">
-          <span class="whitespace-nowrap">{pgpHalves[0]}</span> <span class="whitespace-nowrap">{pgpHalves[1]}</span>
-        </code>
+  <div class="not-prose font-sans flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 mb-10">
+    <button
+      type="button"
+      class="contact-copy btn btn-primary hidden print:!hidden"
+      data-copy={siteConfig.email}
+    >
+      <span class="contact-copy-icon inline-flex"><Icon name="copy" /></span>
+      <span class="contact-copy-done hidden"><Icon name="check" /></span>
+      <span class="contact-copy-label">Copy address</span>
+    </button>
+    <span class="sr-only" role="status" aria-live="polite" data-contact-copy-status></span>
+    {vcard && (
+      <a href={vcard.url} data-contact-link class="inline-flex items-center gap-2 min-h-11 text-sm font-medium !text-primary-800 dark:!text-primary-300 underline-offset-4">
+        <Icon name={vcard.icon} />
+        <span>{vcard.name} <span class="text-gray-600 dark:text-gray-400 font-normal">(vCard)</span></span>
       </a>
-    </p>
+    )}
   </div>
+
+  <p>I'm also <code>@{siteConfig.socialUsername}</code> most places online:</p>
+
+  <ul class="not-prose font-sans list-none p-0 m-0 divide-y divide-gray-200 dark:divide-gray-700 border-y border-gray-200 dark:border-gray-700">
+    {networks.map((link) => (
+      <li class="p-0">
+        <a href={link.url} rel="me" data-contact-link class="group flex items-center gap-3 min-h-11 py-2 !no-underline">
+          <span class="text-gray-600 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
+            <Icon name={link.icon} size="1.125rem" />
+          </span>
+          <span class="font-medium text-primary-800 dark:text-primary-300 group-hover:underline underline-offset-4">{link.name}</span>
+          <span class="ml-auto text-sm text-gray-600 dark:text-gray-400">{link.handle}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <p class="not-prose font-sans mt-10 text-sm text-gray-600 dark:text-gray-400">
+    <a href="/key.asc" class="group inline-flex flex-col min-h-11 justify-center !no-underline">
+      <span class="font-medium text-primary-800 dark:text-primary-300 group-hover:underline underline-offset-4">PGP key</span>
+      <code class="text-xs text-gray-700 dark:text-gray-300 tracking-wide">
+        <span class="whitespace-nowrap">{pgpHalves[0]}</span> <span class="whitespace-nowrap">{pgpHalves[1]}</span>
+      </code>
+    </a>
+  </p>
 </PageLayout>
 
 <script>

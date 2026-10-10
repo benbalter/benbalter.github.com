@@ -914,6 +914,30 @@
  * ============================================================================ */
 
 @layer components {
+  /* Page-level actions (About, Contact, résumé downloads). One definition so
+     the three pages stop drifting apart in radius, size, and dark-mode blue.
+     Pair with `.btn`, which opts the link out of content-link underlines.
+     Inside `.prose`, wrap them in `not-prose`: the typography plugin's link
+     color lives in the utilities layer and would beat these. */
+  .btn-primary,
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-4;
+    @apply font-sans text-sm font-semibold leading-none no-underline cursor-pointer;
+    /* A 1px press-down gives touch users feedback that the tap registered. */
+    @apply transition-[color,background-color,border-color,transform] duration-200 motion-safe:active:translate-y-px;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .btn-primary {
+    @apply border-primary bg-primary text-white hover:border-primary-700 hover:bg-primary-700;
+    @apply dark:border-primary-300 dark:bg-primary-300 dark:text-gray-900 dark:hover:border-primary-200 dark:hover:bg-primary-200;
+  }
+
+  .btn-secondary {
+    @apply border-gray-300 bg-transparent text-gray-900 hover:border-primary hover:text-primary-700;
+    @apply dark:border-gray-600 dark:text-gray-100 dark:hover:border-primary-300 dark:hover:text-primary-300;
+  }
+
   /* Pause/play toggle for autoplaying GIF-stand-in videos (src/scripts/gif-video.ts) */
   .gif-video {
     @apply relative;

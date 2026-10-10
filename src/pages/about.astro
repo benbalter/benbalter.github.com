@@ -39,35 +39,34 @@ const networks = ['LinkedIn', 'Bluesky', 'GitHub']
 // Same-origin copy (built by script/build-headshots), so `download` works.
 const headshotUrl = '/assets/img/headshot.jpg';
 
-const actionClass = 'inline-flex min-h-[44px] items-center justify-center rounded-lg px-4 text-sm font-semibold no-underline transition-colors duration-200';
 ---
 
 <PageLayout title={title} description={description}>
   {/* Above the fold: who Ben is, in a form a recruiter can scan in seconds.
-      The photo sits beside the summary at every width (small on phones)
-      rather than floating into the bio, which crushed the text column. */}
-  <section aria-label="Summary" class="not-prose font-sans flex items-start gap-4 sm:gap-8 mb-8">
+      The headline is the h1 (the nav already names Ben, so "About Ben
+      Balter" stays in <title> only). On phones the photo shrinks to an
+      avatar beside the headline and the facts run full width below it;
+      from sm up it spans the whole summary. It's in the header slot, outside
+      `.prose`, so it keeps Inter's own leading and numerals. */}
+  <header slot="header" class="font-sans grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 sm:gap-x-8 items-start mb-10">
+    <h1 class="col-start-1 row-start-1 m-0 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-gray-100 text-balance">
+      Product leader in trust and safety, platform security, and developer platforms
+    </h1>
+
     <Image
       src={headshotImage}
       alt={`${siteConfig.author} headshot`}
-      width={200}
-      height={200}
-      widths={[88, 176, 200, 400]}
-      sizes="(min-width: 640px) 200px, 88px"
+      width={176}
+      height={176}
+      widths={[72, 144, 176, 352]}
+      sizes="(min-width: 640px) 176px, 72px"
       loading="eager"
       fetchpriority="high"
-      class="order-last w-[88px] shrink-0 rounded-lg sm:w-[200px]"
+      class="col-start-2 row-start-1 w-[72px] shrink-0 rounded-lg sm:row-span-3 sm:w-[176px]"
     />
 
-    <div class="min-w-0 flex-1">
-      <p class="text-lg sm:text-xl font-semibold leading-snug text-gray-900 dark:text-gray-100 m-0 text-balance">
-        Product leader in trust and safety, platform security, and developer platforms.
-      </p>
-      <p class="mt-2 text-gray-700 dark:text-gray-300 m-0">
-        A decade at GitHub, an attorney before that, and the author of <cite class="not-italic">Open and Async</cite>.
-      </p>
-
-      <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm m-0">
+    <div class="col-span-2 sm:col-span-1 min-w-0">
+      <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm leading-normal m-0">
         <div>
           <dt class="font-medium text-gray-600 dark:text-gray-400">Most recently</dt>
           <dd class="m-0 text-gray-900 dark:text-gray-100">Director at GitHub, owning the internal platform its 4,000+ employees run on</dd>
@@ -88,19 +87,17 @@ const actionClass = 'inline-flex min-h-[44px] items-center justify-center rounde
         </div>
       </dl>
 
-      <div class="mt-5 flex flex-wrap gap-3">
-        <a href="/resume/" class:list={[actionClass, 'btn bg-primary text-white hover:bg-primary-700 dark:bg-primary-300 dark:text-gray-900 dark:hover:bg-primary-200']}>View resume</a>
-        <a href="#contact" class:list={[actionClass, 'btn border border-gray-300 text-gray-900 hover:border-primary hover:text-primary dark:border-gray-600 dark:text-gray-100 dark:hover:border-primary-300 dark:hover:text-primary-300']}>Get in touch</a>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/resume/" class="btn btn-primary">View resume</a>
+        <a href="#contact" class="btn btn-secondary">Get in touch</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  {/* One reading column for the whole bio, at the site's post measure. */}
-  <div class="max-w-prose">
-    {bioParagraphs.map((para: string) => (
-      <p set:html={para}></p>
-    ))}
-  </div>
+  {/* The bio fills PageLayout's column, which is the site's post measure. */}
+  {bioParagraphs.map((para: string) => (
+    <p set:html={para}></p>
+  ))}
 
   <section aria-labelledby="start-here" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
     <h2 id="start-here" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Start here</h2>
@@ -114,7 +111,7 @@ const actionClass = 'inline-flex min-h-[44px] items-center justify-center rounde
       ))}
     </ul>
     <p class="mt-5 mb-0">
-      <a href="/posts/" class:list={[actionClass, 'btn border border-primary text-primary hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900']}>All posts →</a>
+      <a href="/posts/" class="btn btn-secondary">All posts →</a>
     </p>
   </section>
 

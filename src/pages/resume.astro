@@ -98,7 +98,7 @@ const resumeSchema = generateResumeSchema({
     <ul class="resume-downloads" aria-label="Download the résumé">
       {downloads.map((d) => (
         <li>
-          <a href={d.href} download={d.file} class:list={['btn', 'resume-download', { 'resume-download-primary': d.primary }]}>
+          <a href={d.href} download={d.file} class:list={['btn', d.primary ? 'btn-primary' : 'btn-secondary']}>
             <Icon name="download" size="1.1em" />
             <span><span class="sr-only">Download as </span>{d.label}</span>
           </a>
@@ -249,10 +249,10 @@ const resumeSchema = generateResumeSchema({
         The same résumé as a file to forward, or reach me at
         <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
       </p>
-      <ul class="resume-downloads" aria-label="Download the résumé">
+      <ul class="resume-downloads not-prose" aria-label="Download the résumé">
         {downloads.map((d) => (
           <li>
-            <a href={d.href} download={d.file} class:list={['btn', 'resume-download', { 'resume-download-primary': d.primary }]}>
+            <a href={d.href} download={d.file} class:list={['btn', d.primary ? 'btn-primary' : 'btn-secondary']}>
               <Icon name="download" size="1.1em" />
               <span><span class="sr-only">Download as </span>{d.label}</span>
             </a>
@@ -289,9 +289,10 @@ const resumeSchema = generateResumeSchema({
   /* ============================================================
    * Masthead: who, what kind of hire, how to reach, what to take
    * ============================================================ */
+  /* Width and top spacing come from PageLayout's post-width column, so the
+     name lines up with every other page's title. */
   .resume-masthead {
-    max-width: 44rem;
-    margin: 1.5rem 0 2.5rem;
+    margin: 0 0 2.5rem;
   }
 
   .resume-name {
@@ -352,46 +353,6 @@ const resumeSchema = generateResumeSchema({
   .resume-downloads li {
     margin: 0;
     padding: 0;
-  }
-
-  .resume-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 44px;
-    padding: 0 0.85rem;
-    border: 1px solid var(--color-gray-300);
-    border-radius: 0.5rem;
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--color-gray-800);
-    background-color: var(--color-white, #fff);
-    text-decoration: none;
-    transition: border-color 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
-  }
-
-  .resume-download:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary-700);
-  }
-
-  .resume-download-primary {
-    border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: #fff;
-  }
-
-  .resume-download-primary:hover {
-    border-color: var(--color-primary-600);
-    background-color: var(--color-primary-600);
-    color: #fff;
-  }
-
-  .resume-download:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
   }
 
   /* ============================================================
@@ -767,29 +728,6 @@ const resumeSchema = generateResumeSchema({
       color: var(--color-primary-300);
     }
 
-    .resume-download {
-      border-color: var(--color-gray-600);
-      background-color: var(--color-gray-800);
-      color: var(--color-gray-100);
-    }
-
-    .resume-download:hover {
-      border-color: var(--color-primary-300);
-      color: var(--color-primary-200);
-    }
-
-    .resume-download-primary {
-      border-color: var(--color-primary-600);
-      background-color: var(--color-primary-600);
-      color: #fff;
-    }
-
-    .resume-download-primary:hover {
-      border-color: var(--color-primary-700);
-      background-color: var(--color-primary-700);
-      color: #fff;
-    }
-
     .resume-closing p a {
       color: var(--color-primary-300);
     }
@@ -806,8 +744,7 @@ const resumeSchema = generateResumeSchema({
 
   @media (prefers-reduced-motion: reduce) {
     .role-summary :global(.role-chevron),
-    .role-title,
-    .resume-download {
+    .role-title {
       transition: none;
     }
   }
@@ -816,6 +753,13 @@ const resumeSchema = generateResumeSchema({
    * Mobile
    * ============================================================ */
   @media (max-width: 640px) {
+    /* Location on its own short line, then the three links in one row of
+       44px targets, instead of two rows that read as unrelated pairs. */
+    .resume-contact > span {
+      flex-basis: 100%;
+      padding-top: 0.25rem;
+    }
+
     .role-summary {
       flex-wrap: wrap;
       row-gap: 0.1rem;

@@ -36,14 +36,19 @@ const {
   robots={robots}
   suppressPersonSchema={suppressPersonSchema}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  {/* Same centered 42rem column as PostLayout, so moving from a post to a
+      page doesn't shift the text sideways or change its measure. The top
+      padding stands in for the breadcrumbs that space a post's title. */}
+  <div class="max-w-[42rem] mx-auto px-4 pt-4 md:pt-14">
     <div>
       <article data-pagefind-body>
-        {/* A page can replace the default title header (e.g. the résumé leads with the person's name). */}
+        {/* A page can replace the default title header (e.g. the résumé leads
+            with the person's name). It sits outside `.prose`, so it doesn't
+            inherit the post body's serif, leading, or old-style numerals. */}
         {Astro.slots.has('header') ? (
           <slot name="header" />
         ) : (
-          <header class="mb-6">
+          <header class="mb-8">
             <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
           </header>
         )}

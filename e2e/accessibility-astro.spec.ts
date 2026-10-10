@@ -428,13 +428,15 @@ test.describe('Responsive Accessibility', () => {
 });
 
 test.describe('Accessibility - Additional Pages', () => {
-  const pages = [
-    { path: '/about/', name: 'About' },
+  // About leads with Ben's headline rather than repeating the nav's "About
+  // Ben Balter", so its h1 is checked against that instead of the page name.
+  const pages: { path: string; name: string; h1?: RegExp }[] = [
+    { path: '/about/', name: 'About', h1: /^product leader/i },
     { path: '/contact/', name: 'Contact' },
     { path: '/resume/', name: 'Resume' },
   ];
-  
-  pages.forEach(({ path, name }) => {
+
+  pages.forEach(({ path, name, h1 }) => {
     test(`${name} page should not have accessibility violations`, async ({ page }) => {
       await page.goto(path);
       
@@ -456,6 +458,10 @@ test.describe('Accessibility - Additional Pages', () => {
       const rawH1Text = (await page.locator('h1').textContent()) || '';
       const normalizedH1 = rawH1Text.trim().toLowerCase();
       const normalizedName = name.trim().toLowerCase();
+      if (h1) {
+        expect(normalizedH1).toMatch(h1);
+        return;
+      }
       expect(
         normalizedH1.includes(normalizedName) || normalizedName.includes(normalizedH1)
       ).toBeTruthy();
