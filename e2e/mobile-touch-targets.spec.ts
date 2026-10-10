@@ -140,6 +140,28 @@ test.describe('Mobile Touch Targets', () => {
     await context.close();
   });
 
+  test('hero unit should be smaller on mobile', async ({ browser }) => {
+    const context = await browser.newContext({ ...devices['iPhone 12'] });
+    const page = await context.newPage();
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    const hero = page.locator('.hero-unit');
+    
+    if (await hero.count() > 0) {
+      const box = await hero.boundingBox();
+      if (box) {
+        // Should be around 180px on mobile (smaller than desktop 256px)
+        expect(box.height).toBeLessThanOrEqual(200); // Allow small tolerance
+        expect(box.height).toBeGreaterThanOrEqual(150);
+        console.log(`Hero height on mobile: ${box.height}px`);
+      }
+    }
+    
+    await context.close();
+  });
+
   test('links should have thicker underlines on mobile', async ({ browser }) => {
     const context = await browser.newContext({ ...devices['iPhone 12'] });
     const page = await context.newPage();

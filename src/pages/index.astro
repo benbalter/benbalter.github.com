@@ -34,7 +34,7 @@ const featuredPosts = nonPopularPosts.slice(0, 3);
 const regularPosts = nonPopularPosts.slice(3);
 ---
 
-<BaseLayout description={description}>
+<BaseLayout description={description} hero={true}>
   {/* Visible intro: most visitors arrive from a post knowing nothing about who
       wrote it, and recruiters land here to size Ben up. The sentence is the
       About bio's first line, so it stays in sync with src/content/about-bio.ts. */}

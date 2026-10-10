@@ -9,10 +9,16 @@
 
 import { siteConfig } from '../config';
 
+interface Props {
+  hero?: boolean;
+}
+
 interface NavItem {
   title: string;
   url: string;
 }
+
+const { hero = false } = Astro.props;
 
 // Define navigation items (matching Jekyll's nav_pages)
 const navItems: NavItem[] = [
@@ -34,10 +40,15 @@ function isNavActive(itemUrl: string): boolean {
 // Base classes for navbar
 const baseClasses = "navbar flex flex-wrap items-center justify-between py-3 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4 max-md:mb-2";
 
-const navClasses = `${baseClasses} rounded-lg`;
+// Conditionally add rounded classes based on hero presence
+// For hero pages: round only bottom corners (top-left and top-right are 0)
+// For non-hero pages: round all corners
+const navClasses = hero 
+  ? `${baseClasses} rounded-t-none rounded-b-lg border-t-0`
+  : `${baseClasses} rounded-lg`;
 ---
 
-<nav class={navClasses} aria-label="Main navigation">
+<nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">

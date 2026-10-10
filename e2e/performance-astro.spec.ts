@@ -235,6 +235,18 @@ test.describe('Resource Performance', () => {
       }
     }
   });
+  
+  test('preloads the homepage hero image from the response headers', async ({ request }) => {
+    // The hero is a CSS background found only after the inline CSS is parsed,
+    // so its preload ships as a Link header (public/_headers) that arrives
+    // before any HTML; a <link> tag would sit behind the inline CSS.
+    const home = await request.get('/');
+    expect(home.headers()['link']).toContain('</assets/img/header.avif>; rel="preload"; as="image"');
+
+    // Only the homepage shows the hero, so other pages don't preload it.
+    const about = await request.get('/about/');
+    expect(about.headers()['link'] ?? '').not.toContain('header.avif');
+  });
 });
 
 test.describe('Caching and Optimization', () => {
