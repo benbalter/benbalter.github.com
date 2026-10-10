@@ -65,3 +65,5 @@ engage/
 
 # Impeccable per-machine settings (shared config lives in .impeccable/config.json)
 .impeccable/config.local.json
+# Impeccable critique snapshots: a local archive of runs, not project source
+.impeccable/critique/

@@ -81,5 +81,12 @@ export async function waitForPageReady(page: Page) {
  * (like the acronym tooltip's close-on-scroll) then undo the interaction.
  */
 export async function scrollIntoViewInstantly(locator: Locator) {
-  await locator.evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  await locator.evaluate(async (el) => {
+    el.scrollIntoView({ block: 'center', behavior: 'instant' });
+    // The scroll event still fires on a later frame; let it pass before the
+    // test interacts, or it closes whatever the interaction opens.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
+  });
 }

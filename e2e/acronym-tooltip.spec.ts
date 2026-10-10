@@ -153,6 +153,7 @@ test.describe('Acronym Tooltip', () => {
 
     // Focusing the element reveals the tooltip (tooltip pattern shows on
     // hover AND keyboard focus).
+    await scrollIntoViewInstantly(acronym);
     await acronym.focus();
 
     // Check tooltip is visible and the description is associated via ARIA.
@@ -176,6 +177,7 @@ test.describe('Acronym Tooltip', () => {
     await expect(acronym).toBeVisible();
 
     // Focusing reveals the tooltip; Space then toggles it.
+    await scrollIntoViewInstantly(acronym);
     await acronym.focus();
     const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
     await expect(tooltip).toBeVisible({ timeout: 1000 });
