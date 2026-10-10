@@ -3,6 +3,7 @@ employer: GitHub
 title: Director of Hubber (Employee) Enablement, Office of the COO
 start_date: '2024-07-08'
 end_date: '2026-07-03'
+expanded: true
 ---
 
 Product owner for GitHub's internal employee platform: the knowledge base, onboarding, and enablement tooling 4,000+ Hubbers use to get work done. Led a team of six across product, engineering, and content.

@@ -23,10 +23,6 @@ import bookCover from '../../assets/img/open-and-async-cover-left.webp';
 // The Open and Async position shows the book's cover inline (see loop below).
 const BOOK_POSITION_ID = 'owner';
 
-// How many of the most recent roles render expanded. The rest collapse to a
-// one-line title and date row so the whole career fits on a screen or two.
-const OPEN_ROLE_COUNT = 2;
-
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
 if (!resumePage) {
@@ -41,7 +37,6 @@ const writing = resolveResumeWriting(await getPublishedPosts());
 // Load positions (sorted + grouped by employer, pre-rendered) from the shared
 // util so the web resume and the /resume/print PDF source can't drift.
 const { sorted: sortedPositions, grouped: groupedPositions } = await getResumePositions();
-const openRoleIds = new Set(sortedPositions.slice(0, OPEN_ROLE_COUNT).map((p) => p.id));
 
 // "Feb 2016": short enough to sit on the same line as a role title on a phone.
 const shortDate = (value: string | undefined) => {
@@ -134,9 +129,9 @@ const resumeSchema = generateResumeSchema({
           <ul class="role-ladder">
             {group.positions.map((position) => (
               <li>
-                <details class="role" open={openRoleIds.has(position.id)}>
+                <details class="role" open={position.data.expanded === true} id={`role-${position.id}`}>
                   <summary class="role-summary">
-                    <span class="role-title">{position.data.title}</span>
+                    <h4 class="role-title">{position.data.title}</h4>
                     <span class="role-dates">
                       {shortDate(position.data.start_date)}–{shortDate(position.data.end_date)}
                     </span>
@@ -183,7 +178,7 @@ const resumeSchema = generateResumeSchema({
           {skills.map((group: { group: string; items: string[] }) => (
             <div class="skill-row">
               <dt>{group.group}</dt>
-              <dd>{group.items.join(', ')}</dd>
+              <dd>{group.items.join(' · ')}</dd>
             </div>
           ))}
         </dl>
@@ -249,7 +244,7 @@ const resumeSchema = generateResumeSchema({
         The same résumé as a file to forward, or reach me at
         <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
       </p>
-      <ul class="resume-downloads not-prose" aria-label="Download the résumé">
+      <ul class="resume-downloads not-prose" aria-labelledby="get-a-copy">
         {downloads.map((d) => (
           <li>
             <a href={d.href} download={d.file} class:list={['btn', d.primary ? 'btn-primary' : 'btn-secondary']}>
@@ -358,9 +353,13 @@ const resumeSchema = generateResumeSchema({
   /* ============================================================
    * Body column: Inter at a ~70-character measure
    * ============================================================ */
+  /* 1rem body under the page's prose-lg (18px), so role and section titles
+     outrank the bullets beneath them; the summary leads at a step above. */
   .resume {
     max-width: 42rem;
     font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
     hyphens: manual;
   }
 
@@ -371,7 +370,7 @@ const resumeSchema = generateResumeSchema({
 
   .resume-summary {
     margin: 0 0 0.5rem;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.65;
     color: var(--color-gray-800);
   }
@@ -383,7 +382,7 @@ const resumeSchema = generateResumeSchema({
   .resume-section h2,
   .resume-closing h2 {
     margin: 0 0 0.85rem;
-    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: -0.015em;
@@ -421,7 +420,7 @@ const resumeSchema = generateResumeSchema({
     margin: 0;
     padding-bottom: 0.35rem;
     border-bottom: 1px solid var(--color-gray-300);
-    font-size: 1.1875rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.35;
     color: var(--color-gray-900);
@@ -464,10 +463,14 @@ const resumeSchema = generateResumeSchema({
     display: none;
   }
 
+  /* An h4 inside <summary> (allowed by the content model), so role titles
+     appear in heading navigation under their employer's h3. */
   .role-title {
     flex: 1;
-    font-size: 1rem;
+    margin: 0;
+    font-size: 1.0625rem;
     font-weight: 600;
+    letter-spacing: normal;
     line-height: 1.35;
     color: var(--color-gray-900);
     transition: color 150ms ease-out;
@@ -559,6 +562,7 @@ const resumeSchema = generateResumeSchema({
   .skill-row {
     display: grid;
     grid-template-columns: 9.5rem 1fr;
+    align-items: baseline;
     gap: 0.25rem 1rem;
     padding: 0.5rem 0;
     border-top: 1px solid var(--color-gray-200);
@@ -570,6 +574,7 @@ const resumeSchema = generateResumeSchema({
   }
 
   .skill-row dt {
+    margin: 0;
     font-weight: 600;
     color: var(--color-gray-900);
   }

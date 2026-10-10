@@ -84,7 +84,10 @@ const contact = [
   </head>
   <body class="rp">
     <!-- ================= Sidebar (navy column) ================= -->
-    <aside class="rp-side">
+    {/* A div, not <aside>: PDF tagging maps <aside> to a non-standard "Aside"
+        structure type that strict readers drop, taking the name (the only H1)
+        and the sidebar headings with it. */}
+    <div class="rp-side">
       <header class="rp-id">
         <h1 class="rp-name">Ben Balter</h1>
         <p class="rp-role">{RESUME_HEADLINE}</p>
@@ -135,7 +138,7 @@ const contact = [
           ))}
         </section>
       )}
-    </aside>
+    </div>
 
     <!-- ================= Main column (flows across pages) ================= -->
     <div class="rp-main">
@@ -408,7 +411,16 @@ const contact = [
      0.5in side padding sets the full-width margins on pages 2+; on page 1 the
      sidebar's width + gutter already inset the text further. */
   .rp-main {
-    padding: 0.02in 0.5in 0.2in;
+    padding: 0.02in 0.5in 0;
+  }
+
+  /* No trailing space after the last role: any leftover margin or padding
+     at the end of page 2 spilled into a blank third page. */
+  .rp-main-section:last-child,
+  .rp-emp:last-child,
+  .rp-pos:last-child,
+  .rp-pos:last-child .pos-content > :last-child {
+    margin-bottom: 0;
   }
 
   /* Lora from a static (non-variable) file: Chromium embeds a variable font
@@ -460,6 +472,12 @@ const contact = [
     margin-bottom: 4pt;
   }
 
+  /* A role with two or fewer bullets stays on one sheet: split one-and-one,
+     the second page opened on a bullet with no title above it. */
+  .rp-pos:not(:has(li:nth-child(3))) {
+    break-inside: avoid;
+  }
+
   /* Roles may split across sheets (keeping them whole left a quarter of page 1
      empty), but never strand a lone bullet line at either side of the break. */
   .pos-content li {
@@ -477,7 +495,8 @@ const contact = [
   }
 
   .rp-pos-title {
-    text-wrap: balance;
+    /* pretty, not balance: balance split "Hubber (Employee) / Enablement". */
+    text-wrap: pretty;
     font-size: 10pt;
     font-weight: 600;
     color: var(--color-gray-900);

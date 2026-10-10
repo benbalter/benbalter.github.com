@@ -150,6 +150,10 @@ const resumePositionsCollection = defineCollection({
     // to hold the sheet to two pages. Every other surface shows them all, so
     // order a role's bullets strongest first.
     print_bullets: z.number().int().min(1).max(4).optional(),
+    // On the web résumé (/resume/), render this role expanded. Pick the roles
+    // that prove the headline, not just the newest; the rest collapse to a
+    // title-and-dates row.
+    expanded: z.boolean().optional(),
   }),
 });
 
