@@ -77,12 +77,18 @@ async function triggerLazyImages(page: Page): Promise<void> {
     }
     window.scrollTo(0, 0);
   });
-  // Let any newly-requested images finish loading before we measure.
+  // Let any newly-requested images finish loading before we measure. A lazy
+  // image the scroll pass skipped past (one frame per screen is too quick for
+  // Chrome's lazy-load observer on tall phone layouts) never starts loading,
+  // and decode() on it waits forever, so promote stragglers to eager first.
   await page.evaluate(() =>
     Promise.all(
       Array.from(document.images)
         .filter((i) => !i.complete)
-        .map((i) => i.decode().catch(() => undefined)),
+        .map((i) => {
+          i.loading = 'eager';
+          return i.decode().catch(() => undefined);
+        }),
     ),
   );
 }
