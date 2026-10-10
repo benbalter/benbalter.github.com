@@ -1,23 +1,31 @@
 ---
 /**
  * Resume Page
- * 
- * Displays Ben Balter's professional experience, education, and certifications.
- * Uses Astro content collections for consistent markdown rendering.
+ *
+ * The web résumé, built for a 30-second scan: name, headline, contact, and
+ * downloads first; then the summary and highlights; then a compact role ladder
+ * whose older roles expand on demand (native <details>, no JS). Every role's
+ * full text stays in the HTML, so find-in-page, search engines, and the
+ * Markdown/Word/PDF exports (built from the same sources) see all of it.
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
+import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
-import { formatResumeDate } from '../utils/post-urls';
+import { siteConfig } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { getResumePositions } from '../utils/resume-data';
+import { RESUME_HEADLINE, getResumePositions } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 import bookCover from '../../assets/img/open-and-async-cover-left.webp';
 
 // The Open and Async position shows the book's cover inline (see loop below).
 const BOOK_POSITION_ID = 'owner';
+
+// How many of the most recent roles render expanded. The rest collapse to a
+// one-line title and date row so the whole career fits on a screen or two.
+const OPEN_ROLE_COUNT = 2;
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -31,8 +39,37 @@ const { title, description, robots, degrees, certifications, skills, summary, hi
 const writing = resolveResumeWriting(await getPublishedPosts());
 
 // Load positions (sorted + grouped by employer, pre-rendered) from the shared
-// util so the web resume and the /resume-print PDF source can't drift.
+// util so the web resume and the /resume/print PDF source can't drift.
 const { sorted: sortedPositions, grouped: groupedPositions } = await getResumePositions();
+const openRoleIds = new Set(sortedPositions.slice(0, OPEN_ROLE_COUNT).map((p) => p.id));
+
+// "Feb 2016": short enough to sit on the same line as a role title on a phone.
+const shortDate = (value: string | undefined) => {
+  if (!value) return 'Present';
+  const date = new Date(value);
+  return isNaN(date.getTime())
+    ? 'Unknown'
+    : date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+};
+const year = (value: string) => new Date(value).getUTCFullYear();
+
+// Tenure per employer ("2013–2026"), so the GitHub progression reads at a glance.
+const tenure = (positions: CollectionEntry<'resume-positions'>[]) => {
+  const start = Math.min(...positions.map((p) => year(p.data.start_date)));
+  const ends = positions.map((p) => p.data.end_date);
+  const end = ends.some((e) => !e) ? 'Present' : String(Math.max(...ends.map((e) => year(e!))));
+  return String(start) === end ? end : `${start}–${end}`;
+};
+
+type Cert = { authority: string; name: string; url?: string; expired?: boolean; category?: string };
+const professionalCerts = (certifications ?? []).filter((c: Cert) => (c.category ?? 'professional') === 'professional');
+const personalCerts = (certifications ?? []).filter((c: Cert) => c.category === 'personal');
+
+const downloads = [
+  { href: '/resume.pdf', file: 'ben-balter-resume.pdf', label: 'PDF', primary: true },
+  { href: '/resume.docx', file: 'ben-balter-resume.docx', label: 'Word', primary: false },
+  { href: '/resume.md', file: 'ben-balter-resume.md', label: 'Markdown', primary: false },
+];
 
 // Generate resume structured data (JSON-LD)
 const resumeSchema = generateResumeSchema({
@@ -48,812 +85,803 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
-  <header class="print-header">
-    <p class="print-name">Ben Balter</p>
-    <p class="print-title">Product Leader: Trust &amp; Safety, Platform Security, Developer Platforms</p>
-    <p class="print-contact">
-      Washington, DC
-      <span aria-hidden="true"> · </span>
-      <a href="mailto:ben@balter.com">ben@balter.com</a>
-      <span aria-hidden="true"> · </span>
-      <a href="https://ben.balter.com">ben.balter.com</a>
-      <span aria-hidden="true"> · </span>
-      <a href="https://github.com/benbalter">github.com/benbalter</a>
-      <span aria-hidden="true"> · </span>
-      <a href="https://www.linkedin.com/in/benbalter/">linkedin.com/in/benbalter</a>
+  <header slot="header" class="resume-masthead">
+    <h1 class="resume-name">{siteConfig.author}<span class="sr-only">: {title}</span></h1>
+    <p class="resume-headline">{RESUME_HEADLINE}</p>
+    <p class="resume-contact">
+      <span>Washington, DC</span>
+      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      <a href="https://www.linkedin.com/in/benbalter/" rel="me">LinkedIn</a>
+      <a href="https://github.com/benbalter" rel="me">GitHub</a>
+      <a class="print-only" href="https://ben.balter.com">ben.balter.com</a>
     </p>
+    <ul class="resume-downloads" aria-label="Download the résumé">
+      {downloads.map((d) => (
+        <li>
+          <a href={d.href} download={d.file} class:list={['btn', 'resume-download', { 'resume-download-primary': d.primary }]}>
+            <Icon name="download" size="1.1em" />
+            <span><span class="sr-only">Download as </span>{d.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </header>
 
-  {summary && (
-    <section class="resume-section resume-summary">
-      <p class="summary-text">{summary}</p>
-      <p class="resume-contact">
-        Washington, DC
-        <span aria-hidden="true"> · </span>
-        <a href="mailto:ben@balter.com">ben@balter.com</a>
-      </p>
-      <p class="resume-aux">
-        Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> and <a href="https://github.com/benbalter" target="_blank" rel="me noopener noreferrer">GitHub</a>.
-        Download as <a href="/resume.pdf" download="ben-balter-resume.pdf">PDF</a>, <a href="/resume.docx" download="ben-balter-resume.docx">Word</a>, or <a href="/resume.md" download="ben-balter-resume.md">Markdown</a>.
-      </p>
+  <div class="resume">
+    {summary && <p class="resume-summary">{summary}</p>}
+
+    {highlights && highlights.length > 0 && (
+      <section class="resume-section" aria-labelledby="highlights">
+        <h2 id="highlights">Highlights</h2>
+        <ul class="highlight-list">
+          {highlights.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="resume-section" aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+
+      {groupedPositions.map((group) => (
+        <div class="employer-group">
+          <h3 class="employer-name">
+            {group.employer}
+            <span class="employer-tenure">{tenure(group.positions)}</span>
+          </h3>
+
+          <ul class="role-ladder">
+            {group.positions.map((position) => (
+              <li>
+                <details class="role" open={openRoleIds.has(position.id)}>
+                  <summary class="role-summary">
+                    <span class="role-title">{position.data.title}</span>
+                    <span class="role-dates">
+                      {shortDate(position.data.start_date)}–{shortDate(position.data.end_date)}
+                    </span>
+                    <Icon name="chevron-down" class="role-chevron" size="1.1em" />
+                  </summary>
+                  <div class:list={['role-body', { 'role-body-with-cover': position.id === BOOK_POSITION_ID }]}>
+                    {position.id === BOOK_POSITION_ID && (
+                      <Image
+                        src={bookCover}
+                        alt="Open and Async book cover"
+                        width={120}
+                        height={147}
+                        densities={[1, 2]}
+                        loading="lazy"
+                        decoding="async"
+                        class="role-cover"
+                      />
+                    )}
+                    <position.Content />
+                  </div>
+                </details>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
-  )}
 
-  {highlights && highlights.length > 0 && (
-    <section class="resume-section">
-      <h2>Highlights</h2>
-      <ul class="highlight-list">
-        {highlights.map((item: string) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </section>
-  )}
+    {writing && writing.length > 0 && (
+      <section class="resume-section" aria-labelledby="writing">
+        <h2 id="writing">Selected writing</h2>
+        <ul class="writing-list" data-link-previews>
+          {writing.map((item) => (
+            <li><a href={item.path}>{item.title}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
 
+    {skills && skills.length > 0 && (
+      <section class="resume-section" aria-labelledby="focus">
+        <h2 id="focus">Areas of focus</h2>
+        <dl class="skills">
+          {skills.map((group: { group: string; items: string[] }) => (
+            <div class="skill-row">
+              <dt>{group.group}</dt>
+              <dd>{group.items.join(', ')}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )}
 
-  <section class="resume-section">
-    <h2>Experience</h2>
-    
-    {groupedPositions.map((group) => (
-      <div class="employer-group">
-        <h3 class="employer-name">{group.employer}</h3>
-        
-        {group.positions.map((position, index) => (
-          <div class:list={["position", { "position-last": index === group.positions.length - 1 }]}>
-            <div class="position-header">
-              <h4 class="position-title">{position.data.title}</h4>
-              <span class="date-badge">
-                {formatResumeDate(position.data.start_date) ?? 'Unknown'}–{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
+    {degrees && degrees.length > 0 && (
+      <section class="resume-section" aria-labelledby="education">
+        <h2 id="education">Education</h2>
+        <ul class="entry-list">
+          {degrees.map((degree: { school: string; degree: string; date: string }) => (
+            <li class="entry">
+              <span class="entry-main">
+                <span class="entry-title">{degree.degree}</span>
+                <span class="entry-detail">{degree.school}</span>
               </span>
-            </div>
-            
-            <div class:list={["position-content", { "position-content-with-cover": position.id === BOOK_POSITION_ID }]}>
-              {position.id === BOOK_POSITION_ID && (
-                <Image
-                  src={bookCover}
-                  alt="Open and Async book cover"
-                  width={120}
-                  height={147}
-                  densities={[1, 2]}
-                  loading="lazy"
-                  decoding="async"
-                  class="position-cover"
-                />
-              )}
-              <position.Content />
-            </div>
-          </div>
-        ))}
-      </div>
-    ))}
-  </section>
-  
-  {skills && skills.length > 0 && (
-    <section class="resume-section">
-      <h2>Areas of focus</h2>
-      <div class="skills-grid">
-        {skills.map((group: { group: string; items: string[] }) => (
-          <div class="skill-group">
-            <h3 class="skill-group-name">{group.group}</h3>
-            <ul class="skill-list">
-              {group.items.map((item: string) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
-  )}
+              <span class="entry-date">{year(degree.date)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
-  {writing && writing.length > 0 && (
-    <section class="resume-section">
-      <h2>Selected writing</h2>
-      <ul class="writing-list" data-link-previews>
-        {writing.map((item) => (
-          <li class="writing-item">
-            <a href={item.path}>{item.title}</a>
-            <span class="writing-year">{item.year}</span>
+    {professionalCerts.length > 0 && (
+      <section class="resume-section" aria-labelledby="certifications">
+        <h2 id="certifications">Certifications</h2>
+        <ul class="entry-list">
+          {professionalCerts.map((cert: Cert) => (
+            <li class="entry">
+              <span class="entry-main">
+                <span class="entry-title">
+                  {cert.url ? (
+                    <a href={cert.url} aria-label={`View ${cert.name} credential`}>{cert.name}</a>
+                  ) : (
+                    cert.name
+                  )}
+                  {cert.expired && (
+                    <span class="cert-expired" title="No longer actively maintained">Expired<span class="sr-only">, no longer actively maintained</span></span>
+                  )}
+                </span>
+                <span class="entry-detail">{cert.authority}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {personalCerts.length > 0 && (
+      <section class="resume-section" aria-labelledby="outside-work">
+        <h2 id="outside-work">Outside work</h2>
+        <ul class="outside-list">
+          {personalCerts.map((cert: Cert) => (
+            <li>{cert.name} <span class="entry-detail">({cert.authority})</span></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="resume-closing" aria-labelledby="get-a-copy">
+      <h2 id="get-a-copy">Get a copy</h2>
+      <p>
+        The same résumé as a file to forward, or reach me at
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+      </p>
+      <ul class="resume-downloads" aria-label="Download the résumé">
+        {downloads.map((d) => (
+          <li>
+            <a href={d.href} download={d.file} class:list={['btn', 'resume-download', { 'resume-download-primary': d.primary }]}>
+              <Icon name="download" size="1.1em" />
+              <span><span class="sr-only">Download as </span>{d.label}</span>
+            </a>
           </li>
         ))}
       </ul>
     </section>
-  )}
-
-  {degrees && degrees.length > 0 && (
-    <section class="resume-section">
-      <h2>Education</h2>
-      
-      {degrees.map((degree: { school: string; degree: string; date: string }) => (
-        <div class="education-item">
-          <div class="education-header">
-            <h3 class="school-name">{degree.school}</h3>
-            <span class="date-badge">{formatResumeDate(degree.date) ?? 'Unknown'}</span>
-          </div>
-          <div class="degree-name">{degree.degree}</div>
-        </div>
-      ))}
-    </section>
-  )}
-  
-  {certifications && certifications.length > 0 && (() => {
-    const professional = certifications.filter((c: { category?: string }) => (c.category ?? 'professional') === 'professional');
-    const personal = certifications.filter((c: { category?: string }) => c.category === 'personal');
-    const renderCert = (cert: { authority: string; name: string; url?: string; expired?: boolean }) => (
-      <div class="certification-item">
-        <div class="certification-header">
-          <span class="certification-authority">{cert.authority}</span>
-          <span class="certification-name">
-            {cert.url ? (
-              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
-            ) : (
-              cert.name
-            )}
-            {cert.expired && (
-              <span class="cert-expired" title="No longer actively maintained">Expired<span class="sr-only">, no longer actively maintained</span></span>
-            )}
-          </span>
-        </div>
-      </div>
-    );
-    return (
-      <section class="resume-section">
-        <h2>Certifications</h2>
-        {professional.length > 0 && (
-          <>
-            <h3 class="cert-group-heading">Professional</h3>
-            {professional.map(renderCert)}
-          </>
-        )}
-        {personal.length > 0 && (
-          <>
-            <h3 class="cert-group-heading">Personal interests</h3>
-            {personal.map(renderCert)}
-          </>
-        )}
-      </section>
-    );
-  })()}
+  </div>
 
   <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
 
   <!-- Hover preview cards for internal post links (Selected writing) -->
   <script>
     import '../scripts/link-previews';
+
+    // Printing the page should print every role, not just the expanded ones.
+    // (The forwardable PDF is built separately from /resume/print/.)
+    window.addEventListener('beforeprint', () => {
+      document.querySelectorAll<HTMLDetailsElement>('.role:not([open])').forEach((role) => {
+        role.open = true;
+        role.dataset.printOpened = '';
+      });
+    });
+    window.addEventListener('afterprint', () => {
+      document.querySelectorAll<HTMLDetailsElement>('.role[data-print-opened]').forEach((role) => {
+        role.open = false;
+        delete role.dataset.printOpened;
+      });
+    });
   </script>
 </PageLayout>
 
 <style>
   /* ============================================================
-   * Resume Sections
+   * Masthead: who, what kind of hire, how to reach, what to take
    * ============================================================ */
-  .resume-section {
-    margin-bottom: 2.5rem;
+  .resume-masthead {
+    max-width: 44rem;
+    margin: 1.5rem 0 2.5rem;
   }
 
-  .resume-summary {
-    padding: 1rem 1.25rem;
-    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 5%, transparent);
-    border-left: 3px solid var(--tw-prose-links, var(--color-primary, #337ab7));
-    border-radius: 0 0.375rem 0.375rem 0;
-  }
-
-  /* Darken link color inside the tinted summary box to meet WCAG AA (4.5:1)
-     on the ~#f5f8fb background — plain primary (#337ab7) is only 4.27:1. */
-  .resume-summary a {
-    color: var(--color-primary-600, #2a6493);
-  }
-
-  /* In dark mode the summary box sits on a dark background, so the light-mode
-     darkening flips to a contrast failure — lighten the links instead (matches
-     the skill/cert dark-mode accent). */
-  @media (prefers-color-scheme: dark) {
-    .resume-summary a {
-      color: var(--color-primary-200, #b3d4f0);
-    }
-  }
-
-  .summary-text {
+  .resume-name {
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: var(--text-display, clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem));
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--color-gray-900);
+  }
+
+  .resume-headline {
+    margin: 0.5rem 0 0;
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-gray-700);
+    text-wrap: balance;
   }
 
   .resume-contact {
-    margin: 0.6rem 0 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-gray-700, #495057);
-  }
-
-  .resume-aux {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1.25rem;
     margin: 0.5rem 0 0;
-    font-size: 0.85rem;
-    color: var(--color-gray-700, #495057);
+    font-size: 0.9375rem;
+    color: var(--color-gray-700);
   }
 
-  /* Book cover floated inline within the Open and Async position (web only,
-     hidden in print, see @media print below). */
-  .position-cover {
-    float: right;
-    width: 100px;
-    height: auto;
-    margin: 0 0 0.75rem 1.25rem;
-    filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.18));
+  .resume-contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--color-primary-700);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    text-underline-offset: 0.2em;
   }
 
-  @media (max-width: 768px) {
-    .position-cover {
-      width: 80px;
-      margin-left: 1rem;
-    }
+  .resume-contact a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .print-only {
+    display: none !important;
+  }
+
+  .resume-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .resume-downloads li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .resume-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0 0.85rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-gray-800);
+    background-color: var(--color-white, #fff);
+    text-decoration: none;
+    transition: border-color 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
+  }
+
+  .resume-download:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-700);
+  }
+
+  .resume-download-primary {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .resume-download-primary:hover {
+    border-color: var(--color-primary-600);
+    background-color: var(--color-primary-600);
+    color: #fff;
+  }
+
+  .resume-download:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* ============================================================
+   * Body column: Inter at a ~70-character measure
+   * ============================================================ */
+  .resume {
+    max-width: 42rem;
+    font-family: var(--font-sans);
+    hyphens: manual;
+  }
+
+  .resume :global(p),
+  .resume :global(li) {
+    hyphens: manual;
+  }
+
+  .resume-summary {
+    margin: 0 0 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-gray-800);
+  }
+
+  .resume-section {
+    margin-top: 2.75rem;
+  }
+
+  .resume-section h2,
+  .resume-closing h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--color-gray-900);
   }
 
   .highlight-list {
-    margin: 1rem 0 0;
-    padding-left: 1.1rem;
+    margin: 0;
+    padding-left: 1.15rem;
   }
 
   .highlight-list li {
-    margin-bottom: 0.4rem;
-    line-height: 1.5;
+    margin: 0 0 0.6rem;
+    padding-left: 0.15rem;
+    line-height: 1.55;
   }
 
   .highlight-list li:last-child {
     margin-bottom: 0;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .skill-group-name {
-    margin: 0 0 0.4rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary-700, #204d6f);
-  }
-
-  .skill-list {
-    margin: 0;
-    padding-left: 1.1rem;
-    font-size: 0.95rem;
-  }
-
-  .skill-list li {
-    margin-bottom: 0.15rem;
-  }
-
-  .cert-group-heading {
-    margin: 1.25rem 0 0.5rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary-700, #204d6f);
-  }
-
-  .cert-group-heading:first-child,
-  .cert-group-heading:first-of-type {
-    margin-top: 0.25rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .skill-group-name,
-    .cert-group-heading {
-      color: var(--color-primary-200, #b3d4f0);
-    }
-
-    .resume-aux,
-    .resume-contact {
-      color: var(--color-gray-400, #adb5bd);
-    }
-  }
-
-  .resume-section h2 {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border-bottom: 2px solid var(--tw-prose-links, var(--color-primary, #337ab7));
-    padding-bottom: 0.5rem;
-  }
-
   /* ============================================================
-   * Employer Groups (Timeline)
+   * Experience: employer, then a ladder of roles
    * ============================================================ */
-  .employer-group {
-    margin-bottom: 2rem;
-    border-left: 3px solid color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 30%, transparent);
-    padding-left: 1.5rem;
-    position: relative;
+  .employer-group + .employer-group {
+    margin-top: 1.75rem;
   }
 
   .employer-name {
-    margin-top: 0;
-  }
-
-  /* ============================================================
-   * Position Entries
-   * ============================================================ */
-  .position {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
-    position: relative;
-  }
-
-  .position.position-last {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-
-  /* Timeline dot */
-  .position-header::before {
-    content: '';
-    position: absolute;
-    left: -1.5rem;
-    top: 0.45rem;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background-color: var(--tw-prose-links, var(--color-primary, #337ab7));
-    transform: translateX(calc(-50% - 1.5px));
-  }
-
-  .position-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-  }
-
-  .position-title {
+    justify-content: space-between;
+    gap: 0 1rem;
     margin: 0;
-    flex: 1;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--color-gray-300);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-gray-900);
   }
 
-  .date-badge {
-    font-size: 0.8rem;
+  .employer-tenure {
+    font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-primary-700, #204d6f);
-    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
-    padding: 0.15rem 0.6rem;
-    border-radius: 9999px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gray-600);
   }
 
-  /* ============================================================
-   * Position Content
-   * ============================================================ */
-  .position-content :global(p) {
-    margin-bottom: 0.5rem;
-  }
-
-  .position-content :global(ul) {
-    margin-top: 0.25rem;
-  }
-
-  /* ============================================================
-   * Education
-   * ============================================================ */
-  .education-item {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
-  }
-
-  .education-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .education-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .school-name {
+  .role-ladder {
     margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .degree-name {
-    margin-top: 0.15rem;
+  .role-ladder > li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .role-ladder > li::marker {
+    content: none;
+  }
+
+  .role-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 44px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .role-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .role-title {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-gray-900);
+    transition: color 150ms ease-out;
+  }
+
+  .role-dates {
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gray-600);
+    white-space: nowrap;
+  }
+
+  .role-summary :global(.role-chevron) {
+    flex-shrink: 0;
+    color: var(--color-gray-600);
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), color 150ms ease-out;
+  }
+
+  .role[open] > .role-summary :global(.role-chevron) {
+    transform: rotate(180deg);
+  }
+
+  .role-summary:hover .role-title,
+  .role-summary:hover :global(.role-chevron) {
+    color: var(--color-primary-700);
+  }
+
+  .role-summary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  .role-body {
+    padding: 0 0 1rem;
+    line-height: 1.6;
+  }
+
+  .role-body :global(p) {
+    margin: 0 0 0.5rem;
+  }
+
+  .role-body :global(ul) {
+    margin: 0.25rem 0 0;
+    padding-left: 1.15rem;
+  }
+
+  .role-body :global(li) {
+    margin: 0 0 0.45rem;
+  }
+
+  .role-body :global(li:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Book cover floated inline within the Open and Async role (web only). */
+  .role-body :global(.role-cover) {
+    float: right;
+    width: 96px;
+    height: auto;
+    margin: 0.25rem 0 0.75rem 1.25rem;
+    filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.18));
+  }
+
+  .role-body-with-cover::after {
+    content: '';
+    display: block;
+    clear: both;
   }
 
   /* ============================================================
-   * Selected Writing
+   * Writing, focus, education, certifications
    * ============================================================ */
   .writing-list {
-    list-style: none;
-    margin: 0.75rem 0 0;
-    padding: 0;
+    margin: 0;
+    padding-left: 1.15rem;
   }
 
-  /* Match the page's date treatment: title left, year right-aligned in a column
-     (like Experience/Education), rather than a bullet with the year trailing. */
-  .writing-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.55rem;
+  .writing-list li {
+    margin: 0 0 0.45rem;
     line-height: 1.5;
   }
 
-  .writing-item:last-child {
-    margin-bottom: 0;
+  .skills {
+    margin: 0;
   }
 
-  .writing-year {
-    flex-shrink: 0;
-    font-size: 0.8rem;
-    font-variant-numeric: tabular-nums;
-    color: var(--color-gray-700, #495057);
+  .skill-row {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.25rem 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--color-gray-200);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .writing-year {
-      color: var(--color-gray-400, #adb5bd);
-    }
+  .skill-row:first-child {
+    border-top: none;
+    padding-top: 0;
   }
 
-  @media print {
-    .writing-list {
-      margin-top: 0.4rem;
-      font-size: 10pt;
-    }
-
-    .writing-item {
-      margin-bottom: 0.15rem;
-      page-break-inside: avoid;
-    }
-
-    .writing-year {
-      color: #555;
-      font-style: italic;
-    }
-
-    /* Don't suffix writing links with their long URLs in print */
-    .writing-item a::after {
-      content: none !important;
-    }
+  .skill-row dt {
+    font-weight: 600;
+    color: var(--color-gray-900);
   }
 
-  /* ============================================================
-   * Certifications
-   * ============================================================ */
-  .certification-item {
-    padding-bottom: 0.75rem;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
+  .skill-row dd {
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+    color: var(--color-gray-800);
   }
 
-  .certification-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+  .entry-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .certification-header {
+  .entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 0;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .entry:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .entry::marker {
+    content: none;
+  }
+
+  .entry-main {
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
   }
 
-  .certification-authority {
-    font-size: 0.8rem;
+  .entry-title {
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    line-height: 1.4;
+    color: var(--color-gray-900);
+  }
+
+  .entry-detail {
+    font-size: 0.9375rem;
+    color: var(--color-gray-600);
+  }
+
+  .entry-date {
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gray-600);
   }
 
   .cert-expired {
     display: inline-block;
     margin-left: 0.5rem;
-    padding: 0.05rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.05rem 0.45rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-gray-700, #495057);
-    background-color: color-mix(in srgb, var(--color-gray-600, #6c757d) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-gray-600, #6c757d) 25%, transparent);
-    border-radius: 9999px;
-    vertical-align: middle;
+    line-height: 1.4;
+    color: var(--color-gray-700);
+    vertical-align: 0.1em;
     white-space: nowrap;
   }
 
-  .certification-name a[href] + .cert-expired,
-  .certification-name > .cert-expired {
-    text-decoration: none;
+  .outside-list {
+    margin: 0;
+    padding-left: 1.15rem;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .cert-expired {
-      color: var(--color-gray-400, #adb5bd);
-      background-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 12%, transparent);
-      border-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 30%, transparent);
-    }
-  }
-
-  @media print {
-    .cert-expired {
-      background-color: transparent;
-      border-color: #999;
-      color: #555;
-    }
+  .outside-list li {
+    margin: 0 0 0.35rem;
   }
 
   /* ============================================================
-   * Dark Mode
+   * Closing: the page ends on what to do next
+   * ============================================================ */
+  .resume-closing {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 0.5rem;
+    background-color: var(--color-gray-100);
+  }
+
+  .resume-closing p {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--color-gray-800);
+  }
+
+  /* Plain primary is 4.32:1 on the gray-100 panel; step down for AA. */
+  .resume-closing p a {
+    color: var(--color-primary-700);
+  }
+
+  /* ============================================================
+   * Dark mode
    * ============================================================ */
   @media (prefers-color-scheme: dark) {
-    .date-badge {
-      color: var(--color-primary-200, #b3d4f0);
-      background-color: color-mix(in srgb, var(--tw-prose-links, #80b9e6) 15%, transparent);
-    }
-  }
-
-  /* ============================================================
-   * Mobile Responsive
-   * ============================================================ */
-  @media (max-width: 768px) {
-    .position-header {
-      flex-direction: column;
-      gap: 0.25rem;
+    .resume-name,
+    .resume-section h2,
+    .resume-closing h2,
+    .employer-name,
+    .role-title,
+    .skill-row dt,
+    .entry-title {
+      color: var(--color-gray-100);
     }
 
-    .position-header .date-badge {
-      align-self: flex-start;
+    .resume-headline,
+    .resume-contact,
+    .resume-summary,
+    .skill-row dd,
+    .resume-closing p {
+      color: var(--color-gray-300);
     }
 
-    .education-header {
-      flex-direction: column;
-      gap: 0.25rem;
+    .resume-contact a {
+      color: var(--color-primary-300);
     }
 
-    .education-header .date-badge {
-      align-self: flex-start;
-    }
-
-    .employer-group {
-      padding-left: 1rem;
-    }
-
-    .position-header::before {
-      left: -1rem;
-      transform: translateX(calc(-50% - 1.5px));
-    }
-  }
-
-  /* ============================================================
-   * Print-only header (hidden on screen)
-   * ============================================================ */
-  .print-header {
-    display: none;
-  }
-
-  /* ============================================================
-   * Print
-   * ============================================================ */
-  @media print {
-    @page {
-      margin: 0.6in 0.65in;
-    }
-
-    /* Show the print-only header with name + contact strip */
-    .print-header {
-      display: block;
-      margin: 0 0 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid #000;
-    }
-
-    .print-name {
-      margin: 0 0 0.25rem;
-      font-size: 22pt;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #000;
-    }
-
-    .print-title {
-      margin: 0 0 0.3rem;
-      font-size: 10.5pt;
-      font-weight: 600;
-      color: #333;
-    }
-
-    /* Keep the whole contact strip on one line; shrink to fit. */
-    .print-contact {
-      margin: 0;
-      font-size: 8pt;
-      color: #333;
-      white-space: nowrap;
-    }
-
-    .print-contact a {
-      color: #337ab7;
-      text-decoration: none;
-    }
-
-    /* Hide the onscreen "Resume" page H1 — redundant with the name block */
-    :global(article > header),
-    :global(article > header h1) {
-      display: none !important;
-    }
-
-    /* Hide the on-screen contact + helper lines — the print-header carries
-       name and contact when printing. */
-    .resume-aux,
-    .resume-contact {
-      display: none !important;
-    }
-
-    /* The inline book cover is a web-only visual — never in the printed PDF. */
-    .position-cover {
-      display: none !important;
-    }
-
-    /* Tighter summary card in print */
-    .resume-summary {
-      background-color: transparent !important;
-      border-left: none !important;
-      padding: 0 !important;
-      margin-bottom: 0.75rem;
-    }
-
-    .summary-text {
-      font-size: 10.5pt;
-      font-style: italic;
-    }
-
-    /* Density: smaller base, tighter margins */
-    .resume-section {
-      margin-bottom: 1rem;
-    }
-
-    .resume-section h2 {
-      font-size: 11pt;
-      margin-top: 0.75rem;
-      margin-bottom: 0.4rem;
-      padding-bottom: 0.2rem;
-      border-bottom-color: #000;
-    }
-
-    .employer-group {
-      border-left: 1px solid #bbb;
-      padding-left: 1rem;
-      margin-bottom: 0.75rem;
-      page-break-inside: avoid;
+    .employer-tenure,
+    .role-dates,
+    .entry-detail,
+    .entry-date,
+    .cert-expired {
+      color: var(--color-gray-400);
     }
 
     .employer-name {
-      font-size: 12pt;
-      margin-top: 0;
-      margin-bottom: 0.35rem;
+      border-bottom-color: var(--color-gray-600);
     }
 
-    .position {
-      margin-bottom: 0.6rem;
-      padding-bottom: 0.5rem;
-      page-break-inside: avoid;
-      border-bottom-color: #eee;
+    .role-ladder > li,
+    .skill-row,
+    .entry {
+      border-color: var(--color-gray-700);
     }
 
-    .position-title {
-      font-size: 10.5pt;
-      font-weight: 600;
+    .role-summary :global(.role-chevron) {
+      color: var(--color-gray-400);
     }
 
-    .position-header::before {
-      width: 6px;
-      height: 6px;
-      background-color: #333;
-      top: 0.4rem;
+    .role-summary:hover .role-title,
+    .role-summary:hover :global(.role-chevron) {
+      color: var(--color-primary-300);
     }
 
-    .date-badge {
-      background-color: transparent !important;
-      color: #333 !important;
-      padding: 0 !important;
-      font-size: 9pt;
-      font-style: italic;
+    .resume-download {
+      border-color: var(--color-gray-600);
+      background-color: var(--color-gray-800);
+      color: var(--color-gray-100);
     }
 
-    .position-content {
-      font-size: 10pt;
+    .resume-download:hover {
+      border-color: var(--color-primary-300);
+      color: var(--color-primary-200);
     }
 
-    .position-content :global(ul) {
-      padding-left: 1.1rem;
+    .resume-download-primary {
+      border-color: var(--color-primary-600);
+      background-color: var(--color-primary-600);
+      color: #fff;
     }
 
-    .position-content :global(li) {
-      margin-bottom: 0.15rem;
+    .resume-download-primary:hover {
+      border-color: var(--color-primary-700);
+      background-color: var(--color-primary-700);
+      color: #fff;
     }
 
-    .highlight-list {
-      margin-top: 0.4rem;
-      font-size: 10pt;
+    .resume-closing p a {
+      color: var(--color-primary-300);
     }
 
-    .highlight-list li {
-      margin-bottom: 0.15rem;
-      page-break-inside: avoid;
+    .resume-closing {
+      border-color: var(--color-gray-700);
+      background-color: var(--color-gray-800);
     }
 
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-top: 0.4rem;
+    .cert-expired {
+      border-color: var(--color-gray-600);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .role-summary :global(.role-chevron),
+    .role-title,
+    .resume-download {
+      transition: none;
+    }
+  }
+
+  /* ============================================================
+   * Mobile
+   * ============================================================ */
+  @media (max-width: 640px) {
+    .role-summary {
+      flex-wrap: wrap;
+      row-gap: 0.1rem;
     }
 
-    .skill-group-name {
-      font-size: 9.5pt;
-      color: #000;
-      margin-bottom: 0.2rem;
+    .role-title {
+      flex-basis: calc(100% - 2rem);
     }
 
-    .skill-list {
-      font-size: 9.5pt;
+    .role-dates {
+      order: 3;
+      flex-basis: 100%;
     }
 
-    .skill-list li {
-      margin-bottom: 0;
+    .role-summary :global(.role-chevron) {
+      order: 2;
     }
 
-    .education-item,
-    .certification-item {
-      margin-bottom: 0.4rem;
-      padding-bottom: 0.35rem;
-      border-bottom-color: #eee;
-      page-break-inside: avoid;
+    .skill-row {
+      grid-template-columns: 1fr;
     }
 
-    .school-name {
-      font-size: 11pt;
+    .resume-closing {
+      padding: 1.25rem;
+    }
+  }
+
+  /* ============================================================
+   * Print (browser print of this page; the forwardable PDF is
+   * built from /resume/print/)
+   * ============================================================ */
+  @media print {
+    .print-only {
+      display: inline !important;
     }
 
-    .cert-group-heading {
-      font-size: 9.5pt;
-      color: #000;
-      margin-top: 0.5rem;
-      margin-bottom: 0.25rem;
+    .resume-downloads,
+    .resume-closing,
+    .role-summary :global(.role-chevron) {
+      display: none !important;
     }
 
-    .certification-authority {
-      font-size: 8.5pt;
+    .resume-contact a {
+      min-height: 0;
     }
 
-    .certification-name {
-      font-size: 10pt;
-    }
-
-    /* Digital-first PDF: the resume is read on screen, not paper. Keep content
-       links blue and clickable, and never append the raw URL in parentheses
-       (the global print stylesheet does that for printed articles). */
-    .position-content :global(a),
-    .certification-name a,
-    .writing-list a {
-      color: #337ab7;
-      text-decoration: underline;
-    }
-
-    .position-content :global(a)::after,
-    .certification-name a::after,
-    .writing-list a::after,
-    .print-contact a::after {
+    .resume-contact a::after {
       content: none !important;
+    }
+
+    .resume-section {
+      margin-top: 1.25rem;
+    }
+
+    .role-summary {
+      min-height: 0;
+      padding: 0.3rem 0 0.15rem;
+    }
+
+    .role-ladder > li,
+    .entry {
+      page-break-inside: avoid;
+    }
+
+    .role-body :global(.role-cover) {
+      display: none;
     }
   }
 </style>

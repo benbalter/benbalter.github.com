@@ -23,29 +23,29 @@
 # Product, planning & process
 - acronym: OKR
   meaning: Objectives and Key Results
-  tooltip: Objectives and Key Results—a goal-setting framework pairing goals with measurable outcomes
+  tooltip: 'Objectives and Key Results: a goal-setting framework pairing goals with measurable outcomes'
 - acronym: KPI
   meaning: Key Performance Indicator
-  tooltip: Key Performance Indicator—a metric that tracks progress toward a goal
+  tooltip: 'Key Performance Indicator: a metric that tracks progress toward a goal'
 - acronym: RFC
   meaning: Request for Comments
-  tooltip: Request for Comments—a written proposal circulated for feedback before a decision
+  tooltip: 'Request for Comments: a written proposal circulated for feedback before a decision'
 - acronym: ADR
   meaning: Architecture Decision Record
-  tooltip: Architecture Decision Record—a short doc capturing a technical decision and why
+  tooltip: 'Architecture Decision Record: a short doc capturing a technical decision and why'
 - acronym: SLA
   meaning: Service-Level Agreement
-  tooltip: Service-Level Agreement—a commitment to a measurable level of service, like uptime
+  tooltip: 'Service-Level Agreement: a commitment to a measurable level of service, like uptime'
 - acronym: DRI
   meaning: Directly Responsible Individual
-  tooltip: Directly Responsible Individual—the single person accountable for something
+  tooltip: 'Directly Responsible Individual: the single person accountable for something'
 - acronym: WIP
   meaning: Work in progress
 
 # Roles
 - acronym: IC
   meaning: Individual Contributor
-  tooltip: Individual Contributor—someone who does the work rather than managing people
+  tooltip: 'Individual Contributor: someone who does the work rather than managing people'
 - acronym: TPM
   meaning: Technical Program Manager
 - acronym: SRE
@@ -54,110 +54,110 @@
 # Engineering & workflow
 - acronym: PR
   meaning: Pull request
-  tooltip: Pull request—a proposed set of code changes submitted for review
+  tooltip: 'Pull request: a proposed set of code changes submitted for review'
 - acronym: CI
   meaning: Continuous Integration
-  tooltip: Continuous Integration—automatically building and testing every change
+  tooltip: 'Continuous Integration: automatically building and testing every change'
 - acronym: CD
   meaning: Continuous Delivery
-  tooltip: Continuous Delivery—automatically shipping every change that passes tests
+  tooltip: 'Continuous Delivery: automatically shipping every change that passes tests'
 - acronym: WYSIWYG
   meaning: What You See Is What You Get
 - acronym: IDE
   meaning: Integrated Development Environment
-  tooltip: Integrated Development Environment—the editor where developers write, run, and debug code (here, VS Code)
+  tooltip: 'Integrated Development Environment: the editor where developers write, run, and debug code (here, VS Code)'
 - acronym: linter
   meaning: a tool that automatically flags errors, style issues, and risky patterns in code
-  tooltip: A tool that automatically flags errors, style problems, and bad patterns—usually in code, here in prose too
+  tooltip: A tool that automatically flags errors, style problems, and bad patterns, usually in code, here in prose too
 
 # Security & identity
 - acronym: SSH
   meaning: Secure Shell
-  tooltip: Secure Shell—an encrypted way to log into and control a remote machine
+  tooltip: 'Secure Shell: an encrypted way to log into and control a remote machine'
 - acronym: PhotoDNA
   meaning: PhotoDNA
-  tooltip: PhotoDNA—Microsoft's perceptual-hash technology for detecting known child sexual abuse imagery at scale
+  tooltip: 'PhotoDNA: Microsoft''s perceptual-hash technology for detecting known child sexual abuse imagery at scale'
 - acronym: SAML
   meaning: Security Assertion Markup Language
-  tooltip: Security Assertion Markup Language—the standard behind single sign-on (SSO)
+  tooltip: 'Security Assertion Markup Language: the standard behind single sign-on (SSO)'
 
 # US government & regulatory
 # Note: typography rewrites "M-10-22" to "M-10\u201322" at render time, so both
 # forms are listed; the en-dash key is the one that fires.
 - acronym: OMB
   meaning: Office of Management and Budget
-  tooltip: Office of Management and Budget—the White House office that sets policy and budget direction for federal agencies
+  tooltip: 'Office of Management and Budget: the White House office that sets policy and budget direction for federal agencies'
 - acronym: GSA
   meaning: General Services Administration
-  tooltip: General Services Administration—the federal agency that handles government-wide procurement and real estate
+  tooltip: 'General Services Administration: the federal agency that handles government-wide procurement and real estate'
 - acronym: M-10–22
   meaning: OMB Memorandum M-10-22
-  tooltip: OMB Memorandum M-10-22—2010 White House guidance governing federal agencies' use of web measurement and customization technologies, i.e. cookies
+  tooltip: 'OMB Memorandum M-10-22: 2010 White House guidance governing federal agencies'' use of web measurement and customization technologies, i.e. cookies'
 - acronym: M-10-22
   meaning: OMB Memorandum M-10-22
-  tooltip: OMB Memorandum M-10-22—2010 White House guidance governing federal agencies' use of web measurement and customization technologies, i.e. cookies
+  tooltip: 'OMB Memorandum M-10-22: 2010 White House guidance governing federal agencies'' use of web measurement and customization technologies, i.e. cookies'
 - acronym: M-10–23
   meaning: OMB Memorandum M-10-23
-  tooltip: OMB Memorandum M-10-23—2010 White House guidance governing federal agencies' use of third-party websites and applications, i.e. social media
+  tooltip: 'OMB Memorandum M-10-23: 2010 White House guidance governing federal agencies'' use of third-party websites and applications, i.e. social media'
 - acronym: M-10-23
   meaning: OMB Memorandum M-10-23
-  tooltip: OMB Memorandum M-10-23—2010 White House guidance governing federal agencies' use of third-party websites and applications, i.e. social media
+  tooltip: 'OMB Memorandum M-10-23: 2010 White House guidance governing federal agencies'' use of third-party websites and applications, i.e. social media'
 - acronym: FedRAMP
   meaning: Federal Risk and Authorization Management Program
-  tooltip: Federal Risk and Authorization Management Program—the standardized security authorization process a cloud service must clear to be sold to US federal agencies
+  tooltip: 'Federal Risk and Authorization Management Program: the standardized security authorization process a cloud service must clear to be sold to US federal agencies'
 - acronym: OFAC
   meaning: Office of Foreign Assets Control
-  tooltip: Office of Foreign Assets Control—the US Treasury office that administers economic and trade sanctions
+  tooltip: 'Office of Foreign Assets Control: the US Treasury office that administers economic and trade sanctions'
 - acronym: ITAR
   meaning: International Traffic in Arms Regulations
-  tooltip: International Traffic in Arms Regulations—the US rules controlling export of defense-related technology
+  tooltip: 'International Traffic in Arms Regulations: the US rules controlling export of defense-related technology'
 - acronym: EAR
   meaning: Export Administration Regulations
-  tooltip: Export Administration Regulations—the US rules controlling export of dual-use technology, including encryption
+  tooltip: 'Export Administration Regulations: the US rules controlling export of dual-use technology, including encryption'
 - acronym: DMCA
   meaning: Digital Millennium Copyright Act
-  tooltip: Digital Millennium Copyright Act—the US copyright law behind takedown and counter-notice requests
+  tooltip: 'Digital Millennium Copyright Act: the US copyright law behind takedown and counter-notice requests'
 
 # AI
 - acronym: LLM
   meaning: Large Language Model
-  tooltip: Large Language Model—the kind of AI that powers chatbots and coding assistants
+  tooltip: 'Large Language Model: the kind of AI that powers chatbots and coding assistants'
 - acronym: MCP
   meaning: Model Context Protocol
-  tooltip: Model Context Protocol—an open standard connecting AI models to tools and data
+  tooltip: 'Model Context Protocol: an open standard connecting AI models to tools and data'
 
 # Publishing, print & formats
 - acronym: EPUB
   meaning: Electronic Publication
-  tooltip: Electronic Publication—the open ebook format (essentially zipped HTML and CSS) that non-Kindle readers use
+  tooltip: 'Electronic Publication: the open ebook format (essentially zipped HTML and CSS) that non-Kindle readers use'
 - acronym: KDP
   meaning: Kindle Direct Publishing
-  tooltip: Kindle Direct Publishing—Amazon's self-publishing platform for ebooks and print-on-demand
+  tooltip: 'Kindle Direct Publishing: Amazon''s self-publishing platform for ebooks and print-on-demand'
 - acronym: ONIX
   meaning: ONline Information eXchange
-  tooltip: ONline Information eXchange—the publishing industry's standard metadata feed for a book (title, price, categories)
+  tooltip: 'ONline Information eXchange: the publishing industry''s standard metadata feed for a book (title, price, categories)'
 - acronym: BISAC
   meaning: Book Industry Standards and Communications
-  tooltip: Book Industry Standards and Communications—the standardized subject codes that tell stores which shelf a book belongs on
+  tooltip: 'Book Industry Standards and Communications: the standardized subject codes that tell stores which shelf a book belongs on'
 - acronym: CMYK
   meaning: Cyan, Magenta, Yellow, and Key (black)
-  tooltip: Cyan, Magenta, Yellow, and Key (black)—the four-ink color model used for print, as opposed to screen RGB
+  tooltip: 'Cyan, Magenta, Yellow, and Key (black): the four-ink color model used for print, as opposed to screen RGB'
 - acronym: WCAG
   meaning: Web Content Accessibility Guidelines
-  tooltip: Web Content Accessibility Guidelines—the international standard for making web and ebook content accessible
+  tooltip: 'Web Content Accessibility Guidelines: the international standard for making web and ebook content accessible'
 
 # Other jargon
 - acronym: abracadabra
-  meaning: a magician's incantation, used here as a verb—to transform something as if by magic
-  tooltip: A magician's incantation—used here as a verb, to conjure one thing into another as if by magic
+  meaning: a magician's incantation, used here as a verb, to transform something as if by magic
+  tooltip: A magician's incantation, used here as a verb to conjure one thing into another as if by magic
 - acronym: FUD
   meaning: Fear, uncertainty, and doubt
-  tooltip: Fear, uncertainty, and doubt—casting doubt to discourage something instead of arguing the merits
+  tooltip: 'Fear, uncertainty, and doubt: casting doubt to discourage something instead of arguing the merits'
 - acronym: phoneme
   meaning: the smallest unit of sound that distinguishes one word from another
-  tooltip: The smallest unit of sound that distinguishes one word from another—like the soft "j" and hard "g" that split JIF from GIF
+  tooltip: The smallest unit of sound that distinguishes one word from another, like the soft "j" and hard "g" that split JIF from GIF
 - acronym: incident commander
   meaning: the person with decision authority during an active incident
-  tooltip: The single person holding decision authority during an active incident—coordinating responders, calling the shots, and owning communication until it's resolved
+  tooltip: The single person holding decision authority during an active incident, coordinating responders, calling the shots, and owning communication until it's resolved
 - acronym: PTO
   meaning: Paid Time Off
