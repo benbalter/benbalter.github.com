@@ -76,6 +76,10 @@
   --color-gray-900: #212529;
 
   /* Font families - Inter via Astro Fonts API with system font fallbacks */
+  /* Headline step of the type scale (DESIGN.md): section h2s and the homepage
+     lead. Defined once here so both, and the text-headline utility, agree. */
+  --text-headline: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem);
+
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-serif: var(--font-lora), Georgia, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -487,7 +491,7 @@
   }
 
   h2 {
-    font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem);
+    font-size: var(--text-headline);
     line-height: 1.2;
     letter-spacing: -0.02em;
   }

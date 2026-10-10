@@ -18,7 +18,9 @@ const description = getFirstSentence(aboutContent);
 // falls back to the plain sentence.
 const aboutAt = description.indexOf(' about ');
 const leadPreamble = aboutAt === -1 ? null : description.slice(0, aboutAt + ' about'.length);
-const leadTopics = aboutAt === -1 ? '' : description.slice(aboutAt + ' about '.length);
+// A no-break space before the last word keeps it from wrapping onto a line by
+// itself ("work." alone at some widths).
+const leadTopics = aboutAt === -1 ? '' : description.slice(aboutAt + ' about '.length).replace(/ (\S+)$/, '\u00a0$1');
 
 // Get all published posts (excluding archived), sorted by date (newest first)
 const allPosts = await getPublishedPosts();
@@ -48,7 +50,7 @@ const regularPosts = nonPopularPosts.slice(3);
       Ben up. It's the About bio's first sentence, so it stays in sync with
       src/content/about-bio.ts, and the nav hides its shorter tagline on this
       page so the two don't repeat. */}
-  <h1 class="mt-8 mb-12 text-[1.375rem] font-normal leading-snug tracking-tight text-pretty text-gray-900 md:text-[1.75rem] dark:text-gray-100 max-md:mt-5 max-md:mb-8">
+  <h1 class="mt-8 mb-12 text-headline font-normal leading-snug tracking-tight text-pretty text-gray-900 dark:text-gray-100 max-md:mt-5 max-md:mb-8">
     {leadPreamble ? (
       <>
         <span class="font-serif italic tracking-normal text-gray-600 dark:text-gray-400">{leadPreamble}</span>{' '}

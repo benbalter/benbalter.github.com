@@ -67,7 +67,7 @@ const navClasses = `${baseClasses} rounded-lg`;
               <li class="nav-item relative mb-0" data-text={item.title}>
                 <a 
                   href={item.url} 
-                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline max-md:w-full ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline max-md:w-full ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200 hover:underline hover:decoration-2 hover:underline-offset-8 hover:decoration-primary/40 dark:hover:decoration-primary-300/50'}`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.title}
@@ -77,10 +77,14 @@ const navClasses = `${baseClasses} rounded-lg`;
           })}
         </ul>
         <!-- Phones hide the nav-bar tagline (no room), so the open menu ends
-             with it instead. -->
-        <p class="navbar-menu-tagline md:hidden m-0 mt-1 px-5 pt-3 pb-2 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
-          {siteConfig.description}
-        </p>
+             with it instead, except on the homepage, whose lead already says
+             it. gray-700, not 600: on the nav's translucent gray, 600 is just
+             under 4.5:1. -->
+        {showTagline && (
+          <p class="navbar-menu-tagline md:hidden m-0 mt-1 px-5 pt-3 pb-2 text-sm text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+            {siteConfig.description}
+          </p>
+        )}
       </div>
     </div>
     
