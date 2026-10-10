@@ -51,7 +51,6 @@ const inlineHeadline =
     rel="noopener"
     data-track-book-cta
     data-nosnippet
-    aria-label={`Buy ${siteConfig.bookTitle}, ${siteConfig.bookPrice} (opens in a new tab)`}
     class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
   >
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
@@ -82,11 +81,14 @@ const inlineHeadline =
           <p class="text-base md:text-lg font-semibold text-white mb-2">{inlineHeadline}</p>
         )}
         <p class="text-sm md:text-base text-slate-300 mb-5">
-          {siteConfig.bookDescription}. Drawing on a decade at GitHub. On Kindle, Apple Books, Kobo &amp; more.
+          {siteConfig.bookDescription}. Drawing on over a decade at GitHub. On Kindle, Apple Books, Kobo &amp; more.
         </p>
         <span class="oa-cta-btn inline-flex items-center gap-1.5 rounded-lg px-5 py-2.5 text-sm font-semibold text-brand-950 transition-all duration-200 whitespace-nowrap">
           Buy it for {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
         </span>
+        {/* No aria-label on this card link: it must contain the visible text
+            (Lighthouse label-content-name-mismatch, fixed once in db3ba613). */}
+        <span class="sr-only"> (opens in a new tab)</span>
       </div>
     </div>
   </a>
