@@ -1,13 +1,16 @@
 ---
-title: Intro to GitHub for non-technical roles
+title: "GitHub for non-developers: a beginner's guide"
 bookRelation: adapted
-description: "GitHub isn't just for developers. A practical guide for non-technical roles to follow along, collaborate, and track work with confidence."
+description: "No coding required. A plain-English guide to GitHub issues, pull requests, Markdown, and notifications for product managers, designers, legal, and ops."
 tldr: "GitHub isn't just for developers. If you're in a non-technical role, this guide covers everything you need to follow along, collaborate, track work, and get started with confidence."
 ---
+import BookCta from '../../components/BookCta.astro';
 
 ## What is GitHub?
 
 If you're not a software developer, you can think of GitHub like :quote[Dropbox, Google Drive, or SharePoint, but for software development]{#github-like-dropbox}. It's primarily used by software developers to collaborate on software and track their progress, but can be used by anyone involved in the software development process.
+
+<BookCta relation="adapted" />
 
 ## Repositories
 
@@ -41,11 +44,11 @@ At the core of GitHub is a version control system called Git. Git tracks changes
 
 ## Commits
 
-Git tracks changes as "[commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)". :quote[A commit is a snapshot of the file (or files) at a point in time.]{#commit-is-a-snapshot} Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on.
+Git tracks changes as "[commits](https://docs.github.com/en/pull-requests/reference/commits)". :quote[A commit is a snapshot of the file (or files) at a point in time.]{#commit-is-a-snapshot} Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on.
 
 ## Branches
 
-[Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) are like :quote[parallel universes or alternate timelines for your files]{#parallel-universes-for-files}. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready.
+[Branches](https://docs.github.com/en/pull-requests/reference/branches) are like :quote[parallel universes or alternate timelines for your files]{#parallel-universes-for-files}. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready.
 
 ## GitHub flow
 
@@ -74,19 +77,17 @@ Another powerful GitHub feature is issue and pull request [cross references](htt
 
 ## Desktop vs. web
 
-:quote[Almost everything you'd want to do on GitHub you can do entirely through the web interface.]{#do-everything-in-the-browser} You can view, create, edit, or delete files, browse and comment on issues, and merge pull requests. If you'd prefer to work on your desktop using your favorite desktop software, you can install [GitHub Desktop](https://desktop.github.com). GitHub Desktop provides a visual interface for "pulling" (downloading) repositories onto your computer and interacting with GitHub.
+:quote[Almost everything you'd want to do on GitHub you can do entirely through the web interface.]{#do-everything-in-the-browser} You can view, create, edit, or delete files, browse and comment on issues, and merge pull requests. If you'd prefer to work on your desktop using your favorite desktop software, you can install [GitHub Desktop](https://github.com/apps/desktop). GitHub Desktop provides a visual interface for "pulling" (downloading) repositories onto your computer and interacting with GitHub.
 
-## Advanced-ish topics
-
-### Pushing and pulling
+## Pushing and pulling
 
 If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pulling as downloading the files from GitHub and pushing as uploading the files back to GitHub. (Before pulling, you need to clone, or create a copy of, the files.)
 
-### Emoji and animated GIFs 🎉
+## Emoji and animated GIFs
 
 In addition to Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. :quote[You can think of emoji and animated GIFs as the facial expressions and body language of GitHub]{#emoji-body-language-of-github}. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
 
-## Project boards
+## Projects
 
 If individual tasks are tracked as issues, [project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
 
@@ -104,9 +105,9 @@ With so much information available on GitHub, it's often intimidating to find wh
 
 ### Checks
 
-You *may* see one or more [status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
+You *may* see one or more [status checks](https://docs.github.com/en/pull-requests/reference/status-checks) on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
-### When to use an issue vs. a pull request vs. a discussion vs. a Markdown file vs. a project board
+## When to use issues, pull requests, discussions, files, or projects
 
 Project work generally flows in this order:
 
@@ -117,7 +118,7 @@ Project work generally flows in this order:
 
 As a project proceeds in one or more repositories, high-level project progress is tracked on one or more project boards (which visually organizes the state of multiple issues).
 
-## Putting it all together, editing a file on the web
+## How to edit a file on GitHub, step by step
 
 1. Open the repository you want to edit
 2. Navigate to the file you want to edit
@@ -132,7 +133,7 @@ As a project proceeds in one or more repositories, high-level project progress i
 11. Once approved and checks pass, your pull request is "merged" and your changes are now "live" on the main branch
 12. Celebrate your first contribution to GitHub!
 
-### Glossary
+## Glossary
 
 If you come across a term or concept not covered here, be sure to check out [the official GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary).
 
