@@ -803,7 +803,8 @@
       display: block;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
+      /* No white-space: nowrap here: it forced prose tables to 2x the phone
+         column. Cells wrap; tables that are still too wide scroll. */
     }
 
     th, td {
@@ -1137,6 +1138,14 @@
 
   .footnotes h2 {
     @apply mb-3 text-sm font-semibold uppercase tracking-wide;
+  }
+
+  /* Same fix as .footnotes ol below, for numbered lists in post bodies: with
+     Typography's ~1.6em padding, a list that reaches 10 items clips its
+     two-digit markers ("10." renders as ".0"). Only lists that long get the
+     wider padding, so shorter lists don't move. */
+  .prose ol:has(> li:nth-child(10)) {
+    padding-left: 2.5rem !important;
   }
 
   .footnotes ol {
@@ -1581,6 +1590,18 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 
 .callout-icon {
   font-size: 1.125rem;
+}
+
+/* Links in light callouts: primary on the tinted backgrounds is ~4.2:1, under
+   AA, so they use the darker shade (primary-300 already passes in dark mode). */
+.callout a:not(.btn) {
+  color: var(--color-primary-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .callout a:not(.btn) {
+    color: var(--color-primary-300);
+  }
 }
 
 /* Callout type variants */

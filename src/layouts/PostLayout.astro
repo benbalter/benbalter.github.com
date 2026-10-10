@@ -24,6 +24,7 @@ import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
+import { tocEntries, MIN_HEADINGS_FOR_TOC } from '../utils/toc';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
@@ -107,6 +108,8 @@ const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
 const wordCount = calculateWordCount(content);
 
+const hasSidebarToc = tocEntries(headings).length >= MIN_HEADINGS_FOR_TOC;
+
 // Generate BlogPosting structured data for blog posts
 const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   title,
@@ -149,6 +152,13 @@ const itemListSchema = curatedUrls.length > 0
   <div class="max-w-[42rem] mx-auto px-4 xl:max-w-[58rem]">
     <div class="xl:flex xl:gap-8">
       <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-[40rem]">
+        {/* The sidebar table of contents follows the article in the DOM, so
+            keyboard users would tab through every link in the post to reach
+            it. This skip link (only where the sidebar shows, xl and up) is
+            the article's first stop. */}
+        {hasSidebarToc && (
+          <a href="#on-this-page" class="skip-to-content visually-hidden-focusable hidden xl:block">Skip to table of contents</a>
+        )}
         <Breadcrumbs title={title} />
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" style={`view-transition-name: ${titleTransitionName}`}>{title}</h1>
