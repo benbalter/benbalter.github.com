@@ -212,7 +212,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 ## Layout
 
-The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it. The hero is currently the *Open and Async* banner, a temporary state: it's slated to become a non-book image built from newer headshots. The homepage's `h1` is screen-reader-only: the hero and the nav's name and tagline already identify the site, and a visible intro just repeated the tagline.
+The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). There's no hero image: the homepage opens with the navbar, then one muted line (the About bio's first sentence, as the page's `h1`) saying who writes here, then posts. A photo banner was tried and dropped. Blind design and marketing reviews both preferred posts above the fold, and at banner size the headshot read as synthetic. Most of the closest comparable writers' sites (Larson, Evans, Willison, Luu) don't use a hero photo either.
 
 Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
@@ -239,7 +239,7 @@ The system is flat at rest, with soft, diffuse shadows that deepen on hover. Dep
 
 ## Shapes
 
-Corners are gently rounded throughout. 8px (`rounded-lg`) is the default for cards, the navbar, the subscribe card, and callouts. 6px (`rounded-md`) is for form controls and small badges. 12px (`rounded-xl`) is reserved for the book CTA, which reads as a separate object. 4px is for inline code, tooltips, and small toggles. Full rounding appears only on circular icon chips (the subscribe icons).
+Corners are gently rounded throughout. 8px (`rounded-lg`) is the default for cards, the navbar, the subscribe card, and callouts. 6px (`rounded-md`) is for form controls and small badges. 12px (`rounded-xl`) is reserved for the book CTA, which reads as a separate object. 4px is for inline code, tooltips, and small toggles. Full rounding appears only on circular elements: the subscribe icon chips and the nav headshot.
 
 Borders are 1px `gray-200` (`gray-700` in dark mode). Accent borders are reserved for meaning: a 3px primary left rule on blockquotes, a 4px left rule on callouts (including the archived-post warning), and a 2px tinted top border on featured post cards. The TL;DR and the author bio card carry no accent rule.
 
@@ -266,7 +266,7 @@ The site has no shared button class. `.btn` survives from Bootstrap only as a ma
 
 ### Navigation
 
-A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners, and `shadow-sm`. On the left are the brand name in bold Inter and four links (Posts, About, Resume, Contact). On the right are a search button and, from `lg` up, the tagline set off by a 2px tinted left rule. Links rest at `primary-800`; the active link turns `gray-900` and semibold, and a hidden bold copy reserves its width so the bar doesn't shift. Below 768px the links collapse behind a hamburger toggle with a max-height animation.
+A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners, and `shadow-sm`. On the left are a 40px round headshot (decorative, `alt=""`; built by `script/build-avatar`), the brand name in bold Inter, and four links (Posts, About, Resume, Contact). On the right are a search button and, from `lg` up, the tagline set off by a 2px tinted left rule. The homepage leaves the tagline out, since its intro line says the same thing at more length. Links rest at `primary-800`; the active link turns `gray-900` and semibold, and a hidden bold copy reserves its width so the bar doesn't shift. Below 768px the links collapse behind a hamburger toggle with a max-height animation; the brand and the search and menu buttons share one row, and the open menu drops below as a full-width list.
 
 ### End of post
 

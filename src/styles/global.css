@@ -967,55 +967,6 @@
     outline-offset: -3px !important;
   }
 
-  /* Hero Unit - Optimized for performance with contain */
-  .hero-unit {
-    /* Plain url() fallback first for browsers without image-set() support;
-       image-set() then serves AVIF/WebP to browsers that understand it,
-       falling back to the JPEG. */
-    background-image: url('/assets/img/header.jpg');
-    background-image: image-set(
-      url('/assets/img/header.avif') type('image/avif'),
-      url('/assets/img/header.webp') type('image/webp'),
-      url('/assets/img/header.jpg') type('image/jpeg')
-    );
-    background-size: cover;
-    background-position: top left;
-    @apply h-64 rounded-t-lg shadow-sm;
-    contain: layout paint;
-    position: relative;
-  }
-  
-  /* Hero gradient overlay for depth */
-  .hero-unit::before {
-    content: '';
-    @apply absolute inset-0 rounded-t-lg;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 5%, transparent) 0%,
-      color-mix(in srgb, var(--color-primary) 10%, transparent) 50%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
-    pointer-events: none;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .hero-unit::before {
-      background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
-        color-mix(in srgb, var(--color-primary) 15%, transparent) 50%,
-        rgba(0, 0, 0, 0.25) 100%
-      );
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero-unit {
-      height: 180px;
-    }
-    
-  }
-
   /* Container */
   /* Site-wide content wrapper. Not named `container`: Tailwind v4 ships its
      own `container` utility (width:100% + breakpoint max-widths), and

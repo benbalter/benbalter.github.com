@@ -31,18 +31,6 @@
   Link: </llms.txt>; rel="describedby"; type="text/plain"
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
 
-# Homepage hero preload. The hero (BaseLayout's `hero` prop, used only on the
-# homepage) is a CSS background via image-set(), so the browser only finds it
-# after parsing ~140 KB of inline CSS. A <link rel=preload> in <head> would sit
-# after that CSS too, so on slow connections it isn't seen until most of the
-# HTML has arrived. As a response header (and a 103 Early Hint, which the zone
-# has on) the hint arrives before any HTML. AVIF only, with a type hint, since
-# that's what image-set() serves nearly every browser; others skip the preload
-# and fall back through image-set(). BaseLayout also emits a matching <link>
-# tag so static audits (Lighthouse CI) can discover the image from the HTML.
-/
-  Link: </assets/img/header.avif>; rel="preload"; as="image"; type="image/avif"; fetchpriority="high"
-
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
   ! Cache-Control

@@ -34,8 +34,13 @@ const featuredPosts = nonPopularPosts.slice(0, 3);
 const regularPosts = nonPopularPosts.slice(3);
 ---
 
-<BaseLayout description={description} hero={true}>
-  <h1 class="sr-only">Ben Balter. {siteConfig.description}.</h1>
+<BaseLayout description={description}>
+  {/* Who writes here, in one line at every width: most visitors arrive from a
+      post knowing nothing about the author, and recruiters land here to size
+      Ben up. It's the About bio's first sentence, so it stays in sync with
+      src/content/about-bio.ts, and the nav hides its shorter tagline on this
+      page so the two don't repeat. */}
+  <h1 class="mt-6 mb-10 max-w-[40rem] text-lg font-normal leading-relaxed text-gray-600 dark:text-gray-300 max-md:mt-5 max-md:mb-8">{description}</h1>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
     <section class="mb-16 max-md:mb-8">

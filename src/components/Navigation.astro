@@ -9,16 +9,10 @@
 
 import { siteConfig } from '../config';
 
-interface Props {
-  hero?: boolean;
-}
-
 interface NavItem {
   title: string;
   url: string;
 }
-
-const { hero = false } = Astro.props;
 
 // Define navigation items (matching Jekyll's nav_pages)
 const navItems: NavItem[] = [
@@ -30,6 +24,10 @@ const navItems: NavItem[] = [
 
 // Get current path for active state
 const currentPath = Astro.url.pathname;
+
+// The homepage opens with a full sentence saying who writes here (the About
+// bio's first line), so the nav's short tagline would just repeat it.
+const showTagline = currentPath !== '/' && currentPath !== '';
 const isPostPage = /^\d{4}\/\d{2}\/\d{2}\//.test(currentPath.slice(1));
 
 function isNavActive(itemUrl: string): boolean {
@@ -40,22 +38,28 @@ function isNavActive(itemUrl: string): boolean {
 // Base classes for navbar
 const baseClasses = "navbar flex flex-wrap items-center justify-between py-3 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4 max-md:mb-2";
 
-// Conditionally add rounded classes based on hero presence
-// For hero pages: round only bottom corners (top-left and top-right are 0)
-// For non-hero pages: round all corners
-const navClasses = hero 
-  ? `${baseClasses} rounded-t-none rounded-b-lg border-t-0`
-  : `${baseClasses} rounded-lg`;
+const navClasses = `${baseClasses} rounded-lg`;
 ---
 
-<nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
+<nav class={navClasses} aria-label="Main navigation">
   <div class="flex flex-wrap items-center w-full">
-    <!-- Left side: Brand + Nav links -->
-    <div class="flex items-center flex-grow">
-      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2 text-lg whitespace-nowrap shrink-0" href="/">{siteConfig.name}</a>
+    <!-- Left side: Brand + Nav links. On phones this wrapper drops out of the
+         layout (display: contents) so the brand and the search/menu buttons
+         share the first line and the collapsed links take their own row,
+         instead of the hidden menu's width pushing the buttons onto a second
+         line. -->
+    <div class="flex items-center flex-grow max-md:contents">
+      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2 text-lg whitespace-nowrap shrink-0 max-md:mr-auto" href="/">
+        <!-- Decorative: the name right beside it says who this is. -->
+        <picture>
+          <source type="image/avif" srcset="/assets/img/avatar-40.avif 40w, /assets/img/avatar-80.avif 80w, /assets/img/avatar-120.avif 120w" sizes="40px" />
+          <img src="/assets/img/avatar-80.webp" srcset="/assets/img/avatar-40.webp 40w, /assets/img/avatar-80.webp 80w, /assets/img/avatar-120.webp 120w" sizes="40px" width="40" height="40" alt="" class="mr-3 h-10 w-10 rounded-full ring-2 ring-white dark:ring-gray-700 shadow-sm" />
+        </picture>
+        {siteConfig.name}
+      </a>
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
-      <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
+      <div class="nav-collapse navbar-collapse md:flex md:items-center max-md:order-last max-md:basis-full" id="navbar">
         <ul data-nav-links class="flex flex-col md:flex-row list-none p-0 m-0">
           {navItems.map((item) => {
             const isActive = isNavActive(item.url);
@@ -89,9 +93,11 @@ const navClasses = hero
         </svg>
       </button>
 
-      <span class="navbar-text hidden lg:block text-gray-700 dark:text-gray-300 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2 whitespace-nowrap">
-        {siteConfig.description}
-      </span>
+      {showTagline && (
+        <span class="navbar-text hidden lg:block text-gray-700 dark:text-gray-300 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2 whitespace-nowrap">
+          {siteConfig.description}
+        </span>
+      )}
       
       <button 
         class="navbar-toggler p-2 rounded border border-gray-300 dark:border-gray-600 min-h-[44px] min-w-[44px] md:hidden focus:outline-2 focus:outline-primary focus:outline-offset-2 ml-2" 

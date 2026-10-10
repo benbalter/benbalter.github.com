@@ -4,10 +4,11 @@ import { siteConfig } from '../src/config';
 
 test.describe('Navigation Tagline', () => {
   // The tagline is revealed at Tailwind's lg breakpoint (1024px). Anything
-  // narrower lacks room for it on one nav row, so it stays hidden there.
+  // narrower lacks room for it on one nav row, so it stays hidden there. These
+  // use /about/ because the homepage drops it (see the last test).
   test('should show tagline at lg and wider', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 768 });
-    await page.goto('/');
+    await page.goto('/about/');
     await waitForPageReady(page);
 
     const tagline = page.locator('.navbar-text');
@@ -20,7 +21,7 @@ test.describe('Navigation Tagline', () => {
     // long for the row doesn't truncate: the whole right-hand group drops onto
     // a second line. Compare the row's height with the tagline hidden and shown.
     await page.setViewportSize({ width: 1024, height: 768 });
-    await page.goto('/');
+    await page.goto('/about/');
     await waitForPageReady(page);
 
     const { withoutTagline, withTagline } = await page.evaluate(() => {
@@ -37,7 +38,7 @@ test.describe('Navigation Tagline', () => {
 
   test('should hide tagline below lg where the nav row has no room', async ({ page }) => {
     await page.setViewportSize({ width: 1023, height: 768 });
-    await page.goto('/');
+    await page.goto('/about/');
     await waitForPageReady(page);
 
     const tagline = page.locator('.navbar-text');
@@ -46,12 +47,22 @@ test.describe('Navigation Tagline', () => {
 
   test('should hide tagline on mobile for cleaner UI', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.goto('/about/');
     await waitForPageReady(page);
 
     // Tagline is intentionally hidden on mobile to save space
     const tagline = page.locator('.navbar-text');
     await expect(tagline).toBeHidden();
+  });
+
+  test('should drop the tagline on the homepage, which opens with a fuller line', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/');
+    await waitForPageReady(page);
+
+    await expect(page.locator('.navbar-text')).toHaveCount(0);
+    await expect(page.locator('main h1')).toBeVisible();
+    await expect(page.locator('main h1')).toContainText('showing your work');
   });
 });
 
