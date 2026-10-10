@@ -63,10 +63,9 @@ Ben's writing draws on a decade inside GitHub: trust and safety, security, inter
 
 - Nearly 200 posts: about 170 current ones, plus about 25 archived posts that stay published behind a warning and are left out of listings. Curated popular picks live in `popularPostSlugs` in [`src/config.ts`](src/config.ts).
 - Real credentials and quotes are in [`src/content/about-bio.ts`](src/content/about-bio.ts), including the US CTO quote and the public figures already published there.
-- The *Open and Async* book, with its own site and brand assets kept in a separate repo. On this site it appears through `BookCta` and `BookLaunchCta`.
+- The *Open and Async* book, with its own site and brand assets kept in a separate repo. On this site it appears through `BookCta`, `BookLaunchCta`, the `InBook` tag on reading-list items, and a line in the GitHub-culture callout.
 - Images:
-  - Headshot: [`public/assets/img/headshot.jpg`](public/assets/img/headshot.jpg)
-  - Header image: [`public/assets/img/header.*`](public/assets/img/)
+  - Headshot: one source portrait (not committed) feeds every photo of Ben on the site through [`script/build-headshots`](script/build-headshots): the nav avatar, the post-bio avatar, the favicon, [`assets/img/headshot.jpg`](assets/img/headshot.jpg) (About page and share cards), and [`public/assets/img/headshot.jpg`](public/assets/img/headshot.jpg) (vCard and structured data).
   - Charts from posts about the book's build process
 - There are no testimonials, reader reviews, or published traffic figures, and future work must not invent any. Analytics stay private and never appear in copy or commits.
 
@@ -74,7 +73,7 @@ Ben's writing draws on a decade inside GitHub: trust and safety, security, inter
 
 1. **Reading wins.** If a feature, call to action, or decoration gets between a reader and the post, the post comes first.
 2. **Built to be shared.** Every post should be easy to skim, quote, and link to, and should look right when it's shared or read somewhere else.
-3. **Promote the book without interrupting the reading.** *Open and Async* is the main conversion goal, so place it where a reader who's finished a post will see it: right after the share action at the end of a post. Never inside the post body. A mid-post callout was tried and removed for breaking the reading.
+3. **Promote the book without interrupting the reading.** *Open and Async* is the main conversion goal, so place it where a reader who's finished a post will see it: right after the share action at the end of a post. Never inside the post body. A mid-post callout was tried and removed for breaking the reading. The one exception is a reading list whose posts are mostly in the book: the GitHub reading list ("Interviewing or starting at GitHub? Read these first") leads with the book as its "short version", because for those readers the book is the most relevant item on the list, not an interruption.
 4. **Show your work.** The site practices what it argues for: open source, transparent, and fast.
 5. **Evergreen over timely.** Content and its presentation should still read as relevant years from now.
 
