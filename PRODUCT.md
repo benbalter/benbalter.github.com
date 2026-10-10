@@ -19,7 +19,7 @@ The acronym glossary ([`src/data/acronyms.yml`](src/data/acronyms.yml)) assumes 
 
 ## Product Purpose
 
-ben.balter.com is Ben Balter's personal site and blog. Writing comes first: posts on product, engineering leadership, open source, and showing your work. The book, the newsletter, and the professional profile support the reading and never compete with it.
+ben.balter.com is Ben Balter's personal site and blog. Writing comes first: posts on product and engineering leadership, open source, and showing your work. The book, the newsletter, and the professional profile support the reading and never compete with it.
 
 A visit succeeds when the reader does one of two things:
 
