@@ -12,12 +12,9 @@ seo:
   type: person
 summary: >-
   Product leader who led trust, safety, and account security for a developer
-  platform serving 50M+ users, shipping abuse reporting, PhotoDNA detection,
-  phishing-resistant 2FA, and role-based access controls. A lawyer who ships
-  code: a DC Bar member and a top contributor to the github.com codebase, with
-  code still running in production. Most recently a director owning the
-  internal platform GitHub's employees run on. Author of Open and Async and a
-  member of the inaugural class of Presidential Innovation Fellows.
+  platform serving 50M+ users, and most recently a director owning the
+  internal platform GitHub's employees run on. A lawyer who ships code,
+  author of Open and Async, and an inaugural Presidential Innovation Fellow.
 highlights:
   - >-
     Shipped 500+ features to a developer platform with 50M+ users and 100M+
