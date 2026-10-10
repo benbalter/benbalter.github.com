@@ -9,10 +9,14 @@
  * wrapped to about nine lines and pushed the first paragraph below the fold,
  * and the icon and rule made the thesis read like a system notice. Plain type
  * keeps it the most prominent sentence after the title without the chrome.
- * The audience knows "TL;DR", so it's no longer a tab stop with a tooltip.
+ * The audience knows "TL;DR", so it's no longer a tab stop with a tooltip,
+ * but screen readers spell it out letter by letter, so they hear "Summary:".
+ *
+ * `hyphens-manual` opts out of the body's auto-hyphenation: at subtitle size
+ * on a phone it split words like "asyn-chronous" in the most-read sentence.
  */
 
-import { marked } from 'marked';
+import { renderInlineMarkdown } from '../utils/inline-markdown';
 
 interface Props {
   description: string;
@@ -21,7 +25,7 @@ interface Props {
 const { description } = Astro.props;
 ---
 
-<p class="tldr mt-0 mb-8 font-sans text-lg leading-relaxed text-gray-700 md:text-xl md:leading-relaxed dark:text-gray-300">
-  <strong class="font-semibold text-gray-900 dark:text-gray-100">TL;DR:</strong>{' '}
-  <span set:html={marked.parseInline(description)} />
+<p class="tldr mt-0 mb-8 font-sans text-lg leading-relaxed text-gray-700 hyphens-manual md:text-xl md:leading-relaxed dark:text-gray-300">
+  <strong class="font-semibold text-gray-900 dark:text-gray-100"><span aria-hidden="true">TL;DR:</span><span class="sr-only">Summary:</span></strong>{' '}
+  <span set:html={renderInlineMarkdown(description)} />
 </p>

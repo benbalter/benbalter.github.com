@@ -57,6 +57,11 @@ First point[^1] and second point[^2].
     expect(labelCount).toBe(1);
   });
 
+  it('should render the back-reference arrow as text, not emoji', async () => {
+    const result = await processor.process(markdownWithFootnote);
+    expect(String(result)).toContain('\u21A9\uFE0E</a>');
+  });
+
   it('should not affect content without footnotes', async () => {
     const markdown = 'Just a regular paragraph with no footnotes.';
     const result = await processor.process(markdown);

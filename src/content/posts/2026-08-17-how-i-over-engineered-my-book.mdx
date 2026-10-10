@@ -2,11 +2,11 @@
 title: How I over-engineered my book
 description: "My book has a linter, ~5,500 automated checks, and a Pandoc pipeline that rebuilds five formats (EPUB, Kindle, paperback ×2, and web) on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
 tldr: "I wrote my book in Markdown and Git and built a CI pipeline that turns one source into five formats and runs thousands of automated checks, from prose linters to an LLM that caught me making the same argument in five separate chapters. AI reviewed every page; I wrote every word."
-# This post supplies its own featured BookCta at the end, so suppress the
-# generic inline one PostLayout appends to every post (avoids two CTAs).
-hideBookCta: true
+# The book post gets the large card, rendered by PostLayout after the share
+# bar like every other post, rather than inside the body ahead of the closing
+# question and footnotes.
+bookCtaVariant: featured
 ---
-import BookCta from '../../components/BookCta.astro';
 
 My book has a linter that yells at me for hyphenating "open source."[^opensource] It runs a battery of automated checks, rebuilds every format on each `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
 
@@ -277,8 +277,6 @@ The tooling outgrew the book, too. I pointed the whole apparatus at this blog's 
 And it wasn't only the tooling that transferred. The habits did. The instincts I sharpened here (treat a mistake caught once as a rule that catches it forever, keep a human in the loop on anything a machine drafts, make the build the source of truth) have already found their way into how I run my other projects, this site included.[^resumepdf]
 
 I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate, and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad away from my desk and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo}. And I'd start there again.
-
-<BookCta variant="featured" />
 
 What would you over-engineer, if you pointed your own tools at it?
 

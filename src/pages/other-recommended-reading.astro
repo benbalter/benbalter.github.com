@@ -10,7 +10,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
 import { join } from 'node:path';
-import { marked } from 'marked';
+import { renderInlineMarkdown } from '../utils/inline-markdown';
 import { slugify } from '../utils/slugify';
 
 const title = 'Other recommended reading';
@@ -103,7 +103,7 @@ const bookGroups = Object.entries(booksData);
 
             <p
               class="m-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300"
-              set:html={marked.parseInline(book.tldr)}
+              set:html={renderInlineMarkdown(book.tldr)}
             />
           </div>
         ))}
