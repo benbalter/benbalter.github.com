@@ -21,7 +21,8 @@ test.describe('Navigation', () => {
     await waitForPageReady(page);
 
     await expect(page).toHaveURL(/\/about\//);
-    await expect(page.locator('h1')).toContainText('About');
+    // About's h1 is Ben's headline, so check the swapped-in <title> instead.
+    await expect(page).toHaveTitle(/About/);
   });
 
   test('should preserve scroll position on back navigation', async ({ page }) => {
@@ -371,6 +372,7 @@ test.describe('View transition edge cases', () => {
     
     // Verify we successfully navigated
     await expect(page).toHaveURL(/\/about\//);
-    await expect(page.locator('h1')).toContainText('About');
+    // About's h1 is Ben's headline, so check the swapped-in <title> instead.
+    await expect(page).toHaveTitle(/About/);
   });
 });
