@@ -25,7 +25,9 @@ import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
 if (!resumePage) throw new Error('Resume page data not found');
-const { degrees, certifications, skills, summary, highlights } = resumePage.data;
+// Highlights are left out of the PDF: they restate role bullets, and the sheet
+// targets two pages. The web résumé, .md, and .docx keep them.
+const { degrees, certifications, skills, summary } = resumePage.data;
 
 const { grouped: groupedPositions } = await getResumePositions();
 
@@ -139,17 +141,6 @@ const contact = [
     <div class="rp-main">
       {summary && <p class="rp-summary">{typographicApostrophes(summary)}</p>}
 
-      {highlights && highlights.length > 0 && (
-        <section class="rp-main-section">
-          <h2 class="rp-main-h">Highlights</h2>
-          <ul class="rp-highlights rp-dots">
-            {highlights.map((item: string) => (
-              <li>{typographicApostrophes(item)}</li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       <section class="rp-main-section">
         <h2 class="rp-main-h">Experience</h2>
         {groupedPositions.map((group) => (
@@ -161,7 +152,7 @@ const contact = [
                   <h4 class="rp-pos-title">{position.data.title}</h4>
                   <span class="rp-pos-date">{dateRange(position.data.start_date, position.data.end_date)}</span>
                 </div>
-                <div class="pos-content rp-dots">
+                <div class="pos-content rp-dots" data-print-bullets={position.data.print_bullets}>
                   <position.Content />
                 </div>
               </div>
@@ -430,22 +421,6 @@ const contact = [
     color: var(--color-gray-800);
   }
 
-  .rp-highlights {
-    margin: 0;
-    font-size: 9.5pt;
-    line-height: 1.42;
-    color: var(--color-gray-800);
-  }
-
-  .rp-highlights li {
-    margin-bottom: 3pt;
-    break-inside: avoid;
-  }
-
-  .rp-highlights li:last-child {
-    margin-bottom: 0;
-  }
-
   .rp-main-section {
     margin-bottom: 0.11in;
   }
@@ -525,11 +500,9 @@ const contact = [
     color: var(--color-gray-700);
   }
 
-  /* One bullet system for Highlights and every role. */
   /* No list indent: page 1 drops it under the float anyway, so bullets hang
      in the gutter and text aligns with the heading edge on every page. */
-  .rp-dots ul,
-  ul.rp-dots {
+  .rp-dots ul {
     margin: 0;
     padding-left: 0;
     list-style: none;
@@ -537,6 +510,16 @@ const contact = [
 
   .pos-content li {
     margin-bottom: 2pt;
+  }
+
+  /* `print_bullets: N` in a role's front matter (content.config.ts) keeps only
+     its first N bullets on this sheet; every other surface shows them all.
+     nth-child can't read an attribute, so each supported N gets a rule. */
+  .pos-content[data-print-bullets='1'] > ul > li:nth-child(n + 2),
+  .pos-content[data-print-bullets='2'] > ul > li:nth-child(n + 3),
+  .pos-content[data-print-bullets='3'] > ul > li:nth-child(n + 4),
+  .pos-content[data-print-bullets='4'] > ul > li:nth-child(n + 5) {
+    display: none;
   }
 
   /* Inline-block dot (not absolute) so the bullet rides the line box and stays

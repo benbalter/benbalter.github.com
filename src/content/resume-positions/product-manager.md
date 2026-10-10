@@ -3,6 +3,7 @@ employer: GitHub
 title: Senior Product Manager, Trust and Safety
 start_date: '2016-02-01'
 end_date: '2021-01-19'
+print_bullets: 3
 ---
 
 - Led community, safety, privacy, product security, and platform health for a software development platform with 50M+ customers and 100M+ projects.

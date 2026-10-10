@@ -2,6 +2,7 @@
 employer: Open & Async
 title: Author
 start_date: '2026-05-01'
+print_bullets: 2
 ---
 
 [Open and Async](https://open-and-async.com/): the collaborative software development playbook for remote and distributed teams.

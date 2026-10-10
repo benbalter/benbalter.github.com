@@ -146,6 +146,10 @@ const resumePositionsCollection = defineCollection({
     
     // Optional fields
     end_date: z.string().optional(),
+    // The PDF résumé (/resume/print/) shows only this role's first N bullets,
+    // to hold the sheet to two pages. Every other surface shows them all, so
+    // order a role's bullets strongest first.
+    print_bullets: z.number().int().min(1).max(4).optional(),
   }),
 });
 
