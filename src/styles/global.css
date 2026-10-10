@@ -312,6 +312,17 @@
   touch-action: manipulation;
 }
 
+/* On touch screens, stretch the share link's hit area to at least 44px (it
+ * renders about 30px) without moving any text: the overlay is absolutely
+ * positioned, so line height and wrapping are unchanged. */
+@media (pointer: coarse) {
+  .quote-inline .quote-inline-share::after {
+    content: '';
+    position: absolute;
+    inset: -0.45rem;
+  }
+}
+
 .quote-inline .quote-inline-icon {
   position: relative;
   display: inline-flex;
@@ -1174,6 +1185,10 @@
   /* Anchor Links */
   .anchor-link {
     @apply no-underline ml-1 opacity-0 transition-opacity duration-200;
+    /* The "#" glyph is about 18px wide; widen the tap target to 24px (WCAG
+       2.5.8) with padding offset by an equal negative margin, so the heading
+       text doesn't move. */
+    @apply inline-block px-1.5 -mx-0.5;
   }
 
   .anchor-icon {

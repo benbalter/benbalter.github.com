@@ -244,7 +244,8 @@ const showEmail = Boolean(siteConfig.kitFormId);
   .subscribe-input {
     @apply flex-1 min-h-[44px] text-sm px-3 py-1.5 rounded-md;
     @apply border border-gray-300 bg-white;
-    @apply text-gray-900 placeholder:text-gray-400;
+    /* gray-600 placeholder: 4.7:1 on white (gray-400 was 1.5:1, unreadable). */
+    @apply text-gray-900 placeholder:text-gray-600;
     @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary;
     @apply transition-colors duration-200;
     min-width: 0;
