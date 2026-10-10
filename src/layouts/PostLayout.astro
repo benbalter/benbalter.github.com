@@ -21,7 +21,6 @@ import { viewTransitionName } from '../utils/view-transition-name';
 import { getDocumentUri } from '../utils/standard-site';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
-import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import { tocEntries, MIN_HEADINGS_FOR_TOC } from '../utils/toc';
@@ -44,9 +43,9 @@ interface Props {
   image?: string | undefined;
   author?: string;
   relatedPosts?: CollectionEntry<'posts'>[];
-  prevPost?: { title: string; url: string; readingTime?: number } | undefined;
-  nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
+  /** Post describes GitHub in the present tense; show "Written while I was at GitHub". */
+  writtenAtGitHub?: boolean;
   hideBookCta?: boolean;
   bookCtaVariant?: 'inline' | 'featured';
   bookRelation?: BookRelation | undefined;
@@ -68,9 +67,8 @@ const {
   image,
   author = siteConfig.author,
   relatedPosts = [],
-  prevPost,
-  nextPost,
   archived = false,
+  writtenAtGitHub = false,
   hideBookCta = false,
   bookCtaVariant,
   bookRelation,
@@ -163,11 +161,18 @@ const itemListSchema = curatedUrls.length > 0
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" style={`view-transition-name: ${titleTransitionName}`}>{title}</h1>
           
-          {readingTime >= 1 && (
-            <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
-              <span class="inline-flex items-center gap-1">
-                <Icon name="clock" /> {readingTime} min read
-              </span>
+          {/* Post dates stay hidden so evergreen posts read as current, which
+              made older posts' "At GitHub, we…" read as if Ben still works
+              there. `writtenAtGitHub` adds that context without a date. */}
+          {(readingTime >= 1 || writtenAtGitHub) && (
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
+              {readingTime >= 1 && (
+                <span class="inline-flex items-center gap-1">
+                  <Icon name="clock" /> {readingTime} min read
+                </span>
+              )}
+              {readingTime >= 1 && writtenAtGitHub && <span aria-hidden="true">·</span>}
+              {writtenAtGitHub && <span>Written while I was at GitHub</span>}
             </div>
           )}
           
@@ -210,8 +215,6 @@ const itemListSchema = curatedUrls.length > 0
         <div class="mt-12">
           <SubscribeCta />
         </div>
-
-        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
           <MiniBio class="mb-6" />

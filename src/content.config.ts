@@ -59,6 +59,7 @@ const postsCollection = defineCollection({
     hideBookCta: z.boolean().default(false), // Suppress the auto-appended BookCta (e.g. the launch post supplies its own BookLaunchCta)
     bookCtaVariant: z.enum(['inline', 'featured']).optional(), // Render the auto-appended BookCta as the large 'featured' block instead of the default inline card
     bookRelation: z.enum(BOOK_RELATIONS).optional(), // Post tied to the manuscript: swaps the BookCta headline (see BOOK_RELATIONS in src/lib/book-cta.ts)
+    writtenAtGitHub: z.boolean().default(false), // Describes GitHub in the present tense; PostLayout notes it was written while Ben worked there (dates are hidden, so readers can't tell)
 
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default

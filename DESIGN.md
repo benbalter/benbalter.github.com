@@ -270,7 +270,7 @@ A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners
 
 ### End of post
 
-Posts carry no byline: every post has the same author, and the name is already in the site title and the footer bio. The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, older/newer links, and a footer with the bio, publish date, revision history, and the open source link.
+Posts carry no byline: every post has the same author, and the name is already in the site title and the footer bio. The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, and a footer with the bio, publish date, revision history, and the open source link.
 
 ### Book CTA (signature component)
 
