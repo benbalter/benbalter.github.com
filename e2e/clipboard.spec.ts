@@ -168,12 +168,14 @@ test.describe('clipboard copy buttons', () => {
       Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
     });
     await page.goto(POST);
-    const quote = page.locator('a.quote-inline').first();
+    const quote = page.locator('.quote-inline').first();
     const id = await quote.getAttribute('id');
     await clearClipboardLog(page);
 
-    await quote.click();
+    // Only the share icon is interactive; the highlighted text isn't a link.
+    await quote.locator('.quote-inline-share').click();
     await expect(quote).toHaveClass(/is-copied/);
+    await expect(page.locator('#quote-share-live')).toHaveText('Link to quote copied');
     const expected = await page.evaluate((anchorId) => `${location.origin}${location.pathname}#${anchorId}`, id);
     await expectClipboard(page, expected);
   });

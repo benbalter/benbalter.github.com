@@ -74,16 +74,22 @@ export const siteConfig = {
   // the marketing site. bookLaunch is retained for reference/metadata.
   //
   // Each buy surface gets a distinct utm_source (matching the site-wide
-  // benbalter-<surface> convention used by the hero, footer, bio, and resume)
+  // benbalter-<surface> convention used by the footer, bio, and resume)
   // so it's individually measurable: bookUrl = everyday sitewide CTA,
   // bookUrlLaunchPost = the launch announcement post, bookUrlEmail = RSS/email.
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
-  // The launch announcement post. It's left out of a post's related posts when
-  // that post already shows a BookCta, so the end of the post doesn't point at
-  // the book twice (once to buy it, once to read about it).
-  bookLaunchPostId: '2026-07-21-open-and-async',
+  // Posts that announce book news (launch, podcast, audiobook) rather than
+  // standing on their own as writing. So the book doesn't crowd out the writing,
+  // these stay off the homepage, and they're left out of a
+  // post's related posts when that post already shows a BookCta. They remain
+  // in /posts/ and the feeds.
+  bookAnnouncementPostIds: [
+    '2026-07-21-open-and-async',
+    '2026-07-28-overcommitted-open-and-async',
+    '2026-09-08-gif-or-jif-audiobook-both-ways',
+  ],
   bookTitle: 'Open and Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',

@@ -42,7 +42,7 @@ const isFeatured = variant === 'featured';
 ]}>
   <div class={isFeatured ? 'p-6 max-md:p-4 max-md:pt-3' : 'p-4 max-md:pt-3'}>
     <h3 class:list={[
-      'leading-snug tracking-tight',
+      'mt-0 leading-snug tracking-tight',
       isFeatured ? 'mb-4 text-xl font-bold' : 'mb-2 text-base font-semibold',
     ]} data-vt-card-title>
       <a href={url} class="text-gray-900 no-underline before:absolute before:inset-0 transition-colors duration-200 group-hover:text-primary dark:group-hover:text-primary-300 dark:text-gray-100">{title}{external && (

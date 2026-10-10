@@ -143,12 +143,12 @@ const navClasses = hero
   @media (width < 48rem) {
     /* Separator between nav items */
     .nav-item:not(:last-child) {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid var(--color-gray-200);
     }
 
     /* Expanded menu background separation */
     .nav-collapse.show {
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-top: 1px solid var(--color-gray-200);
       margin-top: 0.5rem;
       padding-top: 0.25rem;
     }
@@ -157,11 +157,11 @@ const navClasses = hero
   /* Dark mode variants for mobile */
   @media (width < 48rem) and (prefers-color-scheme: dark) {
     .nav-item:not(:last-child) {
-      border-bottom-color: rgba(255, 255, 255, 0.08);
+      border-bottom-color: var(--color-gray-700);
     }
 
     .nav-collapse.show {
-      border-top-color: rgba(255, 255, 255, 0.08);
+      border-top-color: var(--color-gray-700);
     }
   }
 </style>

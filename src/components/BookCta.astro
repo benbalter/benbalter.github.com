@@ -55,7 +55,7 @@ const inlineHeadline =
       <div class="shrink-0 mx-auto md:mx-0">
         <Image
           src={coverImage}
-          alt="Open and Async book cover"
+          alt=""
           width={220}
           height={244}
           widths={[176, 224, 352, 448]}
@@ -136,8 +136,10 @@ const inlineHeadline =
   @reference "../styles/global.css";
 
   /* Signature lime→pink gradient text (ampersand). Solid color fallback
-     first so meaning survives if background-clip:text is unsupported. */
-  .oa-amp {
+     first so meaning survives if background-clip:text is unsupported.
+     :global because the title comes from bookTitleHtml via set:html, and
+     Astro's scoped selectors never match injected markup. */
+  :global(.oa-amp) {
     color: var(--color-accent-400);
     background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
     -webkit-background-clip: text;

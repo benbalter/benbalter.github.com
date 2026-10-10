@@ -16,7 +16,6 @@ test.describe('Header Anchor Links', () => {
     // Check the first anchor link has correct structure
     const firstAnchor = h2WithAnchors.first();
     await expect(firstAnchor).toHaveAttribute('href');
-    await expect(firstAnchor).toHaveAttribute('aria-label', 'Link to this section');
     
     // Check the anchor contains the icon
     const anchorIcon = firstAnchor.locator('.anchor-icon');
@@ -52,20 +51,24 @@ test.describe('Header Anchor Links', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test('anchor links should have proper accessibility attributes', async ({ page }) => {
+  test('anchor links are hidden from assistive tech and the tab order', async ({ page }) => {
     await page.goto('/2014/10/07/expose-process-through-urls/');
     await waitForPageReady(page);
-    
-    // Check all anchor links have aria-label
-    const allAnchors = page.locator('h2 a.anchor-link, h3 a.anchor-link, h4 a.anchor-link');
-    const count = await allAnchors.count();
-    
-    if (count > 0) {
-      // Check first few anchors have proper aria-label
-      for (let i = 0; i < Math.min(3, count); i++) {
-        const anchor = allAnchors.nth(i);
-        await expect(anchor).toHaveAttribute('aria-label', 'Link to this section');
-      }
+
+    // The "#" permalink is for mouse users. Announced inside the heading, it
+    // made every heading's name end in "Link to this section" and added a tab
+    // stop per section; keyboard and screen-reader users use the TOC instead.
+    const anchors = page.locator('h2 a.anchor-link, h3 a.anchor-link, h4 a.anchor-link');
+    const count = await anchors.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < Math.min(3, count); i++) {
+      await expect(anchors.nth(i)).toHaveAttribute('aria-hidden', 'true');
+      await expect(anchors.nth(i)).toHaveAttribute('tabindex', '-1');
     }
+
+    // The heading's accessible name is just its text.
+    const heading = page.locator('h2:has(a.anchor-link)').first();
+    const text = (await heading.evaluate((el) => el.firstChild?.textContent ?? '')).trim();
+    await expect(page.getByRole('heading', { level: 2, name: text, exact: true })).toHaveCount(1);
   });
 });

@@ -61,7 +61,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     await waitForPageReady(page);
     
     // Jekyll adds active class server-side based on current page
-    const aboutLink = page.locator('a[href="/about/"]');
+    const aboutLink = page.locator('nav .nav-link[href="/about/"]');
     await expect(aboutLink).toHaveClass(/active/);
   });
 
@@ -90,7 +90,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     
     // Use nav-link class to distinguish from navbar-brand which also links to /
     const homeLink = page.locator('nav .nav-link[href="/"]');
-    const aboutLink = page.locator('a[href="/about/"]');
+    const aboutLink = page.locator('nav .nav-link[href="/about/"]');
     
     // Home link should be active initially
     await expect(homeLink).toHaveClass(/active/);
@@ -102,7 +102,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     await waitForPageReady(page);
     
     // Re-query the locators after navigation since DOM has changed
-    const aboutLinkAfterNav = page.locator('a[href="/about/"]');
+    const aboutLinkAfterNav = page.locator('nav .nav-link[href="/about/"]');
     const homeLinkAfterNav = page.locator('nav .nav-link[href="/"]');
     
     // About link should now be active, home should not
@@ -134,7 +134,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     expect(page.url()).toContain('/about/');
     
     // Should still highlight the about link
-    const aboutLink = page.locator('a[href="/about/"]');
+    const aboutLink = page.locator('nav .nav-link[href="/about/"]');
     await expect(aboutLink).toHaveClass(/active/);
   });
 });

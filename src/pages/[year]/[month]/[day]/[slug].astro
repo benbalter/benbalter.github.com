@@ -71,11 +71,11 @@ const listablePosts = allPosts.filter(isListablePost);
 
 // Related posts: one "up next" card plus a short list. Kept to 4 so the end of
 // the post leads with sharing and the book rather than a wall of exit links.
-// When this post shows a BookCta, drop the launch post before limiting, so it
-// doesn't duplicate the CTA and the list still fills to 4.
+// When this post shows a BookCta, drop book-announcement posts before limiting,
+// so they don't duplicate the CTA and the list still fills to 4.
 const relatedCandidates = post.data.hideBookCta
   ? listablePosts
-  : listablePosts.filter((p) => p.id !== siteConfig.bookLaunchPostId);
+  : listablePosts.filter((p) => !siteConfig.bookAnnouncementPostIds.includes(p.id));
 const relatedPosts = await findRelatedPosts(post, relatedCandidates, 4);
 
 // Find previous and next posts for sequential navigation

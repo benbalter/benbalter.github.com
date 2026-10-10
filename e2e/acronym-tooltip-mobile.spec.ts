@@ -1,12 +1,12 @@
 import { test, expect, devices } from '@playwright/test';
-import { waitForPageReady, waitForTldrSettled } from './helpers';
+import { scrollIntoViewInstantly, waitForPageReady } from './helpers';
 
 /**
- * Mobile-specific tests for TLDR tooltip
+ * Mobile-specific tests for acronym tooltip
  * These tests specifically verify iOS/mobile touch interaction
  */
-test.describe('TLDR Tooltip - Mobile/iOS', () => {
-  // Use a known blog post with description that displays TLDR
+test.describe('Acronym Tooltip - Mobile/iOS', () => {
+  // A known post whose body has an auto-tooltipped acronym (WIP)
   const testPostUrl = '/2015/12/08/types-of-pull-requests/';
 
   test('should work on iOS Safari (iPhone)', async ({ browser }) => {
@@ -19,11 +19,11 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Verify iOS-specific CSS properties are applied
-    const styles = await tldrElement.evaluate((el) => {
+    const styles = await acronym.evaluate((el) => {
       const computed = window.getComputedStyle(el);
       return {
         webkitTapHighlightColor: computed.getPropertyValue('-webkit-tap-highlight-color'),
@@ -36,16 +36,17 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip
-    await waitForTldrSettled(page);
-    await tldrElement.tap();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.tap();
 
     // Wait for tooltip to appear
     const tooltip = page.locator('.custom-tooltip.show');
     await expect(tooltip).toBeVisible({ timeout: 2000 });
-    await expect(tooltip).toContainText('Too Long');
+    await expect(tooltip).toContainText('Work in progress');
 
     // Tap again to hide
-    await tldrElement.tap();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.tap();
 
     // Tooltip should be gone
     await expect(tooltip).not.toBeAttached({ timeout: 1000 });
@@ -63,17 +64,17 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Tap the element to show tooltip
-    await waitForTldrSettled(page);
-    await tldrElement.tap();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.tap();
 
     // Wait for tooltip to appear
     const tooltip = page.locator('.custom-tooltip.show');
     await expect(tooltip).toBeVisible({ timeout: 2000 });
-    await expect(tooltip).toContainText('Too Long');
+    await expect(tooltip).toContainText('Work in progress');
 
     // Tap elsewhere to close via click-outside
     await page.locator('body').tap({ position: { x: 50, y: 50 } });
@@ -94,11 +95,12 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Try to hover (should not work on mobile)
-    await tldrElement.hover();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.hover();
 
     // Tooltip should NOT appear on hover (mobile devices use tap, not hover)
     const tooltip = page.locator('.custom-tooltip.show');
@@ -117,11 +119,11 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Check that cursor is pointer on touch devices
-    const cursor = await tldrElement.evaluate((el) => {
+    const cursor = await acronym.evaluate((el) => {
       return window.getComputedStyle(el).cursor;
     });
 
@@ -143,11 +145,11 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Verify touch-action is set for proper iPadOS handling
-    const styles = await tldrElement.evaluate((el) => {
+    const styles = await acronym.evaluate((el) => {
       const computed = window.getComputedStyle(el);
       return {
         touchAction: computed.touchAction,
@@ -159,16 +161,17 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     expect(styles.touchAction).toBe('manipulation');
 
     // Tap the element to show tooltip (touch interaction)
-    await waitForTldrSettled(page);
-    await tldrElement.tap();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.tap();
 
     // Wait for tooltip to appear
     const tooltip = page.locator('.custom-tooltip.show');
     await expect(tooltip).toBeVisible({ timeout: 2000 });
-    await expect(tooltip).toContainText('Too Long');
+    await expect(tooltip).toContainText('Work in progress');
 
     // Tap again to hide
-    await tldrElement.tap();
+    await scrollIntoViewInstantly(acronym);
+    await acronym.tap();
 
     // Tooltip should be gone
     await expect(tooltip).not.toBeAttached({ timeout: 1000 });
@@ -185,11 +188,11 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);
 
-    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
-    await expect(tldrElement).toBeVisible();
+    const acronym = page.locator('.post-content abbr.initialism');
+    await expect(acronym).toBeVisible();
 
     // Verify -webkit-tap-highlight-color is set
-    const tapHighlight = await tldrElement.evaluate((el) => {
+    const tapHighlight = await acronym.evaluate((el) => {
       return window.getComputedStyle(el).getPropertyValue('-webkit-tap-highlight-color');
     });
 

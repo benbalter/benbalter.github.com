@@ -2,7 +2,7 @@
  * Test helper utilities for Playwright tests
  */
 
-import { expect, type Page } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 
 /**
  * Check common site elements that should be present on all pages
@@ -75,15 +75,18 @@ export async function waitForPageReady(page: Page) {
 }
 
 /**
- * Wait for the TL;DR box's entrance animation (`tldr-enter` in Tldr.astro)
- * to finish. While it slides in, Playwright sees the element as "not stable"
- * and retries the tap after scrolling, and with `scroll-behavior: smooth`
- * that scroll keeps animating after the tap lands, so the tooltip's
- * close-on-scroll handler hides it again. A fast server (the local Worker)
- * makes the tap race the animation.
+ * Scroll an element into view instantly. Playwright's own scroll (before tap,
+ * hover, or click) uses the page's `scroll-behavior: smooth`, so the scroll can
+ * still be animating when the input lands, and handlers that react to scroll
+ * (like the acronym tooltip's close-on-scroll) then undo the interaction.
  */
-export async function waitForTldrSettled(page: Page) {
-  await page
-    .locator('.tldr-container')
-    .evaluate((el) => Promise.all(el.getAnimations().map((animation) => animation.finished)));
+export async function scrollIntoViewInstantly(locator: Locator) {
+  await locator.evaluate(async (el) => {
+    el.scrollIntoView({ block: 'center', behavior: 'instant' });
+    // The scroll event still fires on a later frame; let it pass before the
+    // test interacts, or it closes whatever the interaction opens.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
+  });
 }

@@ -61,7 +61,7 @@ Ben's writing draws on a decade inside GitHub: trust and safety, security, inter
 
 ## Evidence on Hand
 
-- About 200 published posts. Curated popular picks live in `popularPostSlugs` in [`src/config.ts`](src/config.ts).
+- Nearly 200 posts: about 170 current ones, plus about 25 archived posts that stay published behind a warning and are left out of listings. Curated popular picks live in `popularPostSlugs` in [`src/config.ts`](src/config.ts).
 - Real credentials and quotes are in [`src/content/about-bio.ts`](src/content/about-bio.ts), including the US CTO quote and the public figures already published there.
 - The *Open and Async* book, with its own site and brand assets kept in a separate repo. On this site it appears through `BookCta` and `BookLaunchCta`.
 - Images:

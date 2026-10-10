@@ -167,6 +167,13 @@ const shareLinks = networks.map((n) => linkDefs[n]);
     touch-action: manipulation;
   }
 
+  /* Explicit outline: the @apply'd focus-visible utilities computed a white
+     (currentColor) ring here, invisible on the light page. */
+  .post-share-primary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
   .post-share-primary:active {
     @apply bg-primary-700;
   }

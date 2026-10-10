@@ -212,7 +212,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 ## Layout
 
-The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it.
+The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it. The hero is currently the *Open and Async* banner, a temporary state: it's slated to become a non-book image built from newer headshots. The homepage's `h1` is screen-reader-only: the hero and the nav's name and tagline already identify the site, and a visible intro just repeated the tagline.
 
 Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
@@ -241,7 +241,7 @@ The system is flat at rest, with soft, diffuse shadows that deepen on hover. Dep
 
 Corners are gently rounded throughout. 8px (`rounded-lg`) is the default for cards, the navbar, the subscribe card, and callouts. 6px (`rounded-md`) is for form controls and small badges. 12px (`rounded-xl`) is reserved for the book CTA, which reads as a separate object. 4px is for inline code, tooltips, and small toggles. Full rounding appears only on circular icon chips (the subscribe icons).
 
-Borders are 1px `gray-200` (`gray-700` in dark mode). Accent borders are reserved for meaning: a 3px primary left rule on blockquotes, a 4px left rule on callouts, and a 2px tinted top border on featured post cards.
+Borders are 1px `gray-200` (`gray-700` in dark mode). Accent borders are reserved for meaning: a 3px primary left rule on blockquotes, a 4px left rule on callouts (including the archived-post warning), and a 2px tinted top border on featured post cards. The TL;DR and the author bio card carry no accent rule.
 
 ## Components
 
@@ -276,9 +276,13 @@ Posts carry no byline: every post has the same author, and the name is already i
 
 A navy card (`brand-950`) with a 12px corner, a 1px `brand-600` border, and a faint commit-graph SVG along its bottom edge. It holds the 3D book cover, a mono "> Out now" badge, the title with a lime-to-pink gradient ampersand, and the gradient buy button. The featured variant fades up on load. It's the only place the site shows color beyond blue.
 
+### TL;DR
+
+The post's thesis, set as a plain subtitle under the title: Inter at 18px (20px from `md`), relaxed leading, `gray-700`, led by a semibold "TL;DR:". No box, icon, rule, or entrance animation, so on a phone the first paragraph of the post is visible on the first screen.
+
 ### Inline shareable quote
 
-A highlighted run of prose (14% blue background, rising to 24% on hover) with a small share icon. Arriving through its `#quote-` deep link raises the highlight to 38% with a matching glow, so the reader sees which line was shared.
+A highlighted run of prose (14% blue background) followed by a small share icon. Only the icon is interactive: a labeled link ("Share this quote") whose padded hit area doesn't shift the text, which shares the quote's deep link or copies it with a visible and announced confirmation. Hovering or focusing the icon raises the highlight to 24%. Arriving through a `#quote-` deep link raises it to 38% with a matching glow, so the reader sees which line was shared.
 
 ### Link-preview card
 

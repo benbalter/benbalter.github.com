@@ -38,7 +38,8 @@
 # HTML has arrived. As a response header (and a 103 Early Hint, which the zone
 # has on) the hint arrives before any HTML. AVIF only, with a type hint, since
 # that's what image-set() serves nearly every browser; others skip the preload
-# and fall back through image-set().
+# and fall back through image-set(). BaseLayout also emits a matching <link>
+# tag so static audits (Lighthouse CI) can discover the image from the HTML.
 /
   Link: </assets/img/header.avif>; rel="preload"; as="image"; type="image/avif"; fetchpriority="high"
 

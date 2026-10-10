@@ -26,7 +26,10 @@ const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
 // Split into featured (top 3) and regular posts, skipping posts already shown
 // in the Popular section so no card appears twice on the homepage
 const popularIds = new Set(popularPosts.map((p) => p.id));
-const nonPopularPosts = posts.filter((p) => !popularIds.has(p.id));
+// Book-announcement posts (launch, podcast, audiobook) stay off the homepage
+// so the book doesn't crowd out the writing. They're still in /posts/.
+const bookAnnouncementIds = new Set(siteConfig.bookAnnouncementPostIds);
+const nonPopularPosts = posts.filter((p) => !popularIds.has(p.id) && !bookAnnouncementIds.has(p.id));
 const featuredPosts = nonPopularPosts.slice(0, 3);
 const regularPosts = nonPopularPosts.slice(3);
 ---

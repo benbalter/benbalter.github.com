@@ -49,7 +49,7 @@ describe('rehypeEmailQuotePlain', () => {
     expect(html).toContain('often.');
   });
 
-  it('drops the share anchor, icon SVG, and sr-only hint', async () => {
+  it('drops the share link and icon SVG', async () => {
     const html = await render('Ben says :quote[Show your work.]{#show-your-work} often.');
     expect(html).not.toContain('class="quote-inline"');
     expect(html).not.toContain('quote-inline-icon');
@@ -58,7 +58,16 @@ describe('rehypeEmailQuotePlain', () => {
     expect(html).not.toContain('href="#quote-show-your-work"');
   });
 
-  it('falls back to the anchor children when there is no <mark>', async () => {
+  it('falls back to the quote children when there is no <mark>', async () => {
+    const html = await renderHtml(
+      '<p><span class="quote-inline" id="quote-q">Plain text<a class="quote-inline-share" href="#quote-q" aria-label="Share this quote"><span class="quote-inline-icon"><svg></svg></span></a></span></p>',
+    );
+    expect(html).toContain('Plain text');
+    expect(html).not.toContain('<a');
+    expect(html).not.toContain('<svg');
+  });
+
+  it('still flattens the older anchor-wrapped markup', async () => {
     const html = await renderHtml(
       '<p><a class="quote-inline" href="#q">Plain text<span class="quote-inline-icon"><svg></svg></span><span class="sr-only">Share</span></a></p>',
     );

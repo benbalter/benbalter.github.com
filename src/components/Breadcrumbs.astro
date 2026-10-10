@@ -4,7 +4,8 @@
  * 
  * Minimal breadcrumb navigation for post pages.
  * Shows: Home > Posts > Post Title
- * Wraps on mobile; truncates on desktop to preserve single-line layout.
+ * Hidden on phones, where it pushed the post's first paragraph below the fold
+ * and the nav already links to Posts. Truncates on desktop to stay on one line.
  */
 
 interface Props {
@@ -14,11 +15,11 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-300 mb-4" data-pagefind-ignore>
+<nav aria-label="Breadcrumb" class="mb-2 text-sm text-gray-600 max-md:hidden dark:text-gray-300" data-pagefind-ignore>
   <ol class="flex flex-wrap items-baseline gap-x-1.5 gap-y-1 list-none p-0 m-0">
-    <li class="shrink-0"><a href="/" class="hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Home</a></li>
+    <li class="shrink-0"><a href="/" class="inline-flex min-h-[44px] items-center hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Home</a></li>
     <li aria-hidden="true" class="text-gray-300 dark:text-gray-600 shrink-0">/</li>
-    <li class="shrink-0"><a href="/posts/" class="hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Posts</a></li>
+    <li class="shrink-0"><a href="/posts/" class="inline-flex min-h-[44px] items-center hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Posts</a></li>
     <li aria-hidden="true" class="text-gray-300 dark:text-gray-600 shrink-0">/</li>
     <li class="text-gray-600 dark:text-gray-400 min-w-0 md:truncate md:max-w-[400px]" aria-current="page">{title}</li>
   </ol>
