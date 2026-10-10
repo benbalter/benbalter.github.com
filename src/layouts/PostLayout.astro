@@ -13,7 +13,8 @@ import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
-import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
+import { generateBlogPostingSchema, generateItemListSchema, schemaToJsonLd } from '../utils/structured-data';
+import { getPostTitlesByUrl, sitePath } from '../utils/post-titles';
 import { ogImagePath } from '../utils/og-image-path';
 import { formatPostDate } from '../utils/post-urls';
 import { viewTransitionName } from '../utils/view-transition-name';
@@ -116,7 +117,18 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   image: socialImage,
   author,
   wordCount,
+  mentionsBook: bookRelation !== undefined,
 }) : null;
+
+// A post that curates other posts (front matter posts:/roles:) also describes
+// that list as an ItemList, posts first, then role guides, with real titles.
+const curatedUrls = [curatedPosts, curatedRoles].flatMap((list) =>
+  !list ? [] : Array.isArray(list) ? list : Object.values(list),
+);
+const postTitles = curatedUrls.length > 0 ? await getPostTitlesByUrl() : new Map<string, string>();
+const itemListSchema = curatedUrls.length > 0
+  ? generateItemListSchema(title, curatedUrls.map((url) => ({ url, name: postTitles.get(sitePath(url)) ?? sitePath(url) })))
+  : null;
 ---
 
 <BaseLayout 
@@ -231,6 +243,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       
       {blogPostingSchema && (
         <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
+      )}
+      {itemListSchema && (
+        <script type="application/ld+json" set:html={schemaToJsonLd(itemListSchema)} is:inline></script>
       )}
 
       <TableOfContentsSidebar headings={headings} />

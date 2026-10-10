@@ -14,8 +14,7 @@
  * in the post isn't repeated under it.
  */
 
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { getPostUrl } from '../utils/post-urls';
+import { getPostTitlesByUrl, sitePath as pathOf } from '../utils/post-titles';
 
 interface Props {
   posts?: Record<string, string> | string[] | undefined;
@@ -28,11 +27,7 @@ const { posts, roles, bodyHtml = '' } = Astro.props;
 
 // Real post titles, keyed by URL path, so array-form lists show "Why
 // everything should have a URL" instead of a title guessed from the slug.
-const titlesByUrl = new Map<string, string>(
-  (await getCollection('posts')).map((post: CollectionEntry<'posts'>) => [getPostUrl(post.id), post.data.title]),
-);
-
-const pathOf = (url: string) => url.replace(/^https?:\/\/ben\.balter\.com/, '');
+const titlesByUrl = await getPostTitlesByUrl();
 
 /**
  * Convert a URL path to a readable title by extracting the slug portion,

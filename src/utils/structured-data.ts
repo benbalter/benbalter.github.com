@@ -13,6 +13,8 @@ import type {
   Organization,
   WebSite,
   BlogPosting,
+  Book,
+  ItemList,
   BreadcrumbList,
   ListItemLeaf,
   WithContext,
@@ -41,7 +43,7 @@ const SAME_AS: string[] = [
 ].filter(Boolean) as string[];
 
 /** Every schema this module emits, for the serializers below. */
-type SiteSchema = WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>;
+type SiteSchema = WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage | ItemList>;
 
 /**
  * Base Person fields (shared between top-level and embedded schemas).
@@ -153,8 +155,10 @@ export function generateBlogPostingSchema(props: {
   image?: string | undefined;
   author?: string | undefined;
   wordCount?: number | undefined;
+  /** Set when the post is tied to the book (front matter `bookRelation`). */
+  mentionsBook?: boolean | undefined;
 }): WithContext<BlogPosting> {
-  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount } = props;
+  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount, mentionsBook } = props;
 
   const absoluteImage = image
     ? new URL(image, siteConfig.url).toString()
@@ -206,8 +210,45 @@ export function generateBlogPostingSchema(props: {
       '@id': `${siteConfig.url}/#website`,
     },
     ...(wordCount ? { wordCount } : {}),
+    ...(mentionsBook ? { mentions: bookSchema() } : {}),
     inLanguage: 'en',
     isAccessibleForFree: true,
+  };
+}
+
+/**
+ * Open and Async as a schema.org Book, linked to the site-wide Person as its
+ * author. The URL is the book site without the CTA's utm parameters.
+ */
+export function bookSchema(): Book {
+  const bookSite = `${new URL(siteConfig.bookUrl).origin}/`;
+  return {
+    '@type': 'Book',
+    '@id': `${bookSite}#book`,
+    name: siteConfig.bookTitle,
+    description: siteConfig.bookDescription,
+    url: bookSite,
+    author: { '@type': 'Person', '@id': `${siteConfig.url}/#person`, name: siteConfig.author },
+  };
+}
+
+/**
+ * ItemList for a post that curates other posts (a reading list), in the order
+ * the post presents them. Gives search engines the list's structure; plain
+ * article lists don't get a carousel, so this is about meaning, not display.
+ */
+export function generateItemListSchema(name: string, items: Array<{ name: string; url: string }>): WithContext<ItemList> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: new URL(item.url, siteConfig.url).toString(),
+    })),
   };
 }
 

@@ -233,3 +233,42 @@ describe('generateBlogPostingSchema', () => {
     expect(schema).toHaveProperty('isAccessibleForFree', true);
   });
 });
+
+describe('book and reading-list structured data', () => {
+  const base = {
+    title: 'Test Blog Post',
+    url: 'https://ben.balter.com/2024/01/01/test-post/',
+    publishedTime: new Date('2024-01-01'),
+  };
+
+  it('mentions the book as a Book authored by the site Person when the post is tied to it', async () => {
+    const { bookSchema } = await import('./structured-data');
+    const schema = generateBlogPostingSchema({ ...base, mentionsBook: true }) as unknown as Record<string, unknown>;
+    expect(schema.mentions).toEqual(bookSchema());
+    const book = bookSchema() as unknown as Record<string, unknown>;
+    expect(book['@type']).toBe('Book');
+    expect(book.name).toBe(siteConfig.bookTitle);
+    expect(book.url).toBe('https://open-and-async.com/');
+    expect(String(book.url)).not.toContain('utm_');
+    expect((book.author as Record<string, unknown>)['@id']).toBe(`${siteConfig.url}/#person`);
+  });
+
+  it('omits mentions for posts not tied to the book', () => {
+    const schema = generateBlogPostingSchema(base) as unknown as Record<string, unknown>;
+    expect(schema.mentions).toBeUndefined();
+  });
+
+  it('builds an ordered ItemList with absolute URLs', async () => {
+    const { generateItemListSchema } = await import('./structured-data');
+    const list = generateItemListSchema('Reading list', [
+      { name: 'Why URLs', url: '/2015/11/12/why-urls/' },
+      { name: 'Why async', url: 'https://ben.balter.com/2022/03/17/why-async/' },
+    ]) as unknown as Record<string, unknown>;
+    expect(list['@type']).toBe('ItemList');
+    expect(list.numberOfItems).toBe(2);
+    expect(list.itemListElement).toEqual([
+      { '@type': 'ListItem', position: 1, name: 'Why URLs', url: 'https://ben.balter.com/2015/11/12/why-urls/' },
+      { '@type': 'ListItem', position: 2, name: 'Why async', url: 'https://ben.balter.com/2022/03/17/why-async/' },
+    ]);
+  });
+});
