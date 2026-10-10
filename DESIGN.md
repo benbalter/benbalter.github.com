@@ -212,7 +212,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 ## Layout
 
-The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). There's no hero image: the homepage opens with the navbar, then one muted line (the About bio's first sentence, as the page's `h1`) saying who writes here, then posts. A photo banner was tried and dropped. Blind design and marketing reviews both preferred posts above the fold, and at banner size the headshot read as synthetic. Most of the closest comparable writers' sites (Larson, Evans, Willison, Luu) don't use a hero photo either.
+The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). There's no hero image: the homepage opens with the navbar, then a lead (the About bio's first sentence as the page's `h1`, Inter Light at 20px, full width, balanced wrapping) saying who writes here, then posts. It fits on one line from `lg` up. A photo banner was tried and dropped. Blind design and marketing reviews both preferred posts above the fold, and at banner size the headshot read as synthetic. Most of the closest comparable writers' sites (Larson, Evans, Willison, Luu) don't use a hero photo either.
 
 Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
