@@ -9,6 +9,8 @@ export interface ContactLink {
   name: string;
   url: string;
   icon: string;
+  /** Handle shown next to the network name on /contact/ */
+  handle?: string;
 }
 
 export interface SocialLink {
@@ -121,9 +123,9 @@ export const siteConfig = {
 export const contactLinks: ContactLink[] = [
   { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'envelope' },
   { name: 'Add to contacts', url: '/vcard.vcf', icon: 'address-card' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky', handle: '@ben.balter.com' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin', handle: 'in/benbalter' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github', handle: '@benbalter' },
 ];
 
 // Social links for rel=me verification (used in BaseLayout)

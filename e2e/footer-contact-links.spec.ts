@@ -7,8 +7,9 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/contact/');
     await waitForPageReady(page);
     
-    // Get contact links from the main contact section (grid container, excluding PGP key)
-    const contactPageLinks = page.locator('.contact-links .grid a[href]');
+    // Get contact links from the page body: the email link, the vCard, and
+    // the network list, in that order (the PGP key link is excluded)
+    const contactPageLinks = page.locator('main [data-contact-link]');
     const contactPageUrls = await contactPageLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
@@ -19,7 +20,10 @@ test.describe('Footer Contact Links', () => {
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
-    // Verify footer has the same links as contact page main section
+    // Guard against a vacuous pass ([] equals []) if a selector stops matching
+    expect(contactPageUrls.length).toBeGreaterThan(0);
+
+    // Verify footer has the same links as the contact page body
     // (Contact page also has a PGP key link below, which is not in footer)
     expect(footerUrls).toEqual(contactPageUrls);
   });
