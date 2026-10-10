@@ -1,106 +1,147 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { siteConfig, popularPostSlugs } from '../config';
+import { siteConfig, contactLinks, popularPostSlugs } from '../config';
 import { Image } from 'astro:assets';
 import headshotImage from '../../assets/img/headshot.jpg';
-import ContactLinks from '../components/ContactLinks.astro';
-import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
 import type { CollectionEntry } from 'astro:content';
-import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
+import { getPostUrl } from '../utils/post-urls';
 import { pickPostsBySlug } from '../utils/post-filtering';
 import { getPublishedPosts } from '../utils/posts';
+import { stripMarkdown } from '../utils/strip-markdown';
 
 const title = 'About Ben Balter';
 const description = siteConfig.aboutDescription;
 
-// Parse bio into structured sections
-const bioParagraphs = getBioParagraphs(aboutContent);
-const ledePara = bioParagraphs[0] || '';
-const remainingParagraphs = bioParagraphs.slice(1);
+// The shared bio ends with a "Full resume" link, which earns its place in
+// about.md and llms.txt. Here the summary's "View resume" button already
+// covers it, so drop the duplicate.
+const bioParagraphs = getBioParagraphs(aboutContent)
+  .map((para) => para.replace(/\s*<a href="\/resume\/">Full resume<\/a>\.$/, ''));
 
-// Fetch popular posts by slug
-interface PostItem { postDate: Date; title: string; url: string }
+// Popular posts, shown without dates: posts are evergreen (dates are hidden
+// at the top of every post too), and a 2014 date reads as stale here.
+interface PostItem { title: string; description: string; url: string }
 function renderPost(post: CollectionEntry<'posts'>): PostItem {
-  const postDate = getDateFromSlug(post.id);
-  return { postDate, title: post.data.title, url: getPostUrl(post.id) };
+  return { title: post.data.title, description: stripMarkdown(post.data.description), url: getPostUrl(post.id) };
 }
 
 const allPosts = await getPublishedPosts();
 const popularPostItems: PostItem[] = pickPostsBySlug(allPosts, popularPostSlugs).map(renderPost);
+
+// One contact row instead of a tile grid: the footer already carries every
+// network as an icon, so this section only needs the networks worth naming.
+const networks = ['LinkedIn', 'Bluesky', 'GitHub']
+  .map((name) => contactLinks.find((link) => link.name === name))
+  .filter((link) => link !== undefined);
+
+// Same-origin copy (built by script/build-headshots), so `download` works.
+const headshotUrl = '/assets/img/headshot.jpg';
+
+const actionClass = 'inline-flex min-h-[44px] items-center justify-center rounded-lg px-4 text-sm font-semibold no-underline transition-colors duration-200';
 ---
 
 <PageLayout title={title} description={description}>
-  <div>
-    <div class="md:flex md:items-start md:gap-6">
-      <div class="float-right ml-6 mb-4 max-w-[200px] md:float-none md:ml-0 md:mb-0 md:max-w-none md:shrink-0 md:w-[250px] md:order-last">
-        <a href={`${siteConfig.githubRepoUrl}/raw/main/assets/img/headshot.jpg`}>
-          <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} widths={[200, 250, 400, 500]} sizes="(min-width: 768px) 250px, 200px" class="w-full rounded" />
-        </a>
-      </div>
+  {/* Above the fold: who Ben is, in a form a recruiter can scan in seconds.
+      The photo sits beside the summary at every width (small on phones)
+      rather than floating into the bio, which crushed the text column. */}
+  <section aria-label="Summary" class="not-prose font-sans flex items-start gap-4 sm:gap-8 mb-8">
+    <Image
+      src={headshotImage}
+      alt={`${siteConfig.author} headshot`}
+      width={200}
+      height={200}
+      widths={[88, 176, 200, 400]}
+      sizes="(min-width: 640px) 200px, 88px"
+      loading="eager"
+      fetchpriority="high"
+      class="order-last w-[88px] shrink-0 rounded-lg sm:w-[200px]"
+    />
 
-      <div class="md:min-w-0">
-        <p class="text-lg leading-relaxed" set:html={ledePara}></p>
+    <div class="min-w-0 flex-1">
+      <p class="text-lg sm:text-xl font-semibold leading-snug text-gray-900 dark:text-gray-100 m-0 text-balance">
+        Product leader in trust and safety, platform security, and developer platforms.
+      </p>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 m-0">
+        A decade at GitHub, an attorney before that, and the author of <cite class="not-italic">Open and Async</cite>.
+      </p>
 
-        <aside aria-label="At a glance" class="clear-both not-prose my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-5 py-4">
-      <p class="text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 mb-3">At a Glance</p>
-      <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm m-0">
+      <dl class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm m-0">
         <div>
-          <dt class="font-medium text-gray-700 dark:text-gray-400">Previously</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">{siteConfig.formerJobTitle}, {siteConfig.formerEmployer}</dd>
+          <dt class="font-medium text-gray-600 dark:text-gray-400">Most recently</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">Director at GitHub, owning the internal platform its 4,000+ employees run on</dd>
         </div>
         <div>
-          <dt class="font-medium text-gray-700 dark:text-gray-400">Location</dt>
+          <dt class="font-medium text-gray-600 dark:text-gray-400">Book</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">
+            <a href={siteConfig.bookUrl} class="text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary"><cite class="not-italic">Open and Async</cite></a>, the playbook for remote and distributed teams
+          </dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-600 dark:text-gray-400">Education</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">JD and MBA, George Washington University; DC Bar member</dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-600 dark:text-gray-400">Based in</dt>
           <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
         </div>
-        <div>
-          <dt class="font-medium text-gray-700 dark:text-gray-400">Education</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">JD & MBA, George Washington University</dd>
-        </div>
       </dl>
-      <div class="mt-3 flex gap-4 text-sm border-t border-gray-200 dark:border-gray-700 pt-3">
-        <a href="/resume/" class="text-primary dark:text-primary-300 hover:underline">Full resume →</a>
-      </div>
-    </aside>
+
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="/resume/" class:list={[actionClass, 'btn bg-primary text-white hover:bg-primary-700 dark:bg-primary-300 dark:text-gray-900 dark:hover:bg-primary-200']}>View resume</a>
+        <a href="#contact" class:list={[actionClass, 'btn border border-gray-300 text-gray-900 hover:border-primary hover:text-primary dark:border-gray-600 dark:text-gray-100 dark:hover:border-primary-300 dark:hover:text-primary-300']}>Get in touch</a>
       </div>
     </div>
+  </section>
+
+  {/* One reading column for the whole bio, at the site's post measure. */}
+  <div class="max-w-prose">
+    {bioParagraphs.map((para: string) => (
+      <p set:html={para}></p>
+    ))}
   </div>
 
-  {remainingParagraphs.map((para: string) => (
-    <p class="clear-both" set:html={para}></p>
-  ))}
-
-  <div class="clear-both">
-    <BookCta variant="featured" />
-  </div>
-
-  <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Popular Writing</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Most-read posts from the blog.</p>
-    <ul class="space-y-1.5 list-none p-0 m-0">
-      {popularPostItems.map(({ postDate, title, url }) => (
-        <li class="flex items-baseline gap-3">
-          <time datetime={postDate.toISOString()} class="text-sm text-gray-600 dark:text-gray-400 shrink-0 w-[7.5rem] tabular-nums">{formatPostDate(postDate)}</time>
-          <a href={url} class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{title}</a>
+  <section aria-labelledby="start-here" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 id="start-here" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Start here</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-5">Good first reads if you're new here.</p>
+    <ul class="max-w-prose space-y-4 list-none p-0 m-0">
+      {popularPostItems.map(({ title, description, url }) => (
+        <li>
+          <a href={url} class="font-semibold text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{title}</a>
+          <p class="mt-0.5 text-sm text-gray-600 dark:text-gray-400 line-clamp-2 m-0">{description}</p>
         </li>
       ))}
     </ul>
-    <p class="mt-3">
-      <a href="/posts/" class="inline-flex items-center gap-1 rounded-lg border border-primary text-primary px-3 py-1.5 text-xs font-medium no-underline hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900 transition-colors duration-200">View all posts →</a>
+    <p class="mt-5 mb-0">
+      <a href="/posts/" class:list={[actionClass, 'btn border border-primary text-primary hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900']}>All posts →</a>
     </p>
   </section>
 
-  <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Get in Touch</h2>
-    <p class="text-gray-700 dark:text-gray-300 mb-2">
-      Feel free to email me at <a href={`mailto:${siteConfig.email}`} class="text-primary dark:text-primary-300 hover:underline">{siteConfig.email}</a> or find me on these networks:
+  <section id="contact" aria-labelledby="contact-heading" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 scroll-mt-24">
+    <h2 id="contact-heading" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Get in touch</h2>
+    <p class="max-w-prose text-gray-700 dark:text-gray-300 m-0">
+      Email is the best way to reach me: <a href={`mailto:${siteConfig.email}`} class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{siteConfig.email}</a>.
+      I'm also on {networks.map((link, i) => (
+        <>{i > 0 && (i === networks.length - 1 ? ', and ' : ', ')}<a href={link.url} rel="me" class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{link.name}</a></>
+      ))}.
     </p>
-    <ContactLinks />
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 list-none p-0 m-0 text-sm">
+      <li><a href="/vcard.vcf" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Add to contacts</a></li>
+      <li><a href="/subscribe/" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Get new posts by email</a></li>
+      <li><a href={headshotUrl} download="ben-balter-headshot.jpg" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Download headshot (JPG)</a></li>
+    </ul>
+    <details class="mt-1 text-sm text-gray-700 dark:text-gray-300">
+      <summary class="py-3 cursor-pointer hover:text-primary dark:hover:text-primary-300">PGP key</summary>
+      <p class="m-0 pb-2">
+        Fingerprint <code class="text-xs [overflow-wrap:anywhere]">{siteConfig.pgpKey}</code>. <a href="/key.asc" class="text-primary dark:text-primary-300 underline">Download the public key</a>.
+      </p>
+    </details>
   </section>
 
-  <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Stay in touch</h2>
-    <SubscribeCta />
-  </section>
+  {/* End on the book: the site's main conversion goal, and the last thing
+      a visitor sees (peak-end). */}
+  <div class="mt-10">
+    <BookCta variant="featured" />
+  </div>
 </PageLayout>
