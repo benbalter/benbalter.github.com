@@ -242,6 +242,9 @@ test.describe('Resource Performance', () => {
     // before any HTML; a <link> tag would sit behind the inline CSS.
     const home = await request.get('/');
     expect(home.headers()['link']).toContain('</assets/img/header.avif>; rel="preload"; as="image"');
+    // The same image is also preloaded from the HTML (BaseLayout), which static
+    // audits like Lighthouse CI need; keep the two in sync.
+    expect(await home.text()).toMatch(/<link href="\/assets\/img\/header\.avif" rel="preload"/);
 
     // Only the homepage shows the hero, so other pages don't preload it.
     const about = await request.get('/about/');
