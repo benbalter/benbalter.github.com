@@ -1016,7 +1016,8 @@
     touch-action: manipulation;
   }
 
-  .navbar-toggler:focus {
+  /* focus-visible, not focus: a tap shouldn't leave the ring on the button. */
+  .navbar-toggler:focus-visible {
     @apply outline-2 outline-primary outline-offset-2 border-primary;
   }
 

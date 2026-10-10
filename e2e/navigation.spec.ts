@@ -55,6 +55,18 @@ test.describe('Navigation Tagline', () => {
     await expect(tagline).toBeHidden();
   });
 
+  test('should end the open mobile menu with the tagline', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/about/');
+    await waitForPageReady(page);
+
+    const menuTagline = page.locator('.navbar-menu-tagline');
+    await expect(menuTagline).toBeHidden();
+    await page.locator('.navbar-toggler').click();
+    await expect(menuTagline).toBeVisible();
+    await expect(menuTagline).toContainText(siteConfig.description);
+  });
+
   test('should drop the tagline on the homepage, which opens with a fuller line', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
