@@ -31,16 +31,16 @@ const MOTIF_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60"
 const MOTIF_DATA_URI = `data:image/svg+xml;utf8,${encodeURIComponent(MOTIF_SVG)}`;
 
 // Auto-invalidating cache version: a hash of the source files that determine a
-// card's pixels (this generator, the config, the shared motif, and the
-// Markdown stripping applied to the description). Any design
-// or logic change reproduces a new key, so cached cards regenerate without a
-// manual bump. Falls back to a fixed salt if the source isn't readable in this
+// card's pixels (this generator, the config, the shared motif, the Markdown
+// stripping applied to the description, and the headshot in the footer
+// lockup). Any design, logic, or photo change reproduces a new key, so cached
+// cards regenerate without a manual bump. Falls back to a fixed salt if the source isn't readable in this
 // runtime (build-time only reads source; keep the salt as an escape hatch).
 function computeDesignVersion(): string {
   try {
     const dir = dirname(fileURLToPath(import.meta.url));
     const hash = createHash('sha256');
-    for (const file of ['og-image-generator.ts', 'og-config.ts', 'book-cta.ts', '../utils/strip-markdown.ts', '../utils/strip-html.ts']) {
+    for (const file of ['og-image-generator.ts', 'og-config.ts', 'book-cta.ts', '../utils/strip-markdown.ts', '../utils/strip-html.ts', '../../assets/img/headshot.jpg']) {
       hash.update(readFileSync(join(dir, file)));
     }
     return hash.digest('hex').slice(0, 16);

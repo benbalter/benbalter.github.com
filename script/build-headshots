@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+
+/**
+ * Builds every headshot on the site from one source portrait, so the nav, the
+ * browser tab, the About page, social-share cards, the vCard, and structured
+ * data all show the same photo:
+ *
+ * - public/assets/img/avatar-{40,80,120}.{avif,webp}: the round headshot beside
+ *   Ben's name in the navigation, cropped on the head so it reads at 40px.
+ * - android-chrome-512x512.png (repo root and public/): the favicon source,
+ *   same crop. astro-favicons (astro.config.mjs) generates every icon size from
+ *   the root copy at build time, overwriting the older hand-made icons in
+ *   public/. It stays square: iOS fills a transparent home-screen icon's
+ *   corners with black.
+ * - assets/img/headshot.jpg: the full portrait for the About page and the OG
+ *   card lockup (src/lib/og-config.ts). The OG cache key hashes this file, so
+ *   changing it regenerates the cards.
+ * - public/assets/img/headshot.jpg: an 800px copy served at a stable URL for
+ *   the vCard and Person/BlogPosting structured data.
+ *
+ * The source portrait isn't committed. sharp drops EXIF and other metadata
+ * unless asked to keep it, so no camera or location data reaches the published
+ * files.
+ *
+ * Usage: node script/build-headshots <photo.jpg>
+ */
+
+import { resolve, join } from 'node:path';
+import sharp from 'sharp';
+
+const ROOT = resolve(import.meta.dirname, '..');
+const OUT_DIR = join(ROOT, 'public', 'assets', 'img');
+const SIZE = 40; // CSS px; matches h-10 w-10 in Navigation.astro
+
+const [photoPath] = process.argv.slice(2);
+if (!photoPath) {
+  console.error('Usage: node script/build-headshots <photo.jpg>');
+  process.exit(1);
+}
+
+const { width, height } = await sharp(photoPath).rotate().metadata();
+
+// The center of the head's silhouette (hair, ears, jaw; not the nose, since
+// the face is turned slightly) and the crop size, as fractions of the source.
+// Tuned for the current portrait; adjust if the photo changes.
+const CENTER = { x: 0.507, y: 0.38 };
+const SPAN = 0.68;
+const side = Math.round(Math.min(width, height) * SPAN);
+const crop = {
+  left: Math.round(width * CENTER.x - side / 2),
+  top: Math.round(height * CENTER.y - side / 2),
+  width: side,
+  height: side,
+};
+
+const master = await sharp(photoPath).rotate().extract(crop).resize(SIZE * 3, SIZE * 3).png().toBuffer();
+
+for (const scale of [1, 2, 3]) {
+  const px = SIZE * scale;
+  // Named by pixel size, not @2x: Cloudflare's asset server redirects paths
+  // containing "@" to their %40-encoded form, an extra round trip per image.
+  const base = join(OUT_DIR, `avatar-${px}`);
+  await sharp(master).resize(px, px).avif({ quality: 60, effort: 9 }).toFile(`${base}.avif`);
+  await sharp(master).resize(px, px).webp({ quality: 82 }).toFile(`${base}.webp`);
+}
+// The repo-root copy is what astro-favicons reads; the public/ copy is served
+// as-is at /android-chrome-512x512.png. Keep them identical.
+const favicon = await sharp(photoPath).rotate().extract(crop).resize(512, 512).png({ compressionLevel: 9 }).toBuffer();
+for (const dir of [ROOT, join(ROOT, 'public')]) {
+  await sharp(favicon).toFile(join(dir, 'android-chrome-512x512.png'));
+}
+
+// The full portrait, uncropped. 2048px is plenty for the About page's
+// largest srcset width and the raw download link there.
+const full = Math.min(width, height);
+const portrait = () => sharp(photoPath).rotate().extract({ left: 0, top: 0, width: full, height: full });
+await portrait().resize(2048, 2048).jpeg({ quality: 86, mozjpeg: true }).toFile(join(ROOT, 'assets', 'img', 'headshot.jpg'));
+await portrait().resize(800, 800).jpeg({ quality: 85, mozjpeg: true }).toFile(join(OUT_DIR, 'headshot.jpg'));
+
+console.log(`Built the nav avatar and favicon source (from a ${side}px crop) and both headshot.jpg copies`);
