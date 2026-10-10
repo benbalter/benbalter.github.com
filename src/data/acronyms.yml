@@ -82,8 +82,9 @@
   tooltip: 'Security Assertion Markup Language: the standard behind single sign-on (SSO)'
 
 # US government & regulatory
-# Note: typography rewrites "M-10-22" to "M-10\u201322" at render time, so both
-# forms are listed; the en-dash key is the one that fires.
+# Note: typography used to rewrite "M-10-22" to "M-10\u201322" at render time
+# (restoreIdentifierHyphens in markdown-pipeline.ts now undoes it), so both
+# forms are listed; the hyphen key is the one that fires.
 - acronym: OMB
   meaning: Office of Management and Budget
   tooltip: 'Office of Management and Budget: the White House office that sets policy and budget direction for federal agencies'

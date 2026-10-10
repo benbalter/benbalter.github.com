@@ -67,6 +67,12 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   }
 }];
 
+// typographic-en-dashes turns any digit-hyphen-digit into a range ("10-22" →
+// "10–22"), which corrupts document identifiers like OMB memo "M-10-22".
+// Restore the hyphens when the run is a letter-prefixed identifier.
+export const restoreIdentifierHyphens = (text: string): string =>
+  text.replace(/\b([A-Z]+-\d+)\u2013(\d+)\b/g, '$1-$2');
+
 // Typography plugin configuration for remark-textr
 const remarkTextrConfig = [remarkTextr, {
   options: {
@@ -79,6 +85,7 @@ const remarkTextrConfig = [remarkTextr, {
     // ("§3544(a)(2)(C)"). Ben types © directly where a copyright symbol is meant.
     typographicEmDashes,
     typographicEnDashes,
+    restoreIdentifierHyphens,
     typographicMathSymbols,
     typographicRegisteredTrademark,
     typographicSingleSpaces,

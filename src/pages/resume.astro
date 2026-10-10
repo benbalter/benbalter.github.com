@@ -16,7 +16,7 @@ import { getEntry, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_HEADLINE, getResumePositions } from '../utils/resume-data';
+import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 import bookCover from '../../assets/img/open-and-async-cover-left.webp';
 
@@ -108,14 +108,14 @@ const resumeSchema = generateResumeSchema({
   </header>
 
   <div class="resume">
-    {summary && <p class="resume-summary">{summary}</p>}
+    {summary && <p class="resume-summary">{typographicApostrophes(summary)}</p>}
 
     {highlights && highlights.length > 0 && (
       <section class="resume-section" aria-labelledby="highlights">
         <h2 id="highlights">Highlights</h2>
         <ul class="highlight-list">
           {highlights.map((item: string) => (
-            <li>{item}</li>
+            <li>{typographicApostrophes(item)}</li>
           ))}
         </ul>
       </section>

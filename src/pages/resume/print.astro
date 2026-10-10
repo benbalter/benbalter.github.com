@@ -20,8 +20,7 @@
 
 import { getEntry } from 'astro:content';
 import { Font } from 'astro:assets';
-import { formatResumeDate } from '../../utils/post-urls';
-import { RESUME_HEADLINE, getResumePositions } from '../../utils/resume-data';
+import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../../utils/resume-data';
 import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
@@ -40,9 +39,25 @@ const professionalCerts = certifications.filter(
     (c.category ?? 'professional') === 'professional' && !c.expired,
 );
 
-// Date range for a position, e.g. "July 2021 – February 2023" / "May 2026 – Present".
+// "Jul 2021": short months keep long role titles on one line beside the date.
+const shortDate = (value: string) =>
+  new Date(value).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+const year = (value: string) => String(new Date(value).getUTCFullYear());
+
+// Date range for a position, e.g. "Jul 2021 – Feb 2023" / "May 2026 – Present".
 const dateRange = (start: string, end?: string) =>
-  `${formatResumeDate(start) ?? ''} – ${end ? (formatResumeDate(end) ?? '') : 'Present'}`;
+  `${shortDate(start)} – ${end ? shortDate(end) : 'Present'}`;
+
+// Skill runs for the sidebar: each item's middot separator is glued to it with
+// a no-break space so a line never starts with "·", and hyphenated terms
+// ("AI-accelerated") stay whole. A break at the hyphen reads badly and
+// extracts as "AIaccelerated" in ATS parsers.
+const skillParts = (items: string[]) =>
+  items
+    .map((item, i) => (i < items.length - 1 ? `${item}\u00a0·` : item))
+    .join(' ')
+    .split(/(\S*-\S*)/)
+    .map((part, i) => ({ text: part, nowrap: i % 2 === 1 }));
 
 const contact = [
   { label: 'Washington, DC', href: null, icon: 'pin' },
@@ -63,7 +78,7 @@ const contact = [
     <link rel="canonical" href="https://ben.balter.com/resume/print/" />
     <title>Ben Balter, Résumé</title>
     <Font cssVariable="--font-inter" />
-    <Font cssVariable="--font-lora" />
+    <Font cssVariable="--font-lora-static" />
   </head>
   <body class="rp">
     <!-- ================= Sidebar (navy column) ================= -->
@@ -90,11 +105,11 @@ const contact = [
 
       {skills && skills.length > 0 && (
         <section class="rp-side-section">
-          <h2 class="rp-side-h">Areas of Focus</h2>
+          <h2 class="rp-side-h">Areas of focus</h2>
           {skills.map((group: { group: string; items: string[] }) => (
             <div class="rp-skill">
               <p class="rp-skill-name">{group.group}</p>
-              <p class="rp-skill-items">{group.items.join(' · ')}</p>
+              <p class="rp-skill-items">{skillParts(group.items).map((part) => (part.nowrap ? <span class="rp-nowrap">{part.text}</span> : part.text))}</p>
             </div>
           ))}
         </section>
@@ -102,12 +117,12 @@ const contact = [
 
       {(degrees?.length > 0 || professionalCerts.length > 0) && (
         <section class="rp-side-section">
-          <h2 class="rp-side-h">{professionalCerts.length > 0 ? 'Education & Credentials' : 'Education'}</h2>
+          <h2 class="rp-side-h">{professionalCerts.length > 0 ? 'Education and credentials' : 'Education'}</h2>
           {degrees?.map((d: { school: string; degree: string; date: string }) => (
             <div class="rp-edu">
               <p class="rp-edu-school">{d.school}</p>
               <p class="rp-edu-degree">{d.degree}</p>
-              <p class="rp-edu-date">{formatResumeDate(d.date)}</p>
+              <p class="rp-edu-date">{year(d.date)}</p>
             </div>
           ))}
           {professionalCerts.map((c: { authority: string; name: string }) => (
@@ -122,14 +137,14 @@ const contact = [
 
     <!-- ================= Main column (flows across pages) ================= -->
     <div class="rp-main">
-      {summary && <p class="rp-summary">{summary}</p>}
+      {summary && <p class="rp-summary">{typographicApostrophes(summary)}</p>}
 
       {highlights && highlights.length > 0 && (
         <section class="rp-main-section">
           <h2 class="rp-main-h">Highlights</h2>
-          <ul class="rp-highlights">
+          <ul class="rp-highlights rp-dots">
             {highlights.map((item: string) => (
-              <li>{item}</li>
+              <li>{typographicApostrophes(item)}</li>
             ))}
           </ul>
         </section>
@@ -146,7 +161,7 @@ const contact = [
                   <h4 class="rp-pos-title">{position.data.title}</h4>
                   <span class="rp-pos-date">{dateRange(position.data.start_date, position.data.end_date)}</span>
                 </div>
-                <div class="pos-content">
+                <div class="pos-content rp-dots">
                   <position.Content />
                 </div>
               </div>
@@ -168,7 +183,7 @@ const contact = [
   :root {
     --rp-side: 2.4in; /* navy sidebar width (page 1 only) */
     --rp-gap: 0.32in; /* gutter between sidebar and experience column */
-    --rp-navy: #0d2138;
+    --rp-navy: var(--color-brand-950);
   }
 
   @page {
@@ -186,7 +201,7 @@ const contact = [
       font-family: var(--font-sans);
       font-size: 7.5pt;
       letter-spacing: 0.04em;
-      color: var(--color-gray-500);
+      color: var(--color-gray-600);
     }
   }
 
@@ -241,8 +256,11 @@ const contact = [
   }
 
   /* Neutralize the site's aggressive base heading styles (clamp() sizes, 2em
-     top margins, balance) for this document; every heading is sized locally. */
-  .rp :is(h1, h2, h3, h4) {
+     top margins, balance) for this document; every heading is sized locally.
+     :where() keeps this at single-class specificity so the per-heading rules
+     below (weights, tracking, margins) win by source order. With :is() it
+     outranked them, and the PDF lost every bold weight and heading margin. */
+  .rp :where(h1, h2, h3, h4) {
     margin: 0;
     line-height: 1.2;
     letter-spacing: normal;
@@ -250,18 +268,28 @@ const contact = [
     font-weight: 600;
   }
 
+  /* global.css sets line-height 1.7 and padding directly on every li, which
+     beat the 1.3 leading inherited from each list and double-spaced bullets. */
+  .rp li {
+    line-height: inherit;
+    padding-left: 0;
+  }
+
+  .rp-nowrap {
+    white-space: nowrap;
+  }
+
   /* ============================================================
-   * Sidebar — a floated navy panel on page 1 only. Experience flows
-   * to its right, then goes full-width once the panel ends. `z-index`
-   * lifts the panel above the main column so full-width heading rules
-   * hide behind it rather than streaking across the navy. min-height
+   * Sidebar: a floated navy panel on page 1 only. Experience flows
+   * to its right, then goes full-width once the panel ends. Heading
+   * rules use flow-root to sit beside the float, so the panel needs no
+   * z-index (which also kept it in normal paint order, so PDF text
+   * extraction reads the name and contact details first). min-height
    * fills the page-1 content box; the panel's content must fit within
    * one page (a float that overflows would drag onto page 2).
    * ============================================================ */
   .rp-side {
     float: left;
-    position: relative;
-    z-index: 1;
     width: var(--rp-side);
     min-height: 10in;
     margin-right: var(--rp-gap);
@@ -276,17 +304,21 @@ const contact = [
     font-size: 24pt;
     font-weight: 700;
     line-height: 1.03;
+    /* Tight tracking shrank the word gap enough that PDF text extraction
+       read the name as "BenBalter"; the word-spacing restores it. */
     letter-spacing: -0.02em;
+    word-spacing: 0.12em;
     color: #fff;
   }
 
+  /* Normal case and tracking: letter-spaced caps extracted as "S E C U R I T Y"
+     and hid the positioning keywords from applicant-tracking parsers. */
   .rp-role {
-    margin-top: 4pt;
-    font-size: 8pt;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-primary-300);
+    margin-top: 5pt;
+    font-size: 9pt;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-primary-200);
   }
 
   .rp-contact {
@@ -318,23 +350,21 @@ const contact = [
   }
 
   .rp-side-section {
-    margin-top: 0.17in;
-    padding-top: 0.14in;
+    margin-top: 0.14in;
+    padding-top: 0.12in;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
 
   .rp-side-h {
-    margin-bottom: 8pt;
-    font-size: 8.5pt;
+    margin-bottom: 5pt;
+    font-size: 9pt;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--color-primary-300);
+    color: var(--color-primary-200);
   }
 
   /* Skills */
   .rp-skill {
-    margin-bottom: 7pt;
+    margin-bottom: 5pt;
   }
 
   .rp-skill-name {
@@ -353,11 +383,12 @@ const contact = [
 
   /* Education */
   .rp-edu {
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
   }
 
   .rp-edu-school {
     margin: 0;
+    text-wrap: wrap; /* global "pretty" broke "The George / Washington University" */
     font-size: 8.5pt;
     font-weight: 600;
     line-height: 1.25;
@@ -373,9 +404,8 @@ const contact = [
 
   .rp-edu-date {
     margin: 1.5pt 0 0;
-    font-size: 7pt;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 7.75pt;
+    font-variant-numeric: tabular-nums;
     color: var(--color-primary-300);
   }
 
@@ -390,9 +420,11 @@ const contact = [
     padding: 0.02in 0.5in 0.2in;
   }
 
+  /* Lora from a static (non-variable) file: Chromium embeds a variable font
+     as a Type 3 bitmap-style font, which some viewers and ATS parsers mangle. */
   .rp-summary {
     margin: 0 0 0.18in;
-    font-family: var(--font-serif);
+    font-family: var(--font-lora-static), Georgia, serif;
     font-size: 10.5pt;
     line-height: 1.5;
     color: var(--color-gray-800);
@@ -400,7 +432,6 @@ const contact = [
 
   .rp-highlights {
     margin: 0;
-    padding-left: 13pt;
     font-size: 9.5pt;
     line-height: 1.42;
     color: var(--color-gray-800);
@@ -419,17 +450,17 @@ const contact = [
     margin-bottom: 0.11in;
   }
 
+  /* flow-root makes the heading box sit beside the page-1 float instead of
+     running under it, so its rule starts at the text edge, not the sidebar's. */
   .rp-main-h {
-    margin-bottom: 11pt;
-    padding: 1pt 0 4pt 9pt;
-    font-size: 11pt;
+    display: flow-root;
+    margin-bottom: 7pt;
+    padding: 0 0 3pt;
+    font-size: 12pt;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--color-primary-700);
-    /* Navy left tab echoes the sidebar/spine; blue underline keeps the accent. */
-    border-left: 3px solid var(--rp-navy);
-    border-bottom: 2px solid var(--color-primary-700);
+    letter-spacing: -0.01em;
+    color: var(--rp-navy);
+    border-bottom: 1.5px solid var(--color-primary-700);
   }
 
   .rp-emp {
@@ -437,6 +468,7 @@ const contact = [
   }
 
   .rp-emp-name {
+    display: flow-root;
     margin-bottom: 5pt;
     padding-bottom: 3pt;
     font-size: 11.5pt;
@@ -453,6 +485,14 @@ const contact = [
     margin-bottom: 4pt;
   }
 
+  /* Roles may split across sheets (keeping them whole left a quarter of page 1
+     empty), but never strand a lone bullet line at either side of the break. */
+  .pos-content li {
+    orphans: 2;
+    widows: 2;
+    break-inside: avoid;
+  }
+
   .rp-pos-head {
     display: flex;
     align-items: baseline;
@@ -462,6 +502,7 @@ const contact = [
   }
 
   .rp-pos-title {
+    text-wrap: balance;
     font-size: 10pt;
     font-weight: 600;
     color: var(--color-gray-900);
@@ -469,10 +510,9 @@ const contact = [
 
   .rp-pos-date {
     flex: 0 0 auto;
-    font-size: 8pt;
+    font-size: 8.5pt;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
     white-space: nowrap;
     color: var(--color-primary-600);
   }
@@ -485,9 +525,13 @@ const contact = [
     color: var(--color-gray-700);
   }
 
-  .pos-content ul {
+  /* One bullet system for Highlights and every role. */
+  /* No list indent: page 1 drops it under the float anyway, so bullets hang
+     in the gutter and text aligns with the heading edge on every page. */
+  .rp-dots ul,
+  ul.rp-dots {
     margin: 0;
-    padding-left: 12pt;
+    padding-left: 0;
     list-style: none;
   }
 
@@ -496,15 +540,15 @@ const contact = [
   }
 
   /* Inline-block dot (not absolute) so the bullet rides the line box and stays
-     beside the text when it's float-shifted on page 1 — an absolute dot anchors
+     beside the text when it's float-shifted on page 1. An absolute dot anchors
      to the li's far-left edge, which hides behind the navy panel. */
-  .pos-content li::before {
+  .rp-dots li::before {
     content: '';
     display: inline-block;
     width: 3px;
     height: 3px;
     margin-left: -12pt;
-    margin-right: 9pt;
+    margin-right: calc(12pt - 3px);
     vertical-align: middle;
     border-radius: 9999px;
     background: var(--color-primary-500);

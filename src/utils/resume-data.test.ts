@@ -14,7 +14,7 @@ vi.mock('astro:content', () => ({
 }));
 
 import { getCollection, render } from 'astro:content';
-import { getResumePositions } from './resume-data';
+import { getResumePositions, typographicApostrophes } from './resume-data';
 
 const mockGetCollection = vi.mocked(getCollection);
 const mockRender = vi.mocked(render);
@@ -82,5 +82,17 @@ describe('getResumePositions', () => {
 
     expect(sorted).toEqual([]);
     expect(grouped).toEqual([]);
+  });
+});
+
+describe('typographicApostrophes', () => {
+  it('curls apostrophes inside words', () => {
+    expect(typographicApostrophes("GitHub's employees and an engineer's worth")).toBe(
+      'GitHub’s employees and an engineer’s worth',
+    );
+  });
+
+  it('leaves text without apostrophes alone', () => {
+    expect(typographicApostrophes('Product leader')).toBe('Product leader');
   });
 });

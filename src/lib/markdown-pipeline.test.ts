@@ -13,7 +13,7 @@ import remarkDirective from 'remark-directive';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import { remarkQuoteDirective } from './remark-quote-directive';
-import { syndicationRehypePlugins } from './markdown-pipeline';
+import { restoreIdentifierHyphens, syndicationRehypePlugins } from './markdown-pipeline';
 
 const SITE = 'https://ben.balter.com';
 
@@ -52,5 +52,17 @@ describe('syndicationRehypePlugins', () => {
     const html = await render('See [example](https://example.com/).');
     expect(html).toContain('target="_blank"');
     expect(html).toMatch(/rel="noopener noreferrer"/);
+  });
+});
+
+describe('restoreIdentifierHyphens', () => {
+  it('restores hyphens in letter-prefixed identifiers', () => {
+    expect(restoreIdentifierHyphens('OMB memoranda M-10–22 and M-10–23')).toBe(
+      'OMB memoranda M-10-22 and M-10-23',
+    );
+  });
+
+  it('leaves plain numeric ranges as en dashes', () => {
+    expect(restoreIdentifierHyphens('8–10x growth, 2013–2016')).toBe('8–10x growth, 2013–2016');
   });
 });

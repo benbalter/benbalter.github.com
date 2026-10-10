@@ -145,6 +145,19 @@ export default defineConfig({
       display: 'swap',
     },
     {
+      // Static Lora for the PDF résumé summary only (src/pages/resume/print.astro).
+      // Chromium embeds the variable Lora below as a Type 3 font in PDFs, which
+      // some viewers render poorly and some ATS parsers can't read.
+      provider: fontProviders.fontsource(),
+      name: 'Lora',
+      cssVariable: '--font-lora-static',
+      weights: [400],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['Georgia', 'serif'],
+      display: 'swap',
+    },
+    {
       provider: fontProviders.fontsource(),
       name: 'Lora',
       cssVariable: '--font-lora',

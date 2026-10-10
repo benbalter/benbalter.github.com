@@ -35,6 +35,15 @@ export interface ResumePositions {
  */
 export const RESUME_HEADLINE = 'Product Leader: Trust & Safety, Platform Security, Developer Platforms';
 
+/**
+ * Curl apostrophes in plain front-matter strings (summary, highlights). Position
+ * bodies go through the Markdown pipeline's smartypants step; front matter
+ * doesn't, so without this the same page mixed "GitHub's" and "GitHub’s".
+ */
+export function typographicApostrophes(text: string): string {
+  return text.replace(/(\w)'(\w)/g, '$1\u2019$2');
+}
+
 type PositionLike = { data: { start_date: string; employer: string } };
 
 const byStartDateDesc = (a: PositionLike, b: PositionLike) =>
