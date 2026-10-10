@@ -171,7 +171,7 @@ A single cool blue accent over Bootstrap's neutral grays, with a separate navy-l
 
 ### The Open and Async sub-brand
 
-These colors mirror open-and-async.com and appear only in book promos: `BookCta`, `BookLaunchCta`, and the `InBook` tag. They form a self-contained "book object" and are the same in both color schemes.
+These colors mirror open-and-async.com and appear only in book promos: `BookCta` and `BookLaunchCta`. They form a self-contained "book object" and are the same in both color schemes.
 
 - **Midnight Navy** (`brand-950`): The book card's base.
 - **Badge Navy** (`brand-900`): The "Out now" badge background.
@@ -277,10 +277,6 @@ Posts carry no byline: every post has the same author, and the name is already i
 A navy card (`brand-950`) with a 12px corner, a 1px `brand-600` border, and a faint commit-graph SVG along its bottom edge. It holds the 3D book cover, a mono "> Out now" badge, the title with a lime-to-pink gradient ampersand, and the gradient buy button. The featured variant fades up on load. It's the only place the site shows color beyond blue.
 
 A post's `bookRelation` front matter (`adapted`, `cut`, `inspired`, or `collected` for a reading list whose posts are mostly in the book; one list in `src/lib/book-cta.ts`) sets the card's headline, makes adapted and inspired posts get the featured variant, and adds the book to the post's structured data. Both cards are `data-nosnippet` so search snippets quote the post, not the promo.
-
-### In the book tag
-
-`InBook` is a small navy pill with lime mono caps ("In the book") placed after a reading-list item whose post was adapted into, or inspired a chapter of, the book. It shows how much of a list the book covers without adding another call to action. Text outputs (Markdown, feed, email) drop it.
 
 ### TL;DR
 

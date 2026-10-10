@@ -212,7 +212,7 @@
       },
       "mono": {
         "displayName": "Mono",
-        "purpose": "Code, the book badge, and the In the book tag."
+        "purpose": "Code and the book badge."
       }
     },
     "shadows": [
@@ -326,14 +326,6 @@
       "description": "Signature navy 'book object' with lime badge, gradient ampersand, and gradient buy button; data-nosnippet, with an sr-only new-tab cue. Only place the sub-brand palette appears.",
       "html": "<a class=\"ds-book\" href=\"#\" target=\"_blank\" rel=\"noopener\" data-nosnippet><span class=\"ds-badge\"><span aria-hidden=\"true\">&gt;</span> Out now</span><span class=\"ds-book-title\">Open <span class=\"ds-amp\">&amp;</span> Async</span><span class=\"ds-book-desc\">The collaborative software development playbook for remote and distributed teams.</span><span class=\"ds-buy\">Buy it for $9.99 <span class=\"ds-arrow\" aria-hidden=\"true\">&rarr;</span></span><span class=\"ds-sr-only\"> (opens in a new tab)</span></a>",
       "css": ".ds-book{display:flex;flex-direction:column;gap:10px;max-width:460px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:#102038;border:1px solid #2e3e62;border-radius:12px;padding:32px;text-decoration:none;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.06);transition:all .2s}.ds-book:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 24px rgba(0,0,0,.12)}.ds-book:focus-visible{outline:2px solid #d0d820;outline-offset:2px}.ds-badge{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;background:#1b2a47;border:1px solid #2e3e62;border-radius:6px;padding:4px 12px}.ds-badge span{color:#d0d820}.ds-book-title{font-size:30px;font-weight:700;line-height:1.15}.ds-amp{color:#d0d820;background:linear-gradient(to right,#d0d820,#f070a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.ds-book-desc{font-size:15px;color:#cbd5e1}.ds-buy{align-self:flex-start;background:linear-gradient(to right,#d0d820,#f070a8);color:#102038;font-weight:600;font-size:14px;border-radius:8px;padding:10px 20px}.ds-buy{display:inline-flex;align-items:center;gap:6px}.ds-arrow{transition:transform .2s}.ds-book:hover .ds-buy{filter:brightness(1.05)}.ds-book:hover .ds-arrow{transform:translateX(2px)}.ds-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}"
-    },
-    {
-      "name": "In the Book Tag",
-      "kind": "chip",
-      "refersTo": null,
-      "description": "Small navy tag with lime mono caps after a reading-list item adapted into, or inspiring, a book chapter; book palette per The Book Object Rule. Dropped from text outputs.",
-      "html": "<p class=\"ds-inbook-row\"><a href=\"#\">Work loudly</a><span class=\"ds-inbook\">In the book</span></p>",
-      "css": ".ds-inbook-row{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;color:#212529}.ds-inbook-row a{color:#337ab7}.ds-inbook{display:inline-block;margin-left:6px;white-space:nowrap;border-radius:4px;background:#102038;padding:1px 6px;vertical-align:0.1em;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;font-size:0.65rem;font-weight:600;text-transform:uppercase;line-height:1.5;letter-spacing:.05em;color:#d0d820}"
     },
     {
       "name": "Blockquote",

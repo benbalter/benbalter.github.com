@@ -63,7 +63,7 @@ Ben's writing draws on a decade inside GitHub: trust and safety, security, inter
 
 - Nearly 200 posts: about 170 current ones, plus about 25 archived posts that stay published behind a warning and are left out of listings. Curated popular picks live in `popularPostSlugs` in [`src/config.ts`](src/config.ts).
 - Real credentials and quotes are in [`src/content/about-bio.ts`](src/content/about-bio.ts), including the US CTO quote and the public figures already published there.
-- The *Open and Async* book, with its own site and brand assets kept in a separate repo. On this site it appears through `BookCta`, `BookLaunchCta`, the `InBook` tag on reading-list items, and a line in the GitHub-culture callout.
+- The *Open and Async* book, with its own site and brand assets kept in a separate repo. On this site it appears through `BookCta`, `BookLaunchCta`, and a line in the GitHub-culture callout.
 - Images:
   - Headshot: one source portrait (not committed) feeds every photo of Ben on the site through [`script/build-headshots`](script/build-headshots): the nav avatar, the post-bio avatar, the favicon, [`assets/img/headshot.jpg`](assets/img/headshot.jpg) (About page and share cards), and [`public/assets/img/headshot.jpg`](public/assets/img/headshot.jpg) (vCard and structured data).
   - Charts from posts about the book's build process
