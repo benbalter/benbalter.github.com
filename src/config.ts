@@ -81,8 +81,8 @@ export const siteConfig = {
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
   // Posts that announce book news (launch, podcast, audiobook) rather than
-  // standing on their own as writing. The featured BookCta is the homepage's one
-  // book moment, so these stay off the homepage, and they're left out of a
+  // standing on their own as writing. So the book doesn't crowd out the writing,
+  // these stay off the homepage, and they're left out of a
   // post's related posts when that post already shows a BookCta. They remain
   // in /posts/ and the feeds.
   bookAnnouncementPostIds: [

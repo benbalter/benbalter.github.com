@@ -212,7 +212,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 ## Layout
 
-The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it. The hero is currently the *Open and Async* banner, a temporary state: it's slated to become a non-book image built from newer headshots. Below the nav, the homepage opens with a short intro (the About bio's first sentence as a visible `h1`, plus About and Resume links) above Popular Posts.
+The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). A hero header image (256px tall, 180px on mobile) sits above the navbar on the homepage, and the navbar loses its top corners to join it. The hero is currently the *Open and Async* banner, a temporary state: it's slated to become a non-book image built from newer headshots. The homepage's `h1` is screen-reader-only: the hero and the nav's name and tagline already identify the site, and a visible intro just repeated the tagline.
 
 Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
