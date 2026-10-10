@@ -1,10 +1,12 @@
 ---
+import { siteConfig } from '../config';
 /**
  * GitHub Culture Callout Component
  * 
  * Displays a callout linking to posts about GitHub's culture.
  * This replaces the Jekyll {% include_cached github-culture.html %} tag.
- * Uses Tailwind CSS for styling.
+ * Uses Tailwind CSS for styling. The link text matches the reading list's
+ * title, and a second line points to the book, which covers most of it.
  */
 ---
 
@@ -22,8 +24,12 @@
         href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/"
         class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary dark:text-primary-300 no-underline group-hover:text-primary-700 dark:group-hover:text-primary-200 transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl"
       >
-        Read the unofficial onboarding guide <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+        Interviewing or starting at GitHub? Read these first <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
       </a>
+      {/* relative z-10 lifts this link above the card-wide link's ::before overlay. */}
+      <p class="relative z-10 mt-2 mb-0 text-sm text-gray-600 dark:text-gray-300">
+        Or get the long version in my book, <a href={`https://open-and-async.com/?utm_source=benbalter-github-culture`} target="_blank" rel="noopener" class="font-semibold italic text-primary dark:text-primary-300 underline decoration-primary/40 hover:decoration-primary">{siteConfig.bookTitle}</a>.
+      </p>
     </div>
   </div>
 </aside>

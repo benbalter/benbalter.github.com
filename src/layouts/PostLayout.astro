@@ -28,6 +28,7 @@ import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
+import type { BookRelation } from '../lib/book-cta';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { CollectionEntry } from 'astro:content';
 import type { MarkdownHeading } from 'astro';
@@ -46,7 +47,7 @@ interface Props {
   archived?: boolean;
   hideBookCta?: boolean;
   bookCtaVariant?: 'inline' | 'featured';
-  bookRelation?: 'adapted' | 'cut' | 'inspired';
+  bookRelation?: BookRelation | undefined;
   robots?: string | undefined;
   postId: string;
   /** Headings from `render(post)`, for the tables of contents */
@@ -164,7 +165,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           <slot />
         </div>
 
-        <ReadingList posts={curatedPosts} roles={curatedRoles} />
+        <ReadingList posts={curatedPosts} roles={curatedRoles} bodyHtml={content} />
 
         <ReadingProgress readingTime={readingTime} />
 

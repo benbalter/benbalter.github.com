@@ -7,6 +7,17 @@
 import { siteConfig } from '../config';
 
 /**
+ * How a post relates to the book, set by `bookRelation` in post front matter.
+ * One list so the schema, the on-site card, and the email card agree:
+ * - adapted: a version of the post is in the book
+ * - cut: written for the book but didn't make the final cut
+ * - inspired: the post sparked a chapter
+ * - collected: a roundup whose posts are mostly in the book (a reading list)
+ */
+export const BOOK_RELATIONS = ['adapted', 'cut', 'inspired', 'collected'] as const;
+export type BookRelation = (typeof BOOK_RELATIONS)[number];
+
+/**
  * Book title with its conjunction colorized via the site's signature lime→pink
  * gradient. Surrounding spaces are consumed so `mx-1` controls the total gap
  * (natural spaces + margin would read as an uncomfortably wide space in prose).

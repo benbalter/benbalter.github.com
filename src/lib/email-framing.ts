@@ -11,6 +11,7 @@
  */
 
 import { siteConfig } from '../config';
+import type { BookRelation } from './book-cta';
 import { escapeHtml } from '../utils/html-escape';
 
 // This content is delivered as HTML (e.g. rendered by Kit into email), so
@@ -39,7 +40,7 @@ export function leadInHtml(link: string): string {
  * Now that the book has launched, the label and CTA below sell ("Out now" /
  * "Buy it") rather than capture emails — kept in sync with <BookCta>.
  */
-export function bookCtaHtml(relation?: 'adapted' | 'cut' | 'inspired'): string {
+export function bookCtaHtml(relation?: BookRelation): string {
   const headline =
     relation === 'adapted'
       ? `This post is adapted from my book, ${bookTitle}.`
@@ -47,7 +48,9 @@ export function bookCtaHtml(relation?: 'adapted' | 'cut' | 'inspired'): string {
         ? `There's a whole book's worth more where this came from.`
         : relation === 'inspired'
           ? `This post inspired a chapter in my book, ${bookTitle}.`
-          : `Liked this post? It's now a book.`;
+          : relation === 'collected'
+            ? `Most of these posts are in my book, ${bookTitle}.`
+            : `Liked this post? It's now a book.`;
 
   return (
     `<hr style="margin:2.5em 0 1.5em;border:none;border-top:1px solid #d0d7de;" />` +

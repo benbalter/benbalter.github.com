@@ -1,11 +1,13 @@
 /**
  * Strip MDX-only syntax from a raw post body.
  *
- * MDX bodies may contain two constructs that are meaningful only to the MDX
- * compiler:
+ * MDX bodies may contain constructs that are meaningful only to the MDX
+ * compiler or the site's remark plugins:
  *
  *   1. ESM `import` / `export` statements (e.g. `import BookCta from '...'`)
- *   2. JSX component tags (Capitalized, e.g. `<BookCta variant="featured" />`)
+ *   2. JSX component tags (Capitalized, e.g. `<BookCta variant="featured" />`),
+ *      on a line of their own or inline (`<InBook />` after a list item)
+ *   3. `:quote[text]{#id}` shareable-quote directives, unwrapped to their text
  *
  * When an `.mdx` body is fed to a plain Markdown processor (email broadcasts,
  * the RSS feed) or emitted verbatim (the per-post `.md` agent siblings, the
@@ -23,6 +25,14 @@
  * @param body - Raw Markdown/MDX body (front matter already removed)
  * @returns The body with MDX-only syntax removed
  */
+/** Apply `fn` to the parts of a line outside `inline code` spans. */
+function outsideCodeSpans(line: string, fn: (text: string) => string): string {
+  return line
+    .split(/(`+[^`]*`+)/)
+    .map((part, i) => (i % 2 === 1 ? part : fn(part)))
+    .join('');
+}
+
 export function stripMdxSyntax(body: string): string {
   if (!body || typeof body !== 'string') return body ?? '';
 
@@ -86,13 +96,18 @@ export function stripMdxSyntax(body: string): string {
       continue;
     }
 
-    // Drop a line that is nothing but JSX component tag(s). Inline JSX inside a
-    // paragraph is left alone (rendered consumers drop it; no post does this).
+    // Drop a line that is nothing but JSX component tag(s).
     if (trimmed !== '' && trimmed.replace(jsxTag, '').trim() === '') {
       continue;
     }
 
-    out.push(line);
+    out.push(outsideCodeSpans(line, (text) =>
+      text
+        // :quote[text]{#id} shareable pull-quotes read as their plain text.
+        .replace(/:quote\[([^\]]*)\](?:\{[^}]*\})?/g, '$1')
+        // Inline self-closing components (<InBook />) in a sentence or list item.
+        .replace(/\s*<[A-Z][A-Za-z0-9.]*(?:\s[^>]*?)?\/>/g, ''),
+    ));
   }
 
   // Trim blank lines left where a leading statement was removed.

@@ -77,4 +77,19 @@ describe('stripMdxSyntax', () => {
     // @ts-expect-error exercising defensive guard
     expect(stripMdxSyntax(undefined)).toBe('');
   });
+
+  it('unwraps :quote directives to their text', () => {
+    const body = 'GitHub is like :quote[Dropbox, but for code]{#like-dropbox}. Really.';
+    expect(stripMdxSyntax(body)).toBe('GitHub is like Dropbox, but for code. Really.');
+  });
+
+  it('drops inline self-closing components inside a line', () => {
+    const body = '- [Why URLs](/2015/11/12/why-urls/): context, opt-in. <InBook />';
+    expect(stripMdxSyntax(body)).toBe('- [Why URLs](/2015/11/12/why-urls/): context, opt-in.');
+  });
+
+  it('leaves components and directives shown in inline code alone', () => {
+    const body = 'Use `<InBook />` or `:quote[text]{#id}` in a post.';
+    expect(stripMdxSyntax(body)).toBe(body);
+  });
 });

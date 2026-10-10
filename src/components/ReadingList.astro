@@ -7,21 +7,40 @@
  *
  * Supports two data formats:
  * - Object/map: { "Title": "/url/" } — key as link text, value as href
- * - Array: ["/url/"] — derives a readable title from the URL slug
+ * - Array: ["/url/"] — uses the linked post's title (falling back to one
+ *   derived from the URL slug)
+ *
+ * Entries the post body already links to are dropped, so a list written out
+ * in the post isn't repeated under it.
  */
+
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { getPostUrl } from '../utils/post-urls';
 
 interface Props {
   posts?: Record<string, string> | string[] | undefined;
   roles?: Record<string, string> | string[] | undefined;
+  /** The post's rendered body. Links it already contains aren't repeated here. */
+  bodyHtml?: string | undefined;
 }
 
-const { posts, roles } = Astro.props;
+const { posts, roles, bodyHtml = '' } = Astro.props;
+
+// Real post titles, keyed by URL path, so array-form lists show "Why
+// everything should have a URL" instead of a title guessed from the slug.
+const titlesByUrl = new Map<string, string>(
+  (await getCollection('posts')).map((post: CollectionEntry<'posts'>) => [getPostUrl(post.id), post.data.title]),
+);
+
+const pathOf = (url: string) => url.replace(/^https?:\/\/ben\.balter\.com/, '');
 
 /**
  * Convert a URL path to a readable title by extracting the slug portion,
  * replacing hyphens with spaces, and capitalizing each word.
  */
 function slugToTitle(url: string): string {
+  const known = titlesByUrl.get(pathOf(url));
+  if (known) return known;
   const segments = url.replace(/\/$/, '').split('/');
   const slug = segments[segments.length - 1] || url;
   return slug
@@ -41,8 +60,14 @@ function normalizeEntries(
   return Object.entries(data).map(([title, url]) => ({ title, url }));
 }
 
-const postEntries = posts ? normalizeEntries(posts) : [];
-const roleEntries = roles ? normalizeEntries(roles) : [];
+// Skip anything the post body already links to: a curated list that's
+// written out in the post shouldn't appear a second time underneath it.
+const linkedInBody = (url: string) =>
+  bodyHtml.includes(`href="${pathOf(url)}"`) || bodyHtml.includes(`href="https://ben.balter.com${pathOf(url)}"`);
+const unlinked = (entries: { title: string; url: string }[]) => entries.filter(({ url }) => !linkedInBody(url));
+
+const postEntries = posts ? unlinked(normalizeEntries(posts)) : [];
+const roleEntries = roles ? unlinked(normalizeEntries(roles)) : [];
 const hasContent = postEntries.length > 0 || roleEntries.length > 0;
 ---
 

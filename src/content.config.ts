@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { BOOK_RELATIONS } from './lib/book-cta';
 
 /**
  * Content Collections configuration for Astro
@@ -57,7 +58,7 @@ const postsCollection = defineCollection({
     image: z.string().optional(), // Open Graph image
     hideBookCta: z.boolean().default(false), // Suppress the auto-appended BookCta (e.g. the launch post supplies its own BookLaunchCta)
     bookCtaVariant: z.enum(['inline', 'featured']).optional(), // Render the auto-appended BookCta as the large 'featured' block instead of the default inline card
-    bookRelation: z.enum(['adapted', 'cut', 'inspired']).optional(), // Post tied to the manuscript: swaps the BookCta headline ('adapted' from a chapter, 'cut' from the final book, or 'inspired' a chapter)
+    bookRelation: z.enum(BOOK_RELATIONS).optional(), // Post tied to the manuscript: swaps the BookCta headline (see BOOK_RELATIONS in src/lib/book-cta.ts)
 
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default

@@ -12,7 +12,7 @@
 
 import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
-import { bookTitleHtml, commitGraphPaths } from '../lib/book-cta';
+import { bookTitleHtml, commitGraphPaths, type BookRelation } from '../lib/book-cta';
 import coverImage from '../../assets/img/open-and-async-cover.webp';
 
 interface Props {
@@ -21,7 +21,7 @@ interface Props {
   // in the book), 'cut' (didn't make the final cut), or 'inspired' (sparked a
   // chapter). Swaps the inline headline; all read true before and after launch,
   // so no staleness at launch.
-  relation?: 'adapted' | 'cut' | 'inspired' | undefined;
+  relation?: BookRelation | undefined;
 }
 
 const { variant = 'inline', relation } = Astro.props;
@@ -37,7 +37,9 @@ const inlineHeadline =
       ? "There's a whole book's worth more where this came from."
       : relation === 'inspired'
         ? 'This post inspired a chapter in the book.'
-        : "Liked this post? It's now a book.";
+        : relation === 'collected'
+          ? 'Most of these posts are in the book.'
+          : "Liked this post? It's now a book.";
 
 // bookTitleHtml + commitGraphPaths shared with BookLaunchCta (see lib/book-cta).
 ---
@@ -48,6 +50,8 @@ const inlineHeadline =
     target="_blank"
     rel="noopener"
     data-track-book-cta
+    data-nosnippet
+    aria-label={`Buy ${siteConfig.bookTitle}, ${siteConfig.bookPrice} (opens in a new tab)`}
     class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
   >
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
@@ -87,7 +91,7 @@ const inlineHeadline =
     </div>
   </a>
 ) : (
-  <aside aria-label="Open and Async book" class="book-cta-inline not-prose my-8 overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-5 relative group shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark transition-all duration-200 cursor-pointer">
+  <aside aria-label="Open and Async book" data-nosnippet class="book-cta-inline not-prose my-8 overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-5 relative group shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark transition-all duration-200 cursor-pointer">
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-7 opacity-35" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
     <div class="relative flex items-center gap-4">
       <Image
@@ -112,9 +116,9 @@ const inlineHeadline =
           target="_blank"
           rel="noopener"
           data-track-book-cta
-          class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
+          class="inline-flex min-h-6 items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
         >
-          Buy Open and Async, {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          Buy Open and Async, {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span><span class="sr-only"> (opens in a new tab)</span>
         </a>
       </div>
     </div>
