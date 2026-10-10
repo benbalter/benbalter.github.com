@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-10T12:00:00+00:00",
+  "generatedAt": "2026-10-10T15:51:03+00:00",
   "title": "Design System: Ben Balter",
   "extensions": {
     "colorMeta": {
@@ -291,9 +291,17 @@
       "name": "Subscribe Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The site's one real primary button, used in the email subscribe form.",
+      "description": "Primary button in the email subscribe form; predates the shared page-action classes and keeps its own 6px corners.",
       "html": "<button class=\"ds-btn-primary\">Subscribe</button>",
       "css": ".ds-btn-primary{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:14px;font-weight:600;padding:6px 16px;border-radius:6px;border:0;background:var(--color-primary,#337ab7);color:#fff;cursor:pointer;min-height:44px;transition:background-color .2s}.ds-btn-primary:hover{background:color-mix(in srgb,#337ab7 90%,transparent)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px color-mix(in srgb,#337ab7 40%,transparent)}"
+    },
+    {
+      "name": "Page Action Buttons",
+      "kind": "button",
+      "refersTo": "button-action-primary",
+      "description": "Shared .btn-primary / .btn-secondary for page-level actions on About, Contact, and the résumé downloads.",
+      "html": "<div class=\"ds-actions\"><a class=\"ds-act ds-act-primary\" href=\"#\">View resume</a><a class=\"ds-act ds-act-secondary\" href=\"#\">Get in touch</a></div>",
+      "css": ".ds-actions{display:flex;flex-wrap:wrap;gap:12px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}.ds-act{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid;border-radius:8px;font-size:14px;font-weight:600;line-height:1;text-decoration:none;transition:color .2s,background-color .2s,border-color .2s,transform .2s}.ds-act:active{transform:translateY(1px)}.ds-act:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-act-primary{border-color:#337ab7;background:#337ab7;color:#fff}.ds-act-primary:hover{border-color:#204d6f;background:#204d6f}.ds-act-secondary{border-color:#dee2e6;background:transparent;color:#212529}.ds-act-secondary:hover{border-color:#337ab7;color:#204d6f}@media (prefers-reduced-motion:reduce){.ds-act:active{transform:none}}"
     },
     {
       "name": "Email Input",

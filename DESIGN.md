@@ -88,6 +88,17 @@ components:
     textColor: "{colors.paper}"
     rounded: "{rounded.md}"
     padding: "6px 16px"
+  button-action-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.lg}"
+    padding: "0 16px"
+    height: "44px"
+  button-action-secondary:
+    textColor: "{colors.gray-900}"
+    rounded: "{rounded.lg}"
+    padding: "0 16px"
+    height: "44px"
   input-email:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.gray-900}"
@@ -130,7 +141,7 @@ components:
 <!-- markdownlint-disable-next-line MD025 -- the frontmatter's typography `title:` role reads as a page title to markdownlint -->
 # Design System: Ben Balter
 
-<!-- Record of the incumbent system as of 2026-10-09, written before a planned redesign. It describes what ships today; it is not a target. PRODUCT.md holds no visual commitments, so a redesign may replace any of this. -->
+<!-- Record of the incumbent system as of 2026-10-10 (refreshed after the static-page grid and shared button classes), written before a planned redesign. It describes what ships today; it is not a target. PRODUCT.md holds no visual commitments, so a redesign may replace any of this. -->
 
 ## Overview
 
@@ -214,7 +225,7 @@ Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with autom
 
 The site is a single centered column inside `.site-container` (max 1140px, 16px side padding). There's no hero image: the homepage opens with the navbar, then a lead (the About bio's first sentence as the page's `h1`, at the headline step via the `text-headline` token, about 25–31px) saying who writes here, then posts. The lead-in ("I'm Ben Balter, and I write here about") is a muted `gray-600` Lora italic aside, since the nav already names him; the topics are full-ink Inter medium. That italic is the one deliberate exception to The Content Is Serif Rule. A photo banner was tried and dropped. Blind design and marketing reviews both preferred posts above the fold, and at banner size the headshot read as synthetic. Most of the closest comparable writers' sites (Larson, Evans, Willison, Luu) don't use a hero photo either.
 
-Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
+Posts sit in a 40rem column, which sets 18px Lora at roughly 65–75 characters per line. At the `xl` breakpoint (1280px) the wrapper widens to 58rem for a sticky 14rem table-of-contents sidebar; the extra width never goes to longer lines. Static pages (About, Contact, Résumé, Bookmarklets, and the rest of `PageLayout`) use the same centered 42rem wrapper, so below `xl` their text starts exactly where a post's does, and 56px of top padding from `md` up puts their `h1` level with a post title (posts get that space from breadcrumbs). Pages don't add width caps of their own: Contact once nested two, which left it a narrow strip pinned left. A page can replace the default title with a `header` slot, which sits outside `.prose` so it keeps Inter's own leading and numerals. About uses it to lead with Ben's headline as the `h1` beside the headshot (a 72px avatar on phones, 176px from `sm`), and the Résumé uses it for the name masthead. Index pages use a flex-wrap card grid: one column on mobile, two from `md` (768px), three from `lg` (1024px), with 16px gutters.
 
 Vertical rhythm is set in rems. Homepage sections are separated by 64px (32px on mobile), with a short 48×2px tinted rule under each section heading. Paragraphs get 28px below (24px on mobile), and `h2` gets 2.25em above inside prose.
 
@@ -247,7 +258,11 @@ Borders are 1px `gray-200` (`gray-700` in dark mode). Accent borders are reserve
 
 ### Buttons
 
-The site has no shared button class. `.btn` survives from Bootstrap only as a marker: it has no styles of its own, and `global.css` uses `main a:not(.btn)` to keep content-link underlines off the bookmarklet drag buttons. Three real buttons exist:
+`.btn` survives from Bootstrap only as a marker: it has no styles of its own, and `global.css` uses `main a:not(.btn)` to keep content-link underlines off buttons and the bookmarklet drag links. Pair it with one of the two shared page-action classes in `@layer components`:
+
+- **`.btn-primary` / `.btn-secondary`:** The page actions on About ("View resume", "Get in touch", "All posts"), Contact ("Copy address"), and the résumé downloads. 14px semibold Inter, 8px corners, 44px tall, 16px side padding, room for a leading icon. Primary is a blue fill with white text (dark mode: `primary-300` with `gray-900` text); secondary is a 1px `gray-300` outline whose border and text turn blue on hover. Both press down 1px on `:active` when motion is allowed, and show a 2px offset blue focus outline. Inside `.prose`, wrap them in `not-prose`: the typography plugin's link color sits in the utilities layer and overrides them, which fails contrast.
+
+Three older buttons keep their own styles:
 
 - **Share button:** The end-of-post primary action. Primary blue fill, white 16px semibold Inter, 8px corners, 44px tall, with a share icon. It opens the native share sheet where one exists and becomes "Copy link" (then "Link copied") elsewhere. Beside it, four 44px icon-only network links (LinkedIn, Bluesky, X, Email) tint to 10% blue on hover.
 - **Subscribe button:** Primary blue fill, white text, 14px semibold Inter, 6px corners, 6×16px padding. Hover drops to 90% opacity; focus shows a 2px 40%-blue ring with an offset. Disabled is 60% opacity with a spinner.
@@ -305,5 +320,6 @@ A 320px floating card that appears when hovering an internal post link. It shows
 
 - **Don't** use navy, lime, or pink outside a book promo (The Book Object Rule).
 - **Don't** add shadows or lift to containers that aren't a single link (The Lift Means Link Rule).
-- **Don't** add `.btn` expecting Bootstrap styles; it only opts a link out of content-link styling.
+- **Don't** hand-roll a page-action button. Use `.btn .btn-primary` or `.btn .btn-secondary`; three hand-rolled versions on About, Contact, and the résumé had drifted apart in corner radius, size, and dark-mode blue.
+- **Don't** give a static page its own `max-w-*` wrapper. `PageLayout`'s centered post column is the measure.
 - **Don't** treat this file as a target. It records the incumbent system before a redesign, and PRODUCT.md makes no visual commitments.
