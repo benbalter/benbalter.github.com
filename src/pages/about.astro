@@ -95,7 +95,7 @@ const headshotUrl = '/assets/img/headshot.jpg';
         <>{i > 0 && (i === networkLinks.length - 1 ? ', and ' : ', ')}<a href={link.url} rel="me" class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{link.name}</a></>
       ))}.
     </p>
-    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 list-none p-0 m-0 text-sm">
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 list-none p-0 m-0 text-sm [&>li]:p-0">
       <li><a href="/vcard.vcf" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Add to contacts</a></li>
       <li><a href="/subscribe/" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Get new posts by email</a></li>
       <li><a href={headshotUrl} download="ben-balter-headshot.jpg" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Download headshot (JPG)</a></li>
