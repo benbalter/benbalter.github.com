@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/components/ArchivedPostWarning.astro"
+        ],
+        "createdAt": "2026-10-11T14:01:20.569Z",
+        "reason": "DESIGN.md:255 sanctions a 4px left rule on callouts, including the archived-post warning (house style, not an AI tell)"
+      }
+    ]
+  }
+}

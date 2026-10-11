@@ -67,3 +67,14 @@ engage/
 .impeccable/config.local.json
 # Impeccable critique snapshots: a local archive of runs, not project source
 .impeccable/critique/
+
+# Impeccable per-user settings and generated state (critique snapshots are a local archive)
+.impeccable/live/
+.impeccable/hook.cache.json
+
+# Impeccable skill files mirrored into the repo by its installer; the Claude Code plugin is the source of truth
+.claude/skills/impeccable/
+.claude/agents/impeccable-*.md
+.github/skills/impeccable/
+.github/agents/impeccable-*.md
+.github/hooks/impeccable.json

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-10T15:51:03+00:00",
+  "generatedAt": "2026-10-11T13:52:34+00:00",
   "title": "Design System: Ben Balter",
   "extensions": {
     "colorMeta": {
@@ -188,11 +188,11 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page and post titles (h1)."
+        "purpose": "Page and post titles (h1), including the shared PageLayout header's h1 from sm up."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section headings (h2) and the homepage lead h1, both through the --text-headline theme token."
+        "purpose": "Section headings (h2), the homepage lead h1, and the PageLayout header's h1 on phones, all through the --text-headline theme token."
       },
       "title": {
         "displayName": "Title",
@@ -299,9 +299,17 @@
       "name": "Page Action Buttons",
       "kind": "button",
       "refersTo": "button-action-primary",
-      "description": "Shared .btn-primary / .btn-secondary for page-level actions on About, Contact, and the résumé downloads.",
-      "html": "<div class=\"ds-actions\"><a class=\"ds-act ds-act-primary\" href=\"#\">View resume</a><a class=\"ds-act ds-act-secondary\" href=\"#\">Get in touch</a></div>",
+      "description": "Shared .btn-primary / .btn-secondary for page-level actions on About, Contact (Copy address, Add to contacts), and the résumé downloads; dark mode swaps the fill to primary-300 with gray-900 text.",
+      "html": "<div class=\"ds-actions\"><a class=\"ds-act ds-act-primary\" href=\"#\">View résumé</a><a class=\"ds-act ds-act-secondary\" href=\"#\">Get in touch</a></div>",
       "css": ".ds-actions{display:flex;flex-wrap:wrap;gap:12px;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}.ds-act{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid;border-radius:8px;font-size:14px;font-weight:600;line-height:1;text-decoration:none;transition:color .2s,background-color .2s,border-color .2s,transform .2s}.ds-act:active{transform:translateY(1px)}.ds-act:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-act-primary{border-color:#337ab7;background:#337ab7;color:#fff}.ds-act-primary:hover{border-color:#204d6f;background:#204d6f}.ds-act-secondary{border-color:#dee2e6;background:transparent;color:#212529}.ds-act-secondary:hover{border-color:#337ab7;color:#204d6f}@media (prefers-reduced-motion:reduce){.ds-act:active{transform:none}}"
+    },
+    {
+      "name": "Page Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The one header every static page shares from PageLayout, outside .prose: an h1 at the display step (headline step on phones), an optional gray lede, and an aside slot that About fills with its 176px headshot from sm up.",
+      "html": "<header class=\"ds-page-header\"><div class=\"ds-ph-main\"><h1>Get in touch</h1><p class=\"ds-ph-lede\">Email is the best way to reach me.</p></div><span class=\"ds-ph-aside\" aria-hidden=\"true\"></span></header>",
+      "css": ".ds-page-header{display:flex;align-items:flex-start;gap:32px;max-width:42rem;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}.ds-ph-main{flex:1;min-width:0}.ds-page-header h1{margin:0;font-size:clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem);font-weight:700;line-height:1.15;letter-spacing:-0.025em;text-wrap:balance;color:#212529}.ds-ph-lede{margin:12px 0 0;font-size:18px;font-weight:500;line-height:1.375;text-wrap:pretty;color:#495057}.ds-ph-aside{flex-shrink:0;width:176px;height:176px;border-radius:8px;background:linear-gradient(135deg,#adb5bd,#6c757d)}@media (max-width:639px){.ds-page-header{display:block}.ds-page-header h1{font-size:var(--text-headline,clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem));line-height:1.2}.ds-ph-aside{display:none}}"
     },
     {
       "name": "Email Input",
@@ -324,7 +332,7 @@
       "kind": "nav",
       "refersTo": "navbar",
       "description": "Mist bar: 40px round headshot and brand, a 48px gap, four links centered on the midline with a hover underline, and (off the homepage) the tagline set off by a tinted rule.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-avatar\" aria-hidden=\"true\"></span>Ben Balter</a><a class=\"ds-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-link\" href=\"#\">About</a><a class=\"ds-link\" href=\"#\">Resume</a><a class=\"ds-link\" href=\"#\">Contact</a><span class=\"ds-tag\">Product, leadership, and showing your work</span></nav>",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-avatar\" aria-hidden=\"true\"></span>Ben Balter</a><a class=\"ds-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-link\" href=\"#\">About</a><a class=\"ds-link\" href=\"#\">Résumé</a><a class=\"ds-link\" href=\"#\">Contact</a><span class=\"ds-tag\">Product, leadership, and showing your work</span></nav>",
       "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;background:rgba(248,249,250,.95);backdrop-filter:blur(4px);border:1px solid #e9ecef;border-radius:8px;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-brand{display:flex;align-items:center;min-height:44px;font-weight:700;font-size:18px;color:#212529;text-decoration:none;letter-spacing:-0.02em;white-space:nowrap;margin-right:32px;transition:color .2s}.ds-brand:hover{color:#337ab7}.ds-brand:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-avatar{display:inline-block;width:40px;height:40px;margin-right:12px;border-radius:9999px;background:linear-gradient(135deg,#adb5bd,#6c757d);box-shadow:0 0 0 2px #fff,0 1px 2px rgba(0,0,0,.05)}.ds-link{padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;color:#17364b;text-decoration:none;transition:color .2s}.ds-link:not(.ds-active):hover{color:#0d1f28;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;text-decoration-color:color-mix(in srgb,#337ab7 40%,transparent)}.ds-link:focus-visible{outline:2px solid #337ab7;outline-offset:2px}.ds-link:active{opacity:.8}.ds-active{color:#212529;font-weight:600}.ds-tag{margin-left:auto;padding-left:16px;border-left:2px solid color-mix(in srgb,#337ab7 20%,transparent);font-size:14px;color:#495057;white-space:nowrap}"
     },
     {
@@ -401,7 +409,8 @@
     "donts": [
       "**Don't** use navy, lime, or pink outside a book promo (The Book Object Rule).",
       "**Don't** add shadows or lift to containers that aren't a single link (The Lift Means Link Rule).",
-      "**Don't** add `.btn` expecting Bootstrap styles; it only opts a link out of content-link styling.",
+      "**Don't** hand-roll a page-action button. Use `.btn .btn-primary` or `.btn .btn-secondary`; three hand-rolled versions on About, Contact, and the résumé had drifted apart in corner radius, size, and dark-mode blue.",
+      "**Don't** give a static page its own `max-w-*` wrapper. `PageLayout`'s centered post column is the measure.",
       "**Don't** treat this file as a target. It records the incumbent system before a redesign, and PRODUCT.md makes no visual commitments."
     ]
   }

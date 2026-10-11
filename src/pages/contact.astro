@@ -2,38 +2,39 @@
 /**
  * Contact page
  *
- * Email is the preferred channel, so it leads: the address in the opening
- * sentence, then a copy button (for readers with no mail app set up) and the
- * vCard. The other networks follow as a compact labeled list, and the PGP
- * fingerprint sits last for the few who need it.
+ * Email is the preferred channel, so it leads: the address as the lede, then a
+ * copy button (for readers with no mail app set up) and the vCard. The other
+ * networks follow as a compact labeled list, and the PGP fingerprint sits
+ * after them for the few who need it. The page ends on two "Start here" posts
+ * so a visitor who isn't ready to write has somewhere to go next.
  *
  * Links here open in the same tab on purpose: `mailto:` and the same-origin
  * vCard would otherwise leave a blank tab behind.
  */
 import PageLayout from '../layouts/PageLayout.astro';
 import Icon from '../components/Icon.astro';
-import { siteConfig, contactLinks } from '../config';
+import StartHere from '../components/StartHere.astro';
+import { siteConfig, contactLinks, networkLinks } from '../config';
 
 const title = 'Contact Ben Balter';
 const description = 'The best way to reach Ben Balter is email. He\'s also on Bluesky, LinkedIn, and GitHub.';
 
 const vcard = contactLinks.find((link) => link.url.endsWith('.vcf'));
-const networks = contactLinks.filter((link) => link.handle);
 
 // Split the fingerprint into two halves so it wraps between them, never mid-group.
 const pgpGroups = siteConfig.pgpKey.split(' ');
 const pgpHalves = [pgpGroups.slice(0, 5).join(' '), pgpGroups.slice(5).join(' ')];
 ---
 
-<PageLayout title={title} description={description}>
-  {/* No width caps of its own: PageLayout's centered post column sets the
-      measure, so this short page lines up with posts instead of sitting in a
-      narrow strip on the left. */}
-  <p class="text-xl text-gray-800 dark:text-gray-200">
-    The best way to reach me is via email at <a href={`mailto:${siteConfig.email}`} class="font-semibold" data-contact-link>{siteConfig.email}</a>.
-  </p>
+{/* The h1 matches About's "Get in touch" (the nav already names Ben, so the
+    name stays in <title> only). No width caps of its own: PageLayout's
+    centered post column sets the measure. */}
+<PageLayout title={title} description={description} heading="Get in touch">
+  <Fragment slot="lede">
+    Email is the best way to reach me: <a href={`mailto:${siteConfig.email}`} data-contact-link class="font-semibold text-primary-800 dark:text-primary-300 underline decoration-primary/40 underline-offset-4 hover:decoration-primary [overflow-wrap:anywhere]">{siteConfig.email}</a>.
+  </Fragment>
 
-  <div class="not-prose font-sans flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 mb-10">
+  <div slot="header-extra" class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5">
     <button
       type="button"
       class="contact-copy btn btn-primary hidden print:!hidden"
@@ -45,17 +46,17 @@ const pgpHalves = [pgpGroups.slice(0, 5).join(' '), pgpGroups.slice(5).join(' ')
     </button>
     <span class="sr-only" role="status" aria-live="polite" data-contact-copy-status></span>
     {vcard && (
-      <a href={vcard.url} data-contact-link class="inline-flex items-center gap-2 min-h-11 text-sm font-medium !text-primary-800 dark:!text-primary-300 underline-offset-4">
+      <a href={vcard.url} data-contact-link class="btn btn-secondary">
         <Icon name={vcard.icon} />
-        <span>{vcard.name} <span class="text-gray-600 dark:text-gray-400 font-normal">(vCard)</span></span>
+        <span>{vcard.name}<span class="sr-only"> (vCard)</span></span>
       </a>
     )}
   </div>
 
-  <p>I'm also <code>@{siteConfig.socialUsername}</code> most places online:</p>
+  <p>You'll also find me here:</p>
 
   <ul class="not-prose font-sans list-none p-0 m-0 divide-y divide-gray-200 dark:divide-gray-700 border-y border-gray-200 dark:border-gray-700">
-    {networks.map((link) => (
+    {networkLinks.map((link) => (
       <li class="p-0">
         <a href={link.url} rel="me" data-contact-link class="group flex items-center gap-3 min-h-11 py-2 !no-underline">
           <span class="text-gray-600 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
@@ -68,14 +69,18 @@ const pgpHalves = [pgpGroups.slice(0, 5).join(' '), pgpGroups.slice(5).join(' ')
     ))}
   </ul>
 
-  <p class="not-prose font-sans mt-10 text-sm text-gray-600 dark:text-gray-400">
-    <a href="/key.asc" class="group inline-flex flex-col min-h-11 justify-center !no-underline">
-      <span class="font-medium text-primary-800 dark:text-primary-300 group-hover:underline underline-offset-4">PGP key</span>
-      <code class="text-xs text-gray-700 dark:text-gray-300 tracking-wide">
+  {/* The fingerprint is labeled as what it is; the link names its action. */}
+  <div id="pgp" class="not-prose font-sans mt-10 text-sm text-gray-600 dark:text-gray-400 scroll-mt-24">
+    <p class="m-0">
+      PGP fingerprint
+      <code class="block mt-1 text-xs text-gray-700 dark:text-gray-300 tracking-wide">
         <span class="whitespace-nowrap">{pgpHalves[0]}</span> <span class="whitespace-nowrap">{pgpHalves[1]}</span>
       </code>
-    </a>
-  </p>
+    </p>
+    <a href="/key.asc" class="inline-flex min-h-11 items-center font-medium text-primary-800 dark:text-primary-300 underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Download my public key</a>
+  </div>
+
+  <StartHere limit={2} intro="Not ready to write? Two good first reads." />
 </PageLayout>
 
 <script>

@@ -187,10 +187,11 @@ const contact = [
     margin: 0.5in 0;
 
     /* Running header on continuation pages, so a loose printed sheet still
-       says whose it is. Margin boxes sit in the 0.5in top margin; the right
-       page margin is 0, so padding supplies the inset. */
+       says whose it is and where to write (page 2 carries no sidebar).
+       Margin boxes sit in the 0.5in top margin; the right page margin is 0,
+       so padding supplies the inset. */
     @top-right {
-      content: 'Ben Balter · Page ' counter(page) ' of ' counter(pages);
+      content: 'Ben Balter · ben@balter.com · Page ' counter(page) ' of ' counter(pages);
       padding-right: 0.5in;
       font-family: var(--font-sans);
       font-size: 7.5pt;

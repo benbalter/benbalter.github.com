@@ -45,7 +45,7 @@ export const GET: APIRoute = async () => {
   lines.push(`- **Previously:** ${siteConfig.formerJobTitle}, ${siteConfig.formerEmployer}`);
   lines.push('- **Location:** Washington, DC');
   lines.push('- **Education:** JD & MBA, George Washington University');
-  lines.push(`- **Résumé:** [Full resume](${siteConfig.url}/resume/)`);
+  lines.push(`- **Résumé:** [Full résumé](${siteConfig.url}/resume/)`);
   lines.push('');
 
   // --- Popular writing -----------------------------------------------------

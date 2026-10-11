@@ -13,7 +13,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
-import { siteConfig } from '../config';
+import { siteConfig, resumeNetworkLinks } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
 import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../utils/resume-data';
@@ -80,14 +80,17 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
-  <header slot="header" class="resume-masthead">
-    <h1 class="resume-name">{siteConfig.author}<span class="sr-only">: {title}</span></h1>
-    <p class="resume-headline">{RESUME_HEADLINE}</p>
+  {/* The shared PageLayout header: the name as the h1, the headline (the same
+      line About leads with) as the lede, then how to reach and what to take. */}
+  <Fragment slot="heading">{siteConfig.author}<span class="sr-only">: {title}</span></Fragment>
+  <Fragment slot="lede">{RESUME_HEADLINE}</Fragment>
+  <div slot="header-extra">
     <p class="resume-contact">
       <span>Washington, DC</span>
       <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-      <a href="https://www.linkedin.com/in/benbalter/" rel="me">LinkedIn</a>
-      <a href="https://github.com/benbalter" rel="me">GitHub</a>
+      {resumeNetworkLinks.map((link) => (
+        <a href={link.url} rel="me">{link.name}</a>
+      ))}
       <a class="print-only" href="https://ben.balter.com">ben.balter.com</a>
     </p>
     <ul class="resume-downloads" aria-label="Download the résumé">
@@ -100,7 +103,7 @@ const resumeSchema = generateResumeSchema({
         </li>
       ))}
     </ul>
-  </header>
+  </div>
 
   <div class="resume">
     {summary && <p class="resume-summary">{typographicApostrophes(summary)}</p>}
@@ -254,6 +257,9 @@ const resumeSchema = generateResumeSchema({
           </li>
         ))}
       </ul>
+      <p class="resume-next">
+        Want to see how I think? Read <a href="/">my writing</a> or my book, <a href={siteConfig.bookUrl}><cite>Open and Async</cite></a>.
+      </p>
     </section>
   </div>
 
@@ -282,39 +288,16 @@ const resumeSchema = generateResumeSchema({
 
 <style>
   /* ============================================================
-   * Masthead: who, what kind of hire, how to reach, what to take
+   * Masthead extras: how to reach, what to take (the name and
+   * headline come from PageLayout's shared header)
    * ============================================================ */
-  /* Width and top spacing come from PageLayout's post-width column, so the
-     name lines up with every other page's title. */
-  .resume-masthead {
-    margin: 0 0 2.5rem;
-  }
-
-  .resume-name {
-    margin: 0;
-    font-size: var(--text-display, clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem));
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    color: var(--color-gray-900);
-  }
-
-  .resume-headline {
-    margin: 0.5rem 0 0;
-    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--color-gray-700);
-    text-wrap: balance;
-  }
-
   .resume-contact {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     column-gap: 1.25rem;
     margin: 0.5rem 0 0;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     color: var(--color-gray-700);
   }
 
@@ -356,7 +339,6 @@ const resumeSchema = generateResumeSchema({
   /* 1rem body under the page's prose-lg (18px), so role and section titles
      outrank the bullets beneath them; the summary leads at a step above. */
   .resume {
-    max-width: 42rem;
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;
@@ -550,9 +532,17 @@ const resumeSchema = generateResumeSchema({
     padding-left: 1.15rem;
   }
 
+  /* Each title is a 44px tap target; the tighter item margin keeps the
+     list's rhythm close to what it was. */
   .writing-list li {
-    margin: 0 0 0.45rem;
+    margin: 0;
     line-height: 1.5;
+  }
+
+  .writing-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   .skills {
@@ -624,7 +614,7 @@ const resumeSchema = generateResumeSchema({
   }
 
   .entry-detail {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     color: var(--color-gray-600);
   }
 
@@ -641,9 +631,9 @@ const resumeSchema = generateResumeSchema({
     padding: 0.05rem 0.45rem;
     border: 1px solid var(--color-gray-300);
     border-radius: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.3;
     color: var(--color-gray-700);
     vertical-align: 0.1em;
     white-space: nowrap;
@@ -675,6 +665,10 @@ const resumeSchema = generateResumeSchema({
     color: var(--color-gray-800);
   }
 
+  .resume-closing .resume-next {
+    margin-top: 1rem;
+  }
+
   /* Plain primary is 4.32:1 on the gray-100 panel; step down for AA. */
   .resume-closing p a {
     color: var(--color-primary-700);
@@ -684,7 +678,6 @@ const resumeSchema = generateResumeSchema({
    * Dark mode
    * ============================================================ */
   @media (prefers-color-scheme: dark) {
-    .resume-name,
     .resume-section h2,
     .resume-closing h2,
     .employer-name,
@@ -694,7 +687,6 @@ const resumeSchema = generateResumeSchema({
       color: var(--color-gray-100);
     }
 
-    .resume-headline,
     .resume-contact,
     .resume-summary,
     .skill-row dd,
@@ -807,7 +799,8 @@ const resumeSchema = generateResumeSchema({
       display: none !important;
     }
 
-    .resume-contact a {
+    .resume-contact a,
+    .writing-list a {
       min-height: 0;
     }
 

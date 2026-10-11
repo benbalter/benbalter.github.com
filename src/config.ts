@@ -118,7 +118,8 @@ export const siteConfig = {
   },
 } as const;
 
-// Contact links (used on About and Contact pages)
+// Contact links (the footer icons, the Contact page, and the About and Résumé
+// network lists all render from this one list, in this order).
 // icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
 export const contactLinks: ContactLink[] = [
   { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'envelope' },
@@ -127,6 +128,16 @@ export const contactLinks: ContactLink[] = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin', handle: 'in/benbalter' },
   { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github', handle: '@benbalter' },
 ];
+
+// The networks (the contact links with a public handle), in contactLinks order.
+// About and Contact list all of these, so they can't drift.
+export const networkLinks: ContactLink[] = contactLinks.filter((link) => link.handle);
+
+// The résumé lists only the professional networks, LinkedIn first for
+// recruiters. The PDF, Word, and Markdown exports hard-code the same pair.
+export const resumeNetworkLinks: ContactLink[] = ['LinkedIn', 'GitHub']
+  .map((name) => networkLinks.find((link) => link.name === name))
+  .filter((link): link is ContactLink => Boolean(link));
 
 // Social links for rel=me verification (used in BaseLayout)
 // icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')

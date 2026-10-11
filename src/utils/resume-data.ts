@@ -30,10 +30,11 @@ export interface ResumePositions {
 }
 
 /**
- * Role kicker under the name on every résumé surface (web, print/PDF, Markdown,
- * and docx), so the four can't drift.
+ * Ben's one-line headline, in sentence case: About's h1, and the line under the
+ * name on every résumé surface (web, print/PDF, Markdown, and docx), so none
+ * of them can drift.
  */
-export const RESUME_HEADLINE = 'Product Leader: Trust & Safety, Platform Security, Developer Platforms';
+export const RESUME_HEADLINE = 'Product leader in trust and safety, platform security, and developer platforms';
 
 /**
  * Curl apostrophes in plain front-matter strings (summary, highlights). Position

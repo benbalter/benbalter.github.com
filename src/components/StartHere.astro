@@ -1,0 +1,56 @@
+---
+/**
+ * Start Here
+ *
+ * The curated popular posts (`popularPostSlugs`) as a short reading list,
+ * without dates (posts are evergreen). About shows the full list; Contact and
+ * other dead-end pages show the first few as a quiet next step.
+ *
+ * Each title link is at least 44px tall for touch, via a negative margin so
+ * the list doesn't grow.
+ */
+import { popularPostSlugs } from '../config';
+import { getPostUrl } from '../utils/post-urls';
+import { pickPostsBySlug } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
+import { stripMarkdown } from '../utils/strip-markdown';
+
+interface Props {
+  /** How many posts to show (default: all of popularPostSlugs). */
+  limit?: number;
+  /** Section heading. */
+  heading?: string;
+  /** One line under the heading. */
+  intro?: string;
+}
+
+const { limit, heading = 'Start here', intro = "Good first reads if you're new here." } = Astro.props;
+
+const posts = pickPostsBySlug(await getPublishedPosts(), popularPostSlugs)
+  .slice(0, limit)
+  .map((post) => ({
+    title: post.data.title,
+    description: stripMarkdown(post.data.description),
+    url: getPostUrl(post.id),
+  }));
+---
+
+<section aria-labelledby="start-here" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+  <h2 id="start-here" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{heading}</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-5">{intro}</p>
+  <ul class="space-y-3 list-none p-0 m-0">
+    {posts.map(({ title, description, url }) => (
+      <li class="p-0">
+        {/* min-h-11 makes the whole title row a 44px target; the negative
+            margin gives that height back so the rows stay tight. */}
+        <a href={url} class="flex w-fit min-h-11 items-center -my-2.5 font-semibold text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{title}</a>
+        {/* 65ch at 14px keeps the excerpt to a comfortable measure inside the
+            post-width column without capping the section itself. */}
+        <p class="mt-0.5 max-w-[65ch] text-sm text-gray-600 dark:text-gray-400 line-clamp-2 m-0">{description}</p>
+      </li>
+    ))}
+  </ul>
+  <p class="mt-5 mb-0">
+    <a href="/posts/" class="btn btn-secondary">All posts →</a>
+  </p>
+</section>

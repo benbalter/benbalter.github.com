@@ -428,11 +428,12 @@ test.describe('Responsive Accessibility', () => {
 });
 
 test.describe('Accessibility - Additional Pages', () => {
-  // About leads with Ben's headline rather than repeating the nav's "About
-  // Ben Balter", so its h1 is checked against that instead of the page name.
+  // About and Contact don't repeat the nav's "Ben Balter" in their h1: About
+  // leads with Ben's headline and Contact with "Get in touch", so their h1s
+  // are checked against those instead of the page name.
   const pages: { path: string; name: string; h1?: RegExp }[] = [
     { path: '/about/', name: 'About', h1: /^product leader/i },
-    { path: '/contact/', name: 'Contact' },
+    { path: '/contact/', name: 'Contact', h1: /^get in touch$/i },
     { path: '/resume/', name: 'Resume' },
   ];
 
