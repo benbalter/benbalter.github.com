@@ -7,6 +7,9 @@
  * excludes bio, CTAs, footer), with an optional "N min left" label in the
  * bottom-right corner. Only renders on post pages (included in PostLayout).
  *
+ * Also fills the post's end mark (the hollow node after the last paragraph,
+ * styled in global.css) once the reader has scrolled through to it.
+ *
  * Uses requestAnimationFrame-throttled scroll handling. Respects
  * prefers-reduced-motion.
  */
@@ -35,6 +38,10 @@ const { readingTime = 0 } = Astro.props;
 <script>
   import { formatTimeRemaining } from '../utils/time-remaining';
 
+  // The paragraph that carries the end mark. Keep in sync with the end-mark
+  // rule in src/styles/global.css.
+  const END_MARK_SELECTOR = '.post-content > p:is(:last-child, :has(+ .footnotes))';
+
   function initReadingProgress() {
     const barEl = document.getElementById('reading-progress-bar');
     const containerEl = document.getElementById('reading-progress');
@@ -48,6 +55,7 @@ const { readingTime = 0 } = Astro.props;
     let ticking = false;
     let bodyTop = 0;
     let scrollRange = 0;
+    initEndMark();
 
     function cacheBodyMetrics() {
       if (!bodyEl) {
@@ -87,6 +95,65 @@ const { readingTime = 0 } = Astro.props;
         requestAnimationFrame(updateProgress);
         ticking = true;
       }
+    }
+
+    // Fill the end mark (see global.css) once the reader scrolls the end of the
+    // last paragraph up into the reading zone, but only if it started well
+    // out of view. That distance check, not scroll progress, is what tells a
+    // read-through from a deep link to a late quote or footnote, and big
+    // jumps (Space, Page Down, a table of contents click) can't skip it.
+    // Fires once per page view. A post short enough that its end starts
+    // within ~1.5 screens keeps its mark hollow.
+    function initEndMark() {
+      const endPara = document.querySelector<HTMLElement>(END_MARK_SELECTOR);
+      if (!endPara || !('IntersectionObserver' in window)) return;
+      // A zero-size marker at the very end of the text: the ::after mark
+      // itself can't be observed.
+      const sentinel = document.createElement('span');
+      sentinel.setAttribute('aria-hidden', 'true');
+      endPara.append(sentinel);
+      let startedFar = false;
+      let inReadingZone = false;
+      // Only the reader's own scrolling counts. The site smooth-scrolls to a
+      // #fragment from the top of the page, and that animation passes the
+      // end paragraph on its way to a footnote.
+      let interacted = false;
+      // The observers report on observe and on every change, so check after
+      // each: whichever condition comes true last fills the mark.
+      const inputListeners = new AbortController();
+      const check = () => {
+        if (!interacted || !startedFar || !inReadingZone) return;
+        endPara.dataset.read = '';
+        farObserver.disconnect();
+        zoneObserver.disconnect();
+        inputListeners.abort();
+        sentinel.remove();
+      };
+      const farObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => !e.isIntersecting)) startedFar = true;
+          check();
+        },
+        { rootMargin: '150% 0px 150% 0px' },
+      );
+      // The top 60% of the viewport, where the eye is, so the reader sees the
+      // node fill rather than arriving at one that was always solid.
+      const zoneObserver = new IntersectionObserver(
+        (entries) => {
+          inReadingZone = entries.at(-1)?.isIntersecting ?? false;
+          check();
+        },
+        { rootMargin: '0px 0px -40% 0px' },
+      );
+      const onInput = () => {
+        interacted = true;
+        check();
+      };
+      for (const type of ['wheel', 'touchstart', 'keydown', 'pointerdown']) {
+        window.addEventListener(type, onInput, { passive: true, signal: inputListeners.signal });
+      }
+      farObserver.observe(sentinel);
+      zoneObserver.observe(sentinel);
     }
 
     function refresh() {

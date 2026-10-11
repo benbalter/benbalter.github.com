@@ -227,6 +227,65 @@
   }
 }
 
+/* End mark: a hollow commit node closes the post's last paragraph (before any
+   footnotes), the way a magazine closes an article with a tombstone. When a
+   reader scrolls through the post to it, ReadingProgress sets data-read and
+   the node fills in: the read is committed. Pure CSS, so it shows without
+   JavaScript; it just never fills. Keep this selector in sync with
+   END_MARK_SELECTOR in src/components/ReadingProgress.astro. */
+
+/* Registered so the ring's hole can transition; a plain custom property
+   inside a gradient would snap from hollow to filled. */
+@property --end-mark-hole {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 52%;
+}
+
+.post-content > p:is(:last-child, :has(+ .footnotes))::after {
+  /* An inline box that starts with a no-break space, not an inline-block:
+     an inline-block is a line-break opportunity, so the node could wrap
+     onto a line of its own. The no-break space glues it to the last word,
+     and the padding makes room for the node drawn as a background. */
+  content: "\00a0";
+  padding-left: 0.25em;
+  padding-right: 0.62em;
+  --end-mark-color: var(--color-primary);
+  background: radial-gradient(
+      circle closest-side,
+      transparent var(--end-mark-hole),
+      var(--end-mark-color) calc(var(--end-mark-hole) + 1px),
+      var(--end-mark-color) calc(100% - 1px),
+      transparent 100%
+    )
+    right 0 bottom 0.22em / 0.62em 0.62em no-repeat;
+  transition: --end-mark-hole 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The hole closes from the stroke inward, like ink filling the node. It
+   closes past zero: at 0% the transparent stop still paints a center pixel. */
+.post-content > p[data-read]::after {
+  --end-mark-hole: -10%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-content > p:is(:last-child, :has(+ .footnotes))::after {
+    --end-mark-color: var(--color-primary-300);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-content > p:is(:last-child, :has(+ .footnotes))::after {
+    transition: none;
+  }
+}
+
+@media print {
+  .post-content > p:is(:last-child, :has(+ .footnotes))::after {
+    content: none;
+  }
+}
+
 /* List item spacing — slightly more room between items for readability */
 .prose li {
   margin-top: 0.375em;
