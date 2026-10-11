@@ -13,7 +13,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
-import { siteConfig, networkLinks } from '../config';
+import { siteConfig, resumeNetworkLinks } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
 import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../utils/resume-data';
@@ -88,7 +88,7 @@ const resumeSchema = generateResumeSchema({
     <p class="resume-contact">
       <span>Washington, DC</span>
       <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-      {networkLinks.map((link) => (
+      {resumeNetworkLinks.map((link) => (
         <a href={link.url} rel="me">{link.name}</a>
       ))}
       <a class="print-only" href="https://ben.balter.com">ben.balter.com</a>
@@ -258,7 +258,7 @@ const resumeSchema = generateResumeSchema({
         ))}
       </ul>
       <p class="resume-next">
-        Want to see how I think? Read <a href="/">the posts</a> or the book, <a href={siteConfig.bookUrl}><cite>Open and Async</cite></a>.
+        Want to see how I think? Read <a href="/">my writing</a> or my book, <a href={siteConfig.bookUrl}><cite>Open and Async</cite></a>.
       </p>
     </section>
   </div>

@@ -15,7 +15,7 @@ export const aboutContent = `I'm Ben Balter, and I write here about product and 
 
 The US CTO once called me one of "the baddest of the badass innovators," the single nicest thing anyone's ever put in print about me. I helped draft parts of President Obama's Digital Strategy and Open Data Policy, and argued in the Public Contract Law Journal that [federal IT procurement should look more like modern software development](/2011/11/29/towards-a-more-agile-government/). Mostly, I've spent the last decade trying to figure out how large engineering organizations actually work, and why the obvious answers are usually wrong.
 
-I hold a J.D. and M.B.A. from the George Washington University and am a member of the DC Bar. When I'm not trying to change the world, I enjoy tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum. [Full resume](/resume/).`;
+I hold a J.D. and M.B.A. from the George Washington University and am a member of the DC Bar. When I'm not trying to change the world, I enjoy tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum. [Full résumé](/resume/).`;
 
 /**
  * Validate URL to only allow safe protocols

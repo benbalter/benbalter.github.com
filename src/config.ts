@@ -130,8 +130,14 @@ export const contactLinks: ContactLink[] = [
 ];
 
 // The networks (the contact links with a public handle), in contactLinks order.
-// About, Contact, and the web résumé all list these, so they can't drift.
+// About and Contact list all of these, so they can't drift.
 export const networkLinks: ContactLink[] = contactLinks.filter((link) => link.handle);
+
+// The résumé lists only the professional networks, LinkedIn first for
+// recruiters. The PDF, Word, and Markdown exports hard-code the same pair.
+export const resumeNetworkLinks: ContactLink[] = ['LinkedIn', 'GitHub']
+  .map((name) => networkLinks.find((link) => link.name === name))
+  .filter((link): link is ContactLink => Boolean(link));
 
 // Social links for rel=me verification (used in BaseLayout)
 // icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
