@@ -1,139 +1,106 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { siteConfig, contactLinks, popularPostSlugs } from '../config';
+import { siteConfig, networkLinks } from '../config';
 import { Image } from 'astro:assets';
 import headshotImage from '../../assets/img/headshot.jpg';
 import BookCta from '../components/BookCta.astro';
+import StartHere from '../components/StartHere.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
-import type { CollectionEntry } from 'astro:content';
-import { getPostUrl } from '../utils/post-urls';
-import { pickPostsBySlug } from '../utils/post-filtering';
-import { getPublishedPosts } from '../utils/posts';
-import { stripMarkdown } from '../utils/strip-markdown';
+import { RESUME_HEADLINE } from '../utils/resume-data';
 
 const title = 'About Ben Balter';
 const description = siteConfig.aboutDescription;
 
-// The shared bio ends with a "Full resume" link, which earns its place in
-// about.md and llms.txt. Here the summary's "View resume" button already
-// covers it, so drop the duplicate.
-const bioParagraphs = getBioParagraphs(aboutContent)
-  .map((para) => para.replace(/\s*<a href="\/resume\/">Full resume<\/a>\.$/, ''));
-
-// Popular posts, shown without dates: posts are evergreen (dates are hidden
-// at the top of every post too), and a 2014 date reads as stale here.
-interface PostItem { title: string; description: string; url: string }
-function renderPost(post: CollectionEntry<'posts'>): PostItem {
-  return { title: post.data.title, description: stripMarkdown(post.data.description), url: getPostUrl(post.id) };
-}
-
-const allPosts = await getPublishedPosts();
-const popularPostItems: PostItem[] = pickPostsBySlug(allPosts, popularPostSlugs).map(renderPost);
-
-// One contact row instead of a tile grid: the footer already carries every
-// network as an icon, so this section only needs the networks worth naming.
-const networks = ['LinkedIn', 'Bluesky', 'GitHub']
-  .map((name) => contactLinks.find((link) => link.name === name))
-  .filter((link) => link !== undefined);
+// The shared bio (also the post-footer mini-bio, about.md, and llms.txt)
+// restates things this page already shows: the book (the facts list and the
+// closing card), the degrees (the facts list), and the résumé (the "View
+// résumé" button). Cut those sentences here only. Each cut throws if its
+// sentence is gone, so a bio edit can't silently bring the repetition back.
+const pageOnlyCuts = [
+  ' I wrote [Open and Async](https://open-and-async.com/?utm_source=benbalter-bio), the playbook for remote and distributed teams.',
+  'I hold a J.D. and M.B.A. from the George Washington University and am a member of the DC Bar. ',
+  ' [Full resume](/resume/).',
+];
+const aboutPageBio = pageOnlyCuts.reduce((bio, sentence) => {
+  if (!bio.includes(sentence)) {
+    throw new Error(`about.astro: bio no longer contains ${JSON.stringify(sentence)}; update pageOnlyCuts`);
+  }
+  return bio.replace(sentence, '');
+}, aboutContent);
+const bioParagraphs = getBioParagraphs(aboutPageBio);
 
 // Same-origin copy (built by script/build-headshots), so `download` works.
 const headshotUrl = '/assets/img/headshot.jpg';
 
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={title} description={description} heading={RESUME_HEADLINE}>
   {/* Above the fold: who Ben is, in a form a recruiter can scan in seconds.
       The headline is the h1 (the nav already names Ben, so "About Ben
-      Balter" stays in <title> only). On phones the photo shrinks to an
-      avatar beside the headline and the facts run full width below it;
-      from sm up it spans the whole summary. It's in the header slot, outside
-      `.prose`, so it keeps Inter's own leading and numerals. */}
-  <header slot="header" class="font-sans grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 sm:gap-x-8 items-start mb-10">
-    <h1 class="col-start-1 row-start-1 m-0 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-gray-100 text-balance">
-      Product leader in trust and safety, platform security, and developer platforms
-    </h1>
-
-    <Image
-      src={headshotImage}
-      alt={`${siteConfig.author} headshot`}
-      width={176}
-      height={176}
-      widths={[72, 144, 176, 352]}
-      sizes="(min-width: 640px) 176px, 72px"
-      loading="eager"
-      fetchpriority="high"
-      class="col-start-2 row-start-1 w-[72px] shrink-0 rounded-lg sm:row-span-3 sm:w-[176px]"
-    />
-
-    <div class="col-span-2 sm:col-span-1 min-w-0">
-      <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm leading-normal m-0">
-        <div>
-          <dt class="font-medium text-gray-600 dark:text-gray-400">Most recently</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">Director at GitHub, owning the internal platform its 4,000+ employees run on</dd>
-        </div>
-        <div>
-          <dt class="font-medium text-gray-600 dark:text-gray-400">Book</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">
-            <a href={siteConfig.bookUrl} class="text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary"><cite class="not-italic">Open and Async</cite></a>, the playbook for remote and distributed teams
-          </dd>
-        </div>
-        <div>
-          <dt class="font-medium text-gray-600 dark:text-gray-400">Education</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">JD and MBA, George Washington University; DC Bar member</dd>
-        </div>
-        <div>
-          <dt class="font-medium text-gray-600 dark:text-gray-400">Based in</dt>
-          <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
-        </div>
-      </dl>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/resume/" class="btn btn-primary">View resume</a>
-        <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      Balter" stays in <title> only), and the same line leads the résumé. */}
+  <Fragment slot="header-extra">
+    <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm leading-normal m-0">
+      <div>
+        <dt class="font-medium text-gray-600 dark:text-gray-400">Most recently</dt>
+        <dd class="m-0 text-gray-900 dark:text-gray-100">Director at GitHub, owning the internal platform its 4,000+ employees run on</dd>
       </div>
+      <div>
+        <dt class="font-medium text-gray-600 dark:text-gray-400">Book</dt>
+        <dd class="m-0 text-gray-900 dark:text-gray-100">
+          <a href={siteConfig.bookUrl} class="text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary"><cite class="not-italic">Open and Async</cite></a>, the playbook for remote and distributed teams
+        </dd>
+      </div>
+      <div>
+        <dt class="font-medium text-gray-600 dark:text-gray-400">Education</dt>
+        <dd class="m-0 text-gray-900 dark:text-gray-100">JD and MBA, George Washington University; DC Bar member</dd>
+      </div>
+      <div>
+        <dt class="font-medium text-gray-600 dark:text-gray-400">Based in</dt>
+        <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
+      </div>
+    </dl>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="/resume/" class="btn btn-primary">View résumé</a>
+      <a href="/contact/" class="btn btn-secondary">Get in touch</a>
     </div>
-  </header>
+  </Fragment>
+
+  {/* Phones already show Ben's face in the nav avatar, so the photo only
+      appears from sm up, where it sits beside the header. */}
+  <Image
+    slot="header-aside"
+    src={headshotImage}
+    alt={`${siteConfig.author} headshot`}
+    width={176}
+    height={176}
+    widths={[176, 352]}
+    sizes="176px"
+    loading="lazy"
+    class="hidden sm:block w-[176px] shrink-0 rounded-lg"
+  />
 
   {/* The bio fills PageLayout's column, which is the site's post measure. */}
   {bioParagraphs.map((para: string) => (
     <p set:html={para}></p>
   ))}
 
-  <section aria-labelledby="start-here" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
-    <h2 id="start-here" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Start here</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-5">Good first reads if you're new here.</p>
-    <ul class="max-w-prose space-y-4 list-none p-0 m-0">
-      {popularPostItems.map(({ title, description, url }) => (
-        <li>
-          <a href={url} class="font-semibold text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{title}</a>
-          <p class="mt-0.5 text-sm text-gray-600 dark:text-gray-400 line-clamp-2 m-0">{description}</p>
-        </li>
-      ))}
-    </ul>
-    <p class="mt-5 mb-0">
-      <a href="/posts/" class="btn btn-secondary">All posts →</a>
-    </p>
-  </section>
+  <StartHere />
 
   <section id="contact" aria-labelledby="contact-heading" class="not-prose font-sans mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 scroll-mt-24">
     <h2 id="contact-heading" class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Get in touch</h2>
-    <p class="max-w-prose text-gray-700 dark:text-gray-300 m-0">
+    <p class="text-gray-700 dark:text-gray-300 m-0">
       Email is the best way to reach me: <a href={`mailto:${siteConfig.email}`} class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{siteConfig.email}</a>.
-      I'm also on {networks.map((link, i) => (
-        <>{i > 0 && (i === networks.length - 1 ? ', and ' : ', ')}<a href={link.url} rel="me" class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{link.name}</a></>
+      I'm also on {networkLinks.map((link, i) => (
+        <>{i > 0 && (i === networkLinks.length - 1 ? ', and ' : ', ')}<a href={link.url} rel="me" class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{link.name}</a></>
       ))}.
     </p>
     <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 list-none p-0 m-0 text-sm">
       <li><a href="/vcard.vcf" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Add to contacts</a></li>
       <li><a href="/subscribe/" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Get new posts by email</a></li>
       <li><a href={headshotUrl} download="ben-balter-headshot.jpg" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Download headshot (JPG)</a></li>
+      <li><a href="/contact/#pgp" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">PGP key</a></li>
     </ul>
-    <details class="mt-1 text-sm text-gray-700 dark:text-gray-300">
-      <summary class="py-3 cursor-pointer hover:text-primary dark:hover:text-primary-300">PGP key</summary>
-      <p class="m-0 pb-2">
-        Fingerprint <code class="text-xs [overflow-wrap:anywhere]">{siteConfig.pgpKey}</code>. <a href="/key.asc" class="text-primary dark:text-primary-300 underline">Download the public key</a>.
-      </p>
-    </details>
   </section>
 
   {/* End on the book: the site's main conversion goal, and the last thing
