@@ -88,6 +88,34 @@ test.describe('Mobile Touch Targets', () => {
     await context.close();
   });
 
+  // Standalone list links (a title on its own line, not a link inside a
+  // sentence) are tap targets too: About's and Contact's "Start here" titles
+  // and the résumé's "Selected writing".
+  for (const { path, selector } of [
+    { path: '/about/', selector: '#start-here ~ ul a' },
+    { path: '/contact/', selector: '#start-here ~ ul a' },
+    { path: '/resume/', selector: '.writing-list a' },
+  ]) {
+    test(`standalone list links on ${path} should have minimum 44px touch targets`, async ({ browser }) => {
+      const context = await browser.newContext({ ...devices['iPhone 12'] });
+      const page = await context.newPage();
+
+      await page.goto(path);
+      await page.waitForLoadState('networkidle');
+
+      const links = await page.locator(selector).all();
+      expect(links.length).toBeGreaterThan(0);
+
+      for (const link of links) {
+        const box = await link.boundingBox();
+        expect(box).not.toBeNull();
+        expect(box!.height).toBeGreaterThanOrEqual(44);
+      }
+
+      await context.close();
+    });
+  }
+
   test('interactive elements should have touch-action: manipulation', async ({ browser }) => {
     const context = await browser.newContext({ ...devices['iPhone 12'] });
     const page = await context.newPage();
