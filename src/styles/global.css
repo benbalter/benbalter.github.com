@@ -201,6 +201,40 @@
   margin-bottom: 1.25em;
 }
 
+/* Post heading sizes follow the DESIGN.md role scale (the same fluid tokens as
+   the base h2/h3), not prose-lg's fixed em sizes. prose-lg set h2 at 30px at
+   every width, so on a phone a section heading matched the 30px post title. */
+.post-content h2:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-size: var(--text-headline);
+  line-height: 1.2;
+}
+
+.post-content h3:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem);
+  line-height: 1.3;
+}
+
+/* List items share the paragraph leading; the base li rule's 1.7 made
+   playbook-style posts, which are mostly lists, set tighter than the prose
+   around them. */
+.post-content li {
+  line-height: inherit;
+}
+
+/* The prose body's Lora settings (old-style proportional figures, extra
+   letter and word spacing) were inherited by the Inter roles inside a post.
+   font-feature-settings beats font-variant-numeric, so "pnum" also cancelled
+   the tables' tabular figures. Give those roles Inter's own settings back. */
+.post-content :where(table, .footnotes, figcaption, aside, dt) {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.post-content :where(table) {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "tnum" 1;
+}
+
 /* Post content containment — isolates layout/paint for better INP */
 .post-content {
   contain: content;
@@ -214,17 +248,6 @@
 .post-content img {
   max-width: 100%;
   height: auto;
-}
-
-/* First paragraph of blog posts — color override; typography lives in @layer components */
-.post-content > p:first-of-type {
-  color: var(--color-gray-800);
-}
-
-@media (prefers-color-scheme: dark) {
-  .post-content > p:first-of-type {
-    color: var(--color-gray-200);
-  }
 }
 
 /* End mark: a hollow commit node closes the post's last paragraph (before any
@@ -307,6 +330,34 @@
   .prose blockquote {
     color: var(--color-gray-400);
   }
+}
+
+/* The typography plugin wraps every blockquote in curly quotes. The left
+   rule and italic already mark a quotation, quotes that carry their own marks
+   in the source rendered doubled, and excerpts or templates (the leave-doc
+   TL;DR) aren't speech. */
+.prose blockquote p::before,
+.prose blockquote p::after {
+  content: none;
+}
+
+/* The plugin's medium weight made italic Lora look smudged in gray, and its
+   top margin on the first paragraph stacked on the quote's own padding. */
+.post-content blockquote {
+  font-weight: 400;
+}
+
+.post-content blockquote > :first-child {
+  margin-top: 0;
+}
+
+.post-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Italic monospace looks like a rendering error. */
+.post-content blockquote code {
+  font-style: normal;
 }
 
 /* Inline shareable quote (:quote[text]{#id}): keeps the line in the flow of
@@ -460,9 +511,12 @@
   }
 }
 
-/* Inline code — slightly smaller for visual separation from body text */
+/* Inline code — slightly smaller for visual separation from body text.
+   The chip already sets it apart, so it doesn't also need the plugin's 600
+   weight, which made code the darkest thing in a paragraph. */
 .prose :not(pre) > code {
   font-size: 0.875em;
+  font-weight: 500;
   padding: 0.2em 0.4em;
   border-radius: 0.25rem;
 }
@@ -1312,17 +1366,18 @@
     }
   }
 
-  /* First Paragraph Enhancement — lead paragraph with subtle visual distinction */
-  article > p:first-of-type,
-  .post-content > p:first-of-type {
+  /* First Paragraph Enhancement — lead paragraph with subtle visual distinction.
+     Posts are left out: their TL;DR subtitle is the lead, and at prose-lg's
+     18px this was the same size as the body, so the only visible difference
+     was looser leading on paragraph one, which read as a spacing bug. */
+  article > p:first-of-type {
     @apply text-lg;
     line-height: 1.9;
     @apply text-gray-700;
   }
 
   @media (prefers-color-scheme: dark) {
-    article > p:first-of-type,
-    .post-content > p:first-of-type {
+    article > p:first-of-type {
       @apply text-gray-300;
     }
   }

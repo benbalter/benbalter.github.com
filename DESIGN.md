@@ -175,7 +175,7 @@ A single cool blue accent over Bootstrap's neutral grays, with a separate navy-l
 
 - **Paper** (`paper`): Light-mode page and card background.
 - **Bootstrap Ink** (`gray-900`): Body text in light mode; page background in dark mode.
-- **Graphite** (`gray-800`): Card and navbar surface in dark mode; the lead paragraph's text color in light mode.
+- **Graphite** (`gray-800`): Card and navbar surface in dark mode.
 - **Slate Gray** (`gray-600`, `gray-700`): Secondary text, metadata, blockquote text, footnotes.
 - **Rule Gray** (`gray-200`, `gray-300`): Card borders, horizontal rules, code-block borders.
 - **Mist** (`gray-100`): Navbar background in light mode, code backgrounds. `gray-50` is a deliberate alias with the same value (Bootstrap's scale starts at 100); it stays defined so `bg-gray-50` doesn't fall back to Tailwind's default.
@@ -210,10 +210,10 @@ These colors mirror open-and-async.com and appear only in book promos: `BookCta`
 - **Headline** (Inter 700, fluid 24–31px, 1.2): Section headings (`h2`), including the homepage "Popular Posts" and "Recent Posts" labels.
 - **Title** (Inter 600, fluid 20–25px, 1.3): Subsections (`h3`) and featured post-card titles (which use 20px bold).
 - **Body** (Inter 400, fluid 16–18px, 1.7): All non-article text, including cards, about pages, and the résumé.
-- **Prose** (Lora 400, 18px under `prose-lg`, 1.8, old-style figures): Post bodies. The first paragraph is bumped to `text-lg` at 1.9 line-height as a lead. Blockquotes are Lora italic.
+- **Prose** (Lora 400, 18px under `prose-lg`, 1.8, old-style figures): Post bodies, list items included (same 1.8 leading). The first paragraph gets no lead treatment, because the TL;DR subtitle above it is the lead. Blockquotes are Lora 400 italic with no generated quote marks: the left rule already marks the quotation, and quotes that carry their own marks in the source would double. Post `h2`/`h3` use the Headline and Title clamps above, not `prose-lg`'s fixed em sizes, so each heading step stays clearly smaller than the post title on a phone (31/25/20px there, 39/31/25px on desktop).
 - **Label** (Inter 600, 14px, uppercase with wide tracking): `h6`, footnote headings, the objection block's label. The book badge uses the mono stack at 0.7rem with the widest tracking instead.
 
-Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with automatic hyphenation, and orphans and widows are set to 3. Tables switch to Inter with tabular figures because they're scanned, not read.
+Headings use `text-wrap: balance`, paragraphs use `text-wrap: pretty` with automatic hyphenation, and orphans and widows are set to 3. Tables switch to Inter with tabular figures because they're scanned, not read. Inter roles inside a post (tables, footnotes, captions, asides) reset the prose's Lora settings (old-style proportional figures and extra letter and word spacing). Otherwise `font-feature-settings` would cancel the tables' `tabular-nums`. Inline code is weight 500 on its chip, and code inside an italic blockquote stays upright.
 
 ### Named Rules
 
