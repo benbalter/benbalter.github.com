@@ -58,7 +58,7 @@
     "html-validate": "^11.16.1",
     "image-size": "^2.0.4",
     "js-yaml": "^5.0.0",
-    "knip": "6.40.0",
+    "knip": "6.41.0",
     "markdownlint-cli2": "^0.23.3",
     "markdownlint-cli2-formatter-pretty": "^0.0.10",
     "mdast-util-find-and-replace": "^3.0.2",
