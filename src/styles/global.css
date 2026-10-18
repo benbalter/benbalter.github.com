@@ -1074,22 +1074,6 @@
     }
   }
 
-  /* Skip to Content Link (Accessibility) - GPU-accelerated with transform */
-  .skip-to-content {
-    @apply fixed top-0 left-0 z-50;
-    @apply bg-primary text-white px-4 py-2 rounded-br;
-    @apply no-underline font-semibold;
-    transform: translateY(-100%);
-    will-change: transform;
-    @apply transition-transform duration-200;
-  }
-
-  .skip-to-content:focus {
-    transform: translateY(0);
-    outline: 3px solid white;
-    outline-offset: -3px;
-  }
-
   /* Visually Hidden Focusable (Accessibility) */
   .visually-hidden-focusable:not(:focus):not(:focus-within) {
     @apply absolute;
@@ -1103,7 +1087,8 @@
     border: 0 !important;
   }
 
-  /* Fix: Combined skip-to-content and visually-hidden-focusable */
+  /* Skip links (BaseLayout, PostLayout) always carry both classes, so this
+     undoes the visually-hidden clipping and slides the link in on focus. */
   .skip-to-content.visually-hidden-focusable {
     @apply fixed top-0 left-0 z-50;
     width: auto !important;
@@ -1136,54 +1121,17 @@
     max-width: 1140px;
   }
 
-  /* Navigation */
-  .navbar {
-    @apply flex flex-wrap items-center justify-between py-3 px-4;
-    @apply bg-gray-100 border border-gray-200 rounded-lg shadow-sm;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .navbar {
-      @apply bg-gray-800 border-gray-700;
-    }
-  }
-
-  .navbar-brand {
-    @apply font-bold text-gray-900 no-underline;
-    @apply min-h-[44px] flex items-center;
-    letter-spacing: -0.02em;
-    @apply transition-colors duration-200;
-    touch-action: manipulation;
-  }
-
-  .navbar-brand:hover {
-    @apply text-primary;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .navbar-brand {
-      @apply text-gray-100;
-    }
-    .navbar-brand:hover {
-      @apply text-primary-400;
-    }
-  }
-
-  .navbar-toggler {
-    @apply p-2 rounded border border-gray-300;
-    @apply min-h-[44px] min-w-[44px];
+  /* Navigation. Layout, color, and spacing live as utilities on the markup in
+     Navigation.astro; these rules cover only what the utilities don't. */
+  .navbar-brand,
+  .navbar-toggler,
+  .nav-link {
     touch-action: manipulation;
   }
 
   /* focus-visible, not focus: a tap shouldn't leave the ring on the button. */
   .navbar-toggler:focus-visible {
-    @apply outline-2 outline-primary outline-offset-2 border-primary;
-  }
-
-  @media (min-width: 768px) {
-    .navbar-toggler {
-      @apply hidden;
-    }
+    @apply border-primary;
   }
 
   .navbar-collapse {
@@ -1221,12 +1169,14 @@
     @apply relative;
   }
 
+  /* Still load-bearing: the footer's text links (Footer.astro) use .nav-link
+     without their own min-height or flex utilities, so this keeps them at a
+     44px touch target. */
   .nav-link {
     @apply px-4 py-3 flex items-center;
     @apply text-primary-700 no-underline;
     @apply min-h-[44px];
     @apply transition-colors duration-200;
-    touch-action: manipulation;
   }
 
   /* Reserve bold-width space to prevent CLS when active state toggles font-weight.
@@ -1242,39 +1192,6 @@
     user-select: none;
     pointer-events: none;
   }
-
-  .nav-link:hover {
-    @apply text-primary-900;
-  }
-
-  .nav-link.active {
-    @apply text-gray-900 font-semibold;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .nav-link {
-      @apply text-primary-300;
-    }
-    .nav-link:hover {
-      @apply text-primary-200;
-    }
-    .nav-link.active {
-      @apply text-gray-100;
-    }
-  }
-
-  .navbar-text {
-    @apply text-gray-600 text-sm;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .navbar-text {
-      @apply text-gray-300;
-    }
-  }
-
-  /* Note: .navbar-text is hidden below the lg breakpoint via inline `hidden lg:block`
-     classes on the actual element in Navigation.astro; no CSS rule needed here. */
 
   /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {
