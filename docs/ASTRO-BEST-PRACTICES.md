@@ -31,9 +31,8 @@ Astro ships static HTML by default, only sending JavaScript for interactive comp
 **Implementation:**
 
 - All pages are server-rendered at build time
-- Only 2 client components in entire site:
-  - `Navigation.astro` (uses `usePathname` hook)
-  - `src/scripts/fontawesome.ts` and `src/scripts/navToggle.ts` (client-side initialization)
+- No `client:*` directives anywhere: there are no hydrated framework components
+- Interactivity comes from small vanilla TypeScript modules in `src/scripts/` (navigation toggle, search, link previews, shortcuts, and so on), loaded as Astro-bundled `<script>` tags, several of them lazily on first interaction
 
 **Why:** Reduces bundle size, improves Core Web Vitals (LCP, FID), faster page loads.
 
@@ -550,12 +549,9 @@ import { useState } from 'react';
 
 ### 2. Minimal Client Components ✅
 
-**Status:** IMPLEMENTED (2 components only)
+**Status:** IMPLEMENTED (no hydrated components)
 
-**Current Client Components:**
-
-1. Navigation (uses `usePathname` hook for active state)
-2. FontAwesome/navToggle scripts (client-side initialization)
+**Current client-side code:** vanilla modules in `src/scripts/`, not framework components. The navigation's active state is computed at build time from `Astro.url`, not by a client-side hook.
 
 **Rule:** Only use `client:*` directives when absolutely necessary:
 

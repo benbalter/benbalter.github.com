@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { CollectionEntry } from 'astro:content';
 import { popularPostSlugs, siteConfig } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { pickPostsBySlug } from '../utils/post-filtering';
@@ -23,15 +22,10 @@ const leadPreamble = aboutAt === -1 ? null : description.slice(0, aboutAt + ' ab
 const leadTopics = aboutAt === -1 ? '' : description.slice(aboutAt + ' about '.length).replace(/ (\S+)$/, '\u00a0$1');
 
 // Get all published posts (excluding archived), sorted by date (newest first)
-const allPosts = await getPublishedPosts();
-
-// Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
-const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
-  b.id.localeCompare(a.id)
-);
+const posts = await getPublishedPosts({ sorted: true });
 
 // Get popular posts based on configured slugs
-const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
+const popularPosts = pickPostsBySlug(posts, popularPostSlugs);
 
 // Split into featured (top 3) and regular posts, skipping posts already shown
 // in the Popular section so no card appears twice on the homepage

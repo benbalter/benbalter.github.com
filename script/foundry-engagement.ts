@@ -55,7 +55,7 @@ const ENDPOINT_RAW =
   '';
 const API_KEY =
   process.env.AZURE_OPENAI_API_KEY || process.env.AZURE_API_KEY || process.env.AZURE_AI_KEY || '';
-const MODEL = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || flagVal(argv, '--model', 'gpt-4.1');
+const MODEL = flagVal(argv, '--model', process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || 'gpt-4.1');
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'engage');

@@ -13,13 +13,9 @@ import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structure
 const title = 'Posts';
 const description = 'Blog posts on technology leadership, open source, remote work, and collaboration by Ben Balter — from practical management advice to engineering culture.';
 
-const allPosts = await getPublishedPosts();
+const posts = await getPublishedPosts({ sorted: true });
 
-const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-  b.id.localeCompare(a.id)
-);
-
-const popularPosts = pickPostsBySlug(allPosts, popularPostSlugs);
+const popularPosts = pickPostsBySlug(posts, popularPostSlugs);
 
 const postsByYear = new Map<number, CollectionEntry<'posts'>[]>();
 for (const post of posts) {
