@@ -84,6 +84,39 @@ test.describe('Subscribe Page', () => {
     expect(posted.get('cf-turnstile-response')).toBe('test-token');
   });
 
+  test('should keep focus and the error message after a failed sign-up', async ({ page }) => {
+    await page.route('https://challenges.cloudflare.com/**', (route) =>
+      route.fulfill({
+        contentType: 'text/javascript',
+        body: `window.turnstile = {
+          render(el, options) { setTimeout(() => options.callback('test-token'), 0); return 'widget'; },
+          reset() {},
+        };`,
+      }),
+    );
+    await page.route('**/api/subscribe', (route) => route.fulfill({ status: 500, json: { ok: false } }));
+
+    const input = page.locator('input#subscribe-email');
+    const button = page.locator('form[data-subscribe-form] button[type="submit"]');
+    const status = page.locator('.subscribe-status');
+
+    await input.fill('reader@example.com');
+    await button.focus();
+    await page.keyboard.press('Enter');
+    await expect(status).toHaveText(/went wrong/);
+
+    // Focus stays on the button (a disabled button would drop it to <body>),
+    // and the error outlasts the old 4-second auto-clear.
+    await expect(button).toBeFocused();
+    await page.waitForTimeout(4500);
+    await expect(status).toHaveText(/went wrong/);
+
+    // Editing the address clears it for the retry.
+    await input.press('End');
+    await input.pressSequentially('x');
+    await expect(status).toHaveText('');
+  });
+
   test('should link to social follow options', async ({ page }) => {
     // Bluesky + LinkedIn are always rendered by SubscribeCta.
     const socialLinks = page.locator(

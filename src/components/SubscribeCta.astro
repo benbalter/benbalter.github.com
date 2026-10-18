@@ -218,11 +218,14 @@ const turnstileSiteKey: string =
           const status = form.querySelector<HTMLParagraphElement>('.subscribe-status');
           const privacy = form.querySelector<HTMLParagraphElement>('.subscribe-privacy');
           if (!emailInput || !button || !buttonText || !status) return;
+          if (button.getAttribute('aria-disabled') === 'true') return;
 
           const originalText = buttonText.textContent;
           buttonText.textContent = 'Subscribing';
           button.classList.add('loading');
-          button.disabled = true;
+          // aria-disabled, not `disabled`: disabling the focused button would
+          // drop keyboard focus to <body> mid-request.
+          button.setAttribute('aria-disabled', 'true');
           emailInput.readOnly = true;
 
           let message = 'Something went wrong. Please try again.';
@@ -264,14 +267,16 @@ const turnstileSiteKey: string =
           // The token is spent (or never arrived): get a fresh one for the retry.
           void turnstile.reset();
 
-          // Only reset on error so users can retry
-          setTimeout(() => {
+          // Let them retry right away, but keep the error up until they edit
+          // the address: a timed clear can vanish before slow readers or a
+          // screen reader get to it.
+          button.removeAttribute('aria-disabled');
+          emailInput.readOnly = false;
+          emailInput.addEventListener('input', () => {
             buttonText.textContent = originalText;
-            button.disabled = false;
-            emailInput.readOnly = false;
             status.textContent = '';
             status.className = 'subscribe-status';
-          }, 4000);
+          }, { once: true });
         });
       });
     });
@@ -357,7 +362,8 @@ const turnstileSiteKey: string =
     @apply flex-1 text-sm px-3 py-1.5 rounded-md;
     @apply border border-gray-300 bg-white;
     @apply text-gray-900 placeholder:text-gray-400;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary;
+    @apply focus:border-primary;
+    @apply focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2;
     @apply transition-colors duration-200;
     min-width: 0;
   }
@@ -366,9 +372,9 @@ const turnstileSiteKey: string =
     @apply text-sm font-semibold px-4 py-1.5 rounded-md;
     @apply bg-primary text-white cursor-pointer;
     @apply hover:bg-primary/90;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2;
+    @apply focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2;
     @apply transition-colors duration-200;
-    @apply disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply aria-disabled:opacity-60 aria-disabled:cursor-not-allowed;
     @apply inline-flex items-center justify-center gap-2;
     white-space: nowrap;
   }
@@ -411,12 +417,13 @@ const turnstileSiteKey: string =
     @apply text-xs text-gray-600 dark:text-gray-400 m-0;
   }
 
+  /* -700 shades: the status text is small, so it needs 4.5:1 on white. */
   .subscribe-status-success {
-    @apply text-green-600;
+    @apply text-green-700;
   }
 
   .subscribe-status-error {
-    @apply text-red-600;
+    @apply text-red-700;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -443,13 +450,13 @@ const turnstileSiteKey: string =
 
     .subscribe-input {
       @apply bg-gray-800 border-gray-600 text-gray-100 placeholder:text-gray-500;
-      @apply focus:border-primary-400 focus:ring-primary-400/40;
+      @apply focus:border-primary-400 focus-visible:outline-primary-400;
     }
 
     .subscribe-button {
       @apply bg-primary-400 text-gray-900;
       @apply hover:bg-primary-300;
-      @apply focus:ring-primary-400/40 focus:ring-offset-gray-900;
+      @apply focus-visible:outline-primary-400;
     }
 
     .subscribe-status-success {
