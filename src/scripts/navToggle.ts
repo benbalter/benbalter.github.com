@@ -45,8 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close menu on escape key
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && target.classList.contains('show')) {
+      // Hiding the menu would strand focus on a now-invisible link, so return
+      // it to the toggle button when it was inside the menu.
+      const focusWasInside = target.contains(document.activeElement);
       toggler.setAttribute('aria-expanded', 'false');
       target.classList.remove('show');
+      if (focusWasInside) (toggler as HTMLElement).focus();
     }
   });
 });

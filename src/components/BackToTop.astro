@@ -52,7 +52,13 @@
     }
 
     btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // A hard-coded 'smooth' would override the reduced-motion
+      // scroll-behavior reset in global.css, so check the preference here.
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      // The button hides itself at the top, which would drop keyboard focus
+      // to <body>. Move it to the main content so the next Tab starts there.
+      document.getElementById('main-content')?.focus({ preventScroll: true });
     });
   }
 

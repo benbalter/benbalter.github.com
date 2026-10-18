@@ -37,8 +37,8 @@ const isFeatured = variant === 'featured';
 <article class:list={[
   'group relative h-full rounded-lg border border-gray-200 bg-white transition-all duration-150 hover:border-primary dark:border-gray-700 dark:bg-gray-800',
   isFeatured
-    ? 'border-t-2 border-t-primary/20 hover:border-t-primary/60 hover:shadow-lg hover:-translate-y-0.5'
-    : 'max-md:rounded-md hover:shadow-md hover:-translate-y-px dark:hover:border-primary/40',
+    ? 'border-t-2 border-t-primary/20 hover:border-t-primary/60 hover:shadow-lg motion-safe:hover:-translate-y-0.5'
+    : 'max-md:rounded-md hover:shadow-md motion-safe:hover:-translate-y-px dark:hover:border-primary/40',
 ]}>
   <div class={isFeatured ? 'p-6 max-md:p-4 max-md:pt-3' : 'p-4 max-md:pt-3'}>
     <h3 class:list={[
