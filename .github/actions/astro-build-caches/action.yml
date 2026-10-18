@@ -1,33 +1,35 @@
 name: Astro build caches
 description: >-
-  Restore and save the caches an Astro build reuses: astro-pdf's Chromium, the
-  Astro content/render cache, and generated OG cards. Shared by the E2E build
+  Install astro-pdf's Chrome and restore and save the caches an Astro build
+  reuses: that Chrome, the Astro content/render cache, and generated OG cards. Shared by the E2E build
   and the deploy, so their keys can't drift apart. Run after `npm ci`, which
   would otherwise wipe node_modules.
 
 runs:
   using: composite
   steps:
-    # astro-pdf renders /resume to /resume.pdf at build time via Chromium. It
-    # auto-installs Chrome for Testing into node_modules/.astro/chrome if none
-    # is found; cache that (stable key, so it survives content changes) to
-    # avoid re-downloading ~150MB each build.
-    - name: Cache astro-pdf Chromium
+    # astro-pdf renders /resume to /resume.pdf at build time via Chromium. Since
+    # v2 it no longer installs a browser itself, and .npmrc's ignore-scripts
+    # skips puppeteer's postinstall download, so install the Chrome build the
+    # installed puppeteer pins. Cache it (keyed on the lockfile, which pins
+    # puppeteer) to avoid re-downloading ~150MB each build; the install is a
+    # no-op on a cache hit.
+    - name: Cache puppeteer Chrome
       uses: actions/cache@v6
       with:
-        path: node_modules/.astro/chrome
-        key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+        path: ~/.cache/puppeteer
+        key: puppeteer-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
         restore-keys: |
-          astro-pdf-chrome-${{ runner.os }}-
+          puppeteer-chrome-${{ runner.os }}-
+
+    - name: Install puppeteer Chrome
+      shell: bash
+      run: npx puppeteer browsers install chrome
 
     - name: Cache Astro build artifacts
       uses: actions/cache@v6
       with:
-        # Chromium has its own cache above; keep ~150MB of browser out of
-        # every build-cache entry.
-        path: |
-          node_modules/.astro
-          !node_modules/.astro/chrome
+        path: node_modules/.astro
         # The pipeline fingerprint (remark/rehype plugins, their config wiring,
         # and deps) is a distinct key segment AND the restore-keys prefix. Astro
         # caches rendered markdown per content-file digest and reuses it for
