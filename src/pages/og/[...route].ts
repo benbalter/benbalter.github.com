@@ -10,7 +10,7 @@
 
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { isPublished } from '../../utils/post-filtering';
+import { isBuildablePost } from '../../utils/post-filtering';
 import { generateOGImagePNG } from '../../lib/og-image-generator';
 import { ogImageRoute } from '../../utils/og-image-path';
 import { siteConfig } from '../../config';
@@ -21,7 +21,7 @@ const PNG_HEADERS = {
 };
 
 // Get all published posts for OG image generation
-const posts = await getCollection('posts', isPublished);
+const posts = await getCollection('posts', (post: CollectionEntry<'posts'>) => isBuildablePost(post));
 
 // Create a map of post paths to post data
 const pages: Record<string, { title: string; description: string }> = {};

@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { isPublished, isListablePost, pickPostsBySlug } from './post-filtering';
+import { isPublished, isBuildablePost, isListablePost, pickPostsBySlug } from './post-filtering';
 
 /** Helper to create a minimal post-like object for testing */
 function makePost(data: { published?: boolean; archived?: boolean }) {
@@ -29,6 +29,24 @@ describe('isPublished', () => {
 
   it('returns false for archived drafts', () => {
     expect(isPublished(makePost({ published: false, archived: true }) as any)).toBe(false);
+  });
+});
+
+describe('isBuildablePost', () => {
+  it('builds published posts in production', () => {
+    expect(isBuildablePost(makePost({}) as any, false)).toBe(true);
+  });
+
+  it('skips drafts in production builds', () => {
+    expect(isBuildablePost(makePost({ published: false }) as any, false)).toBe(false);
+  });
+
+  it('builds drafts when previewing in dev', () => {
+    expect(isBuildablePost(makePost({ published: false }) as any, true)).toBe(true);
+  });
+
+  it('still builds archived posts in production', () => {
+    expect(isBuildablePost(makePost({ archived: true }) as any, false)).toBe(true);
   });
 });
 
