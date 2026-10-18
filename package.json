@@ -48,7 +48,7 @@
     "astro": "^7.3.5",
     "astro-auto-import": "^0.6.0",
     "astro-favicons": "^3.1.8",
-    "astro-pdf": "^1.10.1",
+    "astro-pdf": "^2.0.0",
     "dictionary-en": "^4.0.0",
     "es-module-lexer": "3.0.3",
     "eslint": "^10.11.0",
