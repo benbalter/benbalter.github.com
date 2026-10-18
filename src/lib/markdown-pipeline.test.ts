@@ -48,6 +48,17 @@ describe('syndicationRehypePlugins', () => {
     expect(html).toContain(`href="${SITE}/2024/01/15/post/"`);
   });
 
+  it('absolutizes root-relative links and images', async () => {
+    const html = await render('See [this post](/2024/01/15/post/).\n\n![Chart](/assets/img/chart.png)');
+    expect(html).toContain(`href="${SITE}/2024/01/15/post/"`);
+    expect(html).toContain(`src="${SITE}/assets/img/chart.png"`);
+  });
+
+  it('does not open absolutized internal links in a new tab', async () => {
+    const html = await render('See [this post](/2024/01/15/post/).');
+    expect(html).not.toContain('target="_blank"');
+  });
+
   it('opens external links in a new tab', async () => {
     const html = await render('See [example](https://example.com/).');
     expect(html).toContain('target="_blank"');
