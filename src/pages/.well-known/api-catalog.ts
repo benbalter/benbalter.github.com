@@ -36,8 +36,8 @@ export const GET: APIRoute = () => {
         alternate: [
           {
             href: `${url}/feed.xml`,
-            type: 'application/atom+xml',
-            title: 'Atom feed of recent posts',
+            type: 'application/rss+xml',
+            title: 'RSS feed of recent posts',
           },
         ],
         related: [
