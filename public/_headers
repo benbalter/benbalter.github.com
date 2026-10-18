@@ -36,6 +36,13 @@
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
+# Hand-placed images in public/assets/img/ (headshot, avatars, book art) keep
+# stable, unhashed names, so a year of `immutable` would pin stale copies in
+# browsers after a swap. Must follow /assets/* so this value replaces it.
+/assets/img/*
+  ! Cache-Control
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 # Open Graph / social card images are meant to be embedded cross-origin (social
 # platforms, previews, other sites), so override the site-wide CORP:same-origin
 # and allow cross-origin fetches (e.g. fetch()/canvas from other origins).
@@ -52,6 +59,11 @@
 
 # RSS/Atom feeds - 1 hour cache with background revalidation
 /feed.xml
+  ! Cache-Control
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Link-preview metadata, fetched by post pages; changes only when posts do
+/posts-meta.json
   ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 

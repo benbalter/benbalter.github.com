@@ -7,31 +7,15 @@
 
 import type { APIRoute } from 'astro';
 
-// Paths to disallow from crawling
+// Paths to disallow from crawling. Only list URLs that 404 or are crawl traps.
+// Don't list pages that redirect or carry a noindex meta tag (e.g. /fine-print/,
+// /resume/linkedin/): a blocked crawler never fetches them, so it can't follow
+// the 301 or see the noindex, and may index the bare URL anyway.
 const disallowedPaths = [
-  '/2021-analysis-of-federal-dotgov-domains/',
   '/404.html',
-  '/behind-github-geojson/',
-  '/collaborative-policymaking/',
-  '/digital-government-strategy/',
-  '/digital-strategy-reporting/',
-  '/dont-build-an-api/',
-  '/fine-print/',
-  '/government-glossary/',
-  '/make-government-better-together/',
-  '/make-maps-better-together/',
-  '/make-reporting-better-together/',
-  '/open-source-alternatives/',
   '/open-source-demystified/',
-  '/open-source-software-licensing/',
-  '/open-sourcing-government/',
-  '/resume/linkedin/',
-  '/simple-api/',
   '/tag*',
   '/tags*',
-  '/the-dynamic-site-is-dead/',
-  '/the-next-cultural-commons/',
-  '/uncle-sams-list/',
 ];
 
 export const GET: APIRoute = ({ site }) => {

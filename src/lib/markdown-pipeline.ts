@@ -32,6 +32,7 @@ import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 import { rehypeAcronyms } from './rehype-acronyms';
 import { rehypeEmailQuotePlain } from './rehype-email-quote-plain';
 import { rehypeEmailMediaFallback } from './rehype-email-media-fallback';
+import { rehypeAbsoluteUrls } from './rehype-absolute-urls';
 
 // Typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
@@ -133,7 +134,8 @@ export const sharedRehypePlugins = [
  * Rehype plugins for off-site rendering (RSS feed and email broadcasts).
  *
  * Omits web-only transforms: heading anchor links, absolute→relative URL
- * rewriting (feed readers and mail clients need absolute URLs), and CSS-sized
+ * rewriting (it absolutizes root-relative URLs instead, since feed readers and
+ * mail clients need absolute URLs), and CSS-sized
  * affordances like the :quote share icon, which render as giant graphics
  * without site CSS.
  */
@@ -154,6 +156,10 @@ export function syndicationRehypePlugins(siteUrl: string) {
     // clients and feed readers drop that CSS, so it otherwise renders as a giant graphic.
     rehypeEmailQuotePlain,
     rehypeExternalLinksConfig,
+    // Last: feed readers and mail clients have no base URL, so root-relative
+    // links and images break. Must follow rehypeExternalLinks, which treats any
+    // http(s) URL as external and would open internal links in a new tab.
+    [rehypeAbsoluteUrls, { siteUrl }],
   ];
 }
 

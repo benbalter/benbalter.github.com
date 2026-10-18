@@ -26,22 +26,22 @@ npm run lint-yaml      # yamllint
 
 ## Project Structure
 
-- [`src/pages/`](src/pages/: File-based routes
-- [`src/layouts/`](src/layouts/: Page layouts (BaseLayout.astro, PostLayout.astro)
-- [`src/components/`](src/components/: Reusable Astro components
-- [`src/content/`](src/content/: Content collections (posts, pages, resume-positions)
-- [`src/content.config.ts`](src/content.config.ts: Collection schemas (NOT `src/content/config.ts`)
-- [`src/data/`](src/data/: YAML data files (plus a few typed `.ts` data modules)
-- [`src/utils/`](src/utils/: TypeScript utilities (unit tests in `*.test.ts` alongside source)
-- [`src/lib/`](src/lib/: Remark/rehype plugins
-- [`src/styles/global.css`](src/styles/global.css: Tailwind v4 config + custom styles
-- [`e2e/`](e2e/: Playwright E2E tests
-- [`src/scripts/`](src/scripts/: Client-side scripts
-- [`public/`](public/: Static assets
-- [`script/`](script/: Build and utility scripts
-- [`docs/`](docs/: Implementation notes, including [`ASTRO.md`](docs/ASTRO.md), [`ASTRO-ARCHITECTURE.md`](docs/ASTRO-ARCHITECTURE.md), and [`ASTRO-BEST-PRACTICES.md`](docs/ASTRO-BEST-PRACTICES.md)
-- [`astro.config.mjs`](astro.config.mjs: Astro config, including fonts; [`tsconfig.astro.json`](tsconfig.astro.json) is the TypeScript config `npm run check` uses
-- [`src/pages/llms.txt.ts`](src/pages/llms.txt.ts), [`humans.txt.ts`](src/pages/humans.txt.ts), [`robots.txt.ts`](src/pages/robots.txt.ts: Generated `llms.txt` (site context for LLMs), `humans.txt`, and `robots.txt`
+- [`src/pages/`](src/pages/): File-based routes
+- [`src/layouts/`](src/layouts/): Page layouts (BaseLayout.astro, PostLayout.astro)
+- [`src/components/`](src/components/): Reusable Astro components
+- [`src/content/`](src/content/): Content collections (posts, pages, resume-positions)
+- [`src/content.config.ts`](src/content.config.ts): Collection schemas (NOT `src/content/config.ts`)
+- [`src/data/`](src/data/): YAML data files (plus a few typed `.ts` data modules)
+- [`src/utils/`](src/utils/): TypeScript utilities (unit tests in `*.test.ts` alongside source)
+- [`src/lib/`](src/lib/): Remark/rehype plugins plus shared build-time modules (Markdown pipeline, OG image generation, email framing, book CTA)
+- [`src/styles/global.css`](src/styles/global.css): Tailwind v4 config + custom styles
+- [`e2e/`](e2e/): Playwright E2E tests
+- [`src/scripts/`](src/scripts/): Client-side scripts
+- [`public/`](public/): Static assets
+- [`script/`](script/): Build and utility scripts
+- [`docs/`](docs/): Implementation notes, including [`ASTRO.md`](docs/ASTRO.md) and [`ASTRO-BEST-PRACTICES.md`](docs/ASTRO-BEST-PRACTICES.md)
+- [`astro.config.mjs`](astro.config.mjs): Astro config, including fonts; [`tsconfig.astro.json`](tsconfig.astro.json) is the TypeScript config `npm run check` uses
+- [`src/pages/llms.txt.ts`](src/pages/llms.txt.ts), [`humans.txt.ts`](src/pages/humans.txt.ts), [`robots.txt.ts`](src/pages/robots.txt.ts): Generated `llms.txt` (site context for LLMs), `humans.txt`, and `robots.txt`
 
 ## Tech Stack
 

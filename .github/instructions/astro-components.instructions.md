@@ -373,6 +373,5 @@ const items = ['one', 'two', 'three'];
 - [Astro Documentation](https://docs.astro.build/)
 - [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
 - [Astro Best Practices](../../docs/ASTRO-BEST-PRACTICES.md)
-- [Astro Architecture](../../docs/ASTRO-ARCHITECTURE.md)
 
 Remember: **Performance and accessibility first**. Keep components lightweight, semantic, and accessible.

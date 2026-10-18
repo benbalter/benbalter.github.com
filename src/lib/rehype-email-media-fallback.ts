@@ -22,6 +22,7 @@
 import { visit, SKIP } from 'unist-util-visit';
 import type { VisitorResult } from 'unist-util-visit';
 import type { Root, Element, ElementContent } from 'hast';
+import { absolutize } from './rehype-absolute-urls';
 
 interface Options {
   /** Absolute base URL for the site, e.g. "https://ben.balter.com" (no trailing slash needed). */
@@ -35,14 +36,6 @@ function stringProp(node: Element, ...names: string[]): string | undefined {
     if (typeof value === 'string' && value.trim()) return value;
   }
   return undefined;
-}
-
-/** Absolutize a root-relative URL against siteUrl; leave absolute URLs alone. */
-function absolutize(url: string | undefined, siteUrl: string): string | undefined {
-  if (!url) return undefined;
-  if (/^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('//')) return url;
-  if (url.startsWith('/')) return `${siteUrl.replace(/\/$/, '')}${url}`;
-  return url;
 }
 
 /** Collect `<source>` children as {src, type} pairs. */

@@ -124,8 +124,8 @@ jobs:
       - name: Lint JSON
         run: npm run lint-json-check
 
-      # Unused files, dependencies, and unlisted imports fail; unused
-      # exports are reported as warnings (see knip.jsonc).
+      # Unused files, dependencies, unlisted imports, and unused exports and
+      # types all fail (see the rules in knip.jsonc).
       - name: Knip (unused files and dependencies)
         run: npm run knip
 

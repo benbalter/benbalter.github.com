@@ -441,7 +441,7 @@ jobs:
         run: npm run build
       
       - name: Run accessibility tests
-        run: npm run test:e2e:astro -- e2e/accessibility*.spec.ts
+        run: npm run test:e2e -- e2e/accessibility*.spec.ts
       
       - name: Upload test results
         if: failure()

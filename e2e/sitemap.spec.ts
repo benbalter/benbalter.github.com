@@ -194,7 +194,11 @@ test.describe('Sitemap Generation', () => {
       
       // Should have Disallow directives
       expect(content).toContain('Disallow: /404.html');
-      expect(content).toContain('Disallow: /fine-print/');
+
+      // Redirecting and noindex pages must stay crawlable so crawlers can see
+      // the 301 or the noindex meta tag
+      expect(content).not.toContain('Disallow: /fine-print/');
+      expect(content).not.toContain('Disallow: /simple-api/');
       
       // Should not contain Jekyll template syntax
       expect(content).not.toContain('{{');

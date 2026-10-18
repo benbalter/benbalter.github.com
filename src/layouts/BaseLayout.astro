@@ -47,7 +47,11 @@ const {
   standardSiteDocumentUri,
 } = Astro.props;
 
-const fullTitle = title === siteConfig.name ? `${title}: ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
+// Skip the " | Ben Balter" suffix when the title already names the site
+// ("About Ben Balter"), so tabs and search results don't repeat it.
+const fullTitle = title === siteConfig.name
+  ? `${title}: ${siteConfig.description}`
+  : title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
 // Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
 // trailingSlash="always" config is consistently reflected in <link rel="canonical">.
 const rawPath = Astro.url.pathname || '/';
@@ -183,10 +187,11 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           ...(keywords.length > 0 ? [{ name: 'keywords', content: keywords.join(', ') }] : []),
           // Color Scheme and Theme. Match the browser chrome to the page
           // background: white in light mode, gray-900 in dark mode. (These were
-          // previously inverted — dark chrome behind the light page.)
+          // previously inverted — dark chrome behind the light page.) #212529 is
+          // the site's gray-900 (global.css), not Tailwind's default #111827.
           { name: 'color-scheme', content: 'light dark' },
           { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
-          { name: 'theme-color', content: '#111827', media: '(prefers-color-scheme: dark)' },
+          { name: 'theme-color', content: '#212529', media: '(prefers-color-scheme: dark)' },
         ],
         link: [
           // Favicons
