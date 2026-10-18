@@ -3,15 +3,16 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl, parsePostId } from '../../../../utils/post-urls';
-import { isPublished, isListablePost } from '../../../../utils/post-filtering';
+import { isBuildablePost, isListablePost } from '../../../../utils/post-filtering';
 import { buildLastmodIndex, lastmodForUrl } from '../../../../utils/sitemap-lastmod';
 import { siteConfig } from '../../../../config';
 
 // Generate static paths for all blog posts with Jekyll URL structure.
 // Archived posts are published (with a warning banner) and must be built, so
-// route generation uses `isPublished` — not the stricter listing predicate.
+// route generation uses `isBuildablePost` (not the stricter listing predicate),
+// which also renders drafts under `astro dev` for preview.
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', isPublished);
+  const posts = await getCollection('posts', (post: CollectionEntry<'posts'>) => isBuildablePost(post));
 
   // Initialize the related posts cache once for all posts
   // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation

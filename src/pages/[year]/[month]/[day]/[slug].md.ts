@@ -16,14 +16,14 @@
 
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { isPublished } from '../../../../utils/post-filtering';
+import { isBuildablePost } from '../../../../utils/post-filtering';
 import { siteConfig } from '../../../../config';
 import { stripMdxSyntax } from '../../../../utils/strip-mdx-syntax';
 import { absolutizeMarkdownLinks } from '../../../../utils/absolutize-markdown-links';
 import { parsePostId } from '../../../../utils/post-urls';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection('posts', isPublished);
+  const posts = await getCollection('posts', (post: CollectionEntry<'posts'>) => isBuildablePost(post));
 
   return posts
     .map((post: CollectionEntry<'posts'>) => {

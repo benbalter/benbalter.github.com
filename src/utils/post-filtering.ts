@@ -13,6 +13,17 @@ export function isPublished({ data }: CollectionEntry<'posts'>): boolean {
 }
 
 /**
+ * Whether a post gets its own page (HTML, `.md`, and OG image).
+ *
+ * Same as {@link isPublished}, except drafts also render under `astro dev` so
+ * they can be previewed at their real URL. Production builds still drop them,
+ * and listings (via {@link isListablePost}) never include drafts.
+ */
+export function isBuildablePost(post: CollectionEntry<'posts'>, includeDrafts = import.meta.env.DEV): boolean {
+  return includeDrafts || isPublished(post);
+}
+
+/**
  * Whether a post should appear in listings, feeds, and indexes.
  *
  * Stricter than {@link isPublished}: archived posts are reachable directly but
