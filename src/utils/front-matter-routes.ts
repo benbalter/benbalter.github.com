@@ -84,6 +84,12 @@ export function frontMatterRedirects(entries: RoutedEntry[]): Redirect[] {
     }
     if (typeof entry.data.redirect_to === 'string' && entry.data.redirect_to) {
       redirects.push({ source: url, destination: entry.data.redirect_to, status: 301 });
+      // Posts also build a .md sibling, which the zone's Accept: text/markdown
+      // rewrite serves in place of the HTML URL. Redirect it too, or agents get
+      // a 200 copy of a post whose canonical home is elsewhere.
+      if (entry.collection === 'posts') {
+        redirects.push({ source: url.replace(/\/$/, '.md'), destination: entry.data.redirect_to, status: 301 });
+      }
     }
   }
   return redirects;
