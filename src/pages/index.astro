@@ -117,9 +117,10 @@ const regularPosts = nonPopularPosts.slice(3);
 
   <!-- Subscribe CTA — above the archive so it's seen before readers dive into
        (or bounce from) the long Older Posts list -->
-  <section class="mb-16 max-md:mb-8" aria-label="Subscribe">
+  <!-- A div, not a labeled section: SubscribeCta is already its own region -->
+  <div class="mb-16 max-md:mb-8">
     <SubscribeCta />
-  </section>
+  </div>
 
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (

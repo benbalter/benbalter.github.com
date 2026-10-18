@@ -70,11 +70,15 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
     });
 
     function setActive(id: string | null) {
-      links.forEach((link) => link.removeAttribute('data-active'));
+      links.forEach((link) => {
+        link.removeAttribute('data-active');
+        link.removeAttribute('aria-current');
+      });
       if (id) {
         const activeLink = linkMap.get(id);
         if (activeLink) {
           activeLink.setAttribute('data-active', 'true');
+          activeLink.setAttribute('aria-current', 'location');
           activeLink.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         }
       }
@@ -137,6 +141,10 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
           block: 'start',
         });
         history.replaceState(null, '', `#${id}`);
+        // Move keyboard focus with the scroll so the next Tab continues from
+        // the section, not the next TOC link.
+        if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+        heading.focus({ preventScroll: true });
         setActive(id);
       });
     });

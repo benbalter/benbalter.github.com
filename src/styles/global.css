@@ -964,6 +964,12 @@
     @apply outline-2 outline-primary outline-offset-2;
   }
 
+  /* Programmatic focus targets (main after skip link or back-to-top, a heading
+     after a TOC jump) aren't controls, so don't ring the whole region. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
   /* Text Selection */
   ::selection {
     background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
@@ -1569,12 +1575,7 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   }
 }
 
-/* Pull-to-refresh prevention on iOS for fixed elements */
 @media (max-width: 768px) {
-  body {
-    overscroll-behavior-y: none;
-  }
-  
   /* Prevent iOS text size adjustment */
   html {
     -webkit-text-size-adjust: 100%;
