@@ -10,8 +10,8 @@
  * representation is the source itself — we only prepend the title as an H1 and
  * a canonical link. MDX-only syntax (ESM imports/exports and JSX component
  * tags) is stripped via stripMdxSyntax so it doesn't leak into the plain-text
- * representation agents consume, and root-relative links are made absolute so
- * agents can follow them.
+ * representation agents consume, `:::` callout directives become blockquotes,
+ * and root-relative links are made absolute so agents can follow them.
  */
 
 import type { APIRoute, GetStaticPaths } from 'astro';
@@ -19,6 +19,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { isBuildablePost } from '../../../../utils/post-filtering';
 import { siteConfig } from '../../../../config';
 import { stripMdxSyntax } from '../../../../utils/strip-mdx-syntax';
+import { directivesToBlockquotes } from '../../../../utils/directives-to-blockquotes';
 import { absolutizeMarkdownLinks } from '../../../../utils/absolutize-markdown-links';
 import { parsePostId } from '../../../../utils/post-urls';
 
@@ -47,8 +48,10 @@ export const GET: APIRoute = ({ props, params }) => {
   if (post.data.description) {
     parts.push(`*${post.data.description}*`, '');
   }
-  parts.push(`[View on ${siteConfig.name}'s site](${canonical})`, '', '---', '');
-  parts.push(absolutizeMarkdownLinks(stripMdxSyntax(post.body ?? ''), siteConfig.url).trim(), '');
+  // Agents can't see the HTML page's metadata, so say when the post is from.
+  parts.push(`Published ${year}-${month}-${day} · [View on ${siteConfig.name}'s site](${canonical})`, '', '---', '');
+  const body = directivesToBlockquotes(stripMdxSyntax(post.body ?? ''));
+  parts.push(absolutizeMarkdownLinks(body, siteConfig.url).trim(), '');
 
   const markdown = parts.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
 

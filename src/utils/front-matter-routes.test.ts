@@ -64,6 +64,7 @@ describe('frontMatterRedirects', () => {
   it('turns redirect_to into a rule from the entry URL', () => {
     expect(frontMatterRedirects([post('2012-04-23-syndicated', { redirect_to: 'https://example.com/a/' })])).toEqual([
       { source: '/2012/04/23/syndicated/', destination: 'https://example.com/a/', status: 301 },
+      { source: '/2012/04/23/syndicated.md', destination: 'https://example.com/a/', status: 301 },
     ]);
   });
 

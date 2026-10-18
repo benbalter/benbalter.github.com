@@ -112,6 +112,7 @@ describe('llms.txt', () => {
     expect(text).toContain('## Recent Blog Posts');
     expect(text).toContain('Recent Post');
     expect(text).toContain('/2024/06/01/recent-post/');
+    expect(text).toContain(`([Markdown](${siteConfig.url}/2024/06/01/recent-post.md))`);
     expect(text).toContain('A recent post description');
   });
 

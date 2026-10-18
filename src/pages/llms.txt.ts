@@ -12,6 +12,7 @@ import type { APIRoute } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getPostUrlOrNull } from '../utils/post-urls';
+import { markdownAlternatePath } from '../utils/markdown-alternate';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
 import { getPublishedPosts } from '../utils/posts';
 import { stripHtmlTags } from '../utils/strip-html';
@@ -61,7 +62,10 @@ export const GET: APIRoute = async () => {
     const postUrl = getPostUrlOrNull(post.id);
     if (!postUrl) continue; // Skip posts with invalid id format
     
-    content += `* [${post.data.title}](${siteConfig.url}${postUrl}): ${post.data.description}\n`;
+    // Link the plain-Markdown sibling too (llmstxt.org convention), like About and Resume above
+    const mdPath = markdownAlternatePath(postUrl);
+    const mdLink = mdPath ? ` ([Markdown](${siteConfig.url}${mdPath}))` : '';
+    content += `* [${post.data.title}](${siteConfig.url}${postUrl})${mdLink}: ${post.data.description}\n`;
   }
 
   // Add GitHub Culture section if the post exists

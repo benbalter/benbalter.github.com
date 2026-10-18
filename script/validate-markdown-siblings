@@ -9,7 +9,8 @@
 #   /2*/*/*/*/ (posts)         -> /YYYY/MM/DD/slug.md   (`*` spans `/`)
 # A page matching those patterns without a .md file would 404 for agents
 # instead of falling back to HTML. Keep the patterns here in sync with the
-# zone rule.
+# zone rule and with src/utils/markdown-alternate.ts, which advertises the
+# same siblings via <link rel="alternate" type="text/markdown">.
 #
 # Exit codes:
 #   0 - Every targeted page has its .md sibling
