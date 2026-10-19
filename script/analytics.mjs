@@ -12,13 +12,19 @@
  *   node script/analytics.mjs --days 30       # last 30 days
  *   node script/analytics.mjs --host word2md.com
  *   node script/analytics.mjs --day 2026-06-15   # single UTC day (drill into a spike)
+ *   node script/analytics.mjs --ai            # also count AI fetchers on posts (zone logs)
  *   npm run analytics -- --days 30
  *
  * Environment variables:
- *   CLOUDFLARE_API_TOKEN  – token with Account Analytics: Read (loaded from .env)
+ *   CLOUDFLARE_API_TOKEN  – token with Account Analytics: Read (loaded from .env);
+ *                           --ai also needs Zone Analytics: Read
  *
  * Notes:
  *   - The Cloudflare account hosts several sites; results are filtered to --host.
+ *   - "AI referrals" are human visits whose referrer is an AI answer engine, so
+ *     they measure click-throughs from citations. --ai counts the engines' own
+ *     fetchers by User-Agent, which anyone can spoof (scanners do, probing
+ *     /.env and friends), so it only counts post paths and is a rough signal.
  *   - Cloudflare returns precise counts only for ~the last 7 days. Older data is
  *     rounded to the nearest 10 and lightly sampled, so longer windows are
  *     approximate. The 7-day window is the trustworthy one.
@@ -27,6 +33,36 @@
 import { execFileSync } from 'node:child_process';
 import { argv } from 'node:process';
 import { parseArgs } from 'node:util';
+
+/** Referrer hosts of AI answer engines (chat UIs and AI search). */
+const AI_REFERRER_HOSTS = [
+  'chatgpt.com',
+  'chat.openai.com',
+  'perplexity.ai',
+  'www.perplexity.ai',
+  'claude.ai',
+  'gemini.google.com',
+  'copilot.microsoft.com',
+  'chat.deepseek.com',
+  'you.com',
+  'kagi.com',
+];
+
+/** User-Agent tokens of AI fetchers: user-triggered fetches and AI search indexers. */
+const AI_FETCHER_TOKENS = [
+  'ChatGPT-User',
+  'OAI-SearchBot',
+  'GPTBot',
+  'Claude-User',
+  'Claude-SearchBot',
+  'ClaudeBot',
+  'Perplexity-User',
+  'PerplexityBot',
+  'DuckAssistBot',
+  'Google-Extended',
+  'Amazonbot',
+  'YouBot',
+];
 
 const GQL_URL = 'https://api.cloudflare.com/client/v4/graphql';
 const API_BASE = 'https://api.cloudflare.com/client/v4';
@@ -57,6 +93,7 @@ const { values } = parseArgs({
     host: { type: 'string', default: 'ben.balter.com' },
     day: { type: 'string' },
     limit: { type: 'string', default: '25' },
+    ai: { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h' },
   },
   strict: false,
@@ -66,11 +103,12 @@ const opts = {
   host: String(values.host),
   day: typeof values.day === 'string' ? values.day : null,
   limit: parseInt(String(values.limit), 10),
+  ai: values.ai === true,
   help: values.help === true,
 };
 if (opts.help) {
   console.log(
-    'Usage: node script/analytics.mjs [--days N] [--host HOST] [--day YYYY-MM-DD] [--limit N]'
+    'Usage: node script/analytics.mjs [--days N] [--host HOST] [--day YYYY-MM-DD] [--limit N] [--ai]'
   );
   process.exit(0);
 }
@@ -119,9 +157,9 @@ function timeRange() {
  * Fetch a grouped breakdown of RUM pageload events.
  * @param {string} accountTag
  * @param {string[]} dims  dimension field names to group by
- * @param {object} [o]     { order, limit }
+ * @param {object} [o]     { order, limit, filter } — filter is extra GraphQL filter fields
  */
-async function groups(accountTag, dims, { order = 'count_DESC', limit = opts.limit } = {}) {
+async function groups(accountTag, dims, { order = 'count_DESC', limit = opts.limit, filter = '' } = {}) {
   const { start, end } = timeRange();
   const dimFields = dims.join(' ');
   const query = `query($a:String!,$s:Time!,$e:Time!){
@@ -129,7 +167,7 @@ async function groups(accountTag, dims, { order = 'count_DESC', limit = opts.lim
       rumPageloadEventsAdaptiveGroups(
         limit:${limit},
         orderBy:[${order}],
-        filter:{datetime_geq:$s, datetime_leq:$e, requestHost:${JSON.stringify(opts.host)}}
+        filter:{datetime_geq:$s, datetime_leq:$e, requestHost:${JSON.stringify(opts.host)}${filter ? `, ${filter}` : ''}}
       ){ count sum{visits} dimensions{${dimFields}} }
     }}
   }`;
@@ -146,6 +184,51 @@ function table(title, rows, key) {
     if (v.length > 50) v = `${v.slice(0, 49)}…`;
     console.log(`${v.padEnd(52)}${String(r.count).padStart(8)}${String(r.sum.visits).padStart(9)}`);
   }
+}
+
+/** Human visits referred by AI answer engines, by engine and by landing page. */
+async function aiReferrals(accountTag) {
+  const filter = `refererHost_in:${JSON.stringify(AI_REFERRER_HOSTS)}`;
+  const byHost = await groups(accountTag, ['refererHost'], { filter, limit: 20 });
+  if (!byHost.length) {
+    console.log('\n### AI referrals\nNone in this range.');
+    return;
+  }
+  table('AI referrals (by engine)', byHost, 'refererHost');
+  table('AI referrals (landing pages)', await groups(accountTag, ['requestPath'], { filter }), 'requestPath');
+}
+
+/**
+ * Requests from AI fetchers (by User-Agent) to post pages, from the zone's
+ * HTTP request logs. Posts only (/YYYY/…), so spoofed-UA scanners probing
+ * /.env and the like drop out. Unverified: the Free plan can't confirm a
+ * bot is who it claims to be.
+ */
+async function aiFetchers() {
+  const apex = opts.host.split('.').slice(-2).join('.');
+  const res = await fetch(`${API_BASE}/zones?name=${apex}`, { headers: authHeaders });
+  const zoneTag = (await res.json()).result?.[0]?.id;
+  if (!zoneTag) throw new Error(`token can't see the ${apex} zone`);
+
+  const { start, end } = timeRange();
+  const rows = [];
+  for (const token of AI_FETCHER_TOKENS) {
+    const query = `query($z:String!,$s:Time!,$e:Time!){
+      viewer{ zones(filter:{zoneTag:$z}){
+        httpRequestsAdaptiveGroups(limit:1, filter:{
+          datetime_geq:$s, datetime_leq:$e,
+          clientRequestHTTPHost:${JSON.stringify(opts.host)},
+          clientRequestPath_like:"/20%",
+          userAgent_like:${JSON.stringify(`%${token}%`)}
+        }){ count }
+      }}
+    }`;
+    const data = await gql(query, { z: zoneTag, s: start, e: end });
+    const count = data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups?.[0]?.count ?? 0;
+    if (count) rows.push({ count, sum: { visits: '' }, dimensions: { token } });
+  }
+  rows.sort((a, b) => b.count - a.count);
+  table('AI fetchers on posts (unverified UA)', rows, 'token');
 }
 
 async function main() {
@@ -165,6 +248,7 @@ async function main() {
 
   table('Top pages', await groups(accountTag, ['requestPath']), 'requestPath');
   table('Top referrer hosts', await groups(accountTag, ['refererHost'], { limit: 20 }), 'refererHost');
+  await aiReferrals(accountTag);
   table('Top countries', await groups(accountTag, ['countryName'], { limit: 12 }), 'countryName');
   table('Device type', await groups(accountTag, ['deviceType'], { limit: 5 }), 'deviceType');
   table('Browser', await groups(accountTag, ['userAgentBrowser'], { limit: 10 }), 'userAgentBrowser');
@@ -175,6 +259,15 @@ async function main() {
       await groups(accountTag, ['date'], { order: 'date_ASC', limit: 60 }),
       'date'
     );
+  }
+
+  if (opts.ai) {
+    try {
+      await aiFetchers();
+    } catch (err) {
+      console.log(`\n### AI fetchers on posts\nSkipped: ${err.message}`);
+      console.log('Needs Zone Analytics: Read on the token; the Free plan also caps the window (try --days 3).');
+    }
   }
 
   if (opts.days > 7 && !opts.day) {

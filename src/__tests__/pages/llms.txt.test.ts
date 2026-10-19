@@ -198,6 +198,31 @@ describe('llms.txt', () => {
     expect(text).toContain('Linked Post');
   });
 
+  it('should list Start Here posts first, in configured order', async () => {
+    const [firstId, secondId] = siteConfig.llmsStartHerePostIds;
+    const posts = [
+      createMockPost('2025-01-01-newest', 'Newest Post', 'Newest'),
+      createMockPost(secondId!, 'Second Pick', 'Second'),
+      createMockPost(firstId!, 'First Pick', 'First'),
+    ];
+    const response = await callGET(posts);
+    const text = await response.text();
+
+    const startIdx = text.indexOf('## Start Here');
+    const recentIdx = text.indexOf('## Recent Blog Posts');
+    expect(startIdx).toBeGreaterThan(-1);
+    expect(startIdx).toBeLessThan(recentIdx);
+    const section = text.slice(startIdx, recentIdx);
+    expect(section.indexOf('First Pick')).toBeLessThan(section.indexOf('Second Pick'));
+    expect(section).not.toContain('Newest Post');
+  });
+
+  it('should omit Start Here when none of its posts exist', async () => {
+    const response = await callGET([createMockPost('2025-01-01-other', 'Other', 'Other')]);
+    const text = await response.text();
+    expect(text).not.toContain('## Start Here');
+  });
+
   it('should handle empty collections gracefully', async () => {
     const response = await callGET([], []);
     const text = await response.text();

@@ -45,8 +45,11 @@ export const GET: APIRoute = ({ props, params }) => {
   const canonical = `${siteConfig.url}/${year}/${month}/${day}/${slug}/`;
 
   const parts: string[] = [`# ${post.data.title}`, ''];
-  if (post.data.description) {
-    parts.push(`*${post.data.description}*`, '');
+  // Same summary the HTML page shows under its title (PostLayout's Tldr).
+  // A label rather than italics, since some TL;DRs carry their own *emphasis*.
+  const summary = post.data.tldr || post.data.description;
+  if (summary) {
+    parts.push(`**TL;DR:** ${summary}`, '');
   }
   // Agents can't see the HTML page's metadata, so say when the post is from.
   parts.push(`Published ${year}-${month}-${day} · [View on ${siteConfig.name}'s site](${canonical})`, '', '---', '');
