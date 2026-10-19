@@ -46,6 +46,8 @@ export const siteConfig = {
     'Open source',
     'GitHub',
     'Technology policy',
+    'Trust and safety',
+    'Developer platforms',
   ],
 
   // Evergreen posts listed first in llms.txt ("Start Here"), in order, so
@@ -55,6 +57,8 @@ export const siteConfig = {
     '2022-02-16-leaders-show-their-work',
     '2014-11-06-rules-of-communicating-at-github',
     '2021-02-01-what-to-read-before-starting-or-interviewing-at-github',
+    '2020-08-25-how-i-manage-github-notifications',
+    '2015-08-12-the-zen-of-github',
   ],
 
   // Repository information
