@@ -112,6 +112,7 @@ const hasSidebarToc = tocEntries(headings).length >= MIN_HEADINGS_FOR_TOC;
 const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   title,
   description,
+  tldr,
   url: new URL(Astro.url.pathname, siteConfig.url).toString(),
   publishedTime: pubDate,
   modifiedTime: updatedDate,

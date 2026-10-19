@@ -30,6 +30,9 @@ import type {
   SearchActionLeaf,
 } from 'schema-dts';
 import { siteConfig } from '../config';
+import { aboutContent, getFirstParagraph } from '../content/about-bio';
+import { stripHtmlTags } from './strip-html';
+import { stripMarkdown } from './strip-markdown';
 
 /** Ben's canonical social/profile URLs — shared by every schema that carries a
  * `sameAs` (top-level Person and each post's BlogPosting author). */
@@ -68,6 +71,11 @@ function personFields(overrides?: Partial<PersonLeaf>): PersonLeaf {
     },
     sameAs: SAME_AS,
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
+    // Who Ben is, in his own words (the bio's first paragraph, the same text
+    // llms.txt opens with), plus the topics he's an authority on. Agents use
+    // these to answer "who is Ben Balter" and to decide whom to cite.
+    description: stripHtmlTags(getFirstParagraph(aboutContent)),
+    knowsAbout: [...siteConfig.knowsAbout],
   };
 
   if (!overrides) return person;
@@ -149,6 +157,8 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
 export function generateBlogPostingSchema(props: {
   title: string;
   description?: string | undefined;
+  /** The post's TL;DR (inline Markdown), emitted as plain-text `abstract`. */
+  tldr?: string | undefined;
   url: string;
   publishedTime: Date;
   modifiedTime?: Date | undefined;
@@ -158,7 +168,7 @@ export function generateBlogPostingSchema(props: {
   /** Set when the post is tied to the book (front matter `bookRelation`). */
   mentionsBook?: boolean | undefined;
 }): WithContext<BlogPosting> {
-  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount, mentionsBook } = props;
+  const { title, description, tldr, url, publishedTime, modifiedTime, image, author, wordCount, mentionsBook } = props;
 
   const absoluteImage = image
     ? new URL(image, siteConfig.url).toString()
@@ -179,6 +189,9 @@ export function generateBlogPostingSchema(props: {
     '@type': 'BlogPosting',
     headline: title,
     ...(description !== undefined ? { description } : {}),
+    // The thesis the page shows under its title. AI answer engines quote
+    // summaries, so hand them the one Ben wrote rather than letting them guess.
+    ...(tldr ? { abstract: stripMarkdown(tldr) } : {}),
     image: imageValue,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),

@@ -34,7 +34,33 @@ export const siteConfig = {
   // homepage <title> as `Ben Balter: ${description}`. Keep it at 50 characters
   // or fewer; src/config.test.ts enforces both budgets.
   description: 'Product, leadership, and showing your work',
-  
+
+  // Topics the site-wide Person is an authority on (schema.org knowsAbout).
+  // AI answer engines and search use it to decide who to cite on a subject,
+  // so keep it to what the writing here actually covers.
+  knowsAbout: [
+    'Product management',
+    'Engineering leadership',
+    'Remote and distributed work',
+    'Asynchronous communication',
+    'Open source',
+    'GitHub',
+    'Technology policy',
+    'Trust and safety',
+    'Developer platforms',
+  ],
+
+  // Evergreen posts listed first in llms.txt ("Start Here"), in order, so
+  // agents see what Ben most wants cited, not just what's newest. Post ids.
+  llmsStartHerePostIds: [
+    '2022-03-17-why-async',
+    '2022-02-16-leaders-show-their-work',
+    '2014-11-06-rules-of-communicating-at-github',
+    '2021-02-01-what-to-read-before-starting-or-interviewing-at-github',
+    '2020-08-25-how-i-manage-github-notifications',
+    '2015-08-12-the-zen-of-github',
+  ],
+
   // Repository information
   githubRepo: 'benbalter/benbalter.github.com',
   githubRepoUrl: 'https://github.com/benbalter/benbalter.github.com',

@@ -16,6 +16,7 @@ import {
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
 } from './structured-data';
+import { siteConfig } from '../config';
 
 const base = {
   title: 'A Post',
@@ -23,12 +24,13 @@ const base = {
   publishedTime: new Date('2024-01-01T00:00:00Z'),
 };
 
-type PersonShape = { '@type': string; sameAs: string[] };
+type PersonShape = { '@type': string; sameAs: string[]; description?: string; knowsAbout?: string[] };
 type ImageObjectShape = { '@type': string; url: string; width: number; height: number };
 type PostShape = {
   image: unknown;
   author: { sameAs: string[] };
   description?: string;
+  abstract?: string;
   wordCount?: number;
 };
 type BreadcrumbItem = { position: number; item?: string };
@@ -39,6 +41,13 @@ describe('generatePersonSchema', () => {
     expect(schema['@type']).toBe('Person');
     expect(Array.isArray(schema.sameAs)).toBe(true);
     expect(schema.sameAs.length).toBeGreaterThan(0);
+  });
+
+  it('describes who Ben is in plain text and what he knows about', () => {
+    const schema = generatePersonSchema() as unknown as PersonShape;
+    expect(schema.description).toMatch(/^I'm Ben Balter/);
+    expect(schema.description).not.toMatch(/<|\]\(/); // no HTML or Markdown links
+    expect(schema.knowsAbout).toEqual(siteConfig.knowsAbout);
   });
 });
 
@@ -86,6 +95,17 @@ describe('generateBlogPostingSchema', () => {
     }) as unknown as PostShape;
     expect(withExtras.description).toBe('Hi');
     expect(withExtras.wordCount).toBe(500);
+  });
+
+  it('emits the TL;DR as a plain-text abstract, and omits it when unset', () => {
+    const without = generateBlogPostingSchema({ ...base }) as unknown as PostShape;
+    expect('abstract' in without).toBe(false);
+
+    const withTldr = generateBlogPostingSchema({
+      ...base,
+      tldr: 'Adapted from [*Open and Async*](https://open-and-async.com/).',
+    }) as unknown as PostShape;
+    expect(withTldr.abstract).toBe('Adapted from Open and Async.');
   });
 });
 

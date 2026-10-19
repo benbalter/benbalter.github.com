@@ -20,6 +20,18 @@ import { stripHtmlTags } from '../utils/strip-html';
 // Constants
 const CULTURE_POST_ID = '2021-02-01-what-to-read-before-starting-or-interviewing-at-github';
 
+/**
+ * One post as an llms.txt list item, linking the plain-Markdown sibling too
+ * (llmstxt.org convention), like About and Resume. Empty for an invalid id.
+ */
+function postLine(post: CollectionEntry<'posts'>): string {
+  const postUrl = getPostUrlOrNull(post.id);
+  if (!postUrl) return '';
+  const mdPath = markdownAlternatePath(postUrl);
+  const mdLink = mdPath ? ` ([Markdown](${siteConfig.url}${mdPath}))` : '';
+  return `* [${post.data.title}](${siteConfig.url}${postUrl})${mdLink}: ${post.data.description}\n`;
+}
+
 export const GET: APIRoute = async () => {
   // Listable (published, non-archived) posts, newest first
   const allPosts = await getPublishedPosts({ sorted: true });
@@ -56,16 +68,21 @@ export const GET: APIRoute = async () => {
   
   content += `* [Contact](${siteConfig.url}/contact/): Contact information and social media links for ${siteConfig.author}.\n`;
 
+  // Evergreen posts Ben most wants cited, ahead of whatever is newest
+  const startHerePosts = siteConfig.llmsStartHerePostIds
+    .map((id) => allPosts.find((p: CollectionEntry<'posts'>) => p.id === id))
+    .filter((p): p is CollectionEntry<'posts'> => p !== undefined);
+  if (startHerePosts.length > 0) {
+    content += `\n## Start Here\n\n`;
+    for (const post of startHerePosts) {
+      content += postLine(post);
+    }
+  }
+
   content += `\n## Recent Blog Posts\n\n`;
   
   for (const post of recentPosts) {
-    const postUrl = getPostUrlOrNull(post.id);
-    if (!postUrl) continue; // Skip posts with invalid id format
-    
-    // Link the plain-Markdown sibling too (llmstxt.org convention), like About and Resume above
-    const mdPath = markdownAlternatePath(postUrl);
-    const mdLink = mdPath ? ` ([Markdown](${siteConfig.url}${mdPath}))` : '';
-    content += `* [${post.data.title}](${siteConfig.url}${postUrl})${mdLink}: ${post.data.description}\n`;
+    content += postLine(post);
   }
 
   // Add GitHub Culture section if the post exists
