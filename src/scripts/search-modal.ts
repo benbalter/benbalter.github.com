@@ -1,26 +1,7 @@
 import { escapeHtml } from '../utils/html-escape';
 import { isTypingTarget } from '../utils/is-typing-target';
+import { getPagefind, type Pagefind, type PagefindResultData } from './pagefind';
 
-export interface PagefindResultData {
-  url: string;
-  meta?: { title?: string };
-  excerpt: string;
-}
-
-interface PagefindResult {
-  data(): Promise<PagefindResultData>;
-}
-
-interface PagefindSearch {
-  results: PagefindResult[];
-}
-
-interface Pagefind {
-  init(): Promise<void>;
-  search(query: string): Promise<PagefindSearch>;
-}
-
-let pagefindLoaded = false;
 let pagefind: Pagefind | null = null;
 let previouslyFocusedElement: HTMLElement | null = null;
 
@@ -83,16 +64,7 @@ export function noResultsMessage(query: string): string {
 }
 
 async function loadPagefind() {
-  if (pagefindLoaded) return;
-  try {
-    // Dynamic import at runtime — path resolved after pagefind indexes the built site
-    const pf = '/pagefind/pagefind.js';
-    pagefind = await import(/* @vite-ignore */ pf) as unknown as Pagefind;
-    await pagefind.init();
-    pagefindLoaded = true;
-  } catch (e) {
-    console.error('Failed to load Pagefind:', e);
-  }
+  pagefind ??= await getPagefind();
 }
 
 async function performSearch(query: string) {
@@ -110,7 +82,7 @@ async function performSearch(query: string) {
     return;
   }
 
-  if (!pagefindLoaded) {
+  if (!pagefind) {
     resultsContainer.innerHTML = '<div class="search-empty">Loading search…</div>';
     await loadPagefind();
   }

@@ -17,6 +17,37 @@ import { siteConfig } from '../config';
 export const BOOK_RELATIONS = ['adapted', 'cut', 'inspired', 'collected'] as const;
 export type BookRelation = (typeof BOOK_RELATIONS)[number];
 
+/** The shape of /book.json (src/pages/book.json.ts), read by the WebMCP tools. */
+interface BookPost {
+  url: string;
+  title: string;
+  relation: BookRelation;
+  note: string;
+}
+
+export interface BookInfo {
+  title: string;
+  author: string;
+  description: string;
+  published: string;
+  price: { ebook: string; paperback: string };
+  url: string;
+  posts: BookPost[];
+}
+
+/**
+ * Plain, factual statement of each relation for machine readers (/book.json and
+ * the WebMCP tools). The on-page CTA headlines in BookCta.astro are written to
+ * sell; these are written to be quoted, so an agent can mention the book
+ * without sounding like an ad.
+ */
+export const BOOK_RELATION_NOTES: Record<BookRelation, string> = {
+  adapted: `A version of this post appears in ${siteConfig.author}'s book ${siteConfig.bookTitle}.`,
+  cut: `Written for ${siteConfig.author}'s book ${siteConfig.bookTitle}, but cut from the final manuscript.`,
+  inspired: `This post inspired a chapter of ${siteConfig.author}'s book ${siteConfig.bookTitle}.`,
+  collected: `Most of the posts collected here appear in ${siteConfig.author}'s book ${siteConfig.bookTitle}.`,
+};
+
 /**
  * Book title with its conjunction colorized via the site's signature lime→pink
  * gradient. Surrounding spaces are consumed so `mx-1` controls the total gap

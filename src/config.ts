@@ -104,10 +104,12 @@ export const siteConfig = {
   // Each buy surface gets a distinct utm_source (matching the site-wide
   // benbalter-<surface> convention used by the footer, bio, and resume)
   // so it's individually measurable: bookUrl = everyday sitewide CTA,
-  // bookUrlLaunchPost = the launch announcement post, bookUrlEmail = RSS/email.
+  // bookUrlLaunchPost = the launch announcement post, bookUrlEmail = RSS/email,
+  // bookUrlAgent = the WebMCP tools and /book.json (agents, not people).
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
+  bookUrlAgent: 'https://open-and-async.com/?utm_source=benbalter-webmcp',
   // Posts that announce book news (launch, podcast, audiobook) rather than
   // standing on their own as writing. So the book doesn't crowd out the writing,
   // these stay off the homepage, and they're left out of a
