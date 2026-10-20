@@ -208,7 +208,7 @@ describe('get_page', () => {
     const out = await tool('get_page').execute({ path: `${location.origin}/about/?ref=x` });
 
     expect(out).toBe('# About\n\nHi.');
-    const [, init] = fetchMock.mock.calls.find(([path]) => path === '/about/') ?? [];
+    const [, init] = fetchMock.mock.calls.find(([url]) => url === `${location.origin}/about/`) ?? [];
     expect(new Headers(init?.headers).get('accept')).toBe('text/markdown');
   });
 
@@ -232,6 +232,23 @@ describe('get_page', () => {
   it('errors on a missing page', async () => {
     routeFetch(() => new Response('nope', { status: 404 }));
     await expect(tool('get_page').execute({ path: '/nope/' })).rejects.toThrow(/404/);
+  });
+
+  it('fetches the validated URL, so a //host path stays on this site', async () => {
+    routeFetch(markdown('ok'));
+    await tool('get_page').execute({ path: `${location.origin}//evil.example/x` });
+    const urls = fetchMock.mock.calls.map(([url]) => String(url)).filter((u) => u !== '/book.json');
+    expect(urls).toEqual([`${location.origin}//evil.example/x`]);
+    expect(new URL(urls[0]).origin).toBe(location.origin);
+  });
+
+  it('refuses a response that redirected off the site', async () => {
+    routeFetch(() => {
+      const res = markdown('elsewhere')();
+      Object.defineProperty(res, 'url', { value: 'https://evil.example/' });
+      return res;
+    });
+    await expect(tool('get_page').execute({ path: '/redirect/' })).rejects.toThrow(/redirects off/);
   });
 
   it('refuses other origins without fetching', async () => {

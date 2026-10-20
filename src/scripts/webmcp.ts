@@ -184,7 +184,13 @@ async function getPage(input: Record<string, unknown>, signal?: AbortSignal): Pr
   const url = typeof input.path === 'string' ? resolveSiteUrl(input.path, location.origin) : null;
   if (!url) throw new Error(`\`path\` must be a path or URL on ${location.origin}.`);
 
-  const response = await fetch(url.pathname, { headers: { Accept: 'text/markdown' }, signal: signal ?? null });
+  // Fetch the validated absolute URL, never `url.pathname`: a path like
+  // `//evil.example/` would pass the origin check but fetch another host.
+  const response = await fetch(url.href, { headers: { Accept: 'text/markdown' }, signal: signal ?? null });
+  // A redirect could still leave the site; don't return what's on the other end.
+  if (response.url && new URL(response.url).origin !== location.origin) {
+    throw new Error(`${url.href} redirects off ${location.origin}.`);
+  }
   if (!response.ok) throw new Error(`No page at ${url.href} (HTTP ${response.status}).`);
 
   const [body, book] = await Promise.all([response.text(), getBookInfo()]);
