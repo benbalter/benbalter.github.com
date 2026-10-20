@@ -12,11 +12,11 @@ export interface PagefindResultData {
   excerpt: string;
 }
 
-export interface PagefindResult {
+interface PagefindResult {
   data(): Promise<PagefindResultData>;
 }
 
-export interface PagefindSearch {
+interface PagefindSearch {
   results: PagefindResult[];
 }
 

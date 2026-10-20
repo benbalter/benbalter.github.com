@@ -18,7 +18,7 @@ export const BOOK_RELATIONS = ['adapted', 'cut', 'inspired', 'collected'] as con
 export type BookRelation = (typeof BOOK_RELATIONS)[number];
 
 /** The shape of /book.json (src/pages/book.json.ts), read by the WebMCP tools. */
-export interface BookPost {
+interface BookPost {
   url: string;
   title: string;
   relation: BookRelation;
