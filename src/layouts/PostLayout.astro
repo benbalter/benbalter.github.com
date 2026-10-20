@@ -156,7 +156,7 @@ const itemListSchema = curatedUrls.length > 0
             it. This skip link (only where the sidebar shows, xl and up) is
             the article's first stop. */}
         {hasSidebarToc && (
-          <a href="#on-this-page" class="skip-to-content visually-hidden-focusable hidden xl:block">Skip to table of contents</a>
+          <a href="#on-this-page" class="skip-to-content visually-hidden-focusable hidden xl:block" data-pagefind-ignore>Skip to table of contents</a>
         )}
         <Breadcrumbs title={title} />
         <header class="mb-10">

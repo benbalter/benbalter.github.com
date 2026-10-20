@@ -107,6 +107,10 @@ const { Content } = await render(post);
 - CI's `script/update-bookmarklets --check` fails if the vendored code doesn't match that commit. When it does, run [`script/update-bookmarklets`](script/update-bookmarklets) on the PR branch and push; `--latest` moves to the tip of `main` by hand.
 - Adding a bookmarklet: add its id to `IDS` in the script, run it with `--latest`, and add an entry to [`bookmarklets.ts`](src/data/bookmarklets.ts).
 
+### WebMCP
+
+[`src/scripts/webmcp.ts`](src/scripts/webmcp.ts) registers three read-only [WebMCP](https://webmachinelearning.github.io/webmcp/) tools for agents running in the browser: `search_site` (the Pagefind index, through the loader shared with the search modal in [`src/scripts/pagefind.ts`](src/scripts/pagefind.ts)) `get_page` (requests `Accept: text/markdown` so the zone rule serves the `.md` sibling, and falls back to the article text from the HTML), and `get_book`. Posts with a `bookRelation` get a one-line factual note in search results and at the end of `get_page`, from [`/book.json`](src/pages/book.json.ts); the wording lives in `BOOK_RELATION_NOTES` in [`src/lib/book-cta.ts`](src/lib/book-cta.ts) and is deliberately plainer than the on-page CTA. [`webmcp-init.ts`](src/scripts/webmcp-init.ts) is the only part that ships on every page: it loads the tools chunk only when the browser exposes `document.modelContext` (or `navigator.modelContext` in older Chrome builds). [`e2e/webmcp.spec.ts`](e2e/webmcp.spec.ts) installs a fake `modelContext` to run the tools against the built site.
+
 ### Component Patterns
 
 - Zero JavaScript by default; avoid `client:*` directives unless interactivity is required

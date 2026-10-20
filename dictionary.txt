@@ -730,6 +730,7 @@ overengineered
 overinclusive
 p0
 PaaS
+Pagefind
 Pandoc
 Panetta
 parallelizing
@@ -1033,6 +1034,7 @@ Waterfall
 WCAG
 weaken's
 webcal
+WebMCP
 WebOS
 Weidong
 wellbeing
