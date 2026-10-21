@@ -14,6 +14,10 @@ I didn't set out to do this. Most people start a writing project by firing up Wo
 
 I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps,[^latex] but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way.
 
+:::info[Updated October 2026]
+The tooling is now open source. [book-kit](https://github.com/benbalter/book-kit) is the build pipeline from this post, pulled out of the book's repo. It turns one Markdown source into EPUB, Kindle, print PDF, PDF/X-1a, HTML, and DOCX, and comes with the core validators and linters (not every check below). It's an early alpha, but it's the same code that builds the published editions of *Open and Async*.
+:::
+
 ## Content
 
 *Naturally*, the content itself lived as Markdown files in a Git repository. After all, that's where I spend most of my day. I used VS Code, with a handful of prose extensions ([listed below](#real-time)). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones.
@@ -249,7 +253,7 @@ The nice thing about a book that builds like software: the same machinery keeps 
 
 - **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation of the finished English book, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original: the same trust-but-verify instinct as the prose linters, just across languages.[^translations]
 - **An audiobook.** If I record one, turning 100,000 words into narration opens a whole new class of bug: mispronunciations. So the audiobook has its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations, all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.[^audiobook]
-- **Releasing the tools.** Almost none of this is specific to my book: the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch. And none of it would exist without the open source projects it already stands on. The whole book is other people's generosity, compiled.[^oss]
+- **Releasing the tools.** Almost none of this is specific to my book: the validators, the Lua filters, the whole pipeline. So I pulled most of it out into [book-kit](https://github.com/benbalter/book-kit) and released it as open source (a noun, no hyphen). The next person shouldn't have to build it from scratch. And none of it would exist without the open source projects it already stands on. The whole book is other people's generosity, compiled.[^oss]
 
 :::info[Updated October 2026]
 I made the audiobook, just not with my voice. *Open and Async* is now about 11.5 hours of AI narration, on Audible, Libro.fm, Apple Books, Spotify, Kobo, and Google Play. So that QA suite ended up proofing a robot instead of me, and it earned its keep, catching "SSH'd," "Kanban," and a long tail of others before they shipped. [Hear a sample and pick your app](https://open-and-async.com/listen/).
