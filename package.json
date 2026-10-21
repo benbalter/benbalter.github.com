@@ -33,7 +33,7 @@
     "@eslint/json": "^2.1.0",
     "@github/markdownlint-github": "^0.8.4",
     "@lucide/astro": "^1.49.0",
-    "@nuasite/checks": "^0.58.0",
+    "@nuasite/checks": "^0.60.0",
     "@playform/compress": "^0.2.5",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/typography": "^0.5.20",
