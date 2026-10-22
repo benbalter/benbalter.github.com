@@ -190,7 +190,7 @@
       "postcss-selector-parser": "^7.1.6"
     },
     "@expressive-code/core": {
-      "postcss-nested": "^7.0.2"
+      "postcss-nested": "^8.0.0"
     }
   }
 }
