@@ -61,7 +61,10 @@ const hasAside = Astro.slots.has('header-aside');
       padding stands in for the breadcrumbs that space a post's title. */}
   <div class="max-w-[42rem] mx-auto px-4 pt-4 md:pt-14">
     <div>
-      <article data-pagefind-body>
+      {/* noindex pages stay out of site search too: the Pagefind index (and the
+          WebMCP search_site tool built on it) is public even when a page sits
+          behind Access. Pagefind skips pages without data-pagefind-body. */}
+      <article {...(noindex ? {} : { 'data-pagefind-body': '' })}>
         {/* The header sits outside `.prose`, so it keeps Inter's own leading
             and numerals instead of the post body's serif. */}
         <header class:list={['page-header font-sans mb-10', { 'sm:flex sm:items-start sm:gap-x-8': hasAside }]}>
