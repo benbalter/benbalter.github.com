@@ -8,6 +8,7 @@
 
 import { stripMarkdown } from './strip-markdown';
 import { stripHtmlComments } from './strip-html';
+import { toLinkedinPasteText } from './linkedin-paste';
 
 /**
  * LinkedIn profile field character limits (as of 2025).
@@ -64,9 +65,10 @@ export function cleanDescription(text: string): string {
 }
 
 /**
- * Length of a description as LinkedIn will count it (after `<br>` → `\n`
- * conversion, matching what `element.innerText` yields on copy).
+ * Length of a description as LinkedIn will count it: `<br>` becomes `\n`
+ * (what `element.innerText` yields on copy), and blank lines carry the
+ * invisible character the copy button adds so LinkedIn keeps them.
  */
 export function linkedinCharCount(htmlOrText: string): number {
-  return htmlOrText.replace(/<br\s*\/?>/gi, '\n').length;
+  return toLinkedinPasteText(htmlOrText.replace(/<br\s*\/?>/gi, '\n')).length;
 }

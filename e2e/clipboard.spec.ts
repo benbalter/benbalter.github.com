@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { toLinkedinPasteText } from '../src/utils/linkedin-paste';
 
 /**
  * Every copy-to-clipboard surface on the site goes through
@@ -144,11 +145,15 @@ test.describe('clipboard copy buttons', () => {
 
   test('LinkedIn description copy button keeps line breaks', async ({ page }) => {
     await page.goto('/resume/linkedin/');
+    // The first multi-line field is About, which has paragraph breaks.
     const btn = page.locator('.copy-btn.copy-description').first();
-    const expected = await btn.evaluate(
+    const text = await btn.evaluate(
       (el) => (el.parentElement?.querySelector('[data-description]') as HTMLElement | null)?.innerText.trim() ?? '',
     );
-    expect(expected).toContain('\n');
+    expect(text).toContain('\n\n');
+    // LinkedIn collapses empty lines on paste, so blank lines carry U+2800.
+    const expected = toLinkedinPasteText(text);
+    expect(expected).toContain('\n\u2800\n');
 
     await btn.click();
     await expect(btn).toHaveText('✓');

@@ -1,5 +1,6 @@
 import { copyToClipboard } from '../utils/copy-to-clipboard';
 import { onPageLoad } from './on-page-load';
+import { toLinkedinPasteText } from '../utils/linkedin-paste';
 
 function initCopyButtons() {
   document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -8,7 +9,8 @@ function initCopyButtons() {
 
       if (btn.classList.contains('copy-description')) {
         const descriptionElement = btn.parentElement?.querySelector('[data-description]') as HTMLElement | null;
-        textToCopy = descriptionElement?.innerText?.trim() || '';
+        // Multi-line fields: keep paragraph breaks through LinkedIn's paste.
+        textToCopy = toLinkedinPasteText(descriptionElement?.innerText?.trim() || '');
       } else {
         textToCopy = btn.getAttribute('data-copy') || '';
       }
