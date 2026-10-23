@@ -1,6 +1,6 @@
 /**
  * Push the social bios in src/content/social-bios.ts to the networks that
- * have an API for it (GitHub, Bluesky, Mastodon). Anything else is
+ * have an API for it (GitHub, Bluesky, Mastodon, Gravatar). Anything else is
  * copy-paste from /resume/social/.
  *
  * Dry run by default: prints each current bio next to the new one. Pass
@@ -17,6 +17,9 @@
  *             for the standard-site scripts.
  *   Mastodon  MASTODON_TOKEN, an access token with the write:accounts scope
  *             (mastodon.social → Preferences → Development → New application).
+ *   Gravatar  GRAVATAR_TOKEN, a WordPress.com OAuth token. Register an app at
+ *             https://developer.wordpress.com/apps/ and use its implicit-flow
+ *             token (https://docs.gravatar.com/rest/getting-started/).
  *
  * Pass secrets through 1Password rather than the shell history, e.g.
  *   op run --env-file=.env.social -- npm run social-bios -- --apply
@@ -31,6 +34,7 @@ import { login } from './standard-site/auth';
 const MASTODON_INSTANCE = new URL(siteConfig.mastodonUrl).origin;
 const MASTODON_ACCT = siteConfig.mastodonHandle.replace(/^@/, '');
 const BLUESKY_HANDLE = new URL(siteConfig.blueskyUrl).pathname.split('/').pop() ?? '';
+const GRAVATAR_USERNAME = siteConfig.socialUsername;
 
 interface Updater {
   current(): Promise<string>;
@@ -85,6 +89,26 @@ const updaters: Record<string, Updater> = {
       if (!response.ok) throw new Error(`Mastodon update failed: ${response.status} ${await response.text()}`);
     },
   },
+  gravatar: {
+    async current() {
+      // The legacy public profile JSON needs no API key.
+      const response = await fetch(`https://en.gravatar.com/${encodeURIComponent(GRAVATAR_USERNAME)}.json`);
+      if (!response.ok) throw new Error(`Gravatar profile lookup failed: ${response.status}`);
+      const profile = (await response.json()) as { entry?: { aboutMe?: string }[] };
+      return profile.entry?.[0]?.aboutMe ?? '';
+    },
+    async write(bio) {
+      const token = process.env.GRAVATAR_TOKEN;
+      if (!token) throw new Error('GRAVATAR_TOKEN environment variable is required (WordPress.com OAuth token)');
+      // Only `description` is sent; the API leaves every other field as is.
+      const response = await fetch('https://api.gravatar.com/v3/me/profile', {
+        method: 'PATCH',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ description: bio }),
+      });
+      if (!response.ok) throw new Error(`Gravatar update failed: ${response.status} ${await response.text()}`);
+    },
+  },
 };
 
 async function run(entry: SocialBio, apply: boolean): Promise<boolean> {
@@ -93,7 +117,7 @@ async function run(entry: SocialBio, apply: boolean): Promise<boolean> {
   if (!updater) throw new Error(`${entry.network} is marked automated but has no updater`);
 
   const length = bioLength(entry);
-  if (length > entry.limit) {
+  if (entry.limit !== undefined && length > entry.limit) {
     console.error(`✗ ${entry.network}: ${length} ${entry.unit}, over the ${entry.limit} limit`);
     return false;
   }

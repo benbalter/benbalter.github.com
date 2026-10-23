@@ -1,7 +1,7 @@
 ---
 title: Resume
 description: >-
-  Resume for Ben Balter: product leader for developer platforms, APIs, and open
+  Resume for Ben Balter: product leader for developer platforms and open
   source; a decade at GitHub across trust and safety and developer tooling;
   attorney and author of Open and Async.
 permalink: /resume/

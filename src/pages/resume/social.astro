@@ -43,8 +43,7 @@ import { socialBios, bioLength, type SocialBio } from '../../content/social-bios
       <LinkedInField
         label="Bio"
         value={entry.bio}
-        limit={entry.limit}
-        count={bioLength(entry)}
+        {...(entry.limit !== undefined ? { limit: entry.limit, count: bioLength(entry) } : {})}
         network={entry.network}
         copyLabel={`Copy ${entry.network} bio to clipboard`}
         marginClass=""

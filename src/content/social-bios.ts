@@ -12,8 +12,8 @@ export interface SocialBio {
   network: string;
   /** The bio text, exactly as it should appear. */
   bio: string;
-  /** The network's bio length limit. */
-  limit: number;
+  /** The network's bio length limit, where it publishes one. */
+  limit?: number;
   /** How the network counts toward `limit`. */
   unit: 'characters' | 'graphemes';
   /** Where to edit it by hand. */
@@ -22,9 +22,13 @@ export interface SocialBio {
   automated: boolean;
 }
 
-const shortBio = 'Product leader for developer platforms, APIs, and open source. 10 years at GitHub. Author of Open and Async. Attorney.';
+const shortBio = 'Product leader for developer platforms and open source. 10 years at GitHub. Author of Open and Async. Attorney.';
 
-const longBio = 'Product leader for developer platforms, APIs, and open source | 10 years at GitHub | Author of Open and Async | Presidential Innovation Fellow, attorney';
+const longBio = 'Product leader for developer platforms and open source | 10 years at GitHub | Author of Open and Async | Presidential Innovation Fellow, attorney';
+
+// For the longer "about" fields (Gravatar, Hacker News), which show a short
+// paragraph rather than a one-line profile blurb.
+const paragraphBio = "Product leader for developer platforms and open source. I spent a decade at GitHub shipping platform features and the APIs behind them to 50M+ developers, rewrote GitHub Pages from the bottom up, and wrote Licensee, the open source library behind GitHub's license detection. Author of Open and Async, attorney, and Presidential Innovation Fellow. More at https://ben.balter.com";
 
 export const socialBios: readonly SocialBio[] = [
   {
@@ -59,6 +63,23 @@ export const socialBios: readonly SocialBio[] = [
     limit: 160,
     unit: 'characters',
     editUrl: 'https://x.com/settings/profile',
+    automated: false,
+  },
+  {
+    // Feeds author boxes on WordPress and other sites that look up a Gravatar
+    // by email. Gravatar publishes no limit for the about field.
+    network: 'Gravatar',
+    bio: paragraphBio,
+    unit: 'characters',
+    editUrl: 'https://gravatar.com/profile',
+    automated: true,
+  },
+  {
+    // No write API, and no published limit for the about field.
+    network: 'Hacker News',
+    bio: paragraphBio,
+    unit: 'characters',
+    editUrl: 'https://news.ycombinator.com/user?id=benbalter',
     automated: false,
   },
 ];
