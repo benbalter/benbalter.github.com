@@ -50,6 +50,7 @@ const EXCLUDED_PAGES = [
   '/_not-found/',
   '/fine-print/', // Legal boilerplate; had sitemap: false in the Jekyll source
   '/resume/linkedin/', // Utility page, not for search engines
+  '/resume/social/', // Utility page, not for search engines
   '/resume/print/', // Print-only PDF source (noindex), rendered to /resume.pdf
   ...sitemapExclusions(routedEntries),
 ];

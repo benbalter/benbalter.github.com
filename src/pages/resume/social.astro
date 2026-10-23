@@ -1,0 +1,58 @@
+---
+/**
+ * Social Bios Page
+ *
+ * Copy-paste view of the bios in src/content/social-bios.ts, the social
+ * counterpart to /resume/linkedin/. Networks with an API are also pushed by
+ * `npm run social-bios`; the page says which. Utility page, not indexed by
+ * search engines.
+ */
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import LinkedInField from '../../components/LinkedInField.astro';
+import { socialBios, bioLength, type SocialBio } from '../../content/social-bios';
+---
+
+<PageLayout
+  title="Resume: Social Bios"
+  description="Social profile bios formatted for easy copy-paste."
+  noindex={true}
+>
+  <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-5 py-4 mb-8">
+    <p class="m-0 text-gray-900 dark:text-gray-100">
+      The bio for each social profile, with its length limit. Click the 📋 icon to copy one.
+      Networks marked <strong>scripted</strong> are also set by <code>npm run social-bios</code>,
+      so only the rest need pasting by hand.
+    </p>
+  </div>
+
+  {socialBios.map((entry: SocialBio) => (
+    <section class="not-prose bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 m-0">{entry.network}</h2>
+        <p class="text-sm m-0">
+          <span class:list={[
+            'inline-block rounded px-2 py-0.5 mr-2 font-medium',
+            entry.automated
+              ? 'bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-100'
+              : 'bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100',
+          ]}>{entry.automated ? 'Scripted' : 'Copy-paste'}</span>
+          <a href={entry.editUrl} class="text-primary dark:text-primary-300 underline underline-offset-2">Edit profile</a>
+        </p>
+      </div>
+      <LinkedInField
+        label="Bio"
+        value={entry.bio}
+        limit={entry.limit}
+        count={bioLength(entry)}
+        network={entry.network}
+        copyLabel={`Copy ${entry.network} bio to clipboard`}
+        marginClass=""
+      />
+    </section>
+  ))}
+</PageLayout>
+
+<script>
+  import '../../scripts/linkedin-copy';
+</script>

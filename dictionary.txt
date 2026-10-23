@@ -442,6 +442,7 @@ GPL
 GPLv2
 Grammarly
 Grance
+GraphQL
 Griggs
 Groupon
 Groupon's

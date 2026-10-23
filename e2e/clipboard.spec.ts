@@ -131,6 +131,17 @@ test.describe('clipboard copy buttons', () => {
     await expectClipboard(page, expected);
   });
 
+  test('social bio copy button', async ({ page }) => {
+    await page.goto('/resume/social/');
+    const btn = page.locator('.copy-btn').first();
+    const expected = (await btn.getAttribute('data-copy')) ?? '';
+    expect(expected).not.toBe('');
+
+    await btn.click();
+    await expect(btn).toHaveText('✓');
+    await expectClipboard(page, expected);
+  });
+
   test('LinkedIn description copy button keeps line breaks', async ({ page }) => {
     await page.goto('/resume/linkedin/');
     const btn = page.locator('.copy-btn.copy-description').first();

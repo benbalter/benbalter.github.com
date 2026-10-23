@@ -33,21 +33,21 @@ export const siteConfig = {
   // (1024px), which has room for ~58 characters on one row, and becomes the
   // homepage <title> as `Ben Balter: ${description}`. Keep it at 50 characters
   // or fewer; src/config.test.ts enforces both budgets.
-  description: 'Product, leadership, and showing your work',
+  description: 'Developer platforms and showing your work',
 
   // Topics the site-wide Person is an authority on (schema.org knowsAbout).
   // AI answer engines and search use it to decide who to cite on a subject,
   // so keep it to what the writing here actually covers.
   knowsAbout: [
     'Product management',
+    'Developer platforms',
+    'Open source',
+    'GitHub',
     'Engineering leadership',
     'Remote and distributed work',
     'Asynchronous communication',
-    'Open source',
-    'GitHub',
     'Technology policy',
     'Trust and safety',
-    'Developer platforms',
   ],
 
   // Evergreen posts listed first in llms.txt ("Start Here"), in order, so
@@ -59,6 +59,7 @@ export const siteConfig = {
     '2021-02-01-what-to-read-before-starting-or-interviewing-at-github',
     '2020-08-25-how-i-manage-github-notifications',
     '2015-08-12-the-zen-of-github',
+    '2026-03-18-agentic-workflows',
   ],
 
   // Repository information
@@ -90,7 +91,7 @@ export const siteConfig = {
   pgpKey: '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4',
   
   // Default SEO keywords
-  keywords: ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
+  keywords: ['Ben Balter', 'GitHub', 'developer platforms', 'open source', 'product management'],
   
   // Kit (ConvertKit) form ID for inline email subscribe form.
   // Leave empty to hide email row in SubscribeCta.
@@ -127,7 +128,7 @@ export const siteConfig = {
   bookPricePaperback: '$29.99',
 
   // About page metadata
-  aboutDescription: 'Ben Balter is a writer, open source developer, and attorney whose open source projects have hundreds of millions of downloads. Formerly Director of Hubber Enablement at GitHub.',
+  aboutDescription: 'Ben Balter is a product leader, open source developer, and attorney who spent a decade building developer platforms at GitHub. His open source projects have hundreds of millions of downloads.',
 
   // standard.site (https://standard.site/) — AT Protocol long-form publishing.
   // The publication and each post become records in the author's own PDS, and

@@ -27,6 +27,10 @@ interface Props {
   copyLabel?: string;
   /** If set, renders a character counter with this as the limit. */
   limit?: number;
+  /** Plain-text length to count against `limit`, when the network doesn't count UTF-16 units. */
+  count?: number;
+  /** Network named in the over-limit warning. Defaults to LinkedIn. */
+  network?: string;
   /** Bottom margin class. Defaults to `mb-5`. */
   marginClass?: string;
 }
@@ -37,6 +41,8 @@ const {
   html,
   copyLabel,
   limit,
+  count,
+  network = 'LinkedIn',
   marginClass = 'mb-5',
 } = Astro.props;
 
@@ -46,9 +52,9 @@ const displayValue = isMultiline ? html : value ?? '';
 // Char count for the limit counter. For HTML, count as LinkedIn will (with
 // `<br>` treated as `\n`).
 const charCount = limit
-  ? isMultiline
+  ? count ?? (isMultiline
     ? linkedinCharCount(html as string)
-    : (value ?? '').length
+    : (value ?? '').length)
   : 0;
 
 const overLimit = limit !== undefined && charCount > limit;
@@ -97,7 +103,7 @@ const ariaLabel = copyLabel ?? `Copy ${label.toLowerCase()} to clipboard`;
   </div>
   {limit !== undefined && (
     <p class={`mt-1 text-xs ${counterColorClass}`} aria-live="polite">
-      {charCount} / {limit}{overLimit ? ' — over LinkedIn limit' : ''}
+      {charCount} / {limit}{overLimit ? ` (over the ${network} limit)` : ''}
     </p>
   )}
 </div>

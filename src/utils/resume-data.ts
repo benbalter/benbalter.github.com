@@ -34,7 +34,7 @@ export interface ResumePositions {
  * name on every résumé surface (web, print/PDF, Markdown, and docx), so none
  * of them can drift.
  */
-export const RESUME_HEADLINE = 'Product leader in trust and safety, platform security, and developer platforms';
+export const RESUME_HEADLINE = 'Product leader for developer platforms, APIs, and open source';
 
 /**
  * Curl apostrophes in plain front-matter strings (summary, highlights). Position

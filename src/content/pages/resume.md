@@ -1,9 +1,9 @@
 ---
 title: Resume
 description: >-
-  Resume for Ben Balter: product leader in trust and safety, platform security,
-  and developer platforms; GitHub director and senior product manager; attorney
-  and author of Open and Async.
+  Resume for Ben Balter: product leader for developer platforms, APIs, and open
+  source; a decade at GitHub across trust and safety and developer tooling;
+  attorney and author of Open and Async.
 permalink: /resume/
 redirect_from: 
   - /cv/
@@ -11,37 +11,41 @@ published: true
 seo:
   type: person
 summary: >-
-  Product leader who led trust, safety, and account security for a developer
-  platform serving 50M+ users, and most recently a director owning the
-  internal platform GitHub's employees run on. A lawyer who ships code,
-  author of Open and Async, and an inaugural Presidential Innovation Fellow.
+  Product leader for developer platforms. A decade at GitHub: shipped 500+
+  features and the API endpoints behind them to 50M+ developers, rewrote
+  GitHub Pages bottom-up, and most recently was a director owning the
+  internal platform its employees run on. A lawyer who ships code, and the
+  author of Open and Async.
 highlights:
   - >-
-    Shipped 500+ features to a developer platform with 50M+ users and 100M+
-    projects, across trust and safety, account security, and privacy.
+    Shipped 500+ features and policies to a developer platform with 50M+ users
+    and 100M+ projects, including the github.com API endpoints behind trust,
+    safety, and platform-health workflows.
   - >-
-    Owned the internal platform GitHub's employees run on: 96% durable content
-    ownership, deploys from over an hour to under 10 minutes, and self-serve
-    editing for non-technical teams.
-  - >-
-    Merged 700+ pull requests with GitHub Copilot while leading a six-person
-    team, adding an engineer's worth of delivery capacity.
+    Led a bottom-up rewrite of GitHub Pages (1M+ sites, 250,000+ pages/minute)
+    and shipped choosealicense.com and Licensee, the open source library behind
+    GitHub's license-detection API.
   - >-
     Shipped Open and Async with a Model Context Protocol server generated from the
     manuscript, so agents can query the book's practices directly.
   - >-
-    Led a bottom-up rewrite of GitHub Pages (1M+ sites, 250,000+ pages/minute)
-    and shipped choosealicense.com and its license-detection API.
+    Merged 700+ pull requests with GitHub Copilot while leading a six-person
+    team, adding an engineer's worth of delivery capacity.
+  - >-
+    Owned the internal platform GitHub's employees run on: 96% durable content
+    ownership, deploys from over an hour to under 10 minutes, and self-serve
+    editing for non-technical teams.
 skills:
   - group: Product
     items:
-      - Product strategy and roadmapping
       - Platform and API products
+      - Developer experience
+      - Product strategy and roadmapping
+      - Open source libraries and ecosystems
       - Internal platforms and developer tooling
+      - Trust, safety, and platform health
       - Enterprise readiness and compliance
       - Zero-to-one products
-      - Trust, safety, and platform health
-      - Developer experience
   - group: Leadership
     items:
       - Product and engineering leadership
@@ -51,8 +55,9 @@ skills:
       - Chief-of-staff operating patterns
   - group: Technical and legal
     items:
-      - Ruby and full-stack development
       - Agentic workflows, MCP, and AI-accelerated delivery
+      - Ruby and full-stack development
+      - REST and GraphQL API integration
       - Technology law, licensing, and policy
       - Privacy, security, and compliance
       - Open source strategy
