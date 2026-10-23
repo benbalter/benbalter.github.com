@@ -28,7 +28,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@atproto/api": "^0.27.0",
-    "@atproto/common-web": "0.5.14",
+    "@atproto/common-web": "0.5.15",
     "@axe-core/playwright": "^4.13.0",
     "@eslint/json": "^2.1.0",
     "@github/markdownlint-github": "^0.8.4",
