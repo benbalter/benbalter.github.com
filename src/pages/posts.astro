@@ -11,7 +11,7 @@ import { popularPostSlugs, siteConfig } from '../config';
 import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
 
 const title = 'Posts';
-const description = 'Blog posts on technology leadership, open source, remote work, and collaboration by Ben Balter — from practical management advice to engineering culture.';
+const description = 'Blog posts by Ben Balter on developer platforms, open source, product and engineering leadership, and remote work, from practical management advice to how GitHub works.';
 
 const posts = await getPublishedPosts({ sorted: true });
 
@@ -80,7 +80,9 @@ const collectionSchema = generateCollectionPageSchema({
     </section>
   )}
 
-  <PopularPosts exclude={popularPostSlugs} />
+  {/* Book-announcement posts stay out of "Most read" for the same reason they
+      stay off the homepage: the book shouldn't crowd out the writing. */}
+  <PopularPosts exclude={[...popularPostSlugs, ...siteConfig.bookAnnouncementPostIds]} />
 
   {years.map((year) => {
     const yearPosts = postsByYear.get(year)!;
