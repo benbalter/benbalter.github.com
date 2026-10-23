@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Product Leader | Developer platforms and open source | 10 years at GitHub: trust & safety, platform security, developer tooling | Author of Open and Async | Attorney, Presidential Innovation Fellow';
+  'Product leader for developer platforms and open source | 10 years at GitHub: trust & safety, account security, developer tooling | Author of Open and Async | Lawyer who ships code';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
@@ -18,7 +18,7 @@ export const linkedinHeadline =
  * Empty strings produce blank lines (paragraph breaks).
  */
 const linkedinAboutLines: readonly string[] = [
-  "I build developer platforms and the organizations that ship them. Across ten years at GitHub, I shipped 500+ features and policies as Senior Product Manager for Trust and Safety on a developer platform with 50M+ users and 100M+ projects, including the github.com API endpoints behind them. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) and wrote Licensee, the open source library behind GitHub's license detection. My open source projects have hundreds of millions of downloads.",
+  "I'm a product leader for developer platforms and open source, and a lawyer who ships code. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ users and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) and wrote Licensee, the open source library behind GitHub's license detection. My open source projects have hundreds of millions of downloads.",
   '',
   "Most recently I owned the internal platform 4,000+ GitHubbers use to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. I've also been Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving adoption across nearly 2,000 government organizations in 75+ countries.",
   '',
@@ -29,14 +29,10 @@ const linkedinAboutLines: readonly string[] = [
   'What I care about:',
   '• Developer platforms: APIs, open source libraries, and developer experience',
   '• Building for agents: MCP, Markdown, and making platforms legible to AI tools as well as people',
-  '• Trust and safety: community health, account security, and privacy at platform scale',
-  '• Engineering leadership: how large organizations actually work, and why the obvious answers are usually wrong',
   '• Open source: sustaining communities, licensing, and making collaboration the default',
   '• Remote and async work: clear writing, strong defaults, and showing your work',
   '',
   'I hold a J.D. and M.B.A. from the George Washington University.',
-  '',
-  "When I'm not trying to change the world, I enjoy tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.",
   '',
   'More at ben.balter.com.',
 ];
