@@ -57,7 +57,7 @@ In 2014, I measured the same sample three ways: 33,621 bytes as Word, 1,359 as H
 
 **Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown entirely in your browser (nothing is uploaded), or from the command line with `npx word-to-markdown input.docx`. It's a 2024 rewrite of that Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)).
 
-**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a `.docx` they can redline, and your boss wants something they can open in Word. md2word builds one in your browser, and nothing gets uploaded. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
+**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline, and your boss wants something they can open in Word. md2word builds one in your browser, and nothing gets uploaded. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
 
 **Or let your agent do it.** Both tools are also [MCP servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter), so Claude, Copilot, or whatever agent you use can convert a `.docx` to Markdown and back without you opening a browser tab.
 
