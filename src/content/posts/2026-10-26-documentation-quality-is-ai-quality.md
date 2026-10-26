@@ -1,8 +1,7 @@
 ---
 title: Your documentation quality is your AI quality now
-description: "AI tools are only as good as the docs you feed them. Bold text isn't a heading to a model. Here's how to fix that, and two free tools to convert."
+description: "AI tools are only as good as the docs you feed them. Bold text isn't a heading to a model. Here's the fix, plus two free converters."
 tldr: "AI tools need to know what your content is, not what it looks like. Use real headings and lists, keep one living copy, convert legacy Word files in with word2md.com, and export to Word only at the end with md2word.app."
-published: false
 ---
 
 Twelve years ago, I built a little Heroku app to convert Microsoft Word documents to Markdown, because government employees kept asking me for one. It now lives at [word2md.com](https://word2md.com), and these days it's busier than it has ever been. I'd bet most of the people using it aren't developers. They're people with a folder full of `.docx` files who've noticed their chatbot gives better answers when they paste in plain text.
@@ -58,17 +57,17 @@ In 2014, I measured the same sample three ways: 33,621 bytes as Word, 1,359 as H
 
 **Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown entirely in your browser (nothing is uploaded), or from the command line with `npx word-to-markdown input.docx`. It's a 2024 rewrite of that Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)).
 
-**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a `.docx` they can redline, and your boss wants something they can open in Word. md2word, new this year, builds one in your browser, and nothing gets uploaded ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
+**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a `.docx` they can redline, and your boss wants something they can open in Word. md2word builds one in your browser, and nothing gets uploaded. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
 
 **Or let your agent do it.** Both tools are also [MCP servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter), so Claude, Copilot, or whatever agent you use can convert a `.docx` to Markdown and back without you opening a browser tab.
 
-Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it. You can work this way without winning over your whole organization: stop doing your thinking in Word.
+Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it. You don't have to win over your whole organization to work this way. Stop doing your thinking in Word.
 
 ## Where the round trip breaks
 
 The round trip isn't lossless. When legal sends the redlined `.docx` back, word2md drops the comments and silently accepts every tracked change. In my test, a redline changing "Full-time employees" to "All employees" came back as "All employees," with no sign anyone had touched it. Resolve comments and review the redlines in Word first, then convert the clean copy and compare it against your source.
 
-And if your team lives in Google Docs rather than Word files, you may not need to migrate anything. Docs has [imported and exported Markdown since 2024](https://workspaceupdates.googleblog.com/2024/07/import-and-export-markdown-in-google-docs.html). What matters is whether you used its real heading and list styles.
+And if your team lives in Google Docs rather than Word files, you may not need to migrate anything. Docs has [imported and exported Markdown since 2024](https://workspaceupdates.googleblog.com/2024/07/import-and-export-markdown-in-google-docs.html). It only helps if you used its real heading and list styles.
 
 ## An LLM caught me being wrong
 
@@ -92,7 +91,7 @@ You don't need a migration project.
 
 - **Put your Markdown in version control.** Every change becomes a diff you can review.
 - **Keep your AI instructions in Markdown, too.** `AGENTS.md` and `CLAUDE.md` are just Markdown in your repository. This blog has both.
-- **Let your agent do the converting.** Both tools are also [MCP servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter), so your agent can turn a `.docx` into Markdown (and back) on its own. Or run `npx word-to-markdown input.docx` and `npx markdown-to-word input.md` yourself.
+- **Let your agent do the converting.** Add the word2md and md2word [MCP servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter) to your agent, and it can turn a `.docx` into Markdown (and back) on its own. Or run `npx word-to-markdown input.docx` and `npx markdown-to-word input.md` yourself.
 
 ### If you manage people
 
