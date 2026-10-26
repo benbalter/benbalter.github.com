@@ -67,6 +67,7 @@ AIMD
 AIMD-93
 AirBnB
 Akamai
+al
 alex
 Alleman
 amongst
@@ -194,6 +195,8 @@ CFPB's
 Chabrow
 changelog
 changeset
+chatbot
+chatbots
 ChatOps
 checkable
 checkboxes
@@ -446,6 +449,7 @@ GraphQL
 Griggs
 Groupon
 Groupon's
+Gruber
 GSA's
 GSoC
 GSuite
@@ -601,6 +605,7 @@ linkable
 LinkedIn
 linter
 linters
+Liu
 livestream
 LivingSocial
 Ljung
@@ -622,7 +627,10 @@ math's
 Math's
 math’s
 McDonalds
+MCP
 md
+md2word
+md2word.app
 MD5
 MDX
 meatspace
@@ -800,6 +808,8 @@ Rebaselining
 recency
 recrawl
 recrawled
+redline
+redlined
 Redliner
 redlines
 reengineered
@@ -1056,6 +1066,8 @@ Wittow
 WL
 woah
 Woah
+word2md
+word2md.com
 WordPerfect
 WordPress
 wordpress-github-sync
