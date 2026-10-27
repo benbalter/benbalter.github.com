@@ -45,7 +45,15 @@ To request time off:
 
 Same words, same look on screen. The first has a section a model can find and a list it can count. The second has a bold sentence and two paragraphs that happen to start with numbers (the backslash means "not a list"). :quote[No converter can recover structure the author never declared.]{#no-converter-recovers-structure} Try it on one of your own documents: drop it into [word2md.com](https://word2md.com) and look for bold lines that should have been headings.
 
+:::tip[The 10-second test]
+In Word, open View → Navigation Pane. In Google Docs, open the document outline. If it's empty, your document has no headings, and a model can't see structure you can't see either.
+:::
+
 Tables fare even worse. When I ran the same file through macOS's built-in plain-text converter (`textutil -convert txt`), the three-column table of accrual rates came out as twelve lines, one cell per line: `Tenure`, `Days per year`, `Carryover`, `0–2 years`, `15`, `5`, and so on. Nothing ties the 15 to its column. Chatbots use better converters than that, but you can't see what yours kept, and you won't know until the summary comes back wrong.
+
+:::objection[Copilot reads Word files natively. Doesn't that solve this?]
+It solves the file format, not the missing structure. Most AI search tools split documents into chunks before the model reads anything, and many split at headings. A bold line isn't a heading, so your policy becomes one undifferentiated blob, or gets cut mid-section. A smarter reader can't use structure that isn't in the file.
+:::
 
 ## Word files are tiny jails for content
 
@@ -54,6 +62,10 @@ A `.docx` is a zipped bundle of XML built for one application to reopen. The boo
 > Word processing documents are tiny jails for content. Proprietary formats blend text with the commands the software needs to recreate it, in formats built for the application rather than the reader. We put in text, one of the simplest things computers understand, and get back a mess that only specific software can open. It's like keeping every grocery list inside a screenshot of an Instagram post: the words are there, but only one tool can read them, and you can't edit so much as a typo without retaking the picture.
 
 In 2014, I measured the same sample both ways: 33,621 bytes as Word, 80 as Markdown.[^bytes] Your chatbot throws most of that away before the model ever sees it, and every trip out of the jail is a chance to lose structure, the way that table lost its columns. A smaller file won't fix that. A format where the structure *is* the text will.
+
+:::objection[Markdown can't handle merged cells, diagrams, or complex layouts.]
+True, and that's mostly a feature. If a table needs merged cells to make sense, it's usually two tables, and a model will read two simple tables better than one clever one. For the rare document that really needs a layout, keep it in Word, but give it real heading and list styles.
+:::
 
 ## Two directions, two tools
 
