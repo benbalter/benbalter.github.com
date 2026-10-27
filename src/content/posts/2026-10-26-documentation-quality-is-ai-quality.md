@@ -63,15 +63,7 @@ In 2014, I measured the same sample three ways: 33,621 bytes as Word, 1,359 as H
 
 Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it. You don't have to win over your whole organization to work this way. Stop doing your thinking in Word.
 
-## Where the round trip breaks
-
-The round trip isn't lossless. When legal sends the redlined `.docx` back, word2md drops the comments and silently accepts every tracked change. In my test, a redline changing "Full-time employees" to "All employees" came back as "All employees," with no sign anyone had touched it. Resolve comments and review the redlines in Word first, then convert the clean copy and compare it against your source.
-
-And if your team lives in Google Docs rather than Word files, you may not need to migrate anything. Docs has [imported and exported Markdown since 2024](https://workspaceupdates.googleblog.com/2024/07/import-and-export-markdown-in-google-docs.html). It only helps if you used its real heading and list styles.
-
-## An LLM caught me being wrong
-
-I wrote a 99,651-word book in Markdown and Git, and [over-engineered the pipeline](/2026/08/17/how-i-over-engineered-my-book/) that turns that one source into five formats. Because it was plain text, an LLM auditor could check it one chapter at a time. One pass looked only at factual claims. It stopped on a sentence saying GitHub's monthly all-hands spent roughly half of each session on live Q&A. I was certain of that number, and it was wrong: closer to a third. No linter would have caught it. The structure made that review cheap enough to run on every chapter.
+---
 
 ## A playbook for AI-ready docs
 
@@ -92,12 +84,6 @@ You don't need a migration project.
 - **Put your Markdown in version control.** Every change becomes a diff you can review.
 - **Keep your AI instructions in Markdown, too.** `AGENTS.md` and `CLAUDE.md` are just Markdown in your repository. This blog has both.
 - **Let your agent do the converting.** Add the word2md and md2word [MCP servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter) to your agent, and it can turn a `.docx` into Markdown (and back) on its own. Or run `npx word-to-markdown input.docx` and `npx markdown-to-word input.md` yourself.
-
-### If you manage people
-
-Your team writes for the format you reward. Ask for a link, not an attachment, and publish your own decision docs with real structure first.
-
-Markdown started as John Gruber's blogging syntax in 2004 and spent most of the years since as a developer niche. Its bet was that structure outlasts formatting, and that bet is paying off for a reader nobody saw coming. [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-markdown-ai) is the long version of this argument. "Documentation as a Superpower" makes the case that writing things down compounds, and "Retool your documents" is the practical half: which tools to use, and how to move a team off attachments without a migration project.
 
 [^bytes]: Math: 1,359 ÷ 80 ≈ 17. Bytes aren't tokens, but the direction holds. The Word file was about 420 times the Markdown (33,621 ÷ 80), but it's compressed, mostly fixed overhead, and not something a model reads directly.
 
