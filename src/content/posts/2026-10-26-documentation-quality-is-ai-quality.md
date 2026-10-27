@@ -109,6 +109,6 @@ Markdown has bet on structure over formatting for more than twenty years. It too
 
 [^round-trip]: The round trip isn't lossless. When legal sends the redline back, word2md drops the comments and silently accepts every tracked change. Resolve both in Word first, then convert the clean copy and compare it against your source.
 
-[^source]: Both are open source and available in 21 languages. word2md is a 2024 rewrite of that original Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)), and I built md2word this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
+[^source]: Both are open source and available in 21 languages. word2md is a 2024 rewrite of [that original Heroku app](https://github.com/benbalter/word-to-markdown-server) ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)), and I built md2word this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
 
 [^time-off]: If you want the real thing rather than a two-step demo, the book's appendix includes a complete time-off guide written this way.
