@@ -59,9 +59,7 @@ In 2014, I measured the same sample both ways: 33,621 bytes as Word, 80 as Markd
 
 **Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown, entirely in your browser, so the file never leaves your computer. It's a 2024 rewrite of that Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)).
 
-**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline. md2word builds one, also in your browser. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
-
-The round trip isn't lossless, though. When legal sends the redline back, word2md drops the comments and silently accepts every tracked change. Resolve both in Word first, then convert the clean copy and compare it against your source.
+**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline.[^round-trip] md2word builds one, also in your browser. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
 
 Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it.
 
@@ -94,5 +92,7 @@ The government employees who asked me for that Heroku app wanted their documents
 Markdown has bet on structure over formatting for more than twenty years. It took a reader nobody saw coming to prove the bet right. :quote[Stop doing your thinking in Word.]{#stop-thinking-in-word} Do it somewhere a screen reader, a model, and the new hire can all tell what you meant.
 
 [^bytes]: That's about 420 times the bytes (33,621 ÷ 80), which overstates it: most of a `.docx` is fixed overhead that doesn't grow with the document. Bytes aren't tokens, but even the HTML version, a fairer comparison, was about 17 times the Markdown (1,359 ÷ 80).
+
+[^round-trip]: The round trip isn't lossless. When legal sends the redline back, word2md drops the comments and silently accepts every tracked change. Resolve both in Word first, then convert the clean copy and compare it against your source.
 
 [^time-off]: If you want the real thing rather than a two-step demo, the book's appendix includes a complete time-off guide written this way.
