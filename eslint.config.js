@@ -13,7 +13,18 @@ export default tseslint.config(
       'playwright-report/',
       'test-results/',
       'package-lock.json',
+      // Agent worktrees are full checkouts of other branches
+      '.claude/worktrees/',
     ],
+  },
+  // Pin the root so a nested checkout's eslint.config.js (e.g. an agent
+  // worktree) can't make typescript-eslint see two candidate roots
+  {
+    languageOptions: {
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
   // Root config files (replaces xo with space: true)
   {

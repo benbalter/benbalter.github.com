@@ -3,3 +3,4 @@ assets/vendor/
 _site/
 retlab
 vendor/bundle
+.claude/worktrees/
