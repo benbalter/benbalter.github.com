@@ -83,8 +83,48 @@ jobs:
       - name: Validate Markdown siblings
         run: script/validate-markdown-siblings dist-astro
 
+      # Tag and describe each Worker version with its commit, so Cloudflare's
+      # version list (and its one-click rollback) says which commit is which.
+      # The subject is read from git inside the script rather than from the
+      # event payload, so Actions never interpolates commit text into it.
       - name: Deploy to Cloudflare Workers
-        run: npx wrangler deploy
+        id: deploy
+        run: |
+          set -o pipefail
+          subject="$(git log -1 --format=%s | cut -c1-100)"
+          npx wrangler deploy --tag "${GITHUB_SHA::7}" --message "$subject" | tee wrangler-deploy.log
+          version="$(grep -oE 'Current Version ID: [0-9a-f-]+' wrangler-deploy.log | awk '{print $4}' || true)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # A green upload doesn't prove the site is serving it: wait for
+      # /version.txt to report this commit, then check the key URLs.
+      - name: Confirm the deploy is live
+        id: smoke
+        run: |
+          set -o pipefail
+          script/smoke-deploy "$GITHUB_SHA" | tee smoke.log
+
+      - name: Summarize deploy
+        if: always() && steps.deploy.outcome != 'skipped'
+        run: |
+          {
+            echo "### Deploy ${GITHUB_SHA::7}"
+            echo
+            echo "- Commit: [${GITHUB_SHA::7}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA})"
+            echo "- Cloudflare version: \`${VERSION:-unknown}\` (tag \`${GITHUB_SHA::7}\`)"
+            echo "- Upload: ${DEPLOY_OUTCOME}"
+            echo "- Live check: ${SMOKE_OUTCOME} on https://ben.balter.com"
+            if [[ -f smoke.log ]]; then
+              echo
+              echo '```'
+              cat smoke.log
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          VERSION: ${{ steps.deploy.outputs.version }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome || 'skipped' }}

@@ -62,6 +62,11 @@
   ! Cache-Control
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+# The deployed commit, polled by script/smoke-deploy right after a deploy
+/version.txt
+  ! Cache-Control
+  Cache-Control: no-store
+
 # Link-preview metadata, fetched by post pages; changes only when posts do
 /posts-meta.json
   ! Cache-Control

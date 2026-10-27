@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Confirms a deploy is live: waits for /version.txt to serve the expected
+# commit, then checks that key URLs respond. A green `wrangler deploy` only
+# proves the upload ran; this proves the site is serving the new build.
+#
+# Usage: script/smoke-deploy [commit] [base-url]
+#   commit    defaults to $GITHUB_SHA, then `git rev-parse HEAD`
+#   base-url  defaults to https://ben.balter.com
+#
+# Exit codes:
+#   0 - The live site serves the commit and every URL responds 200
+#   1 - The commit never went live, or a URL failed
+
+set -euo pipefail
+
+COMMIT="${1:-${GITHUB_SHA:-$(git rev-parse HEAD)}}"
+BASE="${2:-https://ben.balter.com}"
+TIMEOUT="${SMOKE_TIMEOUT:-180}"
+
+# Pages and files a reader or feed reader would notice first if they broke
+PATHS=(
+  /
+  /posts/
+  /about/
+  /resume/
+  /resume.pdf
+  /feed.xml
+  /sitemap-index.xml
+  /llms.txt
+  /posts-meta.json
+  /link-previews.json
+)
+
+echo "Waiting up to ${TIMEOUT}s for ${BASE} to serve ${COMMIT:0:7}..."
+deadline=$((SECONDS + TIMEOUT))
+live=""
+while (( SECONDS < deadline )); do
+  live="$(curl -fsS -H 'Cache-Control: no-cache' "${BASE}/version.txt?check=${RANDOM}" 2>/dev/null | tr -d '[:space:]' || true)"
+  [[ "$live" == "$COMMIT" ]] && break
+  sleep 5
+done
+
+if [[ "$live" != "$COMMIT" ]]; then
+  echo "::error::${BASE} is serving ${live:-nothing} after ${TIMEOUT}s, not ${COMMIT}"
+  exit 1
+fi
+echo "Live: ${COMMIT:0:7}"
+
+failed=0
+for path in "${PATHS[@]}"; do
+  status="$(curl -sS -o /dev/null -w '%{http_code}' "${BASE}${path}" || echo 000)"
+  if [[ "$status" == 200 ]]; then
+    echo "  200 ${path}"
+  else
+    echo "::error::${path} returned ${status}"
+    failed=1
+  fi
+done
+
+exit "$failed"
