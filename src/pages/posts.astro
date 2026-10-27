@@ -57,7 +57,7 @@ const collectionSchema = generateCollectionPageSchema({
 
   {popularPosts.length > 0 && (
     <section class="mb-12">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Popular Posts</h2>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Start here</h2>
       <div class="flex flex-wrap -mx-2">
         {popularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime, isExternal } = getPostMetadata(post);

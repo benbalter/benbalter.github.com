@@ -187,15 +187,16 @@ export const footerLinks: FooterLink[] = [
   { title: 'Fine Print', url: '/fine-print/' },
 ];
 
-// Popular posts - slugs of posts to feature in the "Popular Posts" section.
-// Curated from Cloudflare RUM data (see analytics-report.md), with the uptime
-// monitor and CN/SG scraper traffic filtered out. Revisit as new RUM data
-// comes in. Nine keeps the homepage's three-column grid even.
+// Start here - slugs of posts to feature in the homepage and /posts/ "Start
+// here" sections (and the StartHere component). Editorial picks for new
+// readers, informed by Cloudflare RUM data (see analytics-report.md) but not
+// a traffic ranking, which is why the heading doesn't say "popular". Nine
+// keeps the homepage's three-column grid even.
 export const popularPostSlugs: string[] = [
   '2026-07-14-work-loudly',
   '2026-04-27-one-on-one-playbook',
   '2026-08-17-how-i-over-engineered-my-book',
-  '2026-04-27-the-brag-doc',
+  '2015-08-12-the-zen-of-github',
   '2014-11-06-rules-of-communicating-at-github',
   '2023-03-02-github-for-non-technical-roles',
   '2021-09-01-how-i-re-over-engineered-my-home-network',
