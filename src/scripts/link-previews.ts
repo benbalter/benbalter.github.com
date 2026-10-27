@@ -15,6 +15,13 @@
  * 5. Internal posts: title and description from /posts-meta.json.
  *    Anchor-aware: deep links (/2023/01/10/post/#heading) also show the section.
  *
+ * Every card follows one anatomy: title, description, then a facts line that
+ * names the source ("Wikipedia", "GitHub · Ruby · 1.6k stars"). Only the
+ * book card carries a label above its title, as part of the book's own look.
+ *
+ * Touch-only devices get no hover cards; tapping a footnote number there
+ * opens its card instead (see openTouchFootnote).
+ *
  * - Lazy-loads each JSON file on first need (then caches)
  * - Positions the card intelligently relative to the viewport
  * - Supports keyboard focus for accessibility
@@ -34,8 +41,16 @@ import {
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
 const POST_URL_PATTERN = /^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/?/;
 
-/** Delay before showing the card (ms) */
-const SHOW_DELAY = 300;
+/**
+ * Delay before showing the card (ms). Longer for the mouse, so a cursor
+ * resting on a link-dense list while reading doesn't keep spawning cards;
+ * keyboard focus is deliberate, so it gets the shorter delay.
+ */
+const SHOW_DELAY_MOUSE = 450;
+const SHOW_DELAY_FOCUS = 300;
+
+/** Mouse entries this soon after a scroll are the page moving under a parked cursor (ms) */
+const SCROLL_GRACE = 150;
 
 /** Delay before hiding the card (ms) — allows hovering over the card itself */
 const HIDE_DELAY = 200;
@@ -196,6 +211,7 @@ let showTimer: ReturnType<typeof setTimeout> | null = null;
 let hideTimer: ReturnType<typeof setTimeout> | null = null;
 let activeAnchor: HTMLAnchorElement | null = null;
 let stopPositioning: (() => void) | null = null;
+let lastScroll = 0;
 
 function getOrCreateCard(): HTMLDivElement {
   // Check if card is still in the DOM (View Transitions swap the body)
@@ -203,7 +219,6 @@ function getOrCreateCard(): HTMLDivElement {
 
   card = document.createElement('div');
   card.className = CARD_CLASS;
-  card.setAttribute('role', 'tooltip');
   card.style.display = 'none';
 
   // Keep card visible when hovering over it
@@ -214,10 +229,18 @@ function getOrCreateCard(): HTMLDivElement {
   return card;
 }
 
-/** The card, reset to its base class plus an optional variant */
+/**
+ * The card, reset to its base class plus an optional variant.
+ *
+ * Hover cards are a visual shortcut: everything in them is also at the link's
+ * destination (or in the footnotes section), so they're hidden from assistive
+ * tech rather than announced on every link. Touch footnote cards are the
+ * exception (see openTouchFootnote): the reader asked for them with a tap.
+ */
 function freshCard(variant?: string): HTMLDivElement {
   const el = getOrCreateCard();
   el.className = variant ? `${CARD_CLASS} ${variant}` : CARD_CLASS;
+  el.setAttribute('aria-hidden', 'true');
   return el;
 }
 
@@ -246,6 +269,17 @@ function hideCard() {
     card.style.visibility = '';
     card.innerHTML = '';
     card.className = CARD_CLASS;
+  }
+  if (activeAnchor?.hasAttribute('aria-expanded')) {
+    // A touch footnote card took focus when it opened; hand it back
+    if (card?.contains(document.activeElement)) activeAnchor.focus({ preventScroll: true });
+    activeAnchor.removeAttribute('aria-expanded');
+    activeAnchor.removeAttribute('aria-controls');
+  }
+  if (card) {
+    card.removeAttribute('role');
+    card.removeAttribute('aria-label');
+    card.removeAttribute('tabindex');
   }
   activeAnchor = null;
 }
@@ -329,6 +363,15 @@ function renderFootnoteCard(footnote: HTMLElement) {
   clone.querySelectorAll('[data-footnote-backref]').forEach((backref) => backref.remove());
   // The footnote stays on the page, so the copy must not duplicate its ids
   clone.querySelectorAll('[id]').forEach((node) => node.removeAttribute('id'));
+  // Keyboard users read the original in the footnotes section; the copy's
+  // links and acronyms stay out of the tab order, and the acronym tooltip
+  // script never wires up clones, so drop the markers that promise one
+  clone.querySelectorAll<HTMLElement>('a, abbr, [tabindex]').forEach((node) => {
+    node.setAttribute('tabindex', '-1');
+    for (const attr of [...node.attributes]) {
+      if (attr.name.startsWith('data-tooltip')) node.removeAttribute(attr.name);
+    }
+  });
 
   const body = document.createElement('div');
   body.className = 'link-preview-footnote';
@@ -336,7 +379,8 @@ function renderFootnoteCard(footnote: HTMLElement) {
   el.replaceChildren(body);
 }
 
-const capturedFormat = new Intl.DateTimeFormat('en-US', {
+/** Day-month-year with the month spelled out, which reads the same everywhere */
+const capturedFormat = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -356,10 +400,9 @@ function renderWaybackCard(snapshot: WaybackSnapshot) {
   }
 
   el.innerHTML = `
-    <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> Archived snapshot</div>
     <div class="link-preview-title">${escapeHtml(host)}</div>
     ${rest ? `<div class="link-preview-description link-preview-url">${escapeHtml(rest)}</div>` : ''}
-    <div class="link-preview-meta">Captured ${escapeHtml(capturedFormat.format(snapshot.captured))} by the Internet Archive</div>
+    <div class="link-preview-meta">Internet Archive snapshot · ${escapeHtml(capturedFormat.format(snapshot.captured))}</div>
   `;
 }
 
@@ -374,25 +417,24 @@ function renderExternalCard(meta: ExternalPreview) {
   const el = freshCard();
 
   if (meta.kind === 'github') {
-    const facts = [
-      meta.language,
-      `★ ${formatStars(meta.stars)}`,
-      meta.archived ? 'Archived' : '',
-    ].filter((fact): fact is string => Boolean(fact));
+    const stars = `${formatStars(meta.stars)} ${meta.stars === 1 ? 'star' : 'stars'}`;
+    const facts = ['GitHub', meta.language, stars]
+      .filter((fact): fact is string => Boolean(fact))
+      .map(escapeHtml);
+    // Whether the project is still maintained is the fact a reader most needs
+    if (meta.archived) facts.unshift('<strong class="link-preview-flag">Archived</strong>');
     el.innerHTML = `
-      <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> GitHub repository</div>
       <div class="link-preview-title">${escapeHtml(meta.title)}</div>
       ${meta.description ? `<div class="link-preview-description">${escapeHtml(meta.description)}</div>` : ''}
-      <div class="link-preview-meta">${facts.map(escapeHtml).join(' · ')}</div>
+      <div class="link-preview-meta">${facts.join(' · ')}</div>
     `;
     return;
   }
 
   el.innerHTML = `
-    <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> Wikipedia</div>
     <div class="link-preview-title">${escapeHtml(meta.title)}</div>
-    ${meta.description ? `<div class="link-preview-meta link-preview-meta-top">${escapeHtml(meta.description)}</div>` : ''}
     <div class="link-preview-description link-preview-description-long">${escapeHtml(meta.extract)}</div>
+    <div class="link-preview-meta">Wikipedia</div>
   `;
 }
 
@@ -447,12 +489,13 @@ async function showPreview(anchor: HTMLAnchorElement) {
 function onMouseEnter(e: Event) {
   const anchor = (e.target as Element).closest?.('a');
   if (!(anchor instanceof HTMLAnchorElement) || !isPreviewable(anchor)) return;
+  if (performance.now() - lastScroll < SCROLL_GRACE) return;
 
   clearHideTimer();
   clearShowTimer();
   activeAnchor = anchor;
 
-  showTimer = setTimeout(() => showPreview(anchor), SHOW_DELAY);
+  showTimer = setTimeout(() => showPreview(anchor), SHOW_DELAY_MOUSE);
 }
 
 function onMouseLeave(e: Event) {
@@ -470,7 +513,7 @@ function onFocusIn(e: Event) {
   clearHideTimer();
   clearShowTimer();
   activeAnchor = anchor;
-  showTimer = setTimeout(() => showPreview(anchor), SHOW_DELAY);
+  showTimer = setTimeout(() => showPreview(anchor), SHOW_DELAY_FOCUS);
 }
 
 function onFocusOut() {
@@ -479,7 +522,69 @@ function onFocusOut() {
 }
 
 function onKeyDown(e: KeyboardEvent) {
-  if (e.key === 'Escape') hideCard();
+  if (e.key === 'Escape' && card?.style.display === 'block') hideCard();
+}
+
+function onScroll() {
+  lastScroll = performance.now();
+}
+
+// --- Touch: tap a footnote number to preview it ---
+//
+// Phones get no hover cards, but footnotes are the one preview worth having
+// there: otherwise a tap jumps to the bottom of the page and back. The first
+// tap opens the footnote in a card (exposed to assistive tech, since the
+// reader asked for it); the card links on to the footnotes section, and a
+// second tap, a tap elsewhere, or Escape closes it.
+//
+// The card stays at the end of <body>: .post-content uses `contain: content`,
+// which would clip a fixed-position card placed inside it. So instead of
+// relying on reading order, the card takes focus when it opens (screen
+// readers follow) and hands it back to the footnote number when it closes.
+
+const TOUCH_CARD_ID = 'footnote-preview';
+
+function openTouchFootnote(anchor: HTMLAnchorElement, footnote: HTMLElement) {
+  hideCard();
+  activeAnchor = anchor;
+  renderFootnoteCard(footnote);
+
+  const el = getOrCreateCard();
+  el.removeAttribute('aria-hidden');
+  el.id = TOUCH_CARD_ID;
+  el.setAttribute('role', 'region');
+  el.setAttribute('aria-label', `Footnote ${anchor.textContent?.trim() ?? ''}`.trim());
+  el.tabIndex = -1;
+  const jump = document.createElement('a');
+  jump.className = 'link-preview-jump';
+  jump.href = anchor.getAttribute('href') ?? '';
+  jump.textContent = 'Go to footnote';
+  jump.addEventListener('click', () => hideCard());
+  el.append(jump);
+
+  anchor.setAttribute('aria-expanded', 'true');
+  anchor.setAttribute('aria-controls', TOUCH_CARD_ID);
+  void positionCard(anchor).then(() => {
+    if (activeAnchor === anchor) el.focus({ preventScroll: true });
+  });
+}
+
+function onTouchFootnoteClick(e: Event) {
+  const anchor = (e.target as Element).closest?.('a');
+  if (!(anchor instanceof HTMLAnchorElement)) return;
+  const footnote = footnoteFor(anchor);
+  if (!footnote) return;
+
+  e.preventDefault();
+  if (activeAnchor === anchor) hideCard();
+  else openTouchFootnote(anchor, footnote);
+}
+
+function onTouchOutside(e: Event) {
+  if (!card || card.style.display !== 'block') return;
+  const target = e.target as Node;
+  if (card.contains(target) || activeAnchor?.contains(target)) return;
+  hideCard();
 }
 
 // --- Initialization ---
@@ -508,15 +613,24 @@ function warmWhenNear(targets: Element[], warm: () => void) {
 }
 
 function initLinkPreviews() {
-  // Only on devices that support hover (skip touch-only)
-  if (window.matchMedia('(hover: none)').matches) return;
-
   const containers = document.querySelectorAll(CONTAINER_SELECTOR);
   if (containers.length === 0) return;
 
   // Reset stale state from previous page (View Transitions keep JS memory)
   hideCard();
   activeAnchor = null;
+
+  // Use { once: false } — safe to re-add because duplicate listeners are ignored
+  document.addEventListener('keydown', onKeyDown);
+
+  // Touch-only devices: tap-to-preview for footnotes, no hover cards
+  if (window.matchMedia('(hover: none)').matches) {
+    for (const container of containers) container.addEventListener('click', onTouchFootnoteClick);
+    document.addEventListener('pointerdown', onTouchOutside);
+    return;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Event delegation on each opted-in container
   for (const container of containers) {
@@ -525,9 +639,6 @@ function initLinkPreviews() {
     container.addEventListener('focusin', onFocusIn);
     container.addEventListener('focusout', onFocusOut);
   }
-
-  // Use { once: false } — safe to re-add because duplicate listeners are ignored
-  document.addEventListener('keydown', onKeyDown);
 
   // Pre-warm: start loading each kind's data when its first link nears the viewport
   const links = [...document.querySelectorAll<HTMLAnchorElement>(LINK_SELECTOR)];

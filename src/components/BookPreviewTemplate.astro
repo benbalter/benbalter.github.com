@@ -31,17 +31,14 @@ import coverImage from '../../assets/img/open-and-async-cover.webp';
       class="w-14 h-auto shrink-0"
     />
     <div class="min-w-0">
-      <p class="font-mono text-[0.65rem] uppercase tracking-widest text-accent-400 mb-0.5">
+      <p class="font-mono text-[0.7rem] uppercase tracking-widest text-accent-400 mb-0.5">
         <span aria-hidden="true">&gt;</span> The book by {siteConfig.author}
       </p>
       <p class="text-base font-bold leading-tight text-white mb-1">
         <Fragment set:html={bookTitleHtml} />
       </p>
-      <p class="text-[0.8125rem] leading-snug text-slate-300 mb-1.5 hyphens-none">
+      <p class="text-[0.8125rem] leading-snug text-slate-300 mb-0 hyphens-none">
         {siteConfig.bookDescription}.
-      </p>
-      <p class="text-xs font-semibold text-accent-400 mb-0">
-        Ebook {siteConfig.bookPrice} · Paperback {siteConfig.bookPricePaperback}
       </p>
     </div>
   </div>

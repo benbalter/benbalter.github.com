@@ -1615,37 +1615,28 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   }
 }
 
-/* Small mono label naming what kind of thing the card previews
-   ("> GitHub repository"), echoing the book card's kicker */
-.link-preview-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary);
-  margin-bottom: 0.125rem;
-}
-
-/* Facts line under the description: language and stars, capture date… */
+/* Facts line under the description, naming the source: "Wikipedia",
+   "GitHub · Ruby · 1.6k stars", "Internet Archive snapshot · 14 April 2015" */
 .link-preview-meta {
   margin-top: 0.375rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
 }
 
-.link-preview-meta.link-preview-meta-top {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
+/* A fact the reader should act on, like an archived (unmaintained) repo */
+.link-preview-flag {
+  font-weight: 700;
+  color: var(--color-gray-900);
 }
 
 @media (prefers-color-scheme: dark) {
-  .link-preview-kicker {
-    color: var(--color-primary-300);
-  }
-
   .link-preview-meta {
     color: var(--color-gray-400);
+  }
+
+  .link-preview-flag {
+    color: var(--color-gray-100);
   }
 }
 
@@ -1694,10 +1685,29 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 }
 
 /* Book card for open-and-async.com links: the BookCta's navy "book object"
-   in both color schemes (two classes outrank the dark-mode override above). */
+   in both color schemes, with the 12px corner DESIGN.md reserves for it (two
+   classes outrank the dark-mode override above). */
 .link-preview-card.link-preview-card-book {
   background: var(--color-brand-950);
   border-color: var(--color-brand-600);
+  border-radius: 0.75rem;
+}
+
+/* Touch footnote cards link on to the footnotes section (44px target) */
+.link-preview-jump {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-jump {
+    color: var(--color-primary-300);
+  }
 }
 
 /* ============================================================================

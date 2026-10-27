@@ -9,19 +9,22 @@ export interface Tool {
   /** Hostname links are matched on (subdomains match too) */
   host: string;
   name: string;
-  /** One line on what it does */
+  /** What it does, within PITCH_MAX so the card's two-line clamp never cuts it */
   pitch: string;
 }
+
+/** Characters that fit the hover card's two description lines at 320px */
+export const PITCH_MAX = 90;
 
 export const tools: Tool[] = [
   {
     host: 'word2md.com',
     name: 'Word to Markdown',
-    pitch: 'Turns Word (.docx) and Google Docs files into clean, GitHub-flavored Markdown.',
+    pitch: 'Converts Word and Google Docs files into clean, GitHub-flavored Markdown.',
   },
   {
     host: 'md2word.app',
     name: 'Markdown to Word',
-    pitch: 'Turns Markdown, including ChatGPT and Claude replies, into formatted Word (.docx) files.',
+    pitch: 'Converts Markdown, including ChatGPT and Claude replies, into Word files.',
   },
 ];

@@ -303,7 +303,18 @@ A highlighted run of prose (14% blue background) followed by a small share icon.
 
 ### Link-preview card
 
-A 320px floating card that appears when hovering an internal post link. It shows the title, a two-line description, and the section name in blue, with `shadow-card-hover`. It fades up 4px over 150ms.
+A 320px floating card (8px corners, `shadow-card-hover`, fading up 4px over 150ms) that appears when the reader hovers a link in a post for 450ms, or focuses it with the keyboard for 300ms. Hovers right after a scroll are ignored, so a parked cursor doesn't fire cards as the page moves under it. Escape closes it, and it stays open while hovered. It previews where the link goes, by kind (`src/scripts/link-previews.ts`):
+
+- **Internal post:** title, two-line description, and the target section in blue for deep links.
+- **Footnote:** the footnote's text, copied from the page. Its links and acronyms stay out of the tab order.
+- **Ben's tools** (word2md, md2word): name, a pitch kept under 90 characters so the two-line clamp never cuts it (`src/data/tools.ts`), and a facts line.
+- **Internet Archive snapshot:** the original site as the title, its path in mono, and the capture date written day-month-year ("14 April 2015").
+- **GitHub repo and Wikipedia article:** from metadata cached at build time (`npm run link-previews`). GitHub star counts are rounded ("1.6k stars") because the cache drifts, and an archived repo leads its facts line in bold.
+- **The book:** a small version of the book object (navy, 12px corners, the mono "> The book by Ben Balter" badge, the gradient ampersand). No price: the price belongs to the end-of-post promo, not to a card that opens mid-sentence.
+
+Every card except the book's has the same anatomy: title, description, then a facts line in `gray-600` (`gray-400` in dark mode) that names the source ("Wikipedia", "GitHub · Ruby · 1.6k stars"). There's no label above the title; the facts line says what kind of thing it is.
+
+Cards are `aria-hidden`: everything in them is also at the destination or in the footnotes section, so assistive tech isn't read the same facts twice on every link. On touch-only screens there are no hover cards, but tapping a footnote number opens its card in place, with a "Go to footnote" link. That card is exposed to assistive tech, sits right after the paragraph in reading order, and the footnote number reports it as expanded. A second tap, a tap elsewhere, or Escape closes it.
 
 ## Do's and Don'ts
 
