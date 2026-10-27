@@ -19,6 +19,7 @@
  */
 
 import type { Root, Node } from 'mdast';
+import { toString } from 'mdast-util-to-string';
 import { visit } from 'unist-util-visit';
 
 const OBJECTION_NAME = 'objection';
@@ -84,7 +85,10 @@ export function remarkObjectionDirectives() {
         hName: 'aside',
         hProperties: {
           className: ['objection'],
-          'aria-label': 'Objection and response',
+          // Each aside is a complementary landmark, and landmark labels must
+          // be unique on a page, so name it by its question rather than a
+          // fixed string that repeats when a post has two objections.
+          'aria-label': `Objection: ${toString(labelChildren)}`,
         },
       };
       n.children = [questionNode, bodyNode] as Child[];

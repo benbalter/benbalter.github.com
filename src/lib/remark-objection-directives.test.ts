@@ -29,12 +29,25 @@ describe('remarkObjectionDirectives', () => {
       ':::objection[Is this really necessary?]\nYes, and here is why.\n:::',
     );
 
-    expect(html).toContain('<aside class="objection" aria-label="Objection and response">');
+    expect(html).toContain('<aside class="objection" aria-label="Objection: Is this really necessary?">');
     expect(html).toContain('class="objection-q"');
     expect(html).toContain('But what about…');
     expect(html).toContain('Is this really necessary?');
     expect(html).toContain('class="objection-a"');
     expect(html).toContain('Yes, and here is why.');
+  });
+
+  it('gives each objection on a page a distinct landmark label', async () => {
+    const html = await render(
+      ':::objection[First question?]\nA.\n:::\n\n:::objection[Second question?]\nB.\n:::',
+    );
+    expect(html).toContain('aria-label="Objection: First question?"');
+    expect(html).toContain('aria-label="Objection: Second question?"');
+  });
+
+  it('uses plain text for the label when the question has inline markup', async () => {
+    const html = await render(':::objection[Is *this* the point?]\nNo.\n:::');
+    expect(html).toContain('aria-label="Objection: Is this the point?"');
   });
 
   it('preserves inline markup in the question label', async () => {
