@@ -66,6 +66,8 @@ Ultimately, it's the TPM's responsibility to do whatever needs to be done to ens
 
 Over the past few months I've greatly enjoyed the opportunity to grow and learn from my peers, many of whom bring years of experience and formal training to the new-to-me role. As I first began settling in, I struggled to get a sense of what a program manager’s typical day looked like or what skills I should be focusing on day-to-day to bring value to my team. Here's the list I wish I had as I was first stepping into the role, and I hope it helps others to do the same.
 
+If you're joining GitHub as a program manager, pair this with my [reading list for interviewing or starting at GitHub](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).
+
 [^1]: As much as I might like them to be, human-to-human requests are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if it's facially valid.
 
 [^2]: If you liked it, [you should have put a URL on it](https://ben.balter.com/2015/11/12/why-urls/).
