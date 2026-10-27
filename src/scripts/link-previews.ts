@@ -379,8 +379,8 @@ function renderFootnoteCard(footnote: HTMLElement) {
   el.replaceChildren(body);
 }
 
-/** Day-month-year with the month spelled out, which reads the same everywhere */
-const capturedFormat = new Intl.DateTimeFormat('en-GB', {
+/** Month spelled out ("April 14, 2015"): unambiguous, and the house date style */
+const capturedFormat = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',

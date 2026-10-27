@@ -308,7 +308,7 @@ A 320px floating card (8px corners, `shadow-card-hover`, fading up 4px over 150m
 - **Internal post:** title, two-line description, and the target section in blue for deep links.
 - **Footnote:** the footnote's text, copied from the page. Its links and acronyms stay out of the tab order.
 - **Ben's tools** (word2md, md2word): name, a pitch kept under 90 characters so the two-line clamp never cuts it (`src/data/tools.ts`), and a facts line.
-- **Internet Archive snapshot:** the original site as the title, its path in mono, and the capture date written day-month-year ("14 April 2015").
+- **Internet Archive snapshot:** the original site as the title, its path in mono, and the capture date with the month spelled out ("April 14, 2015").
 - **GitHub repo and Wikipedia article:** from metadata cached at build time (`npm run link-previews`). GitHub star counts are rounded ("1.6k stars") because the cache drifts, and an archived repo leads its facts line in bold.
 - **The book:** a small version of the book object (navy, 12px corners, the mono "> The book by Ben Balter" badge, the gradient ampersand). No price: the price belongs to the end-of-post promo, not to a card that opens mid-sentence.
 
