@@ -44,9 +44,12 @@ import typographicSingleSpaces from 'typographic-single-spaces';
 import typographicTrademark from 'typographic-trademark';
 
 // Shared rehype plugin configurations
+// No `noreferrer`: the site-wide Referrer-Policy (strict-origin-when-cross-origin)
+// already limits other sites to the bare origin, and keeping it lets word2md,
+// md2word, and the book site attribute clicks from posts.
 const rehypeExternalLinksConfig = [rehypeExternalLinks, {
   target: '_blank',
-  rel: ['noopener', 'noreferrer'],
+  rel: ['noopener'],
 }];
 
 const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {

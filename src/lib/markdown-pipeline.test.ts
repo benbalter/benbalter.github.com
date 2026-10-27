@@ -62,7 +62,9 @@ describe('syndicationRehypePlugins', () => {
   it('opens external links in a new tab', async () => {
     const html = await render('See [example](https://example.com/).');
     expect(html).toContain('target="_blank"');
-    expect(html).toMatch(/rel="noopener noreferrer"/);
+    expect(html).toContain('rel="noopener"');
+    // Keep the referrer (origin only, per Referrer-Policy) so linked sites can attribute clicks
+    expect(html).not.toContain('noreferrer');
   });
 });
 
