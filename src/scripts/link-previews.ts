@@ -5,6 +5,9 @@
  * linked post's title and description. Anchor-aware: for deep links
  * (e.g., /2023/01/10/post/#heading), also shows the target section name.
  *
+ * Links to the book's site (open-and-async.com) get a book card instead,
+ * cloned from the server-rendered <template> in BookPreviewTemplate.astro.
+ *
  * - Lazy-loads the post metadata JSON on first hover (then caches)
  * - Positions the card intelligently relative to the viewport
  * - Supports keyboard focus for accessibility
@@ -39,6 +42,15 @@ interface PostMeta {
 type MetaMap = Record<string, PostMeta>;
 
 const META_URL = '/posts-meta.json';
+
+/** Hostname of the book's marketing site; its links get the book card */
+const BOOK_HOSTNAME = 'open-and-async.com';
+
+/** Server-rendered book card body (src/components/BookPreviewTemplate.astro) */
+const BOOK_TEMPLATE_ID = 'book-preview-template';
+
+/** Class that gives the shared card the book's navy treatment */
+const BOOK_CARD_CLASS = 'link-preview-card-book';
 
 /**
  * Per-URL cache of in-flight or settled fetch promises. Keyed by the URL
@@ -105,6 +117,34 @@ export function isPostLink(anchor: HTMLAnchorElement): boolean {
   return POST_URL_PATTERN.test(path);
 }
 
+/**
+ * Check if this is a link to the book's site worth previewing. Skips the
+ * book CTAs themselves, which already show the cover and price.
+ */
+export function isBookLink(anchor: HTMLAnchorElement): boolean {
+  const href = anchor.getAttribute('href');
+  if (!href) return false;
+  if (anchor.closest('.link-preview-card, .book-cta-inline, .book-cta-featured')) return false;
+  if (anchor.hasAttribute('data-track-book-cta')) return false;
+
+  try {
+    const { hostname } = new URL(href, window.location.origin);
+    return hostname === BOOK_HOSTNAME || hostname.endsWith(`.${BOOK_HOSTNAME}`);
+  } catch {
+    return false;
+  }
+}
+
+/** True for any link that gets a hover card */
+function isPreviewable(anchor: HTMLAnchorElement): boolean {
+  return isBookLink(anchor) || isPostLink(anchor);
+}
+
+function getBookTemplate(): HTMLTemplateElement | null {
+  const el = document.getElementById(BOOK_TEMPLATE_ID);
+  return el instanceof HTMLTemplateElement ? el : null;
+}
+
 // --- Card element management ---
 
 let card: HTMLDivElement | null = null;
@@ -154,6 +194,7 @@ function hideCard() {
     card.style.display = 'none';
     card.style.visibility = '';
     card.innerHTML = '';
+    card.classList.remove(BOOK_CARD_CLASS);
   }
   activeAnchor = null;
 }
@@ -217,6 +258,7 @@ function renderCard(meta: PostMeta, hash: string) {
     }
   }
 
+  el.classList.remove(BOOK_CARD_CLASS);
   el.innerHTML = `
     <div class="link-preview-title">${escapeHtml(meta.title)}</div>
     <div class="link-preview-description">${escapeHtml(meta.description)}</div>
@@ -224,9 +266,23 @@ function renderCard(meta: PostMeta, hash: string) {
   `;
 }
 
+function renderBookCard(template: HTMLTemplateElement) {
+  const el = getOrCreateCard();
+  el.classList.add(BOOK_CARD_CLASS);
+  el.replaceChildren(template.content.cloneNode(true));
+}
+
 async function showPreview(anchor: HTMLAnchorElement) {
   const href = anchor.getAttribute('href');
   if (!href) return;
+
+  if (isBookLink(anchor)) {
+    const template = getBookTemplate();
+    if (!template || activeAnchor !== anchor) return;
+    renderBookCard(template);
+    await positionCard(anchor);
+    return;
+  }
 
   const { path, hash } = normalizePath(href);
   const meta = await getPostsMeta();
@@ -243,7 +299,7 @@ async function showPreview(anchor: HTMLAnchorElement) {
 
 function onMouseEnter(e: Event) {
   const anchor = (e.target as Element).closest?.('a');
-  if (!(anchor instanceof HTMLAnchorElement) || !isPostLink(anchor)) return;
+  if (!(anchor instanceof HTMLAnchorElement) || !isPreviewable(anchor)) return;
 
   clearHideTimer();
   clearShowTimer();
@@ -262,7 +318,7 @@ function onMouseLeave(e: Event) {
 
 function onFocusIn(e: Event) {
   const anchor = e.target as Element;
-  if (!(anchor instanceof HTMLAnchorElement) || !isPostLink(anchor)) return;
+  if (!(anchor instanceof HTMLAnchorElement) || !isPreviewable(anchor)) return;
 
   clearHideTimer();
   clearShowTimer();
@@ -325,6 +381,26 @@ function initLinkPreviews() {
     '.post-content a[href], [data-link-previews] a[href]',
   );
   if (firstPostLink) observer.observe(firstPostLink);
+
+  // Pre-warm the book cover the same way, so the first book card isn't
+  // missing its image. Importing the template's <img> starts the fetch.
+  const bookTemplate = getBookTemplate();
+  const bookLinks = [...document.querySelectorAll<HTMLAnchorElement>(
+    '.post-content a[href], [data-link-previews] a[href]',
+  )].filter(isBookLink);
+  const cover = bookTemplate?.content.querySelector('img');
+  if (cover && bookLinks.length > 0) {
+    const coverObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          document.importNode(cover, true);
+          coverObserver.disconnect();
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    for (const link of bookLinks) coverObserver.observe(link);
+  }
 }
 
 import { onPageLoad } from './on-page-load';

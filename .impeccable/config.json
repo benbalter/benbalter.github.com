@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-10-11T14:01:20.569Z",
         "reason": "DESIGN.md:255 sanctions a 4px left rule on callouts, including the archived-post warning (house style, not an AI tell)"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/components/BookPreviewTemplate.astro"
+        ],
+        "createdAt": "2026-10-27T17:13:22.200Z",
+        "reason": "Claude: brand signature lime-pink ampersand, same treatment already in BookCta.astro and BookLaunchCta.astro and the open-and-async.com marketing site"
       }
     ]
   }

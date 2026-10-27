@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { normalizePath, isPostLink } from './link-previews';
+import { normalizePath, isPostLink, isBookLink } from './link-previews';
 
 describe('normalizePath', () => {
   it('returns path and empty hash for path with trailing slash', () => {
@@ -184,5 +184,67 @@ describe('isPostLink', () => {
     // Pattern starts with ^/ and requires 4-digit year, 2-digit month/day
     const anchor = createAnchor('/blog/2024/01/15/my-post/');
     expect(isPostLink(anchor)).toBe(false);
+  });
+});
+
+describe('isBookLink', () => {
+  let container: HTMLElement;
+
+  function createAnchor(href: string, parent: HTMLElement = container): HTMLAnchorElement {
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', href);
+    parent.appendChild(anchor);
+    return anchor;
+  }
+
+  afterEach(() => {
+    container?.remove();
+  });
+
+  function setup() {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+  }
+
+  it('returns true for a link to the book site with UTM params', () => {
+    setup();
+    expect(isBookLink(createAnchor('https://open-and-async.com/?utm_source=benbalter-markdown-ai'))).toBe(true);
+  });
+
+  it('returns true for a subdomain or deep link on the book site', () => {
+    setup();
+    expect(isBookLink(createAnchor('https://www.open-and-async.com/press/'))).toBe(true);
+  });
+
+  it('returns false for a lookalike domain', () => {
+    setup();
+    expect(isBookLink(createAnchor('https://not-open-and-async.com/'))).toBe(false);
+  });
+
+  it('returns false for internal post links', () => {
+    setup();
+    expect(isBookLink(createAnchor('/2024/01/15/my-post/'))).toBe(false);
+  });
+
+  it('returns false for the tracked book CTA link', () => {
+    setup();
+    const anchor = createAnchor('https://open-and-async.com/');
+    anchor.setAttribute('data-track-book-cta', '');
+    expect(isBookLink(anchor)).toBe(false);
+  });
+
+  it('returns false inside a book CTA', () => {
+    setup();
+    const aside = document.createElement('aside');
+    aside.className = 'book-cta-inline';
+    container.appendChild(aside);
+    expect(isBookLink(createAnchor('https://open-and-async.com/', aside))).toBe(false);
+  });
+
+  it('returns false for a link without href', () => {
+    setup();
+    const anchor = document.createElement('a');
+    container.appendChild(anchor);
+    expect(isBookLink(anchor)).toBe(false);
   });
 });

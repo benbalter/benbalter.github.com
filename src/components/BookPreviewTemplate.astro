@@ -1,0 +1,59 @@
+---
+/**
+ * Book Preview Template
+ *
+ * Server-rendered body for the hover card that src/scripts/link-previews.ts
+ * shows on links to open-and-async.com. It lives in a <template>, so it costs
+ * nothing until the first hover: the cover isn't fetched and nothing renders.
+ * The script clones it into the shared .link-preview-card, which gets the
+ * navy book treatment from `.link-preview-card-book` in global.css.
+ *
+ * Rendering it here (rather than building the card in the script) keeps the
+ * book facts in siteConfig and the cover in Astro's image pipeline.
+ */
+
+import { Image } from 'astro:assets';
+import { siteConfig } from '../config';
+import { bookTitleHtml } from '../lib/book-cta';
+import coverImage from '../../assets/img/open-and-async-cover.webp';
+---
+
+<template id="book-preview-template">
+  <div class="flex items-center gap-3">
+    <Image
+      src={coverImage}
+      alt=""
+      width={56}
+      height={62}
+      densities={[1, 2]}
+      decoding="async"
+      class="w-14 h-auto shrink-0"
+    />
+    <div class="min-w-0">
+      <p class="font-mono text-[0.65rem] uppercase tracking-widest text-accent-400 mb-0.5">
+        <span aria-hidden="true">&gt;</span> The book by {siteConfig.author}
+      </p>
+      <p class="text-base font-bold leading-tight text-white mb-1">
+        <Fragment set:html={bookTitleHtml} />
+      </p>
+      <p class="text-[0.8125rem] leading-snug text-slate-300 mb-1.5 hyphens-none">
+        {siteConfig.bookDescription}.
+      </p>
+      <p class="text-xs font-semibold text-accent-400 mb-0">
+        Ebook {siteConfig.bookPrice} · Paperback {siteConfig.bookPricePaperback}
+      </p>
+    </div>
+  </div>
+</template>
+
+<style>
+  /* Same lime→pink ampersand as BookCta. Scoped styles still match after the
+     script clones the template, since the clone keeps Astro's scope attribute. */
+  .oa-amp {
+    color: var(--color-accent-400);
+    background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
