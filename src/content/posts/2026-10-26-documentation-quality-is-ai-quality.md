@@ -16,7 +16,7 @@ Markdown is the cheapest fix I know, for the reason I gave [back in 2014](/2014/
 
 ## Structure is what the model sees
 
-Word processors encourage you to describe what something *looks like*. Markup makes you declare what it *is*. In Markdown, `## Deprecating the v1 API` says "this is a second-level heading." Word can say the same thing with its Heading 2 style, but it also lets you just make the text big and bold, and most people do. The two look identical to a sighted reader. A screen reader or a language model sees something completely different. (That's also why my ebook [turned out to be accessible by default](/2026/08/27/accessible-by-default/). Screen readers and LLMs want the same thing.)
+Word processors encourage you to describe what something *looks like*. Markup makes you declare what it *is*. In Markdown, `## Deprecating the v1 API` says "this is a second-level heading." Word can say the same thing with its Heading 2 style, but it also lets you just make the text big and bold, and most people do. The two look identical to a sighted reader. A screen reader or a language model sees something completely different.[^accessible]
 
 As I put it in the book, :quote[markup is a contract; formatting is a costume.]{#markup-contract-formatting-costume}
 
@@ -57,9 +57,9 @@ In 2014, I measured the same sample both ways: 33,621 bytes as Word, 80 as Markd
 
 ## Two directions, two tools
 
-**Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown, entirely in your browser, so the file never leaves your computer. It's a 2024 rewrite of that Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)).
+**Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown, entirely in your browser, so the file never leaves your computer.
 
-**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline.[^round-trip] md2word builds one, also in your browser. I built it this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
+**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline.[^round-trip] md2word builds one, also in your browser.[^source]
 
 Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it.
 
@@ -91,8 +91,12 @@ The government employees who asked me for that Heroku app wanted their documents
 
 Markdown has bet on structure over formatting for more than twenty years. It took a reader nobody saw coming to prove the bet right. :quote[Stop doing your thinking in Word.]{#stop-thinking-in-word} Do it somewhere a screen reader, a model, and the new hire can all tell what you meant.
 
+[^accessible]: That's also why my ebook [turned out to be accessible by default](/2026/08/27/accessible-by-default/). Screen readers and LLMs want the same thing.
+
 [^bytes]: That's about 420 times the bytes (33,621 ÷ 80), which overstates it: most of a `.docx` is fixed overhead that doesn't grow with the document. Bytes aren't tokens, but even the HTML version, a fairer comparison, was about 17 times the Markdown (1,359 ÷ 80).
 
 [^round-trip]: The round trip isn't lossless. When legal sends the redline back, word2md drops the comments and silently accepts every tracked change. Resolve both in Word first, then convert the clean copy and compare it against your source.
+
+[^source]: Both are open source. word2md is a 2024 rewrite of that original Heroku app ([source on GitHub](https://github.com/benbalter/word-to-markdown-js)), and I built md2word this year ([source on GitHub](https://github.com/benbalter/markdown-to-word-js)).
 
 [^time-off]: If you want the real thing rather than a two-step demo, the book's appendix includes a complete time-off guide written this way.
