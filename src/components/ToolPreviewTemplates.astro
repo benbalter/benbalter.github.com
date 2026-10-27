@@ -1,0 +1,30 @@
+---
+/**
+ * Tool Preview Templates
+ *
+ * Hover card bodies for links to Ben's free web tools (src/data/tools.ts),
+ * one <template> per tool that the post actually links to. Like
+ * BookPreviewTemplate, they cost nothing until the first hover;
+ * src/scripts/link-previews.ts finds them by `data-link-preview-host`.
+ */
+
+import { siteConfig } from '../config';
+import { tools } from '../data/tools';
+
+interface Props {
+  /** Rendered post HTML; only tools it links to get a template */
+  html: string;
+}
+
+const { html } = Astro.props;
+const linked = tools.filter((tool) => html.includes(tool.host));
+---
+
+{linked.map((tool) => (
+  <template data-link-preview-host={tool.host}>
+    <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> A free tool by {siteConfig.author}</div>
+    <div class="link-preview-title">{tool.name} <span class="font-normal text-gray-500 dark:text-gray-400">· {tool.host}</span></div>
+    <div class="link-preview-description">{tool.pitch}</div>
+    <div class="link-preview-meta">Runs in your browser · Open source</div>
+  </template>
+))}

@@ -1,14 +1,21 @@
 /**
  * Link Preview Hover Cards
  *
- * When a user hovers over an internal post link, shows a card with the
- * linked post's title and description. Anchor-aware: for deep links
- * (e.g., /2023/01/10/post/#heading), also shows the target section name.
+ * Hovering (or focusing) a link in a post shows a card about where it goes.
+ * Each kind of link has its own matcher and renderer, tried in this order:
  *
- * Links to the book's site (open-and-async.com) get a book card instead,
- * cloned from the server-rendered <template> in BookPreviewTemplate.astro.
+ * 1. Footnote references: the footnote's text, cloned from the page
+ * 2. The book and Ben's tools (open-and-async.com, word2md.com, …): a card
+ *    cloned from a server-rendered <template data-link-preview-host>
+ *    (BookPreviewTemplate.astro, ToolPreviewTemplates.astro)
+ * 3. Internet Archive snapshots: the archived site and capture date, parsed
+ *    from the URL itself
+ * 4. GitHub repos and Wikipedia articles: metadata from /link-previews.json,
+ *    cached at build time by script/build-link-previews.ts
+ * 5. Internal posts: title and description from /posts-meta.json.
+ *    Anchor-aware: deep links (/2023/01/10/post/#heading) also show the section.
  *
- * - Lazy-loads the post metadata JSON on first hover (then caches)
+ * - Lazy-loads each JSON file on first need (then caches)
  * - Positions the card intelligently relative to the viewport
  * - Supports keyboard focus for accessibility
  * - Initializes on DOMContentLoaded (or immediately if already loaded)
@@ -17,6 +24,12 @@
 import { autoUpdate, computePosition, flip, offset, shift, size } from '@floating-ui/dom';
 
 import { escapeHtml } from '../utils/html-escape';
+import {
+  externalPreviewKey,
+  parseWaybackUrl,
+  type ExternalPreview,
+  type WaybackSnapshot,
+} from '../utils/link-preview-keys';
 
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
 const POST_URL_PATTERN = /^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/?/;
@@ -40,45 +53,46 @@ interface PostMeta {
 }
 
 type MetaMap = Record<string, PostMeta>;
+type ExternalMap = Record<string, ExternalPreview>;
 
 const META_URL = '/posts-meta.json';
+const EXTERNAL_URL = '/link-previews.json';
 
 /** Hostname of the book's marketing site; its links get the book card */
 const BOOK_HOSTNAME = 'open-and-async.com';
 
-/** Server-rendered book card body (src/components/BookPreviewTemplate.astro) */
-const BOOK_TEMPLATE_ID = 'book-preview-template';
-
-/** Class that gives the shared card the book's navy treatment */
-const BOOK_CARD_CLASS = 'link-preview-card-book';
+const CARD_CLASS = 'link-preview-card';
 
 /**
  * Per-URL cache of in-flight or settled fetch promises. Keyed by the URL
  * being fetched so different URLs don't share cache state and concurrent
  * requests for the same URL reuse a single promise.
  */
-const fetchCache = new Map<string, Promise<MetaMap>>();
+const fetchCache = new Map<string, Promise<unknown>>();
 
-/** Lazy-load and cache the posts metadata JSON */
-async function getPostsMeta(url: string = META_URL): Promise<MetaMap> {
+/** Lazy-load and cache a JSON map, resolving to {} on failure */
+function getJson<T extends object>(url: string): Promise<T> {
   const cached = fetchCache.get(url);
-  if (cached) return cached;
+  if (cached) return cached as Promise<T>;
 
   const promise = fetch(url)
     .then((res) => {
-      if (!res.ok) throw new Error(`Failed to load posts metadata: ${res.status}`);
-      return res.json() as Promise<MetaMap>;
+      if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
+      return res.json() as Promise<T>;
     })
     .catch((err) => {
       console.error('[link-previews]', err);
       // Evict the failed entry so a subsequent call retries the fetch
       fetchCache.delete(url);
-      return {} as MetaMap;
+      return {} as T;
     });
 
   fetchCache.set(url, promise);
   return promise;
 }
+
+const getPostsMeta = () => getJson<MetaMap>(META_URL);
+const getExternalMeta = () => getJson<ExternalMap>(EXTERNAL_URL);
 
 /** Normalize a URL path: strip origin, ensure trailing slash */
 export function normalizePath(href: string): { path: string; hash: string } {
@@ -98,7 +112,7 @@ export function isPostLink(anchor: HTMLAnchorElement): boolean {
   if (!href) return false;
 
   // Skip links that are themselves inside the preview card
-  if (anchor.closest('.link-preview-card')) return false;
+  if (anchor.closest(`.${CARD_CLASS}`)) return false;
 
   // Only same-origin links
   try {
@@ -117,32 +131,62 @@ export function isPostLink(anchor: HTMLAnchorElement): boolean {
   return POST_URL_PATTERN.test(path);
 }
 
+/** Hostname of a link, or '' if it has none or doesn't parse */
+function hostnameOf(anchor: HTMLAnchorElement): string {
+  const href = anchor.getAttribute('href');
+  if (!href) return '';
+  try {
+    return new URL(href, window.location.origin).hostname;
+  } catch {
+    return '';
+  }
+}
+
+function matchesHost(hostname: string, host: string): boolean {
+  return hostname === host || hostname.endsWith(`.${host}`);
+}
+
 /**
  * Check if this is a link to the book's site worth previewing. Skips the
  * book CTAs themselves, which already show the cover and price.
  */
 export function isBookLink(anchor: HTMLAnchorElement): boolean {
-  const href = anchor.getAttribute('href');
-  if (!href) return false;
-  if (anchor.closest('.link-preview-card, .book-cta-inline, .book-cta-featured')) return false;
+  if (anchor.closest(`.${CARD_CLASS}, .book-cta-inline, .book-cta-featured`)) return false;
   if (anchor.hasAttribute('data-track-book-cta')) return false;
+  return matchesHost(hostnameOf(anchor), BOOK_HOSTNAME);
+}
 
-  try {
-    const { hostname } = new URL(href, window.location.origin);
-    return hostname === BOOK_HOSTNAME || hostname.endsWith(`.${BOOK_HOSTNAME}`);
-  } catch {
-    return false;
+/** The server-rendered card template for this link's host, if the page has one */
+export function hostTemplateFor(anchor: HTMLAnchorElement): HTMLTemplateElement | null {
+  const hostname = hostnameOf(anchor);
+  if (!hostname) return null;
+  if (matchesHost(hostname, BOOK_HOSTNAME) && !isBookLink(anchor)) return null;
+
+  for (const template of document.querySelectorAll<HTMLTemplateElement>('template[data-link-preview-host]')) {
+    if (matchesHost(hostname, template.dataset.linkPreviewHost ?? '')) return template;
   }
+  return null;
+}
+
+/** The footnote a footnote reference points to, if this is one */
+export function footnoteFor(anchor: HTMLAnchorElement): HTMLElement | null {
+  if (!anchor.hasAttribute('data-footnote-ref')) return null;
+  const id = decodeURIComponent(anchor.hash.slice(1));
+  return id ? document.getElementById(id) : null;
+}
+
+/** Absolute URL of a link, for the external matchers */
+function absoluteHref(anchor: HTMLAnchorElement): string {
+  return anchor.getAttribute('href') ? anchor.href : '';
 }
 
 /** True for any link that gets a hover card */
 function isPreviewable(anchor: HTMLAnchorElement): boolean {
-  return isBookLink(anchor) || isPostLink(anchor);
-}
-
-function getBookTemplate(): HTMLTemplateElement | null {
-  const el = document.getElementById(BOOK_TEMPLATE_ID);
-  return el instanceof HTMLTemplateElement ? el : null;
+  if (anchor.closest(`.${CARD_CLASS}`)) return false;
+  if (footnoteFor(anchor) || hostTemplateFor(anchor)) return true;
+  const href = absoluteHref(anchor);
+  if (parseWaybackUrl(href) || externalPreviewKey(href)) return true;
+  return isPostLink(anchor);
 }
 
 // --- Card element management ---
@@ -158,7 +202,7 @@ function getOrCreateCard(): HTMLDivElement {
   if (card && card.isConnected) return card;
 
   card = document.createElement('div');
-  card.className = 'link-preview-card';
+  card.className = CARD_CLASS;
   card.setAttribute('role', 'tooltip');
   card.style.display = 'none';
 
@@ -168,6 +212,13 @@ function getOrCreateCard(): HTMLDivElement {
 
   document.body.appendChild(card);
   return card;
+}
+
+/** The card, reset to its base class plus an optional variant */
+function freshCard(variant?: string): HTMLDivElement {
+  const el = getOrCreateCard();
+  el.className = variant ? `${CARD_CLASS} ${variant}` : CARD_CLASS;
+  return el;
 }
 
 function clearShowTimer() {
@@ -194,7 +245,7 @@ function hideCard() {
     card.style.display = 'none';
     card.style.visibility = '';
     card.innerHTML = '';
-    card.classList.remove(BOOK_CARD_CLASS);
+    card.className = CARD_CLASS;
   }
   activeAnchor = null;
 }
@@ -246,8 +297,10 @@ async function positionCard(anchor: HTMLAnchorElement) {
   });
 }
 
-function renderCard(meta: PostMeta, hash: string) {
-  const el = getOrCreateCard();
+// --- Renderers ---
+
+function renderPostCard(meta: PostMeta, hash: string) {
+  const el = freshCard();
 
   // Find the heading matching the anchor
   let sectionHtml = '';
@@ -258,7 +311,6 @@ function renderCard(meta: PostMeta, hash: string) {
     }
   }
 
-  el.classList.remove(BOOK_CARD_CLASS);
   el.innerHTML = `
     <div class="link-preview-title">${escapeHtml(meta.title)}</div>
     <div class="link-preview-description">${escapeHtml(meta.description)}</div>
@@ -266,20 +318,115 @@ function renderCard(meta: PostMeta, hash: string) {
   `;
 }
 
-function renderBookCard(template: HTMLTemplateElement) {
-  const el = getOrCreateCard();
-  el.classList.add(BOOK_CARD_CLASS);
+function renderTemplateCard(template: HTMLTemplateElement) {
+  const el = freshCard(template.dataset.linkPreviewClass);
   el.replaceChildren(template.content.cloneNode(true));
+}
+
+function renderFootnoteCard(footnote: HTMLElement) {
+  const el = freshCard();
+  const clone = footnote.cloneNode(true) as HTMLElement;
+  clone.querySelectorAll('[data-footnote-backref]').forEach((backref) => backref.remove());
+  // The footnote stays on the page, so the copy must not duplicate its ids
+  clone.querySelectorAll('[id]').forEach((node) => node.removeAttribute('id'));
+
+  const body = document.createElement('div');
+  body.className = 'link-preview-footnote';
+  body.append(...clone.childNodes);
+  el.replaceChildren(body);
+}
+
+const capturedFormat = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+function renderWaybackCard(snapshot: WaybackSnapshot) {
+  const el = freshCard();
+  let host = snapshot.original;
+  let rest = '';
+  try {
+    const url = new URL(snapshot.original);
+    host = url.hostname.replace(/^www\./, '');
+    rest = `${url.pathname}${url.search}`.replace(/^\/$/, '');
+  } catch {
+    // Show the raw original URL as the title
+  }
+
+  el.innerHTML = `
+    <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> Archived snapshot</div>
+    <div class="link-preview-title">${escapeHtml(host)}</div>
+    ${rest ? `<div class="link-preview-description link-preview-url">${escapeHtml(rest)}</div>` : ''}
+    <div class="link-preview-meta">Captured ${escapeHtml(capturedFormat.format(snapshot.captured))} by the Internet Archive</div>
+  `;
+}
+
+/** 1234 → "1.2k"; the cached counts drift, so precision would mislead */
+export function formatStars(stars: number): string {
+  if (stars < 1000) return String(stars);
+  const thousands = stars / 1000;
+  return `${thousands < 10 ? thousands.toFixed(1).replace(/\.0$/, '') : Math.round(thousands)}k`;
+}
+
+function renderExternalCard(meta: ExternalPreview) {
+  const el = freshCard();
+
+  if (meta.kind === 'github') {
+    const facts = [
+      meta.language,
+      `★ ${formatStars(meta.stars)}`,
+      meta.archived ? 'Archived' : '',
+    ].filter((fact): fact is string => Boolean(fact));
+    el.innerHTML = `
+      <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> GitHub repository</div>
+      <div class="link-preview-title">${escapeHtml(meta.title)}</div>
+      ${meta.description ? `<div class="link-preview-description">${escapeHtml(meta.description)}</div>` : ''}
+      <div class="link-preview-meta">${facts.map(escapeHtml).join(' · ')}</div>
+    `;
+    return;
+  }
+
+  el.innerHTML = `
+    <div class="link-preview-kicker"><span aria-hidden="true">&gt;</span> Wikipedia</div>
+    <div class="link-preview-title">${escapeHtml(meta.title)}</div>
+    ${meta.description ? `<div class="link-preview-meta link-preview-meta-top">${escapeHtml(meta.description)}</div>` : ''}
+    <div class="link-preview-description link-preview-description-long">${escapeHtml(meta.extract)}</div>
+  `;
 }
 
 async function showPreview(anchor: HTMLAnchorElement) {
   const href = anchor.getAttribute('href');
   if (!href) return;
 
-  if (isBookLink(anchor)) {
-    const template = getBookTemplate();
-    if (!template || activeAnchor !== anchor) return;
-    renderBookCard(template);
+  const footnote = footnoteFor(anchor);
+  if (footnote) {
+    renderFootnoteCard(footnote);
+    await positionCard(anchor);
+    return;
+  }
+
+  const template = hostTemplateFor(anchor);
+  if (template) {
+    renderTemplateCard(template);
+    await positionCard(anchor);
+    return;
+  }
+
+  const absolute = absoluteHref(anchor);
+  const snapshot = parseWaybackUrl(absolute);
+  if (snapshot) {
+    renderWaybackCard(snapshot);
+    await positionCard(anchor);
+    return;
+  }
+
+  const key = externalPreviewKey(absolute);
+  if (key) {
+    const external = (await getExternalMeta())[key];
+    if (!external || activeAnchor !== anchor) return;
+    renderExternalCard(external);
     await positionCard(anchor);
     return;
   }
@@ -291,7 +438,7 @@ async function showPreview(anchor: HTMLAnchorElement) {
   // Bail if link target not found or anchor changed while loading
   if (!postMeta || activeAnchor !== anchor) return;
 
-  renderCard(postMeta, hash);
+  renderPostCard(postMeta, hash);
   await positionCard(anchor);
 }
 
@@ -338,11 +485,27 @@ function onKeyDown(e: KeyboardEvent) {
 // --- Initialization ---
 
 /**
- * Containers whose internal post links get hover previews: post bodies, plus
- * any element that opts in with `data-link-previews` (e.g., the résumé's
- * "Selected writing" list, which isn't a `.post-content` region).
+ * Containers whose links get hover previews: post bodies, plus any element
+ * that opts in with `data-link-previews` (e.g., the résumé's "Selected
+ * writing" list, which isn't a `.post-content` region).
  */
 const CONTAINER_SELECTOR = '.post-content, [data-link-previews]';
+const LINK_SELECTOR = '.post-content a[href], [data-link-previews] a[href]';
+
+/** Run `warm` once, when the first of `targets` nears the viewport */
+function warmWhenNear(targets: Element[], warm: () => void) {
+  if (targets.length === 0) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        warm();
+        observer.disconnect();
+      }
+    },
+    { rootMargin: '200px' },
+  );
+  for (const target of targets) observer.observe(target);
+}
 
 function initLinkPreviews() {
   // Only on devices that support hover (skip touch-only)
@@ -366,40 +529,23 @@ function initLinkPreviews() {
   // Use { once: false } — safe to re-add because duplicate listeners are ignored
   document.addEventListener('keydown', onKeyDown);
 
-  // Pre-warm: start loading metadata when the first post link enters viewport
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        getPostsMeta();
-        observer.disconnect();
-      }
-    },
-    { rootMargin: '200px' },
+  // Pre-warm: start loading each kind's data when its first link nears the viewport
+  const links = [...document.querySelectorAll<HTMLAnchorElement>(LINK_SELECTOR)];
+  const firstPostLink = links[0];
+  warmWhenNear(firstPostLink ? [firstPostLink] : [], () => void getPostsMeta());
+  warmWhenNear(
+    links.filter((link) => externalPreviewKey(absoluteHref(link))),
+    () => void getExternalMeta(),
   );
 
-  const firstPostLink = document.querySelector(
-    '.post-content a[href], [data-link-previews] a[href]',
-  );
-  if (firstPostLink) observer.observe(firstPostLink);
-
-  // Pre-warm the book cover the same way, so the first book card isn't
-  // missing its image. Importing the template's <img> starts the fetch.
-  const bookTemplate = getBookTemplate();
-  const bookLinks = [...document.querySelectorAll<HTMLAnchorElement>(
-    '.post-content a[href], [data-link-previews] a[href]',
-  )].filter(isBookLink);
-  const cover = bookTemplate?.content.querySelector('img');
-  if (cover && bookLinks.length > 0) {
-    const coverObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          document.importNode(cover, true);
-          coverObserver.disconnect();
-        }
-      },
-      { rootMargin: '200px' },
+  // Template cards with images (the book cover): importing the <img> starts the fetch
+  for (const template of document.querySelectorAll<HTMLTemplateElement>('template[data-link-preview-host]')) {
+    const image = template.content.querySelector('img');
+    if (!image) continue;
+    warmWhenNear(
+      links.filter((link) => hostTemplateFor(link) === template),
+      () => void document.importNode(image, true),
     );
-    for (const link of bookLinks) coverObserver.observe(link);
   }
 }
 

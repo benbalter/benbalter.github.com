@@ -1615,6 +1615,84 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   }
 }
 
+/* Small mono label naming what kind of thing the card previews
+   ("> GitHub repository"), echoing the book card's kicker */
+.link-preview-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 0.125rem;
+}
+
+/* Facts line under the description: language and stars, capture date… */
+.link-preview-meta {
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-gray-500);
+}
+
+.link-preview-meta.link-preview-meta-top {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-kicker {
+    color: var(--color-primary-300);
+  }
+
+  .link-preview-meta {
+    color: var(--color-gray-400);
+  }
+}
+
+/* Wikipedia leads need more room than a post description */
+.link-preview-description.link-preview-description-long {
+  -webkit-line-clamp: 4;
+}
+
+/* Archived URLs are long and unbroken */
+.link-preview-url {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+/* Footnote text, cloned from the page's footnotes section */
+.link-preview-footnote {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-gray-700);
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.link-preview-footnote p {
+  margin: 0;
+  hyphens: none;
+}
+
+.link-preview-footnote p + p {
+  margin-top: 0.5rem;
+}
+
+.link-preview-footnote a {
+  color: var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-footnote {
+    color: var(--color-gray-300);
+  }
+
+  .link-preview-footnote a {
+    color: var(--color-primary-300);
+  }
+}
+
 /* Book card for open-and-async.com links: the BookCta's navy "book object"
    in both color schemes (two classes outrank the dark-mode override above). */
 .link-preview-card.link-preview-card-book {

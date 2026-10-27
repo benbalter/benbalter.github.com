@@ -30,6 +30,7 @@ import KeepReading from '../components/KeepReading.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
 import BookPreviewTemplate from '../components/BookPreviewTemplate.astro';
+import ToolPreviewTemplates from '../components/ToolPreviewTemplates.astro';
 import type { BookRelation } from '../lib/book-cta';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -194,8 +195,10 @@ const itemListSchema = curatedUrls.length > 0
           <slot />
         </div>
 
-        {/* Hover card body for open-and-async.com links (link-previews.ts) */}
-        <BookPreviewTemplate />
+        {/* Hover card bodies for book and tool links (link-previews.ts),
+            only when the post links to them */}
+        {content.includes('open-and-async.com') && <BookPreviewTemplate />}
+        <ToolPreviewTemplates html={content} />
 
         <ReadingList posts={curatedPosts} roles={curatedRoles} bodyHtml={content} />
 

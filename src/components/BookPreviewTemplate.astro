@@ -5,8 +5,9 @@
  * Server-rendered body for the hover card that src/scripts/link-previews.ts
  * shows on links to open-and-async.com. It lives in a <template>, so it costs
  * nothing until the first hover: the cover isn't fetched and nothing renders.
- * The script clones it into the shared .link-preview-card, which gets the
- * navy book treatment from `.link-preview-card-book` in global.css.
+ * The script finds it by `data-link-preview-host`, clones it into the shared
+ * .link-preview-card, and adds `data-link-preview-class`, which gives the card
+ * the navy book treatment (`.link-preview-card-book` in global.css).
  *
  * Rendering it here (rather than building the card in the script) keeps the
  * book facts in siteConfig and the cover in Astro's image pipeline.
@@ -18,7 +19,7 @@ import { bookTitleHtml } from '../lib/book-cta';
 import coverImage from '../../assets/img/open-and-async-cover.webp';
 ---
 
-<template id="book-preview-template">
+<template data-link-preview-host="open-and-async.com" data-link-preview-class="link-preview-card-book">
   <div class="flex items-center gap-3">
     <Image
       src={coverImage}

@@ -1,0 +1,1290 @@
+{
+  "generatedAt": "2026-10-27T17:29:02.403Z",
+  "previews": {
+    "github:18f/open-source-policy": {
+      "kind": "github",
+      "title": "18F/open-source-policy",
+      "description": "This repository contains the official Open Source Policy of 18F",
+      "stars": 341
+    },
+    "github:achael/eht-imaging": {
+      "kind": "github",
+      "title": "achael/eht-imaging",
+      "description": "Imaging, analysis, and simulation software for radio interferometry",
+      "language": "Python",
+      "stars": 5331
+    },
+    "github:actions/cache": {
+      "kind": "github",
+      "title": "actions/cache",
+      "description": "Cache dependencies and build outputs in GitHub Actions",
+      "language": "TypeScript",
+      "stars": 5585
+    },
+    "github:actions/first-interaction": {
+      "kind": "github",
+      "title": "actions/first-interaction",
+      "description": "An action for filtering pull requests and issues from first-time contributors",
+      "language": "TypeScript",
+      "stars": 900
+    },
+    "github:actions/labeler": {
+      "kind": "github",
+      "title": "actions/labeler",
+      "description": "An action for automatically labelling pull requests",
+      "language": "TypeScript",
+      "stars": 2512
+    },
+    "github:actions/stale": {
+      "kind": "github",
+      "title": "actions/stale",
+      "description": "Marks issues and pull requests that have not had recent interaction",
+      "language": "TypeScript",
+      "stars": 1722
+    },
+    "github:adguardteam/adguardhome": {
+      "kind": "github",
+      "title": "AdguardTeam/AdGuardHome",
+      "description": "Network-wide ads & trackers blocking DNS server",
+      "language": "TypeScript",
+      "stars": 37755
+    },
+    "github:adobe-fonts/source-code-pro": {
+      "kind": "github",
+      "title": "adobe-fonts/source-code-pro",
+      "description": "Monospaced font family for user interface and coding environments",
+      "language": "CSS",
+      "stars": 20456
+    },
+    "github:adobe-fonts/source-sans": {
+      "kind": "github",
+      "title": "adobe-fonts/source-sans",
+      "description": "Sans serif font family for user interface environments",
+      "language": "CSS",
+      "stars": 3773
+    },
+    "github:adobe-fonts/source-serif": {
+      "kind": "github",
+      "title": "adobe-fonts/source-serif",
+      "description": "Typeface for setting text in many sizes, weights, and languages. Designed to complement Source Sans.",
+      "language": "CSS",
+      "stars": 2407
+    },
+    "github:adrienverge/yamllint": {
+      "kind": "github",
+      "title": "adrienverge/yamllint",
+      "description": "A linter for YAML files.",
+      "language": "Python",
+      "stars": 3480
+    },
+    "github:amperser/proselint": {
+      "kind": "github",
+      "title": "amperser/proselint",
+      "description": "[Mirror] A linter for prose.",
+      "language": "JavaScript",
+      "stars": 4587
+    },
+    "github:anudeepnd/whitelist": {
+      "kind": "github",
+      "title": "anudeepND/whitelist",
+      "description": "A simple tool to add commonly white listed domains to your Pi-Hole setup. THIS REPO IS ARCHIVED, DO NOT USE SCRIPT TO SDD THE DOMAINS, IT IS NOT TESTED",
+      "language": "Python",
+      "stars": 4388,
+      "archived": true
+    },
+    "github:architecture-decision-record/architecture-decision-record": {
+      "kind": "github",
+      "title": "architecture-decision-record/architecture-decision-record",
+      "description": "Architecture decision record (ADR) examples for software planning, IT leadership, and template documentation",
+      "language": "CSS",
+      "stars": 17330
+    },
+    "github:automattic/harper": {
+      "kind": "github",
+      "title": "Automattic/harper",
+      "description": "Offline, privacy-first grammar checker. Fast, open-source, Rust-powered",
+      "language": "Rust",
+      "stars": 17176
+    },
+    "github:benbalter/2021-analysis-of-federal-dotgov-domains": {
+      "kind": "github",
+      "title": "benbalter/2021-analysis-of-federal-dotgov-domains",
+      "description": "Analysis of what technologies power federal .gov websites - 2021 edition.",
+      "language": "HTML",
+      "stars": 12,
+      "archived": true
+    },
+    "github:benbalter/add-to-org": {
+      "kind": "github",
+      "title": "benbalter/add-to-org",
+      "description": "A simple Oauth App to automatically add users to an organization",
+      "language": "Ruby",
+      "stars": 29
+    },
+    "github:benbalter/benbalter.github.com": {
+      "kind": "github",
+      "title": "benbalter/benbalter.github.com",
+      "description": "Source for ben.balter.com, Ben Balter's blog on open source, remote work, and GitHub. Built with Astro on Cloudflare",
+      "language": "TypeScript",
+      "stars": 160
+    },
+    "github:benbalter/book-kit": {
+      "kind": "github",
+      "title": "benbalter/book-kit",
+      "description": "Build and quality tooling for Markdown books: EPUB 3, Kindle, print PDF and PDF/X-1a, HTML, and DOCX from one source.",
+      "language": "JavaScript",
+      "stars": 3
+    },
+    "github:benbalter/bot-notification-silencer": {
+      "kind": "github",
+      "title": "benbalter/bot-notification-silencer",
+      "description": "Marks notifications from bots as read.",
+      "language": "TypeScript",
+      "stars": 6,
+      "archived": true
+    },
+    "github:benbalter/change_agent": {
+      "kind": "github",
+      "title": "benbalter/change_agent",
+      "description": "A Git-backed key-value store, for tracking changes to documents and other files over time",
+      "language": "Ruby",
+      "stars": 46
+    },
+    "github:benbalter/comment-card": {
+      "kind": "github",
+      "title": "benbalter/comment-card",
+      "description": "A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project",
+      "language": "Ruby",
+      "stars": 57,
+      "archived": true
+    },
+    "github:benbalter/convert-microsoft-word-footnotes-to-wordpress-simple-footnotes": {
+      "kind": "github",
+      "title": "benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes",
+      "description": "Plugin to  parse Microsoft Word footnotes into WordPress's Simple Footnotes format",
+      "language": "PHP",
+      "stars": 7,
+      "archived": true
+    },
+    "github:benbalter/copy-to": {
+      "kind": "github",
+      "title": "benbalter/copy-to",
+      "description": "A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.",
+      "language": "Ruby",
+      "stars": 9,
+      "archived": true
+    },
+    "github:benbalter/domain-inventory": {
+      "kind": "github",
+      "title": "benbalter/Domain-Inventory",
+      "description": "WordPress plugin to track Federal .Govs by Agency, Status, Non-WWW Support, IPv6 Support, CDN, CMS, Cloud Provider, Analytics, JavaScript Libraries, and HTTPs support.",
+      "language": "PHP",
+      "stars": 8,
+      "archived": true
+    },
+    "github:benbalter/feedback": {
+      "kind": "github",
+      "title": "benbalter/feedback",
+      "description": "Ask @benbalter anything!",
+      "stars": 6,
+      "archived": true
+    },
+    "github:benbalter/github-forms": {
+      "kind": "github",
+      "title": "benbalter/github-forms",
+      "description": "A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.",
+      "language": "CSS",
+      "stars": 65,
+      "archived": true
+    },
+    "github:benbalter/github-mention-highlighter": {
+      "kind": "github",
+      "title": "benbalter/github-mention-highlighter",
+      "description": "A Chrome extension that automatically highlights any time you are mentioned on a GitHub issue or pull request thread by highlighting your username, any team you're a member of, and the border of any containing comment.",
+      "language": "TypeScript",
+      "stars": 316,
+      "archived": true
+    },
+    "github:benbalter/github-uploader": {
+      "kind": "github",
+      "title": "benbalter/github-uploader",
+      "description": "A simple app to enable drag-and-drop uploading of binary and other assets to GitHub Repositories",
+      "language": "Ruby",
+      "stars": 35,
+      "archived": true
+    },
+    "github:benbalter/gmail-and-google-calendar-stats": {
+      "kind": "github",
+      "title": "benbalter/gmail-and-google-calendar-stats",
+      "description": "Scrapes your GMail and Google Calendar data and returns it as a CSV for further analysis.",
+      "language": "TypeScript",
+      "stars": 20
+    },
+    "github:benbalter/gw-api": {
+      "kind": "github",
+      "title": "benbalter/GW-API",
+      "description": "GW Course Schedule and Campus API Wrapper",
+      "language": "PHP",
+      "stars": 2,
+      "archived": true
+    },
+    "github:benbalter/jekyll-auth": {
+      "kind": "github",
+      "title": "benbalter/jekyll-auth",
+      "description": "A simple way to use GitHub OAuth to serve a protected Jekyll site to your GitHub organization",
+      "language": "Ruby",
+      "stars": 839,
+      "archived": true
+    },
+    "github:benbalter/jekyll-remote-theme": {
+      "kind": "github",
+      "title": "benbalter/jekyll-remote-theme",
+      "description": "Jekyll plugin to use any GitHub-hosted theme on GitHub Pages or any Jekyll site with remote_theme",
+      "language": "Ruby",
+      "stars": 338
+    },
+    "github:benbalter/jekyllbot": {
+      "kind": "github",
+      "title": "benbalter/jekyllbot",
+      "description": "Listens for GitHub post-recieve service hooks messages, runs jekyll, and pushes the results back to GitHub.",
+      "language": "Ruby",
+      "stars": 52,
+      "archived": true
+    },
+    "github:benbalter/markdown_to_word": {
+      "kind": "github",
+      "title": "benbalter/markdown_to_word",
+      "description": "Converts GitHub-flavored Markdown to a Word document",
+      "language": "Ruby",
+      "stars": 86,
+      "archived": true
+    },
+    "github:benbalter/markdown-to-pdf": {
+      "kind": "github",
+      "title": "benbalter/markdown-to-pdf",
+      "description": "On demand generation of enterprise-grade PDFs from GitHub-hosted markdown files",
+      "language": "Ruby",
+      "stars": 74,
+      "archived": true
+    },
+    "github:benbalter/markdown-to-word-js": {
+      "kind": "github",
+      "title": "benbalter/markdown-to-word-js",
+      "description": "Convert Markdown to Word (.docx) documents in your browser at md2word.app. Nothing is uploaded.",
+      "language": "TypeScript",
+      "stars": 1
+    },
+    "github:benbalter/open-source-alternatives": {
+      "kind": "github",
+      "title": "benbalter/open-source-alternatives",
+      "description": "A collaborative list of open-source alternatives to typical government and enterprise software needs",
+      "language": "HTML",
+      "stars": 50,
+      "archived": true
+    },
+    "github:benbalter/open-source-for-government": {
+      "kind": "github",
+      "title": "benbalter/open-source-for-government",
+      "description": "A collaborative resource for government employees looking to participate in the open source community",
+      "language": "HTML",
+      "stars": 13,
+      "archived": true
+    },
+    "github:benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy": {
+      "kind": "github",
+      "title": "benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy",
+      "description": "Pi-hole + Cloudflared (DNS-over-HTTPS) + Caddy on Raspberry Pi via Docker Compose & Ansible for an ad-free home network",
+      "language": "Dockerfile",
+      "stars": 164
+    },
+    "github:benbalter/problem_child": {
+      "kind": "github",
+      "title": "benbalter/problem_child",
+      "description": "Allows authenticated or anonymous users to fill out a standard web form to create GitHub issues (and pull requests).",
+      "language": "Ruby",
+      "stars": 52,
+      "archived": true
+    },
+    "github:benbalter/ra11y": {
+      "kind": "github",
+      "title": "benbalter/ra11y",
+      "description": "Ruby-based automated accessibility testing",
+      "language": "Ruby",
+      "stars": 16,
+      "archived": true
+    },
+    "github:benbalter/redliner": {
+      "kind": "github",
+      "title": "benbalter/redliner",
+      "description": "A tool for facilitating the redlining of documents with the GitHub uninitiated",
+      "language": "Ruby",
+      "stars": 30,
+      "archived": true
+    },
+    "github:benbalter/reorg-tuesdays": {
+      "kind": "github",
+      "title": "benbalter/reorg-tuesdays",
+      "description": "Treat your history of org reorgs and manager changes as a survival-analysis problem — and render it as charts. For fun.",
+      "language": "TypeScript",
+      "stars": 6
+    },
+    "github:benbalter/retlab": {
+      "kind": "github",
+      "title": "benbalter/retlab",
+      "description": "A minimalist Jekyll theme for your personal site",
+      "language": "HTML",
+      "stars": 76,
+      "archived": true
+    },
+    "github:benbalter/site-inspector": {
+      "kind": "github",
+      "title": "benbalter/site-inspector",
+      "description": "Ruby gem and CLI that checks a domain's HTTPS, HSTS, DNS, headers, cookies, WHOIS, accessibility, and tech stack",
+      "language": "Ruby",
+      "stars": 90
+    },
+    "github:benbalter/word_diff": {
+      "kind": "github",
+      "title": "benbalter/word_diff",
+      "description": "Word Diff empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown",
+      "language": "Ruby",
+      "stars": 205,
+      "archived": true
+    },
+    "github:benbalter/word-to-markdown": {
+      "kind": "github",
+      "title": "benbalter/word-to-markdown",
+      "description": "Ruby gem & CLI to convert Word (.docx) documents to Markdown. Superseded by word-to-markdown-js at word2md.com",
+      "language": "Ruby",
+      "stars": 1551
+    },
+    "github:benbalter/word-to-markdown-js": {
+      "kind": "github",
+      "title": "benbalter/word-to-markdown-js",
+      "description": "Convert Word (.docx) documents to clean Markdown: CLI, Node library, or in your browser at word2md.com",
+      "language": "TypeScript",
+      "stars": 269
+    },
+    "github:benbalter/wordpress-static-site-exporter": {
+      "kind": "github",
+      "title": "benbalter/wordpress-static-site-exporter",
+      "description": "WordPress plugin to export posts, pages & metadata to Markdown + YAML for Jekyll, Hugo, or any static site generator",
+      "language": "PHP",
+      "stars": 1079
+    },
+    "github:bryanbraun/anchorjs": {
+      "kind": "github",
+      "title": "bryanbraun/anchorjs",
+      "description": "Add deep anchor links to your docs.",
+      "language": "JavaScript",
+      "stars": 892
+    },
+    "github:btford/write-good": {
+      "kind": "github",
+      "title": "btford/write-good",
+      "description": "Naive linter for English prose",
+      "language": "JavaScript",
+      "stars": 5107
+    },
+    "github:casey/just": {
+      "kind": "github",
+      "title": "casey/just",
+      "description": "🤖 Just a command runner",
+      "language": "Rust",
+      "stars": 36452
+    },
+    "github:cfpb/cfpb.github.io": {
+      "kind": "github",
+      "title": "cfpb/cfpb.github.io",
+      "description": "A site for the CFPB to share and discuss its technology work with the world.",
+      "language": "HTML",
+      "stars": 426
+    },
+    "github:cloudflare/cloudflared": {
+      "kind": "github",
+      "title": "cloudflare/cloudflared",
+      "description": "Cloudflare Tunnel client",
+      "language": "Go",
+      "stars": 16300
+    },
+    "github:davidanson/markdownlint": {
+      "kind": "github",
+      "title": "DavidAnson/markdownlint",
+      "description": "A Node.js style checker and lint tool for Markdown/CommonMark files.",
+      "language": "JavaScript",
+      "stars": 6400
+    },
+    "github:dequelabs/axe-core": {
+      "kind": "github",
+      "title": "dequelabs/axe-core",
+      "description": "Accessibility engine for automated Web UI testing",
+      "language": "HTML",
+      "stars": 7717
+    },
+    "github:dnscrypt/dnscrypt-proxy": {
+      "kind": "github",
+      "title": "DNSCrypt/dnscrypt-proxy",
+      "description": "dnscrypt-proxy 2 - A flexible DNS proxy, with support for encrypted DNS protocols.",
+      "language": "Go",
+      "stars": 13779
+    },
+    "github:get-alex/alex": {
+      "kind": "github",
+      "title": "get-alex/alex",
+      "description": "Catch insensitive, inconsiderate writing",
+      "language": "JavaScript",
+      "stars": 5105
+    },
+    "github:github/choosealicense.com": {
+      "kind": "github",
+      "title": "github/choosealicense.com",
+      "description": "A site to provide non-judgmental guidance on choosing a license for your open source project",
+      "language": "HTML",
+      "stars": 4223
+    },
+    "github:github/open-source-survey": {
+      "kind": "github",
+      "title": "github/open-source-survey",
+      "description": "The Open Source Survey",
+      "stars": 535
+    },
+    "github:gjtorikian/html-proofer": {
+      "kind": "github",
+      "title": "gjtorikian/html-proofer",
+      "description": "Test your rendered HTML files to make sure they're accurate.",
+      "language": "Ruby",
+      "stars": 1645
+    },
+    "github:gnab/remark": {
+      "kind": "github",
+      "title": "gnab/remark",
+      "description": "A simple, in-browser, markdown-driven slideshow tool.",
+      "language": "JavaScript",
+      "stars": 13007
+    },
+    "github:government/welcome": {
+      "kind": "github",
+      "title": "government/welcome",
+      "description": "Information on joining the government community — a collaborative community for sharing best practices in furtherance of open source, open data, and open government efforts.",
+      "stars": 196
+    },
+    "github:jdecked/twemoji": {
+      "kind": "github",
+      "title": "jdecked/twemoji",
+      "description": "Emoji for everyone.",
+      "language": "HTML",
+      "stars": 1899
+    },
+    "github:jekyll/jekyll": {
+      "kind": "github",
+      "title": "jekyll/jekyll",
+      "description": ":globe_with_meridians: Jekyll is a blog-aware static site generator in Ruby",
+      "language": "Ruby",
+      "stars": 51737
+    },
+    "github:jekyll/jekyll-sitemap": {
+      "kind": "github",
+      "title": "jekyll/jekyll-sitemap",
+      "description": "Jekyll plugin to silently generate a sitemaps.org compliant sitemap for your Jekyll site",
+      "language": "Ruby",
+      "stars": 983
+    },
+    "github:ka-weihe/fastest-levenshtein": {
+      "kind": "github",
+      "title": "ka-weihe/fastest-levenshtein",
+      "description": "The fastest implementation of Levenshtein distance in JS/TS.",
+      "language": "TypeScript",
+      "stars": 775
+    },
+    "github:kucherenko/jscpd": {
+      "kind": "github",
+      "title": "kucherenko/jscpd",
+      "description": "Copy/paste detector for source code. 220+ languages, Rust engine, SARIF/HTML/badge reporters, GitHub Action, MCP server for AI agents.",
+      "language": "Rust",
+      "stars": 6454
+    },
+    "github:licensee/licensed": {
+      "kind": "github",
+      "title": "licensee/licensed",
+      "description": "A Ruby gem to cache and verify the licenses of dependencies",
+      "language": "Ruby",
+      "stars": 1048
+    },
+    "github:licensee/licensee": {
+      "kind": "github",
+      "title": "licensee/licensee",
+      "description": "Ruby gem & CLI to detect a project's open source license (SPDX) from LICENSE files, package manifests, and READMEs",
+      "language": "Ruby",
+      "stars": 918
+    },
+    "github:lra/mackup": {
+      "kind": "github",
+      "title": "lra/mackup",
+      "description": "Backup and keep your application settings in sync.",
+      "language": "Python",
+      "stars": 15353
+    },
+    "github:lycheeverse/lychee": {
+      "kind": "github",
+      "title": "lycheeverse/lychee",
+      "description": "⚡ Fast, async, stream-based link checker written in Rust. Finds broken URLs and mail addresses inside Markdown, HTML, reStructuredText, websites and more!",
+      "language": "Rust",
+      "stars": 4054
+    },
+    "github:maadhattah/wordpress-github-sync": {
+      "kind": "github",
+      "title": "mAAdhaTTah/wordpress-github-sync",
+      "description": "A WordPress plugin to sync content with a GitHub repository (or Jekyll site)",
+      "language": "PHP",
+      "stars": 614
+    },
+    "github:mbrt/gmailctl": {
+      "kind": "github",
+      "title": "mbrt/gmailctl",
+      "description": "Declarative configuration for Gmail filters",
+      "language": "Go",
+      "stars": 2209
+    },
+    "github:mislav/will_paginate": {
+      "kind": "github",
+      "title": "mislav/will_paginate",
+      "description": "Pagination library for Rails and other Ruby applications",
+      "language": "Ruby",
+      "stars": 5680
+    },
+    "github:naturalintelligence/fast-xml-parser": {
+      "kind": "github",
+      "title": "NaturalIntelligence/fast-xml-parser",
+      "description": "Validate XML, Parse XML and Build XML rapidly without C/C++ based libraries and no callback.",
+      "language": "JavaScript",
+      "stars": 3138
+    },
+    "github:nodeca/js-yaml": {
+      "kind": "github",
+      "title": "nodeca/js-yaml",
+      "description": "JavaScript YAML parser and dumper. Very fast.",
+      "language": "TypeScript",
+      "stars": 6640
+    },
+    "github:octokit/octokit.rb": {
+      "kind": "github",
+      "title": "octokit/octokit.rb",
+      "description": "Ruby toolkit for the GitHub API",
+      "language": "Ruby",
+      "stars": 3951
+    },
+    "github:open-and-async/mcp": {
+      "kind": "github",
+      "title": "open-and-async/mcp",
+      "description": "MCP server for Open and Async: AI tools to draft decision docs, run async standups, and triage sync vs. async work",
+      "language": "JavaScript",
+      "stars": 51
+    },
+    "github:probot/adapter-github-actions": {
+      "kind": "github",
+      "title": "probot/adapter-github-actions",
+      "description": ":electric_plug: An adapter that takes a Probot app and makes it compatible with GitHub Actions",
+      "language": "JavaScript",
+      "stars": 91
+    },
+    "github:probot/stale": {
+      "kind": "github",
+      "title": "probot/stale",
+      "description": "A GitHub App built with Probot that closes abandoned Issues and Pull Requests after a period of inactivity.",
+      "language": "JavaScript",
+      "stars": 1280,
+      "archived": true
+    },
+    "github:qpdf/qpdf": {
+      "kind": "github",
+      "title": "qpdf/qpdf",
+      "description": "qpdf: A content-preserving PDF document transformer",
+      "language": "C++",
+      "stars": 5528
+    },
+    "github:retextjs/retext": {
+      "kind": "github",
+      "title": "retextjs/retext",
+      "description": "natural language processor powered by plugins part of the @unifiedjs collective",
+      "language": "JavaScript",
+      "stars": 2432
+    },
+    "github:sindresorhus/notifier-for-github": {
+      "kind": "github",
+      "title": "sindresorhus/notifier-for-github",
+      "description": "Browser extension - Get notified about new GitHub notifications",
+      "language": "JavaScript",
+      "stars": 1990
+    },
+    "github:stevenblack/hosts": {
+      "kind": "github",
+      "title": "StevenBlack/hosts",
+      "description": "🔒 Consolidating and extending hosts files from several well-curated sources. Optionally pick extensions for porn, social media, and other categories.",
+      "language": "Python",
+      "stars": 31332
+    },
+    "github:streetsidesoftware/cspell": {
+      "kind": "github",
+      "title": "streetsidesoftware/cspell",
+      "description": "A Spell Checker for Code!",
+      "language": "TypeScript",
+      "stars": 1700
+    },
+    "github:svg/svgo": {
+      "kind": "github",
+      "title": "svg/svgo",
+      "description": "SVG Optimizer for Node.js and CLI. ⚙️",
+      "language": "JavaScript",
+      "stars": 22767
+    },
+    "github:swiftlang/swift": {
+      "kind": "github",
+      "title": "swiftlang/swift",
+      "description": "The Swift Programming Language",
+      "language": "Swift",
+      "stars": 70522
+    },
+    "github:tailwindlabs/tailwindcss-typography": {
+      "kind": "github",
+      "title": "tailwindlabs/tailwindcss-typography",
+      "description": "Beautiful typographic defaults for HTML you don't control.",
+      "language": "JavaScript",
+      "stars": 6483
+    },
+    "github:twilio-labs/actions-sms": {
+      "kind": "github",
+      "title": "twilio-labs/actions-sms",
+      "description": "Send an SMS through GitHub Actions",
+      "language": "JavaScript",
+      "stars": 163
+    },
+    "github:whitehouse/api-standards": {
+      "kind": "github",
+      "title": "WhiteHouse/api-standards",
+      "stars": 3082,
+      "archived": true
+    },
+    "github:wiredenterprise/lord-of-the-files": {
+      "kind": "github",
+      "title": "WiredEnterprise/Lord-of-the-Files",
+      "description": "A repository for the article Lord of the Files: How GitHub Tamed Free Software (And More), published on Wired.com",
+      "stars": 248
+    },
+    "github:wp-document-revisions/wp-document-revisions": {
+      "kind": "github",
+      "title": "wp-document-revisions/wp-document-revisions",
+      "description": "Document management and version control for WordPress. Collaborate on files, track every revision, and auto-generate change summaries with AI.",
+      "language": "PHP",
+      "stars": 178
+    },
+    "github:wp-document-revisions/wp-document-revisions-code-cookbook": {
+      "kind": "github",
+      "title": "wp-document-revisions/WP-Document-Revisions-Code-Cookbook",
+      "description": "Sample Code for Common WP Document Revision Implimentations",
+      "language": "PHP",
+      "stars": 47
+    },
+    "wikipedia:1%_rule_(Internet_culture)": {
+      "kind": "wikipedia",
+      "title": "1% rule",
+      "description": "Hypothesis that more people will lurk in a virtual community than will participate",
+      "extract": "In Internet culture, the 1% rule is a general rule of thumb pertaining to participation in an Internet community, stating that only 1% of the users of a website actively create new content, while the other 99% of the participants only lurk."
+    },
+    "wikipedia:Analysis_paralysis": {
+      "kind": "wikipedia",
+      "title": "Analysis paralysis",
+      "description": "Overthinking causes",
+      "extract": "Analysis paralysis is a state of an individual or a group in which excessive analysis of a situation cause forward motion or decision-making to become paralyzed, meaning that no solution or course of action is decided upon within a natural time frame."
+    },
+    "wikipedia:Andon_(manufacturing)": {
+      "kind": "wikipedia",
+      "title": "Andon (manufacturing)",
+      "description": "Alerting system for quality control",
+      "extract": "In manufacturing, andon is a system which notifies managerial, maintenance, and other workers of a quality or process problem. The alert can be activated manually by a worker using a pullcord or button or may be activated automatically by the production equipment itself."
+    },
+    "wikipedia:Angry_Birds": {
+      "kind": "wikipedia",
+      "title": "Angry Birds",
+      "description": "Finnish media franchise",
+      "extract": "Angry Birds is a video game series and media franchise created by Finnish game designer Jaakko Iisalo and owned by Rovio Entertainment, a subsidiary of Sega."
+    },
+    "wikipedia:Antideficiency_Act": {
+      "kind": "wikipedia",
+      "title": "Antideficiency Act",
+      "description": "Act of United States Congress",
+      "extract": "The Antideficiency Act (ADA) is legislation enacted by the United States Congress to prevent the incurring of obligations or the making of expenditures (outlays) in excess of amounts available in appropriations or funds."
+    },
+    "wikipedia:Balancing_test": {
+      "kind": "wikipedia",
+      "title": "Balancing test",
+      "description": "Judicial test which weighs the importance of multiple factors in a case",
+      "extract": "In law, a balancing test is any judicial test in which the jurists weigh the importance of multiple factors in a legal case. Proponents of such legal tests argue that they allow a deeper consideration of complex issues than a bright-line rule can allow."
+    },
+    "wikipedia:Benevolent_dictator_for_life": {
+      "kind": "wikipedia",
+      "title": "Benevolent dictator for life",
+      "description": "Title given to a small number of open-source software development leaders",
+      "extract": "Benevolent dictator for life (BDFL) or just benevolent dictator is a tongue-in-cheek title given to a small number of free and open-source software development leaders, typically project founders who retain the final say in disputes or arguments within the community."
+    },
+    "wikipedia:Berne_Convention": {
+      "kind": "wikipedia",
+      "title": "Berne Convention",
+      "description": "1886 international assembly and treaty",
+      "extract": "The Berne Convention for the Protection of Literary and Artistic Works, usually known as the Berne Convention, was an international assembly held in 1886 in the Swiss city of Bern by ten European countries with the goal of agreeing on a set of legal principles for the…"
+    },
+    "wikipedia:Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works": {
+      "kind": "wikipedia",
+      "title": "Berne Convention",
+      "description": "1886 international assembly and treaty",
+      "extract": "The Berne Convention for the Protection of Literary and Artistic Works, usually known as the Berne Convention, was an international assembly held in 1886 in the Swiss city of Bern by ten European countries with the goal of agreeing on a set of legal principles for the…"
+    },
+    "wikipedia:Betamax": {
+      "kind": "wikipedia",
+      "title": "Betamax",
+      "description": "Discontinued Analog video cassette recording format",
+      "extract": "Betamax is a discontinued consumer analog videocassette recording format developed by Sony. It was one of the main competitors in the videotape format war against its primary rival, VHS."
+    },
+    "wikipedia:Bloodletting": {
+      "kind": "wikipedia",
+      "title": "Bloodletting",
+      "description": "Therapy, now rarely used in medicine",
+      "extract": "Bloodletting is the deliberate withdrawal of blood from a patient to prevent or cure illness and disease."
+    },
+    "wikipedia:Bluehost": {
+      "kind": "wikipedia",
+      "title": "Bluehost",
+      "description": "Web hosting company",
+      "extract": "Bluehost is a web hosting and domain registration company owned by Newfold Digital. The company sells shared, WordPress, VPS, dedicated, and WooCommerce hosting, as well as marketing services. It is listed as a recommended host on WordPress.org."
+    },
+    "wikipedia:BMW": {
+      "kind": "wikipedia",
+      "title": "BMW",
+      "description": "German automotive manufacturer",
+      "extract": "Bayerische Motoren Werke AG, trading as BMW Group, is a German multinational conglomerate manufacturer of luxury vehicles and motorcycles headquartered in Munich, Germany."
+    },
+    "wikipedia:Broadside_(printing)": {
+      "kind": "wikipedia",
+      "title": "Broadside (printing)",
+      "description": "Historical printing format; large sheet of paper printed on one side only",
+      "extract": "A broadside is a large sheet of paper printed on one side only. Historically in Europe, broadsides were used as posters, announcing events or proclamations, giving political views, commentary in the form of ballads, or simply advertisements."
+    },
+    "wikipedia:Bus_factor": {
+      "kind": "wikipedia",
+      "title": "Bus factor",
+      "description": "Concept in risk management",
+      "extract": "The bus factor is a measurement of the risk resulting from information and capabilities not being shared among team members, derived from the phrase \"in case they get hit by a bus\"."
+    },
+    "wikipedia:Cargo_cult": {
+      "kind": "wikipedia",
+      "title": "Cargo cult",
+      "description": "New religious movement",
+      "extract": "Cargo cults are spiritual and political movements that arose among indigenous Melanesians following Western colonisation of the region in the early 20th century."
+    },
+    "wikipedia:Categorical_imperative": {
+      "kind": "wikipedia",
+      "title": "Categorical imperative",
+      "description": "Central concept in Kantian moral philosophy",
+      "extract": "The categorical imperative is the central philosophical concept in the deontological moral philosophy of Immanuel Kant. Introduced in Kant's 1785 Groundwork of the Metaphysics of Morals, it is a way of evaluating motivations for action."
+    },
+    "wikipedia:Cloud_computing": {
+      "kind": "wikipedia",
+      "title": "Cloud computing",
+      "description": "Form of shared internet-based computing",
+      "extract": "Cloud computing is defined by the International Organization for Standardization (ISO) as \"a paradigm for enabling network access to a scalable and elastic pool of shareable physical or virtual resources with self-service provisioning and administration on demand\"."
+    },
+    "wikipedia:Command_key": {
+      "kind": "wikipedia",
+      "title": "Command key",
+      "description": "Computer key",
+      "extract": "The Command key, ⌘, formerly also known as the Apple key or open Apple key, is a modifier key present on Apple keyboards. The Command key's purpose is to allow the user to enter keyboard commands in applications and in the system."
+    },
+    "wikipedia:Content_delivery_network": {
+      "kind": "wikipedia",
+      "title": "Content delivery network",
+      "description": "Internet ecosystem layer that addresses bottlenecks",
+      "extract": "A content delivery network (CDN) or content distribution network is a geographically distributed network of proxy servers and corresponding data centers."
+    },
+    "wikipedia:Content_management_system": {
+      "kind": "wikipedia",
+      "title": "Content management system",
+      "description": "Software for managing digital content",
+      "extract": "A content management system (CMS) is a computer software used to create, manage, modify, and publish digital content."
+    },
+    "wikipedia:Conway's_law": {
+      "kind": "wikipedia",
+      "title": "Conway's law",
+      "description": "Adage linking design systems to communication structures",
+      "extract": "Conway's law describes the link between communication structure of organizations and the systems they design. It is named after the computer scientist and programmer Melvin Conway, who introduced the idea in 1967."
+    },
+    "wikipedia:Copyright_law_of_the_United_States": {
+      "kind": "wikipedia",
+      "title": "Copyright law of the United States",
+      "extract": "In the United States, copyright grants monopoly protection for \"original works of authorship\"."
+    },
+    "wikipedia:Copyright_notice": {
+      "kind": "wikipedia",
+      "title": "Copyright notice",
+      "description": "Notice to inform consumers of claimed copyright ownership",
+      "extract": "In United States copyright law, a copyright notice is a notice of statutorily prescribed form for users of a published work."
+    },
+    "wikipedia:Cover_your_ass": {
+      "kind": "wikipedia",
+      "title": "Cover your ass",
+      "description": "Phrase meaning to protect oneself from repercussions",
+      "extract": "\"Cover your ass\", abbreviated CYA, is a phrase that describes an activity done by individuals to protect themselves from possible subsequent criticism, legal penalties, or other repercussions, usually in a work-related or bureaucratic context."
+    },
+    "wikipedia:Criminal_record": {
+      "kind": "wikipedia",
+      "title": "Criminal record",
+      "description": "Record of a person's criminal history",
+      "extract": "A criminal record is a record of a person's criminal convictions history. The information included in a criminal record, and the existence of a criminal record, varies between countries and even between jurisdictions within a country."
+    },
+    "wikipedia:Distributed_revision_control": {
+      "kind": "wikipedia",
+      "title": "Distributed version control",
+      "description": "Software engineering tool",
+      "extract": "In software development, distributed version control is a form of version control in which the complete codebase, including its full history, is mirrored on every developer's computer."
+    },
+    "wikipedia:DNS_sinkhole": {
+      "kind": "wikipedia",
+      "title": "DNS sinkhole",
+      "description": "DNS server that points a domain to bogus internet addresses",
+      "extract": "A DNS sinkhole, also known as a sinkhole server, Internet sinkhole, or Blackhole DNS is a Domain Name System (DNS) server that is configured to hand out non-routable addresses for a certain set of domain names. Computers that use the sinkhole fail to access the real site."
+    },
+    "wikipedia:Document_management_system": {
+      "kind": "wikipedia",
+      "title": "Document management system",
+      "description": "Organised collection of documents",
+      "extract": "A document management system (DMS) is a computerized system used to store, share, track and manage electronic files or documents."
+    },
+    "wikipedia:Domain_name": {
+      "kind": "wikipedia",
+      "title": "Domain name",
+      "description": "Identification string in the Internet",
+      "extract": "In the Internet, a domain name is a string that identifies a realm of administrative autonomy, authority, or control. Domain names are often used to identify services provided through the Internet, such as websites, email services, and more."
+    },
+    "wikipedia:Domain_Name_System_Security_Extensions": {
+      "kind": "wikipedia",
+      "title": "Domain Name System Security Extensions",
+      "description": "Suite of IETF specifications",
+      "extract": "The Domain Name System Security Extensions (DNSSEC) is a suite of extension specifications by the Internet Engineering Task Force (IETF) for securing data exchanged in the Domain Name System (DNS) in Internet Protocol (IP) networks."
+    },
+    "wikipedia:Doxing": {
+      "kind": "wikipedia",
+      "title": "Doxing",
+      "description": "Publication of private details",
+      "extract": "Doxing or doxxing is the act of providing personally identifiable information about an individual or organization, usually via the Internet and without their consent, and or with the intention of harassing or causing distress to the victim."
+    },
+    "wikipedia:Dunbar's_number": {
+      "kind": "wikipedia",
+      "title": "Dunbar's number",
+      "description": "Suggested cognitive limit important in sociology and anthropology",
+      "extract": "Dunbar's number is a suggested cognitive limit to the number of people with whom one can maintain stable social relationships—relationships in which an individual knows who each person is and how each person relates to every other person."
+    },
+    "wikipedia:Eating_your_own_dog_food": {
+      "kind": "wikipedia",
+      "title": "Eating your own dog food",
+      "description": "Term for an organization using its own product",
+      "extract": "Eating your own dog food or \"dogfooding\" is the practice of using one's own products or services. This can be a way for an organization to test its products in real-world usage using product management techniques."
+    },
+    "wikipedia:Edge_case": {
+      "kind": "wikipedia",
+      "title": "Edge case",
+      "description": "Problem or situation that occurs only at an extreme operating parameter",
+      "extract": "An edge case is a problem or situation that occurs only at an extreme operating parameter. For example, a stereo speaker might noticeably distort the audio when played at maximum volume, even in the absence of any other extreme settings or conditions."
+    },
+    "wikipedia:Escalation_of_commitment": {
+      "kind": "wikipedia",
+      "title": "Escalation of commitment",
+      "description": "Human behavior pattern in which the participant takes on increasing risk",
+      "extract": "Escalation of commitment is a pattern of decision-making in which individuals or groups continue to invest in a chosen course of action despite mounting evidence that the decision is wrong or that the project is unlikely to succeed."
+    },
+    "wikipedia:Faraday_cage": {
+      "kind": "wikipedia",
+      "title": "Faraday cage",
+      "description": "Enclosure of conductive mesh used to block electric fields",
+      "extract": "A Faraday cage or Faraday shield is an enclosure used to block some electromagnetic fields. A Faraday shield may be formed by a continuous covering of conductive material, or in the case of a Faraday cage, by a mesh of such materials."
+    },
+    "wikipedia:Fear,_uncertainty_and_doubt": {
+      "kind": "wikipedia",
+      "title": "Fear, uncertainty, and doubt",
+      "description": "Tactic used to influence opinion",
+      "extract": "Fear, Uncertainty, and Doubt (FUD), or Fear, Uncertainty, Doubt, and Despair (FUDD), is a manipulative tactic used in sales, media, marketing, public relations, opinion polling, and cults."
+    },
+    "wikipedia:First_principle": {
+      "kind": "wikipedia",
+      "title": "First principle",
+      "description": "Basic proposition or assumption",
+      "extract": "In philosophy and science, a first principle is a basic proposition or assumption that cannot be deduced from any other proposition or assumption."
+    },
+    "wikipedia:Flow_(psychology)": {
+      "kind": "wikipedia",
+      "title": "Flow (psychology)",
+      "description": "Full immersion in an activity",
+      "extract": "Flow in positive psychology, also known colloquially as being in the zone or focused, is the mental state in which a person performing some activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity."
+    },
+    "wikipedia:Fragment_identifier": {
+      "kind": "wikipedia",
+      "title": "URI fragment",
+      "description": "Text after the # in a resource URI",
+      "extract": "In computer hypertext, a URI fragment is a string of characters that refers to a resource that is subordinate to another, primary resource. The primary resource is identified by a Uniform Resource Identifier (URI), and the fragment identifier points to the subordinate resource."
+    },
+    "wikipedia:Free_and_open-source_software": {
+      "kind": "wikipedia",
+      "title": "Free and open-source software",
+      "description": "Freely licensed software with open code",
+      "extract": "Free and open-source software (FOSS) is software available under a license that gives users the right to use, share, modify, and distribute the software — modified or not — to everyone and provides the means to exercise those rights using the software's source code."
+    },
+    "wikipedia:Garbage_in,_garbage_out": {
+      "kind": "wikipedia",
+      "title": "Garbage in, garbage out",
+      "description": "Phrase used in computer science",
+      "extract": "In computer science, garbage in, garbage out (GIGO) is the concept that flawed, biased or poor quality (garbage) information or input produces a result or output of similar (\"garbage\") quality. The saying points to the need to improve data quality in, for example, programming."
+    },
+    "wikipedia:GeoJSON": {
+      "kind": "wikipedia",
+      "title": "GeoJSON",
+      "description": "JSON subset for geospatial data",
+      "extract": "GeoJSON is an open standard format designed for representing simple geographical features, along with their non-spatial attributes. It is based on the JSON format."
+    },
+    "wikipedia:Getting_Things_Done": {
+      "kind": "wikipedia",
+      "title": "Getting Things Done",
+      "description": "Personal productivity system and 2001 book",
+      "extract": "Getting Things Done (GTD) is a personal productivity system developed by David Allen and published in a book of the same name. GTD is described as a time management system. Allen states \"there is an inverse relationship between things on your mind and those things getting done\"."
+    },
+    "wikipedia:Godwin's_law": {
+      "kind": "wikipedia",
+      "title": "Godwin's law",
+      "description": "Internet adage about Nazi comparisons",
+      "extract": "Godwin's law, short for Godwin's law of Nazi analogies, is an Internet proverb asserting: \"As an online discussion grows longer, the probability of a comparison involving Nazis or Hitler approaches one.\""
+    },
+    "wikipedia:Golden_handcuffs": {
+      "kind": "wikipedia",
+      "title": "Golden handcuffs",
+      "description": "Large financial benefits for employee retention",
+      "extract": "Golden handcuffs, a phrase first recorded in 1976, refers to financial allurements and benefits that have the objective to encourage highly compensated employees to remain within a company or organization instead of moving from company to company."
+    },
+    "wikipedia:Golden_Rule": {
+      "kind": "wikipedia",
+      "title": "Golden Rule",
+      "description": "Principle of treating others reciprocally",
+      "extract": "The Golden Rule is the principle of treating others as one would want to be treated by them. It is sometimes called an ethics of reciprocity, meaning that one should reciprocate to others how one would like them to treat the person."
+    },
+    "wikipedia:Gopher_(protocol)": {
+      "kind": "wikipedia",
+      "title": "Gopher (protocol)",
+      "description": "TCP/IP application layer protocol",
+      "extract": "Gopher is a communication protocol designed for distributing, searching, and retrieving documents in Internet Protocol networks."
+    },
+    "wikipedia:Halloween_documents": {
+      "kind": "wikipedia",
+      "title": "Halloween documents",
+      "description": "Confidential Microsoft strategies against free and open-source software",
+      "extract": "The Halloween documents comprise a series of confidential Microsoft memoranda on potential strategies relating to free software, open-source software, and to Linux in particular, and a series of media responses to these memoranda."
+    },
+    "wikipedia:History_of_email_spam": {
+      "kind": "wikipedia",
+      "title": "History of email spam",
+      "extract": "The history of email spam reaches back to the mid-1990s, when commercial use of the internet first became possible—and marketers and publicists began to test what was possible."
+    },
+    "wikipedia:HTTP_Strict_Transport_Security": {
+      "kind": "wikipedia",
+      "title": "HTTP Strict Transport Security",
+      "description": "Website protection mechanism",
+      "extract": "HTTP Strict Transport Security (HSTS) is a policy mechanism that helps to protect websites against man-in-the-middle attacks such as protocol downgrade attacks and cookie hijacking."
+    },
+    "wikipedia:HTTPS": {
+      "kind": "wikipedia",
+      "title": "HTTPS",
+      "description": "HTTP extension supporting TLS encryption",
+      "extract": "Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet."
+    },
+    "wikipedia:Hypertext_Transfer_Protocol": {
+      "kind": "wikipedia",
+      "title": "HTTP",
+      "description": "Application layer protocol",
+      "extract": "HTTP is an application layer protocol in the Internet protocol suite for distributed, collaborative, hypermedia information systems."
+    },
+    "wikipedia:IBM_Selectric_typewriter": {
+      "kind": "wikipedia",
+      "title": "IBM Selectric",
+      "description": "Line of electric typewriters by IBM",
+      "extract": "The IBM Selectric was a highly successful line of electric typewriters introduced by IBM on 31 July 1961."
+    },
+    "wikipedia:Impostor_syndrome": {
+      "kind": "wikipedia",
+      "title": "Impostor syndrome",
+      "description": "Psychological pattern",
+      "extract": "Impostor syndrome, also known as impostor phenomenon, impostorism, or impostor thoughts, is a psychological experience in which a person suffers from feelings of intellectual and/or professional fraudulence."
+    },
+    "wikipedia:Intent_(military)": {
+      "kind": "wikipedia",
+      "title": "Intent (military)",
+      "description": "Desired outcome of a military operation",
+      "extract": "For military strategy, intent is the desired outcome of a military operation. It is a key concept in 21st century military operations and is a vital element to facilitate subordinates' initiative and collaboration and cooperation amongst team members in joint operations."
+    },
+    "wikipedia:Internet_forum": {
+      "kind": "wikipedia",
+      "title": "Internet forum",
+      "description": "Website for online discussions",
+      "extract": "An Internet forum, or message board, is an online discussion platform where people can hold conversations in the form of posted messages. They differ from chat rooms in that messages are often longer than one line of text, and are at least temporarily archived."
+    },
+    "wikipedia:Internet_Message_Access_Protocol": {
+      "kind": "wikipedia",
+      "title": "Internet Message Access Protocol",
+      "description": "Application layer protocol for e-mail retrieval and storage",
+      "extract": "In computing, the Internet Message Access Protocol (IMAP) is an Internet standard protocol used by email clients to retrieve email messages from a mail server over a TCP/IP connection. IMAP is defined by RFC 9051."
+    },
+    "wikipedia:Internet_Relay_Chat": {
+      "kind": "wikipedia",
+      "title": "IRC",
+      "description": "Protocol for real-time Internet chat and messaging",
+      "extract": "IRC is a text-based chat system for instant messaging. IRC is designed for group communication in discussion forums, called channels, but also allows one-on-one communication via private messages and chat and data transfer, including file sharing."
+    },
+    "wikipedia:IPv6": {
+      "kind": "wikipedia",
+      "title": "IPv6",
+      "description": "Version 6 of the Internet Protocol",
+      "extract": "Internet Protocol version 6 (IPv6) is the most recent version of the Internet Protocol (IP), the communications protocol that provides an identification and location system for computers on networks and routes traffic across the Internet."
+    },
+    "wikipedia:ISO_8601": {
+      "kind": "wikipedia",
+      "title": "ISO 8601",
+      "description": "International standards for dates and times",
+      "extract": "ISO 8601 is an international standard covering the worldwide exchange and communication of date and time-related data."
+    },
+    "wikipedia:Law_of_triviality": {
+      "kind": "wikipedia",
+      "title": "Law of triviality",
+      "description": "Focusing on what is irrelevant but easy to understand",
+      "extract": "The law of triviality is C. Northcote Parkinson's 1957 argument that people within an organization commonly give disproportionate weight to trivial issues."
+    },
+    "wikipedia:Lean_manufacturing": {
+      "kind": "wikipedia",
+      "title": "Lean manufacturing",
+      "description": "Methodology used to improve production",
+      "extract": "Lean manufacturing is a management system built on three principles: produce only what is needed, when it is needed; correct abnormalities as soon as they occur; and empower workers to improve the process themselves."
+    },
+    "wikipedia:Levenshtein_distance": {
+      "kind": "wikipedia",
+      "title": "Levenshtein distance",
+      "description": "String metric for measuring edit distance",
+      "extract": "In information theory, linguistics, and computer science, the Levenshtein distance is a string metric for measuring the difference between two sequences."
+    },
+    "wikipedia:Linus's_Law": {
+      "kind": "wikipedia",
+      "title": "Linus's law",
+      "description": "1999 claim about software development",
+      "extract": "In software development, Linus's law is the assertion that \"given enough eyeballs, all bugs are shallow\". The law was formulated by Eric S. Raymond in his essay and book The Cathedral and the Bazaar (1999), and was named in honor of Linus Torvalds."
+    },
+    "wikipedia:List_of_parties_to_international_copyright_agreements": {
+      "kind": "wikipedia",
+      "title": "List of parties to international copyright agreements",
+      "extract": "Below is a list of countries which have signed and ratified one or more multilateral international copyright treaties. This list covers only multilateral treaties. It does not include bilateral treaties."
+    },
+    "wikipedia:Lock_(computer_science)": {
+      "kind": "wikipedia",
+      "title": "Lock (computer science)",
+      "description": "Synchronization mechanism for enforcing limits on access to a resource",
+      "extract": "In computer science, a lock or mutex is a synchronization primitive that prevents state from being modified or accessed by multiple threads of execution at once."
+    },
+    "wikipedia:MD5": {
+      "kind": "wikipedia",
+      "title": "MD5",
+      "description": "Message-digest hashing algorithm",
+      "extract": "The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. MD5 was designed by Ronald Rivest in 1991 to replace an earlier hash function MD4, and was specified in 1992 as RFC 1321."
+    },
+    "wikipedia:Meme": {
+      "kind": "wikipedia",
+      "title": "Meme",
+      "description": "Cultural idea that spreads through imitation",
+      "extract": "A meme is an idea, behavior, or style that spreads by means of imitation (mimesis) from person to person within a culture and often carries symbolic meaning representing a particular phenomenon or theme."
+    },
+    "wikipedia:Microsoft_Exchange_Server": {
+      "kind": "wikipedia",
+      "title": "Microsoft Exchange Server",
+      "description": "Calendaring and mail server",
+      "extract": "Microsoft Exchange Server is a mail server and calendaring server developed by Microsoft. It runs exclusively on Windows Server operating systems."
+    },
+    "wikipedia:Microsoft_SharePoint": {
+      "kind": "wikipedia",
+      "title": "SharePoint",
+      "description": "Web platform part of Microsoft 365",
+      "extract": "Microsoft SharePoint is a web-based collaborative platform primarily used for building corporate intranets, document and content management, and file sharing."
+    },
+    "wikipedia:N-gram": {
+      "kind": "wikipedia",
+      "title": "N-gram",
+      "description": "Item sequences in computational linguistics",
+      "extract": "An n-gram is a sequence of n adjacent symbols in a particular order."
+    },
+    "wikipedia:Operational_transformation": {
+      "kind": "wikipedia",
+      "title": "Operational transformation",
+      "description": "Concurrency control method for collaborative software",
+      "extract": "Operational transformation (OT) is a technology for supporting a range of collaboration functionalities in advanced collaborative software systems. OT was originally invented for consistency maintenance and concurrency control in collaborative editing of plain text documents."
+    },
+    "wikipedia:Pareto_principle": {
+      "kind": "wikipedia",
+      "title": "Pareto principle",
+      "description": "Statistical principle about ratio of effects to causes",
+      "extract": "The Pareto principle states that, for many outcomes, roughly 80% of consequences come from 20% of causes."
+    },
+    "wikipedia:Patentability": {
+      "kind": "wikipedia",
+      "title": "Patentability",
+      "description": "Concept in patent law",
+      "extract": "Within the context of a national or multilateral body of law, an invention is patentable if it meets the relevant legal conditions to be granted a patent. By extension, patentability also refers to the substantive conditions that must be met for a patent to be held valid."
+    },
+    "wikipedia:Peering": {
+      "kind": "wikipedia",
+      "title": "Peering",
+      "description": "Voluntary interconnection of administratively separate Internet networks",
+      "extract": "In computer networking, peering is a voluntary interconnection of administratively separate Internet networks for the purpose of exchanging traffic between the \"down-stream\" users of each network."
+    },
+    "wikipedia:People_v._Diaz": {
+      "kind": "wikipedia",
+      "title": "People v. Diaz",
+      "extract": "People v. Diaz, 51 Cal. 4th 84, 244 P.3d 501, 119 Cal. Rptr. 3d 105 was a Supreme Court of California case, which held that police are not required to obtain a warrant to search information contained within a cell phone in a lawful arrest."
+    },
+    "wikipedia:Post_Office_Protocol": {
+      "kind": "wikipedia",
+      "title": "Post Office Protocol",
+      "description": "Family of Internet mail protocols",
+      "extract": "In computing, the Post Office Protocol (POP) is an application-layer Internet standard protocol used by e-mail clients to retrieve e-mail from a mail server. Today, POP version 3 (POP3) is the most commonly used version."
+    },
+    "wikipedia:Representational_state_transfer": {
+      "kind": "wikipedia",
+      "title": "REST",
+      "description": "Architectural style for client-server applications",
+      "extract": "REST is a software architectural style that was created to describe the design and guide the development of the architecture for the World Wide Web."
+    },
+    "wikipedia:Revision_control": {
+      "kind": "wikipedia",
+      "title": "Version control",
+      "description": "Managing versions of source code or data",
+      "extract": "Version control is the software engineering practice of controlling, organizing, and tracking different versions in history of computer files – primarily source code text files, but generally any type of file."
+    },
+    "wikipedia:Security_through_obscurity": {
+      "kind": "wikipedia",
+      "title": "Security through obscurity",
+      "description": "Reliance on design or implementation secrecy for security",
+      "extract": "In security engineering, security through obscurity is the practice of concealing the details or mechanisms of a system to enhance its security."
+    },
+    "wikipedia:Semantic_URL": {
+      "kind": "wikipedia",
+      "title": "Clean URL",
+      "description": "URL intended to improve the usability of a website",
+      "extract": "Clean URLs are web addresses or Uniform Resource Locators (URLs) intended to improve the usability and accessibility of a website, web application, or web service by being immediately and intuitively meaningful to non-expert users."
+    },
+    "wikipedia:Servant_leadership": {
+      "kind": "wikipedia",
+      "title": "Servant leadership",
+      "description": "Leadership philosophy",
+      "extract": "Servant leadership is a leadership philosophy in which the goal of the leader is to serve. A servant leader shares power, puts the needs of the employees first and helps people develop and perform as highly as possible."
+    },
+    "wikipedia:Shadow_banning": {
+      "kind": "wikipedia",
+      "title": "Shadow banning",
+      "description": "Blocking a user from an online community without their awareness",
+      "extract": "Shadow banning, also known as stealth banning, hell banning, ghost banning, and comment ghosting, is the practice of blocking or partially blocking a user or the user's content from some areas of an online community in such a way that the ban is not readily apparent to the…"
+    },
+    "wikipedia:Shapefile": {
+      "kind": "wikipedia",
+      "title": "Shapefile",
+      "description": "Geospatial vector data format",
+      "extract": "The shapefile format is a geospatial vector data format for geographic information system (GIS) software. It is developed and regulated by Esri as a mostly open specification for data interoperability among Esri and other GIS software products."
+    },
+    "wikipedia:Silent_majority": {
+      "kind": "wikipedia",
+      "title": "Silent majority",
+      "description": "Concept in politics",
+      "extract": "The silent majority is an unspecified large group of people in a country or group who do not express their opinions publicly. The term was popularized by U.S."
+    },
+    "wikipedia:SOAP": {
+      "kind": "wikipedia",
+      "title": "SOAP",
+      "description": "Messaging protocol for web services",
+      "extract": "SOAP is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks."
+    },
+    "wikipedia:Sockpuppet_(Internet)": {
+      "kind": "wikipedia",
+      "title": "Sock puppet account",
+      "description": "False online identity used for deception",
+      "extract": "A sock puppet, sock puppet account, or sock is a false online identity used for deceptive purposes. The term metaphorically refers to a hand puppet made from a sock."
+    },
+    "wikipedia:Stateless_protocol": {
+      "kind": "wikipedia",
+      "title": "Stateless protocol",
+      "description": "Communications protocol in which no information is retained by either sender or receiver",
+      "extract": "A stateless protocol is a communication protocol in which the receiver does not retain session state from previous requests."
+    },
+    "wikipedia:Swatting": {
+      "kind": "wikipedia",
+      "title": "Swatting",
+      "description": "Serious fraudulent report to emergency service",
+      "extract": "Swatting is a form of criminal harassment that involves deceiving an emergency service into sending a police or emergency response team to another person's location."
+    },
+    "wikipedia:The_Innovator's_Dilemma": {
+      "kind": "wikipedia",
+      "title": "The Innovator's Dilemma",
+      "description": "1997 book by Clayton M. Christensen",
+      "extract": "The Innovator's Dilemma: When New Technologies Cause Great Firms to Fail, first published in 1997, is the best-known work of the Harvard professor and businessman Clayton Christensen."
+    },
+    "wikipedia:The_squeaky_wheel_gets_the_grease": {
+      "kind": "wikipedia",
+      "title": "The squeaky wheel gets the grease",
+      "description": "American proverb",
+      "extract": "The squeaky wheel gets the grease is an American aphorism or metaphor attesting that matters that draw attention to themselves are more likely to be addressed than those that do not."
+    },
+    "wikipedia:Toyota_Production_System": {
+      "kind": "wikipedia",
+      "title": "Toyota Production System",
+      "description": "Management system developed by Toyota",
+      "extract": "The Toyota Production System (TPS) is an integrated socio-technical system, developed by Toyota, that comprises its management philosophy and practices."
+    },
+    "wikipedia:Uniform_resource_identifier": {
+      "kind": "wikipedia",
+      "title": "Uniform Resource Identifier",
+      "description": "String used to identify a name of a web or internet resource",
+      "extract": "A Uniform Resource Identifier (URI), formerly Universal Resource Identifier, is a unique sequence of characters that identifies an abstract or physical resource, such as a webpage, service, email address, phone number, book, real-world object, or concept."
+    },
+    "wikipedia:Uniform_resource_locator": {
+      "kind": "wikipedia",
+      "title": "URL",
+      "description": "Address on the World Wide Web",
+      "extract": "A uniform resource locator (URL), colloquially known as a web address, is a reference to a resource on the World Wide Web. A URL specifies the location of a resource on a computer network and a mechanism for retrieving it."
+    },
+    "wikipedia:Vertical_integration": {
+      "kind": "wikipedia",
+      "title": "Vertical integration",
+      "description": "When a company owns its supply chain",
+      "extract": "In microeconomics, management and international political economy, vertical integration, also referred to as vertical consolidation, is an arrangement in which the supply chain of a company is integrated and owned by that company."
+    },
+    "wikipedia:Web_hosting_service": {
+      "kind": "wikipedia",
+      "title": "Web hosting service",
+      "description": "Service for hosting websites",
+      "extract": "A web hosting service is a type of Internet hosting service that provides the infrastructure required to host websites and make them accessible on the World Wide Web. Companies providing web hosting services are sometimes called web hosts."
+    },
+    "wikipedia:Webmail": {
+      "kind": "wikipedia",
+      "title": "Webmail",
+      "description": "Email service that can be accessed using a web browser",
+      "extract": "Webmail is an email service that can be accessed using a standard web browser. It contrasts with email service accessible through a specialised email client software. Additionally, many internet service providers (ISP) provide webmail as part of their internet service package."
+    },
+    "wikipedia:Work_for_hire": {
+      "kind": "wikipedia",
+      "title": "Work for hire",
+      "description": "Concept in copyright law",
+      "extract": "In copyright law, a work made for hire is a work whose copyright is initially owned by an entity other than the actual creator as a result of an employment relationship or, in some cases, a commission."
+    },
+    "wikipedia:XML-RPC": {
+      "kind": "wikipedia",
+      "title": "XML-RPC",
+      "description": "Data serialization format",
+      "extract": "XML-RPC is a remote procedure call (RPC) protocol which uses XML to encode its calls and HTTP as a transport mechanism."
+    }
+  }
+}

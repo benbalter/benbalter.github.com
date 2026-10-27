@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { normalizePath, isPostLink, isBookLink } from './link-previews';
+import { normalizePath, isPostLink, isBookLink, formatStars, footnoteFor, hostTemplateFor } from './link-previews';
 
 describe('normalizePath', () => {
   it('returns path and empty hash for path with trailing slash', () => {
@@ -246,5 +246,58 @@ describe('isBookLink', () => {
     const anchor = document.createElement('a');
     container.appendChild(anchor);
     expect(isBookLink(anchor)).toBe(false);
+  });
+});
+
+describe('formatStars', () => {
+  it('rounds to thousands so stale cached counts stay honest', () => {
+    expect(formatStars(42)).toBe('42');
+    expect(formatStars(1000)).toBe('1k');
+    expect(formatStars(1551)).toBe('1.6k');
+    expect(formatStars(12_345)).toBe('12k');
+  });
+});
+
+describe('footnoteFor', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('finds the footnote a reference points to', () => {
+    document.body.innerHTML = `
+      <p><a href="#user-content-fn-source" data-footnote-ref>1</a></p>
+      <ol><li id="user-content-fn-source">Both are open source.</li></ol>`;
+    const anchor = document.querySelector('a')!;
+    expect(footnoteFor(anchor)?.textContent).toBe('Both are open source.');
+  });
+
+  it('ignores ordinary hash links', () => {
+    document.body.innerHTML = `<a href="#section">x</a><h2 id="section">S</h2>`;
+    expect(footnoteFor(document.querySelector('a')!)).toBeNull();
+  });
+});
+
+describe('hostTemplateFor', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('matches a template by host, including subdomains', () => {
+    document.body.innerHTML = `
+      <template data-link-preview-host="word2md.com"><p>Tool</p></template>
+      <a href="https://www.word2md.com/">x</a>`;
+    expect(hostTemplateFor(document.querySelector('a')!)?.dataset.linkPreviewHost).toBe('word2md.com');
+  });
+
+  it('returns null when the page has no template for the host', () => {
+    document.body.innerHTML = '<a href="https://md2word.app/">x</a>';
+    expect(hostTemplateFor(document.querySelector('a')!)).toBeNull();
+  });
+
+  it('skips the book template for the book CTA link', () => {
+    document.body.innerHTML = `
+      <template data-link-preview-host="open-and-async.com"><p>Book</p></template>
+      <a href="https://open-and-async.com/" data-track-book-cta>x</a>`;
+    expect(hostTemplateFor(document.querySelector('a')!)).toBeNull();
   });
 });

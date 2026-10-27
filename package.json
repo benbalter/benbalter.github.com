@@ -173,7 +173,8 @@
     "test:vitest": "vitest run",
     "test:vitest:watch": "vitest",
     "test:vitest:ui": "vitest --ui",
-    "test:vitest:coverage": "vitest run --coverage"
+    "test:vitest:coverage": "vitest run --coverage",
+    "link-previews": "tsx script/build-link-previews.ts"
   },
   "type": "module",
   "engines": {
