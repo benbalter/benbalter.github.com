@@ -9,7 +9,7 @@
  */
 
 /** Cached metadata for a GitHub repo, as stored in src/data/link-previews.json */
-export interface GitHubPreview {
+interface GitHubPreview {
   kind: 'github';
   /** owner/repo, in GitHub's casing */
   title: string;
@@ -20,7 +20,7 @@ export interface GitHubPreview {
 }
 
 /** Cached summary of a Wikipedia article */
-export interface WikipediaPreview {
+interface WikipediaPreview {
   kind: 'wikipedia';
   title: string;
   /** Wikidata short description, e.g. "Software development methodology" */
