@@ -77,7 +77,7 @@ Today, I don't believe that a complete "deprecation" of management is possible, 
 
 Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their own work. It means making work visible, writing things down, and embracing collaboration. After all, if that's the best way to build software, should it not also be the best way to manage software development?
 
-New to managing at GitHub? The habits behind all of this are in my [reading list for working at GitHub](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).
+Managing at GitHub, or interviewing to? My [reading list for new GitHubbers](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/) covers the culture these workflows grew out of.
 
 [^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a `TODO` with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
 

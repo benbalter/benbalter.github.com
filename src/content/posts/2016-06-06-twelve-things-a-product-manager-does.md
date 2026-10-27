@@ -59,4 +59,4 @@ You are responsible for keeping the lights on, for keeping the servers up, the t
 
 That's my list of the top twelve things I've done over the past six months as a product manager, but there's obviously much, much more. Does that match your experience? Something I left out? I'd love to hear your thoughts in the comments below.
 
-Starting as a product manager at GitHub? Here's [what I'd read before interviewing or starting at GitHub](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).
+Interviewing or starting as a product manager at GitHub? Here's [what I'd read first](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).
