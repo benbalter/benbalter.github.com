@@ -24,6 +24,10 @@ I'd push back on the assertion that "responsible" open source developers appreci
 
 CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass), to prevent maintainers (or the project or its corporate backer) from landing in hot water due to the community contributions it accepts. They are one way to manage a maintainer's exposure to intellectual property liability, especially if that maintainer is a for-profit business. Specifically, it makes ownership of (and liability for) the project's intellectual property explicit.
 
+:::objection[What if the business model is selling exceptions to the GPL?]
+Then you probably do need a CLA. Dual licensing (releasing under a copyleft license while selling proprietary licenses on the side, the way MySQL and Qt have) only works if the project holds, or has a license to relicense, every line, including contributions. Be upfront about the trade-off, though: that same right is what lets a project relicense later, as HashiCorp did when it moved Terraform to the Business Source License. Many contributors know this, so say plainly in your contributing guide what you'll do with their code. If all you need is assurance that contributors have the right to submit their code, a [Developer Certificate of Origin](https://developercertificate.org/) gets you that without the paperwork.
+:::
+
 ## Maintainers should advocate for their community's needs
 
 The role of an attorney, especially a transactional attorney, is to minimize legal risk. For the vast majority of intellectual property transfers in the business world, that means lots of corporate paper and due diligence. When one company buys another company's software, be it a procurement or an acquisition, it often involves lengthy negotiations resulting in contracts with tens or hundreds of pages to ensure both parties exchange exactly what they intended to transfer, no more, no less. When dealing with other corporations (and their attorneys), there's often little downside to doing so, but a big potential downside if they don't (and something goes wrong).
