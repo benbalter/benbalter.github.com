@@ -26,9 +26,7 @@ When you're unsure whether to share something, apply one test: **if it would sur
 - **Changes in approach.** Other people are planning around what they think you're doing. Change course without saying so, and their plans are built on something that no longer exists.
 - **People issues.** Performance problems, team conflict, someone thinking about quitting.
 
-That list includes work that's going fine. I was once responsible for a new product at GitHub, and everything was on track. Leadership just wasn't as in the loop as I thought. When they learned the specifics, including how it would affect a subset of customers, the reaction was defensive, and the product was dead within a week. :quote[On track isn't the same as in the loop.]{#on-track-isnt-in-the-loop}
-
-If your manager could hear about it in someone else's meeting, they should hear about it from you first. That holds even when the work comes from above. If a skip-level pulls you into something urgent, :quote[a request from above isn't a substitute for an update to your manager.]{#request-from-above}[^skip-level]
+That list includes work that's going fine. I was once responsible for a new product at GitHub, and everything was on track. Leadership just wasn't as in the loop as I thought. When they learned the specifics, including how it would affect a subset of customers, the reaction was defensive, and the product was dead within a week. :quote[On track isn't the same as in the loop.]{#on-track-isnt-in-the-loop}[^manager-first]
 
 :::objection[Won't all these heads-ups bury my manager, and make me look like I can't handle my work?]
 Not if you use the right test: "would this surprise them," not "could this go wrong." A risk you've already flagged, or one they'd shrug at, doesn't qualify, so you're forwarding the few that matter. And surprises are what make you look like you can't handle it, because either you didn't see the problem coming or you saw it and sat on it. Call a risk a risk, not a certainty, and you'll read as thoughtful, not alarmist.
@@ -93,8 +91,8 @@ One quick message to my leadership before that Markdown change shipped would hav
 
 [^damage]: And the damage spreads. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
 
-[^pages]: We were [standardizing GitHub Pages on a single Markdown engine](https://github.blog/news-insights/the-library/a-look-behind-our-decision-to-standardize-on-a-single-markdown-engine-for-github-pages/), which meant swapping out the renderer underneath every site on the platform. A non-trivial number of sites stopped rendering the way their owners expected.
+[^manager-first]: If your manager could hear about it in someone else's meeting, they should hear about it from you first. That holds even when the work comes from above. If a skip-level pulls you into something urgent, a request from above isn't a substitute for an update to your manager.
 
-[^skip-level]: The short version: GitHub's (then) CEO and General Counsel asked my team for an urgent feature, I assumed my own leadership was already in the loop, and they found out at launch. The full story is in [Work loudly](/2026/07/14/work-loudly/#like-a-bear-bell).
+[^pages]: We were [standardizing GitHub Pages on a single Markdown engine](https://github.blog/news-insights/the-library/a-look-behind-our-decision-to-standardize-on-a-single-markdown-engine-for-github-pages/), which meant swapping out the renderer underneath every site on the platform. A non-trivial number of sites stopped rendering the way their owners expected.
 
 [^andon]: On a Toyota assembly line, any worker who spots a problem can pull the andon cord to stop the line. Stopping early is cheap. Shipping the defect isn't.
