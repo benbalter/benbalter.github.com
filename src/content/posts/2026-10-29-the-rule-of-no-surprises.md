@@ -70,8 +70,6 @@ Surprises come in tiers. Not everyone needs to hear at the same time, but the or
 
 The same rule applies to an audience of one. If a promotion isn't happening this cycle, tell them long before the cycle closes.
 
-[The book](/2026/07/21/open-and-async/) goes further on how the rule changes by role, from your first heads-up as an individual contributor to briefing up, down, and across as a leader.
-
 ## Make it a habit
 
 The hard part isn't knowing what to share. It's beating the instinct to wait: until you've fixed it, until you're sure, until you can control the story. We just don't want to look bad. But waiting is exactly what makes you look bad.
