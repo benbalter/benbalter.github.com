@@ -21,7 +21,7 @@ When you're unsure whether to share something, apply one test: **if it would sur
 ## What deserves a heads-up
 
 - **Risks and blockers.** The vendor who's gone quiet. The dependency that's looking shaky. The migration that's been "almost done" for three weeks running. Share it while it's still a possibility.
-- **Timeline changes.** The earlier the better, certainty optional. "I'm seeing signs we might slip a week. Still digging, but wanted you to know" is better than hoping you make up the time.
+- **Timeline changes.** The earlier, the better, certainty optional. "I'm seeing signs we might slip a week. Still digging, but wanted you to know" is better than hoping you make up the time.
 - **Scope calls you're making on your own.** Even if it's your call to make, the people depending on you deserve to know you made it.
 - **Changes in approach.** Other people are planning around what they think you're doing. Change course without saying so, and their plans are built on something that no longer exists.
 - **People issues.** Performance problems, team conflict, someone thinking about quitting.
