@@ -14,11 +14,11 @@ I owned the surprise and explained the decision, in writing and in public. The c
 
 :quote[Surprises break trust faster than setbacks.]{#surprises-break-trust-faster-than-setbacks} Bad news is survivable. Hearing it from someone else first is what does the damage.
 
+And the damage spreads. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
+
 ## The rule
 
 When you're unsure whether to share something, apply one test: **if it would surprise them later, share it now.** Don't wait until it's convenient, or until you've fixed it.
-
-Surprises undercut everything else you share, too. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
 
 ## What deserves a heads-up
 
