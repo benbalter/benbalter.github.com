@@ -66,9 +66,9 @@ Watermelons are usually a rational response to an environment where "at risk" hu
 
 ### When you're making the call
 
-Surprises come in tiers. Not everyone needs to hear at the same time, but the order matters. A team shouldn't find out they're being [reorged](/2026/06/07/reorgs-happen/) at the same moment as the rest of the company, in a town hall. :quote[The people most directly affected by a decision should be among the first to learn it]{#most-affected-first}, early enough to process it and ask questions before they have to react to it in front of everyone else. Then their partners and the teams who depend on them. Then the broad announcement.
+Surprises come in tiers. Not everyone needs to hear at the same time, but the order matters. A team shouldn't find out they're being [reorged](/2026/06/07/reorgs-happen/) at the same moment as the rest of the company, in a town hall. :quote[The people most directly affected by a decision should be among the first to learn it.]{#most-affected-first} Give them time to process it and ask questions before they have to react in front of everyone else. Then their partners and the teams who depend on them. Then the broad announcement.
 
-The same rule applies to an audience of one. If a promotion isn't happening this cycle, tell them long before the cycle closes.
+The same rule applies to an audience of one. If a promotion isn't happening this cycle, tell them long before the cycle closes.[^meetings-reviews]
 
 ## Make it a habit
 
@@ -83,13 +83,15 @@ Make it routine with a standing section at the bottom of your weekly update:
 
 If the list is empty, say so. "Nothing new to watch" is information too.
 
-When you reliably surface problems early, people stop checking your work, because they trust you'll tell them if something's wrong. :quote[No surprises is how you earn autonomy.]{#no-surprises-is-how-you-earn-autonomy}
+Keep it up, and people stop checking your work, because they trust you'll tell them if something's wrong. :quote[No surprises is how you earn autonomy.]{#no-surprises-is-how-you-earn-autonomy}
 
 One quick message to my leadership before that Markdown change shipped would have taken minutes. Skipping it cost me trust, and bought extra scrutiny on everything I shipped after. Send the message.
 
 [^damage]: And the damage spreads. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
 
 [^manager-first]: If your manager could hear about it in someone else's meeting, they should hear about it from you first. That holds even when the work comes from above. If a skip-level pulls you into something urgent, a request from above isn't a substitute for an update to your manager.
+
+[^meetings-reviews]: I extend this to team meetings, too. No surprise announcements unless it's unavoidable. Same for reviews. If someone hears surprise feedback in their review, it's way too late.
 
 [^pages]: We were [standardizing GitHub Pages on a single Markdown engine](https://github.blog/news-insights/the-library/a-look-behind-our-decision-to-standardize-on-a-single-markdown-engine-for-github-pages/), which meant swapping out the renderer underneath every site on the platform. A non-trivial number of sites stopped rendering the way their owners expected.
 
