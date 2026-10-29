@@ -1,7 +1,7 @@
 ---
 title: "Accessible by default: writing a book like software"
 description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA) because the format wouldn't let me fake a heading and a browser audits every build, not because anyone scheduled a week for it. The parts Markdown can't check, like color contrast, axe-core catches under Playwright."
-tldr: "Accessibility is mostly setup, not effort: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and conformance stops being a project and becomes a fact of every push. The structure that clears the check is the same one a screen reader and an LLM both read."
+tldr: "Accessibility is mostly setup: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and every build checks conformance for you. The structure that passes the check is the same one a screen reader and an LLM both read."
 published: true
 ---
 
@@ -33,7 +33,7 @@ Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: '
 
 ### What the checks can't see
 
-What none of it can see is markup that never announced what it was. Every axe rule that fires on an unnamed image keys off either an `<img>` element or an explicit role: `image-alt` matches `img`, `svg-img-alt` matches `svg[role="graphics-document"]` and its neighbors. A `<svg>` with no role matches nothing at all, and EPUBCheck has no opinion about accessible names in the first place. :quote[The QR didn't fail a check. There was no check for it to fail.]{#no-check-to-fail} Your checks have the same shape, whatever you're building: they cover the categories somebody thought to name, and generated markup rarely announces itself as a category. Tagging this one decorative was my own postprocessing step's job, and my rule was too specific.[^qr]
+What none of it can see is markup that never announced what it was. Every axe rule that fires on an unnamed image keys off either an `<img>` element or an explicit role: `image-alt` matches `img`, `svg-img-alt` matches `svg[role="graphics-document"]` and its neighbors. A `<svg>` with no role matches nothing at all, and EPUBCheck has no opinion about accessible names in the first place. :quote[The QR didn't fail a check. There was no check for it to fail.]{#no-check-to-fail} Whatever you're building, your checks work the same way: they cover the categories somebody thought to name, and generated markup rarely fits one. Tagging this one decorative was my own postprocessing step's job, and my rule was too specific.[^qr]
 
 ## Accessible is a synonym for inclusive
 
@@ -41,7 +41,7 @@ Strip away the acronyms and conformance levels and what's left is a question abo
 
 ### The reader sets the terms
 
-An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, letting anyone jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration. That's the one audit no checker in my pipeline runs, and the kind that catches what a green build can't. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. More on that soon.
+An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, letting anyone jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. More on that soon.
 
 ### Exclusion dressed as preference
 

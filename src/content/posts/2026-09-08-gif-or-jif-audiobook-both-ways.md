@@ -71,7 +71,7 @@ Ten seconds each, the same line both ways: "an urgent message from your manager 
 
 :quote[The pronunciation was never the point. The GIF is.]{#the-gif-is-the-point}
 
-That's the point hiding inside the bit. The whole reason the chapter defends GIFs is that the shared reference does the work. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
+The chapter defends GIFs because everyone shares the reference. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
 
 [Both cuts](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) live on the book's feedback repository, which is where readers tell me what's broken, what's missing, and what actually landed.
 
@@ -85,9 +85,9 @@ People kept asking for an audiobook, to listen at the gym or on a commute, and I
 
 Something real is lost with it. A good narrator doesn't just say the words, they perform them: the timing, the dry aside, the breath before a hard sentence. My robot reads cleanly. It isn't an actor, and if you've heard a great human narration, you'll feel the difference. The bigger cost lands past my one book. Synthetic narration takes work from the people who do this for a living, and "it was cheaper for me" is exactly the logic that adds up to their livelihoods shrinking. I don't have a clean answer to that.
 
-A human narrator for this book is the goal, not a synthetic stand-in forever. If it earns its way there, it'll get one. Until then, imperfect and shipped beats perfect and imaginary. Ship early, ship often.
+A human narrator for this book is the goal, not a synthetic stand-in forever. If it earns its way there, it'll get one. Until then, imperfect and shipped beats perfect and imaginary.
 
-Here's where that leaves me: the voice is disclosed, it isn't cloned from a real person, and a human (me) listened to all eleven and a half hours before it shipped.[^qa] Machine-narrated, human-checked. If a synthetic voice is a hard pass for you, I get it, and the ebook and paperback let you hear "jif" in your own head, at your own pace.
+The voice is disclosed, it isn't cloned from a real person, and a human (me) listened to all eleven and a half hours before it shipped.[^qa] Machine-narrated, human-checked. If a synthetic voice is a hard pass for you, I get it, and the ebook and paperback let you hear "jif" in your own head, at your own pace.
 
 ## Get the audiobook
 

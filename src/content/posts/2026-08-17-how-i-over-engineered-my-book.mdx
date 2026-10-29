@@ -72,7 +72,7 @@ That validator exists because I made the mistake once, which is the whole patter
 
 …plus a couple dozen more for small caps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
 
-One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself. And I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking, which is exactly the thing you can't see in your own draft. Same reason I keep `eslint` around: it can't tell good code from bad either, but it catches the autopilot mistakes your own eye skates right over.
+One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself. And I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. It can flag the patterns you fall into when you've stopped thinking, and those are the ones you can't see in your own draft. Same reason I keep `eslint` around: it can't tell good code from bad either, but it catches the autopilot mistakes your own eye skates right over.
 
 All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions, plus another ~1,600 per-chapter structural checks from the validators above.
 
@@ -91,7 +91,7 @@ After reading the book over and over, I was *convinced* I'd repeated the same id
   - **cross**: a single call over every chapter's TL;DR, producing a map of conceptually overlapping chapters. A whole-book scan for the cost of one call.
   - **arguments**: extract each chapter's central claims one call at a time, then cluster the same argument across all chapters in one final call. Catches arguments made in body prose that `cross` misses.
 
-Was I actually repeating myself? By this final pass the two mechanical layers came up clean, but they'd earned it: `jscpd` and the n-gram scan had already caught the copy-paste and recycled phrasing (a doubled motif here, a reused TL;DR structure there), and I'd fixed each.
+Was I actually repeating myself? By this final pass the two mechanical layers came up clean because `jscpd` and the n-gram scan had already caught the copy-paste and recycled phrasing (a doubled motif here, a reused TL;DR structure there), and I'd fixed each.
 
 What neither could see was the subtler kind: nothing was duplicated word-for-word anymore, just the same *point* in different words. The semantic pass caught that, and it was right: I'd made the same argument, that moving office habits online isn't the same as working remote-first, in *five* separate chapters, on top of 166 smaller self-restatements scattered across 51 chapters. :quote[I'd paraphrased myself too well for anything cheaper than an LLM to catch me.]{#paraphrased-myself}
 
@@ -156,7 +156,7 @@ The `axe-core` engine runs over the rendered book in **both light and dark mode*
 
 These assert that the actual computed styles match the design intent (the details that break quietly and never show up in a diff): the title page renders centered with a lighter-weight subtitle; the table of contents is a real `nav` with the `doc-toc` role and working links; every callout type has its own unique left-border color and auto-generated label prefix; and small caps get real `font-variant: small-caps`, not just a class name.[^visual]
 
-None of this is glamorous. It's exactly the kind of thing that breaks silently in a Friday CSS refactor and doesn't surface until a reader emails you.
+These checks are unglamorous. The bugs they catch break silently in a Friday CSS refactor, and you don't hear about them until a reader emails you.
 
 ## Building
 
@@ -164,7 +164,7 @@ We've got clean Markdown, and a test suite that ensures the content is clean, bu
 
 ### A reproducible toolchain
 
-Pandoc is only the engine. The full build also needs [WeasyPrint](https://weasyprint.org/) to draw the PDF, Ghostscript to convert it, and a pile of Noto fonts for full Unicode coverage: a gnarly stack of native dependencies to install by hand. The whole thing therefore lives in a Docker image and a dev container, pinned to an exact renderer version (a detail that matters more than you'd think, see the [page-count gate below](#rendering--post-processing-per-format)). That container is also why I could draft the book from an iPad: the heavy toolchain ran in Codespaces, not on my lap.
+Pandoc is only the engine. The full build also needs [WeasyPrint](https://weasyprint.org/) to draw the PDF, Ghostscript to convert it, and a pile of Noto fonts for full Unicode coverage: a gnarly stack of native dependencies to install by hand. So the whole thing runs in a Docker image and a dev container, pinned to an exact renderer version (the [page-count gate below](#rendering--post-processing-per-format) explains why). That container is also why I could draft the book from an iPad: the heavy toolchain ran in Codespaces, not on my lap.
 
 ### Pre-processing (before Pandoc sees the text)
 
@@ -172,7 +172,7 @@ Everything starts on a throwaway copy of the source tree, so these transforms ne
 
 ### CSS pipeline
 
-One Tailwind stylesheet (`src/style.css`) compiles through PostCSS to `dist/style.css`, so screen, print, and EPUB all start from the same source of truth. Each format then takes a different slice: `strip-page-rules.js` derives a cut-down stylesheet for EPUB, stripping the CSS Paged-Media features (`@page`, `target-counter()`, `oklch()`, custom properties) that Kindle and EPUBCheck choke on.
+One Tailwind stylesheet (`src/style.css`) compiles through PostCSS to `dist/style.css`, so screen, print, and EPUB all start from one file. Each format then takes a different slice: `strip-page-rules.js` derives a cut-down stylesheet for EPUB, stripping the CSS Paged-Media features (`@page`, `target-counter()`, `oklch()`, custom properties) that Kindle and EPUBCheck choke on.
 
 ### Lua filters (the interesting part)
 
@@ -218,7 +218,7 @@ The prose linters keep the *words* honest; a larger slice of that Vitest suite k
 
 But unit tests only prove *my* code is right, not that the *output* is valid. So each artifact also runs through the same validators the stores themselves use, and a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the validator every store runs on upload, and [Ace by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks; the built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator before malformed markup can become a malformed ebook.
 
-None of this is something I have to remember to run. Every push to `main` kicks off **14 parallel CI jobs**: build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
+I never have to remember to run any of this. Every push to `main` kicks off **14 parallel CI jobs**: build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
 
 ```yaml
 # build.yml — mostly independent jobs, so CI runs them in parallel
