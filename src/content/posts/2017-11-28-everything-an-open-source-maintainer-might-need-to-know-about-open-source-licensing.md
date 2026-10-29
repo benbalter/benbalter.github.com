@@ -70,9 +70,17 @@ In my mind, the vast majority of open source projects tackle easy technical, but
 
 If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition to helping you conduct a patent search, might recommend a Patent-aware license like Apache over a simpler license like MIT). If you're in the vast majority of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
 
+## Trademarks
+
+Trademarks are a third, distinct legal right. Copyright covers the code, patents cover the invention, and a trademark covers the name and logo that tell users who a project comes from. Open source licenses grant rights in the code, and sometimes its patents, but not its name. The Apache license even says so explicitly.
+
+That distinction matters most when someone forks a project. The license gives you the right to copy and modify the code, but not to call your fork by the original project's name or use its logo in a way that suggests it's the official version. That's why significant forks tend to pick new names: MariaDB forked MySQL, LibreOffice forked OpenOffice, and OpenTofu forked Terraform.
+
+If your project's name matters to you, write down how others may use it (a short trademark policy in your repository is enough to start), consider registering it, and consider having a [distinct legal entity](#copyright-in-a-distinct-legal-entity) hold the mark, so it doesn't depend on any one maintainer.
+
 ## Copyright in a distinct legal entity
 
-Some more mature projects opt to form a distinct legal entity to hold the project's copyright, often in the form of a non-profit, such as the WordPress foundation. In the case of WordPress, for example, copyright in the WordPress logo is owned by the foundation, meaning if I go to Café Press and print WordPress t-shirts to sell on the street for my own personal gain, WordPress can sue me.
+Some more mature projects opt to form a distinct legal entity to hold the project's copyright, often in the form of a non-profit, such as the WordPress foundation. In the case of WordPress, for example, the WordPress trademark is owned by the foundation, meaning if I go to Café Press and print WordPress t-shirts to sell on the street for my own personal gain, WordPress can sue me.
 
 The same is true of code. If copyright is distributed among hundreds or thousands of developers and a conflict arises, the project may have to secure additional legal rights from hundreds or thousands of people across multiple countries, languages, and jurisdictions. In the case of WordPress, [copyleft-licensed software](#copyleft-and-the-gpl), if I create and sell WordPress-Pro, and don't make the code available to users, the WordPress foundation may rightfully sue me (although it may be practically difficult for them to do so).
 
