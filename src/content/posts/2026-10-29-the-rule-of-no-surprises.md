@@ -3,7 +3,7 @@ title: The rule of no surprises
 description: "Surprises break trust faster than setbacks. If something would surprise someone when they find out later, tell them now. Don't wait until it's convenient or until you have a fix."
 tldr: "If something would surprise someone when they find out later, tell them now, not once it's convenient or fixed. Lead with the headline, say what you need, and name the rule. If you manage people, thank them for early warnings, or you'll get watermelon status updates: green on the outside, red on the inside. Do it consistently and people stop checking your work."
 bookRelation: adapted
-published: false
+published: true
 ---
 
 Early on at GitHub, I shipped a tiny diff that broke some of the millions of sites on GitHub Pages.[^pages] For those users, it was a big change, and some of them took their complaints straight to my leadership.
