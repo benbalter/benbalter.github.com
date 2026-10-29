@@ -12,9 +12,7 @@ Soon after, I got a not-so-great message about how I'd handled the rollout. Not 
 
 I owned the surprise and explained the decision, in writing and in public. The change stuck. Rebuilding the trust took longer than building the feature had.
 
-:quote[Surprises break trust faster than setbacks.]{#surprises-break-trust-faster-than-setbacks} Bad news is survivable. Hearing it from someone else first is what does the damage.
-
-And the damage spreads. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
+:quote[Surprises break trust faster than setbacks.]{#surprises-break-trust-faster-than-setbacks} Bad news is survivable. Hearing it from someone else first is what does the damage.[^damage]
 
 ## The rule
 
@@ -92,6 +90,8 @@ If the list is empty, say so. "Nothing new to watch" is information too.
 When you reliably surface problems early, people stop checking your work, because they trust you'll tell them if something's wrong. :quote[No surprises is how you earn autonomy.]{#no-surprises-is-how-you-earn-autonomy}
 
 One quick message to my leadership before that Markdown change shipped would have taken minutes. Skipping it cost me trust, and bought extra scrutiny on everything I shipped after. Send the message.
+
+[^damage]: And the damage spreads. If you [work loudly](/2026/07/14/work-loudly/), people assume your updates are the full picture. A surprise exposes a gap, and suddenly the bad news isn't the only thing on the table. They're rereading every update you've ever sent and wondering what else wasn't in it.
 
 [^pages]: We were [standardizing GitHub Pages on a single Markdown engine](https://github.blog/news-insights/the-library/a-look-behind-our-decision-to-standardize-on-a-single-markdown-engine-for-github-pages/), which meant swapping out the renderer underneath every site on the platform. A non-trivial number of sites stopped rendering the way their owners expected.
 
