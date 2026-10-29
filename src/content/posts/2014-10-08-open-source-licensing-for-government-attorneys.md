@@ -80,6 +80,10 @@ The internet, and thus open source, however, is not bound by geographic lines. I
 
 [Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible (for example, a copyleft derivative work), prefer the least-restrictive terms possible.
 
+:::objection[Doesn't CC0 leave patent risk on the table?]
+It can. CC0 expressly says it doesn't waive or license any patent rights, so a contributor could dedicate their copyright to the public domain and still hold a patent they later assert against the agency or its users. For most government code (a website, a data pipeline, a form), that risk is remote, because the code isn't novel enough to be patentable, and CC0 remains the right default. If the code is scientific, research, or defense work where patents are a real concern, ask your general counsel about a license with an explicit patent grant like [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/), or about requiring that grant from [outside contributors](#accepting-contributions-from-the-public). Because code written by federal employees has no domestic copyright to license, that contributor grant is often the more practical lever.
+:::
+
 ### Contractor created code
 
 Under the FAR, by default, the government receives unlimited rights in any software developed under contract, and thus is free to publish the code as they see fit. Due to market forces and contracting tradition, many typical government IT contracts, however, contract away this right in favor of simple government purpose rights, with the contractor retaining the original copyright. If that's the case, the agency has several options:
