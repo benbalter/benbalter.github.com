@@ -1,7 +1,7 @@
 ---
 title: How I over-engineered Halloween with two hacked Furbies
-description: "Two hacked Furby Connects by my front door ran a two-act horror show for trick-or-treaters: an evil pink one with demon eyes, a sweet blue one, and a hidden ESP32 cueing them over Bluetooth."
-tldr: "I turned two Furby Connects into a Halloween double act: custom voice lines, demon and jack-o'-lantern eyes, a motion sensor, and an ESP32 cueing it all over Bluetooth. Along the way I bisected an undocumented Furby eye bug with numbered digits and learned that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop and two Furbies."
+description: "Two hacked Furby Connects by my front door ran a two-act horror show for trick-or-treaters: an evil pink one with demon eyes, a sweet blue one, and a hidden Bluetooth board cueing their lines."
+tldr: "I turned two Furby Connects into a Halloween double act: custom voice lines, demon and jack-o'-lantern eyes, a motion sensor, and a hidden Bluetooth board cueing it all. Along the way I bisected an undocumented Furby eye bug with numbered digits and learned that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop and two Furbies."
 published: false
 ---
 
@@ -27,7 +27,7 @@ If you've read how I [over-engineered my home network](/2020/12/04/over-engineer
 
 ## Why Furbies
 
-Furby Connect is the 2016 reboot, the one with LCD screens for eyes, a light-up antenna, and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads "DLC" packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory.
+Furby Connect is the 2016 reboot, the one with LCD screens for eyes, a light-up antenna, and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads "DLC" (downloadable content) packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory.
 
 A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor: a laptop, or a small board hidden on the porch, telling each Furby when to deliver its next line.
 
@@ -71,7 +71,7 @@ Loading it all used to mean a browser tool and a tongue-and-tail reset before ev
   <figcaption>Pink's demon eyes and blue's jack-o'-lantern eyes, rendered on a computer. One animation each, the only layout that has shown up cleanly on a real Furby.</figcaption>
 </figure>
 
-Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores.
+Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew both sets of eyes in code, then chopped them into the tiles the Furby stores.
 
 This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. :quote[I did what you do with any bug you can't see: I bisected it.]{#bisect-the-bug-you-cant-see}[^bisect] When both eyes share tiles and the file holds fewer than 16 tiles in all, the Furby scrambles them. Pad it to 16 and the eyes come out clean.
 
@@ -81,9 +81,7 @@ This was the part that fought back. Custom eyes that looked perfect on my comput
 **Ben shoots** (if a probe Furby or photo from the bisect exists): garbled digits next to clean digits on the Furby's eyes. Path: `/assets/img/furby-halloween-eyes-bisect-WxH.jpg`. Caption: "Left: two eyes sharing 10 tiles. Right: the same eyes, padded to 16." Cut this placeholder if no photo exists.
 :::
 
-Each Furby got exactly one eye animation: demon for pink, pumpkin for blue.[^animations] The other four themes never left my laptop.
-
-![Six pairs of Furby eyes on black, each labeled: red demon eyes with slit pupils, yellow jack-o'-lantern triangles, a glowing blue storm eye, bloodshot eyes with red veins, white ghosts, and purple hypno spirals.](/assets/img/furby-halloween-eyes-themes-1616x644.jpg "All six themes, rendered on a computer. Only demon and pumpkin shipped.")
+Each Furby got exactly one eye animation: demon for pink, pumpkin for blue.[^animations]
 
 The antenna lights join in. While a Furby talks, its antenna glows in a color that matches its eyes and is meant to swell with the loudness of the line: a red pulse for pink's demon eyes, an orange candle flicker for blue's pumpkin. TK: confirm the swell showed on the night, or keep "is meant to."
 
@@ -162,13 +160,13 @@ If you build one, I want to hear what your Furbies say. Mine have a year to come
 
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one.
 
-[^bisect]: Bisecting means splitting the possible causes in half, testing, and repeating until one is left. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. Padding to 16 tiles also let the eyes share tiles safely, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find any of this documented anywhere.
+[^bisect]: Bisecting means splitting the possible causes in half, testing, and repeating until one is left. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. Padding to 16 tiles also let the eyes share tiles safely, which cut each set of eyes from about 79 KB to about 36 KB. I couldn't find any of this documented anywhere.
 
 [^flashes]: The flashes stay under three a second, the threshold the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html) set to protect people with photosensitive epilepsy, and the glasses' tests fail if they don't.
 
 [^credits]: Context published [Python tools to read and write DLCs](https://github.com/ctxis/Furby), plus [a Web Bluetooth demo](https://github.com/pdjstone/furby-web-bluetooth) that uploads a custom DLC from a browser. The [bluefluff](https://github.com/Jeija/bluefluff) project mapped the Furby's action codes, the numbered commands that make it talk, blink, and wiggle. Last October, I copied (forked) [the Python tools](https://github.com/benbalter/Furby) and [the browser demo](https://github.com/benbalter/furby-web-bluetooth) to poke at one Furby, and got as far as a Toccata DLC too big to upload. This year, I came back and kept going.
 
-[^budget]: Uploads time out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, minus everything else in the file. A single eye theme costs about 36 KB on its own.
+[^budget]: Uploads time out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, minus everything else in the file. A single set of eyes costs about 36 KB on its own.
 
 [^animations]: The bisecting found a second limit. A DLC with three eye animations didn't garble. It quietly showed the *previous* DLC's tiles in the new colors, as if the new tiles never loaded. I only tested three, so to be safe the show sticks to one.
 
