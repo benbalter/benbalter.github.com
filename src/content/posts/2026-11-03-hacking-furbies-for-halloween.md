@@ -1,7 +1,7 @@
 ---
 title: How I over-engineered Halloween with two hacked Furbies
 description: "Two hacked Furby Connects by my front door bickered at trick-or-treaters all night: an evil pink one with demon eyes and a sweet blue one, cued by a Bluetooth board hidden on the porch."
-tldr: "I turned two Furby Connects into a Halloween double act: custom voice lines, demon and jack-o'-lantern eyes, a motion sensor, and a hidden Bluetooth board cueing it all. Along the way I tracked down an undocumented eye bug by loading test eyes made of numbered digits, and learned that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop and two Furbies."
+tldr: "Furbies already creep people out, so I leaned in. Two hacked Furby Connects by my front door traded spooky lines all night, an evil pink one and a sweet blue one, cued over Bluetooth by a board hidden on the porch. The strangest thing I learned is that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop, two Furbies, and a stock Furby DLC."
 ---
 
 <!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), strip metadata from every photo and video (`exiftool -all=`, or `ffmpeg -map_metadata -1`) and check for house numbers and reflections, then delete this comment. Merging to main publishes the post. -->
@@ -166,6 +166,7 @@ TK: the night itself. Ideas for what to capture:
 The whole thing is [open source](https://github.com/benbalter/Furby),[^mcp] and the README is written so a friend who's never opened a terminal can follow it. You need:
 
 - Two Furby Connects and fresh batteries
+- A stock Furby Connect DLC ([the README](https://github.com/benbalter/Furby#your-stock-dlc) says where to find one)
 - A Mac with Bluetooth (Windows and Linux should work, but I haven't tried them)
 - Some time to make the voice lines, which is where most of the setup goes
 
