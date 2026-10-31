@@ -46,7 +46,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 
 ## How it works
 
-![Diagram: a show file is built into one DLC per Furby and uploaded to each over Bluetooth. On the porch, an ESP32 board (or a laptop) cues the pink and blue Furbies over Bluetooth and hears back when each line starts and ends. A motion sensor and a button trigger greetings, and an iPhone remote connects to the board. A pair of LED glasses runs on its own, with no link to the show.](/assets/img/furby-halloween-architecture-1600x1000.svg "One board runs the show. The glasses are a separate costume piece.")
+![Diagram. A show script is built into one DLC file per Furby, and each is uploaded to its Furby over Bluetooth, which takes about two to three and a half minutes and must stay under 350 KB. A small show board hidden on the porch (or a laptop running the same show) cues each Furby's lines over Bluetooth and hears when each starts and ends. A motion sensor greets new arrivals and a button plays a greeting right away. An iPhone remote talks to the board over Bluetooth to greet, pick a scene or see status. LED glasses worn by the candy-giver show sound-reactive demon eyes and have no link to the show.](/assets/img/furby-halloween-architecture-1600x1000.svg "One board runs the show. The glasses are a separate costume piece.")
 
 ### Teaching a Furby new lines
 
@@ -54,7 +54,7 @@ Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A
 
 The budget is tight: each Furby's whole DLC has to fit in about 350 KB.[^budget] That's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
 
-![Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
+![Diagram of a Furby DLC file, the package of eyes, sounds and moves the Furby plays. A bar shows its parts by size: the eyes (color palettes, frame lists and image tiles) and the audio clips take nearly all of it, and a small remainder wires them together. Below, one action, number 75·0·0·2, the four-part number the show sends over Bluetooth, is followed through the action table to a sequence. The sequence picks an audio playlist (one clip of compressed audio, about 4 seconds), a body movement and an eye animation, and the Furby stays busy until all of them finish.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
 The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. John-K's open-source [a1800_codec](https://github.com/John-K/a1800_codec) reverse-engineered it, and it made this whole project a lot easier.
 
