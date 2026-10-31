@@ -80,15 +80,7 @@ Loading it all used to mean a browser tool and a tongue-and-tail reset before ev
   <figcaption>Pink's demon eyes and blue's jack-o'-lantern eyes, rendered on a computer. One animation each, the only layout that has shown up cleanly on a real Furby.</figcaption>
 </figure>
 
-I drew both sets of eyes in code, then chopped them into the small image tiles the Furby stores.
-
-This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it.[^bisect] When both eyes share tiles and the file holds fewer than 16 tiles in all, the Furby scrambles them. Pad it to 16 and the eyes come out clean.
-
-<!-- placeholder: eyes-bisect -->
-
-:::info[Placeholder: eyes-bisect]
-**Ben shoots** (if a probe Furby or photo from the bisect exists): garbled digits next to clean digits on the Furby's eyes. Path: `/assets/img/furby-halloween-eyes-bisect-WxH.jpg`. Caption: "Left: two eyes sharing 10 tiles. Right: the same eyes, padded to 16." Cut this placeholder if no photo exists.
-:::
+I drew both sets of eyes in code, then chopped them into the small image tiles the Furby stores.[^bisect]
 
 Each Furby got exactly one eye animation: demon for pink, pumpkin for blue.[^animations]
 
@@ -161,7 +153,7 @@ If you build one, I want to hear what your Furbies say. Mine have a year to come
 
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one. It takes 139 seconds, against 340 for the same file in the browser.
 
-[^bisect]: Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. Bisecting means splitting the possible causes in half, testing, and repeating until one is left. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. Padding to 16 tiles also let the eyes share tiles safely, which cut each set of eyes from about 79 KB to about 36 KB. I couldn't find any of this documented anywhere.
+[^bisect]: This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it, which means splitting the possible causes in half, testing, and repeating until one is left. Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black, then flashed each one and wrote down which digits came out clean. When both eyes share tiles and the file holds fewer than 16 tiles in all, the Furby scrambles them. Pad it to 16 and the eyes come out clean, and sharing tiles cut each set of eyes from about 79 KB to about 36 KB. I couldn't find any of this documented anywhere.
 
 [^flashes]: The flashes stay under three a second, the threshold the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html) set to protect people with photosensitive epilepsy, and the glasses' tests fail if they don't.
 
