@@ -2,10 +2,9 @@
 title: How I over-engineered Halloween with two hacked Furbies
 description: "Two hacked Furby Connects by my front door ran a two-act horror show for trick-or-treaters: an evil pink one with demon eyes, a sweet blue one, and a hidden Bluetooth board cueing their lines."
 tldr: "I turned two Furby Connects into a Halloween double act: custom voice lines, demon and jack-o'-lantern eyes, a motion sensor, and a hidden Bluetooth board cueing it all. Along the way I bisected an undocumented Furby eye bug with numbered digits and learned that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop and two Furbies."
-published: false
 ---
 
-<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), delete this comment, then set published: true. -->
+<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), then delete this comment. Merging to main publishes the post. -->
 
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 

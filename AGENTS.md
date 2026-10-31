@@ -166,6 +166,8 @@ description: Brief description for SEO (first 150 chars after stripping Markdown
 
 Optional: `comments`, `redirect_from`, `image`, `redirect_to`
 
+Don't use `published: false` to hold a draft. A draft lives on its own branch, and merging it to `main` is what publishes it, so leave `published` out. A preview build of the branch then shows the post exactly as it will ship.
+
 ## Agent configuration
 
 - [`.github/agents/`](.github/agents/) holds the `code`, `writing`, and `seo` agents. Copilot reads them there; [`.claude/agents/`](.claude/agents/) symlinks them for Claude Code. Use `writing` for posts and docs, `seo` for meta tags and structured data, and `code` for everything else.
