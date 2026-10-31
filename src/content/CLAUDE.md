@@ -74,6 +74,14 @@ Cut ruthlessly: "It is important to note that" → delete. "in order to" → "to
 5. **Practical advice**: concrete, actionable recommendations
 6. **Conclusion**: memorable takeaway; connect back to the opening
 
+### TK placeholders
+
+Mark anything still to come with **TK**, newsroom shorthand for "to come": a fact, quote, number, anecdote, or whole section you can't fill in yet. Never invent a stand-in instead. A visible gap beats a plausible guess.
+
+- Write it as a standalone, uppercase `TK`, followed by what's needed: `TK: the best reaction from the night.` It's spelled wrong on purpose, so a search for it finds only placeholders.
+- The dev server (`npm run dev`) highlights every TK in bright yellow ([`rehype-tk-highlight`](../lib/rehype-tk-highlight.ts)). Production builds don't, so a stray TK would ship as plain text.
+- Resolve every TK before the post's branch merges, since merging publishes it: `grep -n '\bTK\b' src/content/posts/<post>.md` should come back empty.
+
 ### Footnotes
 
 Use footnotes for asides, definitions, and tangential context that would break the flow: keep the punchline in the body and move the explainer down. On this site:

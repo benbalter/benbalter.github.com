@@ -30,6 +30,7 @@ import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 import { rehypeAcronyms } from './rehype-acronyms';
+import { rehypeTkHighlight } from './rehype-tk-highlight';
 import { rehypeEmailQuotePlain } from './rehype-email-quote-plain';
 import { rehypeEmailMediaFallback } from './rehype-email-media-fallback';
 import { rehypeAbsoluteUrls } from './rehype-absolute-urls';
@@ -131,6 +132,9 @@ export const sharedRehypePlugins = [
   // Wrap first occurrence of listed acronyms in a tooltip <abbr>. Runs last so
   // links (rehypeExternalLinks) and other elements it must skip already exist.
   rehypeAcronyms,
+  // Highlight "TK" (to come) placeholders in bright yellow. Dev server only:
+  // a no-op in production builds, and absent from the syndication pipeline.
+  rehypeTkHighlight,
 ];
 
 /**
