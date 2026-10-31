@@ -112,9 +112,7 @@ A few things I learned about Furby Connects the hard way:
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. The same show engine also runs on an ESP32, a microcontroller board with Bluetooth built in, running MicroPython off a USB power bank. It connects to both Furbies and keeps the show going if one drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats.
-
-Porting to MicroPython had its own surprises. It has no `capitalize()`, so the show crashed the first time it tried to announce "Pink is connected." And my log-watching script once spent ten minutes listening to a "silent" board that was actually the LED glasses, plugged in instead of the board. Now it finds the board by its USB vendor ID.
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 (a microcontroller board with Bluetooth built in) runs the same show engine in MicroPython, off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and a watchdog reboots the board if it ever hangs.
 
 <!-- placeholder: esp32-hidden -->
 
@@ -122,7 +120,7 @@ Porting to MicroPython had its own surprises. It has no `capitalize()`, so the s
 **Ben shoots:** the ESP32 board and power bank, then where it hides on the porch (without showing where the house is). Path: `/assets/img/furby-halloween-esp32-WxH.jpg`. Shot `esp32-hidden`.
 :::
 
-Then, because the board is out of sight and its log was only readable from a laptop, I wrote an iPhone app as a remote. It shows what the board is doing and fires a specific scene or line on demand. TK: one real moment from the night where the remote earned its keep, or cut this sentence.
+An iPhone app works as the remote. It shows what the board is doing and fires a specific scene or line on demand. TK: one real moment from the night where the remote earned its keep, or cut this sentence.
 
 <!-- placeholder: iphone-remote -->
 
@@ -130,7 +128,7 @@ Then, because the board is out of sight and its log was only readable from a lap
 **Ben shoots** (or a simulator screenshot): the remote app on the phone. Path: `/assets/img/furby-halloween-remote-WxH.png`. Shot `iphone-remote`.
 :::
 
-For whoever hands out the candy, there's a pair of [LED glasses](https://learn.adafruit.com/adafruit-eyelights-led-glasses-and-driver) with sound-reactive demon eyes in pink's colors. The flashes stay under three a second, the safe limit for people with photosensitive epilepsy.
+For whoever hands out the candy, there's a pair of [LED glasses](https://learn.adafruit.com/adafruit-eyelights-led-glasses-and-driver) with sound-reactive demon eyes in pink's colors.[^flashes]
 
 <!-- placeholder: eyelights -->
 
@@ -203,3 +201,5 @@ If you build one, I want to hear what your Furbies say. Mine have a year to come
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one.
 
 [^bisect]: I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. When both eyes share tiles and the file holds fewer than 16 tiles total, the Furby scrambles them. Pad it to 16 and sharing works fine, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find this documented anywhere.
+
+[^flashes]: The flashes stay under three a second, the threshold the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html) set to protect people with photosensitive epilepsy, and the glasses' tests fail if they don't.
