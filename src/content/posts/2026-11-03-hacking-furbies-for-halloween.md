@@ -88,7 +88,7 @@ The antenna lights join in. While a Furby talks, its antenna glows in a color th
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 (a microcontroller board with Bluetooth built in) runs the same show engine in MicroPython (a small Python for boards like this), off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and the board reboots itself if it ever freezes.
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 runs the same show engine in MicroPython, off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and the board reboots itself if it ever freezes.
 
 <!-- placeholder: esp32-hidden -->
 
