@@ -66,7 +66,7 @@ The budget is tight. A DLC upload times out above about 350 KB, and audio costs 
 
 ![Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.](/assets/img/furby-halloween-dlc-anatomy-1600x900.png "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are AI clones of the Furby's own voice, cloned from clips in the stock DLC. That means they're Hasbro's audio at heart, so they stay off the internet. The repository ships a script that makes stand-in lines with your computer's built-in voices instead, or you can record your own in your best squeaky voice.
+The voices are AI clones of the Furby's own voice, cloned from clips in the stock DLC, and they stay on my porch. The repository ships a script that makes stand-in lines with your computer's built-in voices instead, or you can record your own in your best squeaky voice.
 
 Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload. Now a terminal script flashes a Furby in 139 seconds, against 340 for the same file in the browser.
 
@@ -197,4 +197,4 @@ Wake one Furby and run `uv run doctor.py --furbies` to check it too; then the ot
 
 If you build one, I want to hear what your Furbies say. Mine have a year to come up with new material. Pink says it still wants your candy.
 
-[^clones]: Every line the Furby says is a Hasbro sound recording, and copyright covers sound recordings. A voice cloned from them is close enough to a derivative work that I'm happy to play it on my porch and unwilling to post it on the internet. If you want your own Furby threatening your candy, `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV, and any voice-cloning tool that takes a sample voice can take it from there. Keep the results on your porch, too.
+[^clones]: The clips the clones learned from are Hasbro's recordings, so I'm keeping anything built from them off the internet. If you want your own Furby threatening your candy, `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV, and any voice-cloning tool that takes a sample voice can take it from there. Keep the results on your porch, too.
