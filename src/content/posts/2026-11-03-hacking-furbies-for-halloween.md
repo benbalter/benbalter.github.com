@@ -42,11 +42,12 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 - **Blue:** "Who you gonna call?" Then a two-second pause for the kids to shout the answer, then both Furbies play the Ghostbusters theme together.
 - **Blue:** *creaky door.* **Pink:** *scream.* **Blue:** "Hee hee! Gotcha!"
 - **Pink:** "Kah is watching you..." **Blue:** "Kah watching too! Hi!"
+- **Pink:** the opening bars of Bach's Toccata in D minor, the haunted-house organ riff. **Blue:** "Ooh! Kah love this song!"
 
 <figure class="not-prose furby-media">
   <figcaption style="margin:0 0 .4rem">
 
-One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones are clones of the Furby's own voice, which isn't mine to share.[^clones]
+One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones are an AI homage to the Furby's own voice, which isn't mine to share.[^voices]
 
 </figcaption>
   <audio controls preload="none" style="width:100%" aria-label="One scene with stand-in voices: a creaky door, a scream, then the blue Furby saying Hee hee, Gotcha">
@@ -62,13 +63,13 @@ One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones
 
 Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml) file describes the whole show, every clip and every scene, and one command builds both DLCs from it.
 
-The budget is tight. A DLC upload times out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, *minus* everything else in the file. A single eye theme costs about 36 KB on its own. That's why the Toccata gets five seconds. It's enough to recognize, and a Furby's speaker doesn't do Bach any favors.
+The budget is tight. A DLC upload times out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, *minus* everything else in the file. A single eye theme costs about 36 KB on its own. That's why pink's Toccata gets five seconds. It's enough to recognize, and a Furby's speaker doesn't do Bach any favors.
 
 ![Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.](/assets/img/furby-halloween-dlc-anatomy-1600x900.png "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are AI clones of the Furby's own voice, cloned from clips in the stock DLC, and they stay on my porch. The repository ships a script that makes stand-in lines with your computer's built-in voices instead, or you can record your own in your best squeaky voice.
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch. The repository ships a script that makes stand-in lines with your computer's built-in voices instead, or you can record your own in your best squeaky voice.
 
-Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload. Now a terminal script flashes a Furby in 139 seconds, against 340 for the same file in the browser.
+Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script flashes a Furby in 139 seconds, against 340 for the same file in the browser.
 
 ### Demon eyes
 
@@ -83,7 +84,7 @@ Loading it all used to mean a browser tool and a tongue-and-tail reset before ev
 
 Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores.
 
-This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. It turns out that when both eyes share tiles and the file holds fewer than 16 tiles total, the Furby scrambles them. Pad it to 16 and sharing works fine, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find this documented anywhere.
+This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it.[^bisect]
 
 <!-- placeholder: eyes-bisect -->
 
@@ -197,4 +198,8 @@ Wake one Furby and run `uv run doctor.py --furbies` to check it too; then the ot
 
 If you build one, I want to hear what your Furbies say. Mine have a year to come up with new material. Pink says it still wants your candy.
 
-[^clones]: The clips the clones learned from are Hasbro's recordings, so I'm keeping anything built from them off the internet. If you want your own Furby threatening your candy, `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV, and any voice-cloning tool that takes a sample voice can take it from there. Keep the results on your porch, too.
+[^voices]: The clips the AI mimics are Hasbro's recordings, so I'm keeping anything built from them off the internet. If you want your own Furby threatening your candy, `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV, and any AI voice tool that can mimic a sample voice can take it from there. Keep the results on your porch, too.
+
+[^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one.
+
+[^bisect]: I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. When both eyes share tiles and the file holds fewer than 16 tiles total, the Furby scrambles them. Pad it to 16 and sharing works fine, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find this documented anywhere.
