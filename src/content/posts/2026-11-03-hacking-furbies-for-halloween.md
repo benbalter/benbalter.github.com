@@ -16,7 +16,7 @@ tldr: "I turned two Furby Connects into a Halloween double act: custom voice lin
 
 <!-- placeholder: hero-video -->
 
-If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys an animatronic skeleton. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over Bluetooth Low Energy.]{#furby-comedy-routine}
+If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys a 12-foot animatronic skeleton. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over Bluetooth Low Energy.]{#furby-comedy-routine}
 
 <style>
   .furby-media { margin: 1.5rem 0; }
