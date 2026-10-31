@@ -51,7 +51,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 
 A few things I learned about Furby Connects the hard way:
 
-- **:quote[Two Furbies near each other start singing together, and then they vanish.]{#furbies-sing-and-vanish}** While they're singing to each other, neither one announces itself over Bluetooth, so nothing can find them. The fix is to wake them one at a time (there's no power switch, so that means putting the batteries in one Furby, then the other), and the show tells you when: "Pink is connected. Now power up blue." On the porch board, a light blinks once for pink and twice for blue.
+- **:quote[Two Furbies near each other start singing together, and then they vanish.]{#furbies-sing-and-vanish}** While they're singing to each other, neither one announces itself over Bluetooth, so nothing can find them. The fix is to wake them one at a time, and the show tells you when: "Pink is connected. Now power up blue." On the porch board, a light blinks once for pink and twice for blue.
 - **A busy Furby plays your line with no sound.** For a while, about a third of the clips played as eyes and wiggling with no audio, because a Furby that's still moving ignores the sound of its next line.[^busy]
 - **Identical Furbies are identical.** The show tells them apart only by which DLC each is running. Flash both with pink's file by mistake and you have two evil Furbies and nobody telling the kids to take one.
 - **Pet it and it ignores your DLC.** Its own reactions to petting and loud noises come from built-in memory, whatever DLC is loaded.
