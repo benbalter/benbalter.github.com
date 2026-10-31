@@ -4,7 +4,7 @@ description: "Two hacked Furby Connects by my front door ran a two-act horror sh
 tldr: "I turned two Furby Connects into a Halloween double act: custom voice lines, demon and jack-o'-lantern eyes, a motion sensor, and a hidden Bluetooth board cueing it all. Along the way I bisected an undocumented Furby eye bug with numbered digits and learned that two Furbies will sing each other into hiding. The code is open source, and you can build your own with a laptop and two Furbies."
 ---
 
-<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), then delete this comment. Merging to main publishes the post. -->
+<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), strip metadata from every photo and video (`exiftool -all=`, or `ffmpeg -map_metadata -1`) and check for house numbers and reflections, then delete this comment. Merging to main publishes the post. -->
 
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 
@@ -157,7 +157,9 @@ Rather have an AI assistant drive? [furby-mcp](https://github.com/benbalter/furb
 
 If you build one, I want to hear what your Furbies say. Mine have a year to come up with new material. Pink says it still wants your candy.
 
-[^voices]: The clips the AI mimics are Hasbro's recordings, so I'm keeping anything built from them off the internet. If you want your own Furby threatening your candy, here's the recipe. `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV. Pick four clips where the Furby is just talking (no music, no giggling), trim the silence, and join them into about ten seconds of sample audio. Then give that sample and each line's text to [Chatterbox](https://github.com/resemble-ai/chatterbox), an open-source text-to-speech model that mimics the voice in a short sample. Generate several takes of each line and keep the best. I had [Whisper](https://github.com/openai/whisper) transcribe every take, kept the ones it heard correctly that sounded most like the Furby, and nudged the pitch up a semitone. Keep the results on your porch, too.
+*Furby is a trademark of Hasbro. This project isn't affiliated with or endorsed by Hasbro.*
+
+[^voices]: The clips the AI mimics are Hasbro's recordings, and out of caution I'm keeping anything built from them off the internet. If you want your own Furby threatening your candy, here's the recipe. `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV. Pick four clips where the Furby is just talking (no music, no giggling), trim the silence, and join them into about ten seconds of sample audio. Then give that sample and each line's text to [Chatterbox](https://github.com/resemble-ai/chatterbox), an open-source text-to-speech model that mimics the voice in a short sample. Generate several takes of each line and keep the best. I had [Whisper](https://github.com/openai/whisper) transcribe every take, kept the ones it heard correctly that sounded most like the Furby, and nudged the pitch up a semitone. Keep the results on your porch, too.
 
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one.
 
