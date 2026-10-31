@@ -44,13 +44,15 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 - **Pink:** "Kah is watching you..." **Blue:** "Kah watching too! Hi!"
 
 <figure class="not-prose furby-media">
-  <figcaption style="margin:0 0 .4rem">One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones are clones of the Furby's own voice, which isn't mine to share.</figcaption>
+  <figcaption style="margin:0 0 .4rem">
+
+One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones are clones of the Furby's own voice, which isn't mine to share.[^clones]
+
+</figcaption>
   <audio controls preload="none" style="width:100%" aria-label="One scene with stand-in voices: a creaky door, a scream, then the blue Furby saying Hee hee, Gotcha">
     <source src="/audio/furby-halloween/scene-sample.m4a" type="audio/mp4" />
   </audio>
 </figure>
-
-That two-second pause after "Who you gonna call?" is deliberate. Most lines get a 0.6-second gap and punchlines get a full second, but a group of kids in costumes needs a beat to get going.
 
 ## How it works
 
@@ -194,3 +196,5 @@ Wake one Furby and run `uv run doctor.py --furbies` to check it too; then the ot
 ```
 
 If you build one, I want to hear what your Furbies say. Mine have a year to come up with new material. Pink says it still wants your candy.
+
+[^clones]: Every line the Furby says is a Hasbro sound recording, and copyright covers sound recordings. A voice cloned from them is close enough to a derivative work that I'm happy to play it on my porch and unwilling to post it on the internet. If you want your own Furby threatening your candy, `uv run audioutils/extract_voice.py` unpacks the stock DLC's clips to WAV, and any voice-cloning tool that takes a sample voice can take it from there. Keep the results on your porch, too.
