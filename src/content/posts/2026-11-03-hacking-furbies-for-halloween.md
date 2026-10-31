@@ -16,7 +16,7 @@ tldr: "I turned two Furby Connects into a Halloween double act: custom voice lin
 
 <!-- placeholder: hero-video -->
 
-If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys a 12-foot animatronic skeleton. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over Bluetooth Low Energy.]{#furby-comedy-routine}
+If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys a 12-foot animatronic skeleton. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over BLE.]{#furby-comedy-routine}
 
 <style>
   .furby-media { margin: 1.5rem 0; }
@@ -26,7 +26,7 @@ If you've read how I [over-engineered my home network](/2020/12/04/over-engineer
 
 ## Why Furbies
 
-Furby Connect is the 2016 reboot, the one with LCD screens for eyes, a light-up antenna, and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads "DLC" (downloadable content) packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory.
+Furby Connect is the 2016 reboot, the one with LCD screens for eyes, a light-up antenna, and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads DLC packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory.
 
 A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor: a laptop, or a small board hidden on the porch, telling each Furby when to deliver its next line.
 
@@ -34,7 +34,7 @@ The hard part was done back in 2017, when the security firm Context [reverse-eng
 
 ## The show
 
-Two Furbies sit by the door. Pink is evil: demon eyes, an antenna glowing red, and lines like "Don't feed Kah after midnight..." (Furbies call themselves Kah.) Blue is the friendly one: jack-o'-lantern eyes, an orange antenna, and a habit of undercutting pink. ("Kah not scared. Kah has candy.")
+Two Furbies sit by the door. Pink is evil: demon eyes, an antenna glowing red, and lines like "Don't feed Kah after midnight..." Blue is the friendly one: jack-o'-lantern eyes, an orange antenna, and a habit of undercutting pink. ("Kah not scared. Kah has candy.")
 
 They trade lines in short scenes. Some are greetings, which play when someone walks up. The rest play on a timer every 20 to 45 seconds, so the porch never goes quiet. A few of my favorites:
 
