@@ -30,7 +30,7 @@ Furbies already have a reputation as the creepiest toy of the '90s. I just leane
 
 A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor (a laptop, or a small board hidden on the porch) to tell each Furby when to deliver its next line.
 
-The hard part was done back in 2017, when a UK security firm called Context [reverse-engineered the DLC format](https://www.contextis.com/blog/dont-feed-them-after-midnight-reverse-engineering-the-furby-connect).[^credits] All I had to do was stand on their shoulders and make a pink Furby say "Trick." with a menacing pause.
+The hard part was done back in 2017, when a UK security firm called Context [reverse-engineered the DLC format](https://web.archive.org/web/20180917194149/https://www.contextis.com/blog/dont-feed-them-after-midnight-reverse-engineering-the-furby-connect).[^credits] All I had to do was stand on their shoulders and make a pink Furby say "Trick." with a menacing pause.
 
 ## The show
 
