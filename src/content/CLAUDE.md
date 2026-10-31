@@ -74,7 +74,24 @@ Cut ruthlessly: "It is important to note that" → delete. "in order to" → "to
 5. **Practical advice**: concrete, actionable recommendations
 6. **Conclusion**: memorable takeaway; connect back to the opening
 
-Use footnotes for asides, definitions, and tangential context that would break the flow.
+### Footnotes
+
+Use footnotes for asides, definitions, and tangential context that would break the flow. Lean on them more than feels natural: the main text should keep moving.
+
+- **Leave the punchline in the body and move the explainer down.** Keep the one sentence that carries the point and the voice ("I did what you do with any bug you can't see: I bisected it."), and move the how-to, the step-by-step debugging, or the licensing context into the footnote.
+- **Good footnote material:** how a physical step works (resetting a device), the details of how a bug was found, licensing or copyright context, and a hint for readers who want to try something themselves.
+- **Name footnotes by topic** (`[^reset]`, `[^bisect]`), not by number. Put the definitions at the end of the file. The renderer numbers them in the order they're referenced.
+- **Inside raw HTML** such as a `<figcaption>`, a footnote reference only renders if the Markdown sits on its own lines with a blank line before and after it:
+
+  ```html
+  <figcaption>
+
+  The caption text, with a footnote.[^voices]
+
+  </figcaption>
+  ```
+
+- **State facts and choices, not legal conclusions.** "The clips are Hasbro's recordings, so I'm keeping anything built from them off the internet" works; calling something a derivative work, or "Hasbro's audio at heart", doesn't.
 
 ## SEO
 

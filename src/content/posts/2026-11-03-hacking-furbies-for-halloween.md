@@ -82,7 +82,7 @@ Loading it all used to mean a browser tool and a tongue-and-tail reset before ev
   <figcaption>Pink's demon eyes and blue's jack-o'-lantern eyes, rendered on a computer. One animation each, the only layout that has shown up cleanly on a real Furby.</figcaption>
 </figure>
 
-Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores.
+Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores. Only two shipped.
 
 This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it.[^bisect]
 
@@ -92,9 +92,9 @@ This was the part that fought back. Custom eyes that looked perfect on my comput
 **Ben shoots** (if a probe Furby or photo from the bisect exists): garbled digits next to clean digits on the Furby's eyes. Path: `/assets/img/furby-halloween-eyes-bisect-WxH.jpg`. Caption: "Left: two eyes sharing 10 tiles. Right: the same eyes, padded to 16." Cut this placeholder if no photo exists.
 :::
 
-The bisecting found a second limit, too. A DLC with three eye animations didn't garble. It quietly showed the *previous* DLC's tiles in the new colors, as if the new tiles never loaded. Each Furby gets one eye animation for the night: demon for pink, pumpkin for blue. The other four themes are on the bench until I figure out why.
+The bisecting found a second limit, too. A DLC with three eye animations didn't garble. It quietly showed the *previous* DLC's tiles in the new colors, as if the new tiles never loaded. Each Furby got exactly one eye animation: demon for pink, pumpkin for blue. The other four themes never left my laptop.
 
-![Six pairs of Furby eyes on black, each labeled: red demon eyes with slit pupils, yellow jack-o'-lantern triangles, a glowing blue storm eye, bloodshot eyes with red veins, white ghosts, and purple hypno spirals.](/assets/img/furby-halloween-eyes-themes-1616x644.jpg "Six eye themes, drawn in code and rendered on a computer. Two made the cut.")
+![Six pairs of Furby eyes on black, each labeled: red demon eyes with slit pupils, yellow jack-o'-lantern triangles, a glowing blue storm eye, bloodshot eyes with red veins, white ghosts, and purple hypno spirals.](/assets/img/furby-halloween-eyes-themes-1616x644.jpg "All six themes, rendered on a computer. Only demon and pumpkin shipped.")
 
 The antenna lights join in. While a Furby talks, its antenna glows in a color that matches its eyes and is meant to swell with the loudness of the line: a red pulse for pink's demon eyes, an orange candle flicker for blue's pumpkin. TK: confirm the swell showed on the night, or keep "is meant to."
 
