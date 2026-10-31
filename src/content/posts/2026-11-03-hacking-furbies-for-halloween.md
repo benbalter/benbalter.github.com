@@ -22,6 +22,8 @@ Over-engineering things is a pattern for me: see my [home network](/2020/12/04/o
   .furby-media { margin: 1.5rem 0; }
   .furby-media video { display: block; width: 100%; height: auto; border-radius: .5rem; background: #000; }
   .furby-media figcaption { margin-top: .5rem; font-size: .9rem; opacity: .75; }
+  .furby-phone { max-width: 18rem; margin-left: auto; margin-right: auto; }
+  .furby-phone img { display: block; width: 100%; height: auto; border-radius: 1.25rem; }
 </style>
 
 ## Why Furbies
@@ -98,11 +100,11 @@ You can run the show from a laptop, but I didn't want one sitting by the door al
 
 An iPhone app I built works as the remote. It shows what the board is doing and fires a specific scene or line on demand. TK: one real moment from the night where the remote earned its keep, or cut this sentence.
 
-<!-- placeholder: iphone-remote -->
-
-:::info[Placeholder: iphone-remote]
-**Ben shoots** (or a simulator screenshot): the remote app on the phone. Path: `/assets/img/furby-halloween-remote-WxH.png`. Shot `iphone-remote`.
-:::
+<!-- iphone-remote: stand-in screenshot from setup testing; swap for one from the night if you get one. -->
+<figure class="not-prose furby-media furby-phone">
+  <img src="/assets/img/furby-halloween-remote-1206x2622.png" width="1206" height="2622" loading="lazy" decoding="async" alt="The Furby Show iPhone app: a green dot reading Connected to the board, a blue Greet button, an Errors section reading None, and the latest log lines, including Phone connected and an instruction to put batteries in only the pink Furby and wake the others once it connects." />
+  <figcaption>The remote, connected to the board while I was setting up.</figcaption>
+</figure>
 
 For whoever hands out the candy, there's a pair of [LED glasses](https://learn.adafruit.com/adafruit-eyelights-led-glasses-and-driver) with sound-reactive demon eyes in pink's colors.[^flashes]
 
