@@ -104,7 +104,7 @@ A few things I learned about Furby Connects the hard way:
 
 - **Two Furbies near each other start singing together, and then they vanish.** While they're singing to each other, neither one advertises over Bluetooth, so nothing can find them. The fix is to power them up one at a time, and the show tells you when: "Pink is connected. Now power up blue." On the ESP32, a light blinks once for pink and twice for blue.
 - **A busy Furby plays your line with no sound.** For a while, about a third of the clips played as eyes and wiggling with no audio. Triggering an action keeps the Furby busy until its movements finish, often long after the clip ends. Trigger it again too soon and it happily runs the action, silently. Now the show listens for the Furby's reply. If it says it's busy, the show waits for it to finish and sends the line again.
-- **Identical Furbies are identical.** The show tells them apart only by which DLC each is running. Flash both with pink's file by mistake (TK: "ask me how I know," if it was you) and you have two evil Furbies and no straight man.
+- **Identical Furbies are identical.** The show tells them apart only by which DLC each is running. Flash both with pink's file by mistake and you have two evil Furbies and nobody telling the kids to take one.
 - **The DLC only changes what plays when you ask over Bluetooth.** Pet the Furby or make a loud noise, and it reacts from its built-in memory like any other Furby. That's why the show needs something to send the cues.
 - **There's no on/off switch.** You turn a Furby off by taking the batteries out. I did this a lot.
 
