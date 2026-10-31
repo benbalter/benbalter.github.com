@@ -11,7 +11,7 @@ tldr: "I turned two Furby Connects into a Halloween double act: custom voice lin
 :quote[One Furby wants you to follow the rules. The other wants all of your candy.]{#one-furby-wants-your-candy} They bickered all night.
 
 :::info[Placeholder: hero-video]
-**Ben shoots:** porch wide shot, both Furbies mid-scene, about 8 seconds, muted, with the lines burned in as captions. No faces, nothing that shows where the house is. Path: `/video/furby-halloween/hero.{webm,mp4,jpg}`. Caption: "Pink and blue, mid-argument." Shot `porch-wide` in the Furby repository's [shot list](https://github.com/benbalter/Furby/blob/master/tools/blog_shotlist.md).
+**Ben shoots:** porch wide shot, both Furbies mid-scene, about 8 seconds, muted, with the lines burned in as captions. No kids in frame at all, nothing that shows where the house is. Path: `/video/furby-halloween/hero.{webm,mp4,jpg}`. Caption: "Pink and blue, mid-argument." Shot `porch-wide` in the Furby repository's [shot list](https://github.com/benbalter/Furby/blob/master/tools/blog_shotlist.md).
 :::
 
 <!-- placeholder: hero-video -->
@@ -121,12 +121,6 @@ TK: the night itself. Ideas for what to capture:
 - Whether the Ghostbusters call-and-response landed
 - What broke, if anything (it's a live show; something always breaks)
 - Which scene got the biggest laugh
-
-<!-- placeholder: kids-reaction -->
-
-:::info[Placeholder: kids-reaction]
-**Ben shoots:** kids reacting, no faces (shoot from behind, or only hands reaching for candy). Muted, captioned. Ideally the "Who you gonna call?" moment. Path: `/video/furby-halloween/reactions.{webm,mp4,jpg}`. Shot `kids-reaction`.
-:::
 
 ## Build your own
 
