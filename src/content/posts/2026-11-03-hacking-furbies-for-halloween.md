@@ -106,12 +106,6 @@ An iPhone app I built works as the remote. It shows what the board is doing and 
 
 For whoever hands out the candy, there's a pair of [LED glasses](https://learn.adafruit.com/adafruit-eyelights-led-glasses-and-driver) with sound-reactive demon eyes in pink's colors.[^flashes]
 
-<!-- placeholder: eyelights -->
-
-:::info[Placeholder: eyelights]
-**Ben shoots:** the EyeLights glasses on, in the dark, reacting to sound. Muted, no faces. Path: `/video/furby-halloween/eyelights.{webm,mp4,jpg}`. Shot `eyelights`.
-:::
-
 ## The night itself
 
 TK: the night itself. Ideas for what to capture:
