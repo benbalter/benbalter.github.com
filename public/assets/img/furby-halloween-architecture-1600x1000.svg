@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-labelledby="title desc">
+<title id="title">How the porch show fits together</title>
+<desc id="desc">Diagram. halloween/show.toml is built by halloween.py into pink.dlc, blue.dlc and show.json, which flash.py uploads to each Furby over Bluetooth. An ESP32 board (or a laptop running porch.py) triggers actions on the pink and blue Furbies over Bluetooth and hears back when each starts and ends. A motion sensor and a button start greetings on the board; an iPhone remote talks to the board over Bluetooth, sending commands and reading its status. EyeLights glasses run on their own with no link to the show.</desc>
+<style>svg{--card:#f8f7f4;--panel:#ffffff;--chip:#f0ede6;--ink:#1d1d1f;--muted:#5c5c66;--rule:#d6d3cc;--grid:#e8e5de;--pink:#c2337a;--blue:#2f6fd0;--pink-tint:#efc2d8;--blue-tint:#c4d6f3;--grey:#78787f;--grey-tint:#d6d6da;--amber:#b08014;--eyes:#e1d6ec;--audio:#d6e6de;--links:#ece9e2}@media (prefers-color-scheme: dark){svg{--card:#1c1d21;--panel:#25262b;--chip:#2c2d33;--ink:#ececf0;--muted:#a5a5af;--rule:#3d3e45;--grid:#2c2d33;--pink:#e0609e;--blue:#5b93e6;--pink-tint:#5a2b44;--blue-tint:#26395a;--grey:#9a9aa3;--grey-tint:#45464d;--amber:#d9a640;--eyes:#3d3350;--audio:#2b4237;--links:#34353b}}text{font-family:ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif}</style>
+<rect x="0" y="0" width="1600" height="1000" rx="28" style="fill:var(--card)"/>
+<text x="60" y="75.2" font-size="40" font-weight="700" style="fill:var(--ink)">How the porch show fits together</text>
+<text x="60" y="115.6" font-size="22" style="fill:var(--muted)">Bluetooth Low Energy (BLE) links, the build that feeds them, and the one prop that runs on its own.</text>
+<rect x="60" y="160" width="133" height="44" rx="22" style="fill:var(--chip);stroke:var(--rule);stroke-width:2"/>
+<text x="126.5" y="186.8" font-size="21" text-anchor="middle" style="fill:var(--ink)">show.toml</text>
+<line x1="199" y1="182" x2="233" y2="182" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="233,182 218.593,175.041 218.593,188.959" style="fill:var(--muted)"/>
+<rect x="239" y="160" width="158" height="44" rx="22" style="fill:var(--chip);stroke:var(--rule);stroke-width:2"/>
+<text x="318" y="186.8" font-size="21" text-anchor="middle" style="fill:var(--ink)">halloween.py</text>
+<line x1="403" y1="182" x2="437" y2="182" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="437,182 422.593,175.041 422.593,188.959" style="fill:var(--muted)"/>
+<rect x="443" y="160" width="291" height="44" rx="22" style="fill:var(--chip);stroke:var(--rule);stroke-width:2"/>
+<text x="588.5" y="186.8" font-size="21" text-anchor="middle" style="fill:var(--ink)">pink.dlc · blue.dlc · show.json</text>
+<line x1="740" y1="182" x2="774" y2="182" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="774,182 759.593,175.041 759.593,188.959" style="fill:var(--muted)"/>
+<rect x="780" y="160" width="113" height="44" rx="22" style="fill:var(--chip);stroke:var(--rule);stroke-width:2"/>
+<text x="836.5" y="186.8" font-size="21" text-anchor="middle" style="fill:var(--ink)">flash.py</text>
+<text x="909" y="186" font-size="20" style="fill:var(--muted)">BLE upload to each Furby: about 2–3½ min, about 350 KB max</text>
+<rect x="60" y="280" width="540" height="100" rx="14" style="fill:var(--card);stroke:var(--muted);stroke-width:2;stroke-dasharray:10 10"/>
+<text x="78" y="314.8" font-size="26" font-weight="700" style="fill:var(--ink)">or a laptop: porch.py</text>
+<text x="78" y="348" font-size="20" style="fill:var(--muted)">Same show engine (furbyshow.py), over bleak</text>
+<rect x="60" y="420" width="540" height="180" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="78" y="454.8" font-size="26" font-weight="700" style="fill:var(--ink)">ESP32 board</text>
+<text x="78" y="488" font-size="20" style="fill:var(--muted)">DFRobot FireBeetle 2 ESP32-S3</text>
+<text x="78" y="516" font-size="20" style="fill:var(--muted)">MicroPython + aioble, hidden</text>
+<text x="78" y="544" font-size="20" style="fill:var(--muted)">on the porch; LED blinks who to wake next</text>
+<rect x="60" y="720" width="250" height="160" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="78" y="754.8" font-size="26" font-weight="700" style="fill:var(--ink)">Motion sensor</text>
+<text x="78" y="788" font-size="20" style="fill:var(--muted)">HC-SR501 PIR</text>
+<text x="78" y="816" font-size="20" style="fill:var(--muted)">on GPIO 4: greets</text>
+<text x="78" y="844" font-size="20" style="fill:var(--muted)">arrivals</text>
+<rect x="350" y="720" width="250" height="160" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="368" y="754.8" font-size="26" font-weight="700" style="fill:var(--ink)">Button</text>
+<text x="368" y="788" font-size="20" style="fill:var(--muted)">Plays a greeting</text>
+<text x="368" y="816" font-size="20" style="fill:var(--muted)">now; no cooldown</text>
+<line x1="185" y1="720" x2="185" y2="600" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="185,600 178.041,614.407 191.959,614.407" style="fill:var(--ink)"/>
+<rect x="149.5" y="646" width="71" height="26" rx="0" style="fill:var(--card)"/>
+<text x="155.5" y="663.2" font-size="19" style="fill:var(--muted)">motion</text>
+<line x1="475" y1="720" x2="475" y2="600" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="475,600 468.041,614.407 481.959,614.407" style="fill:var(--ink)"/>
+<rect x="447" y="646" width="56" height="26" rx="0" style="fill:var(--card)"/>
+<text x="453" y="663.2" font-size="19" style="fill:var(--muted)">press</text>
+<rect x="1080" y="260" width="460" height="160" rx="14" style="fill:var(--panel);stroke:var(--pink);stroke-width:3"/>
+<text x="1098" y="294.8" font-size="26" font-weight="700" style="fill:var(--pink)">Pink Furby</text>
+<text x="1098" y="328" font-size="20" style="fill:var(--muted)">Evil · demon eyes</text>
+<text x="1098" y="356" font-size="20" style="fill:var(--muted)">PINK.DLC (stored as ____PINK.DLC)</text>
+<rect x="1080" y="470" width="460" height="160" rx="14" style="fill:var(--panel);stroke:var(--blue);stroke-width:3"/>
+<text x="1098" y="504.8" font-size="26" font-weight="700" style="fill:var(--blue)">Blue Furby</text>
+<text x="1098" y="538" font-size="20" style="fill:var(--muted)">Friendly · pumpkin eyes</text>
+<text x="1098" y="566" font-size="20" style="fill:var(--muted)">BLUE.DLC (stored as ____BLUE.DLC)</text>
+<line x1="600" y1="480" x2="1080" y2="340" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="1080,340 1064.22,337.353 1068.12,350.715" style="fill:var(--ink)"/>
+<polygon points="600,480 615.78,482.647 611.882,469.285" style="fill:var(--ink)"/>
+<line x1="600" y1="540" x2="1080" y2="550" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="1080,550 1065.74,542.742 1065.45,556.658" style="fill:var(--ink)"/>
+<polygon points="600,540 614.259,547.258 614.549,533.342" style="fill:var(--ink)"/>
+<text x="840" y="581.2" font-size="19" text-anchor="middle" style="fill:var(--muted)">BLE, both ways: trigger action 0x13,</text>
+<text x="840" y="607.2" font-size="19" text-anchor="middle" style="fill:var(--muted)">replies 20:0c start · 20:0e end</text>
+<rect x="660" y="740" width="360" height="160" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="678" y="774.8" font-size="26" font-weight="700" style="fill:var(--ink)">iPhone remote</text>
+<text x="678" y="808" font-size="20" style="fill:var(--muted)">SwiftUI app, Nordic UART</text>
+<text x="678" y="836" font-size="20" style="fill:var(--muted)">greet · scene N · status</text>
+<line x1="760" y1="740" x2="560" y2="600" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="560,600 567.812,613.963 575.794,602.561" style="fill:var(--ink)"/>
+<polygon points="760,740 752.188,726.037 744.206,737.439" style="fill:var(--ink)"/>
+<rect x="648.5" y="661" width="43" height="26" rx="0" style="fill:var(--card)"/>
+<text x="654.5" y="678.2" font-size="19" style="fill:var(--muted)">BLE</text>
+<rect x="1080" y="720" width="460" height="180" rx="14" style="fill:var(--card);stroke:var(--amber);stroke-width:2;stroke-dasharray:10 10"/>
+<text x="1098" y="754.8" font-size="26" font-weight="700" style="fill:var(--ink)">EyeLights glasses</text>
+<text x="1098" y="788" font-size="20" style="fill:var(--muted)">CircuitPython · sound-reactive</text>
+<text x="1098" y="816" font-size="20" style="fill:var(--muted)">demon eyes for the</text>
+<text x="1098" y="844" font-size="20" style="fill:var(--muted)">costume; no link to the show</text>
+</svg>

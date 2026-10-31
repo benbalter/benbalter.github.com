@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="title desc">
+<title id="title">Inside a Furby Connect DLC</title>
+<desc id="desc">Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.</desc>
+<style>svg{--card:#f8f7f4;--panel:#ffffff;--chip:#f0ede6;--ink:#1d1d1f;--muted:#5c5c66;--rule:#d6d3cc;--grid:#e8e5de;--pink:#c2337a;--blue:#2f6fd0;--pink-tint:#efc2d8;--blue-tint:#c4d6f3;--grey:#78787f;--grey-tint:#d6d6da;--amber:#b08014;--eyes:#e1d6ec;--audio:#d6e6de;--links:#ece9e2}@media (prefers-color-scheme: dark){svg{--card:#1c1d21;--panel:#25262b;--chip:#2c2d33;--ink:#ececf0;--muted:#a5a5af;--rule:#3d3e45;--grid:#2c2d33;--pink:#e0609e;--blue:#5b93e6;--pink-tint:#5a2b44;--blue-tint:#26395a;--grey:#9a9aa3;--grey-tint:#45464d;--amber:#d9a640;--eyes:#3d3350;--audio:#2b4237;--links:#34353b}}text{font-family:ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif}</style>
+<rect x="0" y="0" width="1600" height="900" rx="28" style="fill:var(--card)"/>
+<text x="60" y="75.2" font-size="40" font-weight="700" style="fill:var(--ink)">Inside a Furby Connect DLC</text>
+<text x="60" y="115.6" font-size="22" style="fill:var(--muted)">What one action plays, followed through the stock DLC's sections (numbers read from dlc/dlc2/tu003410.dlc).</text>
+<rect x="60" y="160" width="2" height="56" rx="0" style="fill:var(--eyes)"/>
+<rect x="64" y="160" width="5.15562" height="56" rx="0" style="fill:var(--eyes)"/>
+<rect x="71.1556" y="160" width="316.056" height="56" rx="0" style="fill:var(--eyes)"/>
+<text x="79.1556" y="184" font-size="20" font-weight="700" style="fill:var(--ink)">CEL</text>
+<text x="79.1556" y="204.8" font-size="16" style="fill:var(--muted)">243 KB</text>
+<rect x="389.211" y="160" width="51.3264" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="442.538" y="160" width="1088.41" height="56" rx="0" style="fill:var(--audio)"/>
+<text x="450.538" y="184" font-size="20" font-weight="700" style="fill:var(--ink)">AMF</text>
+<text x="450.538" y="204.8" font-size="16" style="fill:var(--muted)">832 KB</text>
+<rect x="1532.95" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1536.95" y="160" width="4.83323" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1543.78" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1547.78" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="60" y="230" width="22" height="22" rx="0" style="fill:var(--eyes);stroke:var(--rule);stroke-width:1"/>
+<text x="90" y="244.4" font-size="18" style="fill:var(--muted)">eyes: PAL, SPR, CEL (249 KB)</text>
+<rect x="361" y="230" width="22" height="22" rx="0" style="fill:var(--audio);stroke:var(--rule);stroke-width:1"/>
+<text x="391" y="244.4" font-size="18" style="fill:var(--muted)">audio: AMF (832 KB)</text>
+<rect x="594" y="230" width="22" height="22" rx="0" style="fill:var(--links);stroke:var(--rule);stroke-width:1"/>
+<text x="624" y="244.4" font-size="18" style="fill:var(--muted)">links: XLS, APL, LPS, SEQ, MTR (48 KB)</text>
+<text x="60" y="276.4" font-size="18" style="fill:var(--muted)">1.1 MB in all. Stock DLCs come from the app; ours must stay under about 350 KB to upload.</text>
+<rect x="60" y="340" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--pink);stroke-width:3"/>
+<text x="78" y="374.8" font-size="26" font-weight="700" style="fill:var(--ink)">Action 75·0·0·2</text>
+<text x="78" y="408" font-size="20" style="fill:var(--muted)">input · index ·</text>
+<text x="78" y="436" font-size="20" style="fill:var(--muted)">subindex · specific</text>
+<text x="78" y="464" font-size="20" style="fill:var(--muted)">sent over BLE (0x13)</text>
+<line x1="316" y1="425" x2="363" y2="425" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="363,425 348.593,418.041 348.593,431.959" style="fill:var(--ink)"/>
+<rect x="367" y="340" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="385" y="374.8" font-size="26" font-weight="700" style="fill:var(--ink)">XLS</text>
+<text x="385" y="408" font-size="20" style="fill:var(--muted)">action tree:</text>
+<text x="385" y="436" font-size="20" style="fill:var(--muted)">→ sequence 18</text>
+<line x1="623" y1="425" x2="670" y2="425" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="670,425 655.593,418.041 655.593,431.959" style="fill:var(--ink)"/>
+<rect x="674" y="340" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="692" y="374.8" font-size="26" font-weight="700" style="fill:var(--ink)">SEQ #18</text>
+<text x="692" y="408" font-size="20" style="fill:var(--muted)">playlist 0x4558</text>
+<text x="692" y="436" font-size="20" style="fill:var(--muted)">motor 0xe005</text>
+<text x="692" y="464" font-size="20" style="fill:var(--muted)">eyes 0xa009</text>
+<line x1="930" y1="425" x2="977" y2="425" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="977,425 962.593,418.041 962.593,431.959" style="fill:var(--ink)"/>
+<rect x="981" y="340" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="999" y="374.8" font-size="26" font-weight="700" style="fill:var(--ink)">APL #18</text>
+<text x="999" y="408" font-size="20" style="fill:var(--muted)">audio playlist:</text>
+<text x="999" y="436" font-size="20" style="fill:var(--muted)">track 40</text>
+<line x1="1237" y1="425" x2="1284" y2="425" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="1284,425 1269.59,418.041 1269.59,431.959" style="fill:var(--ink)"/>
+<rect x="1288" y="340" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="1306" y="374.8" font-size="26" font-weight="700" style="fill:var(--ink)">AMF</text>
+<text x="1306" y="408" font-size="20" style="fill:var(--muted)">8 KB of A1800 audio</text>
+<text x="1306" y="436" font-size="20" style="fill:var(--muted)">≈ 3.8 s at ~2 KB/s</text>
+<rect x="60" y="610" width="660" height="200" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="78" y="644.8" font-size="26" font-weight="700" style="fill:var(--ink)">Eyes: SPR → CEL → PAL</text>
+<text x="78" y="678" font-size="20" style="fill:var(--muted)">eye word picks an animation; SPR lists its frames,</text>
+<text x="78" y="706" font-size="20" style="fill:var(--muted)">each frame is four 64×64 cels (CEL) in 64 colors</text>
+<text x="78" y="734" font-size="20" style="fill:var(--muted)">from a palette (PAL, ARGB1555)</text>
+<rect x="780" y="610" width="760" height="200" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="798" y="644.8" font-size="26" font-weight="700" style="fill:var(--ink)">Body: motor word, plus delays</text>
+<text x="798" y="678" font-size="20" style="fill:var(--muted)">0xe005 is a built-in movement: about 1–10 s on a Furby</text>
+<text x="798" y="706" font-size="20" style="fill:var(--muted)">No delay words in this sequence, so the movement sets its length</text>
+<text x="798" y="734" font-size="20" style="fill:var(--muted)">The Furby stays busy until all of it ends</text>
+<line x1="760" y1="510" x2="390" y2="610" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="390,610 405.724,612.959 402.092,599.523" style="fill:var(--muted)"/>
+<line x1="840" y1="510" x2="1160" y2="610" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="1160,610 1148.32,599.06 1144.17,612.345" style="fill:var(--muted)"/>
+</svg>
