@@ -5,7 +5,7 @@ tldr: "I turned two Furby Connects into a Halloween double act: custom voice lin
 published: false
 ---
 
-<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, recount commits, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), delete this comment, then set published: true. -->
+<!-- PUBLISH CHECKLIST: rename the file to the real publish date, fill every TK, swap every :::info placeholder for real media, optionally add `image:` (1200x630) with a porch still for the social card (otherwise the site generates one), delete this comment, then set published: true. -->
 
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 
@@ -135,14 +135,6 @@ For whoever hands out the candy, there's a pair of [LED glasses](https://learn.a
 :::info[Placeholder: eyelights]
 **Ben shoots:** the EyeLights glasses on, in the dark, reacting to sound. Muted, no faces. Path: `/video/furby-halloween/eyelights.{webm,mp4,jpg}`. Shot `eyelights`.
 :::
-
-## Two weeks, 59 commits, one coding partner
-
-I built almost all of this in the two weeks before Halloween, and I didn't build it alone. Of the 59 commits this year, 53 are co-authored with Claude, and I often had several sessions going at once: one probing eye bugs, one writing the ESP32 firmware, one building a virtual Furby so the tests could run the real show without real Furbies. That virtual Furby now reproduces the silent-clip bug in CI, so it can't sneak back.
-
-TK: a paragraph in Ben's words on what working this way was like. Suggested angle: the agent was great at the tedious parts (decoding a binary format, writing the bisecting probes, making the README friendly enough for a non-technical friend to follow), and the human part was taste. Which lines are funny, how long to hold for the kids' shout, and when to stop adding features. Tie it to firsthand GitHub and management experience if it fits.
-
-The trick was the same one I'd use with any team: [write it down](/2026/10/26/documentation-quality-is-ai-quality/). The repository's notes record every hardware finding and mark which ones were confirmed on a real Furby and which were only inferred. When a session hit a weird bug, the first step was reading what the last session had learned. Without that file, every session would have rediscovered that two Furbies sing each other into hiding.
 
 ## The night itself
 
