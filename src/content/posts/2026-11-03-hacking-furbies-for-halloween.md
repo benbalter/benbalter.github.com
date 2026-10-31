@@ -35,7 +35,7 @@ Over-engineering things is a pattern for me: see my [home network](/2020/12/04/o
 
 ## Why Furbies
 
-Furbies already have a reputation as the creepiest toy of the '90s. I just leaned in. The Furby Connect is the 2016 version, with LCD screens for eyes, a light-up antenna, and an app.[^connect] That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads DLC packs from the app, files of sounds, eye animations, and movements that it keeps in memory.
+Furbies already have a reputation as the creepiest toy of the '90s. The Furby Connect is the 2016 version, with LCD screens for eyes, a light-up antenna, and an app.[^connect] That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads DLC packs from the app, files of sounds, eye animations, and movements that it keeps in memory.
 
 A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor (a laptop, or a small board hidden on the porch) to tell each Furby when to deliver its next line.
 
@@ -86,7 +86,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
   <figcaption>Bach, Furby-style.</figcaption>
 </figure>
 </div>
-<p class="furby-grid-note">Four more scenes in the browser simulator, muted, with captions for the voices.</p>
+<p class="furby-grid-note">Four more scenes in the browser simulator.</p>
 
 ## How it works
 
@@ -96,7 +96,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 
 A few things I learned about Furby Connects the hard way:
 
-- **:quote[Two Furbies near each other start singing together, and then they vanish.]{#furbies-sing-and-vanish}** While they're singing to each other, neither one announces itself over Bluetooth, so nothing can find them. The fix is to wake them one at a time, and the show tells you when: "Pink is connected. Now power up blue." On the porch board, a light blinks once for pink and twice for blue.
+- **:quote[Two Furbies near each other start singing together, and then they vanish.]{#furbies-sing-and-vanish}** While they're singing to each other, neither one announces itself over Bluetooth, so nothing can find them. The fix is to wake them one at a time, and the show tells you when: "Pink is connected. Now power up blue." On the board, a light blinks once for pink and twice for blue.
 - **A busy Furby plays your line with no sound.** For a while, about a third of the clips played as eyes and wiggling with no audio, because a Furby that's still moving ignores the sound of its next line.[^busy]
 - **Identical Furbies are identical.** The show tells them apart only by which DLC each is running. Load (flash) both with pink's file by mistake and you have two evil Furbies and nobody telling the kids to take one.
 - **Pet it and it ignores your DLC.** Its own reactions to petting and loud noises come from built-in memory, whatever DLC is loaded.
@@ -106,11 +106,11 @@ A few things I learned about Furby Connects the hard way:
 
 Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single text file, [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml), describes the whole show, every clip and every scene, and one command builds both DLCs from it.
 
-The budget is tight: each Furby's whole DLC has to fit in about 350 KB.[^budget] That's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
+Each Furby's whole DLC has to fit in about 350 KB.[^budget] That's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
 
 ![Diagram of a Furby DLC file, the package of eyes, sounds, and moves the Furby plays. A bar shows its parts by size: the eyes (color palettes, frame lists, and image tiles) and the audio clips take nearly all of it, and a small remainder wires them together. Below, the diagram follows one action, 75·0·0·2 (the four-part number the show sends over Bluetooth), through the action table to a sequence. The sequence picks an audio playlist (one clip of compressed audio, about 4 seconds), a body movement, and an eye animation, and the Furby stays busy until all of them finish.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. A developer who goes by John-K reverse-engineered it in the open-source [a1800_codec](https://github.com/John-K/a1800_codec), so I never had to touch Windows.
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. A developer who goes by John-K reverse-engineered it in the open-source [a1800_codec](https://github.com/John-K/a1800_codec), and it was a big help.
 
 Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script loads a Furby in about two minutes instead of nearly six, no tongue-pulling required.
 
@@ -133,7 +133,7 @@ The antenna lights join in. While a Furby talks, its antenna glows in a color th
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 runs the same show engine in MicroPython, off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and the board reboots itself if it ever freezes.
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, that board is an ESP32, running the same show engine in MicroPython off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats. If the board ever freezes, it reboots itself.
 
 <!-- placeholder: esp32-hidden -->
 
