@@ -10,11 +10,15 @@ tldr: "I turned two Furby Connects into a Halloween double act: custom voice lin
 
 :quote[One Furby wants you to follow the rules. The other wants all of your candy.]{#one-furby-wants-your-candy} They bickered all night.
 
-:::info[Placeholder: hero-video]
-**Ben shoots:** porch wide shot, both Furbies mid-scene, about 8 seconds, muted, with the lines burned in as captions. No kids in frame at all, nothing that shows where the house is. Path: `/video/furby-halloween/hero.{webm,mp4,jpg}`. Caption: "Pink and blue, mid-argument." Shot `porch-wide` in the Furby repository's [shot list](https://github.com/benbalter/Furby/blob/master/tools/blog_shotlist.md).
-:::
-
-<!-- placeholder: hero-video -->
+<!-- hero-video: simulator stand-in. Swap for porch footage (muted, captioned, no kids in frame) if you get it. -->
+<figure class="not-prose furby-media">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-greeting.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. The friendly blue furby offers candy and the evil pink one dares the trick-or-treater to take two. Each line appears as a caption.">
+    <source src="/video/furby-halloween/preview-greeting.webm" type="video/webm" />
+    <source src="/video/furby-halloween/preview-greeting.mp4" type="video/mp4" />
+  </video>
+  <figcaption>The opening exchange in the browser simulator that rehearses the show. Captions stand in for the voices.</figcaption>
+</figure>
 
 Over-engineering things is a pattern for me: see my [home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) and [my book](/2026/08/17/how-i-over-engineered-my-book/). A normal person buys the 12-foot skeleton from Home Depot. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over BLE.]{#furby-comedy-routine}
 
@@ -23,6 +27,9 @@ Over-engineering things is a pattern for me: see my [home network](/2020/12/04/o
   .furby-media video { display: block; width: 100%; height: auto; border-radius: .5rem; background: #000; }
   .furby-media figcaption { margin-top: .5rem; font-size: .9rem; opacity: .75; }
   .furby-phone { max-width: 18rem; margin-left: auto; margin-right: auto; }
+  .furby-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0 .25rem; }
+  .furby-grid .furby-media { margin: 0; }
+  .furby-grid-note { font-size: .9rem; opacity: .75; margin-top: 0; }
   .furby-phone img { display: block; width: 100%; height: auto; border-radius: 1.25rem; }
 </style>
 
@@ -44,6 +51,42 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 - **Blue:** *creaky door.* **Pink:** *scream.* **Blue:** "Hee hee! Gotcha!"
 - **Pink:** "Kah is watching you..." **Blue:** "Kah watching too! Hi!"
 - **Pink:** the opening bars of Bach's Toccata in D minor, the haunted-house organ riff. **Blue:** "Ooh! Kah love this song!"
+
+<div class="not-prose furby-grid">
+<figure class="furby-media">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-door-scream.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. A door creaks, pink screams, and blue giggles that it got you. Each line appears as a caption.">
+    <source src="/video/furby-halloween/preview-door-scream.webm" type="video/webm" />
+    <source src="/video/furby-halloween/preview-door-scream.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Door, scream, gotcha.</figcaption>
+</figure>
+<figure class="furby-media">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-watching.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink says it's watching you and blue chimes in that it's watching too. Each line appears as a caption.">
+    <source src="/video/furby-halloween/preview-watching.webm" type="video/webm" />
+    <source src="/video/furby-halloween/preview-watching.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Kah is watching.</figcaption>
+</figure>
+<figure class="furby-media">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-ghostbusters.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Blue asks who you're gonna call, waits a beat for the kids to shout it, then both furbies play the theme. Each line appears as a caption.">
+    <source src="/video/furby-halloween/preview-ghostbusters.webm" type="video/webm" />
+    <source src="/video/furby-halloween/preview-ghostbusters.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Who you gonna call?</figcaption>
+</figure>
+<figure class="furby-media">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-toccata.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink plays the opening of bach's toccata in d minor and blue says it loves this song. Each line appears as a caption.">
+    <source src="/video/furby-halloween/preview-toccata.webm" type="video/webm" />
+    <source src="/video/furby-halloween/preview-toccata.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Bach, Furby-style.</figcaption>
+</figure>
+</div>
+<p class="furby-grid-note">Four more scenes in the browser simulator, muted, with captions for the voices.</p>
 
 ## How it works
 
