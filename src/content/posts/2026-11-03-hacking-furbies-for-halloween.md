@@ -56,7 +56,7 @@ The budget is tight: each Furby's whole DLC has to fit in about 350 KB.[^budget]
 
 ![Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices]
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. John-K's open-source [a1800_codec](https://github.com/John-K/a1800_codec) reverse-engineered it, and it made this whole project a lot easier.
 
 Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script loads (flashes) a Furby in 139 seconds, against 340 for the same file in the browser.
 
