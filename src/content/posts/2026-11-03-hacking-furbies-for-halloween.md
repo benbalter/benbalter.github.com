@@ -9,7 +9,7 @@ published: false
 
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 
-One Furby wants you to follow the rules. The other wants all of your candy. They bickered all night.
+:quote[One Furby wants you to follow the rules. The other wants all of your candy.]{#one-furby-wants-your-candy} They bickered all night.
 
 :::info[Placeholder: hero-video]
 **Ben shoots:** porch wide shot, both Furbies mid-scene, about 8 seconds, muted, with the lines burned in as captions. No faces, nothing that shows where the house is. Path: `/video/furby-halloween/hero.{webm,mp4,jpg}`. Caption: "Pink and blue, mid-argument." Shot `porch-wide` in the Furby repository's [shot list](https://github.com/benbalter/Furby/blob/master/tools/blog_shotlist.md).
@@ -17,7 +17,7 @@ One Furby wants you to follow the rules. The other wants all of your candy. They
 
 <!-- placeholder: hero-video -->
 
-If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys an animatronic skeleton. I spent two weeks teaching a pair of 2016 toys to do a comedy routine over Bluetooth Low Energy.
+If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)) or [my book](/2026/08/17/how-i-over-engineered-my-book/), you know where this is going. A normal person buys an animatronic skeleton. :quote[I spent two weeks teaching a pair of 2016 toys to do a comedy routine over Bluetooth Low Energy.]{#furby-comedy-routine}
 
 <style>
   .furby-media { margin: 1.5rem 0; }
@@ -27,15 +27,15 @@ If you've read how I [over-engineered my home network](/2020/12/04/over-engineer
 
 ## Why Furbies
 
-Furby Connect is the 2016 reboot, the one with LCD eyes and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads "DLC" packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory and plays when told to.
+Furby Connect is the 2016 reboot, the one with LCD screens for eyes, a light-up antenna, and an app. That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads "DLC" packs from the app: files full of sound clips, eye animations, and movement routines that it keeps in memory.
 
-The hard part was done back in 2017. The security researchers at Context [reverse-engineered the DLC format](https://www.contextis.com/blog/dont-feed-them-after-midnight-reverse-engineering-the-furby-connect) and published [Python tools to read and write it](https://github.com/ctxis/Furby), plus [a Web Bluetooth demo](https://github.com/pdjstone/furby-web-bluetooth) that uploads a custom DLC from a browser. The [bluefluff](https://github.com/Jeija/bluefluff) project mapped the Furby's action codes. All I had to do was stand on their shoulders and make a pink Furby say "Trick." with a menacing pause.
+A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor: a laptop, or a small board hidden on the porch, telling each Furby when to deliver its next line.
 
-Last October, I forked [both](https://github.com/benbalter/Furby) [projects](https://github.com/benbalter/furby-web-bluetooth) to poke at one Furby. I got as far as a Toccata in D minor DLC that came out at about 1.2 MB, too big to upload. This year, I came back and kept going.
+The hard part was done back in 2017, when the security firm Context [reverse-engineered the DLC format](https://www.contextis.com/blog/dont-feed-them-after-midnight-reverse-engineering-the-furby-connect).[^credits] All I had to do was stand on their shoulders and make a pink Furby say "Trick." with a menacing pause.
 
 ## The show
 
-Two Furbies sit by the door. Pink is evil: demon eyes, a red antenna, and lines like "Don't feed Kah after midnight..." Blue is the friendly one: jack-o'-lantern eyes, an orange antenna, and a habit of undercutting pink. ("Kah not scared. Kah has candy.")
+Two Furbies sit by the door. Pink is evil: demon eyes, an antenna glowing red, and lines like "Don't feed Kah after midnight..." (Furbies call themselves Kah.) Blue is the friendly one: jack-o'-lantern eyes, an orange antenna, and a habit of undercutting pink. ("Kah not scared. Kah has candy.")
 
 They trade lines in short scenes. Some are greetings, which play when someone walks up. The rest play on a timer every 20 to 45 seconds, so the porch never goes quiet. A few of my favorites:
 
@@ -44,32 +44,21 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 - **Pink:** "Kah is watching you..." **Blue:** "Kah watching too! Hi!"
 - **Pink:** the opening bars of Bach's Toccata in D minor, the haunted-house organ riff. **Blue:** "Ooh! Kah love this song!"
 
-<figure class="not-prose furby-media">
-  <figcaption style="margin:0 0 .4rem">
-
-One scene (door, scream, "Hee hee! Gotcha!") with stand-in voices. The real ones are an AI homage to the Furby's own voice, which isn't mine to share.[^voices]
-
-</figcaption>
-  <audio controls preload="none" style="width:100%" aria-label="One scene with stand-in voices: a creaky door, a scream, then the blue Furby saying Hee hee, Gotcha">
-    <source src="/audio/furby-halloween/scene-sample.m4a" type="audio/mp4" />
-  </audio>
-</figure>
-
 ## How it works
 
-![Diagram. halloween/show.toml is built by halloween.py into pink.dlc, blue.dlc and show.json, which flash.py uploads to each Furby over Bluetooth. An ESP32 board (or a laptop running porch.py) triggers actions on the pink and blue Furbies over Bluetooth and hears back when each starts and ends. A motion sensor and a button start greetings on the board; an iPhone remote talks to the board over Bluetooth, sending commands and reading its status. EyeLights glasses run on their own with no link to the show.](/assets/img/furby-halloween-architecture-1600x1000.png "One board runs the show. The glasses are a separate costume piece.")
+![Diagram: a show file is built into one DLC per Furby and uploaded to each over Bluetooth. On the porch, an ESP32 board (or a laptop) cues the pink and blue Furbies over Bluetooth and hears back when each line starts and ends. A motion sensor and a button trigger greetings, and an iPhone remote connects to the board. A pair of LED glasses runs on its own, with no link to the show.](/assets/img/furby-halloween-architecture-1600x1000.png "One board runs the show. The glasses are a separate costume piece.")
 
 ### Teaching a Furby new lines
 
-Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml) file describes the whole show, every clip and every scene, and one command builds both DLCs from it.
+Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single text file, [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml), describes the whole show, every clip and every scene, and one command builds both DLCs from it.
 
-The budget is tight. A DLC upload times out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, *minus* everything else in the file. A single eye theme costs about 36 KB on its own. That's why pink's Toccata gets five seconds. It's enough to recognize, and a Furby's speaker doesn't do Bach any favors.
+The budget is tight: each Furby's whole DLC has to fit in about 350 KB.[^budget] That's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
 
 ![Diagram of a Furby Connect DLC file. A strip shows its sections by size: PAL, SPR and CEL hold the eyes, AMF holds the audio, and small XLS, APL, LPS, SEQ and MTR sections link them. Below, action 75·0·0·2 goes through XLS to sequence 18, which names audio playlist 18 (track 40, about 4 seconds), eye animations and a body movement.](/assets/img/furby-halloween-dlc-anatomy-1600x900.png "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch. The repository ships a script that makes stand-in lines with your computer's built-in voices instead, or you can record your own in your best squeaky voice.
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices]
 
-Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script flashes a Furby in 139 seconds, against 340 for the same file in the browser.
+Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script loads (flashes) a Furby in 139 seconds, against 340 for the same file in the browser.
 
 ### Demon eyes
 
@@ -82,9 +71,9 @@ Loading it all used to mean a browser tool and a tongue-and-tail reset before ev
   <figcaption>Pink's demon eyes and blue's jack-o'-lantern eyes, rendered on a computer. One animation each, the only layout that has shown up cleanly on a real Furby.</figcaption>
 </figure>
 
-Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores. Only two shipped.
+Each eye is a 128×128 screen in 64 colors, stored as four 64×64 tiles. I drew six themes in code (demon, pumpkin, storm, bloodshot, ghost, and hypno), then chopped them into the tiles the Furby stores.
 
-This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. I did what you do with any bug you can't see: I bisected it.[^bisect]
+This was the part that fought back. Custom eyes that looked perfect on my computer came out offset and duplicated on the Furby. :quote[I did what you do with any bug you can't see: I bisected it.]{#bisect-the-bug-you-cant-see}[^bisect] When both eyes share tiles and the file holds fewer than 16 tiles in all, the Furby scrambles them. Pad it to 16 and the eyes come out clean.
 
 <!-- placeholder: eyes-bisect -->
 
@@ -92,7 +81,7 @@ This was the part that fought back. Custom eyes that looked perfect on my comput
 **Ben shoots** (if a probe Furby or photo from the bisect exists): garbled digits next to clean digits on the Furby's eyes. Path: `/assets/img/furby-halloween-eyes-bisect-WxH.jpg`. Caption: "Left: two eyes sharing 10 tiles. Right: the same eyes, padded to 16." Cut this placeholder if no photo exists.
 :::
 
-The bisecting found a second limit, too. A DLC with three eye animations didn't garble. It quietly showed the *previous* DLC's tiles in the new colors, as if the new tiles never loaded. Each Furby got exactly one eye animation: demon for pink, pumpkin for blue. The other four themes never left my laptop.
+Each Furby got exactly one eye animation: demon for pink, pumpkin for blue.[^animations] The other four themes never left my laptop.
 
 ![Six pairs of Furby eyes on black, each labeled: red demon eyes with slit pupils, yellow jack-o'-lantern triangles, a glowing blue storm eye, bloodshot eyes with red veins, white ghosts, and purple hypno spirals.](/assets/img/furby-halloween-eyes-themes-1616x644.jpg "All six themes, rendered on a computer. Only demon and pumpkin shipped.")
 
@@ -102,17 +91,15 @@ The antenna lights join in. While a Furby talks, its antenna glows in a color th
 
 A few things I learned about Furby Connects the hard way:
 
-- **Two Furbies near each other start singing together, and then they vanish.** While they're singing to each other, neither one advertises over Bluetooth, so nothing can find them. The fix is to power them up one at a time, and the show tells you when: "Pink is connected. Now power up blue." On the ESP32, a light blinks once for pink and twice for blue.
-- **A busy Furby plays your line with no sound.** For a while, about a third of the clips played as eyes and wiggling with no audio. Triggering an action keeps the Furby busy until its movements finish, often long after the clip ends. Trigger it again too soon and it happily runs the action, silently. Now the show listens for the Furby's reply. If it says it's busy, the show waits for it to finish and sends the line again.
+- **:quote[Two Furbies near each other start singing together, and then they vanish.]{#furbies-sing-and-vanish}** While they're singing to each other, neither one announces itself over Bluetooth, so nothing can find them. The fix is to wake them one at a time (there's no power switch, so that means putting the batteries in one Furby, then the other), and the show tells you when: "Pink is connected. Now power up blue." On the ESP32, a light blinks once for pink and twice for blue.
+- **A busy Furby plays your line with no sound.** For a while, about a third of the clips played as eyes and wiggling with no audio, because a Furby that's still moving ignores the sound of its next line.[^busy]
 - **Identical Furbies are identical.** The show tells them apart only by which DLC each is running. Flash both with pink's file by mistake and you have two evil Furbies and nobody telling the kids to take one.
-- **The DLC only changes what plays when you ask over Bluetooth.** Pet the Furby or make a loud noise, and it reacts from its built-in memory like any other Furby. That's why the show needs something to send the cues.
+- **Pet it and it ignores your DLC.** Its own reactions to petting and loud noises come from built-in memory, whatever DLC is loaded.
 - **There's no on/off switch.** You turn a Furby off by taking the batteries out. I did this a lot.
-
-![Timeline with a pink lane and a blue lane. blue.door starts at 0.0 s, speaks 2.9 s, busy 9.0 s; pink.scream starts at 3.5 s, speaks 3.0 s, busy 9.0 s; blue.gotcha starts at 9.0 s, speaks 1.3 s, busy 9.0 s. blue was still busy at 7.6 s and waited to retry.](/assets/img/furby-halloween-pacing-chart-1600x680.png "One scene on virtual Furbies, with movements at their slowest. The pale tail is the movement that keeps a Furby busy after its line ends. 20:07 is the Furby's \"busy\" reply, so the show holds gotcha and resends it.")
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 (a microcontroller board with Bluetooth built in) runs the same show engine in MicroPython, off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and a watchdog reboots the board if it ever hangs.
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, an ESP32 (a microcontroller board with Bluetooth built in) runs the same show engine in MicroPython (a small Python for boards like this), off a USB power bank. It connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats, and a watchdog reboots the board if it ever hangs.
 
 <!-- placeholder: esp32-hidden -->
 
@@ -120,7 +107,7 @@ You can run the show from a laptop, but I didn't want one sitting by the door al
 **Ben shoots:** the ESP32 board and power bank, then where it hides on the porch (without showing where the house is). Path: `/assets/img/furby-halloween-esp32-WxH.jpg`. Shot `esp32-hidden`.
 :::
 
-An iPhone app works as the remote. It shows what the board is doing and fires a specific scene or line on demand. TK: one real moment from the night where the remote earned its keep, or cut this sentence.
+An iPhone app I built works as the remote. It shows what the board is doing and fires a specific scene or line on demand. TK: one real moment from the night where the remote earned its keep, or cut this sentence.
 
 <!-- placeholder: iphone-remote -->
 
@@ -162,29 +149,12 @@ The whole thing is [open source](https://github.com/benbalter/Furby), and the RE
 
 Then:
 
-1. Install [uv](https://docs.astral.sh/uv/) and [ffmpeg](https://ffmpeg.org), clone the repository, and run `uv run doctor.py`. It tells you what's missing and how to fix it.
+1. Install [uv](https://docs.astral.sh/uv/) (it runs the Python scripts) and [ffmpeg](https://ffmpeg.org) (it converts audio), download the code, and run `uv run doctor.py`. It tells you what's missing and how to fix it.
 1. Make the voice lines. `uv run voices.py` generates stand-ins with your computer's voices, or record your own. For the cackles, screams, and creaky door, grab a free [Freesound](https://freesound.org) API key and run `audioutils/freesound_fetch.py`. The Ghostbusters bit needs your own copy of the song.
 1. Edit [`halloween/show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml) to write your own scenes.
 1. Rehearse with `uv run porch.py --rehearse`, which plays the show through your computer's speakers. No Furbies needed.
 1. Build and flash with `uv run deploy.py`, which walks you through waking and loading each Furby one at a time.
 1. Run the show with `uv run porch.py`, or [put it on an ESP32](https://github.com/benbalter/Furby#running-the-show-from-an-esp32).
-
-Here's what `doctor.py` says once everything's in place (the Bluetooth check is skipped here):
-
-```text
-$ uv run doctor.py
-✓ Python 3.12
-✓ uv is installed
-✓ ffmpeg is installed
-✓ Python packages: pillow, a1800-codec, bleak
-⚠ pink.ghostbusters is optional and missing (build/music/ghostbusters.mp3), so its scenes are left out.
-⚠ blue.ghostbusters is optional and missing (build/music/ghostbusters.mp3), so its scenes are left out.
-✓ blue.dlc is built (187 KB) and matches show.json
-✓ pink.dlc is built (196 KB) and matches show.json
-
-All set (see the notes above).
-Wake one Furby and run `uv run doctor.py --furbies` to check it too; then the other.
-```
 
 If you build one, I want to hear what your Furbies say. Mine have a year to come up with new material. Pink says it still wants your candy.
 
@@ -192,6 +162,14 @@ If you build one, I want to hear what your Furbies say. Mine have a year to come
 
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one.
 
-[^bisect]: I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. When both eyes share tiles and the file holds fewer than 16 tiles total, the Furby scrambles them. Pad it to 16 and sharing works fine, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find this documented anywhere.
+[^bisect]: Bisecting means splitting the possible causes in half, testing, and repeating until one is left. I built a series of test DLCs, each asking one question, whose eyes showed nothing but numbered digits on black. I flashed each one and wrote down which digits came out clean. Padding to 16 tiles also let the eyes share tiles safely, which cut each eye theme from about 79 KB to about 36 KB. I couldn't find any of this documented anywhere.
 
 [^flashes]: The flashes stay under three a second, the threshold the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html) set to protect people with photosensitive epilepsy, and the glasses' tests fail if they don't.
+
+[^credits]: Context published [Python tools to read and write DLCs](https://github.com/ctxis/Furby), plus [a Web Bluetooth demo](https://github.com/pdjstone/furby-web-bluetooth) that uploads a custom DLC from a browser. The [bluefluff](https://github.com/Jeija/bluefluff) project mapped the Furby's action codes, the numbered commands that make it talk, blink, and wiggle. Last October, I copied (forked) [the Python tools](https://github.com/benbalter/Furby) and [the browser demo](https://github.com/benbalter/furby-web-bluetooth) to poke at one Furby, and got as far as a Toccata DLC too big to upload. This year, I came back and kept going.
+
+[^budget]: Uploads time out above about 350 KB, and audio costs about 2 KB a second, so each Furby gets a bit under three minutes of sound, minus everything else in the file. A single eye theme costs about 36 KB on its own.
+
+[^animations]: The bisecting found a second limit. A DLC with three eye animations didn't garble. It quietly showed the *previous* DLC's tiles in the new colors, as if the new tiles never loaded. I only tested three, so to be safe the show sticks to one.
+
+[^busy]: Cueing a Furby keeps it busy until its movements finish, often long after the clip ends. Cue it again too soon and it happily runs the action, silently. Now the show listens for the Furby's reply. If it says it's busy, the show waits for it to finish and sends the line again.
