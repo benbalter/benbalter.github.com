@@ -17,7 +17,7 @@ Even a casual observer of the industry can see the direction things are heading.
 
 As we say in open source software, the easy problems have already been solved. How to get information in and out of a database, how to stand up a blog, or how to convert tabular data between formats are all problems for which well-established open source solutions already exist. Why waste time reinventing the wheel when a better one already exists?
 
-In the government space, the decision becomes even more clear. The types of challenges government agencies face are not unique to the particular agency. A press release is a press release. A FOIA request is a FOIA request. Unlike, say, Coke and Pepsi, where one's advantage hurts the other's bottom line, everyone wins when the Department of Commerce open sources a Drupal module. The Department of Energy benefits because it doesn't have to make the same upfront investment. Taxpayers benefit because their tax dollars go further. And the Department of Commerce will likely be better off in the long run, splitting future development costs as other agencies contribute improvements to the shared code.
+In the government space, the decision becomes even more clear. The types of challenges government agencies face are not unique to the particular agency. A press release is a press release. A FOIA request is a FOIA request. :quote[Unlike, say, Coke and Pepsi, where one's advantage hurts the other's bottom line, everyone wins when the Department of Commerce open sources a Drupal module.]{#everyone-wins-drupal-module} The Department of Energy benefits because it doesn't have to make the same upfront investment. Taxpayers benefit because their tax dollars go further. And the Department of Commerce will likely be better off in the long run, splitting future development costs as other agencies contribute improvements to the shared code.
 
 In an environment where agencies are receiving increasing pressure to do more with less, government contractors that embrace open source can deliver agencies the same solution, for a fraction of the cost they would otherwise, extracting larger profit margins, or passing the cost savings on to taxpayers.
 
@@ -51,7 +51,7 @@ A lot of the overhead inherent in government contracting comes from shuttling in
 
 Open source eliminates that overhead by facilitating the free-flow of information. Found a bug? Submit an issue describing what you see. Want to know the status of a particular feature? Subscribe to the pull request. All of a sudden the agency has day-to-day visibility into the project's status, and does so at no additional cost to the contractor. In fact, project managers are often freed from serving as an interface to the client, and can concentrate on higher-level tasks like delivering the best software possible.
 
-Open source frees project information from costly corporate channels. Agency and contractor see the same project status, without duplicating effort.
+:quote[Open source frees project information from costly corporate channels.]{#frees-project-information} Agency and contractor see the same project status, without duplicating effort.
 
 ## 7. Internal efficiency
 
@@ -71,8 +71,10 @@ Assuming you engage in more than one project over the lifetime of the contractin
 
 ## Get involved today
 
+:::objection[Isn't open source a buggy, fringe effort that's hard to break into?]
 Open source has traditionally [gotten a bad rap](/2014/09/22/open-source-is-not-insecure/) as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional, "enterprise-grade" solutions with positive results.
+:::
 
-If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small and open source it: a fix to the software that powers your site, a shared library used internally, or a tool from your own workflow. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky nor a passing fad. Open source is here to stay.
+If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small and open source it: a fix to the software that powers your site, a shared library used internally, or a tool from your own workflow. :quote[Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky nor a passing fad.]{#not-risky-not-a-fad} Open source is here to stay.
 
 As young firms begin to bring their open source experience to the marketplace, the only question is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.

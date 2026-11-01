@@ -12,7 +12,7 @@ It's a lot easier to contribute to open source when you're building on an open p
 
 ### The demand for "enterprise" solutions
 
-There's a good deal of FUD (fear, uncertainty, and doubt) in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability if something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. "Post in the support forums and someone will reply" can be a scary proposition for a CIO.
+There's a good deal of FUD (fear, uncertainty, and doubt) in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability if something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. :quote["Post in the support forums and someone will reply" can be a scary proposition for a CIO.]{#support-forums-scary-for-cio}
 
 ### There are fewer suits behind open source
 
@@ -34,7 +34,7 @@ The contract likely calls for a throw-it-over-the-fence workflow, where the agen
 
 ### Reinventing the wheel as a business model
 
-I also suspect that federal contractors have a disincentive to open source their work, considering that technical requirements likely don't vary much from agency to agency. A FOIA request is a FOIA request and a press release is a press release, regardless of whether it's on FAA or FDA letterhead. Open sourcing these solutions the first time around could potentially decrease the demand for that same code being written a second time at the taxpayer's expense.
+I also suspect that federal contractors have a disincentive to open source their work, considering that technical requirements likely don't vary much from agency to agency. :quote[A FOIA request is a FOIA request and a press release is a press release, regardless of whether it's on FAA or FDA letterhead.]{#foia-request-is-foia-request} Open sourcing these solutions the first time around could potentially decrease the demand for that same code being written a second time at the taxpayer's expense.
 
 ### A culture of "no"
 
@@ -56,7 +56,7 @@ To flip the default, three things need to change:
 
 - First, government employees need to be empowered with a better understanding of and appreciation for the virtues of open source. Those agencies who have open sourced code do so because of individual cheerleaders spearheading the charge. Successful projects are scoped from day one with the intention of being open source and serve to reshape market demand. Initiatives like 18F and the PIF program can seek to inspire and educate the next generation of open source advocates within government.
 
-- Second, even when the agency doesn't explicitly call for it, as subject-matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices. Any casual observer can see the direction the market's heading, and the smart firms have an opportunity to get in front of it. Create internal competencies around today's hottest technologies and grow government demand. Make it more practical for government to do the right thing, rather than the thing it's always done.
+- Second, even when the agency doesn't explicitly call for it, as subject-matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices. Any casual observer can see the direction the market's heading, and the smart firms have an opportunity to get in front of it. Create internal competencies around today's hottest technologies and grow government demand. :quote[Make it more practical for government to do the right thing, rather than the thing it's always done.]{#do-the-right-thing-not-habit}
 
 - Last, the open source community needs to step up its game, both in what it offers (moving past the perception that open source is written by hobbyists) and in how it receives government code. On the supply side, there's a tremendous business model in being the suits behind any one of the internet's most popular open source projects, as Automattic, GitHub, and Red Hat show, combating the FUD and providing "enterprise" support. On the demand side, the community needs to make it a liability *not* to release code ("what are you hiding?"), and make the agency's return on investment clear, by breaking down the "us vs. them" mentality, and supporting, not criticizing, government efforts to learn open source.
 

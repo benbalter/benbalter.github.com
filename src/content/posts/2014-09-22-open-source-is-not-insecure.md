@@ -14,7 +14,7 @@ The first threshold issue is whether building or using open source software, eve
 
 There's good software and there's bad software. How widely the code's shared has no direct impact on its quality (if anything, it helps, see [below](#anyone-can-see-where-the-vulnerabilities-are-and-fix-them)). An immature project is going to have bugs, whether proprietary or open source.
 
-Often times, the reason open source software vulnerabilities make headlines, or seem to make headlines more often, is because it's so widely used. Your custom built software being hacked isn't newsworthy, but the CMS that powers a quarter of the internet is. And because the code is open, vulnerabilities are discovered and patched more easily, meaning you may hear more often about open source software having unexploited vulnerabilities, while the only closed-sourced vulnerabilities you hear about are those which have already been exploited in the wild (and thus require immediate action).
+Often times, the reason open source software vulnerabilities make headlines, or seem to make headlines more often, is because it's so widely used. :quote[Your custom built software being hacked isn't newsworthy, but the CMS that powers a quarter of the internet is.]{#cms-quarter-of-internet} And because the code is open, vulnerabilities are discovered and patched more easily, meaning you may hear more often about open source software having unexploited vulnerabilities, while the only closed-sourced vulnerabilities you hear about are those which have already been exploited in the wild (and thus require immediate action).
 
 ### It's (not) made by a bunch of hobbyists
 
@@ -28,15 +28,17 @@ The second form of open source FUD attacks open source as a workflow, meaning th
 
 ### Anyone can (not) make changes
 
+:::objection[Can't anyone just make changes to open source code?]
 The idea that anyone can make changes is simply untrue. It's FUD at its best. Like with closed projects, only authorized maintainers can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
 
 Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
+:::
 
 ### Anyone can see where the vulnerabilities are (and fix them)
 
 This is predicated, almost exclusively on the [(disproven to death) strategy of security through obscurity](https://en.wikipedia.org/wiki/Security_through_obscurity). It's a form of security theater. It's the idea of hiding a key under the welcome mat. It assumes that, if the bad guy doesn't know it's there, it's secure, right? Wrong. It's the same reason building blueprints can be available for public inspection (and city review), without increasing the chance of a break-in (and we end up with stronger, more fire resistant buildings as a result).
 
-When everyone can see the inner workings (including those you want to keep out), you're forced to build inherently secure systems, rather than [systems that rely on smoke and mirrors](https://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emerging-technologies/fcc-changes-stance-on-open-source-security/). As a result, statistically, [open source software actually produces more secure software than its closed-source counterparts](https://web.archive.org/web/20140902212926/http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169).
+:quote[When everyone can see the inner workings (including those you want to keep out), you're forced to build inherently secure systems, rather than [systems that rely on smoke and mirrors](https://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emerging-technologies/fcc-changes-stance-on-open-source-security/).]{#smoke-and-mirrors-systems} As a result, statistically, [open source software actually produces more secure software than its closed-source counterparts](https://web.archive.org/web/20140902212926/http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169).
 
 ### We (won't) reveal the secret sauce
 

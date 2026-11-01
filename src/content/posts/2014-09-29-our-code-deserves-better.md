@@ -8,7 +8,7 @@ I've seen multi-million dollar contracts in government, the final deliverable fo
 
 ## How we got here
 
-The most commonly used arrows in the federal IT procurement quiver are CTRL-C and CTRL-V. Rightly not wanting to reinvent the wheel with each contract, the first step of most procurements is to find an analogous prior award and swap out the inapplicable terms. Need a mobile app? Take the web design contract you awarded a few months back and swap out Objective-C for PHP and uptime for cross-platform. Boom. Contract. No need to rewrite potentially shared clauses like the contractor needing to supply their own laptops or the need to establish a test environment.
+:quote[The most commonly used arrows in the federal IT procurement quiver are CTRL-C and CTRL-V.]{#ctrl-c-ctrl-v-procurement} Rightly not wanting to reinvent the wheel with each contract, the first step of most procurements is to find an analogous prior award and swap out the inapplicable terms. Need a mobile app? Take the web design contract you awarded a few months back and swap out Objective-C for PHP and uptime for cross-platform. Boom. Contract. No need to rewrite potentially shared clauses like the contractor needing to supply their own laptops or the need to establish a test environment.
 
 The problem comes when you rewind this practice across thirty years of technology change. Where a contract once called for 5 1/4" floppies in triplicate (because what if it gets demagnetized? These things happen), it was replaced with 3 1/2" floppies, then by CD-ROMs, and today that role is filled by ZIP files and email. When version 1.1 came out, you'd stick the 1.0 floppies on the shelf and accept the new floppies labeled 1.1. Today, agencies receive each iteration of their software as an incrementally named ZIP file: `agency-website-v1-1.zip`. Seriously, this is how we build the world's most technologically advanced nation.
 
@@ -36,4 +36,4 @@ Forcing a government contractor to show their work gives the agency insight into
 
 If you're a government contractor, get ahead of the curve and offer the software's history in your next proposal. None of your competitors are even thinking to do it. If you're a government employee, demand the software's changelog as part of your next RFP.
 
-Version control forces knowledge transfer in a way no human-curated documentation can ever provide. Once in the agency's hands, that history can be shared with other contractors and open source developers alike. After all, our code deserves it.
+:quote[Version control forces knowledge transfer in a way no human-curated documentation can ever provide.]{#version-control-forces-knowledge-transfer} Once in the agency's hands, that history can be shared with other contractors and open source developers alike. After all, our code deserves it.

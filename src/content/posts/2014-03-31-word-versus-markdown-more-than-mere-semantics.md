@@ -22,7 +22,7 @@ Over the past three decades, however, how we consume content has changed dramati
 
 Desktop formats are shallow. All they care about is looks. Desktop publishing software inextricably marries content and presentation. The information you input can only be consumed in one form, and that one form is defined by the medium, in most cases, paper, or more recently, their digital analog, faux margins and all.
 
-When you blindly optimize for appearances, a lot goes unattended behind the scenes, and even the simplest tasks get increasingly complex. Extracting your content becomes tantamount to finding a needle in a purpose-built, legacy haystack.
+When you blindly optimize for appearances, a lot goes unattended behind the scenes, and even the simplest tasks get increasingly complex. :quote[Extracting your content becomes tantamount to finding a needle in a purpose-built, legacy haystack.]{#legacy-haystack}
 
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, less than one quarter of one percent of the file is actually dedicated to storing content:
 
@@ -90,7 +90,7 @@ Second, there's a lot of proprietary metadata in there (everything starting with
 
 ## Jailbreaking content
 
-There's a reason that content authored on the desktop is most commonly shared online as a PDF, a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
+There's a reason that content authored on the desktop is most commonly shared online as a PDF, a format designed to mimic the properties of paper as closely as possible. :quote[Once the content's in a paper-based format, it's stuck there forever.]{#stuck-in-paper-forever}
 
 If there's one thing I've learned trying to [convert Word documents to Markdown](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/), it's that [Markdown](/2023/03/02/github-for-non-technical-roles/#markdown) is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
 
