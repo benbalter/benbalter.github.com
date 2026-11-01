@@ -18,7 +18,7 @@ This struck me for two reasons. First, it shows that the data publishers still b
 
 Second, the fact that the documentation is geared not towards developers, but towards internal stakeholders shows a lack of consideration for the data consumer's user experience. In this case, listing IDs is just scratching the surface of [what a developer might expect from the private sector](http://developer.github.com/). Is the API responsive? Does it return data in a usable format? Are related queries properly linked? The list goes on.
 
-All experiences, and government experiences especially, should be optimized for the consumer, not for the publisher, regardless of format or internal politics.
+:quote[All experiences, and government experiences especially, should be optimized for the consumer, not for the publisher, regardless of format or internal politics.]{#optimized-for-the-consumer}
 
 The General Services Administration, much to their credit, has begun a "[First Fridays](https://web.archive.org/web/20131224163338/http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, the tangible result of a much larger effort to teach publishers of government information why user experience matters.
 

@@ -8,7 +8,7 @@ Open government is great. At least, it was a few election cycles ago. FOIA reque
 
 It used to be that sharing information was exceedingly difficult. Open government wasn't even a possibility during FDR's time. As communication tools (the printing press, telegraph, and fax machine) have evolved over time, newer tools have generally done three things: lowered the cost of transmitting information, increased to whom information could be made available, and increased the pace at which information could be distributed.
 
-But printing presses and fax machines have two limitations: they are one-way and asynchronous. They let you more easily request, and eventually see how the sausage *was* made, but don't let you actually take part in the sausage-making. You may be able to see what's wrong, but you don't have the chance to make it better. By the time you find out, it's already too late, and reactive rather than proactive work must be done to correct issues and implement improvements. If you could take part in the sausage-making process, you could fix problems in the sausage *before* they were sent out to the supermarkets and diners of the world.
+But printing presses and fax machines have two limitations: they are one-way and asynchronous. They let you more easily request, and eventually see how the sausage *was* made, but don't let you actually take part in the sausage-making. :quote[You may be able to see what's wrong, but you don't have the chance to make it better.]{#see-whats-wrong-cant-fix} By the time you find out, it's already too late, and reactive rather than proactive work must be done to correct issues and implement improvements. If you could take part in the sausage-making process, you could fix problems in the sausage *before* they were sent out to the supermarkets and diners of the world.
 
 As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.
 
@@ -26,7 +26,7 @@ There are two problems with this hub-and-spoke model of bespoke collaboration. F
 
 Second, when conversations are transacted via email (or notice and comment) or other one-to-one, highly asynchronous means, there's an opportunity for vertical communication (me and my government), but no opportunity for horizontal communication (me and my fellow citizens), at least not officially.
 
-In the software world, this often means that multiple users experiencing the same bug ask the same question or file the same bug report multiple times, not to mention, absent a system of self-help, the bottleneck it creates in time required to respond to these issues. There's no opportunity for a fellow user to say "I had the problem last week, here's what I did," as we often see by Googling many common problems. In government that's also true, with the added harm of hindering the marketplace of ideas. "Here's a bunch of ideas, government. You figure them out" is a lot less effective at solving shared problems than an ongoing dialogue between citizens building towards a rough consensus.
+In the software world, this often means that multiple users experiencing the same bug ask the same question or file the same bug report multiple times, not to mention, absent a system of self-help, the bottleneck it creates in time required to respond to these issues. There's no opportunity for a fellow user to say "I had the problem last week, here's what I did," as we often see by Googling many common problems. In government that's also true, with the added harm of hindering the marketplace of ideas. :quote["Here's a bunch of ideas, government. You figure them out" is a lot less effective at solving shared problems than an ongoing dialogue between citizens building towards a rough consensus.]{#you-figure-them-out}
 
 ## Learning from open source
 
@@ -38,6 +38,6 @@ Second, it's a matter of tooling. There are great, free, readily available tools
 
 Last, be a good open source ambassador. Help your home city or state get involved with open source. Encourage them to take their first step (be it consuming open source, publishing, or collaborating with the public), teach them what it means to do things in the open. When they do push code outside the firewall, above all, be supportive. We're in this together.
 
-As technology makes it easier to work together, geeks can help make our government not just open, but collaborative. Government is the world's largest and longest-running open source project (bugs, trolls, and all). It's time we start treating it like one.
+As technology makes it easier to work together, geeks can help make our government not just open, but collaborative. :quote[Government is the world's largest and longest-running open source project (bugs, trolls, and all).]{#government-largest-open-source-project} It's time we start treating it like one.
 
 *This post originally published on [opensource.com](https://opensource.com/government/14/5/open-collaborative-government).*

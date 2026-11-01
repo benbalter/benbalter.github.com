@@ -56,6 +56,6 @@ Skip-level 1\:1s, regular conversations with your manager's manager, build rappo
 
 ## The real test
 
-Your 1\:1s are a microcosm of how you lead. Shared agendas, documented outcomes, async preparation: every practice that makes a 1\:1 great is the same practice that makes a distributed team work. If you [manage like an engineer](/2023/01/10/manage-like-an-engineer/), you already have the instincts: treat the meeting like a system, instrument it, and iterate.
+:quote[Your 1\:1s are a microcosm of how you lead.]{#microcosm-of-how-you-lead} Shared agendas, documented outcomes, async preparation: every practice that makes a 1\:1 great is the same practice that makes a distributed team work. If you [manage like an engineer](/2023/01/10/manage-like-an-engineer/), you already have the instincts: treat the meeting like a system, instrument it, and iterate.
 
 Before your next one, run the test: could you cancel it without losing anything?

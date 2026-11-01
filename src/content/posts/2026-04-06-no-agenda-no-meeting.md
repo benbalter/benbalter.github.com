@@ -2,6 +2,7 @@
 title: No agenda, no meeting
 bookRelation: cut
 description: Announcing noagendanomeeting.net, a single-page site arguing that every meeting deserves an agenda and most meetings should be a document instead.
+tldr: "A meeting without an agenda hasn't even bothered to justify its own existence. Write first, meet second, and if you do need a meeting, include an agenda, attach a read-ahead, and state the decision you're trying to make. Next time you get an invite without an agenda, decline it, or reply asking for one."
 ---
 
 You get the invite. No description. No agenda. No attached document. Just a title like "Quick sync" and a 30-minute calendar hold. You accept it anyway. What else are you going to do, decline a meeting with your skip-level?

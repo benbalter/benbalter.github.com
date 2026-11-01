@@ -5,7 +5,7 @@ tldr: "There's lots of internet lore around open source licensing. Here are my a
 writtenAtGitHub: true
 ---
 
-Without an open source license, open source is just published code. Open source licenses are what allow users to use your software, and more importantly, to modify it (and hopefully propose improvements).
+:quote[Without an open source license, open source is just published code.]{#no-license-just-published-code} Open source licenses are what allow users to use your software, and more importantly, to modify it (and hopefully propose improvements).
 
 There's lots of internet lore around open source licensing. As an attorney and an open source developer, I've answered many questions over the years about open source licensing, and figured [it was time to give my answers a URL](/2015/11/12/why-urls/), in hopes that they might help other maintainers.
 
@@ -53,7 +53,7 @@ In addition to an open source license, many large, often-corporate-backed projec
 
 Whereas open source licenses can be thought of as the copyright grant for users to use the project, a contributor license agreement, at its core, is the right for the project to incorporate a contributor's code. While absent a CLA, most contributions are assumed to be under the terms of the project's license, for high-risk projects or risk-averse maintainers, a CLA makes that understanding explicit. Contributors may also be required to attest that they have the right to submit the code, or the CLA may include an explicit patent grant (see [below](#patents)). Some CLAs go so far as to actually assign the developer's copyright to the project. Regardless of the specific clauses, CLAs are generally a form of CYA, to prevent maintainers (or the project) from landing in hot water due to the community contributions it accepts.
 
-Most open source projects won't need a CLA. If your employer tells you yours does, I'd still push back against your corporate counsel a bit, especially [if your project is on GitHub](#copyright-on-github). CLAs add significant friction to the developer experience and can make it so that a one-line change can take weeks (and countless internal emails) to merge. Learning software development and open source is hard enough. You shouldn't need a law degree (or favor owed from your general counsel's office) on top of that.
+:quote[Most open source projects won't need a CLA.]{#most-projects-dont-need-a-cla} If your employer tells you yours does, I'd still push back against your corporate counsel a bit, especially [if your project is on GitHub](#copyright-on-github). CLAs add significant friction to the developer experience and can make it so that a one-line change can take weeks (and countless internal emails) to merge. Learning software development and open source is hard enough. You shouldn't need a law degree (or favor owed from your general counsel's office) on top of that.
 
 ## Copyright on GitHub
 
@@ -91,7 +91,7 @@ Whether you're willing to forfeit legal rights just to contribute to an open sou
 
 ## When in doubt, follow the money
 
-The number one lesson I learned in law school was to always follow the money. For the vast majority of open source projects, if you add the MIT or Apache licenses, you will never have to think about copyright or patents and can focus on writing amazing software.
+:quote[The number one lesson I learned in law school was to always follow the money.]{#follow-the-money} For the vast majority of open source projects, if you add the MIT or Apache licenses, you will never have to think about copyright or patents and can focus on writing amazing software.
 
 Here's why. If you're a college student and infringe on a corporation's intellectual property, they may send you a harshly worded cease-and-desist letter or DMCA notice telling you to take down your project. It's unlikely they'll sue, since it'll cost them more in legal fees than they'll likely recover (college students generally have few assets to their name). Not to mention, the negative PR of going after an aspiring developer would cost them more in goodwill than they would have likely incurred from the infringement as a function of lost profit, if any. That's not to say you should ignore copyright and patents entirely, but unlike say, those scary pre-VHS-playback FBI warnings, if a mistake is made in good faith, and you respond reasonably, it's unlikely you'll be thrown in jail.
 

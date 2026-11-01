@@ -15,4 +15,4 @@ Instead, [Jekyll](http://jekyllrb.com), the static site generator baked directly
 
 But there was another major advantage. By treating the content as code, we suddenly empowered ourselves to use a more evolved editorial workflow. Forks, pull requests, a running list of issues… the content truly was an open source project in itself, and [as we close in on nearly 100 contributors](https://github.com/github/government.github.com/graphs/contributors), the content is only getting better each day.
 
-Open source is about tackling shared challenges together, and there's no reason the philosophy should stop at code. Dumb-simple tools like Jekyll empower that workflow and free you to focus on what matters, so there's no excuse for content not being king.
+:quote[Open source is about tackling shared challenges together, and there's no reason the philosophy should stop at code.]{#philosophy-should-not-stop-at-code} Dumb-simple tools like Jekyll empower that workflow and free you to focus on what matters, so there's no excuse for content not being king.

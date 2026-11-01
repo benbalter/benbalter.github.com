@@ -10,7 +10,7 @@ What I wrote then remains true, but after having relied on, optimized, and upgra
 
 - **Config (and infrastructure) as code.** This is far from a new concept to the industry, but I was somewhat recently introduced to the idea of [treating servers like cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). While config as code may come more naturally when managing a cluster of servers, even when managing only a single Raspberry Pi, prefer defined and well-understood changes over guess-and-check server administration.
 - **Outsource to the experts.** The less I can trust to me "getting it right", the better. "Copy and paste these random commands from Stack Overflow" isn't the best way to run a security-conscious home network. Instead, rely on the open source community's established, vetted, and maintained builds, configurations, and defaults through known and trusted distribution channels.
-- **It (still) needs to “just work.”** A dependency update shouldn't be able to steal hours of my weekend due to an unexpected conflict or config change. I wanted to get out of the bespoke sysadmin business, provisioning and then immediately walking away from "set it and forget it" systems wherever possible. Ideally, systems would update themselves regularly, and upgrades would be predictable and boring.
+- **It (still) needs to “just work.”** :quote[A dependency update shouldn't be able to steal hours of my weekend due to an unexpected conflict or config change.]{#steal-my-weekend} I wanted to get out of the bespoke sysadmin business, provisioning and then immediately walking away from "set it and forget it" systems wherever possible. Ideally, systems would update themselves regularly, and upgrades would be predictable and boring.
 
 To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy), beyond having read [the original post](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) along with some basic familiarity with home networking (understanding how things like DNS and IPs work), it would help to have some conceptual familiarity with containerization and provisioning tools to adapt the setup to your own needs. With that, here's how I re-over-engineered my home network with a few improvements to how I set up, maintain, and manage things:
 
@@ -39,7 +39,7 @@ For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualizat
 
 At first, the added complexity might feel counterintuitive for what seems like a straightforward service management problem, but there are a number of notable advantages to using Docker here:
 
-- **Install without drama.** The standard install process for most projects is to follow the documentation until the instructions inevitably fail and then to paste random commands from the internet into the console until it inexplicably works. With Docker, I'm essentially outsourcing dependency and configuration management (through standardized build processes and pre-compiled images) to the projects' maintainers who know infinitely more about the ecosystem than I ever will.[^1]
+- **Install without drama.** :quote[The standard install process for most projects is to follow the documentation until the instructions inevitably fail and then to paste random commands from the internet into the console until it inexplicably works.]{#paste-random-commands} With Docker, I'm essentially outsourcing dependency and configuration management (through standardized build processes and pre-compiled images) to the projects' maintainers who know infinitely more about the ecosystem than I ever will.[^1]
 - **Isolation.** Docker isolates processes from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think microservices vs. monolith.
 - **Trusted underlying system.** Docker allows me to make the bare minimum changes to the base image. This is especially valuable for experimentation (for example, testing whether I should use `unbound` instead of `cloudflared`): I can spin up and tear down short-lived containers without worrying that I modified something of consequence or left cruft behind.
 
@@ -410,7 +410,9 @@ Between Ansible and Docker Compose, I was happy with how I set up and maintained
 
 ## Caddy
 
+:::objection[Isn't the risk of sending PiHole credentials in the clear on a home network pretty low?]
 Admittedly, the risk of sending passwords, tokens, and other sensitive data in the clear was relatively low. My PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly trusted devices (all other network users had an API key to temporarily disable blocking if it broke functionality). I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
+:::
 
 I wanted to expose the PiHole admin interfaces (web and API) over HTTPS. The built-in lighttpd server can do it, but only with a self-signed certificate (which brings its own problems) or a Let's Encrypt setup I'd have to maintain myself. I settled on [Caddy](https://caddyserver.com), a project I hadn't heard of before, for a few reasons:
 
@@ -533,7 +535,7 @@ Nearly five years on, this is all still humming along, which, given the original
 
 Eighteen months since [I originally overengineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), ads remain rare, false positives are still low, and I've learned a lot about many of the behind-the-scenes technologies we've come to take for granted every day. If you're looking to implement a similar setup (or do and find ways to improve it), you can find all the configuration files referenced above (and more!) over at [benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy) on GitHub.
 
-Now that my privacy- and security-centric home network is defined in code, [pull requests are welcome](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy)!
+:quote[Now that my privacy- and security-centric home network is defined in code, [pull requests are welcome](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy)!]{#network-defined-in-code}
 
 [^1]: While pihole offers `armv7`/`armvf` (what the Raspberry Pi identifies as under the latest version of Raspberry OS) docker images, cloudflared does not, meaning you'll need to build cloudflared yourself. Unlike compiling from source and endless dependency drama, with a simple `docker build` and a few minutes' patience, you should be good to go.
 

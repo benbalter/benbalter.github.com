@@ -14,7 +14,7 @@ You'd be hard pressed to find a private-sector firm today worth its venture-capi
 
 ## Management by FUD
 
-In practice, it's the myth, not the law, that gets in the way of progress (although the law usually gets the blame). Just because something has been done a certain way doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](https://web.archive.org/web/20141230095650/http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1&Page=2)
+In practice, :quote[it's the myth, not the law, that gets in the way of progress]{#myth-not-the-law} (although the law usually gets the blame). Just because something has been done a certain way doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](https://web.archive.org/web/20141230095650/http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1&Page=2)
 
 It's not malicious, but, given the demographics of government IT, new ideas like open source can feel both personally and professionally threatening. To take an example from just a few years back, the government employee who spent a decade securing funding and headcount to grow the fiefdom that is "his" or "her" datacenter may not immediately see what role they can play in a world where their agency is exclusively in the cloud. In this model, it doesn't matter what the technology is. The indictment is always the same.
 
@@ -30,4 +30,4 @@ Government is often accused of harboring a CYA culture. Trying what's perceived 
 
 The next time you advocate for change within government, remember that approval isn't about sacrificing enough paperwork to the bureaucratic powers that be (it will never be enough). It's about showing the agency's gatekeepers the value of the new, especially for their own role within the organization, and the risk of the old, especially if what they see as new isn't really all that new.
 
-Sometimes, the riskiest thing an organization can do is to buy into its own mythology. It's been said before, but it's worth saying again: [never take "no" from someone who can't say "yes"](/2014/03/21/want-to-innovate-in-government-focus-on-culture/#never-take-no-from-someone-who-cant-say-yes).
+:quote[Sometimes, the riskiest thing an organization can do is to buy into its own mythology.]{#riskiest-thing-own-mythology} It's been said before, but it's worth saying again: [never take "no" from someone who can't say "yes"](/2014/03/21/want-to-innovate-in-government-focus-on-culture/#never-take-no-from-someone-who-cant-say-yes).

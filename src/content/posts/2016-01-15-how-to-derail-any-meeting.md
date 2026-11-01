@@ -1,6 +1,7 @@
 ---
 title: How to derail any meeting
 description: How a WWII field manual can help modern knowledge workers identify those inadvertently sabotaging your organization today.
+tldr: "The sabotage tactics the Office of Strategic Services (the CIA's predecessor) published in 1944 are now everyday meeting antipatterns, and the modern versions share a common thread: maximize meta-discussion. Learn to spot them, because your coworkers are far more likely to be inadvertent saboteurs than double agents."
 ---
 
 The Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" was declassified and subsequently made its way around the internet. The book, published in 1944 by the predecessor to the CIA, had headings like "Encouraging Destructiveness." Still, it was the section on "General Interference with Organizations and Production" that caught my eye. I don't intend to sabotage any organization in the near future. But I see so many modern knowledge workers unintentionally doing to their organization precisely what the OSS playbook described doing to adversaries in 1944. Here are a few of my favorites[^emphasis-mine] from the list:
@@ -16,7 +17,7 @@ The Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gut
 > - In making work assignments, **always sign out the unimportant jobs first**.
 > - **Insist on perfect work** in relatively unimportant products.
 
-Do any of those tactics sound familiar? Any of those you haven't experienced in a meeting at least once? Experienced this week? While I doubt your coworkers are double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage are now all-too-common antipatterns in day-to-day corporate America.
+Do any of those tactics sound familiar? Any of those you haven't experienced in a meeting at least once? Experienced this week? :quote[While I doubt your coworkers are double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage are now all-too-common antipatterns in day-to-day corporate America.]{#sabotage-now-antipatterns}
 
 That got me thinking: *what additional antipatterns would the OSS add to that list if they were writing that field manual for modern times?* The common thread, as I saw it, was to *maximize meta-discussion*: the discussion about having the discussion you need before you can do the work you set out to do.
 

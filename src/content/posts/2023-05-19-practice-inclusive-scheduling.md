@@ -16,4 +16,4 @@ Time zones are one of the harder parts of software development, but they don't h
 
 <a href="https://xkcd.com/1179/"><img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" alt="xkcd comic describing ISO 8601 as the one true date format" /></a>
 
-A small nod to inclusivity goes a long way toward creating belonging and reducing ambiguity. When you work with global teams, schedule and communicate with a global (and remote) audience in mind.
+:quote[A small nod to inclusivity goes a long way toward creating belonging and reducing ambiguity.]{#small-nod-to-inclusivity} When you work with global teams, schedule and communicate with a global (and remote) audience in mind.

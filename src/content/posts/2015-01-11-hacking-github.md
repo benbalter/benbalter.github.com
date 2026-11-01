@@ -11,7 +11,7 @@ Often, when I'm [explaining the potential of open source to government agencies]
 
 > "How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"
 
-Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API. And that's exactly what I do most often.
+Code speaks louder than words. :quote[It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API.]{#glue-code-beats-explaining} And that's exactly what I do most often.
 
 Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and show the power of adding smart tools to the edge of an otherwise dumb platform:
 

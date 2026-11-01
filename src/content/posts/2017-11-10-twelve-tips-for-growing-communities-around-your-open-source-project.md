@@ -7,7 +7,7 @@ writtenAtGitHub: true
 
 The superficial promise of open source is that if you publish your code, others will make it better. Strictly speaking, that's not the case. To reap the benefits of open source, maintainers must seek to grow communities around their project, a step often overlooked when "publishing" code.
 
-When it comes to growing communities, there's nothing unique about online communities. Online communities are offline communities, just online. Like your bowling league, place of worship, or neighborhood, there are members, leaders, and rules (be they written or unspoken).
+When it comes to growing communities, there's nothing unique about online communities. :quote[Online communities are offline communities, just online.]{#online-communities-are-offline-communities} Like your bowling league, place of worship, or neighborhood, there are members, leaders, and rules (be they written or unspoken).
 
 Beyond establishing and enforcing such norms, maintainers seeking to grow communities need to attract members and encourage them to become leaders. My (then) colleague @MikeMcQuaid describes this process as a [contributor funnel](https://mikemcquaid.com/2018/08/14/the-open-source-contributor-funnel-why-people-dont-contribute-to-your-open-source-project/). Similar to prospects traveling down a sales funnel, maintainers must market their project to attract users, provide opportunities for those users to contribute, and encourage repeat contributors to take on maintaining the project.
 
@@ -67,7 +67,7 @@ Whatever the preferred path, if you assume your software is imperfect, then you 
 
 One of the most impactful ways you can grow your community is to welcome new contributors. Submitting a pull request to a project can be a scary experience, especially if it's a user's first pull request. If after potentially hours of frustrating effort, all you get is an automated merge notification, it's unlikely you'll find the motivation to endure the ordeal a second time.
 
-The good news is that, as a maintainer, if a first-time contributor submits a pull request, you'll see a "First-time contributor" badge displayed prominently next to their name. As you review the pull request, go out of your way to walk them through the process and ensure they have a good first-time experience. Put another way, you shouldn't review a user's 100th contribution and first contribution the same way. Take the time to explain *why* you're requesting changes, if any, and *how* to implement them, if necessary.
+The good news is that, as a maintainer, if a first-time contributor submits a pull request, you'll see a "First-time contributor" badge displayed prominently next to their name. As you review the pull request, go out of your way to walk them through the process and ensure they have a good first-time experience. Put another way, :quote[you shouldn't review a user's 100th contribution and first contribution the same way.]{#first-contribution-review} Take the time to explain *why* you're requesting changes, if any, and *how* to implement them, if necessary.
 
 Once the pull request has been merged, take a moment to thank and congratulate the contributor. Remember, this is potentially a big deal for them, depending on where they are in their career or the notoriety of your project. Better yet, provide links to open issues, especially those labeled "help-wanted" and invite the contributor to build on their momentum by finding a second issue to tackle. GitHub offers saved replies that can help simplify the process.
 
@@ -111,4 +111,4 @@ The most important thing you can do is communicate your project's status, whatev
 
 ## It takes a community
 
-As your project grows in popularity, scaling the community becomes just as important as scaling the technology, and if you want it to grow sustainably, that's your responsibility.
+:quote[As your project grows in popularity, scaling the community becomes just as important as scaling the technology, and if you want it to grow sustainably, that's your responsibility.]{#scaling-the-community}

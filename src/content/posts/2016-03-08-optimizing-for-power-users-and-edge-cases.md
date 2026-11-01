@@ -15,7 +15,7 @@ As a project maintainer, it will always feel better to ship code and mark an iss
 
 ## The silent majority of users
 
-Think about the type of user that's going to take the time to open an issue: they're either going to be power users that have already invested hours in your app and have grown to need additional functionality that extends the core use case, or new and potential users with unique circumstances that you didn't originally intend to accommodate. In either case, opening an issue takes time, commitment to a cause, and specialized knowledge. Through pure self-selection, most issues are going to be opened by the extreme edges of your user base, not by the core of your users (or potential users, for that matter).
+Think about the type of user that's going to take the time to open an issue: they're either going to be power users that have already invested hours in your app and have grown to need additional functionality that extends the core use case, or new and potential users with unique circumstances that you didn't originally intend to accommodate. In either case, opening an issue takes time, commitment to a cause, and specialized knowledge. :quote[Through pure self-selection, most issues are going to be opened by the extreme edges of your user base, not by the core of your users (or potential users, for that matter).]{#issues-from-the-edges}
 
 Instead of optimizing for the most vocal, evaluate feature requests through the lens of the [silent majority](https://en.wikipedia.org/wiki/Silent_majority) (to borrow a phrase from politics): "what would benefit 80% of users?" I suspect, for most projects, the exact opposite is true, that 80% of feature requests come from just 20% of users (or [as few as 1%](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))). Combined with the fact that these requests often represent the "fun" problems, this [80/20 rule](https://en.wikipedia.org/wiki/Pareto_principle) means that in many cases, absent your intervention, the majority of features implemented will provide little or no benefit to the majority of users.
 
@@ -26,9 +26,11 @@ Instead of optimizing for the most vocal, evaluate feature requests through the 
 
 ## Anything added dilutes everything else
 
-No product will satisfy 100% of user needs, although it's tempting to try. If a 20%-er requests a feature that isn't going to be used by the other 80%, there's no harm in just making it a non-default option, right?
+No product will satisfy 100% of user needs, although it's tempting to try.
 
+:::objection[What's the harm in making it a non-default option?]
 We have a motto at GitHub, part of the [GitHub Zen](/2015/08/12/the-zen-of-github/), that "anything added dilutes everything else." In reality, there is always a non-zero cost to adding that extra option. Most immediately, it's the time you spend building feature A instead of building feature B. Beyond that, it's the cognitive burden you've just added to each user's onboarding experience as they try to understand how to use the thing you've added (and if they should). In the long run, it's much more than maintenance. Complexity begets complexity, meaning each edge case you account for today creates many more.
+:::
 
 The WordPress community [has a similar philosophy](https://wordpress.org/about/philosophy/), "decisions not options\*." Every time you provide a user with an option, you're asking them to make a decision, and [those decisions quickly add up](https://en.wikipedia.org/wiki/Analysis_paralysis), especially when the user doesn't care or doesn't fully understand the implications. Ultimately, many of these decisions are technical or domain-specific decisions. As a project maintainer, as the subject-matter expert, you must absorb all that complexity on behalf of your users, not kick the decision down the line.
 
@@ -36,4 +38,4 @@ The WordPress community [has a similar philosophy](https://wordpress.org/about/p
 
 Adding a setting is easy. Burying that setting in the endless clutter of an "advanced" tab is even easier. Making the right decision is hard. Decisions require you to get to the cause of the user's needs. To figure out what they're trying to solve, even if they may not fully know it. To think through the user experience. To decide the one thing you're trying to do and do it well, rather than trying to do everything poorly.
 
-One of my favorite features to add to a project is the one that removes two others. And for most users, that tough decision is just that, a software feature. The next time you're faced with a tough decision, forgo the temptation to optimize for power users or, worse yet, to inch your project one step closer to the inside of an airplane cockpit. Optimize the out-of-box experience for the majority. [Challenge yourself. Learn to decide](https://nacin.com/2011/12/18/in-open-source-learn-to-decide/).
+:quote[One of my favorite features to add to a project is the one that removes two others.]{#feature-that-removes-two} And for most users, that tough decision is just that, a software feature. The next time you're faced with a tough decision, forgo the temptation to optimize for power users or, worse yet, to inch your project one step closer to the inside of an airplane cockpit. Optimize the out-of-box experience for the majority. [Challenge yourself. Learn to decide](https://nacin.com/2011/12/18/in-open-source-learn-to-decide/).

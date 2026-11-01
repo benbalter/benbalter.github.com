@@ -23,7 +23,7 @@ The bazaar manager is like the organizer of the bazaar. Leaders in this style te
 
 The bazaar style of people management is characterized by a high degree of autonomy and collaboration, with problems and solutions being identified and defined by the team. Its advantage is that it can produce creative results that hold up when conditions change, especially in dynamic and uncertain environments. It can also create a sense of freedom and ownership for team members, who can shape their own work, express their own voice, and pursue their own growth.
 
-Bazaar managers believe team members are competent, self-motivated, and capable of aided self-direction. They encourage their team to explore their interests, share their ideas, and contribute their skills to further the team's goals. This approach can also foster a culture of openness and trust among the members of the organization, who can learn from each other, support each other, and challenge each other.
+:quote[Bazaar managers believe team members are competent, self-motivated, and capable of aided self-direction.]{#bazaar-managers-believe} They encourage their team to explore their interests, share their ideas, and contribute their skills to further the team's goals. This approach can also foster a culture of openness and trust among the members of the organization, who can learn from each other, support each other, and challenge each other.
 
 ## Diagnose the situation, then pick your style
 

@@ -20,7 +20,7 @@ You've probably seen the [now-famous Google DNS graffiti](http://mashable.com/20
 
 HTTPS protects not only the content you request but also the fact that you requested it. HTTPS isn't just for online banking and e-commerce. HTTPS is for any site that adds to the public dialog, whether it's political commentary, how to contact a government official, or just a personal blog.[^5] If you run a site, especially a government site, even if you never process "sensitive" requests, consider adding HTTPS support and enforcing HTTPS by default.
 
-Ironically, HTTPS is about more than keeping things hidden. It's about keeping things seen.
+Ironically, :quote[HTTPS is about more than keeping things hidden. It's about keeping things seen.]{#keeping-things-seen}
 
 [^4]: While it's possible to block external DNS entirely, or to block certain IPs, this is exponentially more complex for for-profit, privately owned ISPs to implement, quickly becomes a game of whack-a-mole, and will almost undoubtedly be over inclusive, especially where CDNs or shared hosting is involved.
 

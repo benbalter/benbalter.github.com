@@ -32,7 +32,7 @@ Some licenses may also include:
 
 In order for open source to work, downstream users must be able to use the code free of legal restriction or ambiguity, and must be able to do so without the need to retain costly legal counsel. Most developers and software firms are familiar with the most common open source licenses and terms, and thus can use such software freely. As such, a standardized license is a proxy for those without legal training to know precisely what they can and can't do with the software.
 
-Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of the agency code. The open source community is just that, a community, and one with a strong tradition. Open source software is published so that others may use it, and doing so under a legal framework alien to the community is the easiest way to make sure it's not used. Optimize for the code's reuse, not its publication.
+Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of the agency code. The open source community is just that, a community, and one with a strong tradition. Open source software is published so that others may use it, and doing so under a legal framework alien to the community is the easiest way to make sure it's not used. :quote[Optimize for the code's reuse, not its publication.]{#optimize-for-reuse}
 
 ### Common licenses
 
@@ -58,7 +58,7 @@ When faced with copyleft restrictions, an agency should release code under the l
 
 ## Consuming open source software
 
-There is nothing to legally bar agencies from using open source software on their servers or on their employees' computers. Three common concerns:
+:quote[There is nothing to legally bar agencies from using open source software on their servers or on their employees' computers.]{#nothing-bars-using-open-source} Three common concerns:
 
 - For procurement purposes, open source software is treated as commercial, off the shelf software (COTS).
 
@@ -94,7 +94,7 @@ Under the FAR, by default, the government receives unlimited rights in any softw
 
 ## Contributing to open source software
 
-A central tenet of open source software is contributing downstream improvements to the upstream open source project. Agency-created code should be no exception. While there may be a business decision to prohibit government employees from contributing to community projects on government time, nothing should prohibit them legally.
+A central tenet of open source software is contributing downstream improvements to the upstream open source project. Agency-created code should be no exception. :quote[While there may be a business decision to prohibit government employees from contributing to community projects on government time, nothing should prohibit them legally.]{#nothing-prohibits-contributing}
 
 Whether a contribution to the community-maintained project directly (for example, contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
 

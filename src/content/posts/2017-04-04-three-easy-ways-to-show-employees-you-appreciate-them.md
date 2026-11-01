@@ -17,7 +17,7 @@ As a manager (or a coworker), one small way to make your workplace better is to 
 
 ## Work anniversaries
 
-*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten-year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
+*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. :quote[When you hit your one, two, five, or ten-year work milestone, that's something to be celebrated, even if within many organizations it rarely is.]{#anniversaries-worth-celebrating} There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
 
 *Why*: This is especially true if you're at a younger company. When you've clocked three years at a five-year startup, given stereotypical exponential growth, it's almost guaranteed that you've been at the company significantly longer than most of your coworkers. Heck, even if you're at a century-old blue chip company, there's a good chance they've been marking work anniversaries with gold watches for decades.
 
@@ -33,4 +33,4 @@ As a manager (or a coworker), one small way to make your workplace better is to 
 
 Some caveats here: First, this list is far from exhaustive. For example, if someone went out of their way to help you get a project out the door, consider sending them a box, bag, or bottle of their favorite warm or cold beverage to show you noticed what they did and appreciate it. Second, be careful when giving even token gifts to superiors, as you may run afoul of rules, both written and unspoken.
 
-No amount of birthday GIFs or housewarming presents can substitute for real interest in a person's well-being and a relationship built on mutual trust and respect. But when the logistics of how you work day-to-day make it hard to show you care beyond witty chat reactions, small gestures that celebrate everyday occurrences can go a long way to making your workplace a friendlier place to work.
+:quote[No amount of birthday GIFs or housewarming presents can substitute for real interest in a person's well-being and a relationship built on mutual trust and respect.]{#real-interest-in-well-being} But when the logistics of how you work day-to-day make it hard to show you care beyond witty chat reactions, small gestures that celebrate everyday occurrences can go a long way to making your workplace a friendlier place to work.

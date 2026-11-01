@@ -12,7 +12,7 @@ In a bit, you'll hear the audiobook both ways, the same line read by the same ro
 
 ## The fight only exists out loud
 
-GIF-versus-JIF is the one internet argument that text is structurally incapable of settling. You can go your whole career typing "GIF" and never once reveal which side you're on, because the letters look identical in both camps. Type "actually, it's pronounced jif" into a thread until your keyboard wears out, and nobody hears a thing. The fight only exists in sound. Record audio and it comes for you, wanting an answer before the next sentence. That's how the audiobook became the first version of this book that could even *have* the argument. It took my side without being asked.
+:quote[GIF-versus-JIF is the one internet argument that text is structurally incapable of settling.]{#text-cant-settle-gif} You can go your whole career typing "GIF" and never once reveal which side you're on, because the letters look identical in both camps. Type "actually, it's pronounced jif" into a thread until your keyboard wears out, and nobody hears a thing. The fight only exists in sound. Record audio and it comes for you, wanting an answer before the next sentence. That's how the audiobook became the first version of this book that could even *have* the argument. It took my side without being asked.
 
 For the record: soft G. It's "jif," like the peanut butter.[^wilhite] Reasonable, thoughtful, wrong people say it with a hard G. We work together anyway.
 

@@ -1,6 +1,7 @@
 ---
 title: Analysis of federal .gov domains, pre-Biden edition
 description: A data-driven snapshot of 1,121 federal .gov domains ahead of the Biden administration, covering HTTPS adoption, CMS usage, open source, and more.
+tldr: "Nearly ten years after my first crawl, a fourth scan of federal .gov domains shows security has seen the biggest wins since 2015: more than 95% of live domains support HTTPS, and more than 91% enforce it. Browse the full results or download the raw data, and if you find a mistake, submit a pull request."
 ---
 
 [In 2011](/2011/09/07/analysis-of-federal-executive-domains/), the White House’s Office of Management and Budget released a list of all domains owned and operated by federal executive agencies. At the time, I used a tool I wrote called [Site Inspector](https://github.com/benbalter/Site-Inspector) to sniff out information about each government domain's technology and capabilities. I also conducted subsequent scans in [2014](/2014/07/07/analysis-of-federal-executive-domains-part-deux/) and [2015](/2015/05/11/third-analysis-of-federal-executive-dotgovs/). Now, nearly ten years (!) after that first crawl, I conducted a fourth analysis of federal .gov domains to capture the state of government technology ahead of the incoming Biden administration.

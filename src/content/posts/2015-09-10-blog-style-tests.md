@@ -9,7 +9,7 @@ I've written in the past about how you should treat [prose with the same respect
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature…
 
-Traditionally, someone from marketing, copy, or editorial had to review the post by hand before the author got any feedback, a blocking and time-consuming step. Many improvements are machine-detectable, so an automated process can flag them with no delay, leaving both author and editor free to keep working. Here are a few examples of this idea and how you might implement them for your own team:
+Traditionally, someone from marketing, copy, or editorial had to review the post by hand before the author got any feedback, a blocking and time-consuming step. :quote[Many improvements are machine-detectable, so an automated process can flag them with no delay, leaving both author and editor free to keep working.]{#machine-detectable-improvements} Here are a few examples of this idea and how you might implement them for your own team:
 
 ## Don't use the word today
 
@@ -86,7 +86,7 @@ end
 
 At GitHub we use automated testing (CI) on just about every repository, code or otherwise, but tests against our blog posts are different in two distinct ways:
 
-First, unlike software tests where [pull requests are not mergeable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](https://zachholman.com/posts/how-github-writes-blog-posts/):
+First, unlike software tests where [pull requests are not mergeable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, :quote[failing tests are considered suggestions, not requirements]{#failing-tests-are-suggestions}, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](https://zachholman.com/posts/how-github-writes-blog-posts/):
 
 > Think of this process like a syntax linter for your words: breaking the build isn't necessarily bad, per se, but it might give you suggestions you might want to incorporate. It gives you immediate feedback without requiring a lot of additional overhead by our blog editors.
 
@@ -100,6 +100,6 @@ end
 
 ## The smart way and the hard way
 
-When engineering workflows, for any given problem there are often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce similar outcomes, but one requires far less upkeep and time.
+:quote[When engineering workflows, for any given problem there are often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool.]{#two-solutions-heavy-light} Both workflows produce similar outcomes, but one requires far less upkeep and time.
 
 Changing organizational culture and unlearning the corporate-speak antipatterns that surround us may seem daunting, but concepts the open source world has proven for decades can help your organization's humans be more, well, human.

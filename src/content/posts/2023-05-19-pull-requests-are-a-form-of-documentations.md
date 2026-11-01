@@ -25,6 +25,8 @@ To that end, here are a few practices I follow when authoring pull requests to e
 - **Review your own PR.** Comment in line to highlight specific changes for reviewers that you're less confident on.
 - **Discrete changes.** Avoid bundling unrelated changes into a single PR which can hinder future discovery and understanding. Bonus: use atomic, descriptive commits within the PR.
 
+:::objection[Doesn't organic documentation take more time?]
 Yes, organic documentation takes slightly more time, but it's less overhead than keeping static documentation up to date, and I promise you, it's well worth it. Your future self (and future coworkers) will thank you.
+:::
 
 For even more tips, check out [how to write the perfect pull request](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/) on the GitHub Blog.

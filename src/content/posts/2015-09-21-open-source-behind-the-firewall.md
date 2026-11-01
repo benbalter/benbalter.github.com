@@ -18,9 +18,13 @@ In practicality, software is more art than assembly, with project managers actin
 
 ## Software development in the open source world
 
-If traditional software development mirrors the command-and-control ethos of the organizational chart, open source workflows are better understood as a web of personal and professional relationships. All open source projects live and die by their public bug tracker. This bug tracker maintains an ongoing backlog of known issues, feature requests, and proposed improvements, open to end users, developers, and non-technical stakeholders alike to submit new issues or participate in the ongoing discussion surrounding each open proposal. Notice something wonky? File an issue. Wish the application did X? File an issue. Issues are the atomic element of open source software development.
+If traditional software development mirrors the command-and-control ethos of the organizational chart, open source workflows are better understood as a web of personal and professional relationships. All open source projects live and die by their public bug tracker. This bug tracker maintains an ongoing backlog of known issues, feature requests, and proposed improvements, open to end users, developers, and non-technical stakeholders alike to submit new issues or participate in the ongoing discussion surrounding each open proposal. Notice something wonky? File an issue. Wish the application did X? File an issue. :quote[Issues are the atomic element of open source software development.]{#issues-are-atomic-element}
 
-Project managers regularly go through and curate open issues, prioritize requests, and review proposed changes as developers self-assign tasks and work in the open where all can see their progress. It may sound like chaos to a traditionally trained manager, but whether the code is public or remains behind your organization's firewall, removing the friction of a top-down, heavyweight process gives all stakeholders more real-time project information, and they spend less time collecting, communicating, and sifting through the noise of bespoke project updates.
+Project managers regularly go through and curate open issues, prioritize requests, and review proposed changes as developers self-assign tasks and work in the open where all can see their progress.
+
+:::objection[Doesn't this sound like chaos?]
+Whether the code is public or remains behind your organization's firewall, removing the friction of a top-down, heavyweight process gives all stakeholders more real-time project information, and they spend less time collecting, communicating, and sifting through the noise of bespoke project updates.
+:::
 
 ## Open source in the enterprise
 
@@ -38,7 +42,7 @@ What if both agency and contractor adopted and shared tools that naturally captu
 
 ## How you work is as important as what you work on
 
-The tools you choose matter. Tools are more than mere convenience. Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible. It's no coincidence then that the open source community, to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
+The tools you choose matter. Tools are more than mere convenience. :quote[Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible.]{#tools-force-workflows} It's no coincidence then that the open source community, to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
 
 Open source tools tend to be more organic, rather than process-driven, and prefer social norms to technical constraints. Open source tools must also be able to support the constraints of distributed, open source teams. For example, a 9:00 AM standup meeting is not an option when your development team spans every time zone, let alone when it isn't in the same office.
 

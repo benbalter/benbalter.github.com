@@ -1,6 +1,7 @@
 ---
 title: Five principles to guide any government IT effort
 description: Nearly three years later, the founding principles of project MyGov remain valid guideposts for any reform effort in government.
+tldr: "Change the culture, serve the people first, engineer simplicity, solve for actual needs, and build a platform. An organization's principles are the underlying assumptions that constrain all decisions, so before you focus on the code, ask whether you're solving for the right thing."
 ---
 
 Three years ago to the day, the first class of Presidential Innovation Fellows were sworn in. Being part of the inaugural class was a lot like founding a startup: we had to define our problem space, figure out basic mechanics like where to work or how to get laptops and servers, and most importantly, had the opportunity to create our own culture around how we approached problems.
@@ -15,7 +16,7 @@ Looking back three years later, many of those principles still remain valid guid
 
 2. **Serve the people first, and the government second.** Reform efforts in government often confuse stakeholders with customers. The customer, the end user of the product or service being reengineered, is always going to be the American people. It may be developers, it may be veterans, it may be retirees. Despite the intermediary steps, the customer is rarely, if ever, a government bureaucrat. Optimize accordingly.
 
-3. **Engineer simplicity.** Citizen-centric design means reducing the cognitive burden required to use government services. It means using technology to absorb the complexity of bureaucracy on behalf of the public. A user shouldn't need to study the org chart to know where to submit a form and they definitely shouldn't have to tell the government the same information twice, especially information it should already know.
+3. **Engineer simplicity.** Citizen-centric design means reducing the cognitive burden required to use government services. It means using technology to absorb the complexity of bureaucracy on behalf of the public. :quote[A user shouldn't need to study the org chart to know where to submit a form and they definitely shouldn't have to tell the government the same information twice, especially information it should already know.]{#study-the-org-chart}
 
 4. **Solve for actual needs, not perceived ones.** Between interest groups, the media, and Congress, it's all too easy to be perpetually beholden to the squeakiest wheel. Data-driven decision-making can often solve for this request whack-a-mole. At the FCC, for example, we used analytics to show that lawyers and lobbyists were actually a tiny subset of visitors to `fcc.gov`, and the use cases the site was optimized for shifted accordingly.
 

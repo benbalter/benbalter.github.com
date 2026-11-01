@@ -4,7 +4,7 @@ description: "Government agencies can't agree to your standard terms of service.
 tldr: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS so 2.7 million government employees can use your product."
 ---
 
-If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a readout from a roundtable discussion at the [Collaborate](https://web.archive.org/web/20150120095029/https://collaborate.fosterly.com/) conference in Washington, D.C.:
+:quote[If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted.]{#govt-cant-agree-tos} [More than 75 of the web's largest services](https://web.archive.org/web/20150109132845/https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a readout from a roundtable discussion at the [Collaborate](https://web.archive.org/web/20150120095029/https://collaborate.fosterly.com/) conference in Washington, D.C.:
 
 ## Why federal agencies can't agree to your terms of service
 
@@ -56,7 +56,7 @@ Unlike the negotiated amendment which is executed by each agency, the idea here 
 
 ## A few gotchas
 
-No service is *required* to do business with the government. The choice of whether you offer your service to the government or not is a business decision, not a legal one. Compliance may be costly, but the exposure and user base may be attractive, especially to a growing startup.
+No service is *required* to do business with the government. :quote[The choice of whether you offer your service to the government or not is a business decision, not a legal one.]{#business-decision-not-legal} Compliance may be costly, but the exposure and user base may be attractive, especially to a growing startup.
 
 When negotiating with government entities at any level of government be sure to be sensitive as to which clauses are objected to because they are prohibited by force of law (for example, indemnification and the Antideficiency Act), and which are being objected to out of organizational preference (for example, forum selection). Many large organizations (whether public or private) will ask for certain things as a matter of habit, before entering into any contract. While the government is often going to be in the superior bargaining position, you may be able to enforce your standard terms of service, especially at the state or local level.
 

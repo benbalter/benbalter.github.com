@@ -2,10 +2,11 @@
 title: We've been trained to make paper
 bookRelation: adapted
 description: If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?
+tldr: "We've been trained to create content for the least-likely way it's consumed: on paper. Microsoft Word was designed to make paper, and emailing document snapshots around is broken. Geeks solved collaboration long ago with version control. Before clicking the little blue \"W\" out of habit, ask whether it really needs to be a piece of paper, and give Markdown and Git a try."
 published: true
 ---
 
-We've been trained wrong. We've been trained that content creation starts by firing up a desktop word processor. That's a piece of software, mind you, that still does its best to generate a digital representation of a physical piece of paper (margins, page breaks, and all). Yet this quintessential workplace training simply fails to remain relevant in a world where we carry a computer in our pockets at all times. Our training now tells us to create content for the least-likely way it's consumed: on paper. We're stuck in an anachronistic workflow.
+We've been trained wrong. We've been trained that content creation starts by firing up a desktop word processor. That's a piece of software, mind you, that still does its best to generate a digital representation of a physical piece of paper (margins, page breaks, and all). Yet this quintessential workplace training simply fails to remain relevant in a world where we carry a computer in our pockets at all times. :quote[Our training now tells us to create content for the least-likely way it's consumed: on paper.]{#least-likely-way-consumed} We're stuck in an anachronistic workflow.
 
 It's not uncommon, for example, for a team to need to write or edit a document together. Take the typical collaborative publishing process, which generally goes something like this:
 
@@ -20,7 +21,7 @@ See what we did there? We're still writing content for print, and then only once
 
 ## Using the wrong tools
 
-Microsoft Word was designed with one purpose in mind: to make paper. Think about it. Its essential elements arose in the early '80s. There are print-centric buttons like left and right align front and center, but newfangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
+:quote[Microsoft Word was designed with one purpose in mind: to make paper.]{#word-designed-to-make-paper} Think about it. Its essential elements arose in the early '80s. There are print-centric buttons like left and right align front and center, but newfangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
 
 Yet the majority of the documents we create today rarely, if ever, embody physical space. They don't care about the things Microsoft Word cares about (margin width, page breaks, or other properties that assume four sharp corners), and more importantly, they don't handle mobile responsiveness, machine-readability, or other web-specific features.
 
@@ -34,7 +35,7 @@ Geeks solved this problem a long time ago. It's called version control. We built
 
 So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via email or with obscure filenames. We've got to un-program ourselves for an age of print.
 
-And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in (one of the most basic things computers understand), and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run it through a Brita filter. It doesn't need to be so complicated.
+And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in (one of the most basic things computers understand), and we get this big mess back that can only be opened by that software. :quote[Imagine if the most common way to get water was to buy a can of Coke and run it through a Brita filter.]{#coke-through-a-brita-filter} It doesn't need to be so complicated.
 
 ## Break the habit
 

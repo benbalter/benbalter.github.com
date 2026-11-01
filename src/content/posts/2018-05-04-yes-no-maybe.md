@@ -1,6 +1,7 @@
 ---
 title: Yes, No, Maybe
 description: When responding to customer feature requests your answer should be in the form of "we're doing that", "we're not doing that", or "we might do that".
+tldr: "When someone asks about an upcoming feature or a new policy, give one of three answers: yes, no, or maybe. \"Yes\" is a commitment you'll keep, \"no\" frees people to solve the problem other ways, and \"maybe\" is a promise to follow up with a yes or no once you've decided."
 ---
 
 As a leader, you're going to get questions. Sometimes it's a question from a customer asking about an upcoming feature, sometimes it's a question from a team member asking about a new process or policy. I often use the "yes, no, maybe" framework, which @gnawhleinad and @nayafia introduced me to. It was originally meant for product managers, but it works for any leader. It's a simple way to set expectations. There are three possible responses:

@@ -6,7 +6,7 @@ tldr: "When nobody else will see your code, you cut corners. Writing as if it we
 
 <img src="https://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg" alt="Unsatisfied with your Contractor?" class="float-right ml-3" />
 
-There are two kinds of software: kludgy software and open source. Think about it logically. When you (or your organization) are the only one who's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
+:quote[There are two kinds of software: kludgy software and open source.]{#kludgy-software-and-open-source} Think about it logically. When you (or your organization) are the only one who's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
 
 But the same logic that applies to sweeping literal dirt under the rug doesn't apply to writing code. Whereas a rug will always serve to cover the floor, applications evolve over time and code is often constantly reused and repurposed as customers' needs change. Simply put, it's impossible to predict today where your code is going to be a year from now and it's in your best interest to plan accordingly.
 

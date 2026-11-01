@@ -4,7 +4,7 @@ description: "A four-part series on managing open source at scale: setting contr
 tldr: "A four-part series on managing open source at scale, from setting contributors up for success and automating workflows to governance and conversation moderation."
 ---
 
-As open source projects grow and mature, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors. When I was responsible for Community and Safety at GitHub, I advised countless organizations on not just how to manage open source projects, but how to manage open source projects *at scale*.
+:quote[As open source projects grow and mature, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors.]{#code-to-community} When I was responsible for Community and Safety at GitHub, I advised countless organizations on not just how to manage open source projects, but how to manage open source projects *at scale*.
 
 Following my rule that [everything should have a URL](/2015/11/12/why-urls/), I've captured some of the most common advice I offered over the years into a series of four posts on successfully managing large open source communities:
 

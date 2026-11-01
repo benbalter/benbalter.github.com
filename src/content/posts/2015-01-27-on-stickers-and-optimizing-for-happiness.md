@@ -5,7 +5,7 @@ tldr: "Every organization is optimized for exactly one thing. A quick glance at 
 writtenAtGitHub: true
 ---
 
-Every organization is optimized for exactly one thing. In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provide them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.
+:quote[Every organization is optimized for exactly one thing.]{#optimized-for-one-thing} In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provide them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.
 
 ## The allegory of the laptop sticker
 
@@ -25,4 +25,4 @@ Second, the fact that employees are prohibited (or assume they are prohibited by
 
 Laptop stickers are a superficial example, to be sure, but they hint at an organizational ethos antithetical to the type of workplace most information workers would thrive in, or at the very least, not optimized for it. If the organization adopts such a utilitarian approach to something as trivial as stickers, what do you think that company's deployment process looks like? How do developers gain access to development environments? How much friction will there be if I want to test out a new technology?
 
-Whether laptops, workplaces, or organizational policy, the experience should be optimized for the people they involve, not for the bureaucratic process that supports them. Laptop stickers or not, it raises the question: what does your organization optimize for?
+:quote[Whether laptops, workplaces, or organizational policy, the experience should be optimized for the people they involve, not for the bureaucratic process that supports them.]{#optimize-for-people-not-process} Laptop stickers or not, it raises the question: what does your organization optimize for?

@@ -23,11 +23,11 @@ Traditional trust and safety jargon often relies on "malicious users", "bad acto
 
 While this distinction may make sense in security or spam contexts in which the relationship between user and platform is closer to attacker and defender, it often doesn't make sense for content moderation. Yes, some users will harbor genuine ill-will, but how do we distinguish repeat offenders from a user who posts a heated comment out of [hunger](https://www.humana.com/learning-center/health-and-wellbeing/healthy-living/hangry)?
 
-We originally used the tongue-in-cheek "jerkface" persona to describe all such users who posted disruptive content, until we realized that the label reduced our own empathy for such users. Instead, we shifted to focusing on *behaviors*. We started asking how we could discourage this disruptive behavior or encourage that constructive behavior, and the conversation changed. Instead of classifying users and revoking privileges, we started talking about friction and rehabilitation.
+We originally used the tongue-in-cheek "jerkface" persona to describe all such users who posted disruptive content, until we realized that the label reduced our own empathy for such users. Instead, we shifted to focusing on *behaviors*. We started asking how we could discourage this disruptive behavior or encourage that constructive behavior, and the conversation changed. :quote[Instead of classifying users and revoking privileges, we started talking about friction and rehabilitation.]{#friction-and-rehabilitation}
 
 ## 3. Intervene before, during, and after disruptive behavior
 
-As a platform, your biggest lever is your ability to intervene in otherwise organic human interactions. With disruptive behavior, that intervention can come before, during, or after the disruptive act:
+:quote[As a platform, your biggest lever is your ability to intervene in otherwise organic human interactions.]{#platforms-biggest-lever} With disruptive behavior, that intervention can come before, during, or after the disruptive act:
 
 <table class="table">
 <thead>
@@ -118,7 +118,7 @@ There's much more to be said here. See [Consensual Software: How to prioritize u
 
 ## 10. Be purposeful about the role you play
 
-Few social platforms begin life as political platforms. Facebook began as a way to connect classmates. Twitter was for telling the world what you ate for lunch that day. Yet today, these platforms are anything but apolitical. Private corporations aren't strictly bound by the First Amendment. But the conversations at the core of free speech protections, the kind that used to happen in small pubs and town squares, are moving online to for-profit platforms. As builders, we have an obligation to shape and govern the online society we’re helping to create.
+Few social platforms begin life as political platforms. Facebook began as a way to connect classmates. Twitter was for telling the world what you ate for lunch that day. Yet today, these platforms are anything but apolitical. Private corporations aren't strictly bound by the First Amendment. But the conversations at the core of free speech protections, the kind that used to happen in small pubs and town squares, are moving online to for-profit platforms. :quote[As builders, we have an obligation to shape and govern the online society we’re helping to create.]{#obligation-to-govern-online-society}
 
 I like to think of online platforms as handing each user a giant megaphone to amplify their voice and reach. If one user stands in that digital town square and starts shouting something mean-spirited or untruthful about you, the platform might give you ear plugs so that you don't have to hear it, but other users, namely your friends and neighbors still do, and now you just don't know about it (and thus can't defend yourself). Instead, platforms should push those conversations into self-moderated spaces, or if necessary, take back the megaphone entirely. Extending the metaphor, the user could say those things all they want in their living room or at a club house, but couldn't do the same on your front lawn.
 

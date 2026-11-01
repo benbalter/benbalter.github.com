@@ -27,7 +27,7 @@ As a CXO's office matures, this may begin as an office of one (the Chief), but c
 
 ## 2. Improve organizational effectiveness
 
-If there's one thing that describes the value a Chief of Staff brings to an organization, it's "effectiveness". Unlike other roles, it's not enough for the Chief themselves to be effective, but rather they are expected to improve the effectiveness of the CXO, the organization's leaders, and the business as a whole. Specifically:
+:quote[If there's one thing that describes the value a Chief of Staff brings to an organization, it's "effectiveness".]{#chief-of-staff-effectiveness} Unlike other roles, it's not enough for the Chief themselves to be effective, but rather they are expected to improve the effectiveness of the CXO, the organization's leaders, and the business as a whole. Specifically:
 
 - **CXO effectiveness.** Serving as a formal and informal gatekeeper to ensure that the CXO is spending their time on the right things. The Chief has the sense to know what to keep "front of mind" for the CXO, and what falls into "I'll let you know to get involved" territory.
 - **Leader effectiveness.** Improving the effectiveness of CXO's direct reports (the Chief's peers) as well as leaders throughout the organization. This may involve everything from preparing meeting agendas and planning team off sites to establishing communication patterns and cadence to fostering better interpersonal dynamics.
@@ -35,7 +35,7 @@ If there's one thing that describes the value a Chief of Staff brings to an orga
 
 ## 3. Boundaryless engagement
 
-One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide. For Chiefs, this organizational position can manifest itself in the wearing of three "hats":
+:quote[One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide.]{#boundaryless-organizational-hack} For Chiefs, this organizational position can manifest itself in the wearing of three "hats":
 
 - **Float, pinch hitter, or general solver of problems.** Going to where the work is regardless of organizational boundaries or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve "important but not urgent" projects that have no clear leader or are otherwise under resourced along with short-lived "special projects" that are important to the CXO.[^6]
 - **Connector of dots.** Serving as directly responsible individual (DRI) to own "somebody should own this"-type projects, ambiguous and broad-reaching problems that require organization-wide understanding to uncover the true manifestations and possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.

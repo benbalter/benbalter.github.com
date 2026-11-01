@@ -24,13 +24,13 @@ But it's more than ideology. There's a practical side to it as well. There's a t
 
 ## Hacker Culture
 
-Last, hackers embody a unique culture that often flies in the face of traditional norms. It's a culture of **meritocracy**. Contribution is the sole currency of the internet. Money and title bear far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. And it's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
+Last, hackers embody a unique culture that often flies in the face of traditional norms. It's a culture of **meritocracy**. :quote[Contribution is the sole currency of the internet.]{#contribution-sole-currency} Money and title bear far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. And it's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
 ## Hackers in the Enterprise
 
 It's no surprise then, that as the pace of technological innovation quickens, the very bureaucracies that hackers condemn are [beginning to appreciate](https://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high-value projects at little cost. Heck, even the White House recently [announced its first hackathon](https://web.archive.org/web/20130206022755/http://www.whitehouse.gov/blog/2013/02/05/announcing-we-people-20-and-white-house-hackathon). But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper.
 
-"Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal," nor does it imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
+:quote["Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru".]{#hacker-not-a-buzzword} Nor is it synonymous with "cybercriminal," nor does it imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
 [^1]: As articulated best by [Steven Levy](https://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/?tag=benbalter07-20)
 
