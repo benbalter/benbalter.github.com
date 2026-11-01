@@ -34,7 +34,7 @@ describe('getGitHubTenure', () => {
 });
 
 describe('writtenAtGitHubExplainer', () => {
-  it('names the years and why the label exists', () => {
+  it('names the years and that GitHub may have changed', () => {
     const text = writtenAtGitHubExplainer(getGitHubTenure([
       { employer: 'GitHub', start_date: '2013-03-01', end_date: '2026-07-03' },
     ]));

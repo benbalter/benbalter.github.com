@@ -42,5 +42,5 @@ export function getGitHubTenure(positions: TenurePosition[]): GitHubTenure {
 
 /** Hover text for the "Written while I was at GitHub" label. */
 export function writtenAtGitHubExplainer(tenure: GitHubTenure): string {
-  return `I worked at GitHub from ${tenure.startYear} to ${tenure.endYear}. Post dates are hidden so older advice reads as evergreen, but how GitHub works may have changed since I wrote this.`;
+  return `I worked at GitHub from ${tenure.startYear} to ${tenure.endYear}. How GitHub works may have changed since I wrote this.`;
 }
