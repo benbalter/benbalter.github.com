@@ -11,7 +11,7 @@ The process is surprisingly simple given WordPress's extensive filter API. First
 ```php
 <?php
 //grab all the Word-style footnotes into an array
-$pattern = '#&lt;a href\\="#_ftnref([0–9-]+)">[([0–9-]+)]</a> (.\*)#';
+$pattern = '#<a href\="#_ftnref([0-9-]+)">[([0-9-]+)]</a> (.*)#';
 preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
 ?>
 ```
@@ -22,8 +22,8 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 <?php
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
- $find[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">['.$footnote[1].']</a>#';
- $replace[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]). '[/ref]';
+ $find[] = '#<a href\="#_ftn'.$footnote[1].'">['.$footnote[1].']</a>#';
+ $replace[] = '[ref]' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[3]). '[/ref]';
 }
 ?>
 ```

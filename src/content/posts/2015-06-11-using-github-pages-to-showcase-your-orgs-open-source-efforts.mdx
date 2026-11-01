@@ -48,12 +48,12 @@ Instead, we'll create a layout (sometimes called a template) that can be shared 
   </head>
 
   <body>
-    <!-- {{ content }} -->
+    {{ content }}
   </body>
 </html>
 ```
 
-Notice how we swapped out the `<h1>My awesome org</h1>` for `<!-- {{ content }} -->`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
+Notice how we swapped out the `<h1>My awesome org</h1>` for `{{ content }}`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
 
 ```html
 ---
@@ -63,7 +63,7 @@ layout: default
 <h1>My awesome org</h1>
 ```
 
-If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `<!-- {{ content }} -->` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
+If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `{{ content }}` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
 
 ```html
 ---
@@ -137,9 +137,9 @@ The problem with this approach, is that as you add more projects, you have to co
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programmatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source projects in our organization we might write:
 
 ```html
-<!-- {% for repository in site.github.public_repositories %}
-  * <!-- {{ repository.name }} -->
-{% endfor %} -->
+{% for repository in site.github.public_repositories %}
+  * {{ repository.name }}
+{% endfor %}
 
 ```
 
