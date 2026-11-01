@@ -2,9 +2,10 @@
 title: How to write a great extended leave document
 bookRelation: adapted
 description: A battle-tested template for handing off your responsibilities before extended leave, so your team stays unblocked and nothing falls through the cracks.
+writtenAtGitHub: true
 ---
 
-I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leaves. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition. In service of ["everything should have a URL"](https://ben.balter.com/2015/11/12/why-urls/), I'm sharing my leave template here in case it's helpful for planning your own leave.
+I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leaves. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition. In service of ["everything should have a URL"](/2015/11/12/why-urls/), I'm sharing my leave template here in case it's helpful for planning your own leave.
 
 ## Sections to include
 
@@ -20,8 +21,8 @@ When is your last day in the office? When do you anticipate being back? If the e
 
 |                           | Start           | End             | Dates                |
 | ------------------------- | --------------- | --------------- | -------------------- |
-| First Leave               | Event           | Event + 2 weeks | January 1, 2020 − January 15, 2020 |
-| Second Leave              | Event + 4 weeks | Event + 6 weeks | February 1, 2020 − February 15, 2020 |
+| First Leave               | Event           | Event + 2 weeks | January 1–15, 2020 |
+| Second Leave              | Event + 4 weeks | Event + 6 weeks | February 1–15, 2020 |
 
 ### ☎️ Contact preferences
 
@@ -29,7 +30,7 @@ How do you want to be contacted while on leave, if at all? What do you want to b
 
 ### ✍️ Points of contact
 
-Enumerate all your ongoing responsibilities, along with a point of contact that will be responsible while you are on leave. Be sure to include "points of escalation" for anything not accounted for within your doc, and be sure to check with each named individual to ensure they are comfortable with the responsibility and have the bandwidth to take it on. Consider a dedicated "responsibilities to handoff" section for any key milestones, deadlines, or events expected to occur while you are out. Example:
+Enumerate all your ongoing responsibilities, along with a point of contact that will be responsible while you are on leave. Be sure to include "points of escalation" for anything not accounted for within your doc, and be sure to check with each named individual to ensure they are comfortable with the responsibility and have time to take it on. Consider a dedicated "responsibilities to handoff" section for any key milestones, deadlines, or events expected to occur while you are out. Example:
 
 | What                      | Who    |
 | ------------------------- | ------ |
@@ -47,7 +48,7 @@ List any recurring meetings you normally run or attend, their frequency, and who
 
 ### 👥 Rolodex
 
-For everything you touch regularly, list your primary point of contact. This will allow others to unblock themselves if they have a question or request of another department or team. Example:
+For everything you touch regularly, list your primary point of contact. Then others can unblock themselves when they have a question or request for another department or team. Example:
 
 | What                      | Who   |
 | ------------------------- | ----- |
@@ -58,7 +59,7 @@ For everything you touch regularly, list your primary point of contact. This wil
 
 ### 👉 Stuff you touched recently or hope can be picked up while you're out
 
-List any projects, initiatives, or other work you've been involved in recently, and any that you hope to be able to hand off to others while you are out. I linked out to our team project board, which captured the in-flight work, and created a "@benbalter's GitHub Fan Fiction" document, with the backlog of ships that I had hoped would be GitHub cinematic universe canon before going on leave. My fan fiction looked something like this, framed in terms of [problems and solutions](https://ben.balter.com/2018/07/16/problems-not-solutions/):
+List any projects, initiatives, or other work you've been involved in recently, and any that you hope to be able to hand off to others while you are out. I linked out to our team project board, which captured the in-flight work, and created a "@benbalter's GitHub Fan Fiction" document, with the backlog of ships that I had hoped would be GitHub cinematic universe canon before going on leave. My fan fiction looked something like this, framed as [problems and solutions](/2018/07/16/problems-not-solutions/):
 
 > **Problem**: I'm going on leave and want to ensure that the work I've been involved with recently is not lost or forgotten while I'm out.
 >
@@ -76,7 +77,7 @@ You could have the best leave or transition document in the world, but if nobody
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, pull requests are always welcome.
+If you're preparing to go on leave (or transition to a new role), use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, pull requests are always welcome.
 
 ```markdown
 # @your leave document
@@ -100,6 +101,6 @@ If you're preparing to go on leave (or transition to a new role), feel free to u
 
 [^1]: I often ask, "Are there any questions not answered here that you can imagine might arise while I am out?"
 
-[^2]: Using an internal or external link shortener (for example, `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
+[^2]: Use an internal or external link shortener (for example, `bit.ly/benbalter-leave`) to give colleagues a memorable URL for your doc.
 
 [^3]: If you're looking for even more extended leave resources, @isethi has a great talk on [navigating parental leave as a senior engineering leader](https://leaddev.com/san-francisco/video/navigating-parental-leave-as-a-senior-engineering-leader). If you're preparing to go on parental leave, be sure to check out her [parental leave checklist template](https://docs.google.com/document/d/1VjY8xvZtHV_4p_xXUz7rRIIC4VT8B_2NasL950pQk4U/edit#heading=h.oso3zy2cszfb) as well.

@@ -1,11 +1,12 @@
 ---
 title: Automate common open source community management tasks
 description: Never force a human to do what a computer can. How to automate code review, issue triage, and maintainer workflows to scale your open source community.
+writtenAtGitHub: true
 ---
 
 <FossAtScale nth="second" />
 
-Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience. Once you've [set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), you can and should automate common community management tasks like issue triage, initial code review, and pruning your project backlog to ensure you can scale your own efforts and contributors continue to have a great experience and want to contribute, even as your community grows. Better yet, it can often be done without writing any code that you have to host or maintain. As I like to say, never force a human to do what a computer can.
+Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience. Once you've [set open source contributors up for success](/2020/05/15/set-open-source-contributors-up-for-success/), you can and should automate common community management tasks like issue triage, initial code review, and pruning your project backlog. That's how you scale your own efforts and keep contributors happy (and contributing) as your community grows. Better yet, you can often automate them without writing any code that you have to host or maintain. As I like to say, never force a human to do what a computer can.
 
 ## Automate code review
 
@@ -17,7 +18,7 @@ CI is often trivial to set up for open source projects, especially if your proje
 
 ## Automate issue management
 
-One of the biggest improvements to open source community management in recent memory has been [Probot](https://probot.github.io) and subsequently the GitHub Actions inspired by it. Probot is an extensible framework for automating common tasks based on activity in your repository. With dozens of community-maintained apps, chances are whatever pain point or bottleneck your project is experiencing has already been experienced (and solved) by an open source maintainer.
+One of the biggest improvements to open source community management in recent memory has been [Probot](https://probot.github.io) and subsequently the GitHub Actions inspired by it. Probot is an extensible framework for automating common tasks based on activity in your repository. With dozens of community-maintained apps, chances are an open source maintainer has already hit (and solved) whatever problem or bottleneck your project is running into.
 
 You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn’t been solved, Probot makes it easy to write your own app. Generally speaking, I'd recommend prototyping processes out manually to get a feel for what practices best support your community before automating them.
 
@@ -30,7 +31,7 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 | Request more info          | [Request info](https://probot.github.io/apps/request-info/), [No response](https://probot.github.io/apps/no-response/) |                                                                   |
 | Label issues               | [Issue labeler](https://probot.github.io/apps/issuelabeler/)                                                           | [Labeler](https://github.com/actions/labeler)                     |
 
-*Have a favorite community management Probot Plugin or GitHub Action not listed here? Please [Add it].*
+*Have a favorite community management Probot Plugin or GitHub Action not listed here? Please [add it](https://github.com/benbalter/benbalter.github.com/edit/main/src/content/posts/2020-08-10-automate-common-open-source-community-management-tasks.mdx).*
 
 ### A note on Probot
 
@@ -44,4 +45,4 @@ Whether you use Probot, a community-maintained Actions workflow, or your own Act
 
 Finally, take a critical look at repetitive or time consuming tasks that can be automated to support your own workflow. Can releases be automated to get pushed to a package manager as soon as a release is cut? Can you automate generating the changelog or list of contributors based on pull requests merged since the last release? What about updating dependencies? If you can automate it, often times you should, as doing so frees you up to work on higher-value, more human-centric work.
 
-We often start open source projects to solve shared or novel technical challenges, but as a project grows, a maintainer's focus naturally shifts from the code to the people and processes around it. By automating common open source community management tasks, maintainers can better scale their own efforts, can create a better experience for contributors, and can create the space to focus on the types of problems maintainers are uniquely positioned to solve.
+We often start open source projects to solve shared or novel technical challenges, but as a project grows, a maintainer's focus naturally shifts from the code to the people and processes around it. Never force a human to do what a computer can.

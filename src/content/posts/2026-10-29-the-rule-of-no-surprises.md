@@ -91,7 +91,7 @@ One quick message to my leadership before that Markdown change shipped would hav
 
 [^manager-first]: If your manager could hear about it in someone else's meeting, they should hear about it from you first. That holds even when the work comes from above. If a skip-level pulls you into something urgent, a request from above isn't a substitute for an update to your manager.
 
-[^meetings-reviews]: I extend this to team meetings, too. No surprise announcements unless it's unavoidable. Same for reviews. If someone hears surprise feedback in their review, it's way too late.
+[^meetings-reviews]: I extend this to team meetings, too. No surprise announcements unless one is unavoidable. Same for reviews. If someone hears surprise feedback in their review, it's way too late.
 
 [^pages]: We were [standardizing GitHub Pages on a single Markdown engine](https://github.blog/news-insights/the-library/a-look-behind-our-decision-to-standardize-on-a-single-markdown-engine-for-github-pages/), which meant swapping out the renderer underneath every site on the platform. A non-trivial number of sites stopped rendering the way their owners expected.
 

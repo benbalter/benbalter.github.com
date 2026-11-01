@@ -5,9 +5,9 @@ description: "Why you need a running record of your wins, and how to keep one wi
 tldr: "Nobody's compiling your stats for you. Keep a ship log of your impact, update it weekly, and use it to fight recency bias, ace self-assessments, and build your promotion case."
 ---
 
-Here's the best career advice I ever received as a product manager: "product-manage your own career." I wish I'd internalized it sooner. Early in my career, I stayed quiet and did good work, assuming the right people would notice. Spoiler: they didn't, not because the work wasn't good, but because nobody else was tracking it.
+Here's the best career advice I ever received as a product manager: "product-manage your own career." I wish I'd internalized it sooner. Early in my career, I stayed quiet and did good work, assuming the right people would notice. Spoiler: they didn't. Not because the work wasn't good, but because nobody else was tracking it.
 
-Treat yourself as a product. What are your features? What are your bugs? What does your roadmap look like? And critically: who's keeping the changelog?
+Treat yourself as a product. What are your features? What are your bugs? What does your roadmap look like? And who's keeping the changelog?
 
 ## Nobody's keeping score for you
 
@@ -17,17 +17,17 @@ In remote organizations, this problem compounds. There's no hallway reputation, 
 
 ## The ship log
 
-Maintain a "ship log." Call it a "brag doc," "hype doc," "smile file," whatever gets you to actually use it. Each time you hit a milestone, record it with its impact and any relevant metrics. Async work hands you a head start: your contributions are already timestamped and linkable.
+Maintain a "ship log." Call it a "brag doc," "hype doc," "smile file," whatever gets you to actually use it. Each time you hit a milestone, record it with its impact and any relevant metrics. Async work hands you a head start, since your contributions are already timestamped and linkable.
 
 Your ship log combats impostor syndrome, makes annual self-assessments trivially easy to write, and keeps your professional profiles current. :quote[If you didn't log it, it didn't happen.]{#if-you-didnt-log-it}
 
-The format doesn't matter: a Google Doc, Apple Notes, a text file in your home directory. What matters is that it's easy to update and always within reach. Every Friday, spend five minutes adding bullets: what you shipped, what you unblocked, what decisions you influenced.
+The format doesn't matter. A Google Doc works, and so does Apple Notes or a text file in your home directory. What matters is that it's easy to update and always within reach. Every Friday, spend five minutes adding bullets: what you shipped, what you unblocked, what decisions you influenced.
 
 ## What makes a good entry
 
 Effective ship log entries are:
 
-- **Specific and linked.** "Improved documentation" is vague. "Rewrote the onboarding docs, resulting in 40% fewer support tickets from new hires ([link to the issue])" is evidence.
+- **Specific and linked.** "Improved documentation" is vague. "Rewrote the onboarding docs, resulting in 40% fewer support tickets from new hires (issue #1234)" is evidence.
 - **Impact-focused.** List outcomes, not activities. "Attended twelve planning meetings" says nothing. "Proposed the architecture that shipped to production" tells a story.
 - **Continuous.** Don't wait until review season. Update weekly, while the details are fresh.
 - **Shareable.** Your log isn't a secret diary. Share highlights with your manager regularly. The best time to make your case for promotion is months before the conversation happens.
@@ -46,9 +46,9 @@ If sharing your wins feels gross, reframe it: you're not bragging, you're making
 
 ## Fighting recency bias
 
-Here's the real killer: recency bias. Your manager (and you) will tend to remember only the last few weeks when evaluation season arrives. That critical project you shipped in February? Without a record, it might as well not have happened by December.
+Recency bias is the real killer. Your manager (and you) will tend to remember only the last few weeks when evaluation season arrives. That critical project you shipped in February? Without a record, it might as well not have happened by December.
 
-A ship log is your defense. When it's time for self-assessments, you open the doc and the year's work is right there: specific, linked, and impact-focused. No scrambling, no guessing, no accidental amnesia about Q1.
+A ship log is your defense. When it's time for self-assessments, you open the doc and the year's work is right there, with links. You won't spend a weekend reconstructing Q1.
 
 ## Make it a habit
 
@@ -60,4 +60,4 @@ A brag doc only works if you actually maintain it. Some practical tips:
 - **Feed your self-assessments.** When review season comes, your log *is* your self-assessment draft. Copy, paste, polish.
 - **Build your promotion packet early.** The best promotion cases aren't written in a weekend. They're assembled over months from a well-maintained log.
 
-:quote[Nobody else will manage your career. Your company manages your role. You manage your trajectory.]{#q-nobody-else-will-manage-your} Start the doc today. Future you will be grateful.
+:quote[Nobody else will manage your career. Your company manages your role. You manage your trajectory.]{#q-nobody-else-will-manage-your} Start the ship log today.

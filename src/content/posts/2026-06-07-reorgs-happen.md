@@ -7,7 +7,7 @@ tldr: "Twenty-five reorgs in thirteen years taught me that reorgs are baseline, 
 
 In thirteen years at GitHub, I was part of 25 reorgs and reported to 13 different managers. That's a new org chart roughly every six months and a new boss roughly every year, like clockwork.[^clockwork]
 
-I know these numbers because I tracked them. What started as a humble spreadsheet eventually metastasized (as my side projects tend to do) into a full statistical forecast model that predicted the date of my next reorg with confidence intervals.[^repo] When colleagues asked how I stayed so calm during shake-ups, the honest answer was that I'd seen the data: reorgs are a disruptive fact of life in tech, and they can be a major source of stress and uncertainty. But they don't have to be.
+I know these numbers because I tracked them. What started as a humble spreadsheet eventually metastasized (as my side projects tend to do) into a full statistical forecast model that predicted the date of my next reorg with confidence intervals.[^repo] When colleagues asked how I stayed so calm during shake-ups, the honest answer was that I'd seen the data: reorgs are a fact of life in tech, and most of the stress comes from treating each one as a surprise.
 
 [^clockwork]: "Like clockwork" is generous. The actual gaps ranged from six weeks to fifteen months, which is exactly why predicting the next one required increasingly heavy statistical machinery. The clock is real. It just has terrible build quality.
 
