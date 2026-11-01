@@ -27,13 +27,13 @@ export interface SocialBio {
 const lead = 'Product leader for developer platforms and open source.';
 
 const bios = {
-  github: `${lead} 10 years at GitHub, rewrote Pages, wrote Licensee. Lawyer who ships code. Author of Open and Async.`,
-  twitter: `${lead} 10 years at GitHub. Lawyer who ships code. Author of Open and Async. Writes about working in the open.`,
-  bluesky: `${lead} 10 years at GitHub: trust and safety PM, rewrote GitHub Pages, wrote Licensee. Author of Open and Async. Lawyer who ships code, former Presidential Innovation Fellow. ben.balter.com`,
-  mastodon: "I'm a product leader for developer platforms and open source. I spent 10 years at GitHub, where I was a product manager for trust and safety, rewrote GitHub Pages, and wrote Licensee, the library behind GitHub's license detection. I wrote Open and Async, the playbook for remote and distributed teams. Also a lawyer who ships code and a former Presidential Innovation Fellow. Here for open source, async work, and building for agents.",
-  gravatar: `${lead} I spent a decade at GitHub: five years as a product manager for trust and safety, shipping 500+ features and the github.com API endpoints behind them; a bottom-up rewrite of GitHub Pages; and Licensee, the open source library behind GitHub's license detection. Author of Open and Async, lawyer who ships code, and former Presidential Innovation Fellow. More at https://ben.balter.com`,
+  github: `${lead} 10+ years at GitHub, rewrote Pages, wrote Licensee. Lawyer who ships code. Author of Open and Async.`,
+  twitter: `${lead} 10+ years at GitHub. Lawyer who ships code. Author of Open and Async. Rewrote Pages, wrote Licensee.`,
+  bluesky: `${lead} 10+ years at GitHub: trust and safety PM, rewrote GitHub Pages, wrote Licensee. Author of Open and Async. Lawyer who ships code. Former Presidential Innovation Fellow. ben.balter.com`,
+  mastodon: "I'm a product leader for developer platforms and open source. I spent over a decade at GitHub, where I was a product manager for trust and safety, rewrote GitHub Pages, and wrote Licensee, the library behind GitHub's license detection. I wrote Open and Async, the playbook for remote and distributed teams. I'm a lawyer who ships code, too, and a former Presidential Innovation Fellow. Here for open source, async work, and building for agents.",
+  gravatar: `${lead} I spent over a decade at GitHub, five years of it as a product manager for trust and safety, shipping 500+ features and the github.com API endpoints behind them. I also led a bottom-up rewrite of GitHub Pages and wrote Licensee, the open source library behind GitHub's license detection. Author of Open and Async and former Presidential Innovation Fellow. Lawyer who ships code. More at https://ben.balter.com`,
   // HN discounts self-descriptions, so this one leads with what Ben built.
-  hackerNews: "I wrote Licensee, the open source library behind GitHub's license detection, and led a bottom-up rewrite of GitHub Pages. Over 10 years at GitHub I was also a product manager for trust and safety, shipping 500+ features and the github.com API endpoints behind them. Today I'm a product leader for developer platforms and open source. Author of Open and Async. Also a lawyer (DC Bar) and former Presidential Innovation Fellow. https://ben.balter.com",
+  hackerNews: "I wrote Licensee, the open source library behind GitHub's license detection, and led a bottom-up rewrite of GitHub Pages. In over a decade at GitHub, I was also a product manager for trust and safety, shipping 500+ features and the github.com API endpoints behind them. Today I'm a product leader for developer platforms and open source. Author of Open and Async. Also a lawyer (DC Bar) who ships code, and a former Presidential Innovation Fellow. https://ben.balter.com",
 };
 
 export const socialBios: readonly SocialBio[] = [
