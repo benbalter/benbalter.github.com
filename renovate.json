@@ -49,6 +49,19 @@
         "https://github\\.com/(?<depName>benbalter/vale-styles)/releases/download/(?<currentValue>[^/]+)/"
       ],
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "description": "Vale CLI version installed in CI (VALE_VERSION in workflow env).",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "VALE_VERSION: (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "errata-ai/vale",
+      "extractVersionTemplate": "^v(?<version>.+)$"
     }
   ]
 }
