@@ -5,7 +5,7 @@ tldr: "Accessibility is mostly setup: pick a format where a heading is really a 
 published: true
 ---
 
-The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/): five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard (or, more honestly, as an exercise in [structured procrastination](https://www.structuredprocrastination.com/): elaborate tooling is a great way to not write the book it's for). Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.
+The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/): five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard. (And no, it wasn't [structured procrastination](https://www.structuredprocrastination.com/). Only about one in five of the book's ~5,000 commits touched the build tooling at all.) Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.
 
 ## Markdown won't let you fake structure
 
@@ -21,7 +21,7 @@ And everything downstream inherits those semantics. Pandoc renders the same sour
 
 Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures (big sheets folded down into 16 or 32 pages at a time), so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread (a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)) and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
 
-In the EPUB, that QR went out as a bare inline `<svg>`: not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found]
+In the EPUB, that QR went out as a bare inline `<svg>`. Nobody marked it decorative or gave it a name, so assistive tech was left to guess. It sat two files away from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found]
 
 ### Contrast doesn't exist until the render
 
@@ -29,7 +29,7 @@ Start with contrast, the cleanest example of something the source can't check, b
 
 That's what makes the contrast rule possible. For every text node, axe reads the computed `color` and walks up the ancestors until it finds a background that isn't transparent, blending in any semi-transparent layers it passes through. Then it converts both ends to relative luminance (a weighted brightness value, not the raw RGB), and checks the ratio against [WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html): 4.5:1 for body text, 3:1 for large text (18pt, or 14pt bold). :quote[The pairs that fail are the ones nobody designed.]{#pairs-nobody-designed} Inline `<code>` inside a tinted callout. A muted caption on a page background that isn't quite white. Two rules that are each fine alone and only meet in the render.
 
-Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette, two verdicts. Both have to come back with no critical or serious violations, or `validate-playwright` goes red alongside the build jobs.[^gate]
+Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette. Both have to come back with no critical or serious violations, or `validate-playwright` goes red alongside the build jobs.[^gate]
 
 ### What the checks can't see
 
@@ -41,7 +41,7 @@ Strip away the acronyms and conformance levels and what's left is a question abo
 
 ### The reader sets the terms
 
-An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, letting anyone jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. More on that soon.
+An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, letting anyone jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. I wrote up [how the narration came together](/2026/09/08/gif-or-jif-audiobook-both-ways/) separately.
 
 ### Exclusion dressed as preference
 

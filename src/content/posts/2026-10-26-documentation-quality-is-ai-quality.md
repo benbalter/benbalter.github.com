@@ -18,7 +18,7 @@ Markdown is the cheapest fix I know, for the reason I gave [back in 2014](/2014/
 
 Word processors encourage you to describe what something *looks like*. Markup makes you declare what it *is*. In Markdown, `## Deprecating the v1 API` says "this is a second-level heading." Word can say the same thing with its Heading 2 style, but it also lets you just make the text big and bold, and most people do. The two look identical to a sighted reader. A screen reader or a language model sees something completely different.[^accessible]
 
-As I put it in the book, :quote[markup is a contract; formatting is a costume.]{#markup-contract-formatting-costume}
+As I put it in the book, markup is a contract; formatting is a costume.
 
 To see the difference, I built the same short vacation policy twice: once with Word's heading and list styles, and once formatted by hand, with a bold 14-point heading and typed step numbers. Then I ran both through [word2md](https://word2md.com).[^time-off] The styled version came out as:
 
@@ -69,9 +69,8 @@ True, and that's mostly a feature. If a table needs merged cells to make sense, 
 
 ## Two directions, two tools
 
-**Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown, entirely in your browser, so the file never leaves your computer.
-
-**Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline.[^round-trip] md2word builds one, also in your browser.[^source]
+- **Getting content in.** [word2md.com](https://word2md.com) converts Word documents to clean Markdown, entirely in your browser, so the file never leaves your computer.
+- **Getting content out.** [md2word.app](https://md2word.app) goes the other way. Your AI assistant drafted the policy in Markdown, but legal wants a Word file they can redline.[^round-trip] md2word builds one, also in your browser.[^source]
 
 Markdown is where you and your AI tools do the work. Word is a delivery format you add at the last possible moment, for the people who need it.
 
@@ -101,7 +100,7 @@ You don't need a migration project.
 
 The government employees who asked me for that Heroku app wanted their documents on the web. The people using it today want their documents in a chatbot. Different reader, same problem: the structure was never in the file, and no tool can put it back.
 
-Markdown has bet on structure over formatting for more than twenty years. It took a reader nobody saw coming to prove the bet right. :quote[Stop doing your thinking in Word.]{#stop-thinking-in-word} Do it somewhere a screen reader, a model, and the new hire can all tell what you meant.
+Markdown has bet on structure over formatting for more than twenty years. :quote[Stop doing your thinking in Word.]{#stop-thinking-in-word} Do it somewhere a screen reader, a model, and the new hire can all tell what you meant.
 
 [^accessible]: That's also why my ebook [turned out to be accessible by default](/2026/08/27/accessible-by-default/). Screen readers and LLMs want the same thing.
 

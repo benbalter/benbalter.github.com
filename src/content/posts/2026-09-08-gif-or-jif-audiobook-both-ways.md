@@ -39,7 +39,7 @@ There's a chapter in the book about using chat well, and a section in it about e
 
 ## I recorded it wrong on purpose
 
-I wrote a whole book about working in the open, though, and the open-and-async answer to a disagreement is to [ship the artifact and let people decide](https://ben.balter.com/2022/02/16/leaders-show-their-work/). I built the most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. An entire edition in the wrong pronunciation. Same words, same narrator, one phoneme of difference. Pick your side. Mine already won.
+I wrote a whole book about working in the open, and the open-and-async answer to a disagreement is to [ship the artifact and let people decide](/2022/02/16/leaders-show-their-work/). I built the most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. Same words, same narrator, one phoneme of difference. Pick your side. Mine already won.
 
 <figure class="not-prose post-gif post-gif--left">
   <!-- html-validate-disable-next no-autoplay -->
@@ -69,9 +69,7 @@ Ten seconds each, the same line both ways: "an urgent message from your manager 
 
 <div style="clear:both"></div>
 
-:quote[The pronunciation was never the point. The GIF is.]{#the-gif-is-the-point}
-
-The chapter defends GIFs because everyone shares the reference. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
+The pronunciation was never the point. The GIF is. The chapter defends GIFs because everyone shares the reference. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
 
 [Both cuts](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) live on the book's feedback repository, which is where readers tell me what's broken, what's missing, and what actually landed.
 
@@ -83,7 +81,7 @@ People kept asking for an audiobook, to listen at the gym or on a commute, and I
 
 :quote[Synthetic is the shortcut, and I'm not going to pretend it's anything else.]{#synthetic-shortcut}
 
-Something real is lost with it. A good narrator doesn't just say the words, they perform them: the timing, the dry aside, the breath before a hard sentence. My robot reads cleanly. It isn't an actor, and if you've heard a great human narration, you'll feel the difference. The bigger cost lands past my one book. Synthetic narration takes work from the people who do this for a living, and "it was cheaper for me" is exactly the logic that adds up to their livelihoods shrinking. I don't have a clean answer to that.
+Something real is lost with it. A good narrator doesn't just say the words. They perform them: the timing, the dry aside, the breath before a hard sentence. My robot reads cleanly. It isn't an actor, and if you've heard a great human narration, you'll feel the difference. The bigger cost lands past my one book. Synthetic narration takes work from the people who do this for a living, and "it was cheaper for me" is exactly the logic that adds up to their livelihoods shrinking. I don't have a clean answer to that.
 
 A human narrator for this book is the goal, not a synthetic stand-in forever. If it earns its way there, it'll get one. Until then, imperfect and shipped beats perfect and imaginary.
 
@@ -93,7 +91,7 @@ The voice is disclosed, it isn't cloned from a real person, and a human (me) lis
 
 That [free chapter](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) is a free sample, and I mean that literally. If you want the same synthetic narrator to read you the whole book, saying "jif" correctly the entire time, the [full audiobook](https://open-and-async.com/go/audiobook?src=gif-jif-post) is out now. Eleven and a half hours of it, and not one hard G.
 
-I am not going to win this argument. Nobody wins this argument. That's why you hand people the choice instead of typing one more reply, then go build the next thing. My narrator already chose.
+I am not going to win this argument. Nobody wins this argument. That's why you hand people the choice instead of typing one more reply, then go build the next thing.
 
 [^wilhite]: Steve Wilhite created the format at CompuServe in 1987, and when he accepted a lifetime achievement award he stood on a stage and said "it's pronounced JIF." The man who invented the thing gets to name it, and the hard-G crowd is out here overruling him. "But *graphics* has a hard G" is not the counterargument they think it is. It's an acronym, not a word, and the inventor already ruled. Yes, there's the peanut butter. Yes, I'm on that side too. I have made my peace with being right.
 
