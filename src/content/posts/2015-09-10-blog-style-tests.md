@@ -5,11 +5,11 @@ tldr: "Instead of relying on editors to manually catch marketing speak, use auto
 writtenAtGitHub: true
 ---
 
-I've written in the past about how you should treat [prose with the same respect that developers treat code](/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](https://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
+I've written in the past about how you should treat [prose with the same respect that developers treat code](/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](https://zachholman.com/posts/how-github-writes-blog-posts/). Here's a bit of how we use automated testing at GitHub to help developers write [less-corporate blog posts](/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature…
 
-Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process could easily call out without requiring delay or human intervention, unblocking both the author and the editor to continue working unfettered. Here are a few examples of this idea and how you might implement them for your own team:
+Traditionally, someone from marketing, copy, or editorial had to review the post by hand before the author got any feedback, a blocking and time-consuming step. Many of those improvements are machine-detectable, so an automated process can flag them with no delay, leaving both author and editor free to keep working. Here are a few examples of this idea and how you might implement them for your own team:
 
 ## Don't use the word today
 
@@ -100,8 +100,6 @@ end
 
 ## The smart way and the hard way
 
-When engineering workflows, for any given problem there is often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce significantly similar outcomes, but one requires significantly less upkeep and time.
+When engineering workflows, for any given problem there are often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce similar outcomes, but one requires far less upkeep and time.
 
-While changing organizational culture and unlearning the corporate speak antipatterns that surround us may seem like a daunting task, by leveraging concepts that have been proven in the open source worlds for decades, you can empower your organization's humans to be more, well, human.
-
-*Have a favorite test you use in your own writing? Drop it in the comments below.*
+Changing organizational culture and unlearning the corporate-speak antipatterns that surround us may seem daunting, but concepts the open source world has proven for decades can help your organization's humans be more, well, human.
