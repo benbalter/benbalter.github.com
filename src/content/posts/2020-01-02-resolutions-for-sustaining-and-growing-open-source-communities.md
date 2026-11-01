@@ -4,11 +4,11 @@ description: Four resolutions for being a better open source community member, f
 writtenAtGitHub: true
 ---
 
-Perhaps one of the most memorable milestones in the scientific community this year was the release of the first image of a black hole. Like most technological advancements these days, this was made possible in no small part by [open source software](https://github.com/achael/eht-imaging).
+Perhaps one of the most memorable milestones in the scientific community last year was the release of the first image of a black hole. Like most technological advancements these days, this was made possible in no small part by [open source software](https://github.com/achael/eht-imaging).
 
 It took scientists years and a network of telescopes to process and produce the image of the supermassive black hole at the center of M87, a galaxy 54 million light-years away. Over 21,485 direct contributors worked on the software that made the image possible, but over 74,000 community contributors worked on the top 1,000 open source projects used in total.
 
-As an open source contributor, an open source maintainer, and the product lead for GitHub’s Community and Safety team, I’m always thinking about ways to better support the open source community. With the new year upon us, I decided to write down my resolutions for how I can continue to be a better member of the community—and thought to share in case they help influence the broader community as well.
+As an open source contributor, an open source maintainer, and the product lead for GitHub’s Community and Safety team, I’m always thinking about ways to better support the open source community. With the new year upon us, I decided to write down my resolutions for how I can continue to be a better member of the community. I’m sharing them in case they help the broader community, too.
 
 ## 1. I won’t be a bus of one. I’ll make sure to pick up some supportive community members along the way
 
@@ -24,21 +24,21 @@ Think of an open source project like the world’s most distributed dinner party
 
 Open source is no different, except instead of taking coats or offering hors d'oeuvres, you’re offering documentation and your responsiveness. And just as a dinner party guest should take care to arrive on time or might consider bringing a small gift to thank the host, as open source guests, contributors should likewise be empathetic, supportive, and understanding of open source maintainers and what is often their volunteered time.
 
-Being an open source maintainer is often closer to being a manager than it is to being an engineer. You often start a project to solve a specific technical problem, but as the community grows, to scale your own efforts and to have the biggest impact on your project, your role often shifts to solving the human and the workflow side of open source, rather than the technical.
+Being an open source maintainer is often closer to being a manager than it is to being an engineer. You often start a project to solve a specific technical problem. As the community grows, your role shifts toward the human and workflow side of open source, because that’s where you can scale your own efforts and have the biggest impact on your project.
 
-Specifically, community management (moderation, delegation, and organization), marketing, recruitment and evangelism, automation and tooling, and providing “white glove” support to high-profile users. The more sophisticated the project, the less likely it is that maintainers’ primary contribution is in the form of code.
+That work looks like community management (moderation, delegation, and organization), marketing, recruitment and evangelism, automation and tooling, and “white glove” support for high-profile users. The more sophisticated the project, the less likely it is that maintainers’ primary contribution is in the form of code.
 
 ## 3. I will support maintainers in developing healthy, inclusive, and supportive communities
 
-Think about an in-person community you're part of. It could be the neighborhood or town you live in, the congregation at your place of worship, or your local bowling league. [Communities are about groups of people coming together](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/) to solve a shared challenge (having a nice place to live, practicing one's beliefs, or socializing).
+Think about an in-person community you're part of. It could be the neighborhood or town you live in, the congregation at your place of worship, or your local bowling league. [Communities are about groups of people coming together](/2019/07/18/a-community-of-communities-oscon-2019/) to solve a shared challenge (having a nice place to live, practicing one's beliefs, or socializing).
 
 Each community has its leaders (elected officials, clergy, team captains) and some form of codified ideals (legal code, religious teachings, league regulations). When you move that community online, the social norms that build a sense of comradeship also follow.
 
 Open source communities are no different from those offline communities. Just as offline communities have a neighborhood watch alliance, online communities require community moderation tools to police their members' behavior when it deviates from established norms.
 
-As a member of the community, our role is to empower maintainers to grow healthy and welcoming communities around their open source projects. The goal isn’t just to prevent or reduce the visibility of disruptive behavior (blocking users or hiding content), but to actively encourage inclusive behaviors, even if they don’t have previous community management expertise.
+As community members, we should help maintainers grow healthy and welcoming communities around their open source projects. The goal isn’t just to prevent or reduce the visibility of disruptive behavior (blocking users or hiding content), but to actively encourage inclusive behaviors, even if they don’t have previous community management expertise.
 
-## 4. I will recognize the differences between communities—and look to support their specific needs
+## 4. I will recognize the differences between communities and support each one’s specific needs
 
 Smaller, independent projects don’t necessarily need sophisticated workflows or community management practices at the onset, and often, that premature optimization can stifle community growth. I think of project growth through a “community maturity model.” Projects should often wait to establish formal or documented processes as they mature, and not before they need them.
 
