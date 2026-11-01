@@ -1,18 +1,18 @@
 ---
 title: 'Jekyll: Where content is truly king'
-description: Choosing Jekyll over a traditional CMS for government.github.com freed us to spend six months iterating on what mattered most — the content.
-tldr: "By choosing Jekyll over a traditional CMS for government.github.com, technology became a given, freeing us to spend six months iterating on what actually mattered — the content."
+description: "Choosing Jekyll over a traditional CMS for government.github.com freed us to spend six months iterating on what mattered most: the content."
+tldr: "Choosing Jekyll over a traditional CMS for government.github.com made the technology a given, freeing us to spend six months iterating on what actually mattered: the content."
 writtenAtGitHub: true
 ---
 
-GitHub recently launched [government.github.com](https://government.github.com), a site dedicated to showcasing the efforts of public servants and civic hackers which, despite its technical simplicity, was [more than six months in the making](https://github.com/github/government.github.com/commits/gh-pages), a relative snail's pace by any startup's standards. By [choosing a static architecture over a more complex one](https://web.archive.org/web/20131024152353/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/), technology became a given, and rather than iterating on challenges to sharing information, we were able to iterate on improving the content itself, which in the end fundamentally shifted the site's focus and overall user experience.
+GitHub recently launched [government.github.com](https://government.github.com), a site dedicated to showcasing the efforts of public servants and civic hackers which, despite its technical simplicity, was [more than six months in the making](https://github.com/github/government.github.com/commits/gh-pages), a relative snail's pace by any startup's standards. Because we [chose a static architecture over a more complex one](https://web.archive.org/web/20131024152353/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/), the technology became a given, and rather than iterating on challenges to sharing information, we were able to iterate on improving the content itself, which in the end fundamentally shifted the site's focus and overall user experience.
 
 <img src="https://f.cloud.github.com/assets/282759/1363429/683a395e-382b-11e3-8e9b-677186b33e72.png" alt="Initial commit of government.github.com, versus today" class="" />
 
 Had we chosen to go the traditional WordPress, Rails, or really, any other route, we would have been distracted and been forced to dedicate a significant portion of our time to just getting things to work. Are the permissions right for this post? Is the SEO plugin working properly? Will it scale as expected on launch day? That's all just technical noise, noise not even remotely necessary in many cases.
 
-Instead, [Jekyll](http://jekyllrb.com), the static site generator baked directly into [GitHub Pages](https://pages.github.com), introduced a level of zen-like simplicity, that allowed us to focus on one thing and one thing only: content. Are we solving for the right thing here? Can we word this better? Is this line absolutely necessary? We knew it was going to work, so we were able to move on to more important things.
+Instead, [Jekyll](http://jekyllrb.com), the static site generator baked directly into [GitHub Pages](https://pages.github.com), brought a zen-like simplicity that let us focus on one thing and one thing only: content. Are we solving for the right thing here? Can we word this better? Is this line absolutely necessary? We knew it was going to work, so we were able to move on to more important things.
 
 But there was another major advantage. By treating the content as code, we suddenly empowered ourselves to use a more evolved editorial workflow. Forks, pull requests, a running list of issues… the content truly was an open source project in itself, and [as we close in on nearly 100 contributors](https://github.com/github/government.github.com/graphs/contributors), the content is only getting better each day.
 
-Open source is about tackling shared challenges together; there's no reason the philosophy need be limited to just code, and with dumb-simple tools like Jekyll which not only empower such workflows, but also free you up to focus on what matters, there's no excuse for content not being king.
+Open source is about tackling shared challenges together, and there's no reason the philosophy should stop at code. Dumb-simple tools like Jekyll empower that workflow and free you to focus on what matters, so there's no excuse for content not being king.

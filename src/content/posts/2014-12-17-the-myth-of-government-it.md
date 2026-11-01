@@ -1,10 +1,10 @@
 ---
 title: The myth of government IT
-description: "Government IT is held back less by law and more by myth -- decade-old assumptions about technology that calcified into policy."
-tldr: "Government IT is held back less by law and more by myth -- decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change."
+description: "Government IT is held back less by law than by myth: decade-old assumptions about technology that calcified into policy."
+tldr: "Government IT is held back less by law than by myth: decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change."
 ---
 
-When it comes to saying "no" to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:
+When a government agency says "no" to innovation, there's the law, and then there's the myth that surrounds it. More often than not, that myth doesn't protect the agency from threats to its infrastructure or mission. Instead, it puts a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth, long ago calcified into organizational policy, stems from government policymakers' decade-old superstitions about certain technologies:
 
 ## 2005 called, they want their worldview back
 
@@ -14,11 +14,11 @@ You'd be hard pressed to find a private-sector firm today worth its venture-capi
 
 ## Management by FUD
 
-In government, there's the law, and then there's the much larger myth that surrounds it and more often than not, it's the myth that gets in the way of progress (although the law's usually blamed). Just because something has been done a certain way, doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](https://web.archive.org/web/20141230095650/http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1&Page=2)
+In practice, it's the myth, not the law, that gets in the way of progress (although the law gets the blame). Just because something has been done a certain way doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](https://web.archive.org/web/20141230095650/http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1&Page=2)
 
 It's not malicious, but, given the demographics of government IT, new ideas like open source can feel both personally and professionally threatening. To take an example from just a few years back, the government employee who spent a decade securing funding and headcount to grow the fiefdom that is "his" or "her" datacenter may not immediately see what role they can play in a world where their agency is exclusively in the cloud. In this model, it doesn't matter what the technology is. The indictment is always the same.
 
-At each agency the most valuable tool to combat that FUD — fear, uncertainty, and doubt — is not to ask "may I?", but rather, to get directly to the ground truth of what exactly needs to be done to get relevant stakeholders to "yes" (and who exactly those stakeholders are). *Using X service is going to violate agency policy? Do you have a copy of that policy I can read? Can you give me a checklist of everything we need to do to be in compliance with that policy? When was it last updated? Who can we talk to about getting that policy changed?*
+At each agency the most valuable tool against that FUD (fear, uncertainty, and doubt) is not to ask "may I?", but rather, to get directly to the ground truth of what exactly needs to be done to get relevant stakeholders to "yes" (and who exactly those stakeholders are). *Using X service is going to violate agency policy? Do you have a copy of that policy I can read? Can you give me a checklist of everything we need to do to be in compliance with that policy? When was it last updated? Who can we talk to about getting that policy changed?*
 
 ## Incentivizing the risk-averse
 
@@ -28,6 +28,6 @@ Government is often accused of harboring a CYA culture. Trying what's perceived 
 
 2. There's a strong pack mentality. If you can point to someone else that's done it, someone you want to be like, that's often your best argument. The White House and CIA use X? I guess it's good enough for us then. High visibility, quick wins redefine what it means to be *status quo,* and by definition, what it means to be risk-averse.
 
-The next time you advocate for change within government, keep in mind that approval is not necessarily a matter of sacrificing a certain amount of paperwork to the bureaucratic powers that be (it will never be enough), but rather, that it's a matter of showing the agency's gatekeepers the value of the new (especially as it relates to their own role within the organization) and the risk of old (especially if what they see as new, isn't really all that new at all).
+The next time you advocate for change within government, remember that approval isn't about sacrificing enough paperwork to the bureaucratic powers that be (it will never be enough). It's about showing the agency's gatekeepers the value of the new, especially for their own role within the organization, and the risk of the old, especially if what they see as new isn't really all that new.
 
 Sometimes, the riskiest thing an organization can do is to buy into its own mythology. It's been said before, but it's worth saying again: [never take "no" from someone who can't say "yes"](/2014/03/21/want-to-innovate-in-government-focus-on-culture/#never-take-no-from-someone-who-cant-say-yes).

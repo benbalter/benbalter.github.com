@@ -5,7 +5,7 @@ tldr: "Open source has always been about the right to modify, not the right to c
 writtenAtGitHub: true
 ---
 
-Open source is collaborative, or at least, I thought it was. What modern hackers have been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond just computer code.
+Open source is collaborative, or at least, I thought it was. What modern hackers have been calling open source may in fact be something else, especially when we start to use those workflows to collaborate on things beyond just computer code.
 
 ## Open source as a philosophy
 
@@ -41,11 +41,11 @@ But among the biggest reasons for this shift, I'd argue, is that unlike when the
 
 ## Open source ~~software~~
 
-Today, the idea of open source as it is seen outside software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](https://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
+Today, the idea of open source as it is seen outside software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code? In [trying to distinguish open source from open source *software*](https://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
 
 > Open source is more than just publishing. Seeing how the sausage is made is necessary but not sufficient. Discussions in the open, ability to fork and modify, pull requests… collaboration is a key.
 
-Think about it in this context: I'm a government agency, and I publish a plain-text blog. Is that open source? As a government work, you have the right to use, fork, and modify the "open source" content as you see fit. Same with government data in the form of a spreadsheet. The "source" in both cases… what's necessary to rebuild the final intrinsically valuable thing from scratch is not the compiled letters or figures that are published, but exposing the underlying process through which that final product can be recreated (not to mention being the canonical place where the content is published).
+Think about it in this context: I'm a government agency, and I publish a plain-text blog. Is that open source? Because it's a government work, you have the right to use, fork, and modify the "open source" content as you see fit. Same with government data in the form of a spreadsheet. The "source" in both cases… what's necessary to rebuild the final intrinsically valuable thing from scratch is not the compiled letters or figures that are published, but exposing the underlying process through which that final product can be recreated (not to mention being the canonical place where the content is published).
 
 So long as the publisher doesn't provide a mechanism to receive those improvements, or if there's a sufficient imbalance of information between those publishing and those contributing, that thing, be it code, text, or data, is simply published. It's not really open. In software I'd call that "disclosed source". In government, we call that publishing a PDF or simply throwing data over the firewall, but the one thing I would not have called that is open source. But given the right license, that's exactly what it is.
 
@@ -55,9 +55,9 @@ The way I'd been using open source differed from the traditional definition in a
 
 > Open source ≠ public. A project can be open source, even if not *everyone* has access to the code. You can open source within your organization, within your team, with your friends, so long as the philosophy is there.
 
-At GitHub, we like to think of GitHub.com as working like an open source project. We use GitHub to build it, anyone in the company can see the source code, open an issue, or submit a pull request. In all senses of the word it's open source, except not everyone has access to the code.
+At GitHub, we like to think of GitHub.com as working like an open source project. We use GitHub to build it. Anyone in the company can see the source code, open an issue, or submit a pull request. In all senses of the word it's open source, except not everyone has access to the code.
 
-That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the South Pole? The list goes on. Rights are nothing without workflow.
+That raises the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the South Pole? The list goes on. Rights are nothing without workflow.
 
 ## The case for open collaboration
 
@@ -65,10 +65,10 @@ That begs the question: What percentage of the world needs to have access to som
 
 I think that's true. At least, the idea of someone calling something "government-only open source" scares me. But what do we call the millions of developers that adopt open source workflows for their closed-source software? For non-software collaboration? How do we divorce ourselves from a rights-centric viewpoint and the holy wars that go with it (I'm looking at you GPL)? What do you call something that's developed in the open with community involvement that may or may not be software?
 
-Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator such that I can, at any time, fork the project and go my own way — and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
+Dropping "software" from "open source software" isn't enough. Open source (software), since its inception, has always been about an external supply of freedom. It's the promise (or threat) that the project creator grants me sufficient rights to fork the project at any time and go my own way, and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
 
 Perhaps what we need is a new word that better describes what we're really doing. @haacked went through the same existential crisis and [landed somewhere near *crowd sourced*](https://haacked.com/archive/2012/02/22/spirit-of-open-source.aspx/), but for me, that implies a hub and spoke model with a highly centralized power structure, not the egalitarian and decentralized web we often think of open source to be. Perhaps what I've been calling "open source" about all along is not really open source, but is in fact "open collaboration".
 
-Open source (software) is a thing we make. Open collaboration is how we make it. While the necessary elements for true open collaboration have, at least in my opinion, not yet been fully hashed out, one thing's for sure: as the collaborative workflow originally created for open source software becomes increasingly co-opted by contributors to other, non open source projects, we're about to see a lot more open collaboration begin to emerge (although not necessarily open source).
+Open source (software) is a thing we make. Open collaboration is how we make it. The necessary elements for true open collaboration haven't, at least in my opinion, been fully hashed out yet. But one thing's for sure: as the collaborative workflow originally created for open source software becomes increasingly co-opted by contributors to other, non-open-source projects, we're about to see a lot more open collaboration begin to emerge (although not necessarily open source).
 
 *For a much more in depth discussion with @kfogel, @haacked, and @afeld, see [benbalter/benbalter.github.com/pull/98](https://github.com/benbalter/benbalter.github.com/pull/98).*

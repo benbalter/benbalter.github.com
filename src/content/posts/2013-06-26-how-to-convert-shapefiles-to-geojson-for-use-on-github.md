@@ -4,13 +4,13 @@ description: A step-by-step guide to converting ESRI Shapefiles to GeoJSON for r
 tldr: "A step-by-step guide to converting ESRI Shapefiles to GeoJSON format for rendering as interactive maps on GitHub, plus why open formats matter for public data."
 ---
 
-With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/maps/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/maps/polling-place.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/maps/liquor-license-locations.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile) which arose in an age when the desktop ruled supreme and requires a [costly software subscription](http://www.esri.com/software/arcgis/arcgis-for-home) for many common uses.
+With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/maps/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/maps/polling-place.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/maps/liquor-license-locations.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile). The format arose when the desktop ruled supreme, and many common uses require a [costly software subscription](http://www.esri.com/software/arcgis/arcgis-for-home).
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](https://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
 ## If you've got a Mac, it only takes a few seconds
 
-1. If you don't already have it, install Homebrew by opening up terminal and running: `$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
+1. If you don't already have it, [install Homebrew](https://brew.sh)
 2. Install [gdal](http://www.gdal.org/) with the command: `$ brew install gdal`
 3. Grab a Shapefile (distributed as a .zip file) from the [DC Data Catalog](http://data.dc.gov) or your favorite data source and unzip it someplace convenient
 4. `cd` into the directory with your shiny new unzipped Shapefile
@@ -26,8 +26,8 @@ The same process should work for KML files as well, replacing `[name].shp` with 
 
 ## Why this is important
 
-For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, by putting the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code — forking, merging, diffing, tracking changes over time — and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
+For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, once you put the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code (forking, merging, diffing, tracking changes over time), and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
 
-## The result
+## See the finished map on GitHub
 
 View the [DC Embassies map on GitHub](https://github.com/benbalter/dc-maps/blob/master/maps/embassies.geojson).
