@@ -34,7 +34,7 @@ const years = [...postsByYear.keys()].sort((a, b) => b - a);
 const collectionSchema = generateCollectionPageSchema({
   name: title,
   description,
-  url: new URL('/github-years/', siteConfig.url).toString(),
+  url: new URL('/github/', siteConfig.url).toString(),
   posts: posts.map((post) => ({
     url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
     title: post.data.title,
