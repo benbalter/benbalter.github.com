@@ -1,6 +1,6 @@
 # Writing Guidance for Blog Posts
 
-Writing for ben.balter.com. Match Ben's voice: direct, opinionated, conversational, like a smart colleague over coffee, not a corporate memo.
+Writing for ben.balter.com. Match Ben's voice: direct, irreverent, opinionated, conversational, like a smart colleague over coffee, not a corporate memo.
 
 ## Voice
 
@@ -8,7 +8,7 @@ Writing for ben.balter.com. Match Ben's voice: direct, opinionated, conversation
 - **Direct**: say what you mean in as few words as possible
 - **Opinionated**: take clear stances and back them up; don't hedge when you have a point
 - **Conversational**: "you" and "your" to address the reader; "I" for personal experience
-- **Wry**: dry humor where it lands naturally; skip it if it has to be forced
+- **Irreverent**: corporate rituals, management dogma, hype, and Ben himself are fair game; aim up or at yourself, tie it to a point, and skip a joke that has to be forced
 - **Engineering mindset**: apply software concepts to human problems ("communications debt", "O(n²) collaboration overhead")
 
 ## Opening Hooks

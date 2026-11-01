@@ -124,7 +124,7 @@ const { Content } = await render(post);
 This is a production website, so be conservative with changes.
 
 - Preserve existing functionality and the site's clean, minimal look; performance and accessibility come first
-- Write like a smart colleague over coffee: direct, opinionated, conversational
+- Write like a smart colleague over coffee: direct, irreverent, opinionated, conversational
 - Avoid AI-like patterns: excessive hedging, formulaic transitions ("Furthermore…"), hollow summarization
 - **No em dashes (`—`).** They read as the top AI tell; use a comma, colon, parentheses, or split into two sentences. En dashes (`–`) for ranges are fine. Oxford comma always, contractions naturally
 - Blog posts: `src/content/posts/YYYY-MM-DD-title.md`; resume positions: `src/content/resume-positions/position-name.md`; data: `src/data/filename.yml`
