@@ -3,6 +3,7 @@ title: Eight tips for working remotely
 bookRelation: inspired
 description: Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry or role.
 tldr: "Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry, your role, or what tools you use."
+writtenAtGitHub: true
 ---
 
 *Recently new to remote work culture? This post is a non-software-specific adaptation of my popular post [15 rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for fostering successful remote culture, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/).*
@@ -27,11 +28,11 @@ High fidelity, synchronous mediums like Zoom, Skype, or Google Meet are extremel
 
 In practice, this can come in three primary forms:
 
-1. **Brainstorming** - Help me flesh out this idea. What do you think about X? How can we come up with ways to solve X? You can't "spitball" via a pull request.
+1. **Brainstorming.** Help me flesh out this idea. What do you think about X? How can we come up with ways to solve X? You can't "spitball" via a pull request.
 
-2. **Feedback** - Hey, I think you could have worded that comment better. Is everything going okay with Y? Feedback is inherently human, and as such, it deserves a human face.
+2. **Feedback.** Hey, I think you could have worded that comment better. Is everything going okay with Y? Feedback is inherently human, and as such, it deserves a human face.
 
-3. **Small talk and gossip** - In a distributed company, you need a distributed water cooler. How's your son's softball team doing this season? Did you get a haircut? Check in often to ensure your coworkers are human (and you know them as such).
+3. **Small talk and gossip.** In a distributed company, you need a distributed water cooler. How's your son's softball team doing this season? Did you get a haircut? Check in often to ensure your coworkers are human (and you know them as such).
 
 ## 3. Be mindful of noise
 
@@ -39,11 +40,11 @@ A short email or comment on a document may take 20 seconds to read, from the tim
 
 In practice, that means three things:
 
-1. **Avoid drive-by opinions** - Assume for a moment that you have a potential say in everything your company does. What issues can you contribute the most to? Have the most impact on? Affect your role most directly? Think twice before providing your opinion on issues fringe to your area of expertise, especially when you don't have the full context, or aren't willing to follow through yourself to do what's necessary.
+1. **Avoid drive-by opinions.** Assume for a moment that you have a potential say in everything your company does. What issues can you contribute the most to? Have the most impact on? Affect your role most directly? Think twice before providing your opinion on issues fringe to your area of expertise, especially when you don't have the full context, or aren't willing to follow through yourself to do what's necessary.
 
-2. **Only comment if you have something to add to the discussion** - It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:s, doesn't really do much to advance the project. Unless what you're posting moves the issue closer to resolution don't hit the send button. Just don't do it.
+2. **Only comment if you have something to add to the discussion.** It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:s, doesn't really do much to advance the project. Unless what you're posting moves the issue closer to resolution don't hit the send button. Just don't do it.
 
-3. **Always provide context** - Context switching costs are non-trivial. Courteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Messages entitled "a few edits" or "minor improvements" do the exact opposite. This is especially important when CCing a team. In the same comment that brings them into the discussion, minimize the cognitive burden by absorbing the complexity on their behalf, and make it explicit what is being asked of them.
+3. **Always provide context.** Context switching costs are non-trivial. Courteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Messages entitled "a few edits" or "minor improvements" do the exact opposite. This is especially important when CCing a team. In the same comment that brings them into the discussion, minimize the cognitive burden by absorbing the complexity on their behalf, and make it explicit what is being asked of them.
 
 ## 4. Keep discussions logically distinct
 
