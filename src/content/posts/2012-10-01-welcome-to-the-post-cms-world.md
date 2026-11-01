@@ -6,13 +6,13 @@ archived: true
 
 You may notice things are a bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-static-site-exporter) the site from WordPress, to [Jekyll](https://github.com/jekyll/jekyll).[^1]
 
-Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, 130 outages over the past six months (totaling more than a day's worth of downtime), left a bit to be desired in terms of hosting.
+Jekyll is a blog-aware static site generator, heavily integrated with the social code sharing service GitHub. I moved to it primarily to embrace the brave new [post-CMS world](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, my host's 130 outages over the past six months (totaling more than a day's worth of downtime) left a bit to be desired.
 
 Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance's sake, would actually just serve flat HTML and JavaScript files from disk (generated on a regular basis by an industry-standard plugin known as [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already sluggish Apache).
 
 Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. I got the best of the best. I spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind Varnish.
 
-But as much as it pains the developer in me, just like fixies, PBR, and JavaScript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
+As much as it pains the developer in me, just like fixies, PBR, and JavaScript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
 The pitch is straightforward. It leads to simple, flexible, and reliable sites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](https://developmentseed.org/) (also powered by Jekyll) [put it best](https://web.archive.org/web/20120930105056/http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
@@ -38,7 +38,7 @@ The CMS is dead. Long live the CMS.
 Geek Content!
 :::
 
-:::info[Edit — Feb 2014]
+:::info[Edit, February 2014]
 With the [recent improvements to GitHub Pages](https://github.com/blog/1715-faster-more-awesome-github-pages), I wanted to give the benchmark another go. Turns out the transaction rate is up by about a third since my original test (120 vs. 89 transactions per second), and could be even higher if the benchmark hadn't been rate-limited by GitHub's automatic denial of service mitigation:
 :::
 
@@ -179,9 +179,9 @@ Shortest transaction:          0.00
 
 The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more likely that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 AM, the only person to call is yourself. (no, thanks.)
 
-With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^4]
+With Jekyll, because the files are just sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it keeps serving the old content.[^4]
 
-## Conclusion
+## Static sites are cheaper, faster, and simpler
 
 It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
 

@@ -1,6 +1,6 @@
 ---
 title: Removing the Barriers to Organizational Agility
-description: Panelists and moderator from a GW Tech Alumni panel discussion on removing the barriers to organizational agility in government and enterprise environments.
+description: Panelists and moderator from a GW Tech Alumni round table on removing the barriers to organizational agility in government and the enterprise.
 archived: true
 ---
 

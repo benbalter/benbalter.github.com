@@ -1,7 +1,7 @@
 ---
-title: Using protected branches to empower non-code contributors on GitHub
+title: GitHub moderator roles with protected branches
 description: Use GitHub's protected branches to grant collaborators moderator permissions without the ability to merge pull requests or push to the primary branch.
-tldr: "With GitHub's protected branches feature, you can grant collaborators permission to moderate comments, manage issues, or serve as project managers/team leads without the ability to merge pull requests or commit to the primary branch."
+tldr: "GitHub's protected branches let you give collaborators permission to moderate comments, manage issues, or lead the project without letting them merge pull requests or commit to the primary branch. GitHub's triage role now does the same job more intuitively."
 archived: true
 ---
 
@@ -13,7 +13,7 @@ Out of the box, GitHub enables you to grant collaborators [read, write, or admin
 
 Fortunately, with [GitHub's protected branches feature](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), you can grant contributors these permissions without also giving them the ability to merge pull requests or commit directly to `main`.
 
-If your project is owned by an organization, it's relatively easy to set up on a per-repository basis:
+If your project is owned by an organization, it's easy to set up on a per-repository basis:
 
 1. From the repository in question, navigate to "Settings" → "Branches"
 2. Under "Protected branches" choose your primary branch from the dropdown, or if it is already protected, click "edit"

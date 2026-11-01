@@ -1,7 +1,7 @@
 ---
-title: How GitHub uses automated testing to empower developers to write less-corporate blog posts
+title: How GitHub tests for less-corporate blog posts
 description: Instead of relying on editors to catch marketing speak, use automated tests and CI to enforce voice, tone, and style guidelines on your corporate blog.
-tldr: "Instead of relying on editors to manually catch marketing speak, use automated tests and CI to enforce voice, tone, and style guidelines on your corporate blog."
+tldr: "Instead of relying on editors to catch marketing speak, write automated tests for your corporate blog and run them in CI. A machine can flag a post that opens with 'today,' gushes about how excited you are, or says 'we' more than 'you,' so human reviewers can focus on substance."
 writtenAtGitHub: true
 ---
 
@@ -19,7 +19,7 @@ If I were reviewing the post, the first issue I'd call out is that [it starts wi
 
 Sure it takes 10 seconds for a human to see if a post begins with "today", but multiply that by hundreds of proposed posts each year, and you've engineered a process with a sizable human capital commitment, one that could be more efficiently outsourced to a machine.
 
-Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
+Testing for use of the word "today" is straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
 ```ruby
 class TodayTest < Blog::Test

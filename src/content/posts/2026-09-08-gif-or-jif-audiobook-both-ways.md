@@ -1,5 +1,5 @@
 ---
-title: "It's pronounced JIF. The Open and Async audiobook is out."
+title: "It's JIF: the Open and Async audiobook is out"
 description: "The Open and Async audiobook is out. It's read by a synthetic narrator who says 'jif,' correctly. For the hard-G crowd who insist that's heresy, I re-recorded an entire chapter in their (wrong) pronunciation and posted it free. One chapter the wrong way, or eleven and a half hours the right way."
 tldr: "The Open and Async audiobook is out, and the narrator says 'jif,' correctly. Since the internet will never drop the hard-G thing, I recorded a chapter both ways and posted them free. You get one chapter the wrong way, or eleven and a half hours the right way."
 published: true
