@@ -10,11 +10,11 @@ GitHub Pages is GitHub's static site hosting service. It's used primarily for tw
 
 ## Organization profile pages
 
-Let's say you're the Consumer Financial Protection Bureau. You have a GitHub organization called @CFPB. If you navigate to [github.com/cfpb](https://github.com/cfpb) you'll see your organization's profile page. It'll have things like your organization's name, logo, location, and site, along with a list of your open source projects and a short description of each in order that they were last updated, but you generally can't tailor the look-and-feel to suit your organization's unique needs. If you want a more customized presence, you'll need to use GitHub Pages.
+Let's say you're the Consumer Financial Protection Bureau. You have a GitHub organization called @CFPB. If you navigate to [github.com/cfpb](https://github.com/cfpb) you'll see your organization's profile page. It'll have things like your organization's name, logo, location, and site, along with a list of your open source projects and a short description of each in the order they were last updated, but you generally can't tailor the look-and-feel to suit your organization's unique needs. If you want a more customized presence, you'll need to use GitHub Pages.
 
 ## How GitHub Pages works
 
-GitHub Pages is deceptively simple, but an incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, JavaScript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](https://cfpb.github.io)).
+GitHub Pages is a deceptively simple but powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, JavaScript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](https://cfpb.github.io)).
 
 ## Getting started with GitHub Pages
 
@@ -32,11 +32,11 @@ For a quick way to get started, and as an example, let's create a new file calle
 </html>
 ```
 
-Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other site. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
+Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other site. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only things GitHub Pages doesn't support are server-side languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
 ## Templating with Jekyll
 
-The true power of GitHub Pages comes from a built-in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
+The true power of GitHub Pages comes from a built-in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single-page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to use Jekyll to make things a bit easier to maintain.
 
 Going back to our index example above, let's say you wanted to add a second page, "About us". You could copy and paste the index template into a second file, but if you'd like to change the header on both pages, you'd have to make the same change twice, and things can easily get out of sync.
 
@@ -79,7 +79,7 @@ layout: default
 
 Another big advantage of using Jekyll is the ability to work in [Markdown](https://guides.github.com/features/mastering-markdown/). Markdown is the *lingua franca* of open source. It's a way to describe the format and structure of content, without having to learn HTML. Markdown makes it easier for less-technical stakeholders to contribute directly to your site, separates content from presentation so that it can be used in multiple places or formats, and makes comparing changes between versions more natural.
 
-Think of Markdown like how you would format a document if you were typing on a typewriter. If you wanted to format a numbered list, rather than wrapping each element in `<ul>`s and `<li>`s like you would in HTML, you simply write:
+Think of Markdown like how you would format a document if you were typing on a typewriter. If you wanted to format a numbered list, rather than wrapping each element in `<ol>`s and `<li>`s like you would in HTML, you simply write:
 
 ```markdown
 1. item
@@ -133,9 +133,9 @@ layout: default
 * Project3
 ```
 
-The problem with this approach, is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
+The problem with this approach is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
 
-In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programmatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source projects in our organization we might write:
+In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programmatic concepts, it supports things like `if`, `unless`, and `for` statements. To list all the open source projects in our organization we might write:
 
 ```html
 {% for repository in site.github.public_repositories %}
@@ -144,12 +144,12 @@ In addition to Markdown, Jekyll also supports a lightweight templating engine ca
 
 ```
 
-That should produce identical results to the hardcoded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
+That should produce identical results to the hardcoded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the projects' descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
 
 ## Supercharging your organization's developer presence
 
-In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](https://GitHubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
+In terms of availability and scalability, the simplicity of GitHub Pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](https://github.blog/news-insights/the-library/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
 
-Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](https://netflix.github.io), [SAP](https://web.archive.org/web/20150608041736/http://sap.github.io/), [IBM](http://ibm.github.io), and [Microsoft](https://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
+Your organization site is also in good company. [Lots of large organizations](https://github.com/collections/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](https://netflix.github.io), [SAP](https://web.archive.org/web/20150608041736/http://sap.github.io/), [IBM](http://ibm.github.io), and [Microsoft](https://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 
-To get started, simply create an appropriately named repository within your organization and begin committing files, or you can read more about using [GitHub Pages](https://web.archive.org/web/20150526193115/https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email support@github.com.
+To get started, simply create an appropriately named repository within your organization and begin committing files, or you can read more about using [GitHub Pages](https://web.archive.org/web/20150526193115/https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).

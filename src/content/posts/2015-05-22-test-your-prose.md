@@ -1,16 +1,16 @@
 ---
 title: Test your content
-description: "Treat content as code and unlock CI for prose. Use HTML Proofer and Travis CI to automatically test every link, image, and change."
-tldr: "When you treat content as code, you unlock continuous integration for prose. Use tools like HTML Proofer and Travis CI to automatically test every link, image, and change."
+description: "Treat content as code and you get CI for prose. Use HTML Proofer and Travis CI to automatically test every link, image, and change."
+tldr: "When you treat content as code, you get continuous integration for prose. Use tools like HTML Proofer and Travis CI to automatically test every link, image, and change."
 ---
 
-I've written before about how we should treat [prose and data with the same respect that developers treat code](/2013/09/16/treat-data-as-code/) and how [Jekyll forces you to do just that](/2013/10/30/content-is-king/), but there's another workflow that version-controlled, collaborative content enables: continuous integration.
+We should treat [prose and data with the same respect that developers treat code](/2013/09/16/treat-data-as-code/), and [Jekyll forces you to do just that](/2013/10/30/content-is-king/). There's another workflow that version-controlled, collaborative content makes possible: continuous integration.
 
-*Continuous integration* (CI) is the idea that for every change, whether proposed or realized, a standard battery of tests run, to confirm the change does what you intend it to do. In most developer tools, like GitHub, you get instant feedback, in the form of a green light, to let you know that is in fact the case, or a red light, if something went awry, detailing exactly what doesn't match you specified expectations.
+*Continuous integration* (CI) is the idea that for every change, whether proposed or realized, a standard battery of tests runs to confirm the change does what you intend it to do. In most developer tools, like GitHub, you get instant feedback, in the form of a green light, to let you know that is in fact the case, or a red light, if something went awry, detailing exactly what doesn't match your specified expectations.
 
 When you treat content as code, you get the opportunity to co-opt best-of-breed developer workflows, and continuous integration is no exception. We've all been there. You make a simple change and end up breaking two or three other things. Links get out of date. Images move. Imagine if every time you made a change, all those things that you consciously or subconsciously worry about were automatically checked. Are my links accurate? Did any of my images break? Does this darn thing actually render the way I want it to?
 
-With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire site or a collection of HTML or Markdown files becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
+With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire site or a collection of HTML or Markdown files, becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
 ## Checking links and images
 
