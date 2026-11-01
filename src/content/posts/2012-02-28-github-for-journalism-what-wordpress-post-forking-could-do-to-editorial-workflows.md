@@ -1,5 +1,5 @@
 ---
-title: GitHub for Journalism — What WordPress Post Forking could do to Editorial Workflows
+title: "GitHub for Journalism: What WordPress Post Forking Could Do to Editorial Workflows"
 description: Wired found GitHub too complex for newsrooms. What if WordPress could offer the same fork-and-merge collaboration model with its signature simplicity?
 archived: true
 ---
@@ -46,7 +46,7 @@ In a nutshell:
 
 Post forking may make for a killer plugin [^2] or piece of core functionality… and imagine if it could integrate with other collaboration tools like [Edit Flow](https://editflow.org/), or [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)? As in Wired's example, it has the potential to fundamentally change newsrooms and other editorial workflows. All of a sudden, any content becomes either publicly or privately collaborative. Pretty cool, huh? While it may be a bit ahead of its time from a human standpoint, from a technical standpoint, the technology's there — it's nothing new — just a matter of building it, and hopefully solving the dreaded "are you out yet?" problem.
 
-Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](/contact/), or let me know in the comments below?
+Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](/contact/).
 
 **Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the meantime, the continued thoughts/feedback is very greatly appreciated.
 
@@ -54,7 +54,7 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 **Update (6/13):** Stay tuned. This may yet become a reality after all. ETA end of summer-ish.
 
-**Update (10/1):** Introducing [Post Forking for WordPress](https://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
+**Update (10/1):** Introducing [Post Forking for WordPress](https://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/), a more collaborative approach to content curation.
 
 [^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software](/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/) — I know first-hand how off-putting GitHub can be to non-technical users.
 

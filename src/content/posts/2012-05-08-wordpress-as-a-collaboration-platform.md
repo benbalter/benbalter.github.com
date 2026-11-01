@@ -8,8 +8,6 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 [Slides](/wordpress-as-a-collaboration-platform/)
 
-Watch the recording of the presentation on UStream (starts at the 10:00 mark).
-
 ## Plugins Mentioned
 
 - [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)
