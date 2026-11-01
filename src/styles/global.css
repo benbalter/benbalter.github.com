@@ -1878,7 +1878,9 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 }
 
 .custom-tooltip.show {
-  opacity: 0.9;
+  /* Fully opaque: at 0.9 the text behind the bubble shows through and
+     competes with the tooltip text (seen over a TL;DR in dark mode). */
+  opacity: 1;
   pointer-events: auto;
 }
 

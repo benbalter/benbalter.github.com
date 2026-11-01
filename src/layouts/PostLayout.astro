@@ -85,7 +85,10 @@ const {
 } = Astro.props;
 
 // Hover text for the "Written while I was at GitHub" label; the years come from
-// the résumé positions so they live in one place.
+// the résumé positions so they live in one place. No `title`: the tooltip
+// runtime shows this text and sets aria-describedby, and a title would add a
+// second, native tooltip on desktop. The ::before pseudo-element grows the
+// tap target to ~45px tall without moving the meta line.
 const writtenAtGitHubText = writtenAtGitHub
   ? writtenAtGitHubExplainer(getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data)))
   : undefined;
@@ -185,10 +188,9 @@ const itemListSchema = curatedUrls.length > 0
               {readingTime >= 1 && writtenAtGitHub && <span aria-hidden="true">·</span>}
               {writtenAtGitHub && (
                 <span
-                  class="initialism"
+                  class="initialism relative before:absolute before:inset-x-0 before:-inset-y-3 before:content-['']"
                   data-tooltip="true"
                   data-tooltip-text={writtenAtGitHubText}
-                  title={writtenAtGitHubText}
                   tabindex="0"
                 >Written while I was at GitHub</span>
               )}
