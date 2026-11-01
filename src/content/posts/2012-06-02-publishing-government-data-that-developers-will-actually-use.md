@@ -4,7 +4,7 @@ description: Publishing government data isn't as simple as pressing publish. Ten
 tldr: "Publishing government data isn't as simple as pressing the publish button. Ten steps to building APIs and developer ecosystems that turn raw data into citizen services."
 ---
 
-Despite increasing public support (as well as a number of executive mandates), publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Exposing the information matters, but so does building a developer community around it. When the publishing agency, not the public, is responsible for making information immediately useful, government lowers the barriers to consuming its data and can introduce additional citizen services at little to no cost to the agency.
+Despite increasing public support (as well as a number of executive mandates), publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Exposing the information matters, as does building a developer community around it. When the publishing agency, not the public, is responsible for making information immediately useful, government lowers the barriers to consuming its data and can introduce additional citizen services at little to no cost to the agency.
 
 ## 1. Garbage in, garbage out
 
