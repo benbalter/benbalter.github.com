@@ -22,6 +22,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # create-pull-request authenticates with its own token input, so the
+          # checkout doesn't need to leave a token in .git/config.
+          persist-credentials: false
 
       - name: Install Vale
         env:

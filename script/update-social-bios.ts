@@ -29,6 +29,7 @@
 import { execFileSync } from 'node:child_process';
 import { socialBios, bioLength, type SocialBio } from '../src/content/social-bios';
 import { siteConfig } from '../src/config';
+import { htmlToPlainText } from '../src/utils/strip-html';
 import { login } from './standard-site/auth';
 
 const MASTODON_INSTANCE = new URL(siteConfig.mastodonUrl).origin;
@@ -75,7 +76,7 @@ const updaters: Record<string, Updater> = {
       if (!response.ok) throw new Error(`Mastodon account lookup failed: ${response.status}`);
       const account = (await response.json()) as { note?: string };
       // Public lookups return the note as HTML; strip it for the comparison.
-      return (account.note ?? '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+      return htmlToPlainText(account.note ?? '');
     },
     async write(bio) {
       const token = process.env.MASTODON_TOKEN;
