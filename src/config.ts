@@ -128,7 +128,7 @@ export const siteConfig = {
   bookPricePaperback: '$29.99',
 
   // About page metadata
-  aboutDescription: 'Ben Balter is a product leader, open source developer, and attorney who spent over a decade building developer platforms at GitHub. His open source projects have hundreds of millions of downloads.',
+  aboutDescription: 'Ben Balter is a product leader, open source developer, and attorney who spent over a decade on developer platforms at GitHub. His open source projects have hundreds of millions of downloads.',
 
   // standard.site (https://standard.site/) — AT Protocol long-form publishing.
   // The publication and each post become records in the author's own PDS, and

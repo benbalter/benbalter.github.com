@@ -2,6 +2,7 @@
 title: Towards a More Agile Government
 description: Federal IT spends billions annually, yet fewer than 9% of projects ship on time and on budget. The fix requires regulatory reform and agile.
 tldr: "Federal IT procurement spends billions a year, yet fewer than 9% of projects ship on time and on budget. The fix requires both regulatory reform and a cultural shift toward agile."
+archived: true
 ---
 
 <!--lint disable retext-spell-->
@@ -14,7 +15,7 @@ tldr: "Federal IT procurement spends billions a year, yet fewer than 9% of proje
 
 Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
 
-Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9] Thus, purchasing agencies ultimately use only about one-third of all features paid for by American tax dollars.[^10] In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11] It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12] Too often IT procurement requirements are crafted with the input of neither end users nor product developers.[^13] As Office of Management Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14] Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
+Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9] Thus, purchasing agencies ultimately use only about one-third of all features paid for by American tax dollars.[^10] In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11] It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12] Too often IT procurement requirements are crafted with the input of neither end users nor product developers.[^13] As Office of Management and Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14] Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
 
 To better embrace innovation and respond to changing organizational needs, the Government must embrace a two-pronged approach involving both regulatory reform and top-down support for best-practices education to empower IT-procuring agencies to pursue more agile software development methods. By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.[^16] While most prior attempts to reform federal IT procurement focused solely on statutory changes, [^17] this Note proposes more modern project management practices and argues for top-down reform on both a regulatory and a human level.
 
@@ -34,7 +35,7 @@ Agile development adopts an incremental approach to software development, but it
 
 ### C. Modern Trends in Both Governance and Technology Push Federal Procurement Towards Agility
 
-Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
+Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition to advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
 
 ## II. Despite its Advantages and Long-Standing History, the Rigidity of Traditional Software Development Bears Risks Disproportionate to its Returns
 
@@ -52,7 +53,7 @@ Despite its long-standing history, waterfall software development comes with sho
 
 Waterfall relies on two key assumptions: (A) That requirements are fully understood by both contractor and contracting agency, and (B) That requirements are unlikely to change.[^47] Yet due to the often-unique nature of government systems, software contractors typically face challenges to which they have never been exposed, rendering predicting of future needs an inherently futile task.[^48]
 
-The traditional procurement model, which leans heavily on waterfall's central tenants, demands specificity in planning, funding, and acquisition, and requires the contractors and COs to attain a certain level of "predictive precision" simply not found in the ever-changing world of technology.[^49] As such, by requiring that all specifications be outlined upfront, the current procurement model encourages agencies to attempt an inevitably unsuccessful endeavor and thereby increases project risk.[^50]
+The traditional procurement model, which leans heavily on waterfall's central tenets, demands specificity in planning, funding, and acquisition, and requires the contractors and COs to attain a certain level of "predictive precision" simply not found in the ever-changing world of technology.[^49] As such, by requiring that all specifications be outlined upfront, the current procurement model encourages agencies to attempt an inevitably unsuccessful endeavor and thereby increases project risk.[^50]
 
 The unrealistic premises of waterfall procurement create a snowball effect. Because it is impossible for COs to resolve all unknowns at the onset of a procurement, they often err on the side of caution and compound errors by over-documenting requirements and making erroneous assumptions.[^51] This risk is further exacerbated as a result of waterfall's insistence on delaying testing until late in the development cycle, [^52] meaning mistakes often do not become apparent until corrections are cost-prohibitive.[^53] Especially given the size of typical government procurements, "trying to implement everything at once increases the risk of failure on a grand scale if the technology fails to work as expected or if the original idea was misconceived." [^54] To function optimally, waterfall methodologies require both contracting parties to possess perfect information. This is a practical impossibility when federal agencies acquire major IT systems.
 
@@ -76,9 +77,9 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
+[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="" />](/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
-<p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)</em></p>
+<p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared</em></p>
 
 Agile development can be thought of as the amalgamation of many short waterfall development cycles.[^75] An agile project consists of multiple coding sprints, commonly known as iterations, in which tasks are chosen from an ongoing feature backlog [^76] and become realized early on through rapid prototyping and testing.[^77] "An iteration produces a small, tested, integrated increment of business value that is validated by customers and used as feedback for the next iteration. Iterations occur at short, regular intervals and they involve everyone: from architects to testers to the help desk staff." [^78] Agile methodologies see the process as dynamic, evolving, and organic, rather than static, predefined, and mechanistic.[^79] Agile breaks a system into smaller, more fungible chunks of immediate value to the user, rather than attempting a software development project as a single, undivided task.[^80]
 
@@ -122,7 +123,7 @@ Extensive government contracting documentation and reporting requirements impose
 
 #### ii. Agile engenders a lack of specificity pre-award, rendering cost estimates difficult to calculate
 
-Agile does not require that potential systems outline technical specifications owners before contract award, potentially causing COs difficulty as they attempt to estimate project costs.[^112] Often, project timelines are at best only roughly defined, and project teams may change drastically as requirements change.[^113]
+Agile does not require that potential system owners outline technical specifications before contract award, potentially causing COs difficulty as they attempt to estimate project costs.[^112] Often, project timelines are at best only roughly defined, and project teams may change drastically as requirements change.[^113]
 
 However, while it may allow for less specificity pre-award, agile constantly adapts to the actual needs of the project (rather than remaining true to initial projections). As a result, in the long run, agile provides more accurate cost metrics and greater budget fidelity overall.
 
@@ -186,7 +187,7 @@ Solicitations should outline functional rather than technical requirements [^153
 
 Alongside existing professional development efforts, contracting organization technical representatives must be trained in best practices for executing and managing development projects through an agile framework. This may include formal workshops for employees; the recruitment of experienced, private sector project managers; or simply a push to increase awareness of agile methodology and educational resources already at agencies' disposal.
 
-### B. Existing Procurement Requirements Demand Extensive Documentation Up Front, Forcing Agencies into Agile Frameworks
+### B. Existing Procurement Requirements Demand Extensive Documentation Up Front, Forcing Agencies into Waterfall Frameworks
 
 Even if agile-friendly contracts are prepared, executed, and overseen successfully, two statutory stumbling blocks may hinder agile's adoption: (i) the solicitation and subsequent award of the contract; and (ii) the governance of the contract while it is in progress.[^154]
 
@@ -210,7 +211,7 @@ The above goals cannot be realized without significant top-down support from the
 
 The federal IT procurement system is outdated. Projects are consistently delivered late, over-budget, and obsolete. Much of this trend can be traced back to flawed legal frameworks that lock agencies and contractors into an outdated development model. Through education, reform, and organization-wide support, federal agility can become a reality. Any computer user knows that as systems age they begin to slow. Today, the federal IT procurement system is running slowly, to the detriment of both agencies and the public, and it is long overdue for a system-wide upgrade.
 
-[<img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" class="aligncenter" />](https://creativecommons.org/licenses/by/2.0/)
+[<img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Creative Commons License" class="aligncenter" />](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
@@ -222,7 +223,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^5]: White House Forum on Modernizing Gov't, Overview and Next Steps 5 (2010).
 
-[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+&cd=1&hl=en&ct=clnk&gl=us)1 (2004).
+[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](https://web.archive.org/web/20120123181222/http://www.danube.com/docs/Intro_to_Agile.pdf)1 (2004).
 
 [^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, for example, its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *ID.* at 8.
 
@@ -242,7 +243,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "when we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](https://web.archive.org/web/20110704150607/http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.PDF) 17, 18 (2010), *available at* <https://web.archive.org/web/20110704150607/http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.PDF>.
 
-[^16]: DoD Acquisition Report, *supra* note 1, at 16–17 (noting many large corporations have gained a significant advantage from using agile). *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart."). *See generally* *infra* Parts III-IV\*.\*
+[^16]: DoD Acquisition Report, *supra* note 1, at 16–17 (noting many large corporations have gained a significant advantage from using agile). *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart."). *See generally* *infra* Parts III-IV.
 
 [^17]: *See* Ralph C. Nash, Jr., *Solutions-Based Contracting: A Better Way To Buy Information Technology?*, 11 Nash & Cibinic Rep. ¶ 17, at 60 (Apr. 1997).
 
@@ -296,7 +297,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^42]: Course Manual, *supra* note 28, at 33.
 
-[^43]: *See* W\.Royce, *supra* note 40, at 328.
+[^43]: *See* W. Royce, *supra* note 40, at 328.
 
 [^44]: *ID.* at 329.
 

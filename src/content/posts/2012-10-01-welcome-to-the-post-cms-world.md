@@ -1,6 +1,7 @@
 ---
 title: Welcome to the Post-CMS World
 description: 'Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content.'
+archived: true
 ---
 
 You may notice things are a bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-static-site-exporter) the site from WordPress, to [Jekyll](https://github.com/jekyll/jekyll).[^1]
@@ -38,7 +39,7 @@ Geek Content!
 :::
 
 :::info[Edit — Feb 2014]
-With the [recent improvements to GitHub Pages](https://github.com/blog/1715-faster-more-awesome-github-pages), I wanted to give the benchmark another go. Turns out the transaction rate has essentially doubled since my original test, and could be even higher if the benchmark hadn't been rate-limited by GitHub's automatic denial of service mitigation:
+With the [recent improvements to GitHub Pages](https://github.com/blog/1715-faster-more-awesome-github-pages), I wanted to give the benchmark another go. Turns out the transaction rate is up by about a third since my original test (120 vs. 89 transactions per second), and could be even higher if the benchmark hadn't been rate-limited by GitHub's automatic denial of service mitigation:
 :::
 
 Command: `siege -c 20 -t 30S -b ben.balter.com`
@@ -176,7 +177,7 @@ Shortest transaction:          0.00
 
 ### Uptime
 
-The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more like that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 AM, the only person to call is yourself. (no, thanks.)
+The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more likely that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 AM, the only person to call is yourself. (no, thanks.)
 
 With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^4]
 

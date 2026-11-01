@@ -3,6 +3,7 @@ title: Why WordPress's next version should just give it a REST already
 description: The internet naturally converges on elegant standards. For WordPress to keep up with modern CMSs, it needs to expose all content through a RESTful API.
 tldr: "The internet naturally converges on elegant standards. For WordPress to keep up with next-generation CMSs, it needs to expose all content through a RESTful API."
 published: true
+archived: true
 ---
 
 The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as opposed to say [Gopher](https://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of experimentation.
@@ -17,7 +18,7 @@ Sites are quickly becoming the curators of information, not simply the presenter
 
 WordPress came about as many of these now-standard design conventions were still emerging, and understandably, it doesn't exactly embrace them head on. Yet next generation content management systems — not weighed down by history — have an advantage here, and as folks look to build the next generation of sites, they're obviously going to be looking to where we're going, not where we've been.
 
-If WordPress wants to stay relevant as a content management platform, the future isn't traditional post-and-forget blogging, but rather a concerted effort to once again make content king. We obviously can't flip a switch and get there overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS with the reality of what's in our collective pipeline:
+If WordPress wants to stay relevant as a content management platform, the future isn't traditional post-and-forget blogging, but rather a concerted effort to once again make content king. We obviously can't flip a switch and get there overnight, but a crawl, walk, run over the next version or so can better align the venerable CMS with the reality of what's in our collective pipeline:
 
 <!-- more -->
 
@@ -49,4 +50,4 @@ As community members sit down to sketch out what the next version of WordPress l
 
 Technology has this tricky way of bringing about organizational change. Making something so dumb-simple really is an empowering force. WordPress did it once as it first set out to democratize publishing, and it's time to do it again for the next generation of non-blogging sites and applications.
 
-**Update (12/20):** *Not quite REST, but as @scribu points out in the comments below, [#14618](https://core.trac.wordpress.org/ticket/14618) proposed an RPC-like JSON API some two years ago. Looks like the ticket ended up in somewhat over a holy war over standards (XML v. JSON anyone?), but the arguments in favor still stand nonetheless.*
+**Update (12/20):** *Not quite REST, but as @scribu points out, [#14618](https://core.trac.wordpress.org/ticket/14618) proposed an RPC-like JSON API some two years ago. Looks like the ticket ended up in somewhat over a holy war over standards (XML v. JSON anyone?), but the arguments in favor still stand nonetheless.*

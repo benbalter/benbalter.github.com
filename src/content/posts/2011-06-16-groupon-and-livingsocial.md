@@ -1,6 +1,6 @@
 ---
 title: 'Groupon and LivingSocial: a Limited-Time Offer'
-description: Daily deal sites like Groupon and LivingSocial aren't the next e-commerce wave—they're bad for merchants and can't survive a crowded market.
+description: Daily deal sites like Groupon and LivingSocial aren't the next e-commerce wave. They're bad for merchants and can't survive a crowded market.
 tldr: "Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market."
 archived: true
 ---
@@ -26,10 +26,10 @@ As Benjamin Edelman and Paul Kominers [argue](https://www.benedelman.org/voucher
 Edelman and Kominers [continue](https://www.benedelman.org/voucher-consumer-protection/):
 
 > Voucher services typically seek to cast themselves as mere marketing vendors that are not responsible for the conduct of the corresponding merchants. For example, [Groupon's Terms of Sale](http://www.groupon.com/terms) claim that "The Merchant, not Groupon, is the seller of the Voucher and the goods and services and is solely responsible for redeeming any Voucher you purchase."
+>
+> …But a voucher service is the merchant of record for the charge to the customer's credit card. As the entity officially responsible for charging the consumer, the voucher service thus faces increased responsibility to see that the consumer receives what was promised.
 
-…But a voucher service is the merchant of record for the charge to the customer's credit card. As the entity officially responsible for charging the consumer, the voucher service thus faces increased responsibility to see that the consumer receives what was promised.
-
-This, combined with the fact that [Groupon claims the entirety of the purchase price as revenue](https://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6) suggests that daily deal sites are the 10,000 lb guerrilla unfairly shifting the legal burden to small businesses. Despite all this, Groupon's largest shareholder simply [recommends](http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/) that business not "worry about the noise that the legal system creates."
+This, combined with the fact that [Groupon claims the entirety of the purchase price as revenue](https://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6) suggests that daily deal sites are the 10,000 lb gorilla unfairly shifting the legal burden to small businesses. Despite all this, Groupon's largest shareholder simply [recommends](http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/) that business not "worry about the noise that the legal system creates."
 
 ### Gift Cards
 
@@ -39,11 +39,11 @@ First is the question of if a daily deal constitutes a [gift card](http://www.nc
 
 Second is the question of what the sales tax should be levied at the time the goods or services are actually tendered. As TechCrunch aptly [points out](https://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/) there's a great deal of leeway depending on how you crunch the numbers:
 
-What's the correct sales tax on a $51 purchase with a $50 Groupon that someone bought for $25 in a state with a 5% tax rate? The possible answers are 5 cents, 68 cents, $1.30 and $2.55. That's based on a taxable value of $1 (amount paid at point of sale), $13.50 (amount merchant actually gets), $26 (total amount consumer paid) and $51 (total face value of the transaction).
+> What's the correct sales tax on a $51 purchase with a $50 Groupon that someone bought for $25 in a state with a 5% tax rate? The possible answers are 5 cents, 68 cents, $1.30 and $2.55. That's based on a taxable value of $1 (amount paid at point of sale), $13.50 (amount merchant actually gets), $26 (total amount consumer paid) and $51 (total face value of the transaction).
 
 ### Alcohol
 
-Third, daily deals involving alcohol, may [run afoul of the law in certain states](http://www.abc.virginia.gov/licensing/happyhour.html). In Illinois, Groupon's home state, for example, it is illegal to offer alcohol discounts to some patriots and not others. Researchers found [87 deals](https://www.benedelman.org/voucher-consumer-protection/beer-chicago-google-060811.png) in Chicago alone that advertised discounts on beer, and [another 252](https://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png) that offered discounts on wine.
+Third, daily deals involving alcohol, may [run afoul of the law in certain states](http://www.abc.virginia.gov/licensing/happyhour.html). In Illinois, Groupon's home state, for example, it is illegal to offer alcohol discounts to some patrons and not others. Researchers found [87 deals](https://www.benedelman.org/voucher-consumer-protection/beer-chicago-google-060811.png) in Chicago alone that advertised discounts on beer, and [another 252](https://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png) that offered discounts on wine.
 
 ## What's Next for Groupon
 

@@ -22,19 +22,19 @@ $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
 
 ```javascript
 $('a.share-facebook').click( function() {
-_gaq.push( ['_trackSocial', 'faceboook', 'share',
+_gaq.push( ['_trackSocial', 'facebook', 'share',
 $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
 });
 ```
 
 The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to ~~`wp_head`~~ `wp_footer` you get the full plugin code available as a [GitHub Gist](https://gist.github.com/1058469).
 
-The code should work out of the box with the standard share buttons (seen below), but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
+The code should work out of the box with the standard share buttons, but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
 
 More details on the tracking code can be found over in the [Google Analytics Social Engagement Documentation](http://code.google.com/apis/analytics/docs/tracking/gaTrackingSocial.html). Improve the code to work with your site? Feel free to [fork the gist](https://gist.github.com/1058469) and contribute it back.
 
 :::info[Update]
-Dedicated reader All-around rabble-rouser [Andrew Nacin](http://andrewnacin.com) points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
+~~Dedicated reader~~ All-around rabble-rouser [Andrew Nacin](http://andrewnacin.com) points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
 :::
 
 :::info[Update]

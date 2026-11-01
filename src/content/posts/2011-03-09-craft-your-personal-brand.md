@@ -1,12 +1,12 @@
 ---
 title: Using WordPress to Craft Your Personal Brand
-description: Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand.
+description: Takeaways from my brief talk at March's joint WordPress DC and Hacks/Hackers DC meetup on using WordPress to craft your personal brand.
 archived: true
 ---
 
-I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](https://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand. Below are slides and a recording of the livestream.
+I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](https://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand.
 
-## I invite you to watch, but in short, the main takeaways were
+## In short, the main takeaways were
 
 <img src="https://ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png" alt="Why Brand?" title="Why Brand?" class="float-right ml-3" />
 
@@ -26,14 +26,10 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 4. Socialize your content
 5. Upgrade your résumé
 
-## Recording of the livestream
-
-*[Greg Linch](https://greglinch.com/) opens by discussing WordPress and Journalism, I begin at 30 minutes 10 seconds*
-
 ## For those interested in the plugins mentioned
 
-- [Resume Plugin for WordPress](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin")
-- [Emphasis Plugin for WordPress](https://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text")
+- [Resume Plugin for WordPress](/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin")
+- [Emphasis Plugin for WordPress](/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text")
 - [All in One SEO](http://wordpress.org/extend/plugins/all-in-one-seo-pack/)
 - [Google Analytics for WordPress](http://yoast.com/wordpress/google-analytics/)
 - [Simple Facebook Connect](http://ottopress.com/wordpress-plugins/simple-facebook-connect/)
@@ -47,5 +43,3 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 - [How to generate a QR code](http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/)
 
 A special thanks to everyone who was able to come out or follow along on the livestream.
-
-Comments? I'd love to hear your thoughts below.
