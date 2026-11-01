@@ -50,7 +50,7 @@ Beyond hiding existing content, you'll also want some way to prevent new content
 
 ### Community guidelines
 
-Your Terms of Service sets a baseline for acceptable behavior that generally hovers somewhere around "don't do anything illegal." To have the policy means to respond to abuse and harassment on your platform, you should also set community guidelines beyond those bare minimums, with "golden rule" expectations like don't be a bully and don't threaten other users. It does you and the reporting user no good if a report of abuse or harassment comes in and your hands are tied, for fear of looking reactive or biased. As I've [said before](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play), platforms should be mindful of the role they play as the builders and maintainers of digital town squares.
+Your Terms of Service sets a baseline for acceptable behavior that generally hovers somewhere around "don't do anything illegal." To have the policy means to respond to abuse and harassment on your platform, you should also set community guidelines beyond those bare minimums, with "golden rule" expectations like don't be a bully and don't threaten other users. If a report of abuse or harassment comes in and your hands are tied, for fear of looking reactive or biased, that helps neither you nor the reporting user. As I've [said before](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play), platforms should be mindful of the role they play as the builders and maintainers of digital town squares.
 
 ### Auditability
 
