@@ -10,7 +10,7 @@ They've figured out something I wrote about in [*Open and Async*](https://open-a
 
 > Teams with well-structured, up-to-date documentation get noticeably better AI-assisted answers because the model can find relevant context. Teams with scattered tribal knowledge get generic responses. Your documentation quality *is* your AI quality now.
 
-If your institutional knowledge lives in a share drive full of `Final_v3_REVISED_bb.docx`, your AI tools are about as useful as a new hire who's been handed the share drive and wished good luck. That's a writing problem, and it was a writing problem long before the model showed up.
+:quote[If your institutional knowledge lives in a share drive full of `Final_v3_REVISED_bb.docx`, your AI tools are about as useful as a new hire who's been handed the share drive and wished good luck.]{#share-drive-new-hire} That's a writing problem, and it was a writing problem long before the model showed up.
 
 Markdown is the cheapest fix I know, for the reason I gave [back in 2014](/2014/03/31/word-versus-markdown-more-than-mere-semantics/): it makes you write for the reader you actually have. In 2014, that reader was a browser. Now it's often a model summarizing your proposal before your boss skims it.
 

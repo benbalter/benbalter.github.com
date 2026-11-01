@@ -2,6 +2,7 @@
 title: "AI-first program management"
 bookRelation: inspired
 description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows. It amplifies human judgment instead of replacing it."
+tldr: "AI doesn't change the philosophy behind program management so much as run it faster: less time processing information, more time on judgment. The hard parts stay human. Pick the task that consumes the most time but requires the least judgment (status report assembly, meeting note cleanup, stakeholder update drafts) and hand it to an AI."
 ---
 
 When I first wrote about [the nine things a program manager does](/2021/03/26/nine-things-a-technical-program-manager-does/), I didn't dwell on what the job actually feels like first thing on a Monday. The hardest part was always the scramble: a dozen threads that moved over the weekend, a risk or two that quietly materialized, and a critical deliverable whose scope someone changed in a comment buried three levels deep. All of it has to be synthesized into a coherent picture before the leadership sync, and the clock doesn't care how many tabs are open.
@@ -66,13 +67,13 @@ Driving consensus across teams with competing priorities is among the hardest th
 
 AI can help by synthesizing different viewpoints, drafting proposals that incorporate multiple perspectives, and suggesting compromises based on stated constraints. Need an RFC that reflects six teams' input? AI can produce a first draft that no single person could assemble manually. You still need to facilitate the conversation that turns a draft into a decision.
 
-Where AI falls short is in reading the political dynamics. Understanding that Team A's objection is really about being burned in a previous launch, or that a particular VP's silence means something different than a junior engineer's silence. That's pattern recognition of a deeply human kind. No model is going to learn the org chart's shadow topology from a prompt.
+Where AI falls short is in reading the political dynamics. Understanding that Team A's objection is really about being burned in a previous launch, or that a particular VP's silence means something different than a junior engineer's silence. That's pattern recognition of a deeply human kind. :quote[No model is going to learn the org chart's shadow topology from a prompt.]{#org-chart-shadow-topology}
 
 ## The hard parts stay human
 
-It would be easy to read all of this and conclude that AI is about to make program managers obsolete. It won't.
-
-The responsibilities haven't changed. What's shifted is the mix of the day: less time processing information, more time on judgment. AI reads the forty-message thread; you still decide whether the disagreement buried two-thirds of the way down needs a meeting or just a quiet word with the two people in it.
+:::objection[Isn't AI about to make program managers obsolete?]
+It won't. The responsibilities haven't changed. What's shifted is the mix of the day: less time processing information, more time on judgment. AI reads the forty-message thread; you still decide whether the disagreement buried two-thirds of the way down needs a meeting or just a quiet word with the two people in it.
+:::
 
 The things AI can't do are the parts that were always the hard part: reading a room, building trust over months, knowing when to push and when to back off, making the call when the data is ambiguous and someone still has to own the outcome. Those get *more* valuable as AI absorbs the routine work. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
 
@@ -91,7 +92,7 @@ Much of the job is a long tail of grab-bag work that never fits a clean category
 
 The last big launch I ran, every dashboard was green the Friday before ship: PRs merged, tests passing, no open blockers, and SnippetGPT's rollup said exactly that. What the board didn't show was that one engineer had gone quiet in the launch channel three days running (terse in a way he normally wasn't), and the security reviewer had signed off with a single "lgtm, mostly." No tool reads "mostly" as anything but approval. I read it as a person who had found something and hadn't decided how much it mattered yet. We held the launch a week, and the hedge turned out to be an auth edge case that would have paged us at 2 AM on day one.
 
-No model was going to catch that. It would have read the same green board I did. The job was never assembling the status. AI can do that now. The job is knowing which green is actually green, and who to call when it isn't.
+No model was going to catch that. It would have read the same green board I did. The job was never assembling the status. AI can do that now. :quote[The job is knowing which green is actually green, and who to call when it isn't.]{#which-green-is-green}
 
 [^1]: Tally up the number of distinct audiences a PM communicates with in a single week and the answer is genuinely depressing. Every additional team or stakeholder doesn't just add one more communication channel. It adds one for every stakeholder you *already* had. This is why PMs' calendars look the way they do.
 
