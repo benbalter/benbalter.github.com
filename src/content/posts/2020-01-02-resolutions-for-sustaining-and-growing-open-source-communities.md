@@ -1,6 +1,6 @@
 ---
-title: Resolutions for sustaining and growing open source communities
-description: Four resolutions for being a better open source community member, from reducing your bus factor to being a gracious dinner party host to your contributors.
+title: Four resolutions for open source communities
+description: Four resolutions for being a better open source community member, from reducing your bus factor to hosting your contributors like dinner guests.
 tldr: "Software development is a team sport, and when you import an open source library, you're adding a team of developers, not just code. Share responsibility so you aren't a bus of one, welcome contributors like dinner guests, help maintainers encourage inclusive behavior, and add process only as a project needs it."
 writtenAtGitHub: true
 ---
@@ -17,7 +17,7 @@ In software development, there’s the concept of the “bus factor” (or the �
 
 :quote[Humans get sick or take vacations or get locked out of their account and a project shouldn’t grind to a halt as a result.]{#projects-shouldnt-grind-to-halt} It can be hard to know when a project goes from “my” project to a community project, but as early as practical, move the project to a dedicated organization and empower contributors you trust to take on additional responsibility.
 
-Beyond better project longevity, most of GitHub’s community management tools are built with organization-owned repositories in mind, to encourage shared responsibility, so you’ll find more and more robust community management tools are suddenly available to your project.
+Beyond better project longevity, most of GitHub’s community management tools are built with organization-owned repositories in mind, to encourage shared responsibility, so you’ll find more, and more capable, community management tools are suddenly available to your project.
 
 ## 2. I will be a gracious dinner party host to the open source community
 
@@ -41,7 +41,7 @@ As community members, we should help maintainers grow healthy and welcoming comm
 
 ## 4. I will recognize the differences between communities and support each one’s specific needs
 
-Smaller, independent projects don’t necessarily need sophisticated workflows or community management practices at the onset, and often, that premature optimization can stifle community growth. I think of project growth through a “community maturity model.” Projects should often wait to establish formal or documented processes as they mature, and not before they need them.
+Smaller, independent projects don’t necessarily need sophisticated workflows or community management practices at the onset, and often, that premature optimization can stifle community growth. I frame project growth as a “community maturity model.” Projects should often wait to establish formal or documented processes as they mature, and not before they need them.
 
 :quote[If you’re prototyping a new library by yourself, you don’t need a code of conduct or mandatory forms for bug reports.]{#prototyping-no-code-of-conduct} If you get your first pull request, however, from an outside contributor, you may want to consider taking a critical look at your documentation, and if you’re fortunate enough to get additional contributors, beginning to formalize your contribution and review process.
 

@@ -1,7 +1,7 @@
 ---
 title: Helpful 404s for Jekyll (and GitHub Pages)
-description: How to build 404 pages for Jekyll and GitHub Pages that automatically suggest similar URLs to those requested, using Levenshtein distance and your sitemap.
-tldr: "How to build 404 pages for Jekyll and GitHub Pages that automatically suggest similar URLs to the one requested, using Levenshtein distance and your sitemap."
+description: How to build 404 pages for Jekyll and GitHub Pages that suggest the closest valid URL, using Levenshtein distance and your sitemap.
+tldr: "Most 404 pages are clever, not helpful. A few lines of TypeScript can fetch your sitemap, find the valid path closest to the one requested, and suggest it to the visitor."
 ---
 
 While the internet has long had a soft spot for [clever `404` pages](https://www.pagecloud.com/blog/best-404-pages), it's rare to see one that's actually *helpful*, especially for static sites like Jekyll or GitHub Pages that make dynamic searches more difficult. Great 404 pages should help visitors find what they're looking for.
@@ -28,7 +28,7 @@ The page you are trying to view does not exist. **Perhaps you're looking for [/2
 
 ## A few lines of TypeScript do the work
 
-This functionality is driven by a surprisingly small amount of JavaScript ([really TypeScript](https://github.com/benbalter/retlab/blob/main/js/script.ts)):
+This functionality is driven by a small amount of JavaScript ([really TypeScript](https://github.com/benbalter/retlab/blob/main/js/script.ts)):
 
 ```typescript
 import { closest } from 'fastest-levenshtein';

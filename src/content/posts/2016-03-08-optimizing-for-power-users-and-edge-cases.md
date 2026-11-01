@@ -1,5 +1,5 @@
 ---
-title: Optimizing for power users and edge cases is the easy part
+title: Power users and edge cases are the easy part
 description: Stop optimizing for power users and edge cases. The real challenge is nailing the out-of-box experience for 80% of users.
 tldr: "In product development, it's all too easy to optimize for power users and edge cases. The real challenge lies in nailing the out-of-box experience for 80% of users' needs."
 writtenAtGitHub: true
@@ -11,7 +11,7 @@ Whether you're building an open source project or a for-profit service, it's all
 
 As a geek, it's always going to be more fun to develop the new whizbang feature that will allow the app to integrate with whatever's currently on the top of Hacker News or to design a single method that elegantly accounts for when your program is used at the South Pole by a user running Windows XP SP1 under a full moon. While those are fun Rubik's-cube-style engineering challenges to tackle for those of us who build software, they do little to benefit most of the people who use the software we build.
 
-As a project maintainer, it will always feel better to ship code and mark an issue resolved than to close yet another issue as `wontfix`, saying "no" to a beloved user or, worse, a potential contributor. For many, wasting already-written code is a cardinal sin. But your project's issue tracker, pull request backlog, or support queue will present a very skewed perspective of your user base, especially when you use it as your primary means of evaluating feature requests and user feedback.
+As a project maintainer, it will always feel better to ship code and mark an issue resolved than to close yet another issue as `wontfix`, saying "no" to a beloved user or, worse, a potential contributor. For many, wasting already-written code is a cardinal sin. But your project's issue tracker, pull request backlog, or support queue will present a skewed perspective of your user base, especially when you use it as your primary means of evaluating feature requests and user feedback.
 
 ## The silent majority of users
 

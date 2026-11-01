@@ -24,7 +24,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ## 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like Zoom, Skype, or Google Meet are extremely valuable when you use them for the right things. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like Zoom, Skype, or Google Meet are valuable when you use them for the right things. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 
@@ -70,7 +70,7 @@ In practice, most chat programs let you mention a user by name at the start of a
 
 ## 7. Overcompensate for tone
 
-It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's an internet culture built on a foundation of emoji and animated GIFs. It's not simply because [animated GIFs of puppies are adorable](https://web.archive.org/web/20200203213625/http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
+It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's an internet culture built on a foundation of emoji and animated GIFs. It's not only because [animated GIFs of puppies are adorable](https://web.archive.org/web/20200203213625/http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
 
 ## 8. If it has a URL, link to it
 

@@ -1,7 +1,7 @@
 ---
-title: Why Digital Talent Doesn't Want To Work At Your Company
+title: Why digital talent won't work at your company
 description: Top tech talent doesn't need perks or a Silicon Valley zip code. They want the chance to change the world, and your bureaucracy is standing in the way.
-tldr: "As Aaron Shapiro argues, the talent you want would be happy to work in an un-air-conditioned garage if it meant the chance to change the world. Layers of bureaucracy, a culture where mediocre is good enough, condemnation of trial and error, and a lifetime climb to the top drive them away instead. I think the argument could be extended to hiring 20-somethings more broadly (I'm looking at you, Federal Government)."
+tldr: "As Aaron Shapiro argues, the talent you want would be happy to work in an un-air-conditioned garage if it meant the chance to change the world. Layers of bureaucracy, a culture where mediocre is good enough, punishing failed experiments, and a lifetime climb to the top drive them away instead. I think the argument could be extended to hiring 20-somethings more broadly (I'm looking at you, Federal Government)."
 ---
 
 As Aaron Shapiro over at Fast Company [cogently argues](https://www.fastcompany.com/1779120/why-digital-talent-doesn%E2%80%99t-want-work-your-company), "it's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world."
@@ -15,6 +15,6 @@ Specifically he points out:
 - **Your company is structured so it takes a lifetime to get to the top, and as such there are no digital experts in company-wide leadership positions.** Digital talent–often in their twenties and thirties–need to see a clear path for uninhibited career development that's based on merit, not years spent, and that's beyond the confines of the digital department. If they don't, they won't see a reason to stay with the company in the long term.
 - **Your offices are cold, impersonal and downright stodgy.** It may sound like it conflicts with the "you don't need to be in Silicon Valley point," but appreciate the nuance. A traditional office layout is designed to communicate power among certain individuals and barriers between departments. This does not support the collaborative ethos which is intrinsic to the web. Companies should do everything possible to provide the digital team with friendlier, open office space. A location in a hip, young neighborhood (which surely exists in every mid- to large-sized city) is also a big plus.
 
-I think the argument could be extended to hiring 20-somethings more broadly ([I'm looking at you, Federal Government](https://web.archive.org/web/20110102131325/http://www.nextgov.com/nextgov/ng_20100423_7313.php)), but a great read, nonetheless.
+I think the argument could be extended to hiring 20-somethings more broadly ([I'm looking at you, Federal Government](https://web.archive.org/web/20110102131325/http://www.nextgov.com/nextgov/ng_20100423_7313.php)), but it's a great read, nonetheless.
 
 [via [Fast Company](https://www.fastcompany.com/1779120/why-digital-talent-doesn%E2%80%99t-want-work-your-company)]

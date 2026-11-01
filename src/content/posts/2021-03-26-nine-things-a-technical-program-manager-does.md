@@ -1,7 +1,7 @@
 ---
 title: "Nine things a technical program manager does"
 description: "What does a technical program manager do? Nine things, from cross-team coordination to risk, by a product manager who helped found GitHub's TPM org."
-tldr: "What a Technical Program Manager actually does day-to-day, from a Product Manager who transitioned into the role and found the responsibilities were already familiar."
+tldr: "Product and engineering managers think in problems and solutions. Technical program managers think in risks and mitigations, make execution boring (or at least predictable), and own whatever falls between teams."
 writtenAtGitHub: true
 ---
 
@@ -25,7 +25,7 @@ Planning and tracking are a core competency of program (and project) management.
 
 ## 3. Identify, analyze, and mitigate program risk
 
-[Product and Engineering Managers think in terms of problems and solutions](/2018/07/16/problems-not-solutions/). :quote[If there's one thing that defines the shift from another technology role to Program Management, it's the shift to thinking in terms of *risks and mitigations*.]{#risks-and-mitigations}
+[Product and Engineering Managers think in problems and solutions](/2018/07/16/problems-not-solutions/). :quote[If there's one thing that defines the shift from another technology role to Program Management, it's the shift to thinking in terms of *risks and mitigations*.]{#risks-and-mitigations}
 
 A program manager is responsible for the program's successful execution. That means working with functional leads to tease out risks to each work stream's success (risk identification), defining the problem space to understand the risk's program impact (risk analysis), and finally identifying and implementing mitigations to minimize the impact of those risks and maximize the chance of program success (risk mitigation).
 

@@ -9,7 +9,7 @@ You get the invite. No description. No agenda. No attached document. Just a titl
 
 I've [written before](/2023/04/20/meetings-are-a-point-of-escalation/) about how meetings should be a point of escalation, not a starting point. But the agenda-free meeting is an even more fundamental failure mode: it's a meeting that hasn't even bothered to justify its own existence.
 
-So I made a site about it: [noagendanomeeting.net](https://noagendanomeeting.net).
+I made a site about it: [noagendanomeeting.net](https://noagendanomeeting.net).
 
 ## The cost of no agenda
 
@@ -19,7 +19,7 @@ The average knowledge worker already spends [40% of their workweek](https://noag
 
 ## Start with a document
 
-The site's core argument: [writing scales; meetings don't](/2023/08/04/remote-work-communicate-more-with-less/). Before you send that invite, ask yourself: *can this start as a document instead?*
+The site's core argument is that [writing scales; meetings don't](/2023/08/04/remote-work-communicate-more-with-less/). Before you send that invite, ask yourself: *can this start as a document instead?*
 
 If the answer is yes (and it almost always is), write first, meet second. If you do need a meeting, include an agenda, attach a read-ahead, and state the decision you're trying to make. This isn't radical advice. It's basic [async-first communication](/2022/03/17/why-async/) hygiene.
 

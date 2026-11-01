@@ -1,37 +1,37 @@
 ---
 title: Geeks and suits
 description: "In government IT, change depends on geeks and suits. Yet despite being in an industry built on communication, they rarely talk."
-tldr: "In the world of government IT, change happens at the hands of geeks and suits. Yet despite being in an industry built on communication, they rarely talk to each other."
+tldr: "In government IT, change happens at the hands of geeks and suits. Yet despite being in an industry built on communication, they rarely talk to each other."
 writtenAtGitHub: true
 ---
 
-In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build tools and the suits who implement them:
+In government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build tools and the suits who implement them:
 
 - **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalkboard. They may be coders, designers, or UX experts, but at their core, [they're hackers](/2013/02/04/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
-- **Suits** are the sayers, the thought leaders, the ones in the corner office, desk stereotypically strewn with business cards and printed PowerPoint decks. To them, the future is an opportunity to improve on key performance metrics. They may be CxOs, program managers, or policymakers, but at their core, they're not technical (at least not any more). They're excited about the next big thing, and may have the means to make it happen, at least in terms of capital, both political and financial.
+- **Suits** are the sayers, the thought leaders, the ones in the corner office, desk stereotypically strewn with business cards and printed PowerPoint decks. To them, the future is an opportunity to improve on key performance metrics. They may be CxOs, program managers, or policymakers, but at their core, they're not technical (at least not any more). They're excited about the next big thing, and may have the means to make it happen, at least the capital, both political and financial.
 
 The odd thing is that, despite being in an industry predicated almost exclusively on the need to communicate, geeks and suits rarely talk to each other.
 
 ## A geek in suit's clothing
 
-At GitHub, we're lucky to build a product that many developers use on the weekend to contribute to open source, and given the opportunity, would likely enjoy using at work as well. A big part of what I do at GitHub is to simply put on a suit and talk "suit" to other suits, telling them exactly what their developers would tell them if they were given the chance: :quote[open source is not the next big thing. Open source is already here.]{#open-source-already-here}
+At GitHub, we're lucky to build a product that many developers use on the weekend to contribute to open source, and given the opportunity, would likely enjoy using at work as well. A big part of what I do at GitHub is to put on a suit and talk "suit" to other suits, telling them exactly what their developers would tell them if they were given the chance: :quote[open source is not the next big thing. Open source is already here.]{#open-source-already-here}
 
 Often after explaining version control, APIs, and other modern web-development practices, I'm asked if there are professional services consultants (industry term for suits for hire) that can answer questions or walk them through the salient technical details. They almost don't believe me when I suggest that not only do these people exist, but that they are already on the organization's payroll. It's almost as if I've asked the jocks to sit with the AV-club in the high-school cafeteria. We've all seen that made-for-TV movie before.
 
 ## A matter of class
 
-At least partially, this may be due to matters of perceived class and hierarchy. In traditional organizations, management sits well above technical talent, with technical talent making the switch to management only when they can go no further up the technical career ladder. They're compensated differently, they dress differently (fresh-pressed suits versus some form of wrinkled khaki and a button-down), and 10, 20, or 30 years after the fact, I suspect they still don't sit together in the corporate break room (although the swirlies may now violate HR policy, thankfully).
+At least partially, this may be due to matters of perceived class and hierarchy. In traditional organizations, management sits well above technical talent, with technical talent making the switch to management only when they can go no further up the technical career ladder. They're compensated differently, they dress differently (fresh-pressed suits versus some form of wrinkled khaki and a button-down), and 10, 20, or 30 years after the fact, I suspect they still don't sit together in the corporate break room (although the swirlies, mercifully, may now violate HR policy).
 
 Startups flip that hierarchy on its head. There's no room for anything but what's absolutely essential. As a result, developers are the top of the food chain, and are among the first, if not the first, non-founding hire. Especially in young organizations, decisions are most often driven by those closest to the product itself, those who understand the technology and its capabilities, and most importantly, those who are willing to build it. :quote[There's no such thing as startup by fiat.]{#no-startup-by-fiat} Why then, as organizations grow, do we begin to elevate management, often pushing that once-prized talent to the darkest corners of the organization, both literally and figuratively?
 
 ## Two distinct communities
 
-This dichotomy extends well beyond the four walls of the organization. Most technology conferences, both in terms of marketing and in terms of content, optimize for exactly one of these two groups, and when a technical conference does straddle the divide, it often goes out of its way to create a dedicated "executive briefing track", so as not to scare one group or the other away. Heck, at one conference I attended, they literally had guards manning the hallway of the executive sessions, ensuring the geeks stayed well at bay.
+This dichotomy extends well beyond the four walls of the organization. Most technology conferences, in both marketing and content, optimize for exactly one of these two groups, and when a technical conference does straddle the divide, it often goes out of its way to create a dedicated "executive briefing track", so as not to scare one group or the other away. Heck, at one conference I attended, they literally had guards manning the hallway of the executive sessions, ensuring the geeks stayed well at bay.
 
 There's a pervasive conference antipattern emerging, whereby the geeks are given their own day, often the day before the conference, for a "hackathon", "workshop", or other keyword designed to indicate to the suits that the goal of the day is to :ship:, and that it's not for them. This is balanced out by the conference proper the next day, which, cheerleading the virtues of the arbitrary conference topic, almost inevitably lacks any tangible or actionable takeaways, other than the business cards exchanged in the hall and a reinvigorated sense of what was already known.
 
-One conference, Puerto Rico's Tech Summit, followed a similar pattern, with geeks and suits in concurrent tracks. At the end of the day, however, hackathon participants took the very stage the suits had been speaking from all morning and presented what they built that day. The contrast was hard to ignore. Shocked out of their seats, many suits made geek-to-suit connections stageside to carry those projects forward.
+One conference, Puerto Rico's Tech Summit, followed a similar pattern, with geeks and suits in concurrent tracks. When the day wrapped up, however, hackathon participants took the same stage the suits had been speaking from all morning and presented what they built that day. The contrast was hard to ignore. Shocked out of their seats, many suits made geek-to-suit connections stageside to carry those projects forward.
 
 ## The age of the geek
 
