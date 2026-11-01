@@ -33,7 +33,7 @@ Transparent collaboration has real trade-offs. It requires a shift in mindset, b
 
 ## Applying the andon principle to software development
 
-The benefits of transparent collaboration outweigh the costs, especially when the work is complex and uncertain. Here are some ways you can apply the andon principle to your software development team:
+:quote[The benefits of transparent collaboration outweigh the costs, especially when the work is complex and uncertain.]{#benefits-outweigh-costs} Here are some ways you can apply the andon principle to your software development team:
 
 - **Make your work visible and accessible.** Lean into transparency. Don't view openness and early, broad engagement as a potential liability or risk that someone might "shoot down" your idea, but as an opportunity to get feedback and improve your work. Use tools and processes that allow you to share your work with your team and your stakeholders, and to solicit and incorporate their feedback.
 - **Stop the line and escalate issues when necessary.** Don't ignore or hide problems, or hope that someone else will fix them. Be proactive and responsible for the quality and outcome of your work. If you encounter a critical issue, such as a bug, a security issue, a performance degradation, or a user complaint, stop what you're doing and alert your team and your stakeholders. Don't resume your work until the issue is fixed, or a mitigation plan is in place. Learn from the issue, and implement preventive or corrective actions to avoid or reduce its recurrence.
@@ -45,4 +45,4 @@ The benefits of transparent collaboration outweigh the costs, especially when th
 
 Software development is not the same as manufacturing, but it shares some similarities. Both are complex, iterative, and collaborative processes that involve creating and delivering value to customers. Both also face challenges such as quality, efficiency, and innovation. And both can benefit from the andon principle.
 
-The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. Next time you spot a problem, pull the cord.
+The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. :quote[Next time you spot a problem, pull the cord.]{#pull-the-cord}

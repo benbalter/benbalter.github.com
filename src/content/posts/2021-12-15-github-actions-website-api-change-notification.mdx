@@ -1,6 +1,7 @@
 ---
 title: Using GitHub Actions to get notified when an API response (or web page) changes
 description: A customizable GitHub Actions workflow that uses cURL, jq, and Twilio to notify you via text message when a web page or API response changes.
+tldr: "Rather than smashing refresh on an endpoint, let GitHub Actions call it on a schedule, using cURL to fetch the data, jq to parse the response, and Actions' native caching to maintain state between runs. Save the workflow in .github/workflows/, swap in your URL, and get a text message (or any other notification) when the response changes."
 ---
 
 Given all the uncertainty in the global supply chain these days, I was recently in the dark as to when an eagerly awaited purchase would arrive. Luckily the manufacturer had a hidden API you could call that indicated where in the supply chain the product was as it made its journey around the globe. Better still, as it got closer to delivery, the response also included its estimated delivery date.
@@ -71,7 +72,7 @@ jobs:
 
 ## Stop hitting refresh
 
-My obsessive package tracking is now yours to reuse, whatever you're waiting on. If you adapt the workflow for something creative, I'd love to hear about it.
+:quote[My obsessive package tracking is now yours to reuse, whatever you're waiting on.]{#package-tracking-yours} If you adapt the workflow for something creative, I'd love to hear about it.
 
 [^1]: In fact, the purchase arrived ahead of schedule, but I don't think I can give the workflow credit for that.
 
