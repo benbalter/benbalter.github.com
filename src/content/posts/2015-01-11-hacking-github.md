@@ -2,55 +2,56 @@
 title: 'Hacking GitHub: 14 simple tools to help introduce open source to the uninitiated'
 description: "14 open source apps I built to help non-technical users collaborate on GitHub, from Word-to-Markdown conversion to simplified issue forms."
 tldr: "A collection of 14 small open source apps I built to help non-technical users collaborate on GitHub, from converting Word docs to Markdown to simplified issue forms."
+writtenAtGitHub: true
 ---
 
-GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
 
-Often, when [explaining the potential of open source to government agencies](https://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
+Often, when I'm [explaining the potential of open source to government agencies](/2014/10/15/what-does-a-government-evangelist-do/) (organizations used to purpose-built processes and bespoke software), this perceived barrier to entry becomes apparent:
 
 > "How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"
 
 Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API. And that's exactly what I do most often.
 
-Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform:
+Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and show the power of adding smart tools to the edge of an otherwise dumb platform:
 
 ## Working with legacy formats
 
-- [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
+- [**Word to Markdown**](https://github.com/benbalter/word-to-markdown): A Ruby gem to liberate content from the jail that is Word documents.
 
-- [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted Markdown files.
+- [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf): On demand generation of enterprise-grade PDFs from GitHub-hosted Markdown files.
 
-- [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
+- [**Markdown to Word**](https://github.com/benbalter/markdown_to_word): Converts GitHub-flavored Markdown to a Word document.
 
-- [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
+- [**Word Diff**](/2015/02/06/word-diff/): Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
 
 ## User-friendly interfaces
 
-- [**Comment Card**](https://github.com/benbalter/comment-card) - A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project.
+- [**Comment Card**](https://github.com/benbalter/comment-card): A simple interface for non-technical users, authenticated or pseudonymous, to provide feedback for your GitHub-hosted project.
 
-- [**Problem Child**](https://github.com/benbalter/problem_child) - Allows authenticated or anonymous users to fill out a standard web form to create GitHub issues.
+- [**Problem Child**](https://github.com/benbalter/problem_child): Allows authenticated or anonymous users to fill out a standard web form to create GitHub issues.
 
-- [**Redliner**](https://github.com/benbalter/redliner) - A tool for facilitating the redlining of documents by the GitHub uninitiated.
+- [**Redliner**](https://github.com/benbalter/redliner): A tool for facilitating the redlining of documents by the GitHub uninitiated.
 
 ## GitHub as a data store
 
-- [**GitHub Forms**](https://github.com/benbalter/github-forms) - A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.
+- [**GitHub Forms**](https://github.com/benbalter/github-forms): A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.
 
-- [**WordPress-GitHub Sync**](https://github.com/mAAdhaTTah/wordpress-github-sync) - A WordPress plugin to sync content with a GitHub repository (or Jekyll site).
+- [**WordPress-GitHub Sync**](https://github.com/mAAdhaTTah/wordpress-github-sync): A WordPress plugin to sync content with a GitHub repository (or Jekyll site).
 
-- [**Change Agent**](https://github.com/benbalter/change_agent) - A Git-backed key-value store, for tracking changes to documents and other files over time.
+- [**Change Agent**](https://github.com/benbalter/change_agent): A Git-backed key-value store, for tracking changes to documents and other files over time.
 
 ## Authentication
 
-- [**Jekyll Auth**](https://github.com/benbalter/jekyll-auth) - A simple way to use GitHub OAuth to serve a protected Jekyll (GitHub Pages) site to your GitHub organization.
+- [**Jekyll Auth**](https://github.com/benbalter/jekyll-auth): A simple way to use GitHub OAuth to serve a protected Jekyll (GitHub Pages) site to your GitHub organization.
 
-- [**Add to Org**](https://github.com/benbalter/add-to-org) - A simple OAuth App to automatically add users to an organization based on preset criteria.
+- [**Add to Org**](https://github.com/benbalter/add-to-org): A simple OAuth App to automatically add users to an organization based on preset criteria.
 
 ## Web interfaces for command-line tasks
 
-- [**GitHub Uploader**](https://github.com/benbalter/github-uploader) - A simple app to enable drag-and-drop uploading of binary and other assets to GitHub repositories.
+- [**GitHub Uploader**](https://github.com/benbalter/github-uploader): A simple app to enable drag-and-drop uploading of binary and other assets to GitHub repositories.
 
-- [**Copy to**](https://github.com/benbalter/copy-to) - A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
+- [**Copy to**](https://github.com/benbalter/copy-to): A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
 
 An astute reader might notice that almost all of these apps are less than a hundred lines of code and are almost exclusively some combination of the same three Ruby Gems: [Sinatra](https://sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://web.archive.org/web/20101006061826/https://github.com/atmos/sinatra_auth_GitHub) (user authentication).
 

@@ -1,11 +1,11 @@
 ---
 title: Three easy ways to show employees they're appreciated
-description: Small gestures—recognizing birthdays, work anniversaries, and life milestones—go a long way, especially when there's no water cooler.
+description: Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when there's no water cooler.
 tldr: "Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when your team is remote and there's no water cooler."
 writtenAtGitHub: true
 ---
 
-As a manager (or a coworker) one small thing you can do to make wherever it is that you work a better place to work is to notice and celebrate everyday occurrences, to show those you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here are three easy ways to show that you appreciate the humans you work with:
+As a manager (or a coworker), one small way to make your workplace better is to notice and celebrate everyday occurrences. It shows the people you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here are three easy ways to show that you appreciate the humans you work with:
 
 ## Birthdays
 
@@ -31,6 +31,6 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *How*: As a manager, this may be your report asking about how to update their address with HR because they just bought their first house, or about health insurance or time off because they're getting married. As a peer, this may be as simple as canceling a weekly meeting because they're taking their daughter to visit schools. Whatever it is, a small something (a candle, a book, heck, even company-branded baby swag) will go a long way to show you care.
 
-Some caveats here: First, this list is far from exhaustive. For example, if someone went out of their way to help you get a project out the door, consider sending them a box, bag, or bottle of their favorite warm or cold beverage to show you noticed what they did and appreciate it. Second, be careful when giving even token gifts to superiors, as you may run astray of rules, both written and unspoken.
+Some caveats here: First, this list is far from exhaustive. For example, if someone went out of their way to help you get a project out the door, consider sending them a box, bag, or bottle of their favorite warm or cold beverage to show you noticed what they did and appreciate it. Second, be careful when giving even token gifts to superiors, as you may run afoul of rules, both written and unspoken.
 
-Obviously no amount of birthday GIFs or housewarming presents can substitute for genuinely being interested in a person's well being and putting the time in to cultivate a relationship built on mutual trust and respect, but when the logistics of how you work day-to-day makes it challenging to show those you work with that you care beyond witty chat reactions, small gestures that celebrate everyday occurrences can go a long way to making your workplace a friendlier place to work.
+No amount of birthday GIFs or housewarming presents can substitute for real interest in a person's well-being and a relationship built on mutual trust and respect. But when the logistics of how you work day-to-day make it hard to show you care beyond witty chat reactions, small gestures that celebrate everyday occurrences can go a long way to making your workplace a friendlier place to work.
