@@ -1,0 +1,23 @@
+---
+/**
+ * Row of year chips linking to the matching `YearSections` headings, for
+ * year-sectioned index pages.
+ */
+interface Props {
+  /** Years to link, in display order */
+  years: number[];
+}
+
+const { years } = Astro.props;
+---
+
+<nav aria-label="Jump to year" class="mb-8 flex flex-wrap gap-2">
+  {years.map((year) => (
+    <a
+      href={`#${year}`}
+      class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+    >
+      {year}
+    </a>
+  ))}
+</nav>

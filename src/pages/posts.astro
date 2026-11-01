@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { CollectionEntry } from 'astro:content';
-import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
+import { getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { pickPostsBySlug } from '../utils/post-filtering';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
+import YearJumpNav from '../components/YearJumpNav.astro';
+import YearSections from '../components/YearSections.astro';
+import { groupPostsByYear } from '../utils/posts-by-year';
 import PopularPosts from '../components/PopularPosts.astro';
 import { popularPostSlugs, siteConfig } from '../config';
 import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
@@ -17,15 +19,7 @@ const posts = await getPublishedPosts({ sorted: true });
 
 const popularPosts = pickPostsBySlug(posts, popularPostSlugs);
 
-const postsByYear = new Map<number, CollectionEntry<'posts'>[]>();
-for (const post of posts) {
-  const year = getDateFromSlug(post.id).getFullYear();
-  if (!postsByYear.has(year)) {
-    postsByYear.set(year, []);
-  }
-  postsByYear.get(year)!.push(post);
-}
-const years = [...postsByYear.keys()].sort((a, b) => b - a);
+const { years, postsByYear } = groupPostsByYear(posts);
 
 const collectionSchema = generateCollectionPageSchema({
   name: title,
@@ -41,19 +35,10 @@ const collectionSchema = generateCollectionPageSchema({
 <BaseLayout title={title} description={description}>
   <header class="mb-8">
     <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
-    <p class="text-gray-600 dark:text-gray-300">{posts.length} posts</p>
+    <p class="text-gray-600 dark:text-gray-300">{posts.length} posts. For what I wrote while I worked at GitHub, see <a href="/github-years/">my GitHub years</a>.</p>
   </header>
 
-  <nav aria-label="Jump to year" class="mb-8 flex flex-wrap gap-2">
-    {years.map((year) => (
-      <a
-        href={`#${year}`}
-        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-      >
-        {year}
-      </a>
-    ))}
-  </nav>
+  <YearJumpNav years={years} />
 
   {popularPosts.length > 0 && (
     <section class="mb-12">
@@ -84,33 +69,6 @@ const collectionSchema = generateCollectionPageSchema({
       stay off the homepage: the book shouldn't crowd out the writing. */}
   <PopularPosts exclude={[...popularPostSlugs, ...siteConfig.bookAnnouncementPostIds]} />
 
-  {years.map((year) => {
-    const yearPosts = postsByYear.get(year)!;
-    return (
-      <section class="mb-10">
-        <h2 id={`${year}`} class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-          {year} ({yearPosts.length} {yearPosts.length === 1 ? 'post' : 'posts'})
-        </h2>
-        <div class="flex flex-wrap -mx-2">
-          {yearPosts.map((post) => {
-            const { postUrl, date, isoDate, readingTime, isExternal } = getPostMetadata(post);
-            return (
-              <div class="w-full md:w-1/2 px-2 mb-3">
-                <PostCard
-                  title={post.data.title}
-                  url={postUrl}
-                  date={date}
-                  isoDate={isoDate}
-                  description={post.data.description}
-                  readingTime={readingTime}
-                  external={isExternal}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    );
-  })}
+  <YearSections years={years} postsByYear={postsByYear} />
   <script type="application/ld+json" set:html={schemaToJsonLd(collectionSchema)} is:inline></script>
 </BaseLayout>

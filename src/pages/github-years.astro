@@ -1,0 +1,55 @@
+---
+/**
+ * Every listable post written at GitHub that describes it first-hand (the
+ * `writtenAtGitHub` flag), grouped by year. The same posts carry a "Written
+ * while I was at GitHub" label; this page gathers them in one place.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import YearJumpNav from '../components/YearJumpNav.astro';
+import YearSections from '../components/YearSections.astro';
+import { groupPostsByYear } from '../utils/posts-by-year';
+import { getPostUrl } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { getGitHubTenure } from '../utils/github-tenure';
+import { siteConfig } from '../config';
+import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
+
+const tenure = getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data));
+// agentic-workflows is flagged (written while at GitHub) but is Copilot's
+// output posted as an exhibit, not Ben's first-hand account, so it stays off
+// this page.
+const EXCLUDED = new Set(['2026-03-18-agentic-workflows']);
+const posts = (await getPublishedPosts({ sorted: true })).filter(
+  (post) => post.data.writtenAtGitHub && !EXCLUDED.has(post.id),
+);
+
+const title = 'My GitHub years';
+const description = `What I wrote about how GitHub worked from the inside while I was there, ${tenure.startYear} to ${tenure.endYear}: how we communicated, shipped, and built community.`;
+
+const { years, postsByYear } = groupPostsByYear(posts);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description,
+  url: new URL('/github-years/', siteConfig.url).toString(),
+  posts: posts.map((post) => ({
+    url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
+    title: post.data.title,
+  })),
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="mb-8">
+    <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
+    <p class="text-gray-600 dark:text-gray-300">
+      I worked at GitHub from {tenure.startYear} to {tenure.endYear}. These {posts.length} posts describe how it worked while I was there, so GitHub may do things differently today. Start with <a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/">what to read before starting or interviewing at GitHub</a>.
+    </p>
+  </header>
+
+  <YearJumpNav years={years} />
+
+  <YearSections years={years} postsByYear={postsByYear} />
+  <script type="application/ld+json" set:html={schemaToJsonLd(collectionSchema)} is:inline></script>
+</BaseLayout>
