@@ -2,6 +2,7 @@
 title: Using protected branches to empower non-code contributors on GitHub
 description: Use GitHub's protected branches to grant collaborators moderator permissions without the ability to merge pull requests or push to the primary branch.
 tldr: "With GitHub's protected branches feature, you can grant collaborators permission to moderate comments, manage issues, or serve as project managers/team leads without the ability to merge pull requests or commit to the primary branch."
+archived: true
 ---
 
 :::note[Update 2019-05-23]

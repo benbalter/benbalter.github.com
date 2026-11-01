@@ -3,6 +3,7 @@ title: The difference between 18F and USDS
 description: "18F and USDS both aim to modernize government technology, but with divergent approaches: one ships culture, the other ships confidence."
 tldr: "18F and USDS both aim to modernize government technology, but with divergent approaches: one ships culture, the other ships confidence. It's the age-old saga of geeks vs. suits."
 image: "//ben.balter.com/wp-content/uploads/2015/18f-vs-usds.png"
+archived: true
 ---
 
 You may have noticed two parallel efforts at modernizing the way government approaches technology taking foothold in the Beltway over the past several months: 18F and the U.S. Digital Service (USDS). Although similar on paper, the two approach the challenge with two very divergent goals: one was created to ship culture and the other was created to ship confidence. It's the age-old saga of [geeks vs. suits](/2014/12/18/geeks-and-suits/).

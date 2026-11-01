@@ -2,6 +2,7 @@
 title: Test your content
 description: "Treat content as code and you get CI for prose. Use HTML Proofer and Travis CI to automatically test every link, image, and change."
 tldr: "When you treat content as code, you get continuous integration for prose. Use tools like HTML Proofer and Travis CI to automatically test every link, image, and change."
+archived: true
 ---
 
 We should treat [prose and data with the same respect that developers treat code](/2013/09/16/treat-data-as-code/), and [Jekyll forces you to do just that](/2013/10/30/content-is-king/). There's another workflow that version-controlled, collaborative content makes possible: continuous integration.
