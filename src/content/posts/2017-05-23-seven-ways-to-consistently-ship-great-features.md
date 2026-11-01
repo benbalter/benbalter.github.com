@@ -17,7 +17,7 @@ It doesn't have to be a formal template, but great developers make sure all the 
 
 The difference between a feature and code is that a feature is defined by the user experience and the code is defined by how it's implemented. Writing code is by far the easiest part of software development. Sure, there are technical challenges to overcome, styles to be enforced, and methods to be optimized, but most days, those are routinely solvable problems. The challenge is building well-thought-out, well-implemented features.
 
-:quote[Describe what you're going to write, write it, and then describe what you wrote.]{#describe-write-describe} Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand (and provide feedback) on what you did.
+:quote[Describe what you're going to write, write it, and then describe what you wrote.]{#describe-write-describe} Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand what you did (and provide feedback on it).
 
 ## 3. Get it in users' hands, not on `main`
 
@@ -35,11 +35,11 @@ Fewer moving parts means fewer untested lines of code and fewer things that can 
 
 ## 5. "Next iteration" doesn't mean "never"
 
-In an industry where "iterative" is the buzzword *du jour*, when a colleague proposes a feature that goes one step too far, it's tempting to say "we should tackle that in a subsequent iteration" as a sneaky way to pocket veto their suggestion. Instead, downscope the ship, but show your colleague the respect of giving their feature due consideration by immediately opening up a dedicated issue to discuss their proposal. Not only will their suggestion get the eyeball time and thought it deserves, if you decide to move forward, it's already in your backlog and will not be unintentionally (or intentionally) forgotten.
+In an industry where "iterative" is the buzzword *du jour*, when a colleague proposes a feature that goes one step too far, it's tempting to say "we should tackle that in a subsequent iteration" as a sneaky way to pocket veto their suggestion. Instead, downscope the ship, but show your colleague the respect of giving their feature due consideration by immediately opening up a dedicated issue to discuss their proposal. Not only will their suggestion get the eyeball time and thought it deserves, but if you decide to move forward, it's already in your backlog and will not be unintentionally (or intentionally) forgotten.
 
 ## 6. Always be opening issues
 
-It happens all the time. You're discussing one feature and a related, but logically distinct idea comes up. Look at the issue title at the top of the page. If the idea doesn't solve the problem the title describes, it deserves its own issue. Not only does that keep the current discussion on track, it gives that new idea a dedicated URL where it can be memorialized, tracked, discussed, and cross linked.
+It happens all the time. You're discussing one feature and a related, but logically distinct idea comes up. Look at the issue title at the top of the page. If the idea doesn't solve the problem the title describes, it deserves its own issue. That keeps the current discussion on track and gives that new idea a dedicated URL where it can be memorialized, tracked, discussed, and cross linked.
 
 Before you type the words "this is a bug", "we should tackle this in a subsequent iteration", or "that's out of scope", take the time to open a new issue to track that other thing. After all, [issues are free](/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
 
@@ -49,6 +49,6 @@ For any sufficiently complex feature, you will face a choice between what's best
 
 Practically, that means you should back into the code from the constraints of the desired user experience, not the other way around, and generally, [absorb complexity on behalf of users](/2016/08/22/ten-ways-to-make-a-product-great/#absorb-complexity-on-behalf-of-users). You know you've done your job when to users it appears to be a simple problem to solve, but in reality, you labored over the implementation.
 
-This list is far from exhaustive. I've written before about [rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. These are some of the habits I've noticed and admire, but of course, none of the above matters, however, unless you get it out the door. Above all, great developers :ship:.
+This list is far from exhaustive. I've written before about [rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. None of the above matters unless you get it out the door. Great developers :ship:.
 
 This post is on my [reading list for working at GitHub](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/), if you're about to start there or interview.

@@ -9,7 +9,7 @@ The superficial promise of open source is that if you publish your code, others 
 
 When it comes to growing communities, there's nothing unique about online communities. Online communities are offline communities, just online. Like your bowling league, place of worship, or neighborhood, there are members, leaders, and rules (be they written or unspoken).
 
-Beyond establishing and enforcing such norms, maintainers seeking to grow communities need to attract members and encourage them to become leaders. My colleague @MikeMcQuaid describes this process as a [contributor funnel](https://mikemcquaid.com/2018/08/14/the-open-source-contributor-funnel-why-people-dont-contribute-to-your-open-source-project/). Similar to prospects traveling down a sales funnel, maintainers must market their project to attract users, provide opportunities for those users to contribute, and encourage repeat contributors to take on maintaining the project.
+Beyond establishing and enforcing such norms, maintainers seeking to grow communities need to attract members and encourage them to become leaders. My (then) colleague @MikeMcQuaid describes this process as a [contributor funnel](https://mikemcquaid.com/2018/08/14/the-open-source-contributor-funnel-why-people-dont-contribute-to-your-open-source-project/). Similar to prospects traveling down a sales funnel, maintainers must market their project to attract users, provide opportunities for those users to contribute, and encourage repeat contributors to take on maintaining the project.
 
 At GitHub, we've created [`opensource.guide`](https://opensource.guide) to memorialize some of those community-building best practices, and have started prompting users to adopt them via [the community profile](https://github.com/blog/2380-new-community-tools). Beyond that, here are twelve tips for growing communities around your open source project:
 
@@ -23,9 +23,9 @@ It's a shared win. You'll get more modular, more robust code (and potential comm
 
 ## 2. Choose a (widely adopted) open source license
 
-Open source software isn't open source without an open source license. It's simply "published code". Open source licenses grant developers the right to use and more importantly, to modify your code. They tell downstream consumers what they can and can't do with your code, and give them the confidence to use your software, without fear of legal repercussion, not to mention, it (often) clarifies under what conditions third-party developers contribute.
+Open source software isn't open source without an open source license. It's simply "published code." Open source licenses grant developers the right to use and more importantly, to modify your code. They tell downstream consumers what they can and can't do with your code, and give them the confidence to use your software without fear of legal repercussion. They also (often) clarify the conditions under which third-party developers contribute.
 
-While it may be tempting to author your own open source license, [don't](/2016/08/01/why-you-shouldnt-write-your-own-open-source-license/). The difference between open source licenses, and other intellectual property grants, like say, an author's license to a book publisher, however, is that open source licenses are heavily standardized, with about a dozen mainstream licenses and three primary licenses representing the vast majority of open source projects.
+While it may be tempting to author your own open source license, [don't](/2016/08/01/why-you-shouldnt-write-your-own-open-source-license/). Unlike other intellectual property grants (say, an author's license to a book publisher), open source licenses are heavily standardized, with about a dozen mainstream licenses and three primary licenses representing the vast majority of open source projects.
 
 It shouldn't require a team of lawyers to participate in the open-source community, either as a contributor or as a consumer. Standardized open source licenses serve as a three or four letter proxy for those with and without formal legal training to know exactly what they can and can't do with your code, and thus, make it more likely your code will be used and contributed to.
 
@@ -33,9 +33,9 @@ It shouldn't require a team of lawyers to participate in the open-source communi
 
 If you're developing a WordPress plugin, Drupal module, Chrome extension, or mobile app, it's vital that users know that your project is open source, and that they're invited to contribute (the first step of the contributor funnel). Regardless of how you distribute your code, if it's distributed any way other than GitHub or a package manager, link back to the repository from that distribution mechanism (WordPress.org, drupal.org, the Google Play or App store, etc.).
 
-Imagine this: You're a software developer using a Chrome extension you found via a Google search and installed via Chrome. You find a bug. You could simply uninstall the extension and find an alternative, or if the extension is open source and the repository readily available, can engage the maintainer, open an issue, and potentially submit the fix yourself.
+Imagine this: You're a software developer using a Chrome extension you found via a Google search and installed via Chrome. You find a bug. You could simply uninstall the extension and find an alternative, or if the extension is open source and the repository readily available, you can engage the maintainer, open an issue, and potentially submit the fix yourself.
 
-Links from where the users install the project, or expect support from other projects, to your repository can go a long way to driving users to preferred feedback channels and gives them the opportunity to discover and contribute to your open source project.
+Links from where the users install the project, or expect support from other projects, to your repository can go a long way to driving users to preferred feedback channels and give them the opportunity to discover and contribute to your open source project.
 
 ## 4. Publish technical documentation
 
@@ -67,7 +67,7 @@ Whatever the preferred path, if you assume your software is imperfect, then you 
 
 One of the most impactful ways you can grow your community is to welcome new contributors. Submitting a pull request to a project can be a scary experience, especially if it's a user's first pull request. If after potentially hours of frustrating effort, all you get is an automated merge notification, it's unlikely you'll find the motivation to endure the ordeal a second time.
 
-The good news is, that as a maintainer, if a first-time contributor submits a pull request, you'll see a "First-time contributor" badge displayed prominently next to their name. As you review the pull request, go out of your way to walk them through the process and ensure they have a good first-time experience. Put another way, you shouldn't review a user's 100th contribution and first contribution the same way. Take the time to explain *why* you're requesting changes, if any, and *how* to implement them, if necessary.
+The good news is that, as a maintainer, if a first-time contributor submits a pull request, you'll see a "First-time contributor" badge displayed prominently next to their name. As you review the pull request, go out of your way to walk them through the process and ensure they have a good first-time experience. Put another way, you shouldn't review a user's 100th contribution and first contribution the same way. Take the time to explain *why* you're requesting changes, if any, and *how* to implement them, if necessary.
 
 Once the pull request has been merged, take a moment to thank and congratulate the contributor. Remember, this is potentially a big deal for them, depending on where they are in their career or the notoriety of your project. Better yet, provide links to open issues, especially those labeled "help-wanted" and invite the contributor to build on their momentum by finding a second issue to tackle. GitHub offers saved replies that can help simplify the process.
 
@@ -75,7 +75,7 @@ Once the pull request has been merged, take a moment to thank and congratulate t
 
 Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bugfix doesn't introduce a regression, without necessarily needing to run the code locally.
 
-CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like Travis CI have examples for every major framework and language, are completely free, and are often a matter of simply adding the necessary metadata to your project's root. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request. Rather than testing each contribution manually, don't force humans to do what computers can.
+CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like Travis CI have examples for every major framework and language and are often a matter of simply adding the necessary metadata to your project's root. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request. Don't force humans to test each contribution manually when computers can.
 
 ## 9. Enforce code standards
 
@@ -83,11 +83,11 @@ Automated testing can be used for more than just "does this thing work". If your
 
 As we say at GitHub, "pedantic robots > pedantic humans". If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you're less likely to.
 
-Automated code style enforcement via projects like Rubocop or WPCS not only ensures consistent code style to improve readability, it also allows contributors to get instant feedback on their code, all without your intervention.
+Automated style enforcement with projects like RuboCop or WPCS keeps code style consistent and readable, and gives contributors instant feedback on their code without your intervention.
 
 ## 10. Automate community management
 
-One of the biggest improvements to open source community management in recent memory is [Probot](https://probot.github.io/). Probot is an extensible framework for automating tasks based on your repository's activity. With [dozens of community-maintained apps](https://probot.github.io/apps/), chances are whatever pain point you're currently experiencing has already been experienced (and solved) by an open source maintainer.
+One of the biggest improvements to open source community management is [Probot](https://probot.github.io/). Probot is an extensible framework for automating tasks based on your repository's activity. With [dozens of community-maintained apps](https://probot.github.io/apps/), chances are whatever problem you're currently experiencing has already been experienced (and solved) by an open source maintainer.
 
 You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn't been solved, Probot makes it easy to write your own app.
 
@@ -99,16 +99,16 @@ Not every experience on the internet is a great one. Humans are human, and reaso
 
 Establishing such norms early on can go a long way to preventing or mitigating conflict before it arises. Committing a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
 
-When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer or individual feature. In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms is going to be the best thing for the health of your project in the long-run.
+When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer or individual feature. In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms are going to be the best thing for the health of your project in the long-run.
 
 ## 12. Find someone to adopt it
 
-Priorities change. People move jobs. New technology arises. Whatever the reason, if your heart's no longer into maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
+Priorities change. People move jobs. New technology arises. Whatever the reason, if your heart's no longer in maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
 
-If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making pleas for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
+If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption" issue, making pleas for financial support (if money's an issue), or reaching out to individual developers you think might be interested.
 
 The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is there a better replacement? You don't want a potential contributor to spend hours working on a bugfix, only to find their pull request goes unanswered. You created the project, your users and contributors dedicated countless hours, and it's your responsibility to ensure they have a good experience from start to finish.
 
 ## It takes a community
 
-Open source is much more than simply publishing code. It's just as much about community building and the humans behind the software as it is about the software itself. As your project gains in popularity, scaling the community becomes just as important as the technology's ability to scale, and it's your responsibility to do so, if you want your project to grow sustainably.
+As your project grows in popularity, scaling the community becomes just as important as scaling the technology, and if you want it to grow sustainably, that's your responsibility.
