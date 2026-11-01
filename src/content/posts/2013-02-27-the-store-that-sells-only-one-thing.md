@@ -1,6 +1,6 @@
 ---
 title: The store that sells only one thing.
-description: Tech consultants who define themselves by a single language or framework are like a store that sells one product. Customers bring problems, not solutions.
+description: Consultants who define themselves by one language or framework are like a store that sells one product. Customers bring problems, not solutions.
 tldr: "Tech consultants who define themselves by a single language or framework are like a store that only sells one product. Customers come in with problems, not solutions."
 published: true
 ---
@@ -11,8 +11,8 @@ Sadly, this is all too often the face of professional services in the technology
 
 <!-- more -->
 
-But that's exactly what we do in technology. Traditional software engineers define themselves as a "PHP Developer" or a "Rails Developer" or a "Java Developer". The solution defines who they are. The past defines the future. That'd be like an architect that only builds round buildings or a handyman that shows up for a job with only a hammer in his toolbox. No matter what you ask for, [the answer's always going to be the same](https://xkcd.com/801/). "[That thing I did yesterday]."
+Yet that's exactly what we do in technology. Traditional software engineers define themselves as a "PHP Developer" or a "Rails Developer" or a "Java Developer". The solution defines who they are. The past defines the future. That'd be like an architect that only builds round buildings or a handyman that shows up for a job with only a hammer in his toolbox. No matter what you ask for, [the answer's always going to be the same](https://xkcd.com/801/). "[That thing I did yesterday]."
 
-But technology problems come in many yet unseen shapes and sizes, and often times the best solution isn't the same one you used on the last problem, or better yet, hasn't even been invented yet. [Hackers](/2013/02/04/what-is-a-hacker/), on the other hand, at least from my experience, often define themselves as a "developer" who *has used* a given language. There's already the possibility there of learning another if the job calls for it. It's a sense of solving the problems at all costs. It's a sense of avoiding self vendor lock-in. It's a passion for technology, not *a technology*.
+Technology problems come in many yet unseen shapes and sizes, though, and often the best solution isn't the same one you used on the last problem, or better yet, hasn't even been invented yet. [Hackers](/2013/02/04/what-is-a-hacker/), on the other hand, at least from my experience, often define themselves as a "developer" who *has used* a given language. There's already the possibility there of learning another if the job calls for it. It's a sense of solving the problems at all costs. It's a sense of avoiding self vendor lock-in. It's a passion for technology, not *a technology*.
 
 When a potential customer comes to a technology shop, they're not shopping for mere muscle. They're not hiring unskilled labor. They're shopping for experts. They're shopping for people with a better knowledge of the space than they have. They're shopping for a solution. Sure, a firm can specialize in something, or be known for a given skill. Nordstrom is known for its service. Apple's known for its design, but :quote[Nordstrom doesn't just sell blue shirts, Apple doesn't just sell desktop computers, and neither should you.]{#neither-should-you}

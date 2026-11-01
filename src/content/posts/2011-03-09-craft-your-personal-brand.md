@@ -4,7 +4,7 @@ description: Takeaways from my brief talk at March's joint WordPress DC and Hack
 archived: true
 ---
 
-I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](https://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand.
+I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](https://www.meetup.com/wordpressdc/events/16178194/) on using WordPress to craft your personal brand.
 
 ## In short, the main takeaways were
 
@@ -14,9 +14,9 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 - As more of our analog lives became digital, the need for a second identity diminished; we no longer represent ourselves with anonymous screen names, but rather as ourselves.
 - Social networking and mobile computing contributed to this shift by interfacing the online and offline worlds. Today's radical transparency (*for example,* lifecasters posting pictures of their lunch) shows we have come a full 180.
 - We shift from corporate brand associations in the '50s (*for example,* "I work for IBM") to personal brands today (*for example,* "I'm an independent contractor").
-- Today we all have a unique opportunity to plant a flag on our corner of the internet, take control of our online identity, and declare to the world who we are by crafting a thought-out narrative.
-- Unlike in the real world where you are the only one in control of what you say, online, content has a life of its own — you must be proactive.
-- WordPress makes it dumb simple to tell the world your story.
+- Today we all have the chance to plant a flag on our corner of the internet, take control of our online identity, and declare to the world who we are by crafting a thought-out narrative.
+- Unlike in the real world where you are the only one in control of what you say, online, content has a life of its own, so you must be proactive.
+- WordPress makes it ridiculously easy to tell the world your story.
 
 ## My five big steps to launching your brand
 
@@ -42,4 +42,4 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 - [Rapportive](http://rapportive.com/)
 - [How to generate a QR code](http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/)
 
-A special thanks to everyone who was able to come out or follow along on the livestream.
+Thanks to everyone who was able to come out or follow along on the livestream.

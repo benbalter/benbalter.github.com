@@ -1,5 +1,5 @@
 ---
-title: Fair Use, Excerpting, and Copying Content in the Internet Ecosystem
+title: Fair Use, Excerpting, and Copying Online
 description: The internet's *laissez-faire* ecosystem of liberal excerpting is often at odds with both traditional media and the law.
 archived: true
 ---
@@ -10,15 +10,15 @@ The internet's *laissez-faire* ecosystem of liberal excerpting is often at odds 
 
 I was recently asked by an aspiring "content producer," what the "rules" were for copying or excerpting content from other sites. From their questions, it quickly became clear to me, that they were missing the point of having a site altogether. [^1]
 
-Not getting in hot water with the fuzz is important, but it is simply one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the internet may be relatively cheap, but your reader's time is not.
+Staying out of trouble with the fuzz is important, but it is one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the internet may be cheap, but your reader's time is not.
 
-It seems internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
+It seems internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64): the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
 
 ## The Culture
 
 Much like its roots in academia, the cornerstone of the internet is the ability to contribute to an ongoing dialog by building on the ideas of others. With few exceptions, if your use of another's work does not *add value* to the discussion, you may be fine legally, but practically, you're just wasting space on the internet. Criticism, commentary, and the synthesis of ideas not only enjoy fair use protections, but more importantly, give visitors a reason to read your content, drives traffic to your site, and justifies its existence. Likewise, facts and ideas are usually fair game, as are promotional materials and logos if you are discussing a specific company or product, but the reason for such an exception is not to give bloggers fodder for an easy blog post, but rather the exception is designed as a stimulus package for the marketplace of ideas.
 
-The culture of the internet is not that it's okay to *copy* others, but that it's okay to *criticize* others, and if in doing so you quote or reference their work, that's considered okay. So if you have something to say, where exactly does the law draw the line? [^2]
+The culture of the internet is not that it's okay to *copy* others, but that it's okay to *criticize* others, and if in doing so you quote or reference their work, that's considered okay. If you have something to say, where exactly is the legal line? [^2]
 
 ## Is it copyrighted
 
@@ -32,7 +32,7 @@ If a work is no longer subject to copyright claims (and thus falls in the [publi
 
 ## Is it fair use
 
-Even if a work merits copyright protection, it can still be used in many cases. The concept of *fair use* came about in the late 1970s following the Copyright Act of 1976. [^4] Simply put, the Copyright act states, "purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright." While there is no cut-and-dry rule as to when use infringes on the author's copyright, the determination as to whether a given excerpt constitute fair uses is governed by four-factor [balancing test](https://en.wikipedia.org/wiki/Balancing_test): [^5]
+Even if a work merits copyright protection, it can still be used in many cases. The concept of *fair use* came about in the late 1970s following the Copyright Act of 1976. [^4] The Copyright Act states, "purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright." While there is no cut-and-dry rule as to when use infringes on the author's copyright, the determination as to whether a given excerpt constitute fair uses is governed by four-factor [balancing test](https://en.wikipedia.org/wiki/Balancing_test): [^5]
 
 1. the purpose and character of the use, including whether such use is of a commercial nature or is for nonprofit educational purposes;
 2. the nature of the copyrighted work;
@@ -41,7 +41,7 @@ Even if a work merits copyright protection, it can still be used in many cases. 
 
 Some factors that may tip the fair-use scale in an excerpter's favor are whether its use was commercial, [^6] transformative, [^7] or parody, [^8] the amount copied, [^9] and the effect on the market for the original [^10].
 
-In short, so long as you link back to the original source, and contribute something to the idea, you're probably fine legally, but that misses the point. Don't copy and paste an entire post from someplace else, but a few sentences to a few paragraphs are cool *if it's in the context of you making a point*. Just like writing a paper for college, be sure to block quote for paragraphs and use quotation marks for sentences, and cite even if you paraphrase, but it still needs to be about your ideas. The internet may provide users with free email or free information, but it does not provide bloggers with free copy, nor should it.
+In short, so long as you link back to the original source, and contribute something to the idea, you're probably fine legally, but that misses the point. Don't copy and paste an entire post from someplace else, but a few sentences to a few paragraphs are cool *if you're quoting them to make a point*. Just like writing a paper for college, be sure to block quote for paragraphs and use quotation marks for sentences, and cite even if you paraphrase, but it still needs to be about your ideas. The internet may provide users with free email or free information, but it does not provide bloggers with free copy, nor should it.
 
 The law aside, readers want you to digest and put ideas in your own voice. Take a paragraph from one post, a paragraph from another, and build a common thread between them – that's the bigger hurdle. Give readers a reason to come to your site. Give your site a reason to exist, and nine times out of ten, the law will be on your side.
 

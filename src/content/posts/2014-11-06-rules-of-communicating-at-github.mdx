@@ -2,7 +2,7 @@
 title: 15 rules for communicating at GitHub
 bookRelation: adapted
 description: "How GitHub used issues and chat for async communication: fifteen rules that eliminate the 'you had to be there' problem in corporate workflows."
-tldr: "How GitHub used asynchronous communication through issues and chat to eliminate the 'you had to be there' aspect of most corporate workflows and build a more open, distributed culture."
+tldr: "GitHub ran on asynchronous communication through issues and chat, which eliminated the 'you had to be there' aspect of most corporate workflows. Tools alone won't get you there, so here are the fifteen social norms that made it work."
 redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
 writtenAtGitHub: true
 ---
@@ -10,6 +10,8 @@ writtenAtGitHub: true
 At GitHub, we had a distinct way of working. For one, we used GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it certainly helps); in fact, it's the other way around.
 
 GitHub's communication style could be summed up in one word: [asynchronous](https://zachholman.com/posts/how-github-works-asynchronous/). Much of this was defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, was out of necessity. :quote[Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time.]{#rarely-same-place-same-time} Yet as in the case of Wikipedia versus Encyclopedia Britannica, distributed workflows produce better results than their traditional counterparts, and I'd argue that everyday quality of life is better for those involved, as a result.
+
+## Tools don't work without social norms
 
 [Asynchronous communication through high-fidelity mediums like issues and chat](https://zachholman.com/posts/github-communication/) eliminates the endemic "you had to be there" aspect of most corporate workflows, and [reduces the need for a dedicated management class to capture, collect, and shuttle information back and forth between business units](/2012/12/16/deprecate-management/). :quote[You could have the best tools in the world, but **without the necessary social norms, you're setting yourself up for failure**.]{#q-you-could-have-the-best}
 
@@ -23,7 +25,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ## 2. Don't underestimate high-fidelity mediums
 
-High-fidelity, synchronous mediums like meatspace, Hangouts, or chat are valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
+High-fidelity, synchronous mediums like meatspace, Hangouts, or chat are valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelity mediums for things that can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 
@@ -49,7 +51,7 @@ In practice, there are some nuances:
 
 When you open an issue or pull request, you have an obligation to copy all relevant teams ("stakeholders" in biz-speak). Note, though, that this doesn't mean copying individual team members. Whenever I'm getting mentioned by name on issues a lot (or am often mentioning the same colleague), that's a red flag that I'm setting us up for a single point of failure. Humans tend to do silly things like get sick, sleep at night, or heck, even take a day off every once in a while. Whenever possible, [mention teams](https://github.com/blog/1121-introducing-team-mentions), not individuals, to distribute responsibility and situational awareness.
 
-In practice, that means [creating a lot of niche teams](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) (we had teams for affinities as small as Hubbers who play board games and Hubbers who are color blind), but if people can freely associate, the teams will populate quickly. That also means that when you're mentioned by name, it's your responsibility to CC the relevant team(s). [OP](https://en.wikipedia.org/wiki/Internet_forum#Thread) will eventually take the hint.
+In practice, that means [creating a lot of niche teams](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) (we had teams for affinities as small as Hubbers who play board games and Hubbers who are color blind), but if people can freely associate, the teams will populate quickly. That also means that when you're mentioned by name, it's your responsibility to CC the relevant teams. [OP](https://en.wikipedia.org/wiki/Internet_forum#Thread) will eventually take the hint.
 
 ## 5. Be mindful of noise
 
@@ -65,9 +67,9 @@ In practice, that means three things:
 
 ## 6. Use checklists to make blockers explicit
 
-In biz speak, we call them "action items". In GitHub speak, [we call them task lists](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments). The intent is the same: make it explicit what needs to be done, and who's responsible for doing it. Curating an always-up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for tracking large, multi-issue projects.
+In biz speak, we call them "action items". In GitHub speak, [we call them task lists](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments). Both make it explicit what needs to be done, and who's responsible for doing it. Curating an always-up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for tracking large, multi-issue projects.
 
-In practice, link each action item to the associated issue, describe the task, and [mention the person who's responsible](https://github.com/blog/821-mention-somebody-they-re-notified). If you use the proper syntax, GitHub will render the task lists as checkable tasks, and various views will automatically show their completion.
+In practice, link each action item to the associated issue, describe the task, and [mention the person who's responsible](https://github.com/blog/821-mention-somebody-they-re-notified). If you use the proper syntax, GitHub will render the task lists as checkable tasks, and other views will automatically show their completion.
 
 ## 7. Issues are organization-wide todos
 
@@ -89,7 +91,7 @@ In practice, there are a few reasons it's called the "gentle" bump:
 
 2. **No news isn't good news.** If you've proposed an idea or change and haven't heard back despite repeated attempts to solicit feedback, it may be time to take the hint. If your colleagues aren't opinionated enough to even comment on the proposal, chances are, it's not the next big thing.
 
-3. **An implicit promotion.** There's also an art to knowing your coworkers, how your organization works, and simply taking it upon yourself to hit that big green button. Often, that's a sign that you've just inherited a new responsibility, so merge wisely.
+3. **An implicit promotion.** There's also an art to knowing your coworkers, how your organization works, and taking it upon yourself to hit that big green button. Often, that's a sign that you've just inherited a new responsibility, so merge wisely.
 
 ## 9. Keep discussions logically distinct
 
@@ -105,7 +107,7 @@ In practice, this may mean submitting pull requests that you immediately self-me
 
 ## 11. Secrets, secrets, are no fun
 
-Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge. There are no opt-in or opt-out mechanisms, no ability to link to or cross-reference discussions, and conversation history lives in a teammate's personal inbox, so when they leave, so too does the issue's context. Use email sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email is for sensitive conversations.
+Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge. Email has no opt-in or opt-out mechanisms, no ability to link to or cross-reference discussions, and conversation history lives in a teammate's personal inbox, so when they leave, so too does the issue's context. Use email sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email is for sensitive conversations.
 
 In practice, that means email is typically reserved only for things like personnel discussions, one-to-one feedback, and external communication. The same goes for other mediums (like phone calls) that don't automatically capture and surface context. If you can have the conversation in a better medium, you should.
 
@@ -117,7 +119,7 @@ In practice, that means opening a [draft pull request](https://docs.github.com/e
 
 ## 13. If you can't diff it, don't use it
 
-Pull requests, and thus diffs, were at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what's proposed, down to the individual line, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a serious discussion on its merits.
+Pull requests, and thus diffs, were at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what's proposed, down to the individual line, without the need to download extra software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a serious discussion on its merits.
 
 In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, for example, when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimize the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
 
@@ -135,7 +137,7 @@ In practice, most chat programs let you mention a user by name at the start of a
 
 ## Bonus: Overcompensate for tone
 
-It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture was built on a foundation of emoji and animated GIFs. It's not simply because animated GIFs of puppies are adorable, but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we said at GitHub, mind your words, they're important.
+It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture was built on a foundation of emoji and animated GIFs. It's not just because animated GIFs of puppies are adorable, but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we said at GitHub, mind your words, they're important.
 
 ## Double bonus: If it has a URL, link to it
 

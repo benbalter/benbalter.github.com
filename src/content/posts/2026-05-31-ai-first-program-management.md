@@ -1,7 +1,7 @@
 ---
 title: "AI-first program management"
 bookRelation: inspired
-description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows. It amplifies human judgment instead of replacing it."
+description: "AI-augmented program management grows out of async-first, engineering-inspired workflows. It amplifies human judgment instead of replacing it."
 tldr: "AI doesn't change the philosophy behind program management so much as run it faster: less time processing information, more time on judgment. The hard parts stay human. Pick the task that consumes the most time but requires the least judgment (status report assembly, meeting note cleanup, stakeholder update drafts) and hand it to an AI."
 ---
 
@@ -33,7 +33,7 @@ I've [written about how we communicated at GitHub](/2023/10/04/how-to-communicat
 
 A PM's most underappreciated job is making sure work doesn't get lost. Every conversation, decision, and commitment needs to land somewhere trackable, usually an issue or a project board.
 
-Point AI at a meeting transcript and it'll auto-generate the issues. Point it at a month of Slack and it'll surface the commitments that never made it into a tracker, flag the issues nobody's touched in weeks, and notice when a project board has quietly drifted from reality. Think of it as a linter for your program's state. It catches the gap between what people *said* they'd do and what the artifacts actually reflect.
+Point AI at a meeting transcript and it'll draft the issues. Point it at a month of Slack and it'll surface the commitments that never made it into a tracker, flag the issues nobody's touched in weeks, and notice when a project board has quietly drifted from reality. Think of it as a linter for your program's state. It catches the gap between what people *said* they'd do and what the artifacts actually reflect.
 
 This matters because the biggest risk in program management isn't that something goes wrong. It's that something goes wrong *and nobody notices* until it's too late.
 
@@ -47,7 +47,7 @@ AI won't replace the experienced PM's gut feeling that "this one's going to slip
 
 ### Reporting up and across
 
-Nobody became a program manager because they love writing weekly status reports. And yet, clear upward reporting is one of the highest-leverage things a PM does. It's how leadership knows where to pay attention and where to stay out of the way.
+Nobody became a program manager because they love writing weekly status reports. And yet, clear upward reporting is one of the most useful things a PM does. It's how leadership knows where to pay attention and where to stay out of the way.
 
 At GitHub, I built an internal tool called SnippetGPT that drafted these reports from a team's activity for the week (commits, merged PRs, issue closures, comment threads). It rolled all of that up into a first draft aimed at engineering leaders. Instead of spending Friday afternoon assembling a narrative from memory and half-updated boards, I started from something that reflected what actually happened, then layered on interpretation and recommendations.
 
@@ -57,7 +57,7 @@ The key word there is *start*. An AI-generated status report is a first draft, n
 
 Program management is fundamentally a relationship business. When I first moved into the TPM role, I remember watching senior PMs set up "just wanted to say hello" meetings and dismissing it as socializing on company time. Then I realized that's exactly the point.[^2] You make regular deposits to the social capital bank long before you need a withdrawal. AI doesn't replace that. You can't automate trust.
 
-But it can help you *maintain* those relationships at scale: a nudge that you haven't checked in with a particular stakeholder in two weeks, a bit of context surfaced before a meeting ("last time you spoke with this team, they raised concerns about the timeline for the API migration"). A first pass at a thoughtful reply to a tricky message when you're running low on focus at 4 PM on a Thursday.
+What it can do is help you *maintain* those relationships at scale: a nudge that you haven't checked in with a particular stakeholder in two weeks, a bit of context surfaced before a meeting ("last time you spoke with this team, they raised concerns about the timeline for the API migration"). A first pass at a thoughtful reply to a tricky message when you're running low on focus at 4 PM on a Thursday.
 
 Building rapport, reading a room, knowing when someone's frustrated versus when they're genuinely blocked: that human work stays firmly in the PM's domain. AI just helps you show up more prepared and more responsive than you could be on your own.
 
@@ -82,7 +82,7 @@ The things AI can't do are the parts that were always the hard part: reading a r
 AI-first program management does require new muscles, or at least new applications of existing ones. Four stand out:
 
 - **Prompt craft is just requirements-writing.** Ask an LLM to "summarize the launch thread" and you'll get mush. Ask it to "pull out every unresolved decision and its owner, and flag anything blocked on another team" and you'll get something you can act on before the sync. It's [garbage in, garbage out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out), a principle as old as punch cards, now pointed at prompts. The years you spent writing crisp issue descriptions and acceptance criteria were the training.
-- **Knowing when *not* to reach for it.** The message to the stakeholder whose project just got cut, the escalation where two directors are fighting a proxy war over headcount, the report who's having a rough week. Hand any of those to an AI and you'll ship something correct and tone-deaf. Which conversations are yours alone is a skill, and you mostly learn it by getting it wrong once.
+- **Knowing when *not* to reach for it.** The message to the stakeholder whose project just got cut, the escalation where two directors are fighting a proxy war over headcount, the report who's having a rough week. Hand any of those to an AI and you'll ship something correct and tone-deaf. Which conversations are yours alone is a skill, and most people learn it by getting it wrong once.
 - **Verification, because AI fails confidently.** It'll summarize a forty-message thread and drop the one comment where an engineer admitted the date was slipping. It'll draft a status report that's 90% right and 10% quietly wrong. Your job moves from writing the draft to catching that 10% before it ships. That means knowing the ground truth well enough to see where the model smoothed it over.
 - **Fluency is table stakes.** Nobody lists "can use a project board" on a résumé anymore. Working with AI assistants is on the same curve: a novelty this year, an assumption the next, as unremarkable as Slack or email or GitHub Issues.
 
