@@ -364,6 +364,20 @@ npm run dev            # Start dev server for local testing
 3. Validate with Google's Rich Results Test
 4. Test rendering in development server
 
+Check JSON-LD in the raw HTML, never in a Markdown conversion: WebFetch and similar tools strip `<script>` tags, so "no structured data found" from them means nothing. Grep the built page in `dist-astro/` or `curl` the live URL instead.
+
+### Finding Quick Wins in Search Console
+
+The project's `gsc` MCP server ([`script/gsc-mcp`](../../script/gsc-mcp)) reads Search Console data for `sc-domain:ben.balter.com`. The fastest wins are usually queries where a page already ranks in positions 8–20 with plenty of impressions but few clicks:
+
+1. Pull query and page data for the last 90 days (`get_search_by_page_query` or `get_advanced_search_analytics`)
+2. Keep rows with an average position between 8 and 20, sorted by impressions
+3. For each page, check whether the title and description match the query people actually typed, and whether the post answers it in the first few paragraphs
+4. Tighten the title, description, or opening, and add internal links from related posts using the query's wording as anchor text
+5. Compare the same window after a few weeks (`compare_search_periods`) before calling it a win
+
+Search traffic is a minority of this site's readers, so weigh any change against how the post reads when shared.
+
 ### Fixing SEO Issues
 
 1. Identify the issue (missing meta, poor title, etc.)

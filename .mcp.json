@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gsc": {
+      "type": "stdio",
+      "command": "${CLAUDE_PROJECT_DIR:-.}/script/gsc-mcp"
+    }
+  }
+}

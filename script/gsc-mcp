@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# Starts the Google Search Console MCP server (https://github.com/AminForou/mcp-gsc)
+# for Claude Code; .mcp.json points here. It gives agents read access to search
+# queries, clicks, positions, sitemaps, and URL inspection, which nothing else in
+# the repo can see.
+#
+# The service-account key never touches disk: .env holds a 1Password op://
+# reference in GSC_SERVICE_ACCOUNT_KEY, `op read` resolves it into memory, and a
+# small Python shim hands the JSON to google-auth in place of the file path
+# mcp-gsc expects. The shim leans on mcp-gsc internals, so the version is pinned;
+# bump it deliberately and check the server still starts.
+#
+# Stdout is the MCP protocol stream, so every message here goes to stderr.
+
+set -e
+
+cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}"
+
+ref=$(sed -n 's/^GSC_SERVICE_ACCOUNT_KEY=//p' .env 2>/dev/null | tr -d "\"'")
+if [ -z "$ref" ]; then
+	echo "gsc-mcp: add GSC_SERVICE_ACCOUNT_KEY=op://<vault>/<item>/<field> to .env" >&2
+	exit 1
+fi
+
+if ! GSC_SERVICE_ACCOUNT_KEY=$(op read "$ref"); then
+	echo "gsc-mcp: couldn't read the Search Console key from 1Password ($ref)" >&2
+	exit 1
+fi
+export GSC_SERVICE_ACCOUNT_KEY
+
+# Service account only, no browser OAuth flow. mcp-gsc checks that the
+# credentials path exists before using it; the shim never opens it.
+export GSC_SKIP_OAUTH=true
+export GSC_CREDENTIALS_PATH=/dev/null
+
+exec uv run --quiet --no-project --python '>=3.11' --with 'mcp-search-console==0.4.1' python -c '
+import json, os
+from google.oauth2 import service_account
+
+info = json.loads(os.environ.pop("GSC_SERVICE_ACCOUNT_KEY"))
+service_account.Credentials.from_service_account_file = classmethod(
+    lambda cls, _path, **kwargs: cls.from_service_account_info(info, **kwargs)
+)
+
+import gsc_server
+gsc_server.main()
+'
