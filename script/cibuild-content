@@ -25,6 +25,10 @@ script/vale-ai-tells
 script/title "checking harper"
 script/harper
 
+script/title "checking images for location data"
+# Gates: a committed photo with GPS coordinates leaks where it was taken.
+npm run check-image-privacy
+
 script/title "checking seo"
 # Gates on errors (missing/too-short descriptions, real heading skips); the
 # length/title/heading warnings are advisory and don't fail the build.

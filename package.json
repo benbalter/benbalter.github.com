@@ -52,6 +52,7 @@
     "dictionary-en": "^4.0.0",
     "es-module-lexer": "3.0.4",
     "eslint": "^10.13.0",
+    "exifreader": "4.52.0",
     "glob": "^14.0.0",
     "gray-matter": "^4.0.3",
     "happy-dom": "^21.0.4",
@@ -102,6 +103,7 @@
     "retext-stringify": "^4.0.0",
     "rollup-plugin-visualizer": "^7.1.1",
     "schema-dts": "^2.1.0",
+    "sharp": "0.35.5",
     "tailwindcss": "^4.3.3",
     "textlint": "^15.8.0",
     "textlint-rule-common-misspellings": "^1.0.1",
@@ -143,6 +145,7 @@
     "check:tooling": "tsc -p tsconfig.tooling.json",
     "validate-seo": "tsx script/validate-seo.ts",
     "check-content-integrity": "tsx script/check-content-integrity.ts",
+    "check-image-privacy": "tsx script/check-image-privacy.ts",
     "vale-ai-tells": "vale --config=.vale-ai-tells.ini",
     "analytics": "node script/analytics.mjs",
     "popular-posts": "tsx script/popular-posts.ts",
@@ -187,7 +190,7 @@
       "yaml": "^2.8.3"
     },
     "deepmerge-ts": "^8.0.0",
-    "sharp": "^0.35.0",
+    "sharp": "$sharp",
     "@tailwindcss/typography": {
       "postcss-selector-parser": "^7.1.6"
     },

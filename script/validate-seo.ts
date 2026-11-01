@@ -8,6 +8,8 @@
  * - Image alt text
  * - Proper heading hierarchy
  * - Canonical URLs
+ * - Post structure from the writing-style packaging checklist (warnings only;
+ *   see src/lib/post-structure.ts)
  * 
  * Note: This script uses file system access and gray-matter to parse frontmatter
  * instead of Astro's getCollection, allowing it to run as a standalone script.
@@ -18,6 +20,7 @@ import * as path from 'path';
 import { glob } from 'glob';
 import matter from 'gray-matter';
 import { stripMarkdown } from '../src/utils/strip-markdown';
+import { checkPostStructure } from '../src/lib/post-structure';
 
 interface SEOIssue {
   file: string;
@@ -296,6 +299,37 @@ async function validateHeadingHierarchy() {
   console.log(`✅ Validated heading hierarchy in ${mdFiles.length} markdown files\n`);
 }
 
+async function validatePostStructure() {
+  console.log('🔍 Validating post structure...\n');
+
+  let postFiles = (await glob('src/content/posts/*.{md,mdx}', { cwd: process.cwd() })).sort();
+
+  // CONTENT_FILES (set by CI on pull requests from script/changed-content, as
+  // for script/lint-text) scopes these checks to the posts the PR changed, so
+  // a PR shows its own posts' warnings, not the whole archive's. Unset means
+  // check everything; set but empty means the PR changed no posts.
+  const contentFiles = process.env.CONTENT_FILES;
+  if (contentFiles !== undefined) {
+    const changed = new Set(contentFiles.split('\n').map((f) => f.trim()));
+    postFiles = postFiles.filter((f) => changed.has(f));
+  }
+
+  for (const relativePath of postFiles) {
+    const content = fs.readFileSync(relativePath, 'utf-8');
+    let frontmatter: { description?: string; tldr?: string };
+    try {
+      frontmatter = matter(content).data;
+    } catch {
+      continue; // validatePosts already reports unparseable frontmatter
+    }
+    for (const message of checkPostStructure(content, relativePath.endsWith('.mdx'), frontmatter)) {
+      issues.push({ file: relativePath, type: 'warning', message });
+    }
+  }
+
+  console.log(`✅ Validated structure in ${postFiles.length} blog posts\n`);
+}
+
 function printResults() {
   console.log('\n' + '='.repeat(80));
   console.log('SEO VALIDATION RESULTS');
@@ -343,6 +377,7 @@ async function main() {
     await validatePages();
     await validateAstroPages();
     await validateHeadingHierarchy();
+    await validatePostStructure();
     printResults();
   } catch (error) {
     console.error('❌ Validation failed:', error);
