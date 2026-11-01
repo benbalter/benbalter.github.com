@@ -8,7 +8,7 @@ writtenAtGitHub: true
 
 *Recently new to remote work culture? This post is a non-software-specific adaptation of my popular post [15 rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for fostering successful remote culture, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](/2015/11/18/tools-to-empower-open-collaboration/).*
 
-I've been working remotely for the past seven years at a company that creates tools for software developers to, well, work remotely to build software together (meta, right?). At GitHub, with the majority of the company being remote (including our top executives), we have developed a unique culture around how we work. We use our platform to collaborate on everything from Marketing and Legal to internal policies, But the medium doesn't define the workflow (although it helps). It's the other way around.
+I've been working remotely for the past seven years at a company that creates tools for software developers to, well, work remotely to build software together (meta, right?). At GitHub, with the majority of the company being remote (including our top executives), we have developed a unique culture around how we work. We use our platform to collaborate on everything from Marketing and Legal to internal policies. But the medium doesn't define the workflow (although it helps). It's the other way around.
 
 GitHub's remote-first communication style can be summed up in one word: [asynchronous](https://zachholman.com/posts/how-github-works-asynchronous/). Much of this is defined by the workflows of the open source software community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encyclopedia Britannica, distributed workflows produce better results than their traditional counterparts, and I'd argue that everyday quality of life is better for those involved, as a result.
 
@@ -24,7 +24,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ## 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like Zoom, Skype, or Google Meet earn their cost when you use them for the right things. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like Zoom, Skype, or Google Meet are extremely valuable when you use them for the right things. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 

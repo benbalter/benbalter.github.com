@@ -8,13 +8,13 @@ redirect_from:
 writtenAtGitHub: true
 ---
 
-My colleague @katmeister once wrote about [her experience with online harassment](https://www.tinykat.cafe/on-all-that-fuckery) (content warning: racist, sexist, transphobic, hateful language, and online abuse). It's well worth reading to understand how people (most of whom don't look like me) experience the internet every day, but one line in particular stuck with me:
+My colleague Kat (@katmeister) once wrote about [her experience with online harassment](https://www.tinykat.cafe/on-all-that-fuckery) (content warning: racist, sexist, transphobic, hateful language, and online abuse). It's well worth reading to understand how people (most of whom don't look like me) experience the internet every day, but one line in particular stuck with me:
 
 > it's always an "edge case" until someone's personal safety is threatened.
 
 It's uncomfortable to acknowledge the darker corners of the internet, especially when most startup business models chase rapid growth built on the internet's ability to connect like-minded strangers. We don't like to admit it out loud, but the same internet that connects the best parts of humanity sometimes brings out the worst of it. It's tempting to write off abuse and harassment as a "tomorrow" problem (or a "we're different"[^arpanet] problem), especially in a growing startup or a crowded, competitive industry. More often than not, "tomorrow" arrives once it's too late, and you find yourself in the middle of urgent damage control.
 
-The industry calls this all-too-often underappreciated work "trust and safety," or sometimes "platform health" or "community integrity." It's the work of making your platform a safe place for your users to interact, free from abuse, harassment, and other unwanted behavior. Too often, it's treated as a cost center, a "nice to have," or a "nice to have later" feature, rather than a core part of the product. It's a core part of the product. It's a cost of doing business on the internet, a hidden "internet tax" you'll pay whether you budget for it or not.
+The industry calls this all-too-often underappreciated work "trust and safety," or sometimes "platform health" or "community integrity." It's the work of making your platform a safe place for your users to interact, free from abuse, harassment, and other unwanted behavior. Too often, it's treated as a cost center, a "nice to have," or a "nice to have later" feature, rather than a core part of the product. It's a cost of doing business on the internet, a hidden "internet tax" you'll pay whether you budget for it or not.
 
 ## It's always an "edge case" until someone's personal safety is threatened
 
@@ -70,12 +70,12 @@ Many platforms do implement basic trust and safety features like blocking or rep
 
 And that's *only* targeted harassment. It doesn't touch broader trust and safety concerns like privacy, spam, inauthentic behavior, faked signals of trust, intentionally misleading content, impersonation, phishing, illegal content,[^3] malware, financial fraud, resource abuse, moderator safety, or account security, each with its own nuanced considerations and countermeasures, and each a threat to your users, your community, and ultimately your business.
 
-The challenge is taking trust and safety seriously while it's still a hypothetical risk, not after someone has been hurt and it's a painfully known problem. Without action now, and an ongoing commitment to back it up, your product can (and given a non-zero number of people on the internet with malicious intent, most likely will) be exploited to cause irreparable harm to your users and your community, eroding trust in your platform and its value. If this can happen to someone like Kat, who spends her days building welcoming communities, on a platform that had invested in trust and safety for years, it can happen on yours. Budget for it before someone gets hurt.
+The challenge is taking trust and safety seriously while it's still a hypothetical risk, not after someone has been hurt and it's a painfully known problem. Without action now, and an ongoing commitment to back it up, your product can (and given a non-zero number of people on the internet with malicious intent, most likely will) be exploited to cause irreparable harm to your users and your community, eroding trust in your platform and its value. If this can happen to someone like Kat, who spends her days building welcoming communities, on a platform that had invested in trust and safety for some time, it can happen on yours. Budget for it before someone gets hurt.
 
 [^arpanet]: All platforms eventually become vehicles for abuse. Even ARPANET, the precursor to the internet, [had spam](https://en.wikipedia.org/wiki/History_of_email_spam#The_%22first_spam_email%22_in_1978). If you don't think your platform has abuse today, chances are it does, and you don't know it yet.
 
 [^1]: A [study by the Anti-Defamation League](https://www.wired.com/story/severe-online-harassment-2018-adl-survey/) found that 1 in 3 Americans, and half of those 18–29 years old, experience severe online harassment. 38% withdrew from the platform after the experience. GitHub's [open source survey](https://github.com/github/open-source-survey) found that 20% of users who experienced *or witnessed* negative interactions stopped contributing as a result.
 
-[^2]: I'd argue that when you look at the competitive advantage healthy, welcoming communities give platforms (see, for example, the 2020 bidding war over TikTok), trust and safety *is* a revenue-generating exercise. It's just hard to quantify, since it affects growth metrics indirectly and is most visible when it's absent.
+[^2]: I'd argue that when you look at the competitive advantage healthy, welcoming communities give platforms (see, for example, the 2020 scramble to acquire TikTok), trust and safety *is* a revenue-generating exercise. It's just hard to quantify, since it affects growth metrics indirectly and is most visible when it's absent.
 
 [^3]: For example, child sexual abuse material (CSAM) or terrorist and violent extremist content (TVEC).

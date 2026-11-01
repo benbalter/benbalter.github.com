@@ -7,7 +7,7 @@ description: A data-driven snapshot of 1,121 federal .gov domains ahead of the B
 
 You can [browse the full results, download the raw data, or see details for an individual domain within the report itself](https://github.com/benbalter/2021-analysis-of-federal-dotgov-domains), but here are the highlights.
 
-## HTTPS went from one in four domains to nearly all of them
+## Highlights
 
 - **Overall.** There are 1,121 federally managed .gov domains. That’s about 250 fewer than there were five years ago after a targeted push to reduce domain sprawl. Of those domains, 926 (82.6%) are live. That’s about the same percentage as we saw in 2014 and 2015, and has gone up about 10% over the past 10 years.
 - **Redirects.** 264 (28.51%) domains simply redirect to another domain.

@@ -38,8 +38,12 @@ Find the right balance, and be willing to switch as the situation demands. :quot
 
 ## Putting it into practice
 
-**For managers:** Distributed teams generally thrive with bazaar-style leadership because it emphasizes autonomy and trust. That's exactly what you need when you can't see people working. But be ready to shift toward the cathedral when onboarding new team members, during crises requiring rapid coordination, or when establishing standards everyone must follow. The point isn't ideological purity; it's flexibility. If someone's work starts slipping, lean into more cathedral-style management and the visibility advantages of working in the open until they're back on track.
+### For managers
 
-**For ICs:** Knowing your manager's style helps you meet them where they are. If they lean cathedral, proactively share progress and ask clarifying questions before proceeding. If they lean bazaar, take initiative and document your decisions. Senior ICs often operate bazaar-style regardless of their manager. They define problems, propose solutions, and bring others along through influence rather than authority.
+Distributed teams generally thrive with bazaar-style leadership because it emphasizes autonomy and trust. That's exactly what you need when you can't see people working. But be ready to shift toward the cathedral when onboarding new team members, during crises requiring rapid coordination, or when establishing standards everyone must follow. The point isn't ideological purity; it's flexibility. If someone's work starts slipping, lean into more cathedral-style management and the visibility advantages of working in the open until they're back on track.
+
+### For ICs
+
+Knowing your manager's style helps you meet them where they are. If they lean cathedral, proactively share progress and ask clarifying questions before proceeding. If they lean bazaar, take initiative and document your decisions. Senior ICs often operate bazaar-style regardless of their manager. They define problems, propose solutions, and bring others along through influence rather than authority.
 
 :quote[Cathedral and bazaar aren't personality traits. They're management operating systems you can swap depending on the moment.]{#cathedral-bazaar-operating-systems} For distributed teams, the default should lean bazaar (autonomy plus transparency), but knowing when to shift toward cathedral matters just as much. Ask yourself: are you building a cathedral or a bazaar, and does your manager think you're building the same one?

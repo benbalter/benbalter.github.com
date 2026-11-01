@@ -17,7 +17,7 @@ In short, an andon is a system of lights and signals that allows workers to aler
 The idea is that :quote[if you stop the line as soon as a problem is detected, it can be fixed before it gets worse]{#stop-the-line-early}. It's been so successful in driving continuous improvement that Toyota (and most other manufacturers) continue to use the concept to this day.
 :::
 
-The andon gives every worker the authority to stop the line and fix the root cause instead of hoping someone downstream catches it. That's as much culture as tooling: it only works if people trust they won't be punished for pulling the cord.
+The andon gives every worker the authority to stop the line and fix the root cause instead of hoping someone else fixes it later. It's as much a culture of continuous improvement as a quality control tool: everyone is encouraged to speak up, share feedback, and work on the fix together.
 
 ## Transparency is software development's andon
 
@@ -27,9 +27,9 @@ Transparent collaboration in software development and other knowledge work is li
 - **Higher engagement and motivation.** When everyone has a voice and a stake in the work, engagement and motivation go up. People can raise their ideas and concerns, and help make decisions and solve problems. They also get to see the value and impact of their work, and to receive recognition and appreciation from their peers and managers.
 - **Greater trust and alignment.** A shared understanding and a common goal build trust between workers and managers. Transparent collaboration lowers the barriers and silos that can hinder communication, collaboration, and coordination. It also promotes a culture of honesty, openness, and accountability, where everyone is responsible for the quality and outcome of the work, and where everyone can learn from mistakes and successes.
 - **Higher quality and customer satisfaction.** Catch problems early, and you prevent defects and rework before they ship. Seek and give feedback throughout the process, and your software is more likely to meet your users' needs.
-- **Faster and more efficient delivery.** Visible work cuts the waste of information silos, duplicated effort, and handoffs. Stopping the line early keeps a small delay from turning into a missed release.
+- **Faster and more efficient delivery.** Visible work cuts the waste of information silos, duplicated effort, and handoffs. Stopping the line and escalating when needed avoids delays, disruptions, and dependencies, and speeds up delivery.
 
-Transparent collaboration has real trade-offs. Personnel matters, security issues, and unannounced launches need a smaller audience, and working in the open requires a shift in mindset, behavior, and culture, as well as a set of tools, processes, and norms that support and enable it. It also requires a balance between openness and privacy, between collaboration and autonomy, and between feedback and focus.
+Transparent collaboration has real trade-offs. It requires a shift in mindset, behavior, and culture, as well as a set of tools, processes, and norms that support and enable it. It also requires a balance between openness and privacy, between collaboration and autonomy, and between feedback and focus.
 
 ## Applying the andon principle to software development
 
@@ -45,4 +45,4 @@ The benefits of transparent collaboration outweigh the costs, especially when th
 
 Software development is not the same as manufacturing, but it shares some similarities. Both are complex, iterative, and collaborative processes that involve creating and delivering value to customers. Both also face challenges such as quality, efficiency, and innovation. And both can benefit from the andon principle.
 
-The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. Next time you spot a problem, pull the cord. In knowledge work, the cord is a comment on the pull request.
+The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. Next time you spot a problem, pull the cord.

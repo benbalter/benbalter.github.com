@@ -76,7 +76,7 @@ Some users will always behave disruptively, on purpose or not, and no platform c
 
 Instead, we introduced a third category of inclusive behavior which established the ultimate goal of good online citizenship. Disruptive behaviors undermine community collaboration and individual productivity. These are your trolls, spammers, and bullies. Constructive behavior comprises the bulk of contributors and moderators that share content and interact with others. Inclusive behaviors go a step beyond that to foster an open and welcoming environment and make participation in a community a productive, collaborative experience for others.
 
-If friction and product interventions could move some disruptive users to constructive behavior, and some constructive users to inclusive behavior, then we had a fighting chance: a community whose contribution bell curve peaks above constructive, with a long tail on each side.
+If friction and product interventions could move some disruptive users to constructive behavior, and some constructive users to inclusive behavior, then we had a fighting chance: a community whose contribution bell curve peaked above constructive, with a long tail on each side.
 
 ## 5. Establish tiered expectations
 

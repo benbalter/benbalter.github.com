@@ -5,7 +5,7 @@ description: "Why you need a running record of your wins, and how to keep one wi
 tldr: "Nobody's compiling your stats for you. Keep a ship log of your impact, update it weekly, and use it to fight recency bias, ace self-assessments, and build your promotion case."
 ---
 
-Here's the best career advice I ever received as a product manager: "product-manage your own career." I wish I'd internalized it sooner. Early in my career, I stayed quiet and did good work, assuming the right people would notice. They didn't. The work was good. Nobody else was tracking it.
+Here's the best career advice I ever received as a product manager: "product-manage your own career." I wish I'd internalized it sooner. Early in my career, I stayed quiet and did good work, assuming the right people would notice. Spoiler: they didn't. Not because the work wasn't good, but because nobody else was tracking it.
 
 Treat yourself as a product. What are your features? What are your bugs? What does your roadmap look like? And who's keeping the changelog?
 
@@ -60,4 +60,4 @@ A brag doc only works if you actually maintain it. Some practical tips:
 - **Feed your self-assessments.** When review season comes, your log *is* your self-assessment draft. Copy, paste, polish.
 - **Build your promotion packet early.** The best promotion cases aren't written in a weekend. They're assembled over months from a well-maintained log.
 
-:quote[Nobody else will manage your career. Your company manages your role. You manage your trajectory.]{#q-nobody-else-will-manage-your} Start the changelog today.
+:quote[Nobody else will manage your career. Your company manages your role. You manage your trajectory.]{#q-nobody-else-will-manage-your} Start the ship log today.

@@ -9,7 +9,7 @@ It's Thursday afternoon. Your direct report sits down and reads from a list: "Cl
 
 Most 1\:1s fail in one of three ways:
 
-- You spend your team's only protected synchronous time on information that belongs in writing.
+- The most common: you spend your team's only protected synchronous time on information that belongs in writing.
 - You sugarcoat hard feedback until nobody walks away clear on what actually needs to change.
 - Or, quieter, the 1\:1 keeps getting canceled because "something came up," until the relationship slowly starves.
 
@@ -37,15 +37,11 @@ Add context to each item. Don't just write "career growth." Write "I've been thi
 
 ## How to run one
 
-Start with the human, not the agenda. Take a few minutes to check in personally. Those minutes build the relationship that makes hard conversations possible later.
-
-**Ask questions more than you give answers.** For managers, your job isn't to solve every problem. It's to help your report think through problems themselves. "What options are you considering?" is often more useful than "Here's what you should do." For ICs, don't just wait to be told what to do. Challenge assumptions and push back.
-
-Follow the agenda, but hold it loosely. If a topic opens up a more important conversation, follow it. The rest can wait.
-
-**Make space for what's unsaid.** The most important topics often aren't on the agenda because they're hard to articulate or feel risky to raise. Make it safe by raising difficult topics yourself and responding non-defensively when others do.
-
-**End with clear next steps.** What actions came out of this? Who's doing what by when? Document them somewhere durable so they don't get lost. Leaders who [show their work](/2022/02/16/leaders-show-their-work/) in shared docs make this easy. The same transparency that helps distributed teams function day-to-day makes 1\:1 follow-through automatic.
+- **Start with the human, not the agenda.** Take a few minutes to check in personally. Those minutes build the relationship that makes hard conversations possible later.
+- **Ask questions more than you give answers.** For managers, your job isn't to solve every problem. It's to help your report think through problems themselves. "What options are you considering?" is often more useful than "Here's what you should do." For ICs, don't just wait to be told what to do. Challenge assumptions and push back.
+- **Follow the agenda, but hold it loosely.** If a topic opens up a more important conversation, follow it. The rest can wait.
+- **Make space for what's unsaid.** The most important topics often aren't on the agenda because they're hard to articulate or feel risky to raise. Make it safe by raising difficult topics yourself and responding non-defensively when others do.
+- **End with clear next steps.** What actions came out of this? Who's doing what by when? Document them somewhere durable so they don't get lost. Leaders who [show their work](/2022/02/16/leaders-show-their-work/) in shared docs make this easy. The same transparency that helps distributed teams function day-to-day makes 1\:1 follow-through automatic.
 
 ## Skip-levels give leaders unfiltered signal
 
