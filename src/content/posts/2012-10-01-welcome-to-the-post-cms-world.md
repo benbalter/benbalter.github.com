@@ -1,6 +1,7 @@
 ---
 title: Welcome to the Post-CMS World
 description: 'Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content.'
+archived: true
 ---
 
 You may notice things are a bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-static-site-exporter) the site from WordPress, to [Jekyll](https://github.com/jekyll/jekyll).[^1]

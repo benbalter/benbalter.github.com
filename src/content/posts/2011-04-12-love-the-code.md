@@ -55,4 +55,4 @@ I gave a brief [lightning talk at April's WordPress DC Meetup](https://www.meetu
   - [Debug bar](http://wordpress.org/extend/plugins/debug-bar/) plugin
   - [WordPress Codex](http://codex.wordpress.org/)
 
-*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me](https://ben.balter.com/contact/).*
+*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me](/contact/).*

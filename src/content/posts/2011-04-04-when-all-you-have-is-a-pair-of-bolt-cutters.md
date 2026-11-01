@@ -1,6 +1,7 @@
 ---
 title: When all you have is a pair of bolt cutters...
 description: WordPress can do SharePoint better than SharePoint. A proposal to build document management and version control on top of WordPress's proven core.
+archived: true
 ---
 
 [<img src="http://imgs.xkcd.com/comics/golden_hammer.png" alt="Golden Hammer" class="mx-auto block" />](https://xkcd.com/801/)
@@ -19,9 +20,9 @@ As seen in the above wireframe, document revisions would be inextricably linked 
 
 To be fair, WordPress has been arguably overextended in some cases, [^3] but I do not believe that to be the case here. Sure any WordPress enthusiast may be guilty of the [bolt-cutter mentality](https://xkcd.com/801/) every now and then, but I believe, if anything, it is enterprise stakeholders' tendency to gravitate toward bloated, commercial systems that is more akin to Wolf Blitzer's boat house, and a big reason why is because with the exception of an unnamed [^4] content management system's poorly executed attempt at document management, no open-source alternatives exist.
 
-I am working on submitting this idea as a proposed [Google Summer of Code](https://summerofcode.withgoogle.com/) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](https://ben.balter.com/contact/), or leave a comment below.
+I am working on submitting this idea as a proposed [Google Summer of Code](https://summerofcode.withgoogle.com/) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](/contact/), or leave a comment below.
 
-**Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the WP Document Revisions page.
+**Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the WP Document Revisions page.
 
 [^1]: *See, for example,* [Documentum](http://www.emc.com/enterprise-content-management/index.htm), [Liferay](https://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
 

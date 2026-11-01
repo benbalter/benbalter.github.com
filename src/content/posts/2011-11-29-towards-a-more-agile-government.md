@@ -2,6 +2,7 @@
 title: Towards a More Agile Government
 description: Federal IT spends billions annually, yet fewer than 9% of projects ship on time and on budget. The fix requires regulatory reform and agile.
 tldr: "Federal IT procurement spends billions a year, yet fewer than 9% of projects ship on time and on budget. The fix requires both regulatory reform and a cultural shift toward agile."
+archived: true
 ---
 
 <!--lint disable retext-spell-->
@@ -76,7 +77,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
+[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="" />](/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
 <p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)</em></p>
 

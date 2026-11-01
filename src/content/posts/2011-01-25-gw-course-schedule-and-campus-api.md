@@ -11,7 +11,7 @@ Below you can find the details on GW's course schedule and campus map API endpoi
 
 Creative ideas on how best to leverage the information welcome in the comments below.
 
-*Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided "as is" solely for educational purposes. If for any reason you would like this page removed, please [contact me](https://ben.balter.com/contact/) immediately and I will do so.*
+*Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided "as is" solely for educational purposes. If for any reason you would like this page removed, please [contact me](/contact/) immediately and I will do so.*
 
 ---
 
