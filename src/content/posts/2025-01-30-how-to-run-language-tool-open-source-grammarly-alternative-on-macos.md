@@ -8,7 +8,7 @@ You may be familiar with grammar checking tools like Grammarly,[^grammarly] but 
 
 ## Set up the local server
 
-First you need to install the backend server, which is a Java application. You could do this manually or via Docker (trust me, I tried both with varying levels of success), but I recommend letting Homebrew do the heavy lifting for you.[^homebrew] Homebrew creates its own `languagetool-server` executable that wraps the LanguageTool jar around the Homebrew-maintained Java runtime, saving you from having to manage a Java environment yourself. In theory, it "just works". Here's how to install and run it:
+First you need to install the backend server, which is a Java application. You could do this manually or via Docker (trust me, I tried both with varying levels of success), but I recommend letting Homebrew do the heavy lifting for you.[^homebrew] Homebrew creates its own `languagetool-server` executable that wraps the LanguageTool jar around the Homebrew-maintained Java runtime, saving you from having to manage a Java environment yourself. In theory, it "just works." Here's how to install and run it:
 
 1. `brew install languagetool`
 2. `brew services start languagetool`
@@ -30,7 +30,7 @@ If you previously installed the `languagetool` cask,[^disambiguation] or acciden
 
 LanguageTool works great in your browser for any text box, Google Doc, GitHub issue, etc. Here's how to set it up:
 
-1. Install the LanguageTool extension for your browser - [Chrome](https://languagetool.org/chrome/), [Edge](https://microsoftedge.microsoft.com/addons/detail/ai-grammar-checker-para/hfjadhjooeceemgojogkhlppanjkbobc), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
+1. Install the LanguageTool extension for your browser: [Chrome](https://languagetool.org/chrome/), [Edge](https://microsoftedge.microsoft.com/addons/detail/ai-grammar-checker-para/hfjadhjooeceemgojogkhlppanjkbobc), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
 2. In the extension settings, set the "API Server URL" to "Local server".
 
 That last step is important because the extension defaults to using the public LanguageTool server, which is not the one you just installed.
@@ -80,22 +80,18 @@ As a bonus, you can set up n-gram data sets to improve LanguageTool's ability to
 It's a large download, but it's worth it if you have the space and are going to be using LanguageTool a lot. Here's how to set it up:
 
 1. [Download](https://languagetool.org/download/ngram-data/) the n-gram dataset(s) for your language(s) onto your local machine and unzip them into a local n-grams directory. I recommend `~/ngrams`, but you can install it anywhere. (Note: the data is language specific, so unzip the download to, e.g., `~/ngrams/en`).
-2. Edit `/opt/homebrew/etc/languagetool/server.properties`, adding `languageModel=/users/benbalter/ngrams`, replacing the path to the absolute path of where you downloaded and unzipped the n-gram data.
+2. Edit `/opt/homebrew/etc/languagetool/server.properties`, adding `languageModel=/users/benbalter/ngrams`, replacing that path with the absolute path to where you unzipped the n-gram data.
 3. Restart the service: `brew services restart languagetool`
 
-If you did it correctly, again, it should "just work", but if you want to confirm, you should see a message in the logs that says `INFO: Using n-gram data from /users/benbalter/ngrams` (or whatever path you used).
+If you did it correctly, again, it should "just work," but if you want to confirm, you should see a message in the logs that says `INFO: Using n-gram data from /users/benbalter/ngrams` (or whatever path you used).
 
 ## Troubleshooting
 
-By default, LanguageTool logs live in: `/opt/homebrew/var/log/languagetool/languagetool-server.log` and Caddy logs live in: `/opt/homebrew/var/log/caddy.log`. If you want to see if LanguageTool is running, you can use `brew services list`, or try one of the `curl` methods mentioned earlier.
+By default, LanguageTool logs live in `/opt/homebrew/var/log/languagetool/languagetool-server.log` and Caddy logs live in `/opt/homebrew/var/log/caddy.log`. If you want to see if LanguageTool is running, you can use `brew services list`, or try one of the `curl` methods mentioned earlier.
 
 ## Taking it a step further
 
 If you *really* want to make sure what you type doesn't traverse the internet, you can modify your hosts file or use another method (like firewall rules or Little Snitch) to block the public LanguageTool server (`api.languagetool.org`) at the network level. This way, if you accidentally forget to set the "API Server URL" to "Local server" in one of the clients, the request will fail, and you'll know that the client is not using the local server.
-
-## Conclusion
-
-That's it! You now have a powerful, privacy-respecting grammar checker that you can use in your browser, in Slack, in VS Code, and in other common work applications. Happy writing!
 
 [^disambiguation]: The non-cask version is the backend Java server. The cask version (by the same name) is the macOS frontend that provides a menubar icon and settings UI.
 
