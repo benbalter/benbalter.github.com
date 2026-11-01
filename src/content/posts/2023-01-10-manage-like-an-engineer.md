@@ -12,13 +12,13 @@ Rather than tracking bugs or feature requests, in my day-to-day as a Chief of St
 
 ## Why you should manage like an engineer
 
-Using engineering tools like GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there are a lot of organic benefits that you and your team get for "free":
+Using engineering tools like GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there are a lot of organic benefits that you and your team get for "free":
 
 > - **Captures institutional knowledge.** When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan”-type inquiries.
 > - **Empowers others to learn through observation.** What's routine to you is likely novel to someone in another role or at another level of seniority.
-> - **Socializes organizational culture and values.** An organization's culture and values are composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
+> - **Socializes organizational culture and values.** An organization's culture and values are composed in large part of [the underlying assumptions](/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
 > - **Fuels engagement.** Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
-> - **Keeps the bar high.** Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
+> - **Keeps the bar high.** Showing one's work establishes expectations around justification, thoroughness, and accountability that set and maintain a high standard for decision making within an organization.
 
 ## What it means to manage like an engineer
 
@@ -27,13 +27,13 @@ This level of open-source-like managerial transparency is far from automatic or 
 Here are a few of the engineer-inspired "how we work" principles which I strive to embody through my own management:
 
 - **Make work visible.** Proactively share to the widest extent practical given the subject.[^4] Like any production system, observability is key.
-- **Write things down.** Especially the why and how. [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). Be generous with links.
-- **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate).** Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
-- **Bias for shipping.** [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
+- **Write things down.** Especially the why and how. [Ensure that everything has a URL](/2015/11/12/why-urls/). Be generous with links.
+- **[Over communicate](/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate).** Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
+- **Bias for shipping.** [Ship early, ship often](/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
 - **Streamline and automate.** Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
 - **Embrace collaboration.** How we work is as important as what we work on. Software development is a team sport.[^5]
 - **[Asynchronous first](/2022/03/17/why-async/).** [Reserve higher-fidelity mediums for conversations that require them](/2023/04/20/meetings-are-a-point-of-escalation/).
-- :quote[Practicality beats purity]{#practicality-beats-purity} - These are guidelines, not rules. :quote[Process should drive outcomes.]{#process-should-drive-outcomes}
+- :quote[Practicality beats purity]{#practicality-beats-purity}. These are guidelines, not rules. Process should drive outcomes.
 
 ## How to manage like an engineer
 
@@ -58,35 +58,35 @@ All of the department's management tasks are also tracked in issues, which are m
 
 ### Management decision records
 
-Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records",[^10] socialized and discussed via pull requests, are how decisions are made and communicated.
+Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down is a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records",[^10] socialized and discussed via pull requests, are how decisions are made and communicated.
 
 One common way engineering teams capture important decisions is through [an architecture decision record (ADR)](https://github.com/architecture-decision-record/architecture-decision-record). ADRs capture not just the decision, but also its context and consequences, and do so in a way that allows stakeholders to deeply participate in the process. In short, the person responsible for a decision writes out their proposal in long-form prose, and submits it for discussion and refinement by stakeholders before it is ultimately merged to memorialize the decision.
 
-While ADRs are intended for engineering decisions, the format and rigor of documentation and process can be adapted to any type of impactful or long-lived decision, especially management decisions with broad impact. That's not to say that management decision records democratize or crowdsource management. Rather, it formalizes and makes transparent the socializing process that already happens when making such management decisions.
+While ADRs are intended for engineering decisions, the format and rigor of documentation and process can be adapted to any type of impactful or long-lived decision, especially management decisions with broad impact. That's not to say that management decision records democratize or crowdsource management. Rather, they formalize and make transparent the socializing that already happens around management decisions.
 
 ### Automate all the things
 
 Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub Actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kickoff of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9]
 
-## Conclusion
+## Management can't be deprecated, but it can be lighter
 
-A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](https://ben.balter.com/2012/12/16/deprecate-management/). As I wrote then:
+A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](/2012/12/16/deprecate-management/). As I wrote then:
 
 > There are so many aspects to the work day that we do just because it’s the way things have been done since the dawn of the industrial revolution, and it puzzles me why nobody’s stopped to think critically about how these processes could be reimagined in an age of technology.
 
-Today, I don't believe that a complete "deprecation" of management is possible, at least not at scale, but by working in the open, managers can shed a lot of management meta-work, moving managers from lower-level to higher-level, more impactful work.
+Today, I don't believe that a complete "deprecation" of management is possible, at least not at scale, but managers who work in the open can shed a lot of meta-work and spend that time on higher-level work.
 
-Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their own work. It means making work visible, writing things down, and embracing collaboration. After all, if that's the best way to build software, should it not also be the best way to manage software development?
+Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their own work. After all, if that's the best way to build software, should it not also be the best way to manage software development?
 
 Managing at GitHub, or interviewing to? My [reading list for new GitHubbers](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/) covers the culture these workflows grew out of.
 
-[^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a `TODO` with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
+[^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a `TODO` with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
 
 [^3]: Long before the term "inner-source" became popular, GitHub had co-opted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how GitHub uses GitHub to build GitHub", the concept of using GitHub to *manage* GitHub fell out of popularity as GitHub grew (and outgrew its own tools). Now that GitHub has native planning-and-tracking capabilities, it's the perfect tool for managers.
 
 [^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but the vast majority of management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.). I've even seen one team use [Mermaid diagrams in Markdown files](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) to visualize their org chart. Re-org by PR? :thinking:
 
-[^5]: Encourage collaboration among team members, both in terms of setting team-wide goals and executing on individual initiatives. This helps everyone "connect the dots" and understand how their work fits into the bigger picture (and to shape it along the way).
+[^5]: Encourage collaboration on both team-wide goals and individual initiatives. This helps everyone "connect the dots" and understand how their work fits into the bigger picture (and to shape it along the way).
 
 [^6]: For example, transparent and inclusive decision making comes more naturally in a tool built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tool's vision of how work should occur and yours may differ, making things more difficult on both you and your team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
 

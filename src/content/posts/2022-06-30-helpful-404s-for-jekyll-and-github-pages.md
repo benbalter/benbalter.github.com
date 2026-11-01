@@ -22,11 +22,11 @@ If you were to click an invalid link or typo a URL on my site, the following wou
 ## What it looks like
 
 <!-- lychee-ignore -->
-Let's say you tried to navigate to a path that doesn't exist like [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll/). Along with a list of recent posts, the experience, would look something like this:
+Let's say you tried to navigate to a path that doesn't exist like [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll/). Along with a list of recent posts, the experience would look something like this:
 
 The page you are trying to view does not exist. **Perhaps you're looking for [/2022/06/30/helpful-404s-for-jekyll-and-github-pages/](/2022/06/30/helpful-404s-for-jekyll-and-github-pages/)?**
 
-## How it works
+## A few lines of TypeScript do the work
 
 This functionality is driven by a surprisingly small amount of JavaScript ([really TypeScript](https://github.com/benbalter/retlab/blob/main/js/script.ts)):
 
@@ -59,9 +59,9 @@ Could it be written better? Absolutely (but it works!). For now, I'm using [`fas
 
 Along with better error handling, this could also be implemented with the more modern `fetch` API to retrieve the sitemap and something like [`fast-xml-parser`](https://github.com/NaturalIntelligence/fast-xml-parser) to more properly parse the XML, but my modern JavaScript knowledge is limited.[^3] If you'd like to take a pass at a better implementation, [pull requests are always welcome](https://github.com/benbalter/retlab/edit/main/js/script.ts).
 
-## Conclusion
+## A 404 should point somewhere
 
-When I click on a broken link, the site that I land on should point me in the right direction. After all typo'd or updated URLs are not uncommon, and the site I'm visiting knows more about the site's content and structure than I ever will. While it's still true that [everything should have a URL](/2015/11/12/why-urls/), sometimes those URLs change or get lost in translation. Although you might hope a visitor would never see one, great 404 pages go that extra step and help visitors find what they're looking for. If you're interested in implementing the same functionality on your own site, the code above is part of the [`retlab` Jekyll theme](https://github.com/benbalter/retlab), and is licensed under [The MIT License](https://github.com/benbalter/retlab/blob/main/LICENSE.txt).
+When I click on a broken link, the site that I land on should point me in the right direction. After all, typo'd and updated URLs are common, and the site I'm visiting knows more about the site's content and structure than I ever will. While it's still true that [everything should have a URL](/2015/11/12/why-urls/), sometimes those URLs change or get lost in translation. Although you might hope a visitor would never see one, great 404 pages go that extra step and help visitors find what they're looking for. If you're interested in implementing the same functionality on your own site, the code above is part of the [`retlab` Jekyll theme](https://github.com/benbalter/retlab), and is licensed under [The MIT License](https://github.com/benbalter/retlab/blob/main/LICENSE.txt).
 
 [^1]: When a visitor tries to access a URL that does not exist, GitHub Pages [will serve the `404.html` file in the site's root directory](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site), if one exists.
 
