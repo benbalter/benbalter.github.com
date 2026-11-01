@@ -1,7 +1,7 @@
 ---
 title: "Accessible by default: writing a book like software"
 description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA) because the format wouldn't let me fake a heading and a browser audits every build, not because anyone scheduled a week for it. The parts Markdown can't check, like color contrast, axe-core catches under Playwright."
-tldr: "Accessibility is mostly setup: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and every build checks conformance for you. The structure that passes the check is the same one a screen reader and a large language model both read."
+tldr: "Accessibility is mostly setup: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and every build checks conformance for you. The structure that passes the check is the same one a screen reader and an LLM both read."
 published: true
 ---
 
@@ -15,13 +15,13 @@ Markdown is inflexible about that, in the best way. `##` is an `<h2>` or it's no
 
 [Open a word processor](/2014/03/31/word-versus-markdown-more-than-mere-semantics/) and a heading is a style you're welcome to apply, or you can select the line, bump it to 18pt bold, and move on. Both look identical on the page. Only one of them is a heading when assistive tech comes looking, and nothing in the editor tells you which one you made. :quote[I didn't get real headings through discipline. I got them because my formatting doesn't offer the other option.]{#format-offers-no-option}
 
-And everything downstream inherits those semantics. Pandoc renders the same source into HTML and EPUB (the standard ebook format), and a Lua filter adds [DPUB-ARIA](https://www.w3.org/TR/dpub-aria-1.0/) roles (the accessibility vocabulary for digital publishing) on the way through. A screen reader knows a callout is a callout, and knows which list of links is the table of contents.[^pipeline]
+And everything downstream inherits those semantics. Pandoc renders the same source into HTML and EPUB, and a Lua filter adds [DPUB-ARIA](https://www.w3.org/TR/dpub-aria-1.0/) roles on the way through. A screen reader knows a callout is a callout, and knows which list of links is the table of contents.[^pipeline]
 
 ## Markdown can't check the parts you didn't write
 
 Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures (big sheets folded down into 16 or 32 pages at a time), so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread (a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)) and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
 
-In the EPUB, that QR went out as a bare inline `<svg>`: not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace](https://daisy.org/activities/software/ace/), from the accessible-publishing nonprofit DAISY Consortium.[^checks][^standards] All three came back green and the book shipped with it.[^found]
+In the EPUB, that QR went out as a bare inline `<svg>`: not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found]
 
 ### Contrast doesn't exist until the render
 
@@ -57,13 +57,13 @@ Those readers are all human. The same markup that serves them serves the softwar
 
 ### Structure is the interface
 
-That same TL;DR annotation feeds the book's [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/). Yes, the book ships one, so an agent can query it directly. A build script pulls 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline straight out of the manuscript, with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
+That same TL;DR annotation feeds the book's MCP server ([about the protocol](https://modelcontextprotocol.io/)). Yes, the book ships one, so an agent can query it directly. A build script pulls 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline straight out of the manuscript, with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
 
-That overlap isn't limited to my build script. Alt text is the only description a large language model (LLM) has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
+That overlap isn't limited to my build script. Alt text is the only description a model has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
 
 ### The file has to open first
 
-The accessible file and the machine-readable file are only the same file if a reader can open it, which is why the book ships without digital rights management (DRM) everywhere it's sold. DRM encrypts the EPUB so only an approved app can open it, and every tool downstream of that lock is on the wrong side of it: a screen reader the vendor doesn't support, a text-to-speech engine, a braille conversion, an agent the reader points at a book they paid for. :quote[DRM is the one accessibility bug a reader can't file.]{#drm-cant-file} The structure only counts if the file is one they can open with whatever they read with.[^drm]
+The accessible file and the machine-readable file are only the same file if a reader can open it, which is why the book ships DRM-free everywhere it's sold. DRM encrypts the EPUB so only an approved app can open it, and every tool downstream of that lock is on the wrong side of it: a screen reader the vendor doesn't support, a text-to-speech engine, a braille conversion, an agent the reader points at a book they paid for. :quote[DRM is the one accessibility bug a reader can't file.]{#drm-cant-file} The structure only counts if the file is one they can open with whatever they read with.[^drm]
 
 ## Steal this
 

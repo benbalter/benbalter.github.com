@@ -131,6 +131,15 @@
 - acronym: EPUB
   meaning: Electronic Publication
   tooltip: 'Electronic Publication: the open ebook format (essentially zipped HTML and CSS) that non-Kindle readers use'
+- acronym: DPUB-ARIA
+  meaning: Digital Publishing WAI-ARIA Module
+  tooltip: 'Digital Publishing WAI-ARIA Module: the accessibility roles for book parts like chapters, footnotes, and glossaries'
+- acronym: DAISY
+  meaning: Digital Accessible Information System
+  tooltip: 'Digital Accessible Information System: the consortium behind accessible-publishing standards and the Ace EPUB checker'
+- acronym: DRM
+  meaning: Digital Rights Management
+  tooltip: 'Digital Rights Management: encryption that limits which apps and devices can open a file'
 - acronym: KDP
   meaning: Kindle Direct Publishing
   tooltip: 'Kindle Direct Publishing: Amazon''s self-publishing platform for ebooks and print-on-demand'

@@ -95,7 +95,7 @@ You don't need a migration project.
 
 - **Put your Markdown in version control.** Every change becomes a diff you can review.
 - **Keep your AI instructions in Markdown, too.** `AGENTS.md` and `CLAUDE.md` are just Markdown in your repository. This blog has both.
-- **Let your agent do the converting.** Both tools are also [Model Context Protocol (MCP) servers](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter), so Claude, Copilot, or whatever agent you use can turn a `.docx` into Markdown (and back) without you opening a browser tab. Or run `npx word-to-markdown input.docx` and `npx markdown-to-word input.md` yourself.
+- **Let your agent do the converting.** Both tools are also MCP servers ([listed in the registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.benbalter)), so Claude, Copilot, or whatever agent you use can turn a `.docx` into Markdown (and back) without you opening a browser tab. Or run `npx word-to-markdown input.docx` and `npx markdown-to-word input.md` yourself.
 
 ## Write for the reader you have
 

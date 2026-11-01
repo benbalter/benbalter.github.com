@@ -46,6 +46,7 @@ Many of these patterns are enforced mechanically by the `AIPatterns` [Vale](http
 - **Active voice**: "We deployed the feature" not "The feature was deployed"
 - **Contractions**: use naturally (don't, won't, it's)
 - **Sentence fragments** for emphasis. Like this.
+- **Acronyms**: don't spell them out in posts. Add the term to the glossary in [`src/data/acronyms.yml`](../data/acronyms.yml) instead, and [`rehype-acronyms`](../lib/rehype-acronyms.ts) gives its first use a hover tooltip. It skips text inside links, so keep at least one mention of the acronym outside link text.
 
 ## Language Principles
 
