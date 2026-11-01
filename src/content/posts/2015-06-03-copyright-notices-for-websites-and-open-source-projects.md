@@ -36,7 +36,7 @@ If in 2014, someone submits a pull request to add some new content to the site (
 
 ### So what date should you use?
 
-There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, and so on, noting each year of publication. The same legal theory applies here. A digital project, freed from the confines of the physical world, is published more often, likely in the year it started and every year after.
+There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, and so on, noting each year of publication. The same legal theory applies here. :quote[A digital project, freed from the confines of the physical world, is published more often, likely in the year it started and every year after.]{#digital-project-published-more}
 
 In terms of sites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 
@@ -44,7 +44,7 @@ In terms of sites, if you have a page that updates daily (think the front page o
 
 When an author creates an original work (be they a writer or developer), copyright automatically vests in the author. Think of that roughly like owning a building. If the author then wants others to be able to use that work, they may choose to grant them a license. Think of that license roughly like renting out an apartment in that building. The author retains ownership (the building), and the tenant has a lease saying they have the right to use it (a license).
 
-When you use an open source project, you are analogous to the renter, but who's the building owner (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
+When you use an open source project, you are analogous to the renter, but who's the building owner (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. :quote[When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.]{#contributors-retain-copyright}
 
 ### So whose name should you use?
 
