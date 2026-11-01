@@ -48,13 +48,13 @@ All six also ran in CI (Alex and Write-good folded into Vale there; [more on tha
 Beyond running those open source linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
 
 ```js
-// My time at GitHub has to read as past tense. Present-tense
+// My time at GitHub has to read as past tense — present-tense
 // employment claims about it fail the build.
 function validateGitHubTense(files) {
   const patterns = [
-    // "is/are ... at GitHub": a current-employment claim
+    // "is/are ... at GitHub" — a current-employment claim
     /\b(is|are)\b[^.!?\n]{1,80}?\bat GitHub\b/i,
-    // "works/leads/runs at GitHub": current-employment activity
+    // "works/leads/runs at GitHub" — current-employment activity
     /\b(works?|leads?|runs?|manages?|directs?)\s+(at|for)\s+GitHub\b/i,
   ];
   return flagLinesMatching(files, patterns);
@@ -221,7 +221,7 @@ But unit tests only prove *my* code is right, not that the *output* is valid. So
 I never have to remember to run any of this. Every push to `main` kicks off **14 parallel CI jobs**: build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
 
 ```yaml
-# build.yml: mostly independent jobs, so CI runs them in parallel
+# build.yml — mostly independent jobs, so CI runs them in parallel
 jobs:
   build-epub:            # → dist/book.epub
   build-kindle:          # → Kindle-specific EPUB
