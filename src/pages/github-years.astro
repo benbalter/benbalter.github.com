@@ -1,0 +1,82 @@
+---
+/**
+ * Every listable post written at GitHub that describes it first-hand (the
+ * `writtenAtGitHub` flag), grouped by year. The same posts carry a "Written
+ * while I was at GitHub" label; this page gathers them in one place.
+ */
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { getPostMetadata } from '../utils/post-metadata';
+import { getGitHubTenure } from '../utils/github-tenure';
+import { siteConfig } from '../config';
+import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
+
+const tenure = getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data));
+const posts = (await getPublishedPosts({ sorted: true })).filter((post) => post.data.writtenAtGitHub);
+
+const title = 'My GitHub years';
+const description = `What I wrote about how GitHub worked from the inside while I was there, ${tenure.startYear} to ${tenure.endYear}: how we communicated, shipped, and built community.`;
+
+const postsByYear = new Map<number, CollectionEntry<'posts'>[]>();
+for (const post of posts) {
+  const year = getDateFromSlug(post.id).getFullYear();
+  if (!postsByYear.has(year)) {
+    postsByYear.set(year, []);
+  }
+  postsByYear.get(year)!.push(post);
+}
+const years = [...postsByYear.keys()].sort((a, b) => b - a);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description,
+  url: new URL('/github-years/', siteConfig.url).toString(),
+  posts: posts.map((post) => ({
+    url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
+    title: post.data.title,
+  })),
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="mb-8">
+    <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
+    <p class="text-gray-600 dark:text-gray-300">
+      I worked at GitHub from {tenure.startYear} to {tenure.endYear}. These {posts.length} posts describe how it worked while I was there, so GitHub may do things differently today. For what carried over, start with <a href="/2026/03/04/thirteen-years-at-github/">what thirteen years taught me</a>.
+    </p>
+  </header>
+
+  {years.map((year) => {
+    const yearPosts = postsByYear.get(year)!;
+    return (
+      <section class="mb-10">
+        <h2 id={`${year}`} class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+          {year} ({yearPosts.length} {yearPosts.length === 1 ? 'post' : 'posts'})
+        </h2>
+        <div class="flex flex-wrap -mx-2">
+          {yearPosts.map((post) => {
+            const { postUrl, date, isoDate, readingTime, isExternal } = getPostMetadata(post);
+            return (
+              <div class="w-full md:w-1/2 px-2 mb-3">
+                <PostCard
+                  title={post.data.title}
+                  url={postUrl}
+                  date={date}
+                  isoDate={isoDate}
+                  description={post.data.description}
+                  readingTime={readingTime}
+                  external={isExternal}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
+  })}
+  <script type="application/ld+json" set:html={schemaToJsonLd(collectionSchema)} is:inline></script>
+</BaseLayout>

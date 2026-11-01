@@ -7,6 +7,7 @@
  * Uses Tailwind CSS utility classes for maintainability.
  */
 
+import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
@@ -19,6 +20,7 @@ import { ogImagePath } from '../utils/og-image-path';
 import { formatPostDate } from '../utils/post-urls';
 import { viewTransitionName } from '../utils/view-transition-name';
 import { getDocumentUri } from '../utils/standard-site';
+import { getGitHubTenure, writtenAtGitHubExplainer } from '../utils/github-tenure';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -81,6 +83,12 @@ const {
   posts: curatedPosts,
   roles: curatedRoles,
 } = Astro.props;
+
+// Hover text for the "Written while I was at GitHub" label; the years come from
+// the résumé positions so they live in one place.
+const writtenAtGitHubText = writtenAtGitHub
+  ? writtenAtGitHubExplainer(getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data)))
+  : undefined;
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
@@ -175,7 +183,15 @@ const itemListSchema = curatedUrls.length > 0
                 </span>
               )}
               {readingTime >= 1 && writtenAtGitHub && <span aria-hidden="true">·</span>}
-              {writtenAtGitHub && <span>Written while I was at GitHub</span>}
+              {writtenAtGitHub && (
+                <span
+                  class="initialism"
+                  data-tooltip="true"
+                  data-tooltip-text={writtenAtGitHubText}
+                  title={writtenAtGitHubText}
+                  tabindex="0"
+                >Written while I was at GitHub</span>
+              )}
             </div>
           )}
           
