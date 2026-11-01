@@ -2,6 +2,7 @@
 published: true
 title: Open Source is not a verb
 description: Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving.
+tldr: "Open source is not simply about publishing code: it's about connecting people around a shared vision, building community, and collaborating. It's how you approach a problem from the start, not what you do after you've already solved it. Next time you build something useful, make it open source from the start and grow a vibrant community around a cause."
 ---
 
 I'm always intrigued by developers who use the term "open source" as a verb. As if a switch could magically be thrown, and via a quick mouse click in the Danger Zone, a proprietary or purpose-built project quickly morphs into one that's "open source."
@@ -12,7 +13,7 @@ Open source, at its core, is actually not about code, but about connecting peopl
 
 Put another way, open source is not an alternative workflow or development method. It's not as if you can choose between waterfall, agile, and open source means of producing software in a workplace. Instead, it's an overriding philosophy that guides a project. Like forward thinking, simple, interoperable, system oriented, or open standards. It's how you approach a problem from the start, not what you do after you've already solved it.
 
-To say "hey, we've got something decent here, let's take this closed-sourced project and just hit publish" misses the mark. Your motivation can't be free labor ("Hey, if developers want to give us their time, great. Let's put this out there and see what happens; we have nothing to lose."). Nor can it be sporadically seeking to garner goodwill from a niche community of dedicated fans. Trust me, an open source developer can smell AstroTurf a mile away, and that's exactly how far they'll stay.
+To say "hey, we've got something decent here, let's take this closed-sourced project and just hit publish" misses the mark. Your motivation can't be free labor ("Hey, if developers want to give us their time, great. Let's put this out there and see what happens; we have nothing to lose."). Nor can it be sporadically seeking to garner goodwill from a niche community of dedicated fans. Trust me, :quote[an open source developer can smell AstroTurf a mile away, and that's exactly how far they'll stay.]{#smell-astroturf-a-mile-away}
 
 ## What makes an open source project truly open source and not simply "published"
 
@@ -26,4 +27,4 @@ To say "hey, we've got something decent here, let's take this closed-sourced pro
 
 All of the above are underlying principles that drive development from day one, and yet are not incompatible with a philosophy that dictates code remains under lock and key until a minimum viable product (MVP) has been reached. They do remain incompatible, however, with a philosophy that says that business as usual can be easily switched mid-stream to a successful open source project by simply not keeping the code secret.
 
-In the end, it's about [developing a community](/open-source-for-government/), not about developing software. You're selling an experience, whether that's scratching a developer's personal itch or giving them the opportunity to change the world. Next time you seek to build something useful, unless it's the recipe for your secret sauce or something so specific as to render it worthless outside the organization's walls, consider [making it open source from the start](/2012/06/26/why-you-should-always-write-software-as-open-source/), and instead seeking to grow a vibrant community around a cause, rather than simply coding a piece of software that happens to not be secret.
+In the end, it's about [developing a community](/open-source-for-government/), not about developing software. :quote[You're selling an experience, whether that's scratching a developer's personal itch or giving them the opportunity to change the world.]{#selling-an-experience} Next time you seek to build something useful, unless it's the recipe for your secret sauce or something so specific as to render it worthless outside the organization's walls, consider [making it open source from the start](/2012/06/26/why-you-should-always-write-software-as-open-source/), and instead seeking to grow a vibrant community around a cause, rather than simply coding a piece of software that happens to not be secret.

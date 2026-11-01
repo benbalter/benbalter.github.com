@@ -16,7 +16,7 @@ When organizations consume the products they create, they empirically deliver be
 
 ## 3. Data as a citizen service
 
-It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large data sets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. Data sets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. Doing so lets agencies deliver more useful information, and they no longer need to store the same data in multiple formats and in multiple locations.
+It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large data sets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. :quote[Imagine the usefulness of a Facebook feed that showed your friends' activity from last month.]{#facebook-feed-last-month} Data sets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. Doing so lets agencies deliver more useful information, and they no longer need to store the same data in multiple formats and in multiple locations.
 
 ## 4. Curate discrete pieces of data
 
@@ -32,7 +32,7 @@ Authentication may often be necessary, but the pain associated with it does not 
 
 ## 7. Encourage adoption through documentation
 
-Often, the most overlooked aspect of exposing data is documentation. Describe the structure of the data fully, including how to interpret it, and ensure that any technical documentation such as lists of methods and sample code is both complete and accurate. The only thing worse than not having documentation is having wrong documentation. The best APIs even provide Wikis to allow developers to share tools and best practices with one another.
+Often, the most overlooked aspect of exposing data is documentation. Describe the structure of the data fully, including how to interpret it, and ensure that any technical documentation such as lists of methods and sample code is both complete and accurate. :quote[The only thing worse than not having documentation is having wrong documentation.]{#worse-than-no-documentation} The best APIs even provide Wikis to allow developers to share tools and best practices with one another.
 
 ## 8. Follow industry standards and conventions
 
@@ -40,7 +40,7 @@ Although APIs may just be beginning to take hold in government, a set of best pr
 
 ## 9. Bake in analytics
 
-To garner support for future efforts, nothing beats raw numbers. From the ground up, bake in analytics on both the application level (what applications are querying the API?), and across APIs on the dataset levels (what APIs are being used?). This will help establish data-driven priorities, such as what type of data may be a good candidate for future APIs.
+:quote[To garner support for future efforts, nothing beats raw numbers.]{#nothing-beats-raw-numbers} From the ground up, bake in analytics on both the application level (what applications are querying the API?), and across APIs on the dataset levels (what APIs are being used?). This will help establish data-driven priorities, such as what type of data may be a good candidate for future APIs.
 
 ## 10. Location, location, location
 

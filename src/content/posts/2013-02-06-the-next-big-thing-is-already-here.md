@@ -1,6 +1,7 @@
 ---
 title: The next big thing is already here
 description: Want to predict the next technology trend? Look at how open source developers work. The tools they build for themselves today become mainstream tomorrow.
+tldr: "Chances are the next big thing is already here, and the open source community is already using it. Version control found its way to consumers as Dropbox and IRC's @ replies resurfaced on Twitter, and today developers are moving to distributed version control, APIs, and crowdsourced geospatial data. If the open source community as a whole is backing an effort, there's a good chance it's a winner."
 published: true
 ---
 
@@ -12,6 +13,6 @@ Each of these technologies, although they got their start in open source, found 
 
 So what's next? A lot. For one, we're seeing a pretty substantial shift among open source developers towards distributed version control. For another, we're seeing APIs and robust client-libraries shifting application logic to the edge. Last, many open-source projects are crowdsourcing information collection and curation, especially around geospatial data. Those are just a few examples, and there's much more out there.
 
-To be sure, not all innovations come from the open source world. Far from it in fact. But as the earliest adopters and arguably those most critical of the tools they use, as a general rule, if the open source community as a whole is backing an effort, there's a good chance it's a winner.
+To be sure, not all innovations come from the open source world. Far from it in fact. But as the earliest adopters and arguably those most critical of the tools they use, as a general rule, :quote[if the open source community as a whole is backing an effort, there's a good chance it's a winner.]{#open-source-backing-a-winner}
 
 *h/t [Phil Ashlock](https://phil.ashlock.us/) for the inspiration for this post.*
