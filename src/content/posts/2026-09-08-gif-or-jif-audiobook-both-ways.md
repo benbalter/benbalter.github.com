@@ -39,7 +39,7 @@ There's a chapter in the book about using chat well, and a section in it about e
 
 ## I recorded it wrong on purpose
 
-I wrote a whole book about working in the open, though, and the open-and-async answer to a disagreement is not to win the thread. It's to [ship the artifact and let people decide](https://ben.balter.com/2022/02/16/leaders-show-their-work/). I built the most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. An entire edition in the wrong pronunciation, rendered for the heretics to enjoy their own wrongness. Same words, same narrator, one phoneme of difference. Pick your fighter. Mine already won.
+I wrote a whole book about working in the open, though, and the open-and-async answer to a disagreement is to [ship the artifact and let people decide](/2022/02/16/leaders-show-their-work/). I built the most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. An entire edition in the wrong pronunciation. Same words, same narrator, one phoneme of difference. Pick your side. Mine already won.
 
 <figure class="not-prose post-gif post-gif--left">
   <!-- html-validate-disable-next no-autoplay -->
@@ -93,11 +93,7 @@ The voice is disclosed, it isn't cloned from a real person, and a human (me) lis
 
 That [free chapter](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) is a free sample, and I mean that literally. If you want the same synthetic narrator to read you the whole book, saying "jif" correctly the entire time, the [full audiobook](https://open-and-async.com/go/audiobook?src=gif-jif-post) is out now. Eleven and a half hours of it, and not one hard G.
 
-I am not going to win this argument. Nobody wins this argument. That's exactly why you hand people the choice instead of typing one more reply, then go build the next thing. Even if one of the choices is objectively incorrect.
-
-The right edition is the whole audiobook. The other one is just me being generous to the wrong ones.
-
-So, which are you? Choose carefully. My narrator already did.
+I am not going to win this argument. Nobody wins this argument. That's why you hand people the choice instead of typing one more reply, then go build the next thing. My narrator already chose.
 
 [^wilhite]: Steve Wilhite created the format at CompuServe in 1987, and when he accepted a lifetime achievement award he stood on a stage and said "it's pronounced JIF." The man who invented the thing gets to name it, and the hard-G crowd is out here overruling him. "But *graphics* has a hard G" is not the counterargument they think it is. It's an acronym, not a word, and the inventor already ruled. Yes, there's the peanut butter. Yes, I'm on that side too. I have made my peace with being right.
 
