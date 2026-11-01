@@ -16,14 +16,14 @@ It's easy to dismiss that negativity as ignorant, personal, or a vocal minority 
 Attempting to "control the narrative" by silencing dissent doesn't just fail. It backfires:
 
 - **It erodes psychological safety.** When you shut down the conversation, you send a message that you don't value the input, the perspective, or the feelings of those affected by your decision. You also signal that you have something to hide, or that you're not confident in your own reasoning, further eroding trust.
-- **It invites negativity.** When you ignore the questions, you don't make them go away. You just push them underground, where they fester into gossip and resentment, and people start looking for ways to undermine your decision.
+- **It invites negativity.** :quote[When you ignore the questions, you don't make them go away.]{#ignored-questions-dont-go-away} You just push them underground, where they fester into gossip and resentment, and people start looking for ways to undermine your decision.
 - **It stifles learning.** When you avoid the scrutiny, you miss an opportunity to "[show your work](/2022/02/16/leaders-show-their-work/)" and teach through action. An organization’s culture and values are made up of the underlying assumptions that its members use to make decisions. When decisions are transparent, you offer opportunities for the next generation of leaders to learn and grow through passive observation and lightweight participation.
 
 ## "Caremad" is a good thing
 
 Like your own reaction, your team's reaction is equally human, and, I'd argue, a good thing.[^1] It means they're engaged. It means they care. While you're ready to move on, they just got the news, and they're still processing. The difference between good leaders and great leaders is in the follow-through. Specifically, in their willingness to engage in the *emotional labor* of helping their team figure out how to move forward, together.
 
-That dissent isn't disengagement or obstructionism as it may be easy to misread. Quite the opposite. They're likely "caremad."[^2] They're upset because they care about ensuring the best possible outcomes and are trying to figure out how to do that. Questions and dissenting voices are a sign that people care about the decision being made. They want to understand the reasoning behind it, and they want to have a say in the process. And as a leader, it's your job to listen to those voices, take their concerns into account, and plot an *emotional* path forward.
+That dissent isn't disengagement or obstructionism as it may be easy to misread. Quite the opposite. They're likely "caremad."[^2] They're upset because they care about ensuring the best possible outcomes and are trying to figure out how to do that. :quote[Questions and dissenting voices are a sign that people care about the decision being made.]{#dissent-means-they-care} They want to understand the reasoning behind it, and they want to have a say in the process. And as a leader, it's your job to listen to those voices, take their concerns into account, and plot an *emotional* path forward.
 
 ## Great leaders engage with dissent
 
@@ -35,7 +35,7 @@ The best leaders I've worked with have always been open to dissenting voices. Th
 
 ## Covering your ears isn't leadership
 
-Covering your ears and humming through after-the-fact questions isn't bold leadership. It shows a lack of leadership in the moment, the equivalent of saying "I would have gotten away with it if it weren't for you mangy kids..." (for anyone who grew up on Scooby-Doo and other Saturday-morning whodunit cartoons).
+:quote[Covering your ears and humming through after-the-fact questions isn't bold leadership.]{#covering-your-ears-isnt-leadership} It shows a lack of leadership in the moment, the equivalent of saying "I would have gotten away with it if it weren't for you mangy kids..." (for anyone who grew up on Scooby-Doo and other Saturday-morning whodunit cartoons).
 
 The alternative to the "I don't like what they're saying so they shouldn't be allowed to say it" approach is to embrace transparency, openness, and accountability. In practice: name the situation's complexity, show the evidence behind your call, take your stakeholders' questions head-on, and own your mistakes. Stay humble. Listen, learn, and change course when the argument warrants it. And stay consistent: communicate often and honestly, and follow through on what you promised.
 

@@ -54,7 +54,7 @@ In practice, that means discussions should have one purpose, defined by the titl
 
 ## 5. Secrets, secrets, are no fun
 
-Email and private DMs are terrible, terrible collaboration mediums, and even worse mechanisms for storing organizational knowledge. There's no way to opt in or out, no ability to link to or cross-reference discussions for non-participants, and conversation history lives in a teammate's personal inbox or channel list, so when they leave so too does the issue's context. Use email and private DMs sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email and DMs are for sensitive conversations.
+:quote[Email and private DMs are terrible, terrible collaboration mediums, and even worse mechanisms for storing organizational knowledge.]{#dms-terrible-for-knowledge} There's no way to opt in or out, no ability to link to or cross-reference discussions for non-participants, and conversation history lives in a teammate's personal inbox or channel list, so when they leave so too does the issue's context. Use email and private DMs sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email and DMs are for sensitive conversations.
 
 In practice, that means email and private DMs are typically reserved only for things like personnel discussions, one-to-one feedback, and external communication. The same goes for other mediums (like phone calls) that don't automatically capture and surface context. If you can have the conversation in a better medium, you should.
 
@@ -62,7 +62,7 @@ In practice, that means email and private DMs are typically reserved only for th
 
 There's a stubborn chat antipattern, where all chat conversations sparked by a question must begin by the asker either starting with an open "Hi" and waiting for a response before asking, or asking if they could ask a question ("Hey, do you have a sec?"). While it may seem like you're being polite on the surface, it defeats the purpose of chat: asynchronicity. Just ask the question. They'll know you have something to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
 
-In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. Push them the question, not just the notification. But you can take that a step further: There's a good chance someone else in the room just saw your question, and is able to answer it immediately (because you've exposed the question to the entire team, not an individual). That's the beauty of a distributed workflow.
+In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. :quote[Push them the question, not just the notification.]{#push-the-question} But you can take that a step further: There's a good chance someone else in the room just saw your question, and is able to answer it immediately (because you've exposed the question to the entire team, not an individual). That's the beauty of a distributed workflow.
 
 ## 7. Overcompensate for tone
 
