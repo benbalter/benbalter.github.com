@@ -22,7 +22,7 @@ Muting is most useful when there's content you don't want to see or don't want t
 
 User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further in that it also prevents the blocked user from seeing *your* content.
 
-Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting. Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
+Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). :quote[Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting.]{#blocking-more-confrontational} Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
 
 ## The problem with blocking and muting on most sites
 
@@ -36,7 +36,7 @@ Now if the inventor makes the person saying all those terrible things wear some 
 
 If this type of disruptive behavior occurred in a real-world town square, the town would have police, a justice system, and centuries of legal tradition to amicably enforce well-understood societal norms. As the conversations that traditionally happened in town squares move online, platforms have been understandably reluctant or slow to police digital town squares the same way, or with the same level of maturity.
 
-There's an ongoing debate as to the role platforms should play in policing online discourse and how that decision might affect their bottom line. Different platforms have different purposes and constraints, but if I were that hypothetical megaphone inventor, at minimum, I'd personally feel ethically compelled to ensure that my invention wasn't used as an instrument to harm others. After all, the inventor is not required to invent the megaphone in the first place, [nor are they obligated to amplify all voices or amplify all voices equally](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play).
+There's an ongoing debate as to the role platforms should play in policing online discourse and how that decision might affect their bottom line. :quote[Different platforms have different purposes and constraints, but if I were that hypothetical megaphone inventor, at minimum, I'd personally feel ethically compelled to ensure that my invention wasn't used as an instrument to harm others.]{#inventor-ethically-compelled} After all, the inventor is not required to invent the megaphone in the first place, [nor are they obligated to amplify all voices or amplify all voices equally](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play).
 
 ## User blocking on GitHub
 
@@ -51,7 +51,7 @@ On GitHub, users[^2] "control" certain spaces, such as repositories they own, or
 
 ## It's *complicated*
 
-The megaphone metaphor illustrates an extreme. Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes. What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprisingly complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
+The megaphone metaphor illustrates an extreme. :quote[Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes.]{#gray-area-between-absolutes} What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprisingly complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
 
 ### 1. Hiding the blocked user's content
 
@@ -67,7 +67,9 @@ While I'd like to believe that all maintainers would be both well intentioned an
 
 While we primarily think of blocking on GitHub as user-to-user or project-to-user, the logical constraints must, as a result of that potential risk, also account for user-to-maintainer blocks. If a contributor has blocked a maintainer, the maintainer can still minimize (hide), delete, or reply to the contributor's comments (if they are truly disruptive), but cannot edit or react to them, to avoid fanning the flames.
 
-It might be tempting to say that maintainers should have absolute control over their repositories, but we've seen that even well-intentioned replies can escalate otherwise volatile situations into an all out flame war, instead preferring anonymous moderation tools or forced cool-down periods whenever possible to encourage all parties to seek the most constructive resolution.
+:::objection[Shouldn't maintainers have absolute control over their repositories?]
+We've seen that even well-intentioned replies can escalate otherwise volatile situations into an all out flame war, instead preferring anonymous moderation tools or forced cool-down periods whenever possible to encourage all parties to seek the most constructive resolution.
+:::
 
 ## Different platforms need different blocking models
 

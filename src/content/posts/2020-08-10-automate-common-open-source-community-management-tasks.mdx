@@ -1,6 +1,7 @@
 ---
 title: Automate common open source community management tasks
 description: Never force a human to do what a computer can. How to automate code review, issue triage, and maintainer workflows to scale your open source community.
+tldr: "Successful open source projects rely on automation to enforce community workflows and make contributing self-serve. Use CI for code review, Probot or GitHub Actions for issue management, and automate your own releases, changelogs, and dependency updates, which frees you up for higher-value, more human-centric work."
 writtenAtGitHub: true
 ---
 
@@ -10,7 +11,7 @@ Successful open source projects rely heavily on automation to implement and enfo
 
 ## Automate code review
 
-Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it’s actually a powerful community building tool as well. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human has the chance to review it, CI also provides maintainers with confidence that a given feature or bugfix doesn’t introduce a regression, without necessarily needing to run the code locally.
+:quote[Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it’s actually a powerful community building tool as well.]{#ci-community-building-tool} Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human has the chance to review it, CI also provides maintainers with confidence that a given feature or bugfix doesn’t introduce a regression, without necessarily needing to run the code locally.
 
 Automated testing can be used for more than just “does this thing work”. If your project (or language or framework) has adopted coding standards, use CI to enforce them. Most common languages have customizable linters, or, if necessary, you could always write your own for custom or one-off rules. As we say at GitHub, “pedantic robots > pedantic humans”. If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you’re less likely to.
 
@@ -45,4 +46,4 @@ Whether you use Probot, a community-maintained Actions workflow, or your own Act
 
 Finally, take a critical look at repetitive or time consuming tasks that can be automated to support your own workflow. Can releases be automated to get pushed to a package manager as soon as a release is cut? Can you automate generating the changelog or list of contributors based on pull requests merged since the last release? What about updating dependencies? If you can automate it, often times you should, as doing so frees you up to work on higher-value, more human-centric work.
 
-We often start open source projects to solve shared or novel technical challenges, but as a project grows, a maintainer's focus naturally shifts from the code to the people and processes around it. Never force a human to do what a computer can.
+:quote[We often start open source projects to solve shared or novel technical challenges, but as a project grows, a maintainer's focus naturally shifts from the code to the people and processes around it.]{#focus-shifts-to-people} Never force a human to do what a computer can.
