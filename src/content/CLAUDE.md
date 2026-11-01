@@ -79,7 +79,7 @@ Use footnotes for asides, definitions, and tangential context that would break t
 
 ## SEO
 
-- **Title**: 50–60 characters, keyword-rich, no Markdown formatting
+- **Title**: under about 47 characters, keyword-rich, no Markdown formatting. The layout appends " | Ben Balter" (13 characters) to the `<title>` and `og:title`, and search results show roughly 60.
 - **Description**: any length, but optimize the first 150 characters after stripping Markdown. Keep Markdown links in the content; never remove them to hit a length target. Rewrite the plain text instead.
 - **Headings**: H2 for main sections, H3 for subsections, never skip levels
 - **Internal links**: use descriptive anchor text; link to related posts generously

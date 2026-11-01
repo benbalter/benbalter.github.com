@@ -373,7 +373,7 @@ Ben's posts form an interconnected knowledge base. When writing:
 
 ### SEO Best Practices
 
-* Write descriptive, keyword-rich titles (50–60 characters)
+* Write descriptive, keyword-rich titles (under about 47 characters, since the layout appends " | Ben Balter")
 * Create compelling meta descriptions that optimize the first 150 characters (after Markdown is stripped) for search results
 * Use semantic HTML headings (##, ###, etc.)
 * Include relevant internal links to other posts
