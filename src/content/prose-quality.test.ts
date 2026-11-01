@@ -222,7 +222,8 @@ describe('prose quality', () => {
           // Extract internal links: [text](/path)
           const linkMatches = line.matchAll(/\[([^\]]+)\]\((\/[^)]+)\)/g);
           for (const match of linkMatches) {
-            const url = match[2];
+            // Drop an optional link title: [text](/path/ "Title")
+            const url = match[2].split(/\s+/)[0];
             
             // Skip generated files
             if (url.startsWith('/sitemap.xml') || url.startsWith('/sitemap-index.xml')) {
@@ -261,7 +262,8 @@ describe('prose quality', () => {
           // Extract internal links: [text](/path)
           const linkMatches = line.matchAll(/\[([^\]]+)\]\((\/[^)]+)\)/g);
           for (const match of linkMatches) {
-            const url = match[2];
+            // Drop an optional link title: [text](/path/ "Title")
+            const url = match[2].split(/\s+/)[0];
             
             // Check if the link needs a trailing slash
             if (needsTrailingSlash(url)) {
