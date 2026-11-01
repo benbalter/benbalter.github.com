@@ -4,7 +4,7 @@ bookRelation: inspired
 description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows. It amplifies human judgment instead of replacing it."
 ---
 
-When I first wrote about [the nine things a program manager does](/2021/03/26/nine-things-a-technical-program-manager-does/), I didn't dwell on what the job actually feels like first thing on a Monday. The hardest part was always the scramble: a dozen threads that moved over the weekend, a risk or two that quietly materialized, and a critical deliverable whose scope someone changed in a comment buried three levels deep. All of it has to be synthesized into a coherent picture before the leadership sync, and the clock doesn't care how many tabs you have open.
+When I first wrote about [the nine things a program manager does](/2021/03/26/nine-things-a-technical-program-manager-does/), I didn't dwell on what the job actually feels like first thing on a Monday. The hardest part was always the scramble: a dozen threads that moved over the weekend, a risk or two that quietly materialized, and a critical deliverable whose scope someone changed in a comment buried three levels deep. All of it has to be synthesized into a coherent picture before the leadership sync, and the clock doesn't care how many tabs are open.
 
 That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
