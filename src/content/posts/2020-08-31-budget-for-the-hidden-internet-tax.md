@@ -64,7 +64,7 @@ Many negative interactions happen [when well-intentioned features assume implici
 
 Building one-off tools or writing policies will never be enough. You also need a team with deep, platform-specific expertise. That team builds shared systems, teaches feature teams the risks and remediations, reviews features for potential abuse vectors early in the product lifecycle, sets policy and moderates content with care and context, and drives a safety-centric product and engineering culture more broadly. Trust and safety only succeeds in the long run when it's part of the company's DNA, with widespread executive and grassroots support.
 
-## Blocking and reporting are only the start {#beyond-blocking}
+## Blocking and reporting are only the start
 
 Many platforms do implement basic trust and safety features like blocking or reporting, but trust and safety is much, much more than adding a blocking function to your product and moving on to the next revenue-generating feature.[^2] Trust and safety is a specialized, adversarial field, and it takes ongoing investment to stay one step ahead of those who want to use your platform to harm others. Think automated flagging, sentiment analysis, [sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_(Internet)) correlation, [brigade](https://www.merriam-webster.com/words-at-play/brigading-online-poll-meaning) prevention, anomaly detection, moderator tools, reputation scores, identity verification, minimizing in-product bias, and detailed platform policy and playbooks. The list goes on.
 
