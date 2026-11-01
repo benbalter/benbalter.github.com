@@ -1,7 +1,7 @@
 ---
-title: How to convert Shapefiles to GeoJSON maps for use on GitHub (and why you should)
-description: A step-by-step guide to converting ESRI Shapefiles to GeoJSON for rendering as interactive maps on GitHub, plus why open formats matter for public data.
-tldr: "A step-by-step guide to converting ESRI Shapefiles to GeoJSON format for rendering as interactive maps on GitHub, plus why open formats matter for public data."
+title: Convert Shapefiles to GeoJSON for GitHub Maps
+description: How to convert ESRI Shapefiles to GeoJSON so GitHub renders them as interactive maps, and why open formats matter for public data.
+tldr: "With GDAL installed, one ogr2ogr command turns a proprietary Shapefile into GeoJSON, which GitHub renders as an interactive map. Once public geodata lives on GitHub in an open, text-based format, anyone can fork, diff, and improve it like code."
 ---
 
 With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/maps/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/maps/polling-place.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/maps/liquor-license-locations.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile). The format arose when the desktop ruled supreme, and many common uses require a [costly software subscription](http://www.esri.com/software/arcgis/arcgis-for-home).
@@ -26,7 +26,7 @@ The same process should work for KML files as well, replacing `[name].shp` with 
 
 ## Why this is important
 
-For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, once you put the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code (forking, merging, diffing, tracking changes over time), and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
+For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a simple point, click, zoom interface that anyone can use. For another, once you put the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code (forking, merging, diffing, tracking changes over time), and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
 
 ## See the finished map on GitHub
 

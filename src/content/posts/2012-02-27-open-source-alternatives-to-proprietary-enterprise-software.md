@@ -1,7 +1,7 @@
 ---
-title: Open-Source Alternatives to Proprietary Enterprise Software
+title: Open-Source Alternatives for the Enterprise
 description: A collaboratively maintained list of open-source alternatives to proprietary enterprise software, from the UK's procurement toolkit on GitHub.
-tldr: "A collaboratively maintained list of open-source alternatives to proprietary enterprise software, converted from the UK's procurement toolkit and published on GitHub."
+tldr: "A collaboratively maintained list of open-source alternatives to proprietary enterprise software, converted from the UK's procurement toolkit and published on GitHub. Know a tool that's missing or wrong? Fork the list and send a pull request."
 archived: true
 ---
 

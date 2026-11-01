@@ -1,7 +1,7 @@
 ---
 title: Twelve things a product manager does
-description: What does a product manager actually do all day? After six months of note-taking, here are 12 responsibilities from user advocacy to strategic thinking.
-tldr: "What does a product manager actually do all day? After six months of note-taking, here are twelve responsibilities from user advocacy to strategic thinking."
+description: What does a product manager actually do all day? After six months of note-taking, here are 12 responsibilities, from user advocacy to strategy.
+tldr: "A product manager is the one person on the team who isn't allowed to have excuses. Six months of notes show what that means day to day: advocating for users, shipping v0.1 instead of v1.0, capturing every idea in an issue, and telling urgent or measurable work apart from what's actually important."
 writtenAtGitHub: true
 ---
 
@@ -35,7 +35,7 @@ Your customers are experts at using your product. They're not necessarily expert
 
 ## 7. Ensure you ship v0.1 not v1.0
 
-Coming up with the vision for the 1.0 version of any feature is the easy part. Giving in to the temptation to forgo shipping until it's absolutely perfect is even easier. **The challenge lies in breaking that feature into a minimal 0.1 that you can immediately expose to users**, and following up with subsequent ships that improve upon the first. Not only do users begin getting some of the feature's value early on, but rather than spending six months potentially heading in the wrong direction, you can see how it's used in the wild, and can adjust your plans accordingly. Incremental ships also keep the number of moving parts to a minimum, and help avoid "flip a giant switch"-style deploys that subject users to large swaths of untested code.
+Coming up with the vision for the 1.0 version of any feature is the easy part. Giving in to the temptation to forgo shipping until it's perfect is even easier. **The challenge lies in breaking that feature into a minimal 0.1 that you can immediately expose to users**, and following up with subsequent ships that improve upon the first. Not only do users begin getting some of the feature's value early on, but rather than spending six months potentially heading in the wrong direction, you can see how it's used in the wild, and can adjust your plans accordingly. Incremental ships also keep the number of moving parts to a minimum, and help avoid "flip a giant switch"-style deploys that subject users to large swaths of untested code.
 
 ## 8. Don't confuse urgent with important
 

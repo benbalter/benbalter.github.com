@@ -1,6 +1,6 @@
 ---
 title: Open and async on the Overcommitted podcast
-description: "How people communicate matters more to a remote engineering team than where they sit. A conversation on the Overcommitted podcast about async-first culture, decision durability, and the ideas behind Open and Async."
+description: "Where people sit matters less to a remote team than how they communicate. I talked async culture and Open and Async on the Overcommitted podcast."
 tldr: "Remote engineering teams succeed or fail on how people communicate. I talked about async-first culture, decision durability, and the ideas behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-overcommitted-post) on the [Overcommitted podcast](https://overcommitted.dev/open-and-async-work-remote-engineering-culture-with-ben-balter/)."
 ---
 

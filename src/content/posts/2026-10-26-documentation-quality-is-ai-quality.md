@@ -1,5 +1,5 @@
 ---
-title: Your documentation quality is your AI quality now
+title: Your docs quality is your AI quality now
 description: "AI tools are only as good as the docs you feed them. Bold text isn't a heading to a model. Here's the fix, plus two free converters."
 tldr: "AI tools need to know what your content is, not what it looks like. Use real headings and lists, keep one living copy, convert legacy Word files in with word2md.com, and export to Word only at the end with md2word.app."
 ---
@@ -16,7 +16,7 @@ Markdown is the cheapest fix I know, for the reason I gave [back in 2014](/2014/
 
 ## Structure is what the model sees
 
-Word processors encourage you to describe what something *looks like*. Markup makes you declare what it *is*. In Markdown, `## Deprecating the v1 API` says "this is a second-level heading." Word can say the same thing with its Heading 2 style, but it also lets you just make the text big and bold, and most people do. The two look identical to a sighted reader. A screen reader or a language model sees something completely different.[^accessible]
+Word processors encourage you to describe what something *looks like*. Markup makes you declare what it *is*. In Markdown, `## Deprecating the v1 API` says "this is a second-level heading." Word can say the same thing with its Heading 2 style, but it also lets you just make the text big and bold, and most people do. The two look identical to a sighted reader. A screen reader or a language model sees a plain paragraph.[^accessible]
 
 As I put it in the book, markup is a contract; formatting is a costume.
 

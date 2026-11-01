@@ -1,10 +1,10 @@
 ---
-title: Advanced Workflow Management Tools for WP Document Revisions
-description: WP Document Revisions now integrates with Edit Flow, adding email notifications, custom metadata, team chat, and calendar views to your document workflow.
+title: Workflow Management for WP Document Revisions
+description: WP Document Revisions now integrates with Edit Flow, adding email notifications, custom metadata, team chat, and calendar views to your workflow.
 archived: true
 ---
 
-Looking for even more advanced control of your workflow? [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions: Document Management & Version Control for WordPress") gained a huge feature today with the addition of integrated support for the popular workflow plugin [Edit Flow](https://editflow.org). Beginning with [version 1.1](http://wordpress.org/extend/plugins/wp-document-revisions/), WP Document Revisions will detect Edit Flow, if installed, and will automatically pull [Edit Flow's advanced workflow management tools](http://wordpress.org/extend/plugins/edit-flow/screenshots/) into the proven WP Document Revisions experience you already know and use. Specifically:
+Looking for even more advanced control of your workflow? [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions: Document Management & Version Control for WordPress") gained integrated support today for the popular workflow plugin [Edit Flow](https://editflow.org). Beginning with [version 1.1](http://wordpress.org/extend/plugins/wp-document-revisions/), WP Document Revisions will detect Edit Flow, if installed, and will automatically pull [Edit Flow's advanced workflow management tools](http://wordpress.org/extend/plugins/edit-flow/screenshots/) into the proven WP Document Revisions experience you already know and use. Specifically:
 
 - **Email Notifications and User Groups** allow you to keep track of activity via email and manage alerts based on existing teams. Subscribe individual users or entire groups to receive a document's updates.
 - **Custom Document Metadata** allows organizations to store additional information alongside your documents in a sleek, intuitive manner. Supports a virtually unlimited number of checkboxes, dates, locations, text, users, and numeric fields.
@@ -16,4 +16,4 @@ Ideal for teams of any size looking to fine tune their WP Document Revisions exp
 
 <!-- vale Microsoft.Accessibility = NO -->
 
-Want one feature but not another? Each can be individually enabled or disabled via Edit Flow's settings panel. For more information, see the [Edit Flow homepage](https://editflow.org/) or simply [download and install the plugin](http://wordpress.org/extend/plugins/edit-flow/) to begin — no additional setup necessary.
+Want one feature but not another? Each can be individually enabled or disabled via Edit Flow's settings panel. For more information, see the [Edit Flow homepage](https://editflow.org/) or [download and install the plugin](http://wordpress.org/extend/plugins/edit-flow/) to begin. No additional setup necessary.

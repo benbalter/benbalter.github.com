@@ -1,7 +1,7 @@
 ---
 title: 'Jekyll: Where content is truly king'
 description: "Choosing Jekyll over a traditional CMS for government.github.com freed us to spend six months iterating on what mattered most: the content."
-tldr: "Choosing Jekyll over a traditional CMS for government.github.com made the technology a given, freeing us to spend six months iterating on what actually mattered: the content."
+tldr: "Choosing Jekyll over a traditional CMS for government.github.com made the technology a given, freeing us to spend six months iterating on what actually mattered: the content. Treat your content like code (forks, pull requests, issues) and it keeps getting better."
 writtenAtGitHub: true
 ---
 
@@ -13,6 +13,6 @@ Had we chosen to go the traditional WordPress, Rails, or really, any other route
 
 Instead, [Jekyll](http://jekyllrb.com), the static site generator baked directly into [GitHub Pages](https://pages.github.com), brought a zen-like simplicity that let us focus on one thing and one thing only: content. Are we solving for the right thing here? Can we word this better? Is this line absolutely necessary? We knew it was going to work, so we were able to move on to more important things.
 
-But there was another major advantage. By treating the content as code, we suddenly empowered ourselves to use a more evolved editorial workflow. Forks, pull requests, a running list of issues… the content truly was an open source project in itself, and [as we close in on nearly 100 contributors](https://github.com/github/government.github.com/graphs/contributors), the content is only getting better each day.
+There was another big advantage. By treating the content as code, we suddenly empowered ourselves to use a more evolved editorial workflow. Forks, pull requests, a running list of issues… the content truly was an open source project in itself, and [as we close in on nearly 100 contributors](https://github.com/github/government.github.com/graphs/contributors), the content is only getting better each day.
 
-:quote[Open source is about tackling shared challenges together, and there's no reason the philosophy should stop at code.]{#philosophy-should-not-stop-at-code} Dumb-simple tools like Jekyll empower that workflow and free you to focus on what matters, so there's no excuse for content not being king.
+:quote[Open source is about tackling shared challenges together, and there's no reason the philosophy should stop at code.]{#philosophy-should-not-stop-at-code} Simple tools like Jekyll empower that workflow and free you to focus on what matters, so there's no excuse for content not being king.

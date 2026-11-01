@@ -1,11 +1,11 @@
 ---
 title: User blocking vs. user muting
 description: Why GitHub's approach to user blocking diverges from other social networks, and what's different about moderating a code collaboration platform.
-tldr: "Why GitHub takes a unique approach to user blocking that diverges from other social networks, and the special considerations of moderating a code collaboration platform."
+tldr: "On GitHub, blocking keeps someone from interacting with you, but you still see their contributions in shared conversations, because collaborating on code isn't scrolling a feed. Muting is for content you don't want to see; blocking is for behavior you don't want aimed at you."
 writtenAtGitHub: true
 ---
 
-Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result.
+Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the trade-offs that come with it.
 
 Typically, social networks offer at least two distinct user safety features which are roughly:
 
@@ -16,13 +16,13 @@ Typically, social networks offer at least two distinct user safety features whic
 
 <!-- vale Microsoft.Accessibility = NO -->
 
-Muting is most useful when there's content you don't want to see or don't want to be notified about. You might mute someone who posts spoilers for your favorite show (or spoilers posted by any user), or users and topics you don't want in your feed for various reasons. Muting also lets you quiet an account that's bothering you without a confrontation, since most sites never tell the muted user.
+Muting is most useful when there's content you don't want to see or don't want to be notified about. You might mute someone who posts spoilers for your favorite show (or spoilers posted by any user), or users and topics you'd rather keep out of your feed. Muting also lets you quiet an account that's bothering you without a confrontation, since most sites never tell the muted user.
 
 ## User blocking (on most sites)
 
 User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further in that it also prevents the blocked user from seeing *your* content.
 
-Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). :quote[Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting.]{#blocking-more-confrontational} Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
+Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). :quote[Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting.]{#blocking-more-confrontational} Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can just log out or create a new (sock puppet) account to see or interact with your content.
 
 ## The problem with blocking and muting on most sites
 
@@ -30,7 +30,7 @@ Imagine a simpler time before social networks or even the internet. Now imagine 
 
 The next day, one townsperson stands in the middle of the town's square and uses one of those megaphones to shout something terrible about you. The megaphone inventor is quick to give you ear plugs so that you don’t have to hear what they're saying (muting), but your friends and neighbors still hear it. Someone shouting into a megaphone all day disrupts their daily routines, too. And the person with the megaphone is still saying terrible things about you. You just don’t know what they're saying (and thus can’t defend yourself).[^1]
 
-Now if the inventor makes the person saying all those terrible things wear some sort of special ear plugs that prevents them from hearing what you say (blocking), they can no longer respond or interact with you directly, but they're still welcome to shout all they want in that town square for all others to hear, and in most cases, could probably remove the ear plugs any time they wanted. Far from ideal.
+Now if the inventor makes the person saying all those terrible things wear some sort of ear plugs that prevents them from hearing what you say (blocking), they can no longer respond or interact with you directly, but they're still welcome to shout all they want in that town square for all others to hear, and in most cases, could probably remove the ear plugs any time they wanted. Far from ideal.
 
 ## Platforms' role in policing digital town squares
 
@@ -51,11 +51,11 @@ On GitHub, users[^2] "control" certain spaces, such as repositories they own, or
 
 ## It's *complicated*
 
-The megaphone metaphor illustrates an extreme. :quote[Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes.]{#gray-area-between-absolutes} What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprisingly complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
+The megaphone metaphor illustrates an extreme. :quote[Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes.]{#gray-area-between-absolutes} What may seem simple on the surface as "hide their post" or "don't let them comment", is [complex once you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
 
 ### 1. Hiding the blocked user's content
 
-If you block a user on GitHub, we continue to show you the blocked user's content under the belief that magically "disappearing" the content would be more disruptive to your ability to collaborate with others than if we continued to show that content in the context of ongoing conversations. This stems from the belief that users [are not inherently "good" or "bad"](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#2-focus-on-behaviors-not-users), and that they may make both constructive and disruptive contributions to projects, even if you may not want them to interact with you (or your project) going forward.
+If you block a user on GitHub, we continue to show you the blocked user's content under the belief that magically "disappearing" the content would be more disruptive to your ability to collaborate with others than if we continued to show that content in ongoing conversations. This stems from the belief that users [are not inherently "good" or "bad"](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#2-focus-on-behaviors-not-users), and that they may make both constructive and disruptive contributions to projects, even if you may not want them to interact with you (or your project) going forward.
 
 Imagine that you find yourself viewing an issue or pull request where the blocked user is an active (and constructive at the time) participant, either before or after you blocked them. Perhaps they opened a detailed bug report to which other users offered reproduction steps or made a feature request which other contributors have :+1:'d. It'd be confusing if everyone else could see the blocked user's contributions, but you could not, not to mention, given the technical nature of *most* discussions on GitHub, you may still want to reference their contribution, regardless of your current relationship with the author.
 
@@ -73,7 +73,7 @@ We've seen that even well-intentioned replies can escalate otherwise volatile si
 
 ## Different platforms need different blocking models
 
-GitHub has taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the result has largely allowed for a [federated moderation system](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations constructive to grow healthy and productive communities around their code.
+GitHub has taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the result is a [federated moderation system](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations constructive to grow healthy and productive communities around their code.
 
 It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub in hopes that it could help other platforms facing similar challenges to plot their own path. As always, [these views are my own](/2015/01/26/the-fine-print-nobody-reads/).
 

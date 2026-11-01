@@ -9,7 +9,7 @@ George Washington University recently released an [iPhone app](https://gwtoday.g
 
 Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP. Feel free to grab the code below, or fork and contribute in the [GitHub repository](https://github.com/benbalter/GW-API). Cool data that deserves to be shared with the world, no doubt.
 
-Creative ideas on how best to leverage the information welcome in the comments below.
+Creative ideas on how best to use the information welcome in the comments below.
 
 *Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided "as is" solely for educational purposes. If for any reason you would like this page removed, please [contact me](/contact/) immediately and I will do so.*
 

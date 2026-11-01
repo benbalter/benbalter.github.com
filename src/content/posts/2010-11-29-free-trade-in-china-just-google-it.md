@@ -1,13 +1,15 @@
 ---
 title: Free Trade in China? Just Google it.
 description: Google's white paper argues China's internet censorship violates WTO free trade commitments by blocking access to online commerce.
-tldr: "As the internet is increasingly becoming the dominant instrument of commerce, blocking access to information is tantamount to blocking access to trade, as Google argues in their recently released white paper calling out China, among others for violating WTO commitments."
+tldr: "As the internet becomes the dominant instrument of commerce, blocking access to information is the same as blocking access to trade. That's the argument in Google's new white paper, which calls out China, among others, for violating its World Trade Organization (WTO) commitments."
 archived: true
 ---
 
 In 593 A.D., the first printing press quietly spun into operation in China. Exactly 120 years later, the first paper, *Kaiyuan Za Bao*, began production in Beijing. [^1] In 2010, however, China's information landscape is best characterized not by innovation, but rather by tightly controlled government restriction, and no American corporation is more acutely aware of this austere reality than internet giant Google. The company [recently released](http://googlepublicpolicy.blogspot.com/2010/11/promoting-free-trade-for-internet.html) a [white paper](http://www.google.com/googleblogs/pdfs/trade_free_flow_of_information.pdf) calling out China, among others for violating WTO commitments and urged lawmakers to break down barriers to free trade and global e-commerce.
 
 <img src="https://ben.balter.com/wp-content/uploads/2010/11/1194563275_664d6b15e2_b.jpg" alt="Photo of the Great Wall of China" title="Great Wall of China" class="mx-auto block" />
+
+## Censorship is a trade barrier
 
 The argument is simple: As the internet is increasingly becoming the dominant instrument of industry, blocking access to information is tantamount to blocking access to trade.
 
@@ -17,11 +19,17 @@ The white paper elaborates:
 >
 > Annual internet-based commerce worldwide is expected to soon reach \$1 trillion. [^4] In the United States alone, online retail sales were over $132 billion in 2008. [^5] Globally, Internet and telecom services contributed 3.3 percent of GDP in 2004, compared with 1.8 percent in 1990, with virtually every single economy enjoying growth in the sector. [^6]
 
-The commercialization of the internet and subsequent clash with government restriction is nothing new. US-based information technology companies have been doing business in China with relative success for quite some time. Yahoo!, Inc. was the first to enter the fray in 1998, launching a Chinese-language version of its popular search engine to compete with China's domestic internet content providers, and not long after, Microsoft and Google followed suit. [^7] However, in 2000, China's Ministry of Public Security began the Golden Shield Project with the goal of "adopt[ing]… advanced information and communication technology to strengthen central police control, responsiveness, and crime combating capacity to improve the efficiency and effectiveness of police work. [^8]"
+## China has restricted American tech companies for years
+
+The commercialization of the internet and subsequent clash with government restriction is nothing new. US-based information technology companies have been doing business in China with relative success for more than a decade. Yahoo!, Inc. was the first to enter the fray in 1998, launching a Chinese-language version of its popular search engine to compete with China's domestic internet content providers, and not long after, Microsoft and Google followed suit. [^7] However, in 2000, China's Ministry of Public Security began the Golden Shield Project with the goal of "adopt[ing]… advanced information and communication technology to strengthen central police control, responsiveness, and crime combating capacity to improve the efficiency and effectiveness of police work. [^8]"
 
 A prime example of such restriction came in Fall 2002, as Google employees were booting up their Mountain View, California computers to angry emails informing them that the search engine was entirely unavailable to Chinese citizens. [^9] Even when users could access Google.com, the site was slow, often cases, inoperably so when compared to Google's censored competitors. [^10] As Google's Senior Policy Counsel, Andrew McLaughlin, noted, "Google.com appears to be down around 10 percent of the time," adding, "even when users can reach it, the site is slow, and sometimes produces results that… stall out the user's browser. [^11]"
 
-So why do we care if a handful of countries do not enjoy unfettered access to American e-commerce? According to the China Internet Network Information Center, the Chinese market represents some 123 million internet users. [^12] The internet far surpassed television, newspapers, magazines, and radio as the primary source for information among the Chinese people. [^13] As a result, today, the People's Republic represents the largest emerging internet market in the world. Baidu.com, for example, the Chinese-based search engine, enjoyed only 2.5% of the search market in 2003, but boasted 46% by 2005, while during that same time, Google's market share in China dropped some 30% and continued to fall. [^14]
+## China is the largest emerging internet market
+
+Why should we care if a handful of countries do not enjoy unfettered access to American e-commerce? According to the China Internet Network Information Center, the Chinese market represents some 123 million internet users. [^12] The internet far surpassed television, newspapers, magazines, and radio as the primary source for information among the Chinese people. [^13] As a result, today, the People's Republic represents the largest emerging internet market in the world. Baidu.com, for example, the Chinese-based search engine, enjoyed only 2.5% of the search market in 2003, but boasted 46% by 2005, while during that same time, Google's market share in China dropped some 30% and continued to fall. [^14]
+
+## Censors are closing the busiest trade ports
 
 The implications are clear. The fastest, most powerful commercial vehicle the world has ever seen is unavailable to its largest emerging market. To put it another way, countries that censor internet traffic are blocking the 21st century's busiest trade ports. It would be as if merchant ships in the 1500s, full of goods from the New World, made their way back to Europe only to be turned away. Even in a post-dot-com-bubble world, with nearly ubiquitous free shipping, cyber Mondays, and an app store for everything from your phone to your toaster, it is not hard to imagine that the internet will soon become the dominant mechanism of international trade, if it has not earned such a title already. Today, one thing is certain: As the domestic e-commerce market reaches saturation, American firms will continue to seek out opportunities abroad despite censorship and restrictions. [^15] Their level of success, however, and the level of access available to users in the countries cited in the white paper, if any, remains to be seen.
 
