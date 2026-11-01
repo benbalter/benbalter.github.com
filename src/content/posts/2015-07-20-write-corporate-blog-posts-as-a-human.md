@@ -44,7 +44,7 @@ The idea is to forecast what the post is about and give the user an early escape
 
 ## 5. The first sentence should be the one thing you want the reader to know
 
-The first sentence of the post should, when combined with the title, further summarize the post. If the user stopped reading right then, it's the one thing you'd want them to take away. Think grammar school style [inverted pyramid](https://en.wikipedia.org/wiki/Inverted_pyramid). Put the most important things up front and go from there in decreasing order of importance. With a few exceptions, your post should almost always describe what you shipped, how to use it, and why it matters, in that order.
+The first sentence of the post should, when combined with the title, further summarize the post. If the user stopped reading right then, it should be the one thing you'd want them to take away. Think grammar school style [inverted pyramid](https://en.wikipedia.org/wiki/Inverted_pyramid). Put the most important things up front and go from there in decreasing order of importance. With a few exceptions, your post should almost always describe what you shipped, how to use it, and why it matters, in that order.
 
 Readers have an extremely short attention span and even less time to spend reading something they don't care about. Imagine a power curve with 80% of readers reading the first sentence, and the probability of a reader continuing dropping off sentence-by-sentence from there. You should assume that readers will take less than 30 seconds to read your entire post, and less than three seconds to decide if they're even going to get that far. Write assuming 80% of your readers will only read the first sentence. What do you want 80% of readers to know if you can only tell them one thing?
 

@@ -33,7 +33,7 @@ Just because something's easy to implement doesn't mean that you necessarily sho
 
 Any sufficiently complex choice between two pieces of software will at least partially hinge on a feature bake-off in which you create a matrix comparing the offerings of two or more alternatives. If you know this is how you will be evaluated, it can be tempting to try to stack the deck in your favor by checking every box you can so that you objectively win on arithmetic alone.
 
-Ultimately, a single feature may make or break a deal, but in the long run, if that feature isn't central to your product, users are going to choose you over your competitor based on taste, vision, and direction, not on your ability to export to PDF, especially if you give them the means to build a workaround. Instead of cramming for the midterm exam, focus on what you do best overall, not on what your competitor does today.
+Ultimately, a single feature may make or break a deal, but in the long run, if that feature isn't part of your core value proposition, users are going to choose you over your competitor based on taste, vision, and direction, not on your ability to export to PDF, especially if you give them the means to build a workaround. Instead of cramming for the midterm exam, focus on what you do best overall, not on what your competitor does today.
 
 ## A squeaky wheel is asking for it
 
@@ -51,4 +51,4 @@ It can be hard to balance two seemingly opposed use cases, but keep in mind that
 
 Focus on themes that support a more unified product vision and the individual features that build towards them. Before a feature request comes in, you should know who your target users are, the use cases you'd like to support, and roughly the direction you want your product heading towards in six months or a year.
 
-Great product ideas come from unexpected sources and at unpredictable times. Software is more art than science, and sometimes, it takes getting one feature into the hands of users to realize you need another. When ideas come in, evaluate them against your established product themes, not on whether they make sense in isolation or right now.
+Great product ideas come from unexpected sources and at unpredictable times. Software is more art than science, and sometimes, it takes getting one feature into the hands of users to realize you need another. When ideas come in, evaluate them against your established product themes, not by whether they make sense in isolation or right now.

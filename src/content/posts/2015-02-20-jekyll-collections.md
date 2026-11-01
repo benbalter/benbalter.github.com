@@ -18,7 +18,7 @@ The problem is, not everything you might want to publish using Jekyll falls clea
 
 ## Everything that's not a post or a page can be represented as a collection
 
-Collections add another possibility beyond posts and pages. They bring Jekyll's zen-like simplicity to all sorts of content that isn't dated (as posts are) but has a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMSs, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you don't need to program a specific class or learn any server languages, and the syntax used to specify them is easy to read.
+Collections add another possibility beyond posts and pages. They bring Jekyll's zen-like simplicity to all sorts of items that aren't dated (as posts are) but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMSs, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you don't need to program a specific class or learn any server languages, and the syntax used to specify them is easy to read.
 
 What then, might you use collections for? Let's say you're making a site for a bakery and want to list the different cupcake varieties you sell. You might use a collection called "cupcakes". You'd create a `_cupcakes` folder, and would add `chocolate.md` or `vanilla.md` to it. And just like posts or pages, your list of cupcakes would be accessible as `site.cupcakes`.
 

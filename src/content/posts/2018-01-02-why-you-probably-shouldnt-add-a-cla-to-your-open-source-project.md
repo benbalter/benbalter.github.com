@@ -17,7 +17,7 @@ Unlike licenses, however, contributor license agreements, or CLAs, are not stand
 
 ## Why projects adopt a CLA
 
-I suspect projects often adopt a CLA because they don't consider (or underestimate) its impact on potential contributors and how likely those people are to contribute. Others deliberately put minimizing legal risk ahead of maximizing the project's potential community. There's not a lot published in support of CLAs, but Julien Ponge, a CS professor, [writes](https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/):
+I suspect projects often adopt a CLA because they don't consider (or underestimate) its impact on potential contributors and how likely those people are to contribute. Or they deliberately put minimizing legal risk ahead of maximizing the project's potential community. There's not a lot published in support of CLAs, but Julien Ponge, a CS professor, [writes](https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/):
 
 > Requiring a contributor license agreement is a sign that you intend to sustain your project in the long run with responsible practices regarding intellectual property management. Responsible open source developers aren't afraid of signing contributor license agreements: they simply understand the legal implications of sharing source code with the rest of the world.
 
@@ -77,6 +77,6 @@ The Software Freedom Conservancy [gives the following advice](https://sfconserva
 
 Does your project *need* a CLA? In most cases, probably not, and I'd argue that such a position should be the community default absent a strong and specific reason to the contrary. But if you're lucky enough to have a long-established project where contributions aren't a concern and your project's backer [places a legal target on your back](/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/#when-in-doubt-follow-the-money), it might make sense.
 
-Each organization's sensitivity to legal risk is different. If your corporate counsel asks you to add a CLA, don't assume it's a necessary appendage of a mature open source project. Work with them to balance the likelihood of legal harm against the practical cost of minimizing it, and optimize for the contributors' experience, not the corporation's.
+Each organization's sensitivity to legal risk is different. If your corporate counsel asks you to add a CLA, don't assume it's a necessary appendage of a mature open source project. I urge you to work with them to balance the likelihood of legal harm against the practical cost of minimizing it, and optimize for the contributors' experience, not the corporation's.
 
 It's possible to have a successful and sustainable open source project without a CLA. It's not possible, however, to have a successful or sustainable open source project without a strong influx of new contributors.

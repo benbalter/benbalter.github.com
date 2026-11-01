@@ -97,6 +97,6 @@ If you're a developer (or an aspiring developer), open source can provide an eas
 
 - **It's fun.** According to Wikipedia, [open source is a hobby](https://web.archive.org/web/20151123040754/https://en.wikipedia.org/wiki/List_of_hobbies#cite_ref-8). In fact, open source has traditionally had the reputation of being the product of hobbyists (although I'd argue that's less true today). Open source is fun. If you're [a hacker](/2013/02/04/what-is-a-hacker/) it provides an endless, ever-changing set of Rubik's Cubes for you to solve on weekends. Just as puzzles (both crossword and jigsaw) provide bite-sized intellectual escapes, the order and symmetry of open source can often be a rock garden of code (especially for those for whom football is an embarrassing non-starter).
 
-If your reason isn't listed here, I'd love to hear (and add) it. Open source isn't the next big thing. :quote[Open source is already here.]{#open-source-is-already-here}
+If your reason for embracing open source isn't listed here, I'd love to hear (and add) it. Open source isn't the next big thing. :quote[Open source is already here.]{#open-source-is-already-here}
 
 [^1]: For a much longer, much more comprehensive, much more thoroughly researched list, I highly recommend [David Wheeler's canonical paper, "Why Open Source Software"](https://dwheeler.com/oss_fs_why.html).

@@ -8,7 +8,7 @@ Government agencies can and should participate in the open source community. Ope
 
 ## Open source licenses generally
 
-An open source license is a straightforward intellectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](https://choosealicense.com/licenses/) and [three primary licenses](https://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
+An open source license is a straightforward intellectual property license with one unique feature: [it's standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](https://choosealicense.com/licenses/) and [three primary licenses](https://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 
 - An explicit grant to use, copy, modify, redistribute, sublicense, or sell the software.
 

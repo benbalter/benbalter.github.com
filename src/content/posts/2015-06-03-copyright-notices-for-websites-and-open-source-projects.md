@@ -36,7 +36,7 @@ If in 2014, someone submits a pull request to add some new content to the site (
 
 ### So what date should you use?
 
-There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, and so on, noting each year of publication. The same legal theory applies here. A digital project, freed from the confines of the physical world, publishes more often: likely the year it started, and every year after.
+There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, and so on, noting each year of publication. The same legal theory applies here. A digital project, freed from the confines of the physical world, is published more often, likely in the year it started and every year after.
 
 In terms of sites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 

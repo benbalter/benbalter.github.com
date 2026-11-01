@@ -7,7 +7,7 @@ As a leader, you're going to get questions. Sometimes it's a question from a cus
 
 - **Yes.** We've committed to implementing it in the next three months.
 - **No.** We have no plans to implement it in the foreseeable future.
-- **Maybe.** We might implement it down the road, but need more information or can't commit to it right now.
+- **Maybe.** We might implement it down the road, but need more information, or plan to and can't commit to it yet.
 
 Regarding feature development, I've always liked the "under-promise, over-deliver" philosophy, and I bring that same approach to leading teams. The worst place you can find yourself as a leader is promising something to stakeholders (again, internal or external) that you cannot deliver, especially if they rely on you for it. It's human nature to avoid uncertainty, so it's only natural for others to take interest in your direction, vision, and what they might expect down the line.
 

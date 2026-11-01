@@ -40,7 +40,7 @@ When everyone can see the inner workings (including those you want to keep out),
 
 ### We (won't) reveal the secret sauce
 
-Open or closed, industry-standard best practices dictate you shouldn't have secrets in your code. Passwords, tokens, server names, anything remotely secret (heck, anything that changes between development, staging, and production) belongs in the database, an environment variable, or a VCS-ignored configuration file, not distributed with the software itself.
+Open or closed, industry-standard best practices dictate you shouldn't have secrets in your code. Passwords, tokens, server names, anything remotely secret sauce (heck, anything that changes between development, staging, and production) belongs in the database, an environment variable, or a VCS-ignored configuration file, not distributed with the software itself.
 
 For one, you've potentially got outside contractors or others in your code, which shouldn't be an access control mechanism in itself. For another, best practices once again dictate that such configurations aren't shared between environments, and are rolled often, something significantly harder if it requires a code change and deploy. Open sourcing your code forces you to keep application logic and system-specific configuration, secret or otherwise, separate.
 

@@ -6,7 +6,7 @@ tldr: "Crawling every federal .gov domain reveals the state of government web te
 
 In [2011](/2011/09/07/analysis-of-federal-executive-domains/) and then again in [2014](/2014/07/07/analysis-of-federal-executive-domains-part-deux/) I used [a small tool](https://github.com/benbalter/site-inspector) that I wrote to crawl every site on the [publicly available list of Federal Executive .gov domains](https://web.archive.org/web/20170504174451/https://github.com/GSA/data/tree/gh-pages/dotgov-domains) to get a better sense of the state of federal IT, at least when it comes to agencies' public-facing web presence. I decided to resurrect that effort, with the recently updated list of .gov domains, and with a more finely tuned version of the [open source Site Inspector tool](https://github.com/benbalter/site-inspector), thanks to some contributions from [Eric Mill](https://konklone.com/).
 
-You can always compare them to the original [2011](/2011/09/07/analysis-of-federal-executive-domains/) or [2014](/2014/07/07/analysis-of-federal-executive-domains-part-deux/) crawls, or browse the entire dataset for yourself, but here are some highlights of what I found:
+You can always compare them to the original [2011](/2011/09/07/analysis-of-federal-executive-domains/) or [2014](/2014/07/07/analysis-of-federal-executive-domains-part-deux/) crawls, but here are some highlights of what I found:
 
 - 1177 of those domains are live (about 86%, up from 83% last year, and 73% originally)
 - Of those live domains only 75% are reachable without the `www.` prefix, down from 83% last year

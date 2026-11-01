@@ -9,7 +9,7 @@ I've written in the past about how you should treat [prose with the same respect
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature…
 
-Traditionally, someone from marketing, copy, or editorial had to review the post by hand before the author got any feedback, a blocking and time-consuming step. Many of those improvements are machine-detectable, so an automated process can flag them with no delay, leaving both author and editor free to keep working. Here are a few examples of this idea and how you might implement them for your own team:
+Traditionally, someone from marketing, copy, or editorial had to review the post by hand before the author got any feedback, a blocking and time-consuming step. Many improvements are machine-detectable, so an automated process can flag them with no delay, leaving both author and editor free to keep working. Here are a few examples of this idea and how you might implement them for your own team:
 
 ## Don't use the word today
 

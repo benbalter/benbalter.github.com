@@ -44,6 +44,6 @@ Make it clear how people should provide feedback. Should they post long-winded, 
 
 Let everyone involved know how long you're going to allow for discussion (and make sure it's proportionate to the subject matter). Is this a 24-hour discussion? A week's worth? A month? Are there milestones or checkpoints along the way to make certain decisions or roll out certain aspects? The time frame should be long enough that relevant stakeholders are on notice and can participate, even if they're away from their keyboard at any given moment, but not so long as to inject undue delay into the process.
 
-Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. Lay out ground rules, assign roles, and set expectations, and you'll set yourself up for success.
+Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. Lay out ground rules up front, assign roles, and set expectations, and you'll set yourself up for success.
 
 *A big hat tip to my former colleague @cameronmcefee, whose most excellent execution of a potentially controversial discussion inspired me to write this post.*

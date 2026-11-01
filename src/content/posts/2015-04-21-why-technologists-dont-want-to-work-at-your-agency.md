@@ -50,6 +50,6 @@ Here are 19 common reasons why private-sector change agents may not want to work
 
 Technologists would much rather answer the call of civic service than optimize yet-another-mobile-app's ad revenue. [As noted before](/2011/10/29/why-digital-talent-doesnt-want-to-work-at-your-company/), "[t]he talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world." Government provides just such an opportunity, but you've got to at least meet them halfway. While other industries might have [golden handcuffs](https://en.wikipedia.org/wiki/Golden_handcuffs), I'd argue that the biggest barrier keeping technologists out of government today is often their "digital handcuffs": they've grown used to a culture that optimizes tooling and workflows for developers, and a culture that values shipping above all else (and a culture that's not impossible for you to emulate).
 
-Focus on building an environment that supports innovation, and more specifically, one that supports innovators. If you build it, they will come.
+It'll take more than a fancy title. Focus on building an environment that supports innovation, and more specifically, one that supports innovators. If you build it, they will come.
 
 [^1]: Actual job title I've had.

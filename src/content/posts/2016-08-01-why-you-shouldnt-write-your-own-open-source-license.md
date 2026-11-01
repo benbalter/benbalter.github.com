@@ -41,7 +41,7 @@ Second, even if code consumers are sophisticated enough to perform their own leg
 
 Finally, if we assume the value of open source comes not just from downstream use, but also from upstream contribution, non-standard open source licenses cause downstream consumers to incur a very real economic cost before they can consider contributing improvements upstream. As a developer, why would I contribute to your project if I have to pay to do so? Why shouldn't the project maintainer absorb the economic cost of my (otherwise-free) contribution to their project?
 
-Institutional code publishers should absorb the complexity of open source on behalf of their potential code consumers and code contributors. Institutional publishers are better equipped to do so, and in doing so, incentivize others to use their code and contribute back. That's activity they gain a tangible benefit from, and the very activity the system should be optimized for.
+Institutional code publishers should absorb the complexity of open source on behalf of their potential code consumers and code contributors. Institutional publishers are better equipped to do so, and in doing so, incentivize others to use their code and contribute back. That activity benefits them directly, and it's the very activity the system should be optimized for.
 
 ## Optimize for the code's reuse, not its publication
 
