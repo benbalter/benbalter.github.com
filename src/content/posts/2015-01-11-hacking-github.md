@@ -2,11 +2,12 @@
 title: 'Hacking GitHub: 14 simple tools to help introduce open source to the uninitiated'
 description: "14 open source apps I built to help non-technical users collaborate on GitHub, from Word-to-Markdown conversion to simplified issue forms."
 tldr: "A collection of 14 small open source apps I built to help non-technical users collaborate on GitHub, from converting Word docs to Markdown to simplified issue forms."
+writtenAtGitHub: true
 ---
 
-GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
 
-Often, when [explaining the potential of open source to government agencies](https://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
+Often, when [explaining the potential of open source to government agencies](/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
 
 > "How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"
 
@@ -22,7 +23,7 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 - [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
 
-- [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
+- [**Word Diff**](/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
 
 ## User-friendly interfaces
 

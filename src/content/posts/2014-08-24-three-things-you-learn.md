@@ -2,6 +2,7 @@
 title: Three things you learn going from the most bureaucratic organization in the world to the least
 description: "Three lessons from moving from the federal government to GitHub: trust, happiness, and treating relationships as assets."
 tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities."
+writtenAtGitHub: true
 ---
 
 About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](https://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-GitHubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond mere size and the lack of TPS reports:
@@ -20,7 +21,7 @@ Without that culture, management within government starts from a point of distru
 
 ## 2. Optimize for happiness
 
-GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimis* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, ensure more satisfied end users. Happiness is best achieved when you [push decisions to the edge](https://ben.balter.com/2013/06/12/an-open-letter-to-government-cios/#decentralized), put your faith in the crowd, avoid blockers, and automate wherever possible.
+GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimis* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, ensure more satisfied end users. Happiness is best achieved when you [push decisions to the edge](/2013/06/12/an-open-letter-to-government-cios/#decentralized), put your faith in the crowd, avoid blockers, and automate wherever possible.
 
 The concept of "happiness" is foreign to a government agency. Using that word in a room full of IT management elicits the same blank stare as you might expect from terms like "Node.js" or "Map Reduce". *Is that Rube Goldberg Machine of a change review and deployment process frustrating? Would access to a piece of (free) software make your job easier?* These aren't the questions being asked. It's "Has this been through the FedRAMP/FISMA/PRA process?" and "what if the contract vehicle is protested?".
 

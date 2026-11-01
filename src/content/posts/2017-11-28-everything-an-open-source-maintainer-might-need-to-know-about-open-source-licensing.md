@@ -2,11 +2,12 @@
 title: Everything an open source maintainer might need to know about open source licensing
 description: There's lots of internet lore around open source licensing. An attorney and open source developer answers the most common questions.
 tldr: "There's lots of internet lore around open source licensing. As an attorney and an open source developer, here's my answers to common open source licensing questions."
+writtenAtGitHub: true
 ---
 
 Without an open source license, open source is just published code. Open source licenses are what allow users to use your software, and more importantly, to modify it (and hopefully propose improvements).
 
-There's lots of internet lore around open source licensing. As an attorney and an open source developer, I've answered many questions over the years about open source licensing, and figured [it was time to give my answers a URL](https://ben.balter.com/2015/11/12/why-urls/), in hopes that they might help other maintainers.
+There's lots of internet lore around open source licensing. As an attorney and an open source developer, I've answered many questions over the years about open source licensing, and figured [it was time to give my answers a URL](/2015/11/12/why-urls/), in hopes that they might help other maintainers.
 
 ## Copyright versus the right to use
 
@@ -20,7 +21,7 @@ Put another way, in most cases, code "ownership" doesn't change hands. As a user
 
 ## What an open source license does
 
-An open source license is a contract between the person who writes code (often a developer, but potentially a designer, translator, etc.), and any person who uses it. It's a contract just like your apartment lease or cell phone contract, except that the contract language is standardized into about [a dozen mainstream](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/) and [three primary](https://choosealicense.com/) licenses like the MIT, Apache, and GPL licenses (named after the organizations or open source projects that originally wrote and used them).
+An open source license is a contract between the person who writes code (often a developer, but potentially a designer, translator, etc.), and any person who uses it. It's a contract just like your apartment lease or cell phone contract, except that the contract language is standardized into about [a dozen mainstream](/2014/10/08/open-source-licensing-for-government-attorneys/) and [three primary](https://choosealicense.com/) licenses like the MIT, Apache, and GPL licenses (named after the organizations or open source projects that originally wrote and used them).
 
 While the wording and specific terms may vary from license to license, most licenses include the following three things:
 
@@ -100,13 +101,13 @@ That said, if you're writing software for a major corporation or a promising sta
 
 If you found this post helpful, there are two other resources you may be interested in reading:
 
-- An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
-- A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
+- An overview of the best way to handle [copyright notices for open source projects](/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
+- A similar overview of [open source licensing geared towards government attorneys](/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ## That said…
 
-Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly simplified, highly generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
+Be sure to read the [fine print](/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly simplified, highly generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
 
 We've done a lot at GitHub to ensure you don't need to be or hire a lawyer just to participate in the open-source community, but we're not there yet. I hope the above overview can help to answer some common questions, but if there's a general open source legal question I didn't answer, [please ask](https://github.com/benbalter/feedback).
 
-[^1]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).
+[^1]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).

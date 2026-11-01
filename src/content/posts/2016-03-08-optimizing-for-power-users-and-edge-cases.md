@@ -2,6 +2,7 @@
 title: Optimizing for power users and edge cases is the easy part
 description: Stop optimizing for power users and edge cases. The real challenge is nailing the out-of-box experience for 80% of users.
 tldr: "In product development, it's all too easy to optimize for power users and edge cases. The real challenge lies in nailing the out-of-box experience for 80% of users' needs."
+writtenAtGitHub: true
 ---
 
 When designing a product — be it an open-source project or a for-profit service — it's all too easy to optimize for power users and edge cases. While [the squeaky wheel may most often get the grease](https://en.wikipedia.org/wiki/The_squeaky_wheel_gets_the_grease), that doesn't necessarily mean it should. The real challenge for any product lies in genuinely nailing the out-of-box experience for *80%* of users' needs.
@@ -27,7 +28,7 @@ Instead of optimizing for the most vocal, feature requests should be evaluated t
 
 No product will satisfy 100% of user needs, although it's tempting to try. If a 20 %-er requests a feature that isn't going to be used by the other 80%, there's no harm in just making it a non-default option, right?
 
-We have a motto at GitHub, part of the [GitHub Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), that "anything added dilutes everything else." In reality, there is always a non-zero cost to adding that extra option. Most immediately, it's the time you spend building feature A instead of building feature B. Beyond that, it's the cognitive burden you've just added to each user's onboarding experience as they try to understand how to use the thing you've added (and if they should). In the long run, it's much more than maintenance. Complexity begets complexity, meaning each edge case you account for today creates many more.
+We have a motto at GitHub, part of the [GitHub Zen](/2015/08/12/the-zen-of-github/), that "anything added dilutes everything else." In reality, there is always a non-zero cost to adding that extra option. Most immediately, it's the time you spend building feature A instead of building feature B. Beyond that, it's the cognitive burden you've just added to each user's onboarding experience as they try to understand how to use the thing you've added (and if they should). In the long run, it's much more than maintenance. Complexity begets complexity, meaning each edge case you account for today creates many more.
 
 The WordPress community [has a similar philosophy](https://wordpress.org/about/philosophy/), "decisions not options\*." Every time you provide a user with an option, you're asking them to make a decision, and [those decisions quickly add up](https://en.wikipedia.org/wiki/Analysis_paralysis), especially when the user doesn't care or doesn't fully understand the implications. Ultimately, many of these decisions are technical or domain-specific decisions. As a project maintainer, as the subject-matter expert, you must absorb all that complexity on behalf of your users, not to kick the decision down the line.
 

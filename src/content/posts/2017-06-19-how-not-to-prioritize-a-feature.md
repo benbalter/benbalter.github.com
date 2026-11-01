@@ -27,7 +27,7 @@ Unless you're building a product for developers, it's unlikely that your friends
 
 There will always be a certain number of trivial, no-brainer, quick wins to implement and serve as "quality of life" improvements for users. When you're looking at adding a toggle to turn off a feature or supporting a one-off workflow, it can be tempting to click merge, especially when the depth of discussion becomes disproportionate to the technical lift.
 
-Just because something's easy to implement doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well-curated project is a feature in itself](https://ben.balter.com/2016/07/21/removing-a-feature-is-a-feature/). Sometimes, taking the time to implement the technically more complex solution will ultimately be better for users and maintainers.
+Just because something's easy to implement doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well-curated project is a feature in itself](/2016/07/21/removing-a-feature-is-a-feature/). Sometimes, taking the time to implement the technically more complex solution will ultimately be better for users and maintainers.
 
 ## Your competitor does it
 

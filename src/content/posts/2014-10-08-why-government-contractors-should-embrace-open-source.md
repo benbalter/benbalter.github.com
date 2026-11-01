@@ -2,9 +2,10 @@
 title: Eight reasons why government contractors should embrace open source software
 description: Eight reasons government contractors should embrace open source — from free advertising and better code to attracting top talent.
 tldr: "From free advertising and better code to attracting talent and guaranteed maintenance contracts, eight reasons the government contracting industry should stop lagging behind on open source."
+writtenAtGitHub: true
 ---
 
-Government contractors have traditionally been slow to embrace open source software. There's [a handful of reasons](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) why that's the case, but it doesn't have to be that way. Here's why government contractors are embracing open source with increasing frequency:
+Government contractors have traditionally been slow to embrace open source software. There's [a handful of reasons](/2014/08/03/why-isnt-all-government-software-open-source/) why that's the case, but it doesn't have to be that way. Here's why government contractors are embracing open source with increasing frequency:
 
 ## 1. Industry-standard best practices
 
@@ -70,7 +71,7 @@ Assuming you engage in more than one project over the lifetime of the contractin
 
 ## Get involved today
 
-Open source has traditionally [gotten a bad rap](https://ben.balter.com/2014/09/22/open-source-is-not-insecure/) as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional, "enterprise-grade" solutions with positive results.
+Open source has traditionally [gotten a bad rap](/2014/09/22/open-source-is-not-insecure/) as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional, "enterprise-grade" solutions with positive results.
 
 If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your site, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky nor a passing fad. Open source is here to stay.
 

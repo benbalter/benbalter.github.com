@@ -2,13 +2,14 @@
 title: Why you probably shouldn't add a CLA to your open source project
 description: CLAs create a hostile developer experience, require significant overhead, and are usually unnecessary given modern open source norms.
 tldr: "CLAs create a hostile developer experience, require significant overhead, shift legal blame to contributors, and are usually unnecessary given modern open source norms."
+writtenAtGitHub: true
 ---
 
 Contributor license agreements (or CLAs for short) have gained a lot of visibility in recent years as some prominent open source projects have opted to adopt them. If all the cool kids are doing it, should your open source project? Probably not. Here's why:
 
 ## What is a CLA?
 
-If you're new to concepts like copyright, patents, and licensing, this primer on [everything an open source maintainer might need to know about open source licensing](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/) may provide some helpful background.
+If you're new to concepts like copyright, patents, and licensing, this primer on [everything an open source maintainer might need to know about open source licensing](/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/) may provide some helpful background.
 
 In short, you can think of a CLA as somewhat of a "reverse open source license". Whereas open source licenses are a copyright grant for users to use the project, a contributor license agreement, at its core, is the right for the project to incorporate a contributor's code. Contributors may also be required to attest that they have the right to submit the code, or the CLA may include an explicit patent grant. Some CLAs go so far as to actually assign the developer's copyright to the project.
 
@@ -38,7 +39,7 @@ As project maintainers work with their corporate counsel to decide if they shoul
 
 ## CLAs create a contribution-hostile developer experience
 
-I spend a lot of my day helping open source maintainers to [grow healthy and vibrant communities around their projects](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/). If one of the most common reasons to open source a project (and indicators of success) is to receive contributions from others, why then would a project maintainer add significant [friction](https://ben.balter.com/2013/08/11/friction/) to advancing one of their primary goals? CLAs require that the first interaction between an open source project and a potential contributor involve a formal and complex legal agreement which signs away their legal rights — not exactly a warm welcome. Submitting one's first contribution to an open source project is already scary enough as it is, even without the threat of a lawsuit as the first volley.
+I spend a lot of my day helping open source maintainers to [grow healthy and vibrant communities around their projects](/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/). If one of the most common reasons to open source a project (and indicators of success) is to receive contributions from others, why then would a project maintainer add significant [friction](/2013/08/11/friction/) to advancing one of their primary goals? CLAs require that the first interaction between an open source project and a potential contributor involve a formal and complex legal agreement which signs away their legal rights — not exactly a warm welcome. Submitting one's first contribution to an open source project is already scary enough as it is, even without the threat of a lawsuit as the first volley.
 
 Most open source developers aren't lawyers, and they shouldn't have to be to contribute. If a project is optimizing for the developer experience in hopes of maximizing contributions, it would be antithetical then, to require a contributor to hire outside counsel to properly evaluate what they're agreeing to, or in many cases, also get the sign-off from their employer's corporate counsel before they are allowed to contribute, a frustrating experience that can shift even the smallest contributions from minutes to weeks, assuming the developer ultimately gets approval, an outcome that's not guaranteed in many corporate cultures.
 
@@ -74,7 +75,7 @@ The question then becomes, if the project's open source license isn't sufficient
 
 The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): you (and your lawyers) need to distinguish between what "nice assurances we'd like to have" and "what legal assurances our [open source] project actually needs to assure it thrives", and I tend to agree.
 
-Does your project *need* a CLA? In most cases, probably not, and I'd argue that such a position should be the community default absent a strong and specific reason to the contrary. That said, if you're lucky enough to have a long-established project where contributions aren't a concern and your project's backer [places a legal target on your back](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/#when-in-doubt-follow-the-money), it might make sense.
+Does your project *need* a CLA? In most cases, probably not, and I'd argue that such a position should be the community default absent a strong and specific reason to the contrary. That said, if you're lucky enough to have a long-established project where contributions aren't a concern and your project's backer [places a legal target on your back](/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/#when-in-doubt-follow-the-money), it might make sense.
 
 Each organization's sensitivity to legal risk is different, and if as you talk to your corporate counsel, they ask you to add a CLA, rather than blindly assuming it's a necessary appendage of a mature open source project, I urge you to work with them to balance the likelihood of legal harm against the practical implications of minimizing it, before deciding what's best, and to do so in a way that optimizes for the contributors' experience, not the corporation's.
 

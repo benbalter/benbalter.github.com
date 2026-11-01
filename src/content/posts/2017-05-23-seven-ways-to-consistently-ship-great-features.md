@@ -2,6 +2,7 @@
 title: Seven ways to consistently ship great features
 description: The best developers don't just write code. They over-communicate, ship the smallest delta, and optimize for users over maintainability.
 tldr: "The best developers I've worked with don't just write code. They over-communicate, write features before code, ship the smallest delta possible, and optimize for users over maintainability."
+writtenAtGitHub: true
 ---
 
 As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a perspective many may not be afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:
@@ -10,7 +11,7 @@ As a product manager, I spend most of my day working with developers to get feat
 
 When it comes to feature development, there is no such thing as over-communicating. What problem are we solving? Who are we solving it for? Why are we solving *this* problem? What solutions were proposed? Which was selected? How are we implementing it? What product or design considerations did we make? Do we have to make technical trade-offs? Are there any outstanding questions? Does it actually solve what we set out to solve? What's the current status? Are there any blockers? What do we need to do to ship it? Make it all explicit, memorialized, and discoverable.
 
-It doesn't have to be a formal template, but great developers make sure all the above questions are answered at each step of the development process, and that everyone who needs to be aware, is, and that it's updated as circumstances change. The old developer adage that there should be "more comments than code" is true here, except those comments often take the form of issue and pull request comments, rather than code comments. Most importantly, **create a web of context through cross links so that others can find it.** As a simple rule, if you reference something that has a URL, [you must provide a link](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#double-bonus-if-it-has-a-url-link-to-it).
+It doesn't have to be a formal template, but great developers make sure all the above questions are answered at each step of the development process, and that everyone who needs to be aware, is, and that it's updated as circumstances change. The old developer adage that there should be "more comments than code" is true here, except those comments often take the form of issue and pull request comments, rather than code comments. Most importantly, **create a web of context through cross links so that others can find it.** As a simple rule, if you reference something that has a URL, [you must provide a link](/2014/11/06/rules-of-communicating-at-github/#double-bonus-if-it-has-a-url-link-to-it).
 
 ## 2. Write features first, then code
 
@@ -40,7 +41,7 @@ In an industry where "iterative" is the buzzword *du jour*, when a colleague pro
 
 It happens all the time. You're discussing one feature and a related, but logically distinct idea comes up. Look at the issue title at the top of the page. If the idea doesn't solve the problem the title describes, it deserves its own issue. Not only does that keep the current discussion on track, it gives that new idea a dedicated URL where it can be memorialized, tracked, discussed, and cross linked.
 
-Before you type the words "this is a bug", "we should tackle this in a subsequent iteration", or "that's out of scope", take the time to open a new issue to track that other thing. After all, [issues are free](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
+Before you type the words "this is a bug", "we should tackle this in a subsequent iteration", or "that's out of scope", take the time to open a new issue to track that other thing. After all, [issues are free](/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
 
 ## 7. Optimize for users
 
@@ -48,6 +49,6 @@ For any sufficiently complex feature, you will face a choice between what's best
 
 Practically, that means you should back into the code from the constraints of the desired user experience, not the other way around, and generally, [absorb complexity on behalf of users](/2016/08/22/ten-ways-to-make-a-product-great/#absorb-complexity-on-behalf-of-users). You know you've done your job when to users it appears to be a simple problem to solve, but in reality, you labored over the implementation.
 
-This list is far from exhaustive. I've written before about [rules for communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. These are some of the habits I've noticed and admire, but of course, none of the above matters, however, unless you get it out the door. Above all, great developers :ship:.
+This list is far from exhaustive. I've written before about [rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. These are some of the habits I've noticed and admire, but of course, none of the above matters, however, unless you get it out the door. Above all, great developers :ship:.
 
 This post is on my [reading list for working at GitHub](/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/), if you're about to start there or interview.

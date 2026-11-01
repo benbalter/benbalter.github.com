@@ -36,7 +36,7 @@ There's a number of Markdown-specific packages I use. Here's a few:
 
 If you're not familiar with the concept of a linter, it's basically an automated script that goes through the current file and highlights deviations from predefined stylistic rules, not too dissimilar to spelling or grammar mistakes on a standard word processor, and I can't recommend them enough.
 
-**linter-your-language-of-choice** - Chances are, [there's a linter available for your language of choice](https://atomlinter.github.io), including prose. Whether you're learning the language or a veteran, the contextual hints it gives you will improve whatever it is you're writing.
+**linter-your-language-of-choice.** Chances are, [there's a linter available for your language of choice](https://atomlinter.github.io), including prose. Whether you're learning the language or a veteran, the contextual hints it gives you will improve whatever it is you're writing.
 
 ## Prose linters
 
