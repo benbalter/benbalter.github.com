@@ -44,9 +44,10 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
 | `validate-redirects` | Check `_redirects` syntax (field count, status codes, duplicate sources, loops). Defaults to `public/_redirects`; pass `dist-astro/_redirects` to check the built file, which adds front matter redirects | `script/validate-redirects [file]` | After editing `_redirects` or `redirect_from`/`redirect_to` front matter |
-| `validate-seo.ts` | Check all pages for SEO issues (missing titles, duplicate titles, meta descriptions, heading hierarchy, image alt text) | `npm run validate-seo` | Before publishing new content |
+| `validate-seo.ts` | Check all pages for SEO issues (missing titles, duplicate titles, meta descriptions, heading hierarchy, image alt text), plus post-structure warnings from the writing-style packaging checklist ([`src/lib/post-structure.ts`](../src/lib/post-structure.ts): label headings, bold lines used as headings, pull-quote count, sparse headings, `tldr` length). On PRs, `CONTENT_FILES` scopes the structure warnings to the changed posts | `npm run validate-seo` | Before publishing new content |
 | `validate-markdown-siblings` | Check that every page the zone's `Accept: text/markdown` rewrite targets has its pre-built `.md` sibling in `dist-astro/` | `script/validate-markdown-siblings` | Runs in the deploy workflow after the build |
 | `check-markdown-negotiation` | Check Markdown content negotiation against the live site (zone rules that `wrangler dev` doesn't run) | `script/check-markdown-negotiation [base-url]` | After changing the zone rules or the Worker |
+| `check-image-privacy.ts` | Fail if any committed image carries GPS coordinates in its EXIF or XMP metadata ([`src/lib/image-privacy.ts`](../src/lib/image-privacy.ts)) | `npm run check-image-privacy` | Runs in CI; strip a hit with `exiftool -all=` |
 | `check-content-integrity.ts` | Flag post changes that go beyond prose: >10% word loss, or any edit to code blocks, inline code, scripts/styles, URLs, or blockquote text. Fails only for bulk diffs (6+ posts) without a `Content-Integrity: reviewed` commit trailer; smaller diffs get warnings | `npm run check-content-integrity -- --base=<ref>` | Runs in CI; run locally before committing any automated pass over the archive |
 
 ### Utilities
@@ -96,6 +97,7 @@ npm run lint-md        → remark + markdownlint-cli2
 npm run lint-text      → textlint
 npm run validate-seo   → script/validate-seo.ts (via tsx)
 npm run check-content-integrity → script/check-content-integrity.ts (via tsx)
+npm run check-image-privacy → script/check-image-privacy.ts (via tsx)
 npm run test           → astro check + check:tooling + lint-check + Vitest
 npm run test:vitest    → Vitest unit tests
 npm run test:e2e       → Playwright E2E tests
