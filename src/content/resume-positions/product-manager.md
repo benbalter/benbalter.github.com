@@ -7,7 +7,7 @@ print_bullets: 3
 expanded: true
 ---
 
-- Led community, safety, privacy, product security, and platform health for a software development platform with 50M+ customers and 100M+ projects.
+- Led community, safety, privacy, product security, and platform health for a software development platform with 50M+ developers and 100M+ projects.
 - Wrote and shipped github.com API endpoints powering trust, safety, and platform-health workflows for tens of millions of developers.
 - Shipped 500+ staff- and user-facing features and policies across trust and safety (Community Guidelines, DMCA and abuse reporting, PhotoDNA detection), account security (phishing-resistant 2FA, role-based access controls), and privacy and compliance (third-party analytics removal, data portability, IP ownership).
 - Piloted an Associate Product Management program with a defined promotional path to Product Manager, building the pipeline that shaped GitHub's product culture.
