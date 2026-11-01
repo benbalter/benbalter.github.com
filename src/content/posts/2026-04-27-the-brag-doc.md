@@ -1,7 +1,7 @@
 ---
-title: The brag doc
+title: "How to keep a brag doc (without the cringe)"
 bookRelation: cut
-description: "Why you need a running record of your wins, and how to keep one without dying of embarrassment"
+description: "Nobody's tracking your wins for you. How to keep a brag doc in five minutes a week, what makes a good entry, and how it builds your promotion case."
 tldr: "Nobody's compiling your stats for you. Keep a ship log of your impact, update it weekly, and use it to fight recency bias, ace self-assessments, and build your promotion case."
 ---
 

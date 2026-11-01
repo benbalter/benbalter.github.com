@@ -1,6 +1,6 @@
 ---
-title: Nine things a (technical) program manager does
-description: What a Technical Program Manager actually does day-to-day, from a Product Manager who found the responsibilities were already familiar.
+title: "Nine things a technical program manager does"
+description: "What does a technical program manager do? Nine things, from cross-team coordination to risk, by a product manager who helped found GitHub's TPM org."
 tldr: "What a Technical Program Manager actually does day-to-day, from a Product Manager who transitioned into the role and found the responsibilities were already familiar."
 writtenAtGitHub: true
 ---
