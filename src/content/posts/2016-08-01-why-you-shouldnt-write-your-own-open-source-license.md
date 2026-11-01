@@ -1,7 +1,7 @@
 ---
 title: Why you shouldn't write your own open source license
 description: Unless absolutely required, avoid custom, modified, or non-standard open source licenses, which become a barrier to downstream use of your code.
-tldr: "Open source is nothing without adoption, and standardized licenses let anyone, with or without formal legal training, know exactly what they can and can't do with your code. Institutional code publishers should absorb the complexity of open source on behalf of their potential code consumers and code contributors: open source software is published so that others may use it, not so that you can publish it."
+tldr: "Unless absolutely required, avoid custom or modified open source licenses. Open source is nothing without adoption, and standardized licenses let anyone, with or without formal legal training, know exactly what they can and can't do with your code. Open source should be optimized for code consumers, not code publishers."
 ---
 
 The power and potential of open source come not from the fact that code is published for others to see, or that you won't get sued for publishing it, but from the fact that others have the ability to use your code, to modify it, and to improve it. That possibility breaks down, however, when would-be contributors have the legal right to contribute, but not the practical means to do so.

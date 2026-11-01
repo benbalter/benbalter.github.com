@@ -2,7 +2,7 @@
 title: We've been trained to make paper
 bookRelation: adapted
 description: If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?
-tldr: "We've been trained to create content for the least-likely way it's consumed: on paper. Microsoft Word was designed to make paper, and emailing document snapshots around is broken when geeks solved collaboration long ago with version control. Before clicking the little blue \"W\" out of habit, ask whether it really needs to be a piece of paper, and give Markdown and Git a try."
+tldr: "We've been trained to create content for the least-likely way it's consumed: on paper. Microsoft Word was designed to make paper, and emailing document snapshots around is broken. Geeks solved collaboration long ago with version control. Before clicking the little blue \"W\" out of habit, ask whether it really needs to be a piece of paper, and give Markdown and Git a try."
 published: true
 ---
 

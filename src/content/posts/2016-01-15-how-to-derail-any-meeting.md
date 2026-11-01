@@ -1,7 +1,7 @@
 ---
 title: How to derail any meeting
 description: How a WWII field manual can help modern knowledge workers identify those inadvertently sabotaging your organization today.
-tldr: "The sabotage tactics the OSS taught in 1944 are now everyday meeting antipatterns, and the modern versions share a common thread: maximize meta-discussion. Learn to spot them, because your coworkers are far more likely to be inadvertent saboteurs than double agents."
+tldr: "The sabotage tactics the Office of Strategic Services (the CIA's predecessor) published in 1944 are now everyday meeting antipatterns, and the modern versions share a common thread: maximize meta-discussion. Learn to spot them, because your coworkers are far more likely to be inadvertent saboteurs than double agents."
 ---
 
 The Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" was declassified and subsequently made its way around the internet. The book, published in 1944 by the predecessor to the CIA, had headings like "Encouraging Destructiveness." Still, it was the section on "General Interference with Organizations and Production" that caught my eye. I don't intend to sabotage any organization in the near future. But I see so many modern knowledge workers unintentionally doing to their organization precisely what the OSS playbook described doing to adversaries in 1944. Here are a few of my favorites[^emphasis-mine] from the list:
