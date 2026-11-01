@@ -28,6 +28,14 @@ function readPostContent(filePath: string): string {
   return rawContent.replace(/^---\s*\n.*?\n---\s*\n/ms, '');
 }
 
+// Source paths of redirect rules in public/_redirects
+const redirectSources = new Set(
+  readFileSync(join(process.cwd(), 'public', '_redirects'), 'utf-8')
+    .split('\n')
+    .map((line) => line.trim().split(/\s+/)[0])
+    .filter((source) => source && source.startsWith('/')),
+);
+
 // Helper to check if a file exists with various extensions
 function fileExists(basePath: string): boolean {
   return existsSync(basePath) || 
@@ -64,9 +72,23 @@ function permalinkToFilePath(permalink: string): string | null {
     return join(process.cwd(), '_posts', `${baseFileName}.md`);
   }
   
-  // For non-post pages, check if file exists
-  const fullPath = join(process.cwd(), urlPath.replace(/^\//, ''));
-  return fullPath;
+  // For non-post pages, resolve to the Astro route or page that serves it
+  const rel = urlPath.replace(/^\//, '');
+  const candidates = [
+    join(process.cwd(), 'src', 'pages', `${rel}.astro`),
+    join(process.cwd(), 'src', 'pages', rel, 'index.astro'),
+    join(process.cwd(), 'src', 'content', 'pages', `${rel}.md`),
+    join(process.cwd(), 'public', rel),
+  ];
+  const found = candidates.find((candidate) => existsSync(candidate));
+  if (found) {
+    return found;
+  }
+  // Paths served by a redirect rule (public/_redirects) aren't broken
+  if (redirectSources.has(urlPath) || redirectSources.has(`${urlPath}/`)) {
+    return null;
+  }
+  return join(process.cwd(), rel);
 }
 
 // Helper to check if an internal link needs a trailing slash
