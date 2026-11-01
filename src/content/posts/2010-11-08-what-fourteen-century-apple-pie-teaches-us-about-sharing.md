@@ -1,7 +1,7 @@
 ---
 title: What Fourteen-Century Apple Pie Teaches Us About Sharing
 description: "Cooks Source magazine published Monica Gaudio's apple pie recipe without permission, sparking a copyright firestorm about online content theft."
-tldr: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site."
+tldr: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem: she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site."
 archived: true
 ---
 
@@ -9,7 +9,7 @@ Everyone knows the old adage: "If it's on the internet, it must be true free.[^1
 
 <img src="https://ben.balter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg" alt="Apple Pie Courtesy @belochkavita" title="Apple Pie Courtesy belochkavita" class="float-left mr-3 rounded" />
 
-Last week writer Monica Gaudio [received an email from a friend](http://illadore.livejournal.com/30674.html) congratulating her on getting an article published in the Northeast-regional cooking magazine [Cooks Source](https://cookssource.com). There was only one problem — she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from [Gaudio's site](http://godecookery.com/twotarts/twotarts.html). After an email back-and-forth in which Gaudio asked for an apology, a copy of the magazine, and a $130 donation to the Columbia Journalism School, Cooks [Source Editor Judith Griggs noted](https://gizmodo.com/attention-the-web-is-not-public-domain-5681714)]:
+Last week writer Monica Gaudio [received an email from a friend](http://illadore.livejournal.com/30674.html) congratulating her on getting an article published in the Northeast-regional cooking magazine [Cooks Source](https://cookssource.com). There was only one problem — she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from [Gaudio's site](http://godecookery.com/twotarts/twotarts.html). After an email back-and-forth in which Gaudio asked for an apology, a copy of the magazine, and a $130 donation to the Columbia Journalism School, Cooks Source Editor Judith Griggs [noted](https://gizmodo.com/attention-the-web-is-not-public-domain-5681714):
 
 > "…the web is considered "public domain" and you should be happy we just didn't "lift" your whole article and put someone else's name on it! It happens a lot, clearly more than you are aware of, especially on college campuses, and the workplace."
 
@@ -21,7 +21,7 @@ While it may be true that in a world where CTRL-C and CTRL-V (or Command for Mac
 
 The unfortunate incident spawned the ever-venerable [meme](https://en.wikipedia.org/wiki/Meme). Cooks Source has become the brunt of every [#ButHonestlyMonica](http://twitter.com/search?q=%23ButHonestlyMonica) joke on Twitter, and they have even joined the exclusive ranks of those with satirical Twitter handles, @CooksSource and @JudithGriggs. Every few minutes yet another heckler chimes in on [the Cooks Source Facebook Page](http://www.facebook.com/pages/Cooks-Source-Magazine/196994196748) and as inevitably is the case, one malcontent even went so far as to produce a YouTube video [comparing Cooks Source to Nazis](http://www.youtube.com/watch?v=YC-tVHLM99w).[^6]
 
-The story, illustrating the true mob-power of the internet, might be even more interesting if it turns out Cooks Source [isn't in the wrong](https://web.archive.org/web/20101023225337/http://www.copyright.gov/fls/fl122.html) after all or that the emails were actually [made up](http://www.psychologytoday.com/blog/you-20/201011/are-cooks-source-magazine-and-judith-griggs-innocent). So what if Cooks Source has [lost advertisers](http://www.masslive.com/news/index.ssf/2010/11/sunderland-based_magazine_cook.html) and so what if Cooks Source Editor Judith Griggs name has been [forever digi-tarnished](http://www.google.com/search?q=Judith+Griggs+Cooks+Source). The important thing is that internet justice has been served.[^7] It is all too easy to forget that despite its incredible power to democratize and decentralize knowledge, the Web, at it's 3:00 AM core, is an echo chamber in which rumors reverberate louder than they would in even the most gossip-centric high school cafeteria — and the worst part is, here, the AV club kids are the bullies. So foodies, aspiring journalists, and internet memesters, copy judiciously, cite liberally,[^8] and [hire a good lawyer](/contact/).
+The story, illustrating the true mob-power of the internet, might be even more interesting if it turns out Cooks Source [isn't in the wrong](https://web.archive.org/web/20101023225337/http://www.copyright.gov/fls/fl122.html) after all or that the emails were actually [made up](http://www.psychologytoday.com/blog/you-20/201011/are-cooks-source-magazine-and-judith-griggs-innocent). So what if Cooks Source has [lost advertisers](http://www.masslive.com/news/index.ssf/2010/11/sunderland-based_magazine_cook.html) and so what if Cooks Source Editor Judith Griggs name has been [forever digi-tarnished](http://www.google.com/search?q=Judith+Griggs+Cooks+Source). The important thing is that internet justice has been served.[^7] It is all too easy to forget that despite its incredible power to democratize and decentralize knowledge, the Web, at its 3:00 AM core, is an echo chamber in which rumors reverberate louder than they would in even the most gossip-centric high school cafeteria — and the worst part is, here, the AV club kids are the bullies. So foodies, aspiring journalists, and internet memesters, copy judiciously, cite liberally,[^8] and [hire a good lawyer](/contact/).
 
 <!--lint ignore no-emphasis-as-heading-->
 
@@ -29,7 +29,7 @@ The story, illustrating the true mob-power of the internet, might be even more i
 
 **Update (11/11):** Final score: internet, 1, Cooks Source, 0. It appears the internet has beaten Cooks Source into submission. Cooks Source has sworn to never "be on Facebook again," canceling its Facebook account and [taking down its site](https://cookssource.com/), after hackers gained access.[^9] Ironically, Cooks Source claims that their intellectual property rights were violated when [copies of their most-recent issue](http://www.facebook.com/album.php?aid=23582&id=159072764128073) were posted online.[^10] They have made the donation Gaudio requested to the Columbia School of Journalism, as well as a contribution to a local food bank, also in her name [^11]. Moral of the story? Whatever you do, don't post statements in Comic Sans.
 
-[Photo used under Creative Commons License courtesy [@belochkavita](https://www.flickr.com/photos/belochkavita/244921874/)
+*Photo used under Creative Commons License courtesy [@belochkavita](https://www.flickr.com/photos/belochkavita/244921874/)*
 
 [^1]: *See generally [TechCrunch: If it's on the internet, It Must Be True.](https://techcrunch.com/2010/08/14/internet-must-be-true/)*
 
@@ -41,9 +41,9 @@ The story, illustrating the true mob-power of the internet, might be even more i
 
 [^5]: Edward Champion, [The Cooks Source Scandal: How a Magazine Profits on Theft](http://www.edrants.com/the-cooks-source-scandal-how-a-magazine-profits-on-theft/).
 
-[^6]: *See generally* [Goodwin's Law](https://en.wikipedia.org/wiki/Godwin's_law).
+[^6]: *See generally* [Godwin's Law](https://en.wikipedia.org/wiki/Godwin's_law).
 
-[^7]: internet Justice (*n.*) – a form of justice only slightly less barbaric than the Thunderdome.
+[^7]: Internet justice (*n.*) – a form of justice only slightly less barbaric than the Thunderdome.
 
 [^8]: *See generally supra notes* 1–7.
 

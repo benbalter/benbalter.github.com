@@ -1,7 +1,7 @@
 ---
-title: The Files "in" the Computer -- Zoolander and the California Supreme Court
+title: 'The Files "in" the Computer: Zoolander and the California Supreme Court'
 description: The California Supreme Court ruled police can search your phone during a routine traffic stop, accessing your entire digital life without a warrant.
-tldr: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that."
+tldr: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact you've ever met, or financial transaction you've ever completed. The California Supreme Court ruled in favor of just that."
 archived: true
 ---
 
@@ -11,7 +11,7 @@ When drafting and interpreting the fourth amendment, neither the founding father
 
 In *[People v. Diaz](https://en.wikipedia.org/wiki/People_v._Diaz)*, the court ruled that a warrantless search of text messages on a cell phone confiscated subsequent to a lawful arrest did in fact, constitute a valid search. While the dissent realized that mobile phones were increasingly becoming the hubs of our digital world, noting that the decision gave "carte blanche, with no showing of exigency, to rummage at leisure through the wealth of personal and business information that can be carried on a mobile phone or handheld computer merely because the device was taken from an arrestee's person," I do not believe they fully grasped the gravity of the ruling. [^1]
 
-<img src="https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg" alt="Ben Still and Owen Wilson stare at a computer from the movie Zoolander" class="float-left mr-3 rounded" />
+<img src="https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg" alt="Ben Stiller and Owen Wilson stare at a computer from the movie Zoolander" class="float-left mr-3 rounded" />
 
 Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander, the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
 
@@ -21,11 +21,9 @@ In a world where in reality, nearly every email I have ever sent or received can
 
 The majority's decision was well argued by legal minds much wiser than my own, but even reading through the verbiage of the opinion, discussing the nature of containers and cavities as they relate to what is "in" the phone, it leads one to believe that their analysis is handicapped by [outdated concepts of storage and space](https://www.youtube.com/watch?v=H2uHBhKTSe0).[^4]
 
-While it may not be practical to install [Faraday cages](https://en.wikipedia.org/wiki/Faraday_cage) in every police station to ferret out what information can be gleamed from a mobile device without it querying a remote server (if there is any information at all), the majority's opinion fails to take into account the reality of how mobile phones are used today, let alone, how they will be most likely be used in the not-to-distant future. While the courts sort out [what fourth amendment protections are extended into the digital world](/2010/12/20/late-night-infomercials/), I for one, will be sure to put a password on my phone next time I cross the California state line.[^5]
+While it may not be practical to install [Faraday cages](https://en.wikipedia.org/wiki/Faraday_cage) in every police station to ferret out what information can be gleaned from a mobile device without it querying a remote server (if there is any information at all), the majority's opinion fails to take into account the reality of how mobile phones are used today, let alone, how they will most likely be used in the not-to-distant future. While the courts sort out [what fourth amendment protections are extended into the digital world](/2010/12/20/late-night-infomercials/), I for one, will be sure to put a password on my phone next time I cross the California state line.[^5]
 
 [photo: [Thomas Hawk](https://www.flickr.com/photos/thomashawk/61076493/)]
-
-Notes:
 
 [^1]: While the question has been pondered to some extent, for example, in Professor Kerr's 2006 paper [Searches and Seizures in a Digital World](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=697541), or Professor Gershowitz's 2008 paper, [the iPhone Meets the Fourth Amendment](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1084503), technology has come a long way, even in the past two years, and will continue to evolve in the years to come.
 

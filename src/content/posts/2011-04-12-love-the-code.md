@@ -1,7 +1,7 @@
 ---
 title: How I Learned to Stop Worrying and Love the Code
-description: 'Slides and recording from a WordPress DC Meetup lightning talk on HTML and PHP basics for non-developers who don''t want to break their sites.'
-tldr: "I gave a brief lightning talk at April's WordPress DC Meetup on the basics of HTML and PHP (\"coding for dummies\"). The goal: learn how to avoid breaking your website if you edit it. Below are the slides and recording."
+description: 'Slides from a WordPress DC Meetup lightning talk on HTML and PHP basics for non-developers who don''t want to break their sites.'
+tldr: "I gave a brief lightning talk at April's WordPress DC Meetup on the basics of HTML and PHP (\"coding for dummies\"). The goal: learn how to avoid breaking your website if you edit it. Below are the slides."
 archived: true
 ---
 
@@ -20,7 +20,7 @@ I gave a brief [lightning talk at April's WordPress DC Meetup](https://www.meetu
   - CSS – Provides style and form
   - JavaScript – Provides interactivity
 
-- PHP – Wrapped with "`php`" and "`?>`"
+- PHP – Wrapped with "`<?php`" and "`?>`"
 
   - Variable - Text, a number, true/false, or a group of variable; identified by "`$`"
   - `If` Statement – performs an action *if* a statement is true
@@ -51,7 +51,7 @@ I gave a brief [lightning talk at April's WordPress DC Meetup](https://www.meetu
 
 - WordPress
 
-  - [Define( WP_DEBUG, true);](http://codex.wordpress.org/Editing_wp-config.php#Debug) in wp-config.php
+  - [`define( 'WP_DEBUG', true );`](http://codex.wordpress.org/Editing_wp-config.php#Debug) in wp-config.php
   - [Debug bar](http://wordpress.org/extend/plugins/debug-bar/) plugin
   - [WordPress Codex](http://codex.wordpress.org/)
 

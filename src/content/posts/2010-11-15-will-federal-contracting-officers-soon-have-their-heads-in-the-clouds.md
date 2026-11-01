@@ -1,7 +1,7 @@
 ---
 title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
 description: "Cloud computing already powers your daily life. Federal agencies can harness that same transformative power for modern governance."
-tldr: "As one Hewlett Package Chief executive recently put it, cloud computing \"is the next generation of the internet.\" Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in \"the cloud,\" and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways."
+tldr: "As one Hewlett-Packard chief executive recently put it, cloud computing \"is the next generation of the internet.\" Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in \"the cloud,\" and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways."
 archived: true
 ---
 
@@ -27,7 +27,7 @@ The biggest implication however, is that computing resources can be provisioned 
 
 Cloud computing exists in several forms today. The most basic, "infrastructure as a service" (IAAS), uses shared facilities, hardware, and networks to hold and move data. Customers, given virtual servers, may then install, configure, and use their own software freely. [^13] As indicated above, however, customers do not rent the physical servers (merely their equivalent processing power), and providers may move virtual servers between physical servers as necessary. [^14] Amazon's EC2, S3, and CloudFront are prime examples of cloud computing, storage, and delivery respectively.
 
-Second, and slightly more advanced, "platform as a service" (PaaS) allows providers to serve customers with a shared computing platform and software environment. The customer can upload software code in a predetermined programming language (such as Java or PHP) and the provider executes that code and returns the result. [^15] Google Apps Engine is a prime example of such an arrangement.
+Second, and slightly more advanced, "platform as a service" (PaaS) allows providers to serve customers with a shared computing platform and software environment. The customer can upload software code in a predetermined programming language (such as Java or PHP) and the provider executes that code and returns the result. [^15] Google App Engine is a prime example of such an arrangement.
 
 Finally, "software as a service" (SaaS) is most associated with Web-based consumer services such as Facebook or Flickr but can find application in business and government environments as well. The provider hosts software designed to perform a specific function, such as social networking or photo sharing, and the user interacts with that application being run on the provider's server. [^16]
 
@@ -61,7 +61,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^5]: Wittow, 14 J. Internet L. 1 (2010).
 
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jHTML?articlelD=210602225>.
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jhtml?articlelD=210602225>.
 
 [^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9.
 
@@ -73,7 +73,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^11]: *Id.*
 
-[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, <http://www.nist.gov/itl/cloud/upload/cloud-def-v15.PDF>.
+[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, <http://www.nist.gov/itl/cloud/upload/cloud-def-v15.pdf>.
 
 [^13]: Lefkowitz, Boston B.J., Summer 2010, at 9.
 
@@ -91,10 +91,10 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^20]: `Apps.Gov` Now, General Services Administration
 
-[^21]: Cloud Services, Federal Business Opportunities (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jHTML?articleID=224701861>.
+[^21]: Cloud Services, Federal Business Opportunities (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
 
 [^22]: Federal Information Security Management Act of 2002.
 
 [^23]: 5 U.S.C.A. § 552a (West).
 
-[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, <http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.HTML>.
+[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, <http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html>.

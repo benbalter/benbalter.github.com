@@ -178,5 +178,5 @@ echo $department->departmentname . '<br />';
 #### Get Buildings
 
 ```php
-<?php $buildings = $gwapi->get_maps('academic'); ?>
+<?php $buildings = $gwapi->get_map('academic'); ?>
 ```
