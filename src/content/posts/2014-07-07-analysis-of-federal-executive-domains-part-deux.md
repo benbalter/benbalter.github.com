@@ -7,9 +7,9 @@ In September 2011, in response to the Office of Management and Budget releasing 
 
 Nearly three years later, I [resurrected that tool](https://github.com/benbalter/site-inspector), albeit a bit smarter, and, using [the latest list](https://web.archive.org/web/20160311191728/https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Agency-Internet-Domains-as-of-06/ku4m-7ynp?), thought I'd take a look at how things have changed in the time since. Efforts like the Digital Strategy and Open Data Policy have surely moved the needle, right? RIGHT?!
 
-The Highlights:
+Here's what changed:
 
-- Approximately a quarter reduction in number of .govs (`1640 - 1229 = 441`)
+- Approximately a quarter reduction in number of .govs (`1640 - 1229 = 411`)
 - 1000 of those domains are live ([about 83%](https://web.archive.org/web/20140722085457/http://dotgov-browser.herokuapp.com/domains?live=true), up from 73%)
 - Of those live domains, [about 83%](https://web.archive.org/web/20140720034430/http://dotgov-browser.herokuapp.com/domains?non_www=true) are reachable without the `www.` prefix, a negligible increase
 - [Only 64 sites](https://web.archive.org/web/20140722085446/http://dotgov-browser.herokuapp.com/domains?ipv6=true) return an `AAAA` record, the first step towards IPv6 compliance (up from 10)
@@ -23,6 +23,6 @@ The Highlights:
 - [142](https://web.archive.org/web/20140720034602/http://dotgov-browser.herokuapp.com/domains?slash_developer=true) domains have a `/developer` page, [171](https://web.archive.org/web/20140722083929/http://dotgov-browser.herokuapp.com/domains?slash_data=true) domains have a `/data` page, [146](https://web.archive.org/web/20140720034350/http://dotgov-browser.herokuapp.com/domains?data_dot_json=true) domains have a `/data.json` page, roughly 15%
 - [16 domains](https://web.archive.org/web/20140722083924/http://dotgov-browser.herokuapp.com/domains?redirect=www.whitehouse.gov) redirect to whitehouse.gov, [10](https://web.archive.org/web/20140720041307/http://dotgov-browser.herokuapp.com/domains?redirect=justice.gov) to justice.gov, [9](https://web.archive.org/web/20140722085506/http://dotgov-browser.herokuapp.com/domains?redirect=consumerfinance.gov) to consumerfinance.gov and [8](https://web.archive.org/web/20140720034452/http://dotgov-browser.herokuapp.com/domains?redirect=www.usa.gov) to usa.gov
 
-Math's never been my strong point, so I highly encourage you to check my work. You can browse the full results at dotgov-browser.herokuapp.com or check an individual site (.gov or otherwise) at [gov-inspector.herokuapp.com](https://web.archive.org/web/20160311202809/https://site-inspector.herokuapp.com/).
+Math's never been my strong point, so I highly encourage you to check my work. You can browse the full results at [dotgov-browser.herokuapp.com](https://web.archive.org/web/20140720040527/http://dotgov-browser.herokuapp.com/domains) or check an individual site (.gov or otherwise) at [site-inspector.herokuapp.com](https://web.archive.org/web/20160311202809/https://site-inspector.herokuapp.com/).
 
 *Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available [on GitHub](https://github.com/benbalter/site-inspector). If you find an error, I encourage you to [open an issue](https://github.com/benbalter/site-inspector-ruby/issues/new) or [submit a pull request](https://guides.github.com/introduction/flow/).*

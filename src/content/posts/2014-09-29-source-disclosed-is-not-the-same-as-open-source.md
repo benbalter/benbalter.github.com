@@ -1,7 +1,7 @@
 ---
 title: Disclosed source is not the same as open source
-description: Publishing code without fostering community isn't open source — it's disclosed source. True open source is a two-way relationship.
-tldr: "Publishing code without fostering community isn't open source — it's disclosed source. True open source is a symbiotic relationship, not a one-way, set-it-and-forget-it broadcast."
+description: Publishing code without fostering community is disclosed source, not open source. True open source is a two-way relationship.
+tldr: "Publishing code without fostering community is disclosed source, not open source. True open source is a symbiotic relationship, not a one-way, set-it-and-forget-it broadcast."
 writtenAtGitHub: true
 ---
 
@@ -11,7 +11,7 @@ It's not uncommon for government agencies to contact GitHub, looking for advice 
 
 ## Disclosed source
 
-Government agencies and individual developers are free to make their projects' underlying source code available for others to review, inspect, or reuse as they wish. This can be as simple as posting a ZIP file to an agency-owned FTP server, responding to a FOIA request by email, or even posting the source code to a code-sharing service like GitHub. Source code release under this paradigm is traditionally referred to as source disclosed, and is the first, not the final step in "open sourcing" government-funded code.
+Government agencies and individual developers are free to make their projects' underlying source code available for others to review, inspect, or reuse as they wish. This can be as simple as posting a ZIP file to an agency-owned FTP server, responding to a FOIA request by email, or even posting the source code to a code-sharing service like GitHub. Code released this way is traditionally called source disclosed, and it's the first, not the final, step in "open sourcing" government-funded code.
 
 In addition to disclosing the underlying source code, to conform with what we traditionally think of as open source today, publishers must properly license their code (generally not an issue with government), and should seek to create a community around the shared challenge the project sets out to solve.
 
@@ -19,12 +19,12 @@ In addition to disclosing the underlying source code, to conform with what we tr
 
 Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, [engaging in an unsuccessful endeavor](http://www.theverge.com/2013/10/18/4852720/why-the-government-unpublished-the-source-code-for-healthcare-gov-GitHub). Rather than abandoning the code on the open-source community's collective doorstep, the agency should expend effort, post-release, to ensure the project's continued success.
 
-At the most simple level, this is a matter of communicating the project's goals and status to [potential contributors](/2013/08/11/everyone-contributes/), [explaining how to contribute](/2013/08/11/friction/), and ensuring relevant stakeholders within the agency are empowered to review and accept such contributions. But, successful projects go a step further, and take steps to ensure there is no imbalance of information between developers on opposing sides of the agency firewall.[^1]
+At the simplest level, this is a matter of communicating the project's goals and status to [potential contributors](/2013/08/11/everyone-contributes/), [explaining how to contribute](/2013/08/11/friction/), and ensuring relevant stakeholders within the agency are empowered to review and accept such contributions. But successful projects go a step further, and take steps to ensure there is no imbalance of information between developers on opposing sides of the agency firewall.[^1]
 
 ## Free like a puppy
 
 It's often said that open source is free as in speech, not as in beer, but I prefer to take that a step further, and note that open source is free like a puppy. You'll get a lot out of the relationship, but you also have to put a lot in, the biggest contribution being a base level of trust.
 
-Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that that's neither the last step nor is that truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
+Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that it's neither the last step nor truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
 
 [^1]: You can read more community building best practices [within the government community on GitHub](https://government-community.GitHubapp.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).
