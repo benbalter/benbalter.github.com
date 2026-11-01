@@ -19,7 +19,7 @@ This makes sense if you look at the history of the role. In an age when conveyin
 
 But what if when that problem first arose Adam could send Becky an email or an IM or post an update to a shared collaboration space? Do you think they'd need Charlie in the first place? Would management as we see it today have arisen in an age where technology reduces the friction of collaboration to nearly nil?
 
-Take the open source community as a test case. It had just that opportunity. Same problem, same outcome, and (for the most part), no traditional hierarchical structure. Two things overcome the management burden. The first is transparent, persistent communication: everything from code to decisions happens in the open and is archived for all to see. The second is pure meritocracy: a bunch of ideas arise, get voted on (through opt-in participation), and the best are seen to fruition.
+Take the open source community as a test case. It had just that opportunity. Same problem, same outcome, and (for the most part), no traditional hierarchical structure. How do you overcome the management burden? Transparent, persistent communication (everything from code to decisions happens in the open and is archived for all to see) and pure meritocracy (a bunch of ideas arise, get voted on through opt-in participation, and the best are seen to fruition).
 
 But does it ~~blend~~ scale? WordPress, the open source content management system, had nearly 300 individual contributors to its latest release, in just under four months, all working on a single project downloaded more than a million times within days of its release. And there's no reason this process has to be limited to software. Collaboration is collaboration.
 

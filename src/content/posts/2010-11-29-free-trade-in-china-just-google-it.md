@@ -15,7 +15,7 @@ The white paper elaborates:
 
 > The tremendous spread of the Internet – faster than the spread of any previous technology – has also created new, rapidly expanding markets. Online traffic has increased at a compound annual growth rate of 66 percent over the past five years. [^2] Today more than one-quarter of the world's population (1.7 billion people) uses this technology to communicate, inform, create, and buy and sell across borders. [^3] These 1.7 billion Internet users are a massive new consumer base for both Internet services like email and the hard goods and services that are increasingly advertised, marketed, or sold online…
 >
-> Annual internet-based commerce worldwide is expected to soon reach $1 trillion. In the United States alone, online retail sales were over $132 billion in 2008. [^5] Globally, Internet and telecom services contributed 3.3 percent of GDP in 2004, compared with 1.8 percent in 1990, with virtually every single economy enjoying growth in the sector. [^6]
+> Annual internet-based commerce worldwide is expected to soon reach $1 trillion.[^4] In the United States alone, online retail sales were over $132 billion in 2008. [^5] Globally, Internet and telecom services contributed 3.3 percent of GDP in 2004, compared with 1.8 percent in 1990, with virtually every single economy enjoying growth in the sector. [^6]
 
 The commercialization of the internet and subsequent clash with government restriction is nothing new. US-based information technology companies have been doing business in China with relative success for quite some time. Yahoo!, Inc. was the first to enter the fray in 1998, launching a Chinese-language version of its popular search engine to compete with China's domestic internet content providers, and not long after, Microsoft and Google followed suit. [^7] However, in 2000, China's Ministry of Public Security began the Golden Shield Project with the goal of "adopt[ing]… advanced information and communication technology to strengthen central police control, responsiveness, and crime combating capacity to improve the efficiency and effectiveness of police work. [^8]"
 
@@ -32,6 +32,8 @@ Photo courtesy [@stuckincustoms](https://www.flickr.com/photos/stuckincustoms/11
 [^2]: Fed. Commc'ns Comm'n [FCC], Connecting America: The National Broadband Plan ch. 4 (2010).
 
 [^3]: Miniwatts, [Internet World Stats](http://www.internetworldstats.com/stats7.htm), *Internet World Users by Language: Top Ten Languages* (chart) (Sept. 30, 2009); Int'l Telecom. Union [ITU], *The World in 2009: ICT Facts and Figures* 1 (2009). The total number of fixed broadband subscribers reached nearly 500 million by the end of 2009. *ID.* at 5.
+
+[^4]: Brian Hindley & Hosuk Lee-Makiyama, *Protectionism Online: Internet Censorship and International Trade Law* 3 (ECIPE, Working Paper No. 12/2009).
 
 [^5]: U.S. Census Bureau, *[Estimated Quarterly U.S. Retail Sales (Adjusted): Total and E-commerce (chart)](https://web.archive.org/web/20090522185223/http://www.census.gov/mrts/www/data/html/09Q1table3.html)* (May 15, 2009).
 

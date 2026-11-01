@@ -37,4 +37,4 @@ Put simply, it's about what role we are going to play, not what rights we are go
 
 [^7]: Often the last and least seen step in the enterprise development process.
 
-[^8]: There have been [almost no pull requests to date](/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/) across all government GitHub repos.
+[^8]: There have been [only a couple of pull requests to date](/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/) across all government GitHub repos.

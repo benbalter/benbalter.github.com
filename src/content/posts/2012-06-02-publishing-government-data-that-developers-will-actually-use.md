@@ -16,7 +16,7 @@ When organizations consume the products they create, they empirically deliver be
 
 ## 3. Data as a citizen service
 
-It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large data sets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. Data sets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. Agencies deliver more useful information, and they no longer need to store the same data in multiple formats and in multiple locations.
+It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large data sets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. Data sets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. Doing so lets agencies deliver more useful information, and they no longer need to store the same data in multiple formats and in multiple locations.
 
 ## 4. Curate discrete pieces of data
 
