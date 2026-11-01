@@ -6,7 +6,7 @@ end_date: '2026-07-03'
 expanded: true
 ---
 
-Product owner for GitHub's internal employee platform: the knowledge base, onboarding, and enablement tooling 4,000+ Hubbers use to get work done. Led a team of six across product, engineering, and content.
+Product owner for GitHub's internal employee platform: the knowledge base, onboarding, and enablement tooling 4,000+ GitHub employees used to get work done. Led a team of six across product, engineering, and content.
 
 - **Platform product ownership.** Owned the roadmap for the company's internal knowledge platform, driving durable content ownership to 96%, cutting deploy times from over an hour to under 10 minutes, and shipping a WYSIWYG editor that moved non-technical teams off filing tickets and onto self-serve publishing.
 - **Shipped as a builder.** Merged 700+ pull requests with GitHub Copilot, adding the delivery capacity of an additional engineer and accelerating automation, accessibility, and platform work across internal tools.
