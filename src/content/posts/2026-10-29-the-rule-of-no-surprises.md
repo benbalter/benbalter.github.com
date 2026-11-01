@@ -72,7 +72,7 @@ The same rule applies to an audience of one. If a promotion isn't happening this
 
 ## Make it a habit
 
-The hard part isn't knowing what to share. It's beating the instinct to wait: until you've fixed it, until you're sure, until you can control the story. We just don't want to look bad. But waiting is exactly what makes you look bad.
+The hard part is beating the instinct to wait: until you've fixed it, until you're sure, until you can control the story. We just don't want to look bad. But waiting is exactly what makes you look bad.
 
 Make it routine with a standing section at the bottom of your weekly update:
 

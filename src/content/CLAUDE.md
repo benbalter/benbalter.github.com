@@ -15,7 +15,7 @@ Writing for ben.balter.com. Match Ben's voice: direct, opinionated, conversation
 
 Never start with throat-clearing or definitions. Grab the reader immediately:
 
-- Paint a scenario: "Picture this: you're six months into a project when..."
+- Drop into a scene, present tense: "It's Thursday afternoon. Your direct report sits down and reads from a list." Never frame it with "Picture this" or "Imagine" (`AIPatterns.Aphorisms` flags them)
 - State a provocative truth: "Here's a dirty secret about knowledge work..."
 - Show a problem in action: concrete example of what goes wrong, then pivot to the solution
 - Personal observation: "A number of years ago, I described..."
@@ -46,6 +46,7 @@ Many of these patterns are enforced mechanically by the `AIPatterns` [Vale](http
 - **Active voice**: "We deployed the feature" not "The feature was deployed"
 - **Contractions**: use naturally (don't, won't, it's)
 - **Sentence fragments** for emphasis. Like this.
+- **Acronyms**: don't spell them out in posts. Add the term to the glossary in [`src/data/acronyms.yml`](../data/acronyms.yml) instead, and [`rehype-acronyms`](../lib/rehype-acronyms.ts) gives its first use a hover tooltip. It skips text inside links, so keep at least one mention of the acronym outside link text.
 
 ## Language Principles
 
@@ -70,7 +71,7 @@ Cut ruthlessly: "It is important to note that" → delete. "in order to" → "to
 1. **Opening**: hook immediately with a relatable problem, observation, or question
 2. **Context**: why this matters, your experience with it
 3. **Main argument**: thesis with examples, lists, evidence
-4. **Counterpoints**: acknowledge alternative perspectives
+4. **Counterpoints**: answer the strongest objection once, in the reader's own words, in an `:::objection[...]` callout, with a stance rather than a survey of both sides
 5. **Practical advice**: concrete, actionable recommendations
 6. **Conclusion**: memorable takeaway; connect back to the opening
 

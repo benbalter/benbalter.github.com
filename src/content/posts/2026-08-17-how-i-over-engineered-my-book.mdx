@@ -45,7 +45,7 @@ All six also ran in CI (Alex and Write-good folded into Vale there; [more on tha
 
 ### On each push
 
-In addition to running those open source linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
+Beyond running those open source linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
 
 ```js
 // My time at GitHub has to read as past tense — present-tense
@@ -131,7 +131,7 @@ Together, these turned "is the book actually getting better?" from a gut feeling
 
 I am *far* from a designer, and I'd never published an ebook before. I had no idea how they worked beyond reading many of them. Two aha moments changed the way I thought about publishing:
 
-- :quote[An ebook is a website in a trench coat]{#ebook-trench-coat}. Ebooks are just HTML and CSS, albeit a very stripped-down version.[^kindlewebkit] If you can make a website, you can make an ebook.
+- :quote[An ebook is a website in a trench coat]{#ebook-trench-coat}. Ebooks are just HTML and CSS, albeit a stripped-down version.[^kindlewebkit] If you can make a website, you can make an ebook.
 - A print book can be one too, with enough effort. CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
 
 For the interior design, I reached for [Tailwind CSS](https://tailwindcss.com/), not because it's built for books (it isn't), but because it's what I already use every day. `@tailwindcss/typography` gave me a typographic baseline to start from instead of a blank page.
@@ -160,7 +160,7 @@ These checks are unglamorous. The bugs they catch break silently in a Friday CSS
 
 ## Building
 
-We've got clean Markdown, and a test suite that ensures the content is clean, but we still need to get it into a format that can be published (EPUB, Kindle, paperback in two flavors, and web). Core to that custom build pipeline was [Pandoc](https://pandoc.org/), a universal document converter that can read Markdown and spit out just about anything else. I used Pandoc as the engine, but Pandoc alone gets you a generic document. Turning that into five store-ready formats took a pile of custom tooling:
+We've got clean Markdown, and tests that check the content is clean, but we still need to get it into a format that can be published (EPUB, Kindle, paperback in two flavors, and web). Core to that custom build pipeline was [Pandoc](https://pandoc.org/), a universal document converter that can read Markdown and spit out just about anything else. I used Pandoc as the engine, but Pandoc alone gets you a generic document. Turning that into five store-ready formats took a pile of custom tooling:
 
 ### A reproducible toolchain
 
@@ -210,7 +210,7 @@ With the tree transformed, each format renders down its own path, and the paperb
 
 That same 576-page gate does double duty here. `check-pdf-page-count.js` pins the count and fails the build the moment the paperback drifts off 576 pages: cheap insurance against a stale page count shipping as a wrongly-sized cover spine.
 
-That's five publishable files out of one Markdown source[^docx], which raises the obvious question: how do I know any of them are actually correct?
+That's five publishable files out of one Markdown source[^docx], and I needed to know every one of them was correct.
 
 ### Testing the build
 

@@ -37,7 +37,7 @@ Add context to each item. Don't just write "career growth." Write "I've been thi
 
 ## How to run one
 
-Start with the human, not the agenda. Take a few minutes to check in personally. This isn't small talk. It's the relationship that makes hard conversations possible later.
+Start with the human, not the agenda. Take a few minutes to check in personally. Those minutes build the relationship that makes hard conversations possible later.
 
 **Ask questions more than you give answers.** For managers, your job isn't to solve every problem. It's to help your report think through problems themselves. "What options are you considering?" is often more useful than "Here's what you should do." For ICs, don't just wait to be told what to do. Challenge assumptions and push back.
 
@@ -47,7 +47,7 @@ Follow the agenda, but hold it loosely. If a topic opens up a more important con
 
 **End with clear next steps.** What actions came out of this? Who's doing what by when? Document them somewhere durable so they don't get lost. Leaders who [show their work](/2022/02/16/leaders-show-their-work/) in shared docs make this easy. The same transparency that helps distributed teams function day-to-day makes 1\:1 follow-through automatic.
 
-## Skip-levels: why they matter
+## Skip-levels give leaders unfiltered signal
 
 Skip-level 1\:1s, regular conversations with your manager's manager, build rapport and broader perspective. They're typically less frequent (monthly or quarterly), but they matter for career visibility and organizational context. They give senior leaders unfiltered signal about how the team is actually doing, and they give ICs a line of sight into strategy they wouldn't otherwise have.
 
@@ -56,10 +56,10 @@ Skip-level 1\:1s, regular conversations with your manager's manager, build rappo
 - **The ghost meeting.** Neither party prepares, there's no agenda, and you spend thirty minutes in a conversational holding pattern. If you have nothing to discuss, either something is going well or something is going unaddressed. Figure out which.
 - **The cancellation cascade.** 1\:1s keep getting canceled because "something came up." That signals the relationship isn't a priority. Protect the time, especially for remote relationships where it's harder to connect informally.
 - **The manager monologue.** The manager talks the whole time, sharing information, giving advice, or thinking out loud. 1\:1s should be conversations, not presentations.
-- **The reverse 1\:1.** The entire meeting becomes the report briefing the manager on the work. If your report is educating you for thirty minutes, you owe them a different format, not a recurring appointment.
+- **The reverse 1\:1.** The entire meeting becomes the report briefing the manager on the work. If your report is educating you for thirty minutes, that briefing belongs in a different format, and the 1\:1 belongs to them.
 
 ## The real test
 
 Your 1\:1s are a microcosm of how you lead. Shared agendas, documented outcomes, async preparation: every practice that makes a 1\:1 great is the same practice that makes a distributed team work. If you [manage like an engineer](/2023/01/10/manage-like-an-engineer/), you already have the instincts: treat the meeting like a system, instrument it, and iterate.
 
-Get the 1\:1 right and the rest follows.
+Before your next one, run the test: could you cancel it without losing anything?

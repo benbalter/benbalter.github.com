@@ -21,13 +21,13 @@ And everything downstream inherits those semantics. Pandoc renders the same sour
 
 Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures (big sheets folded down into 16 or 32 pages at a time), so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread (a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)) and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
 
-In the EPUB, that QR went out as a bare inline `<svg>`: not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found] Why they were green is the more useful half of the story.
+In the EPUB, that QR went out as a bare inline `<svg>`: not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found]
 
 ### Contrast doesn't exist until the render
 
 Start with contrast, the cleanest example of something the source can't check, because the source doesn't contain it. Markdown has no color. The foreground comes from one CSS rule, the background from another (usually a different file, often behind a media query), and the pair only exists once the cascade has run. There's nothing to grep, so the accessibility suite is [Playwright](https://playwright.dev/) driving a real browser over the built HTML, injecting axe-core into the page, and auditing the DOM the browser actually resolved.
 
-That's what makes the contrast rule possible. For every text node, axe reads the computed `color`, walks up the ancestors until it finds a background that isn't transparent, blends in any semi-transparent layers it passes through, converts both ends to relative luminance (a weighted brightness value, not the raw RGB), and checks the ratio against [WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html): 4.5:1 for body text, 3:1 for large text (18pt, or 14pt bold). :quote[The pairs that fail are the ones nobody designed.]{#pairs-nobody-designed} Inline `<code>` inside a tinted callout. A muted caption on a page background that isn't quite white. Two rules that are each fine alone and only meet in the render.
+That's what makes the contrast rule possible. For every text node, axe reads the computed `color` and walks up the ancestors until it finds a background that isn't transparent, blending in any semi-transparent layers it passes through. Then it converts both ends to relative luminance (a weighted brightness value, not the raw RGB), and checks the ratio against [WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html): 4.5:1 for body text, 3:1 for large text (18pt, or 14pt bold). :quote[The pairs that fail are the ones nobody designed.]{#pairs-nobody-designed} Inline `<code>` inside a tinted callout. A muted caption on a page background that isn't quite white. Two rules that are each fine alone and only meet in the render.
 
 Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette, two verdicts. Both have to come back with no critical or serious violations, or `validate-playwright` goes red alongside the build jobs.[^gate]
 
@@ -45,7 +45,7 @@ An accessible ebook reflows, so a reader sets their own font, size, spacing, and
 
 ### Exclusion dressed as preference
 
-None of this is charity. A book that only works at my font size is making the same mistake as a decision that only happens in a meeting. The format quietly decides who gets to participate, and then everyone calls the result a preference.
+A book that only works at my font size is making the same mistake as a decision that only happens in a meeting. The format quietly decides who gets to participate, and then everyone calls the result a preference.
 
 ### Readers you'll never meet
 
@@ -57,7 +57,7 @@ Those readers are all human. The same markup that serves them serves the softwar
 
 ### Structure is the interface
 
-That same TL;DR annotation feeds the book's [MCP server](https://modelcontextprotocol.io/). Yes, the book ships one, so an agent can query it directly. A build script pulls 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline straight out of the manuscript, with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
+That same TL;DR annotation feeds the book's MCP server ([about the protocol](https://modelcontextprotocol.io/)). Yes, the book ships one, so an agent can query it directly. A build script pulls 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline straight out of the manuscript, with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
 
 That overlap isn't limited to my build script. Alt text is the only description a model has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
 
