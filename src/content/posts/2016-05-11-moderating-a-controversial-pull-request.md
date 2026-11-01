@@ -6,7 +6,7 @@ tldr: "Controversial pull requests don't have to devolve into the internet's com
 
 Pull requests are a great way to collaborate. Propose a specific change, get detailed, concrete feedback from everyone it affects, reach a rough consensus, merge. At least that's how it's supposed to work, but sometimes, if you're not careful, things can go a bit off the rails.
 
-Depending on how you use pull requests within your own organization — be it a company or an open source project — there's a good chance you've seen it before: one commenter leaves a critical drive-by opinion, never to be heard from again. Another raises a tangentially related pet issue that derails the entire discussion. A third will disagree with just about everything you propose, just on principle. And a fourth, probably means well, but due to the limitations of the internet, comes off as abrasive. The conversation quickly devolves into a debate of semantics, and things go nowhere fast.
+Whether you use pull requests at a company or in an open source project, there's a good chance you've seen it before: one commenter leaves a critical drive-by opinion, never to be heard from again. Another raises a tangentially related pet issue that derails the entire discussion. A third will disagree with just about everything you propose, just on principle. And a fourth probably means well but, due to the limitations of the internet, comes off as abrasive. The conversation quickly devolves into a debate of semantics, and things go nowhere fast.
 
 It doesn't have to be that way. If you're about to open a controversial (or wide-reaching) pull request, there are a handful of steps you can take to encourage a more productive discussion:
 
@@ -22,7 +22,7 @@ Although often less of a concern for pull requests within an organization, the b
 
 Let everyone know that this isn't an opportunity for the peanut gallery to air the grievances or deliver drive-by opinions, in which they leave an opinion and immediately disappear. In most cases, if the commenter doesn't care about the issue enough to open a pull request, or can't propose an alternative, they probably shouldn't be commenting.
 
-My colleague @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](https://web.archive.org/web/20160511192501/http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear, that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But, be careful, keeping the riffraff at bay can inadvertently raise the barrier for non-technical contributors, so be sure to go out of your way to make the discussion inclusive.
+My colleague @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](https://web.archive.org/web/20160511192501/http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But be careful: keeping the riffraff at bay can inadvertently raise the barrier for non-technical contributors, so go out of your way to make the discussion inclusive.
 
 ## Assign roles
 
@@ -30,7 +30,7 @@ When it's everyone's responsibility, it's no one's responsibility. Before you ki
 
 ### Assign a moderator
 
-Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up a new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, they're responsible for the discussion being productive, respectful, and fair.
+Designate a moderator from the outset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up a new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, they're responsible for the discussion being productive, respectful, and fair.
 
 ### Make the decider known
 
@@ -42,8 +42,8 @@ Make it clear how people should provide feedback. Should they post long-winded, 
 
 ## Set a timeline
 
-Let everyone involved know how long you're going to allow for discussion (and make sure it's tantamount to the subject matter). Is this a 24-hour discussion? A week's worth? A month? Are there milestones or checkpoints along the way to make certain decisions or roll out certain aspects? The time frame should be long enough such that relevant stakeholders are on notice and can participate, even if they're away from their keyboard at any given moment, but not so long as to inject undue delay into the process.
+Let everyone involved know how long you're going to allow for discussion (and make sure it's proportionate to the subject matter). Is this a 24-hour discussion? A week's worth? A month? Are there milestones or checkpoints along the way to make certain decisions or roll out certain aspects? The time frame should be long enough that relevant stakeholders are on notice and can participate, even if they're away from their keyboard at any given moment, but not so long as to inject undue delay into the process.
 
-Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. By laying out ground rules up front, assigning key roles, and setting expectations, you can set yourself up for successes. What tips do you have for keeping things on track? Leave a comment below.
+Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. Lay out ground rules, assign roles, and set expectations, and you'll set yourself up for success.
 
 *A big hat tip to my former colleague @cameronmcefee, whose most excellent execution of a potentially controversial discussion inspired me to write this post.*

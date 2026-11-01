@@ -8,4 +8,4 @@ One of my favorite [perks of working at GitHub](https://github.com/about/jobs) i
 
 If those topics sound interesting, here are some of [**my favorite books for hackers, for geeks, and for open source developers**](/other-recommended-reading/).
 
-Of course, if you have a recommendation, I'm always looking for new books to read. Let me know in the comments below.
+If you have a recommendation, I'm always looking for new books to read.
