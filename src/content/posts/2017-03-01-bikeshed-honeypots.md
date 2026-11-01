@@ -26,7 +26,7 @@ If you've been around software long enough, there's also a good chance you've he
 
 A honeypot looks attractive (and real) but is ultimately fictional and designed to ensnare the attacker. You might, for example, add a field to a form that's only visible to computers in hopes of detecting automated submissions or an easily hackable but fake server to a network in hopes of detecting intruders.
 
-Putting the two concepts together, if you know those to whom you're presenting need to say *something*, and know the type of thing they're most likely to say, why not provide them with deliberate, low-risk opportunities to contribute?
+Putting the two concepts together, :quote[if you know those to whom you're presenting need to say *something*, and know the type of thing they're most likely to say, why not provide them with deliberate, low-risk opportunities to contribute?]{#bikeshed-honeypot-opportunities}
 
 ## An old idea with a new name
 
@@ -40,4 +40,4 @@ A *bikeshed honeypot* is a mistake, obvious flaw, or trivial decision that you p
 
 For example, you might propose a new pricing scheme but make the price point $20.00 instead of $19.99, or suggest a new menu item with a facially uncreative name, in both cases, allowing others to come in and "save the day." The trick is to make it subtle enough that the commenter feels clever and satisfied pointing it out but not so subtle that it's overlooked entirely (or so substantial that it can't be changed if they don't).
 
-I can't, in good conscience, advocate that you use this tactic (or say that I've used it). You're essentially trolling your audience. You're saying something in hopes of provoking a specific response, and the consequences could be disastrous. That said, if you've been around corporate culture long enough, there's also a good chance you've seen it before and now at least have a name for it (or three).
+I can't, in good conscience, advocate that you use this tactic (or say that I've used it). :quote[You're essentially trolling your audience.]{#trolling-your-audience} You're saying something in hopes of provoking a specific response, and the consequences could be disastrous. That said, if you've been around corporate culture long enough, there's also a good chance you've seen it before and now at least have a name for it (or three).

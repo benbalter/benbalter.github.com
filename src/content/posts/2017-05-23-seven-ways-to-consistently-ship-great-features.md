@@ -31,7 +31,7 @@ If two features touch the same part of the codebase or can be conceptually relat
 
 Imagine you're just sitting down for a cross-country flight and the pilot gets on the PA to explain how excited they are because the engine's been redesigned from the ground up, and this is the first time it's being flown with passengers. You'd be unlikely to stay in your seat. But it's easy to imagine how an engineer seeking to replace one gasket might realize that the new gasket allows you to slightly optimize the manifold, which means you can reconfigure the assembly… before you know it, one gasket has led to a new engine. Most passengers would prefer that the engineer replaced the gasket and left it at that, before moving on to the next thing in a subsequent iteration.
 
-Fewer moving parts means fewer untested lines of code and fewer things that can break. Avoid "flip a giant switch" ships. **If you can ship something smaller than you currently are, you should.**
+:quote[Fewer moving parts means fewer untested lines of code and fewer things that can break.]{#fewer-moving-parts} Avoid "flip a giant switch" ships. **If you can ship something smaller than you currently are, you should.**
 
 ## 5. "Next iteration" doesn't mean "never"
 
@@ -45,7 +45,7 @@ Before you type the words "this is a bug", "we should tackle this in a subsequen
 
 ## 7. Optimize for users
 
-For any sufficiently complex feature, you will face a choice between what's best for users and what's easy to implement, support, or maintain. **Your software doesn't exist for you to write it. It exists so that users can use it.** When in doubt, optimize for user happiness, not maintenance costs.
+For any sufficiently complex feature, you will face a choice between what's best for users and what's easy to implement, support, or maintain. **Your software doesn't exist for you to write it. It exists so that users can use it.** :quote[When in doubt, optimize for user happiness, not maintenance costs.]{#optimize-for-user-happiness}
 
 Practically, that means you should back into the code from the constraints of the desired user experience, not the other way around, and generally, [absorb complexity on behalf of users](/2016/08/22/ten-ways-to-make-a-product-great/#absorb-complexity-on-behalf-of-users). You know you've done your job when to users it appears to be a simple problem to solve, but in reality, you labored over the implementation.
 
