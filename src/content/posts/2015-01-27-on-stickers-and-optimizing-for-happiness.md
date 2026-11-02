@@ -5,7 +5,7 @@ tldr: "Every organization is optimized for exactly one thing. A quick glance at 
 writtenAtGitHub: true
 ---
 
-:quote[Every organization is optimized for exactly one thing.]{#optimized-for-one-thing} In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit guide whenever the demands of a particular task provide them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.
+:quote[Every organization is optimized for exactly one thing.]{#optimized-for-one-thing} In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provide them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.
 
 ## The allegory of the laptop sticker
 

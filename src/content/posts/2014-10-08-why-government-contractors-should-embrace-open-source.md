@@ -1,5 +1,5 @@
 ---
-title: Government contractors should use open source
+title: Why government contractors should open source
 description: Eight reasons government contractors should embrace open source, from free advertising and better code to attracting top talent.
 tldr: "Government contractors have been slow to adopt open source, and it costs them free advertising, better code, easier hiring, and guaranteed maintenance contracts. Find something small and open source it."
 writtenAtGitHub: true

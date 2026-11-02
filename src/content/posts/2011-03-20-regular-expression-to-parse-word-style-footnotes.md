@@ -1,5 +1,5 @@
 ---
-title: Regex to parse Word footnotes for WordPress
+title: Regex for Word footnotes to Simple Footnotes
 description: Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin
 archived: true
 ---

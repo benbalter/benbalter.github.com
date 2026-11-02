@@ -17,7 +17,7 @@ In software development, there’s the concept of the “bus factor” (or the �
 
 :quote[Humans get sick or take vacations or get locked out of their account and a project shouldn’t grind to a halt as a result.]{#projects-shouldnt-grind-to-halt} It can be hard to know when a project goes from “my” project to a community project, but as early as practical, move the project to a dedicated organization and empower contributors you trust to take on additional responsibility.
 
-Beyond better project longevity, most of GitHub’s community management tools are built with organization-owned repositories in mind, to encourage shared responsibility, so you’ll find more, and more capable, community management tools are suddenly available to your project.
+Beyond better project longevity, most of GitHub’s community management tools are built with organization-owned repositories in mind, to encourage shared responsibility, so you’ll find more (and more capable) community management tools are suddenly available to your project.
 
 ## 2. I will be a gracious dinner party host to the open source community
 
