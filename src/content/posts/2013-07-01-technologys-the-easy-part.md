@@ -28,7 +28,7 @@ We should be co-opting proven tools already in the hands of public servants and 
 
 ## Baby steps
 
-Complex, bleeding edge tools aren't the solution to making government more open. Even our [flagship efforts](https://www.healthcare.gov) expose that well-established solutions are unfortunately light years ahead of the anachronism that is DC and only baffle those the government trusts to implement them.[^2] Instead, it's about baby steps. It's about starting with a small, real-world proof of concept at each agency (heck, maybe even each bureau). Then gradually show the people who may not realize it that they are, in fact, empowered to fundamentally reimagine the relationship between citizens and government.
+Complex, bleeding edge tools aren't the solution to making government more open. Even our [flagship efforts](https://www.healthcare.gov) expose that well-established solutions are unfortunately light years ahead of the anachronism that is DC and just baffle those the government trusts to implement them.[^2] Instead, it's about baby steps. It's about starting with a small, real-world proof of concept at each agency (heck, maybe even each bureau). Then gradually show the people who may not realize it that they are, in fact, empowered to fundamentally reimagine the relationship between citizens and government.
 
 <!--lint ignore retext-indefinite-article-->
 
@@ -38,7 +38,7 @@ Creating a culture of collaboration around government data is great, but let's s
 
 We need to systematically and strategically demonstrate to government what open source actually offers and subsequently build the tools that transition them to realize it. To train government employees to begin to treat data like the rest of us treat code. To make them want to open up the data because there's a demonstrated community ready and waiting to nurture it. To upgrade the cultural technology on both sides of the firewall.
 
-We're going to need a smarter way to process real-time and large-scale government data eventually. There's no doubt about that. But we're not there yet. And we're not going to be any time soon unless we can un-teach public servants the bad, closed-solution lessons that have already been ingrained in the organizational culture. The technology's the easy part. When we need it, there's no doubt we can build it. The question is whether we'll be building it hand-in-hand with an enthusiastic body of government technologists, or if it'll just be the most technologically advanced whack-a-mole mallet that we've built to date.
+We're going to need a smarter way to process real-time and large-scale government data eventually. There's no doubt in my mind. But we're not there yet. And we're not going to be any time soon unless we can un-teach public servants the bad, closed-solution lessons that have already been ingrained in the organizational culture. The technology's the easy part. When we need it, there's no doubt we can build it. The question is whether we'll be building it hand-in-hand with an enthusiastic body of government technologists, or if it'll just be the most technologically advanced whack-a-mole mallet that we've built to date.
 
 [^1]: *See, for example,* SharePoint, Cold Fusion, PDFs, Oracle databases, Blackberrys, and just about "enterprise" anything.
 

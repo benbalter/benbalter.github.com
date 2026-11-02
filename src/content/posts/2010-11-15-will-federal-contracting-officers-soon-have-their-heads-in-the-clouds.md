@@ -1,5 +1,5 @@
 ---
-title: Federal contracting officers and the cloud
+title: Contracting officers, heads in the clouds?
 description: "Cloud computing already powers your daily life. Federal agencies can harness that same transformative power for modern governance."
 tldr: "If you use Facebook or Gmail, cloud computing already runs part of your life. Federal agencies can use the same on-demand, pay-for-what-you-use model, as long as contracting officers first vet security, data portability, and the legal terms."
 archived: true
@@ -41,7 +41,7 @@ More broadly, when contracting for cloud services, organizations have several te
 
 ## How to Get Into the Cloud
 
-Several avenues exist for organizations looking to experiment with the cloud. For federal agencies, the General Service Administration, through Apps.gov, will soon be rolling out a Federal private cloud. While the specifics have not yet been announced, this service is expected to provide federal agencies with storage, virtual machine, and Web hosting services at a low cost. [^19] Some of this service's potential has already been hinted at by the recent launch of `Apps.Gov` NOW, a hosted service that provides federal agencies with out-of-the-box blogs (site publishing platforms), Wikis (sites editable by members of a community), and online bulletin boards (sites to facilitate online discussions), all at no cost. [^20]
+Several avenues exist for organizations looking to experiment with the cloud. For federal agencies, the General Service Administration, through Apps.gov, will soon be rolling out a Federal private cloud. While the specifics have not yet been announced, this service is expected to provide federal agencies with storage, virtual machine, and Web hosting services at a modest cost. [^19] Some of this service's potential has already been hinted at by the recent launch of `Apps.Gov` NOW, a hosted service that provides federal agencies with out-of-the-box blogs (site publishing platforms), Wikis (sites editable by members of a community), and online bulletin boards (sites to facilitate online discussions), all at no cost. [^20]
 
 Second, many federal sites such as the Federal Communications Commission and `Recovery.Gov` are in the process of seeking or have already sought third-party cloud hosting services likes Amazon Web Services (AWS) as mentioned above. [^21] Federal agencies opting for such a route must be sure to work closely with the appropriate parties to ensure, federal IT security standards are met, such as FISMA [^22] requirements, or that record retention standards are met, for example, where data stored in the cloud constitutes a system of records under the privacy act. [^23]
 

@@ -8,7 +8,7 @@ tldr: "The challenges the first Presidential Innovation Fellows faced were overw
 
 *This post was originally published as part of [FedScoop's guest column series](https://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow/).*
 
-Looking back on the inaugural class of Presidential Innovation Fellows, almost one year to the day after we started, I can see that many of us rightfully assumed our challenges would be technical. In hindsight, the challenges we faced were overwhelmingly administrative, cultural, and bureaucratic in nature. When driving new efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:
+Looking back on the inaugural class of Presidential Innovation Fellows, almost one year to the day after we started, I can see that many of us rightfully assumed our challenges would be largely technical. In hindsight, the challenges we faced were overwhelmingly administrative, cultural, and bureaucratic in nature. When driving innovative efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:
 
 ## 1. "Innovative" efforts in government are standard practice in the startup world
 
@@ -20,11 +20,11 @@ Scrappy is good. Government loves things to be perfect before they go out the do
 
 ## 3. Sandbox progressive teams within the organization if you want them to succeed
 
-The success of experimental efforts cannot be benchmarked using the same yardstick against which an agency's traditional core competencies are measured, nor can teams thrive when dropped into an environment with years of shared history potentially antithetical to the team's agenda. Isolate those efforts, administratively and culturally, and provide them with the political air cover to secure the necessary resources and execute on their plan free of internal politics or drama. That's everything from their definition of success, to procurement, to dress code and hours. Found a startup within your larger organization, give it seed funding and great board members to support it, and get out of its way.
+The success of innovative efforts cannot be benchmarked using the same yardstick against which an agency's traditional core competencies are measured, nor can teams thrive when dropped into an environment with years of shared history potentially antithetical to the team's agenda. Isolate innovative efforts, administratively and culturally, and provide them with the political air cover to secure the necessary resources and execute on their plan free of internal politics or drama. That's everything from their definition of success, to procurement, to dress code and hours. Found a startup within your larger organization, give it seed funding and great board members to support it, and get out of its way.
 
 ## 4. Make friends with a lawyer on day one
 
-Find your government Sherpa. For every line of code you write, there's going to be a line of legal code or bureaucratic red tape telling you that you can't do whatever it is you want to do. That means half the time will be spent building the thing you want to build, but an equal amount of time will be spent crossing T's and dotting I's to ensure your project's blessed by the powers that be. Friend a lawyer (or other subject-matter expert) on day one, and make them part of your team. Don't let anachronistic requirements drive product development, but their experience and insight may help you to discover creative workarounds to avoid unnecessary administrative legwork. Make sure they're fully in the loop and know where you're going, so they can spot potential roadblocks before things trip you up.
+Find your government Sherpa. For every line of code you write, there's going to be a line of legal code or bureaucratic red tape telling you that you can't do whatever it is you want to do. That means half the time will be spent building the thing you want to build, but an equal amount of time will be spent crossing T's and dotting I's to ensure your project's blessed by the powers that be. Friend a lawyer (or other subject-matter expert) on day one, and make them part of your team. Don't let anachronistic requirements drive product development, but their experience and insight may help you to discover innovative workarounds to avoid unnecessary administrative legwork. Make sure they're fully in the loop and know where you're going, so they can spot potential roadblocks before things trip you up.
 
 ## 5. You are a cultural ambassador
 
