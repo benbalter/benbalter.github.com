@@ -1,5 +1,5 @@
 ---
-title: Federal .gov domains, pre-Biden edition
+title: Analysis of .gov domains, pre-Biden edition
 description: A data-driven snapshot of 1,121 federal .gov domains ahead of the Biden administration, covering HTTPS adoption, CMS usage, open source, and more.
 tldr: "Nearly ten years after my first crawl, a fourth scan of federal .gov domains shows security has seen the biggest wins since 2015: more than 95% of live domains support HTTPS, and more than 91% enforce it. Browse the full results or download the raw data, and if you find a mistake, submit a pull request."
 ---

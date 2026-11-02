@@ -2,7 +2,7 @@
 title: Work loudly
 tldr: "In remote work, visibility isn't ambient anymore. If your work only shows up at the end (or only in your head and DMs), you make it harder for people to help, harder for managers to advocate for you, and easier for the org to miss your impact."
 bookRelation: adapted
-description: "In an office, some of your visibility is free. Go remote and it drops to zero. Working loudly shows your impact as you do it, not after the fact."
+description: "In an office, some visibility is free. Go remote and it's gone. Working loudly shows your impact as you do it, not in a status update nobody reads."
 ---
 
 You did the work. The hard kind: the three weeks of chasing a race condition that only showed up under load, the careful refactor that made the next six features trivial, the quiet design call that saved the team a quarter of pain. Then your performance review comes around, and your manager (who likes you, who's genuinely on your side) can't quite say what you did. Not because the work wasn't real. Because they never saw it happen.
