@@ -43,7 +43,7 @@ Don't treat the rule as permission to dump problems on people. How you say it ma
 :::tip[Name the rule]
 When you're telling someone earlier than they'd normally expect to hear it, say so: "Under the rule of no surprises, I wanted you to be the first to hear from me…" It tells them you're early on purpose, not because something's on fire. Use it consistently and the phrase itself becomes the signal.
 
-It works at any scale, too. I once sent: "Under the rule of no surprises, I wanted to let you know that I just expensed two Furbies." Nobody wants to discover that line item on their own.
+It works at any scale, too. I once sent: "Under the rule of no surprises, I wanted to let you know that I just expensed [two Furbies](/2026/11/03/hacking-furbies-for-halloween/)." Nobody wants to discover that line item on their own.
 :::
 
 Put together, it's a message you can send in under a minute:

@@ -1114,3 +1114,7 @@ ffmpeg
 Ghostbusters
 trick-or-treater
 trick-or-treaters
+DFRobot
+FireBeetle
+LiPo
+failsafe
