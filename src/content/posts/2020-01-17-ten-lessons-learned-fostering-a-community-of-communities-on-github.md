@@ -1,7 +1,7 @@
 ---
-title: 10 lessons learned fostering a community of communities at GitHub
+title: "A community of communities: 10 GitHub lessons"
 description: What GitHub's Community and Safety team learned building a trust and safety framework to help maintainers grow healthy, open source communities.
-tldr: "What GitHub's Community and Safety team learned building a trust and safety framework to help open source maintainers grow healthy, semi-independent communities."
+tldr: "GitHub's Community and Safety team learned to focus on behaviors instead of users, and to intervene before, during, and after disruptive behavior. The goal was a trust and safety framework that let open source maintainers grow healthy, semi-independent communities."
 writtenAtGitHub: true
 ---
 
@@ -136,4 +136,4 @@ This all took a village and then some. There were countless managers, engineers,
 
 Due to the often proprietary nature of social networks and potentially adversarial nature of trust and safety we don't, as an industry, always talk openly about our efforts or how we go about solving shared problems. In hopes that what I learned could help other platforms starting down the same path, I wanted to share how I've thought about federated community management at GitHub over the past three years. YMMV.
 
-*And of course, as always, these thoughts are [my own](/2015/01/26/the-fine-print-nobody-reads/).*
+*And as always, these thoughts are [my own](/2015/01/26/the-fine-print-nobody-reads/).*

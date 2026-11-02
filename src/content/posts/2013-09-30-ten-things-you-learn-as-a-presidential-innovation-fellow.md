@@ -1,6 +1,6 @@
 ---
-title: Ten Things You Learn as a Presidential Innovation Fellow
-description: The challenges we faced were overwhelmingly administrative, cultural, and bureaucratic in nature. Here are 10 things I know now I wish I had known then.
+title: Lessons from a Presidential Innovation Fellow
+description: The challenges we faced were overwhelmingly administrative, cultural, and bureaucratic, not technical. Here are 10 things I wish I had known then.
 tldr: "The challenges the first Presidential Innovation Fellows faced were overwhelmingly administrative, cultural, and bureaucratic, not technical. Look to the startup world, since the internet has probably already solved your problem. Ship early and often, make friends with a lawyer on day one, make open the default, and leave your work in the hands of career employees who will adopt it once you're gone."
 ---
 
@@ -8,7 +8,7 @@ tldr: "The challenges the first Presidential Innovation Fellows faced were overw
 
 *This post was originally published as part of [FedScoop's guest column series](https://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow/).*
 
-Looking back on the inaugural class of Presidential Innovation Fellows, almost one year to the day after we started, I can see that many of us rightfully assumed our challenges would be largely technical. In hindsight, the challenges we faced were overwhelmingly administrative, cultural, and bureaucratic in nature. When driving innovative efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:
+Looking back on the inaugural class of Presidential Innovation Fellows, almost one year to the day after we started, I can see that many of us rightfully assumed our challenges would be technical. In hindsight, the challenges we faced were overwhelmingly administrative, cultural, and bureaucratic in nature. When driving new efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:
 
 ## 1. "Innovative" efforts in government are standard practice in the startup world
 
@@ -16,15 +16,15 @@ Most of the problems the innovation fellows solve are not moon-shot problems. Th
 
 ## 2. Ship early, ship often
 
-Scrappy is good. Government loves things to be perfect before they go out the door. That makes sense with laws, which may take months or even years to change. But when it comes to technology, it's about starting small and iterating. As an innovator, you're not just building technology; you're also building a technocratic culture. Look to low-lift, high-visibility efforts that validate your underlying assumptions and can prove your vision's viability to a larger community of nay-saying stakeholders. A working prototype or successful proof of concept is incredibly persuasive in the face of "you can't do that" or "that's not possible" rhetoric. Here, as elsewhere, code speaks louder than words. Know what you want your 1.0 to look like, and build toward it, but launch with 0.1, launch with the minimum viable product that can introduce your vision to the world. :quote[If you're happy with the thing you ship on day one, you've already waited too long.]{#happy-with-day-one}
+Scrappy is good. Government loves things to be perfect before they go out the door. That makes sense with laws, which may take months or even years to change. With technology, though, it's about starting small and iterating. As an innovator, you're not just building technology; you're also building a technocratic culture. Look to low-lift, high-visibility efforts that validate your underlying assumptions and can prove your vision's viability to a larger community of nay-saying stakeholders. A working prototype or successful proof of concept is incredibly persuasive in the face of "you can't do that" or "that's not possible" rhetoric. Here, as elsewhere, code speaks louder than words. Know what you want your 1.0 to look like, and build toward it, but launch with 0.1, launch with the minimum viable product that can introduce your vision to the world. :quote[If you're happy with the thing you ship on day one, you've already waited too long.]{#happy-with-day-one}
 
 ## 3. Sandbox progressive teams within the organization if you want them to succeed
 
-The success of innovative efforts cannot be benchmarked using the same yardstick against which an agency's traditional core competencies are measured, nor can teams thrive when dropped into an environment with years of shared history potentially antithetical to the team's agenda. Isolate innovative efforts, administratively and culturally, and provide them with the political air cover to secure the necessary resources and execute on their plan free of internal politics or drama. That's everything from their definition of success, to procurement, to dress code and hours. Found a startup within your larger organization, give it seed funding and great board members to support it, and get out of its way.
+The success of experimental efforts cannot be benchmarked using the same yardstick against which an agency's traditional core competencies are measured, nor can teams thrive when dropped into an environment with years of shared history potentially antithetical to the team's agenda. Isolate those efforts, administratively and culturally, and provide them with the political air cover to secure the necessary resources and execute on their plan free of internal politics or drama. That's everything from their definition of success, to procurement, to dress code and hours. Found a startup within your larger organization, give it seed funding and great board members to support it, and get out of its way.
 
 ## 4. Make friends with a lawyer on day one
 
-Find your government Sherpa. For every line of code you write, there's going to be a line of legal code or bureaucratic red tape telling you that you can't do whatever it is you want to do. That means half the time will be spent building the thing you want to build, but an equal amount of time will be spent crossing T's and dotting I's to ensure your project's blessed by the powers that be. Friend a lawyer (or other subject-matter expert) on day one, and make them part of your team. Don't let anachronistic requirements drive product development, but their experience and insight may help you to discover innovative workarounds to avoid unnecessary administrative legwork. Make sure they're fully in the loop and know where you're going, so they can spot potential roadblocks before things trip you up.
+Find your government Sherpa. For every line of code you write, there's going to be a line of legal code or bureaucratic red tape telling you that you can't do whatever it is you want to do. That means half the time will be spent building the thing you want to build, but an equal amount of time will be spent crossing T's and dotting I's to ensure your project's blessed by the powers that be. Friend a lawyer (or other subject-matter expert) on day one, and make them part of your team. Don't let anachronistic requirements drive product development, but their experience and insight may help you to discover creative workarounds to avoid unnecessary administrative legwork. Make sure they're fully in the loop and know where you're going, so they can spot potential roadblocks before things trip you up.
 
 ## 5. You are a cultural ambassador
 
@@ -32,7 +32,7 @@ You've got two products to deliver when your tenure is up. The thing you've actu
 
 ## 6. Have an exit strategy
 
-Building something awesome is great, but if it's just going to sit on a shelf and collect dust when you leave, what good is it? There are forward-thinking career employees within your organization who have wanted change for years. Help them to enable it. Make them part of the team, and more important, make sure they're bought into the vision and have the tools they need, both bureaucratically and technically to see it forward. They're going to adopt your baby once you leave. Make sure you leave it in the right hands.
+Building something awesome is great, but if it's just going to sit on a shelf and collect dust when you leave, what good is it? Your organization has forward-thinking career employees who have wanted change for years. Help them to enable it. Make them part of the team, and more important, make sure they're bought into the vision and have the tools they need, both bureaucratically and technically to see it forward. They're going to adopt your baby once you leave. Make sure you leave it in the right hands.
 
 ## 7. Don't take no for an answer (better yet, don't even ask)
 

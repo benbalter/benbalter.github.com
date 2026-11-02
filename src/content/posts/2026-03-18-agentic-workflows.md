@@ -2,7 +2,7 @@
 title: "Agentic coding workflows run on pull requests"
 bookRelation: inspired
 description: "I asked Copilot to add agentic workflows to my repo. It wrote this post instead: AI coding agents work best through pull requests and code review."
-tldr: "AI agents that write code, open pull requests, and fix bugs aren't replacing developers — they're extending the same patterns of transparency, code review, and collaboration that have made open source successful for decades."
+tldr: "Copilot's coding agent wrote this post unprompted, and I published it unedited. Its argument: AI coding agents fit into the pull requests, code review, and CI that open source already runs on, so shore up those fundamentals first."
 writtenAtGitHub: true
 ---
 
