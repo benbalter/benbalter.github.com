@@ -1,6 +1,6 @@
 ---
-title: Bringing open source workflows to the enterprise
-description: You don't have to share your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless.
+title: Bring open source workflows to the enterprise
+description: You don't have to share your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software.
 tldr: "You don't have to publish your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless."
 ---
 
@@ -14,7 +14,7 @@ Open source has changed the way we build software. Open source projects are buil
 
 A traditional software development project may look something like this: A customer spends weeks to months gathering requirements, the requirements are passed to a project manager, and the project manager assigns tasks to individual developers and designers. It's an extremely rigid, extremely hierarchical approach that traces its roots to the rise of factory workers each producing fungible parts of a whole where responsibility for assemblies and sub-assemblies could be easily delegated and managed individually.
 
-In practicality, software is more art than assembly, with project managers acting as the primary interface between the customer and development efforts, often passing information back and forth in non-purpose-built tools like Excel and Outlook, or even holding regularly scheduled status meetings just to keep stakeholders in the loop. When the project concludes, the customer is often left with just the URL to a working instance of the software, or perhaps a snapshot of the final code via an email from the project manager to product owner. Needless to say, the process is inefficient, time consuming, and leaves the customer with an incomplete view of what they've bought both day-to-day and historically. This is especially troublesome if the agency needs to make any changes to the software once the engagement concludes.
+In practicality, software is more art than assembly, with project managers acting as the primary interface between the customer and development efforts, often passing information back and forth in non-purpose-built tools like Excel and Outlook, or even holding regularly scheduled status meetings just to keep stakeholders in the loop. When the project concludes, the customer is often left with just the URL to a working instance of the software, or perhaps a snapshot of the final code via an email from the project manager to product owner. The process is inefficient, time consuming, and leaves the customer with an incomplete view of what they've bought both day-to-day and historically. This is especially troublesome if the agency needs to make any changes to the software once the engagement concludes.
 
 ## Software development in the open source world
 
@@ -38,7 +38,7 @@ These transparent workflows break down the organizational silos native to large 
 
 Government is perfectly positioned to adopt these more open software development workflows. Rarely developing software in house, government agencies spend millions of dollars each year on purpose-built software, but maintain a largely arms-length relationship with development teams. More often than not, agencies hand curate their own issue backlog, funneling bugs and feature requests through a single project owner, and communicating task orders via email where project managers then record the request in the development team's duplicative issue tracker.
 
-What if both agency and contractor adopted and shared tools that naturally captured and exposed process? What if we let technology do the heavy lifting rather than dedicating two full time employees to largely shuttle information back and forth between organizations? As asynchronous tools like chat and issue trackers replace hand-curated spreadsheets and in-person updates, government agencies gain day-to-day visibility into project status and a more complete, historical picture of how and why decisions were made, and agency employees can move from remedial to higher-value work.
+What if both agency and contractor adopted and shared tools that naturally captured and exposed process? What if we let technology do the heavy lifting rather than dedicating two full-time employees to largely shuttle information back and forth between organizations? As asynchronous tools like chat and issue trackers replace hand-curated spreadsheets and in-person updates, government agencies gain day-to-day visibility into project status and a fuller, historical picture of how and why decisions were made, and agency employees can move from remedial to higher-value work.
 
 ## How you work is as important as what you work on
 
@@ -46,7 +46,7 @@ The tools you choose matter. Tools are more than mere convenience. :quote[Tools 
 
 Open source tools tend to be more organic, rather than process-driven, and prefer social norms to technical constraints. Open source tools must also be able to support the constraints of distributed, open source teams. For example, a 9:00 AM standup meeting is not an option when your development team spans every time zone, let alone when it isn't in the same office.
 
-When it comes to how they work, open source teams are bound by [four distinct constraints](https://web.archive.org/web/20150909021925/http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints):
+Open source teams are bound by [four distinct constraints](https://web.archive.org/web/20150909021925/http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints) in how they work:
 
 > - **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 >

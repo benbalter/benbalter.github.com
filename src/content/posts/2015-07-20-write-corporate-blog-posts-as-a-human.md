@@ -1,5 +1,5 @@
 ---
-title: 'Speak like a human: 12 ways tech companies can write less-corporate blog posts'
+title: Write corporate blog posts like a human
 bookRelation: inspired
 description: Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound human.
 tldr: "Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound like a human talking to humans, not marketing speak."
@@ -8,7 +8,7 @@ writtenAtGitHub: true
 
 If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "innovative, new" this or a "first-of-its-kind" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and the only thing they've successfully convinced you of is your need to never visit that marketing-site-disguised-as-a-blog ever again.
 
-Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
+It doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's just me, as an individual, talking to customers. No corporate buzzwords or filters needed.
 
 A big part of that philosophy, and an even bigger part of reducing it to writing can be attributed to @kcwatkins who introduced me to the idea that [markets are conversations](https://web.archive.org/web/20150717062809/http://newclues.cluetrain.com/). :quote[Your users don't read your blog to be marketed to.]{#marketed-to} They read your blog to learn about what's going on with your product. The most effective way to educate current and potential users about a ship is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life (say, when bumping into a customer at a coffee shop), why is it okay to do on your corporate blog?
 
@@ -28,7 +28,7 @@ There's also something to be said for giving the person that shipped the new fea
 
 ## 2. Write for users, not for yourself
 
-I'm sure what you do is super interesting. But what's even more interesting is what a user can do now as a result of your work. Instead of telling your users how excited you are or how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user's perspective). A simple rule of thumb is that there should be more use of the word "you" than of "we". An even better rule of thumb is to avoid using the word "we" in the first place.
+I'm sure what you do is super interesting. But what's even more interesting is what a user can do now as a result of your work. Instead of telling your users how excited you are or how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user's perspective). A simple guideline is that there should be more use of the word "you" than of "we". An even better guideline is to avoid using the word "we" in the first place.
 
 ## 3. Describe the 1/4" hole
 
@@ -38,7 +38,7 @@ Rather than spend time telling me how great your drill is, describe the holes it
 
 ## 4. The title should summarize the entire post
 
-In the typical corporate blog, the signal-to-noise ratio is usually pretty low, at least in terms of things any one given user cares about. Even if a blog is exclusively used to announce new features, there's a good chance that I have no use for whatever feature you're talking about. No matter how good your creative team is at coming up with clever or link-bait style post titles, the title should summarize the entire post for the reader.
+In the typical corporate blog, the signal-to-noise ratio is pretty low, at least for what any one user cares about. Even if a blog is exclusively used to announce new features, there's a good chance that I have no use for whatever feature you're talking about. No matter how good your creative team is at coming up with clever or link-bait style post titles, the title should summarize the entire post for the reader.
 
 The idea is to forecast what the post is about and give the user an early escape hatch to bail if they don't want to read any further. The post is for the reader's benefit, and assuming you don't have ads on your site, you've got nothing to gain by tricking them into clicking your link. Let users opt in to reading your post, rather than coercing them through cleverness or semantic sleight of hand.
 
@@ -46,7 +46,7 @@ The idea is to forecast what the post is about and give the user an early escape
 
 The first sentence of the post should, when combined with the title, further summarize the post. If the user stopped reading right then, it should be the one thing you'd want them to take away. Think grammar school style [inverted pyramid](https://en.wikipedia.org/wiki/Inverted_pyramid). Put the most important things up front and go from there in decreasing order of importance. With a few exceptions, your post should almost always describe what you shipped, how to use it, and why it matters, in that order.
 
-Readers have an extremely short attention span and even less time to spend reading something they don't care about. Imagine a power curve with 80% of readers reading the first sentence, and the probability of a reader continuing dropping off sentence-by-sentence from there. You should assume that readers will take less than 30 seconds to read your entire post, and less than three seconds to decide if they're even going to get that far. Write assuming 80% of your readers will only read the first sentence. What do you want 80% of readers to know if you can only tell them one thing?
+Readers have a short attention span and even less time to spend reading something they don't care about. Imagine a power curve with 80% of readers reading the first sentence, and the probability of a reader continuing dropping off sentence-by-sentence from there. You should assume that readers will take less than 30 seconds to read your entire post, and less than three seconds to decide if they're even going to get that far. Write assuming 80% of your readers will only read the first sentence. What do you want 80% of readers to know if you can only tell them one thing?
 
 ## 6. An animated GIF is worth 10,000 words
 
@@ -68,7 +68,7 @@ It's an easy crutch to begin a blog post with "Starting today…". That's like s
 
 It's tempting to talk about what's still in development, but don't tease your users with features that they can't yet use, and thus gain nothing from. Generating "buzz" is noticeably self-serving, and your users will respond accordingly. Not to mention, it locks your developers into particular decisions, even if you subsequently gain information that suggests it's ultimately not the right direction for the product. Instead, [manage expectations](https://web.archive.org/web/20180902232301/http://ozmm.org/posts/managing_expectations.html), both internally and externally.
 
-[This corporate antipattern](https://www.slideshare.net/bcantrill/corporate-open-source-antipatterns/10) is especially common in the world of closed-to-open source. "We intend to open source X" may be a great forcing function internally, but more often than not leaves your audience asking why it took so long in the first place. "We open sourced X" or "You can now Y" is a much better start to the conversation.
+[This corporate antipattern](https://www.slideshare.net/bcantrill/corporate-open-source-antipatterns/10) is especially common when closed code goes open source. "We intend to open source X" may be a great forcing function internally, but more often than not leaves your audience asking why it took so long in the first place. "We open sourced X" or "You can now Y" is a much better start to the conversation.
 
 ## 11. Embrace structure
 
@@ -78,7 +78,7 @@ It's a well-known fact that people on the internet do not read words. They may r
 
 The user has read your post, you've gotten them excited, now what? What's the call to action? What's their ideal first click you want the user to make after reading? Put it right in front of them. Make it opt-out to do the right thing. It may be documentation describing in detail how to use the new thing, or may be a link directly to the new thing itself. Either way, the idea here is to nudge the user in the desired direction. You can't blame them for not doing it if you don't make it ridiculously easy. Assume people are lazy.
 
-In addition to the above, grammar, spelling, tone, and style go without saying. There are many style guides out there, but [18F's](https://web.archive.org/web/20150706153638/https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric among them. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality. Even better, [collaborate using CI and Git flow](https://zachholman.com/posts/how-github-writes-blog-posts/).
+In addition to the above, grammar, spelling, tone, and style go without saying. Plenty of style guides exist, but [18F's](https://web.archive.org/web/20150706153638/https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric among them. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality. Even better, [collaborate using CI and Git flow](https://zachholman.com/posts/how-github-writes-blog-posts/).
 
 From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the antipatterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond accordingly.
 

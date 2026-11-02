@@ -15,7 +15,7 @@ Successful open source projects rely heavily on automation to implement and enfo
 
 Automated testing can be used for more than just “does this thing work”. If your project (or language or framework) has adopted coding standards, use CI to enforce them. Most common languages have customizable linters, or, if necessary, you could always write your own for custom or one-off rules. As we say at GitHub, “pedantic robots > pedantic humans”. If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you’re less likely to.
 
-CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like GitHub Actions or Travis CI have examples for every major framework and language, are usually free for open source projects, and are often a matter of simply committing the necessary metadata to your project. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request.
+CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like GitHub Actions or Travis CI have examples for every major framework and language, are usually free for open source projects, and are often a matter of committing the necessary metadata to your project. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request.
 
 ## Automate issue management
 
@@ -38,7 +38,7 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 
 [Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often a cloud platform like Railway or Fly.io).
 
-Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to various repository events. Although the Actions ecosystem for automating common community management tasks is significantly smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/adapter-github-actions) by adding them to your repository.
+Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to repository events. Although the Actions ecosystem for automating common community management tasks is much smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/adapter-github-actions) by adding them to your repository.
 
 Whether you use Probot, a community-maintained Actions workflow, or your own Actions workflow is up to you, and largely depends on how much you're willing to trust a hosted tool versus being willing to stand up and maintain the execution environment yourself. The important thing is that you're automating common community management tasks.
 

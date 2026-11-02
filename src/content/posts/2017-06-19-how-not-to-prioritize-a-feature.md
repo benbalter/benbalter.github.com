@@ -14,7 +14,7 @@ Maybe the idea comes from a developer who's experienced the problem themselves. 
 
 ## Sales says a big customer is asking for it
 
-Your Sales team is one of your most robust means of getting customer feedback. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those in a position to implement it. But it's all too easy to confuse that which you hear from an important customer with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
+Your Sales team is one of your richest sources of customer feedback. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those in a position to implement it. But it's all too easy to confuse that which you hear from an important customer with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
 
 :quote[Your users are experts at using your product, not building, supporting, or maintaining it.]{#users-are-experts-at-using} Feedback via your sales channels should be one of your primary means of understanding user challenges, and it may make sense to consider logos or seats. Still, it should not be your primary means of feature definition or prioritization, nor your only means of feedback.
 

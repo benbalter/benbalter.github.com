@@ -1,10 +1,10 @@
 ---
-title: Everything a government attorney needs to know about open source software licensing
+title: Open source licensing for government attorneys
 description: What government lawyers need to know about open source licensing, from MIT to GPL, and from consuming code to accepting contributions.
-tldr: "From MIT to GPL to contributor license agreements, what government lawyers need to know about consuming, publishing, and contributing to open source, and about accepting public contributions."
+tldr: "Government agencies can and should take part in open source, and the license is what makes that possible. From MIT to GPL to contributor license agreements, here's what government lawyers need to know about consuming, publishing, and contributing to open source, and about accepting public contributions."
 ---
 
-Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code has been made available to the public](/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](https://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
+Government agencies can and should participate in the open source community. Open source software is [more than just software for which the underlying human-readable code has been made available to the public](/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](https://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
 
 ## Open source licenses generally
 
@@ -48,9 +48,9 @@ Within the software industry, the canonical source for the most common licenses,
 
 Some licenses, most notably the GPL family of licenses, are copyleft licenses, meaning the license uses copyright law to ensure the code remains open source. The WordPress and Drupal content management systems are both licensed under the GPL license.
 
-Any work derived from copyleft-licensed code, if distributed, must be distributed under the same (or compatible) terms. There are two threshold issues there:
+Any work derived from copyleft-licensed code, if distributed, must be distributed under the same (or compatible) terms. Two threshold issues apply:
 
-- **Derivative work.** There are nuances within the particular license, but for most cases, if the new code depends on the original, copyleft-licensed code, such as a WordPress theme or a Drupal module, it is considered a derivative work subject to the copyleft requirements.
+- **Derivative work.** Each license has its own nuances, but in most cases, if the new code depends on the original, copyleft-licensed code, such as a WordPress theme or a Drupal module, it is considered a derivative work subject to the copyleft requirements.
 
 - **Distribution.** The copyleft requirements are not triggered unless the derivative work is distributed. Agencies are free to make derivative works and maintain that work as a closed-source project. When the underlying source code is published to the public, distribution is clear. Less clear is distribution to other business units within the same agency, or with other agencies. Unless licensed under the AGPL license, using the code as part of a hosted service (for example, a site) does not trigger that requirement.
 
@@ -84,7 +84,7 @@ It can. CC0 expressly says it doesn't waive or license any patent rights, so a c
 
 ### Contractor created code
 
-Under the FAR, by default, the government receives unlimited rights in any software developed under contract, and thus is free to publish the code as they see fit. Due to market forces and contracting tradition, many typical government IT contracts, however, contract away this right in favor of simple government purpose rights, with the contractor retaining the original copyright. If that's the case, the agency has several options:
+Under the FAR, by default, the government receives unlimited rights in any software developed under contract, and thus is free to publish the code as they see fit. Due to market forces and contracting tradition, many typical government IT contracts, however, contract away this right in favor of simple government purpose rights, with the contractor retaining the original copyright. If that's the case, the agency has three options:
 
 - **Ask.** Government contractors are typically contractually prohibited from talking about their work. As a result, most, if not all, would prefer their work be open sourced. For typical web or mobile development contracts, there is often little proprietary IP in the purpose-built code, and thus contractors have an incentive to grant the agency additional rights on request.
 
@@ -102,7 +102,7 @@ One thing to watch out for is contributor license agreements (CLAs) which may pr
 
 ## Accepting contributions from the public
 
-Once published, there's a high probability a member of the public will submit a proposed improvement to the agency project. There are two potential issues:
+Once published, there's a high probability a member of the public will submit a proposed improvement to the agency project. Two issues can come up:
 
 - **Agency request.** As is common practice in the open source world, the agency may maintain a project roadmap and backlog of known bugs or potential enhancements, but should not directly instruct potential contributors to address a certain issue.
 
