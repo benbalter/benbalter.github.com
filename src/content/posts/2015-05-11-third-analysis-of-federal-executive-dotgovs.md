@@ -16,7 +16,7 @@ You can always compare them to the original [2011](/2011/09/07/analysis-of-feder
 - Just shy of 40% of sites advertise that they are powered by open source server software (for example, Apache, Nginx), up from about a third last year, with about one in five sites responding that they are powered by closed source software (for example, Microsoft, Oracle, Sun)
 - [61 sites](https://web.archive.org/web/20140722085513/https://dotgov-browser.herokuapp.com/domains?server=Microsoft-IIS%2F6.0) are still somehow running IIS 6.0 (down from 74 last year), a 10+ year old server
 - HHS is still the biggest perpetrator of domain sprawl with 117 domains (up from 110 last year), followed by GSA (104, down from 105), Treasury (95, up from 92), and Interior (86, down from 89)
-- Only 67 domains have a `/developer` page, 99 have a `/data` page, and 74 have a `/data.json` file, all down from past years, due to more accurate means of calculation, which brings us to
+- Only 67 domains have a `/developer` page, 99 have a `/data` page, and 74 have a `/data.json` file, all sharply down from past years, due to more accurate means of calculation, which brings us to
 - 255 domains (just shy of 20%) don't properly return "page not found" (404) errors. If you programmatically request their `/data.json` file, or any other non-existent URL, the server says it found the file but returns a human-readable "page not found" page, which makes machine readability especially hard
 
 :::info[Edit, May 12, 2015]

@@ -181,7 +181,7 @@ The other concern was uptime. With the AWS route you may get the performance, bu
 
 With Jekyll, because the files are just sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it keeps serving the old content.[^4]
 
-## Static sites are cheaper, faster, and simpler
+## Static sites are the future
 
 It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
 

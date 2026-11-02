@@ -1,7 +1,7 @@
 ---
 title: Copyright notices for open source projects
 description: "Who holds the copyright? What year do you use? Do you even need a notice? Everything you need to know about open source copyright."
-tldr: "List every year the project was published, and credit both the founder and the contributors, since each contributor keeps copyright to their own work. You don't need a notice to get a copyright, but one is easy to add and tells people whom to ask."
+tldr: "For an active project, write 'Copyright [first year] - [current year], [founder] and the [project] contributors,' since, absent a CLA, every contributor keeps copyright to their own code. You don't need a notice to get a copyright, but it's easy to add and tells people whom to ask."
 ---
 
 People keep asking what the appropriate copyright notice is for the footer of documentation sites or in an open source project's license. In short, assuming your project's under active development, it should be:
