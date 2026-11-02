@@ -197,6 +197,18 @@
     },
     "@expressive-code/core": {
       "postcss-nested": "^7.0.2"
+    },
+    "@playform/compress": {
+      "svgo": "^4.1.0"
+    },
+    "satori": {
+      "fflate": "^0.7.5"
+    },
+    "markdownlint": {
+      "re2js": "^2.8.7"
+    },
+    "micromark-extension-math": {
+      "katex": "^0.18.2"
     }
   }
 }
