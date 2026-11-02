@@ -1,5 +1,5 @@
 ---
-title: Google Analytics Tracking of Jetpack (Sharedaddy) Social Engagement
+title: Tracking Jetpack Shares in Google Analytics
 description: Track Facebook, Twitter, and Google +1 shares in Google Analytics with social engagement tracking and the Jetpack Sharedaddy plugin.
 tldr: "Google recently added social engagement tracking to its analytics suite. With a little bit of leg work, Google Analytics can track not only +1s, but also Facebook and Twitter shares via a simple _gaq.push call."
 archived: true
@@ -27,7 +27,7 @@ $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
 });
 ```
 
-The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to ~~`wp_head`~~ `wp_footer` you get the full plugin code available as a [GitHub Gist](https://gist.github.com/1058469).
+The above code listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to ~~`wp_head`~~ `wp_footer` you get the full plugin code available as a [GitHub Gist](https://gist.github.com/1058469).
 
 The code should work out of the box with the standard share buttons, but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
 

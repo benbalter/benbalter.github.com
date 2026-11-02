@@ -1,12 +1,12 @@
 ---
 title: How I Atom (for prose)
-description: A detailed look at the packages, prose linters, and configuration tweaks I use to turn the Atom text editor into a powerful Markdown writing environment.
+description: The packages, prose linters, and configuration tweaks I use to turn the Atom text editor into a powerful Markdown writing environment.
 archived: true
 ---
 
 Inspired by @sroberts' ["How I Atom" post](https://web.archive.org/web/20160310161436/https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://web.archive.org/web/20140421210430/https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
 
-While at its core, Atom is a simple, hackable text editor, what makes Atom so powerful is its extensibility and its ecosystem. There are [some 5,000 community-contributed packages](https://atom.io/packages) (and counting) that extend Atom's functionality and it's relatively easy to customize Atom's behavior using just HTML, CSS, and JavaScript.
+Atom is a simple, hackable text editor, but what makes Atom so powerful is its extensibility and its ecosystem. [Some 5,000 community-contributed packages](https://atom.io/packages) (and counting) extend Atom's functionality, and you can customize Atom's behavior using just HTML, CSS, and JavaScript.
 
 First and foremost, I'm a developer. While these days I may only occasionally write more than a few lines of code at any given time, over the years, I've grown accustomed to developer tools and developer workflows for all sorts of knowledge work, even if now, the majority of my time in Atom is spent authoring [Markdown](https://guides.github.com/features/mastering-markdown/) and prose. It's natural then, that I use a developer-centric text editor for the majority of my work, even if it's authoring English, and not say, Ruby.
 
@@ -41,7 +41,7 @@ Chances are, [there's a linter available for your language of choice](https://at
 
 ## Prose linters
 
-There are a few prose-specific linters I credit for improving my day-to-day writing:
+I credit a few prose-specific linters with improving my day-to-day writing:
 
 - [linter-write-good](https://atom.io/packages/linter-write-good): A grammar linter, Write Good checks all sorts of things, like falses, passive voice, and unnecessarily wordy phrases.
 - [linter-markdown](https://atom.io/packages/linter-markdown): This linter, based on [remark](https://github.com/remarkjs/remark), lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
@@ -50,10 +50,10 @@ There are a few prose-specific linters I credit for improving my day-to-day writ
 
 ## How I manage Atom
 
-When I set up a new machine, among the first things I do is [symlink `~/.atom/config.cson` and `~/.atom/keymap.cson` to copies versioned as part of my dotfiles](https://github.com/benbalter/dotfiles/blob/8225f160363a/script/setup/atom). Of course, if that's beyond your technical prowess (or willingness), or you need to keep secrets in your Atom config (like API keys), you can use something like [Mackup](https://github.com/lra/mackup) to sync the config files via Dropbox. Since Atom stores its config as nearly human-readable `.cson` files, it's easy to version settings and keep them in sync across machines. If you're really interested, since my dotfiles are open source, you can even [browse my Atom config](https://github.com/benbalter/dotfiles/tree/544d79d98bf5/.atom).
+When I set up a new machine, among the first things I do is [symlink `~/.atom/config.cson` and `~/.atom/keymap.cson` to copies versioned as part of my dotfiles](https://github.com/benbalter/dotfiles/blob/8225f160363a/script/setup/atom). If that's beyond your technical prowess (or willingness), or you need to keep secrets in your Atom config (like API keys), you can use something like [Mackup](https://github.com/lra/mackup) to sync the config files via Dropbox. Since Atom stores its config as nearly human-readable `.cson` files, it's easy to version settings and keep them in sync across machines. If you're really interested, since my dotfiles are open source, you can even [browse my Atom config](https://github.com/benbalter/dotfiles/tree/544d79d98bf5/.atom).
 
 You may also notice that I have a [`packages.txt`](https://github.com/benbalter/dotfiles/blob/5dacca0e8306/.atom/packages.txt) file in my Atom config, with each plugin I want to use listed on its own line. While not a standard implementation, to be sure, Atom does come bundled with its own Atom Package Manager (APM), which can be fed a list of package files, via the `apm install --packages-file packages.txt` command, to install a list of desired packages. You can even create that list from your existing plugins [with this one-liner](https://github.com/benbalter/dotfiles/blob/8225f160363a/script/atom).
 
-Working largely in prose, I can't imagine using a more traditional word processor over something that, when customized, is more powerful and more purpose built. I can't count the number of times I've simply pasted in text I'm proofreading and implemented the automated suggestions (or written ad hoc rules to check for my own style nits).
+Working largely in prose, I can't imagine using a more traditional word processor over something that, when customized, is more powerful and more purpose built. I can't count the number of times I've pasted in text I'm proofreading and implemented the automated suggestions (or written ad hoc rules to check for my own style nits).
 
 That's how I Atom, but there are a bajillion packages (and workflows) out there. What packages do you use that you can't live without? How do you Atom?

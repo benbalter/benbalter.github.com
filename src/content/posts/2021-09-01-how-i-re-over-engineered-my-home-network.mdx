@@ -1,7 +1,7 @@
 ---
 title: How I re-over-engineered my home network for privacy and security
 description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet.
-tldr: "How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet."
+tldr: "How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet. Define the whole setup in code, so rebuilding the Pi takes a single command instead of a weekend."
 ---
 
 A little less than a year ago, I wrote a now-popular post about [how I overengineered my home network for privacy and security](/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads and tracking, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
@@ -24,7 +24,7 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comparable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
 
 - **A more modern stack.** PHP + dnsmasq vs. Go and React
-- **Admin experience.** A sleeker web interface with fewer knobs and dials to endlessly tinker with.
+- **Admin experience.** A sleeker web interface with fewer knobs and dials to endlessly fiddle with.
 - **One less point of failure.** Native DoH support meant I could eliminate cloudflared, while still using Cloudflare Teams as my upstream resolver.
 - **Config as code.** Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
@@ -33,7 +33,7 @@ Pi-Hole has been around for longer and has a more established community, so agai
 
 ## Docker Compose
 
-Rather than running applications on "bare metal" as I described in [my original post](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), I now run the various software bits that support my home network as distinct services managed as Docker containers.
+Rather than running applications on "bare metal" as I described in [my original post](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), I now run the software bits that support my home network as distinct services managed as Docker containers.
 
 For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualization to automate the deployment of applications as portable, self-sufficient containers and [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multiple Docker containers alongside one another.
 
@@ -176,7 +176,7 @@ Ansible is a provisioning, configuration management, and application-deployment 
 - **Community.** I've yet to find a feature that I was hoping would exist that wasn't provided via a (core- or) community-maintained package. Install apt packages? Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repository? Configure the firewall? Start Docker and Docker Compose? Someone already solved all those problems for you.
 
 :::info[Updated August 2026]
-Ansible handles the Pi, but the network hardware it talks to was still configured by hand, click by click, in the router's web UI. Since writing this, I've pushed "infrastructure as code" one layer down: the UniFi Dream Machine's own configuration (the networks, the WLANs, and the zone-based firewall) is now managed with [OpenTofu](https://opentofu.org) (the open-source Terraform fork), with its state and plans **encrypted at rest** so nothing sensitive ever lands in the repo in the clear.
+Ansible handles the Pi, but the network hardware it talks to was still configured by hand, click by click, in the router's web UI. Since writing this, I've pushed "infrastructure as code" one layer down: the UniFi Dream Machine's own configuration (the networks, the WLANs, and the zone-based firewall) is now managed with [OpenTofu](https://opentofu.org) (the open-source Terraform fork), with its state and plans **encrypted at rest** so nothing sensitive ever lands in the repository in the clear.
 
 It also hardened the DNS story. Originally I pointed clients at the Pi and trusted them to comply; a determined device (or a chatty smart TV) could just as easily reach out to `8.8.8.8` on its own. Now a set of firewall policies actively *block* the usual ways around it (plain DNS, DNS-over-TLS, DNS-over-QUIC, and a curated list of known public resolver IPs), so a device can't just point itself elsewhere and wander off, with a narrow exception for the resolver itself to reach its upstream. (Encrypted DoH tunneled over ordinary port-443 HTTPS remains the hard case, since it's indistinguishable from any other web traffic, but it's now the exception rather than the wide-open default.) It's in code now, enforced at the router, not politely requested.
 :::
@@ -411,13 +411,13 @@ Between Ansible and Docker Compose, I was happy with how I set up and maintained
 ## Caddy
 
 :::objection[Isn't the risk of sending PiHole credentials in the clear on a home network pretty low?]
-Admittedly, the risk of sending passwords, tokens, and other sensitive data in the clear was relatively low. My PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly trusted devices (all other network users had an API key to temporarily disable blocking if it broke functionality). I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
+Admittedly, the risk of sending passwords, tokens, and other sensitive data in the clear was low. My PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly trusted devices (all other network users had an API key to temporarily disable blocking if it broke functionality). I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
 :::
 
 I wanted to expose the PiHole admin interfaces (web and API) over HTTPS. The built-in lighttpd server can do it, but only with a self-signed certificate (which brings its own problems) or a Let's Encrypt setup I'd have to maintain myself. I settled on [Caddy](https://caddyserver.com), a project I hadn't heard of before, for a few reasons:
 
 - **Certificate provisioning and renewal.** One of the most challenging parts of supporting HTTPS is certificate management. Caddy automatically obtains and renews Let's Encrypt certificates for you. It can even handle DNS ACME challenges via its many DNS provider plugins, to support creating certificates for servers not exposed to the public internet.
-- **Setup.** With a \~5 line "Caddyfile", I was ready to go. Caddy terminates TLS, proxying HTTP requests to the PiHole web interface over Docker's virtual network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service.
+- **Setup.** With a \~5 line "Caddyfile", I was ready to go. Caddy terminates TLS, proxying HTTP requests to the PiHole web interface over Docker's virtual network. It handles the HTTPS transit over the home network, transparent to the PiHole service.
 - **Standards and defaults.** HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
 
 ### Docker Compose service to define Caddy
@@ -527,10 +527,10 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 
 The service-to-service flow I described in "[putting it all together](/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together)" hasn't changed, but setup, maintenance, and management are much simpler now that every service has a clear definition.
 
-The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improve performance[^5] (I was worried about overhead from the virtual network) with a 0–5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer...
+The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. The move to Docker actually seemed to improve performance[^5] (I was worried about overhead from the virtual network) with a 0–5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer…
 
 :::info[Updated August 2026]
-Nearly five years on, this is all still humming along, which, given the original "set it and forget it" goal, might be the highest praise I can give it. The stack has outgrown its name (it's less "pi-hole" and more "the box that runs the house" these days), but the principles held: every change is still a reviewable diff, upgrades are still boring, and I still haven't lost a weekend to a surprise dependency conflict. The setup has since grown beyond the repo linked below to include the OpenTofu network configuration alongside the Docker and Ansible bits.
+Nearly five years on, this is all still humming along, which, given the original "set it and forget it" goal, might be the highest praise I can give it. The stack has outgrown its name (it's less "pi-hole" and more "the box that runs the house" these days), but the principles held: every change is still a reviewable diff, upgrades are still boring, and I still haven't lost a weekend to a surprise dependency conflict. The setup has since grown beyond the repository linked below to include the OpenTofu network configuration alongside the Docker and Ansible bits.
 :::
 
 Eighteen months since [I originally overengineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), ads remain rare, false positives are still low, and I've learned a lot about many of the behind-the-scenes technologies we've come to take for granted every day. If you're looking to implement a similar setup (or do and find ways to improve it), you can find all the configuration files referenced above (and more!) over at [benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy) on GitHub.

@@ -1,30 +1,36 @@
 ---
-title: 'Government''s Release of Federally Funded Source Code: Public Domain or Open Source? Yes.'
+title: 'Government Code: Public Domain or Open Source?'
 description: The question isn't whether government code should be public domain or open source. It's how the open source community can help agencies get there.
-tldr: "US Government Works aren't subject to domestic copyright, and absent permission from the contracting officer, the government retains unlimited rights to code written under contract, so the public domain versus open source license debate is mostly academic. Government doesn't hold on to software because of licensing; it has better things to do. The open source community's job is to help make open sourcing a bona fide priority by getting involved in existing projects and taking ownership of the code."
+tldr: "US Government Works aren't subject to domestic copyright, and absent permission from the contracting officer, the government retains unlimited rights to code written under contract, so the public domain versus open source license debate is academic. Government doesn't hold on to software because of licensing; it has better things to do. The open source community's job is to help make open sourcing a bona fide priority by getting involved in existing projects and taking ownership of the code."
 ---
 
 A petition was recently posted on [We The People](https://web.archive.org/web/20120723171042/https://petitions.whitehouse.gov/) demanding [that federally funded software be released under an open source license](https://web.archive.org/web/20120724104212/https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&utm_medium=shorturl&utm_campaign=shorturl). Makes sense. The public should have access to what is technically their property.
 
 However, [TechDirt posed the question](http://www.techdirt.com/articles/20120723/12181319800/should-software-created-federal-govt-be-open-source-licensed-public-domain.shtml) of whether it should be released under an open-source license or public domain, and I'm afraid they really missed the point.
 
-There's no doubt in my mind that the creator of the petition was simply asking the question "I can haz source code?" Plain and simple. Put it in context: 99% of the time when an organization (or an individual) releases software to the public, they do so under the terms of an open source license. It tells users what they can and can't do, and tells contributors under what terms they can contribute. It sets the ground rules. It's a contract with the public. It's a prenup for code.
+The petition's creator was asking one question: "I can haz source code?" Plain and simple. Put it in context: 99% of the time when an organization (or an individual) releases software to the public, they do so under the terms of an open source license. It tells users what they can and can't do, and tells contributors under what terms they can contribute. It sets the ground rules. It's a contract with the public. It's a prenup for code.
 
-So what's the issue? Although I generally dread the phrase, in this case, government is objectively different. Under 17 U.S.C. § 105 US Government Works are not subject to domestic copyright protection. It's not technically public domain, but it's close enough. [^1] Any US citizen can use the code any way they wish. There's simply no copyright, thus no need to license. [^2] And this entire debate is a moot point if the software is a derivative work of a viral license like the GPL, the most common open source license. [^3]
+## Government code isn't copyrighted
 
-That of course, only applies to code created by a US government employee, an increasingly rare occurrence. [^4] Absent permission from the contracting officer, the US government retains unlimited rights for all work created under contract (including the right to redistribute). [^5] Again, it's moot if the code is a GPL derivative, since it then must be given to the government under the GPL.
+What's the issue? Although I generally dread the phrase, in this case, government is objectively different. Under 17 U.S.C. § 105 US Government Works are not subject to domestic copyright protection. It's not technically public domain, but it's close enough. [^1] Any US citizen can use the code any way they wish. There's no copyright, thus no need to license. [^2] And this entire debate is a moot point if the software is a derivative work of a viral license like the GPL, the most common open source license. [^3]
 
-Yet all this is very academic (not to mention dry). Waldo Jaquith and Anil Dash [made a great suggestion](https://twitter.com/anildash/statuses/227476701599391744): let's be pragmatic here. :quote[Government doesn't hold on to software because they are concerned about licensing.]{#government-not-concerned-about-licensing} They hold on to software because they have better things to do, because it's not within the culture, and because there's no angry mob slamming a battering ram against the metaphorical front gates when they don't.
+That only applies to code created by a US government employee, an increasingly rare occurrence. [^4] Absent permission from the contracting officer, the US government retains unlimited rights for all work created under contract (including the right to redistribute). [^5] Again, it's moot if the code is a GPL derivative, since it then must be given to the government under the GPL.
+
+## Licensing isn't what keeps code locked up
+
+Yet all this is academic (not to mention dry). Waldo Jaquith and Anil Dash [made a great suggestion](https://twitter.com/anildash/statuses/227476701599391744): let's be pragmatic here. :quote[Government doesn't hold on to software because they are concerned about licensing.]{#government-not-concerned-about-licensing} They hold on to software because they have better things to do, because it's not within the culture, and because there's no angry mob slamming a battering ram against the metaphorical front gates when they don't.
 
 I don't think the nuances of federal procurement law are even close to the first thing we should care about here. [^6] The concern is about whether feds should do the leg work to open source it or not. The question for us as developers, for the thought leaders in the space, isn't how should the US government best license / not license software, but *how can the open source community help it to do so.* How can we get more software out the door? In a world of finite time, *how can we make open sourcing* [^7] *a bona fide priority*?
 
+## Help agencies ship the code
+
 How? For one, involvement in existing open source projects [^8] would surely send a strong message that there's latent demand here, and would give the foot soldiers political air cover to forge onward with their efforts. For another, taking ownership of the code itself, and realizing it is *our* code, not the government's would surely change the tone of the debate by encouraging agencies to ship code sooner, rather than delaying release out of fear of criticism.
 
-Put simply, it's about what role we are going to play, not what rights we are going to receive. Let's at least get the source code, then we can go back to our regularly scheduled holy wars over licensing.
+It's about what role we are going to play, not what rights we are going to receive. Let's at least get the source code, then we can go back to our regularly scheduled holy wars over licensing.
 
 *As always, [views are my own](/fine-print/).*
 
-[^1]: I'd argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of various international copyright treaties and agreements.
+[^1]: I'd argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of international copyright treaties and agreements.
 
 [^2]: Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project's documentation at the time of release to avoid potential issues with 31 U.S.C. § 1342.
 

@@ -4,7 +4,7 @@ description: When responding to customer feature requests your answer should be 
 tldr: "When someone asks about an upcoming feature or a new policy, give one of three answers: yes, no, or maybe. \"Yes\" is a commitment you'll keep, \"no\" frees people to solve the problem other ways, and \"maybe\" is a promise to follow up with a yes or no once you've decided."
 ---
 
-As a leader, you're going to get questions. Sometimes it's a question from a customer asking about an upcoming feature, sometimes it's a question from a team member asking about a new process or policy. I often use the "yes, no, maybe" framework, which @gnawhleinad and @nayafia introduced me to. It was originally meant for product managers, but it works for any leader. It's a simple way to set expectations. There are three possible responses:
+As a leader, you're going to get questions. Sometimes it's a question from a customer asking about an upcoming feature, sometimes it's a question from a team member asking about a new process or policy. I often use the "yes, no, maybe" framework, which @gnawhleinad and @nayafia introduced me to. It was originally meant for product managers, but it works for any leader. It's a simple way to set expectations. Every request gets one of three responses:
 
 - **Yes.** We've committed to implementing it in the next three months.
 - **No.** We have no plans to implement it in the foreseeable future.
@@ -20,7 +20,7 @@ For those features not on a team's short-term roadmap, you have two choices.
 
 ## No means "we're not doing that"
 
-If it's something that doesn't make sense strategically, the answer is simple: "No" or "We're not planning on doing that in the foreseeable future," more verbosely (ideally with the reason why). [There are many reasons to say "yes,"](https://www.intercom.com/blog/product-strategy-means-saying-no) and "no" is often harder to convey to the people it affects. But if you genuinely have no plans to do the thing, "no" frees them to solve the problem other ways (workflow, policy, tooling, etc.) and shows you're being honest about your vision and direction, even if the news is unpopular in the short term.
+If it's something that doesn't make sense strategically, the answer is simple: "No" or "We're not planning on doing that in the foreseeable future," more verbosely (ideally with the reason why). [Saying "yes" is tempting for plenty of reasons,](https://www.intercom.com/blog/product-strategy-means-saying-no) and "no" is often harder to convey to the people it affects. But if you genuinely have no plans to do the thing, "no" frees them to solve the problem other ways (workflow, policy, tooling, etc.) and shows you're being honest about your vision and direction, even if the news is unpopular in the short term.
 
 ## Maybe means "we might do that"
 
