@@ -1,7 +1,7 @@
 ---
 title: Securing the Status Quo
 description: Federal agencies spend billions on IT security, yet rigid compliance frameworks create false safety while stifling innovation against real threats.
-tldr: "Federal agencies spend billions on IT security, yet rigid compliance frameworks often create a false sense of safety while stifling the innovation needed to address real threats."
+tldr: "Federal agencies spend billions on IT security, yet rigid compliance frameworks often create a false sense of safety while stifling the innovation needed to address real threats. Security overhead should match the risk: reward agencies that secure their systems well, stop duplicating work across agencies, and give low-risk pilot programs a grace period."
 archived: true
 ---
 

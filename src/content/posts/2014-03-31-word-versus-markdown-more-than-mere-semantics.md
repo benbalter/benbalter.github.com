@@ -1,10 +1,10 @@
 ---
 title: 'Word versus Markdown: more than mere semantics'
 description: How we consume content has changed dramatically, yet how we author it hasn't. Markdown forces you to write for the web.
-tldr: "How we consume content has changed dramatically over the past 30 years, yet how we author content remains relatively unchanged. Markdown forces you to write for the web."
+tldr: "How we consume content has changed dramatically over the past 30 years, yet how we author content has barely changed. Markdown forces you to write for the web."
 ---
 
-Our default content publishing workflow is terribly broken. [We've all been trained to make paper](/2012/10/19/we-ve-been-trained-to-make-paper/), yet today, content authored once is more commonly consumed in multiple formats, and rarely, if ever, does it embody physical form. Put another way, our go-to content authoring workflow remains relatively unchanged since it was conceived in the early '80s.
+Our default content publishing workflow is terribly broken. [We've all been trained to make paper](/2012/10/19/we-ve-been-trained-to-make-paper/), yet today, content authored once is more commonly consumed in multiple formats, and rarely, if ever, does it embody physical form. Put another way, our go-to content authoring workflow has barely changed since it was conceived in the early '80s.
 
 [<img src="/wp-content/uploads/2014/word1.png" alt="Screenshot of Microsoft Word 1.0" class="float-right ml-3 w-full md:w-1/2" />](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
 
@@ -14,9 +14,9 @@ Markdown isn't just an alternative format. Markdown forces you to write for the 
 
 ## In the beginning, there was paper
 
-The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output (the sole embodiment) was physical, and all that mattered was what the document looked like.
+The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors mirrored the dominant workflow of the time: the typewriter. The final output (the sole embodiment) was physical, and all that mattered was what the document looked like.
 
-Over the past three decades, however, how we consume content has changed dramatically, yet how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the desktop](/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](/2013/11/21/thats-not-how-the-internet-works/), and "[converting](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
+Over the past three decades, however, how we consume content has changed dramatically, yet how we author it has barely changed. Put another way, [the internet is a fundamentally different animal than the desktop](/2013/07/02/a-brief-history-of-the-internet/). You [can't just take a desktop format and put it online](/2013/11/21/thats-not-how-the-internet-works/), and "[converting](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
 
 ## Separating content from presentation
 
@@ -24,7 +24,7 @@ Desktop formats are shallow. All they care about is looks. Desktop publishing so
 
 When you blindly optimize for appearances, a lot goes unattended behind the scenes, and even the simplest tasks get increasingly complex. :quote[Extracting your content becomes tantamount to finding a needle in a purpose-built, legacy haystack.]{#legacy-haystack}
 
-Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, less than one quarter of one percent of the file is actually dedicated to storing content:
+Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in three formats, less than one quarter of one percent of the file is actually dedicated to storing content:
 
 <table class="w-full md:w-1/2 mx-auto">
 <thead>
@@ -55,7 +55,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 
 ## Exposing author intent
 
-Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup: markup that describes the relationship between elements, not simply their visual representation. It's not simply that a given line is bold or a larger font size, but memorialized in the document itself is that the given line is a heading, a heading which describes the content that follows.
+Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup: markup that describes the relationship between elements, not just their visual representation. It's not only that a given line is bold or a larger font size, but memorialized in the document itself is that the given line is a heading, a heading which describes the content that follows.
 
 Take a look at how Markdown represents an unordered list, for example:
 
@@ -84,7 +84,7 @@ Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman
 </span></span></span><![endif]>Three</p>
 ```
 
-There are two things you'll notice there. First, the markup isn't semantic, meaning the presentation information is intermingled with the content, rendering the author's intent indiscernible and using the content in any other context an increasingly difficult goal.
+You'll notice two things there. First, the markup isn't semantic, meaning the presentation information is intermingled with the content, rendering the author's intent indiscernible and using the content in any other context an increasingly difficult goal.
 
 Second, there's a lot of proprietary metadata in there (everything starting with `mso-`), useful only for parsing within Microsoft Word. Again, rendering the content as alien anywhere other than its original context, paper.
 
@@ -92,6 +92,6 @@ Second, there's a lot of proprietary metadata in there (everything starting with
 
 There's a reason that content authored on the desktop is most commonly shared online as a PDF, a format designed to mimic the properties of paper as closely as possible. :quote[Once the content's in a paper-based format, it's stuck there forever.]{#stuck-in-paper-forever}
 
-If there's one thing I've learned trying to [convert Word documents to Markdown](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/), it's that [Markdown](/2023/03/02/github-for-non-technical-roles/#markdown) is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
+If there's one thing I've learned trying to [convert Word documents to Markdown](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/), it's that [Markdown](/2023/03/02/github-for-non-technical-roles/#markdown) is not an alternative to traditional desktop formats. It's an entirely different animal. It's readable by both machines and humans, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
 
 Next time you begin a new project for which the internet, not paper, is the primary output, think twice before firing up that desktop publishing platform. You'll gain more than mere semantics.

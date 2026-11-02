@@ -1,7 +1,7 @@
 ---
 title: How to write a great extended leave document
 bookRelation: adapted
-description: A battle-tested template for handing off your responsibilities before extended leave, so your team stays unblocked and nothing falls through the cracks.
+description: A battle-tested template for handing off your work before extended leave, so your team stays unblocked and nothing falls through the cracks.
 tldr: "Before an extended leave (or a role change), write one document that hands off your dates, contact preferences, responsibilities, meetings, and go-to contacts, so colleagues can unblock themselves while you're out. Share it with stakeholders well before you leave, and link to it from your chat status and calendar out of office."
 writtenAtGitHub: true
 ---
@@ -78,7 +78,7 @@ This is your long-tail appendix of anything you think your colleague might need 
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, pull requests are always welcome.
+If you're preparing to go on leave (or transition to a new role), use the template below as a starting point.[^3] If you have suggestions or proposed improvements, pull requests are always welcome.
 
 ```markdown
 # @your leave document

@@ -1,7 +1,7 @@
 ---
 title: How I re-over-engineered my home network for privacy and security
 description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet.
-tldr: "How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet."
+tldr: "How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet. Define the whole setup in code, so rebuilding the Pi takes one playbook run instead of a two-dozen-step checklist."
 ---
 
 A little less than a year ago, I wrote a now-popular post about [how I overengineered my home network for privacy and security](/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads and tracking, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
@@ -33,7 +33,7 @@ Pi-Hole has been around for longer and has a more established community, so agai
 
 ## Docker Compose
 
-Rather than running applications on "bare metal" as I described in [my original post](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), I now run the various software bits that support my home network as distinct services managed as Docker containers.
+Rather than running applications on "bare metal" as I described in [my original post](/2020/12/04/over-engineered-home-network-for-privacy-and-security/), I now run the software bits that support my home network as distinct services managed as Docker containers.
 
 For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualization to automate the deployment of applications as portable, self-sufficient containers and [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multiple Docker containers alongside one another.
 
@@ -411,13 +411,13 @@ Between Ansible and Docker Compose, I was happy with how I set up and maintained
 ## Caddy
 
 :::objection[Isn't the risk of sending PiHole credentials in the clear on a home network pretty low?]
-Admittedly, the risk of sending passwords, tokens, and other sensitive data in the clear was relatively low. My PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly trusted devices (all other network users had an API key to temporarily disable blocking if it broke functionality). I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
+Admittedly, the risk of sending passwords, tokens, and other sensitive data in the clear was low. My PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly trusted devices (all other network users had an API key to temporarily disable blocking if it broke functionality). I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
 :::
 
 I wanted to expose the PiHole admin interfaces (web and API) over HTTPS. The built-in lighttpd server can do it, but only with a self-signed certificate (which brings its own problems) or a Let's Encrypt setup I'd have to maintain myself. I settled on [Caddy](https://caddyserver.com), a project I hadn't heard of before, for a few reasons:
 
 - **Certificate provisioning and renewal.** One of the most challenging parts of supporting HTTPS is certificate management. Caddy automatically obtains and renews Let's Encrypt certificates for you. It can even handle DNS ACME challenges via its many DNS provider plugins, to support creating certificates for servers not exposed to the public internet.
-- **Setup.** With a \~5 line "Caddyfile", I was ready to go. Caddy terminates TLS, proxying HTTP requests to the PiHole web interface over Docker's virtual network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service.
+- **Setup.** With a \~5 line "Caddyfile", I was ready to go. Caddy terminates TLS, proxying HTTP requests to the PiHole web interface over Docker's virtual network. It handles the HTTPS transit over the home network, transparent to the PiHole service.
 - **Standards and defaults.** HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
 
 ### Docker Compose service to define Caddy
@@ -527,7 +527,7 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 
 The service-to-service flow I described in "[putting it all together](/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together)" hasn't changed, but setup, maintenance, and management are much simpler now that every service has a clear definition.
 
-The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improve performance[^5] (I was worried about overhead from the virtual network) with a 0–5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer...
+The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. The move to Docker actually seemed to improve performance[^5] (I was worried about overhead from the virtual network) with a 0–5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer…
 
 :::info[Updated August 2026]
 Nearly five years on, this is all still humming along, which, given the original "set it and forget it" goal, might be the highest praise I can give it. The stack has outgrown its name (it's less "pi-hole" and more "the box that runs the house" these days), but the principles held: every change is still a reviewable diff, upgrades are still boring, and I still haven't lost a weekend to a surprise dependency conflict. The setup has since grown beyond the repo linked below to include the OpenTofu network configuration alongside the Docker and Ansible bits.

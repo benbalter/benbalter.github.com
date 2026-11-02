@@ -1,7 +1,7 @@
 ---
-title: Three things you learn going from the most bureaucratic organization in the world to the least
+title: "Most bureaucratic to least: three lessons"
 description: "Three lessons from moving from the federal government to GitHub: trust, happiness, and treating relationships as assets."
-tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities."
+tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities. Each time, large organizations trade trust, happiness, or information for less risk, and it backfires."
 writtenAtGitHub: true
 ---
 
@@ -15,7 +15,7 @@ At GitHub, I trust my coworkers. I trust them to write good code, I trust them t
 
 > The stronger the culture, the less process a company needs. When the culture is strong, you can trust everyone to do the right thing. People can be independent and autonomous. They can be entrepreneurial. In organizations… where culture is weak, you need an abundance of heavy, precise rules and processes.
 
-Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assume they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost. There's simply no room to fail and adjust. All workflows are heavyweight, and the necessarily larger batch size creates necessarily larger failures as the first proof point.
+Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assume they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost. There's no room to fail and adjust. All workflows are heavyweight, and the necessarily larger batch size creates necessarily larger failures as the first proof point.
 
 *Lesson one: where an organization has the choice between empowering employees to do their job and minimizing risk, large organizations err on the side of minimizing risk, which in effect, creates it.*
 

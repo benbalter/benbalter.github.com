@@ -1,7 +1,7 @@
 ---
 title: The myth of government IT
 description: "Government IT is held back less by law than by myth: decade-old assumptions about technology that calcified into policy."
-tldr: "Government IT is held back less by law than by myth: decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change."
+tldr: "Government IT is held back less by law than by myth: decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change. Don't ask permission. Ask for the actual policy and the checklist to get to yes, and never take no from someone who can't say yes."
 ---
 
 When a government agency says "no" to innovation, there's the law, and then there's the myth that surrounds it. More often than not, that myth doesn't protect the agency from threats to its infrastructure or mission. Instead, it puts a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth, long ago calcified into organizational policy, stems from government policymakers' decade-old superstitions about certain technologies:
@@ -10,7 +10,7 @@ When a government agency says "no" to innovation, there's the law, and then ther
 
 Today, there's a mainframe-sized chasm between the basic assumptions that the private sector makes about software development, and the ones that government makes. Ten years ago, building an app in Ruby on Rails would have been a risky proposition given the framework's maturity, while something like ColdFusion would have been a safe, enterprise-grade bet. Today, the exact opposite is the case, at least for organizations outside the Beltway.
 
-You'd be hard pressed to find a private-sector firm today worth its venture-capital investment that isn't built on open source software or that doesn't at least have a keen understanding of the unmatched value created by their development teams working more openly. That's far from the case in government. Even if you're able to strip away those anachronistic technical assumptions, there are still vast educational, organizational, and cultural hurdles for an agency to overcome before they can even think about their first commit.
+You'd be hard pressed to find a private-sector firm today worth its venture-capital investment that isn't built on open source software or that doesn't at least have a keen understanding of the unmatched value created by their development teams working more openly. That's far from the case in government. Even if you're able to strip away those anachronistic technical assumptions, there are still steep educational, organizational, and cultural hurdles for an agency to overcome before they can even think about their first commit.
 
 ## Management by FUD
 
