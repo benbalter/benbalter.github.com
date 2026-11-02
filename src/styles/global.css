@@ -250,6 +250,18 @@
   height: auto;
 }
 
+/* "TK" (to come) placeholders while drafting. rehype-tk-highlight only emits
+   this mark in the dev server, so it never appears on the production site.
+   Same bright yellow in both themes, with dark text, so it can't be missed. */
+mark.tk-marker {
+  background: #ffe600;
+  color: #111;
+  font-weight: 700;
+  padding: 0 0.2em;
+  border-radius: 0.2em;
+  box-shadow: 0 0 0 2px #ffe600;
+}
+
 /* End mark: a hollow commit node closes the post's last paragraph (before any
    footnotes), the way a magazine closes an article with a tombstone. When a
    reader scrolls through the post to it, ReadingProgress sets data-read and

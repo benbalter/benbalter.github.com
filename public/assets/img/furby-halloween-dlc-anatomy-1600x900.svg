@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="title desc">
+<title id="title">Inside a Furby DLC</title>
+<desc id="desc">Diagram of a Furby DLC file, the package of eyes, sounds and moves the Furby plays. A bar shows its parts by size: the eyes (color palettes, frame lists and image tiles) and the audio clips take nearly all of it, and a small remainder wires them together. Below, one action, number 75·0·0·2, the four-part number the show sends over Bluetooth, is followed through the action table to a sequence. The sequence picks an audio playlist (one clip of compressed audio, about 4 seconds), a body movement and an eye animation, and the Furby stays busy until all of them finish.</desc>
+<style>svg{--card:#f8f7f4;--panel:#ffffff;--chip:#f0ede6;--ink:#1d1d1f;--muted:#5c5c66;--rule:#d6d3cc;--grid:#e8e5de;--pink:#c2337a;--blue:#2f6fd0;--pink-tint:#efc2d8;--blue-tint:#c4d6f3;--grey:#78787f;--grey-tint:#d6d6da;--amber:#b08014;--eyes:#e1d6ec;--audio:#d6e6de;--links:#ece9e2}@media (prefers-color-scheme: dark){svg{--card:#1c1d21;--panel:#25262b;--chip:#2c2d33;--ink:#ececf0;--muted:#a5a5af;--rule:#3d3e45;--grid:#2c2d33;--pink:#e0609e;--blue:#5b93e6;--pink-tint:#5a2b44;--blue-tint:#26395a;--grey:#9a9aa3;--grey-tint:#45464d;--amber:#d9a640;--eyes:#3d3350;--audio:#2b4237;--links:#34353b}}text{font-family:ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif}</style>
+<rect x="0" y="0" width="1600" height="900" rx="28" style="fill:var(--card)"/>
+<text x="60" y="75.2" font-size="40" font-weight="700" style="fill:var(--ink)">Inside a Furby DLC</text>
+<text x="60" y="115.6" font-size="22" style="fill:var(--muted)">What one action plays, followed through Hasbro's stock DLC. An action is the four-part number the show sends.</text>
+<rect x="60" y="160" width="2" height="56" rx="0" style="fill:var(--eyes)"/>
+<rect x="64" y="160" width="5.15562" height="56" rx="0" style="fill:var(--eyes)"/>
+<rect x="71.1556" y="160" width="316.056" height="56" rx="0" style="fill:var(--eyes)"/>
+<text x="81.1556" y="184" font-size="20" font-weight="700" style="fill:var(--ink)">Image tiles</text>
+<text x="81.1556" y="204.8" font-size="16" style="fill:var(--muted)">CEL · 243 KB</text>
+<rect x="389.211" y="160" width="51.3264" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="442.538" y="160" width="1088.41" height="56" rx="0" style="fill:var(--audio)"/>
+<text x="452.538" y="184" font-size="20" font-weight="700" style="fill:var(--ink)">Audio clips</text>
+<text x="452.538" y="204.8" font-size="16" style="fill:var(--muted)">AMF · 832 KB</text>
+<rect x="1532.95" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1536.95" y="160" width="4.83323" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1543.78" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="1547.78" y="160" width="2" height="56" rx="0" style="fill:var(--links)"/>
+<rect x="60" y="230" width="22" height="22" rx="0" style="fill:var(--eyes);stroke:var(--rule);stroke-width:1"/>
+<text x="90" y="244.4" font-size="18" style="fill:var(--muted)">eyes: palettes, frame lists, image tiles (249 KB)</text>
+<rect x="60" y="258" width="22" height="22" rx="0" style="fill:var(--audio);stroke:var(--rule);stroke-width:1"/>
+<text x="90" y="272.4" font-size="18" style="fill:var(--muted)">audio clips (832 KB)</text>
+<rect x="60" y="286" width="22" height="22" rx="0" style="fill:var(--links);stroke:var(--rule);stroke-width:1"/>
+<text x="90" y="300.4" font-size="18" style="fill:var(--muted)">the wiring between them: action table, sequences, playlists, lip and motor data (48 KB)</text>
+<text x="60" y="334.4" font-size="18" style="fill:var(--muted)">1.1 MB in all. Stock DLCs come from the app; ours must stay under about 350 KB to upload.</text>
+<rect x="60" y="400" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--pink);stroke-width:3"/>
+<text x="78" y="434.8" font-size="26" font-weight="700" style="fill:var(--ink)">Action 75·0·0·2</text>
+<text x="78" y="468" font-size="20" style="fill:var(--muted)">the four-part number</text>
+<text x="78" y="496" font-size="20" style="fill:var(--muted)">the show sends over</text>
+<text x="78" y="524" font-size="20" style="fill:var(--muted)">Bluetooth</text>
+<line x1="316" y1="485" x2="363" y2="485" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="363,485 348.593,478.041 348.593,491.959" style="fill:var(--ink)"/>
+<rect x="367" y="400" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="385" y="434.8" font-size="26" font-weight="700" style="fill:var(--ink)">Action table</text>
+<text x="385" y="460.8" font-size="16" style="fill:var(--muted)">XLS</text>
+<text x="385" y="492" font-size="20" style="fill:var(--muted)">finds this action's</text>
+<text x="385" y="520" font-size="20" style="fill:var(--muted)">sequence</text>
+<line x1="623" y1="485" x2="670" y2="485" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="670,485 655.593,478.041 655.593,491.959" style="fill:var(--ink)"/>
+<rect x="674" y="400" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="692" y="434.8" font-size="26" font-weight="700" style="fill:var(--ink)">Sequence #18</text>
+<text x="692" y="460.8" font-size="16" style="fill:var(--muted)">SEQ</text>
+<text x="692" y="492" font-size="20" style="fill:var(--muted)">picks an audio playlist,</text>
+<text x="692" y="520" font-size="20" style="fill:var(--muted)">a body movement and</text>
+<text x="692" y="548" font-size="20" style="fill:var(--muted)">an eye animation</text>
+<line x1="930" y1="485" x2="977" y2="485" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="977,485 962.593,478.041 962.593,491.959" style="fill:var(--ink)"/>
+<rect x="981" y="400" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="999" y="434.8" font-size="26" font-weight="700" style="fill:var(--ink)">Audio playlist</text>
+<text x="999" y="460.8" font-size="16" style="fill:var(--muted)">APL</text>
+<text x="999" y="492" font-size="20" style="fill:var(--muted)">lists the clips to play:</text>
+<text x="999" y="520" font-size="20" style="fill:var(--muted)">here, just one</text>
+<line x1="1237" y1="485" x2="1284" y2="485" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+<polygon points="1284,485 1269.59,478.041 1269.59,491.959" style="fill:var(--ink)"/>
+<rect x="1288" y="400" width="252" height="170" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="1306" y="434.8" font-size="26" font-weight="700" style="fill:var(--ink)">Audio clips</text>
+<text x="1306" y="460.8" font-size="16" style="fill:var(--muted)">AMF</text>
+<text x="1306" y="492" font-size="20" style="fill:var(--muted)">8 KB of compressed</text>
+<text x="1306" y="520" font-size="20" style="fill:var(--muted)">audio, about 3.8 s</text>
+<rect x="60" y="660" width="660" height="180" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="78" y="694.8" font-size="26" font-weight="700" style="fill:var(--ink)">Eyes</text>
+<text x="78" y="720.8" font-size="16" style="fill:var(--muted)">SPR · CEL · PAL</text>
+<text x="78" y="752" font-size="20" style="fill:var(--muted)">An eye animation is a list of frames. Each frame</text>
+<text x="78" y="780" font-size="20" style="fill:var(--muted)">is four 64×64 image tiles in 64 colors.</text>
+<rect x="780" y="660" width="760" height="180" rx="14" style="fill:var(--panel);stroke:var(--ink);stroke-width:3"/>
+<text x="798" y="694.8" font-size="26" font-weight="700" style="fill:var(--ink)">Body: a movement, plus pauses</text>
+<text x="798" y="728" font-size="20" style="fill:var(--muted)">This one is built into the Furby: about 1–10 s</text>
+<text x="798" y="756" font-size="20" style="fill:var(--muted)">No pauses in this one, so the movement sets its length</text>
+<text x="798" y="784" font-size="20" style="fill:var(--muted)">The Furby stays busy until all of it ends</text>
+<line x1="760" y1="570" x2="390" y2="660" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="390,660 405.644,663.357 402.354,649.833" style="fill:var(--muted)"/>
+<line x1="840" y1="570" x2="1160" y2="660" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+<polygon points="1160,660 1148.02,649.4 1144.25,662.799" style="fill:var(--muted)"/>
+</svg>

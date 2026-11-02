@@ -156,6 +156,23 @@
   meaning: Web Content Accessibility Guidelines
   tooltip: 'Web Content Accessibility Guidelines: the international standard for making web and ebook content accessible'
 
+# Hardware & devices
+- acronym: BLE
+  meaning: Bluetooth Low Energy
+  tooltip: 'Bluetooth Low Energy: the low-power flavor of Bluetooth that toys, wearables, and sensors use to talk to phones and computers'
+- acronym: ESP32
+  meaning: a small, cheap microcontroller board with Wi-Fi and Bluetooth built in
+  tooltip: 'ESP32: a small, cheap microcontroller board with Wi-Fi and Bluetooth built in, popular for hobby electronics'
+- acronym: MicroPython
+  meaning: a small version of Python for microcontrollers
+  tooltip: 'MicroPython: a pared-down version of the Python programming language that runs on tiny boards like the ESP32'
+- acronym: DLC
+  meaning: Downloadable content
+  tooltip: 'Downloadable content: an add-on pack a device or game downloads after you buy it. For a Furby Connect, a file of sounds, eye animations, and movements'
+- acronym: Kah
+  meaning: Furbish for "me"
+  tooltip: 'Furbish (the Furby language) for "me": Furbies refer to themselves as Kah'
+
 # Other jargon
 - acronym: abracadabra
   meaning: a magician's incantation, used here as a verb, to transform something as if by magic
