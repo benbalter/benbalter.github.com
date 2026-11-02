@@ -52,7 +52,7 @@ No. Everything above (issues, boards, Markdown, pull requests) works through the
 
 Issues and project boards create a networked hierarchy of tracking issues that bring visibility to work. This is true both of department-wide goals and initiatives, as well as all the management "meta work" that supports them.
 
-I've written at length before about [how we use issues and projects at GitHub for planning and tracking](https://github.blog/2022-07-01-how-the-github-security-team-uses-projects-and-github-actions-for-planning-tracking-and-more/). We use issues and a project board to track our department-wide OKRs (quarterly goals). Teams may choose to organize issues with labels, milestones, assignees, and project boards to aid in planning and tracking. Issues can capture work at various levels of abstraction, with different "types" of issues encompassing different units of work (initiatives, epics, etc.).
+I've written at length before about [how we use issues and projects at GitHub for planning and tracking](https://github.blog/2022-07-01-how-the-github-security-team-uses-projects-and-github-actions-for-planning-tracking-and-more/). We use issues and a project board to track our department-wide OKRs (quarterly goals). Teams may choose to organize issues with labels, milestones, assignees, and project boards to aid in planning and tracking. Issues can capture work at multiple levels of abstraction, with different "types" of issues encompassing different units of work (initiatives, epics, etc.).
 
 All of the department's management tasks are also tracked in issues, which are made visible to everyone in the company as a management backlog via a GitHub Project. Interested stakeholders wishing to learn more about a given initiative or administrative epic can click into the linked issue to learn more or subscribe to automatically receive ongoing updates.
 
@@ -84,7 +84,7 @@ Managing at GitHub, or interviewing to? My [reading list for new GitHubbers](/20
 
 [^3]: Long before the term "inner-source" became popular, GitHub had co-opted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how GitHub uses GitHub to build GitHub", the concept of using GitHub to *manage* GitHub fell out of popularity as GitHub grew (and outgrew its own tools). Now that GitHub has native planning-and-tracking capabilities, it's the perfect tool for managers.
 
-[^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but the vast majority of management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.). I've even seen one team use [Mermaid diagrams in Markdown files](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) to visualize their org chart. Re-org by PR? :thinking:
+[^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but most management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.). I've even seen one team use [Mermaid diagrams in Markdown files](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) to visualize their org chart. Re-org by PR? :thinking:
 
 [^5]: Encourage collaboration on both team-wide goals and individual initiatives. This helps everyone "connect the dots" and understand how their work fits into the bigger picture (and to shape it along the way).
 

@@ -1,5 +1,5 @@
 ---
-title: Publishing Government Data That Developers Will Actually Use
+title: Government data developers will actually use
 description: Publishing government data isn't as simple as pressing publish. Ten steps to building APIs and ecosystems developers actually use.
 tldr: "Publishing government data isn't as simple as pressing the publish button. Ten steps to building APIs and developer ecosystems that turn raw data into citizen services."
 ---
@@ -8,11 +8,11 @@ Despite increasing public support (as well as a number of executive mandates), p
 
 ## 1. Garbage in, garbage out
 
-Good, clean data may be surprisingly difficult to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.
+Good, clean data can be hard to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.
 
 ## 2. Eat your own dog food
 
-When organizations consume the products they create, they empirically deliver better, more reliable, and more innovative products. You'd never seek to buy a car from a dealer that's never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces, how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
+When organizations consume the products they create, they empirically deliver better, more reliable products. You'd never seek to buy a car from a dealer that's never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces, how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
 
 ## 3. Data as a citizen service
 
@@ -20,11 +20,11 @@ It is tempting to try and meet open data benchmarks, at least on face, by publis
 
 ## 4. Curate discrete pieces of data
 
-APIs are most useful when they do the heavy lifting for those consuming them, especially in terms of sifting through large amounts of data. In practical terms that means returning data to the most discrete level possible, be it a single row, rather than merely returning a subset of the dataset, or even returning a single cell. Seemingly obvious but often overlooked, a query for the broadband speeds at a given address, for example, should return only the data relating to that address, not the entire city or even state-wide dataset. When developers can query the data directly, they need less development time on their end, so an application is more likely to get built.
+APIs are most useful when they do the heavy lifting for those consuming them, especially by sifting through large amounts of data for them. In practical terms that means returning data to the most discrete level possible, be it a single row, rather than merely returning a subset of the dataset, or even returning a single cell. Seemingly obvious but often overlooked, a query for the broadband speeds at a given address, for example, should return only the data relating to that address, not the entire city or even state-wide dataset. When developers can query the data directly, they need less development time on their end, so an application is more likely to get built.
 
 ## 5. Serve data in multiple formats
 
-When providing a service, whether you are a waiter or a CIO, "the customer is always right." In the context of APIs, that means you need to return the information in the developers' native tongue, not the server's. For some languages, heavyweight methods like XML may make sense. For others, especially mobile applications, JSON or JSONP may be preferred. Be prepared to return data in multiple formats, even as those formats continue to evolve.
+When providing a service, whether you are a waiter or a CIO, "the customer is always right." For APIs, that means you need to return the information in the developers' native tongue, not the server's. For some languages, heavyweight methods like XML may make sense. For others, especially mobile applications, JSON or JSONP may be preferred. Be prepared to return data in multiple formats, even as those formats continue to evolve.
 
 ## 6. Minimize the handshake learning curve
 
@@ -46,6 +46,6 @@ Although APIs may just be beginning to take hold in government, a set of best pr
 
 With the "consumerization" of mobile, data sets are increasingly becoming location based. It's not what data sets are out there, but rather, what data sets are out there about my immediate world. Likewise, government data sets are increasingly about where just as much as what. Account for that when building APIs by incorporating geospatial lookups within the API, for example by relying on MongoDB or other location-aware data structures.
 
-Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers' shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
+Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown by lifting some of the burden off of developers' shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
 
 *This is an excerpt of an article originally published in the June 2012 issue of [Government CIO Magazine](http://www.governmentciomagazine.com).*

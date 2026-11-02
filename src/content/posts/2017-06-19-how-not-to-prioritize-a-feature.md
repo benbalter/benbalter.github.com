@@ -4,7 +4,7 @@ description: The hardest part of software development is not coming up with feat
 tldr: "Seven antipatterns for prioritizing a feature: someone is willing to build it, a big customer is asking for it, your friend is asking for it, it's easy to do, your competitor does it, a squeaky wheel is asking for it, or a handful of power users are. Know your target users, the use cases you'd like to support, and the direction you want your product heading before a request comes in. Then evaluate ideas against your established product themes, not by whether they make sense in isolation or right now."
 ---
 
-Sometimes, great ideas, customer needs, product priorities, and engineering resources align perfectly. Sometimes, a feature is so simple that it makes more sense to implement it than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features. In a world of near-endless possibilities (and limited developer hours), the most challenging part of software development is not coming up with features to build but instead deciding what features will have the most significant impact. Here are seven antipatterns I've seen, both in open and closed source, for prioritizing feature requests:
+Sometimes, great ideas, customer needs, product priorities, and engineering resources align perfectly. Sometimes, a feature is so simple that it makes more sense to implement it than to take the time to prioritize or sequence it. In my experience, those features represent a small minority of features. In a world of near-endless possibilities (and limited developer hours), the most challenging part of software development is not coming up with features to build but instead deciding what features will have the most significant impact. Here are seven antipatterns I've seen, both in open and closed source, for prioritizing feature requests:
 
 ## Someone is willing to build it
 
@@ -14,7 +14,7 @@ Maybe the idea comes from a developer who's experienced the problem themselves. 
 
 ## Sales says a big customer is asking for it
 
-Your Sales team is one of your most robust means of getting customer feedback. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those in a position to implement it. But it's all too easy to confuse that which you hear from an important customer with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
+Your Sales team is one of your richest sources of customer feedback. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those in a position to implement it. But it's all too easy to confuse that which you hear from an important customer with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
 
 :quote[Your users are experts at using your product, not building, supporting, or maintaining it.]{#users-are-experts-at-using} Feedback via your sales channels should be one of your primary means of understanding user challenges, and it may make sense to consider logos or seats. Still, it should not be your primary means of feature definition or prioritization, nor your only means of feedback.
 

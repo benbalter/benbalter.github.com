@@ -1,5 +1,5 @@
 ---
-title: Five principles to guide any government IT effort
+title: Five principles for any government IT effort
 description: Nearly three years later, the founding principles of project MyGov remain valid guideposts for any reform effort in government.
 tldr: "Change the culture, serve the people first, engineer simplicity, solve for actual needs, and build a platform. An organization's principles are the underlying assumptions that constrain all decisions, so before you focus on the code, ask whether you're solving for the right thing."
 ---

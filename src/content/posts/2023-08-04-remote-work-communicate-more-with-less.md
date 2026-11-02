@@ -1,15 +1,19 @@
 ---
-title: Remote work requires communicating more, less frequently
+title: "Remote work: communicate more, less often"
 bookRelation: inspired
 description: "Async communication is like gzip compression for humans: more processing up front, but greater throughput with fewer packets."
 tldr: "Async communication is gzip compression for humans. It takes more processing up front, but moves more information in fewer packets. Less time talking about the work, more time doing it."
 ---
 
-Remote work is not simply a matter of replicating the office environment online. Remote workers need to communicate *more*, less *often*. Instead of relying on constant, synchronous, and often interrupt-driven interactions, remote workers embrace asynchronous, and often higher-fidelity, forms of communication, such as long-form writing or thoughtful videos.
+Remote work is more than replicating the office environment online. Remote workers need to communicate *more*, less *often*. Instead of relying on constant, synchronous, and often interrupt-driven interactions, remote workers embrace asynchronous, and often higher-fidelity, forms of communication, such as long-form writing or thoughtful videos.
 
-I've [written before](/2022/03/17/why-async/#benefits-of-working-asynchronously) about the benefits of working asynchronously, but less obviously, it also changes the *way* we think and work. Async work leaves room for reflection, research, and synthesis. Those working async can and should take the time to think, learn, and synthesize before sharing their ideas, opinions, or solutions, distilling them down to the most critical. This improves the quality and clarity of the communication, and most importantly, the overall throughput of the communications channel.
+I've [written before](/2022/03/17/why-async/#benefits-of-working-asynchronously) about the benefits of working asynchronously, but there's a less obvious one: it changes the *way* we think and work. Async work leaves room for reflection, research, and synthesis. Those working async can and should take the time to think, learn, and synthesize before sharing their ideas, opinions, or solutions, distilling them down to the most critical. This improves the quality and clarity of the communication, and most importantly, the overall throughput of the communications channel.
 
-:quote[Think of it like gzip compression, but for human-to-human communication.]{#gzip-for-communication} Yes, there's slightly more processing overhead at the start, but it allows greater communications throughput using fewer "packets" (communicate more using less).[^1] How can you communicate more, less often? Here are a few tips I often keep in mind:
+:quote[Think of it like gzip compression, but for human-to-human communication.]{#gzip-for-communication} Yes, there's slightly more processing overhead at the start, but it allows greater communications throughput using fewer "packets" (communicate more using less).[^1]
+
+## How to communicate more, less often
+
+Here are a few tips I often keep in mind:
 
 - :quote[Choose the right medium for the message]{#choose-the-right-medium}. Remote workers should use the most appropriate and effective form of communication for the purpose, audience, and context. For example, use writing for documenting, explaining, or persuading; use video for demonstrating, teaching, or storytelling; use chat for coordinating, clarifying, or socializing.
 - **Write clearly, concisely, and comprehensively.** Remote workers should write with the reader in mind, using simple language, short sentences, and clear structure. They should also provide enough detail, context, and evidence to support their points, answer potential questions, and avoid ambiguity.

@@ -1,7 +1,7 @@
 ---
 title: Pull requests are a form of documentation
 bookRelation: inspired
-description: Pull requests capture not just what changed, but who, why, and what alternatives were considered. Treat every PR as a time capsule for future contributors.
+description: Pull requests record what changed, who changed it, why, and what else was considered. Treat every PR as a time capsule for future contributors.
 tldr: "Pull requests are organic documentation, and the discussion around a change is often as valuable as the change itself. Write every PR for the outsider who lands on it later from search, with a descriptive title, a quick summary of what changed, the why in the body, and links to related issues."
 ---
 
@@ -9,14 +9,16 @@ We often think of pull requests purely as a code review mechanism, but they are 
 
 :quote[Pull requests capture not just what change was made, but who made it, why, and what alternatives were considered.]{#who-why-and-alternatives} They create a cross-linked web of context for others, and capture the discussion *around* the change, which is often an equally valuable technical artifact.
 
-:quote[When I write a PR, I write it not just for the immediate reviewers, but for outsiders who might land on it later from search results or a cross reference.]{#write-prs-for-outsiders} Beyond documentation, PRs are a great place for your colleagues to ask the type of "dumb questions" that gives you the confidence to ship.
+## Write every pull request for the outsider
+
+:quote[When I write a PR, I write it not just for the immediate reviewers, but for outsiders who might land on it later from search results or a cross reference.]{#write-prs-for-outsiders} Beyond documentation, PRs are a great place for your colleagues to ask the type of "obvious questions" that gives you the confidence to ship.
 
 To that end, here are a few practices I follow when authoring pull requests to ensure I'm capturing sufficient context for myself and future contributors:
 
 - **Descriptive title.** Avoid the default `Update FILE.md` and instead use the title to capture the essence of the change in a way that is clear when scanning a list of PRs
 - **Brief description of the change.** Right up front, add a quick TL;DR describing the "what" of the change for others landing on the PR from search or a cross link so that they can quickly understand the change
 - **Ensure the body describes the "why."** Equally essential as the "what" is the "why". Why is this change being made? What problem does it solve? What alternatives were considered? What are the trade-offs? What are the risks? Be sure to include relevant links.
-- **Enough context.** So that others outside your team (or yourself years from now) can understand the change. Think of it as a time capsule or a message in a bottle to your future self and future contributors.
+- **Enough context.** Write it so others outside your team (or yourself years from now) can understand the change. Think of it as a time capsule or a message in a bottle to your future self and future contributors.
 - **@mention the responsible team.** Do this if `CODEOWNERS` didn't already request them. Not only does this bring visibility to the PR, it also makes ownership clear by explicitly calling out the responsible team. Be sure to include why you're @mentioning the team (what action is requested, if any) so that it's surfaced in the notification.
 - **CC or [`fixes`](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests) related issues.** To create a trail of breadcrumbs to improve discoverability and allow others to opt-in to additional context. As an added bonus, it will auto close the tracking issue for you.
 - **Task lists.** To reflect the current state of the PR (for example, `TODO: add tests`) and to capture process

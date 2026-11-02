@@ -1,11 +1,11 @@
 ---
 title: What is a Government Evangelist?
 description: "What a GitHub Government Evangelist does: help agencies ship software better and bring Silicon Valley practices to Washington."
-tldr: "The Government Evangelist role at GitHub is about helping government agencies to ship software better, to fold the map in half, and bring the West coast a bit closer to the East coast."
+tldr: "The Government Evangelist role at GitHub is about helping government agencies to ship software better, to fold the map in half, and bring the West coast a bit closer to the East coast. Someone who knows open source, wears a suit, and speaks the agency's language makes that first scary step easier for everyone."
 writtenAtGitHub: true
 ---
 
-Two of the most frequent questions I get, as GitHub's Government Evangelist (other than "is that your real title?", of course), are "what exactly does a Government Evangelist do?", almost always followed by "wait, but why would GitHub do that?". Here's the what and why, along with why it's important to the open source community that roles like that exist, at GitHub and elsewhere:
+Two of the most frequent questions I get, as GitHub's Government Evangelist (other than "is that your real title?"), are "what exactly does a Government Evangelist do?", almost always followed by "wait, but why would GitHub do that?". Here's the what and why, along with why it's important to the open source community that roles like that exist, at GitHub and elsewhere:
 
 ## What is a Government Evangelist
 
@@ -15,9 +15,9 @@ In a sentence, the Government Evangelist role at GitHub is about helping governm
 
 ## Why does it matter if GitHub has one
 
-From the outside looking in, the government speaks a very different language and transacts business very differently than the rest of the world. What you and I might call "a site", an agency, when writing a procurement document, might call that same collection of code a "scalable, cross-platform, digital public engagement platform". :quote[Unfortunately, Google Translate hasn't yet figured out how to translate between "government" and "geek".]{#google-translate-government-geek}
+From the outside looking in, the government speaks a different language and transacts business differently than the rest of the world. What you and I might call "a site", an agency, when writing a procurement document, might call that same collection of code a "scalable, cross-platform, digital public engagement platform". :quote[Unfortunately, Google Translate hasn't yet figured out how to translate between "government" and "geek".]{#google-translate-government-geek}
 
-Government agencies had been using GitHub prior to the role's creation, but whereas a private-sector firm might simply type in their credit card number to upgrade their account to a $25 subscription, those same transactions in government require a certain level of white-glove support. Custom terms of service need to be negotiated (government employees can't simply click "sign up"), new billing mechanisms need to be developed (subscription services can violate the Antideficiency Act), and government-specific resources need to be curated (misinterpretations of government security and privacy frameworks can render open source a forbidden venture).
+Government agencies had been using GitHub prior to the role's creation, but whereas a private-sector firm might just type in their credit card number to upgrade their account to a $25 subscription, those same transactions in government require a certain level of white-glove support. Custom terms of service need to be negotiated (government employees can't just click "sign up"), new billing mechanisms need to be developed (subscription services can violate the Antideficiency Act), and government-specific resources need to be curated (misinterpretations of government security and privacy frameworks can render open source a forbidden venture).
 
 The government evangelist role gives agencies someone familiar with open source who wears a suit, speaks their language, and knows the unique challenges they face. When they approach us to take that first step towards joining the open source community, we can make it easier (and more successful) for everyone involved.
 

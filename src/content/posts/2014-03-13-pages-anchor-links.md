@@ -1,7 +1,7 @@
 ---
-title: Header hover anchor links on GitHub Pages using Jekyll
+title: Hover anchor links for Jekyll on GitHub Pages
 description: Add GitHub-style hover anchor links to your Jekyll headings with CSS and JavaScript so readers can deep-link to any section.
-tldr: "A quick guide to adding GitHub-style hover anchor links to your Jekyll headings with CSS and JavaScript, so readers can deep-link to any section of your content."
+tldr: "Add GitHub-style hover anchor links to your Jekyll headings with a few lines of CSS and JavaScript, so readers can deep-link to any section of your content. These days, the AnchorJS library does it for you."
 ---
 
 If you've ever read a Markdown file on GitHub, you may have noticed that hovering over a heading produces a visible, clickable anchor link. This is incredibly useful to link someone to a particular heading or section, rather than the page as a whole, a practice known as "deep linking" of content.
@@ -20,7 +20,7 @@ First, you'll want [jQuery](https://jquery.com/) and [Font Awesome](https://web.
 
 jQuery, a JavaScript library, helps you select all the headers programmatically, and Font Awesome, an icon library, provides the link icon that the user sees.
 
-There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
+You can do this a handful of ways, but the easiest is to add the following in your template's `<head>` section:
 
 ```html
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
