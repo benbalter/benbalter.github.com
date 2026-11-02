@@ -19,7 +19,7 @@ The average knowledge worker already spends [40% of their workweek](https://noag
 
 ## Start with a document
 
-The site's core argument is that [writing scales; meetings don't](/2023/08/04/remote-work-communicate-more-with-less/). Before you send that invite, ask yourself: *can this start as a document instead?*
+The site's core argument is that [writing scales; meetings don't](/2023/08/04/remote-work-communicate-more-with-less/#:~:text=helps%20ideas%20to%20scale%20more%20effectively). Before you send that invite, ask yourself: *can this start as a document instead?*
 
 If the answer is yes (and it almost always is), write first, meet second. If you do need a meeting, include an agenda, attach a read-ahead, and state the decision you're trying to make. This isn't radical advice. It's basic [async-first communication](/2022/03/17/why-async/) hygiene.
 

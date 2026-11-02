@@ -13,7 +13,7 @@ Most of accessibility, at least for a book, is structure. Headings that are actu
 
 Markdown is inflexible about that, in the best way. `##` is an `<h2>` or it's nothing. There's no font size to reach for, so there's no way to make a line that *looks* like a heading without being one. Alt text sits on the same line as the image it describes, conspicuously empty when it's missing.
 
-[Open a word processor](/2014/03/31/word-versus-markdown-more-than-mere-semantics/) and a heading is a style you're welcome to apply, or you can select the line, bump it to 18pt bold, and move on. Both look identical on the page. Only one of them is a heading when assistive tech comes looking, and nothing in the editor tells you which one you made. :quote[I didn't get real headings through discipline. I got them because my formatting doesn't offer the other option.]{#format-offers-no-option}
+[Open a word processor](/2014/03/31/word-versus-markdown-more-than-mere-semantics/#exposing-author-intent) and a heading is a style you're welcome to apply, or you can select the line, bump it to 18pt bold, and move on. Both look identical on the page. Only one of them is a heading when assistive tech comes looking, and nothing in the editor tells you which one you made. :quote[I didn't get real headings through discipline. I got them because my formatting doesn't offer the other option.]{#format-offers-no-option}
 
 And everything downstream inherits those semantics. Pandoc renders the same source into HTML and EPUB, and a Lua filter adds [DPUB-ARIA](https://www.w3.org/TR/dpub-aria-1.0/) roles on the way through. A screen reader knows a callout is a callout, and knows which list of links is the table of contents.[^pipeline]
 

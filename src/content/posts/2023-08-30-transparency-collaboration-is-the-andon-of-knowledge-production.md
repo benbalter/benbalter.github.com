@@ -45,4 +45,4 @@ Transparent collaboration has real trade-offs. It requires a shift in mindset, b
 
 Software development is not the same as manufacturing, but it shares some similarities. Both are complex, iterative, and collaborative processes that involve creating and delivering value to customers. Both also face challenges such as quality, efficiency, and innovation. And both can benefit from the andon principle.
 
-The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. :quote[Next time you spot a problem, pull the cord.]{#pull-the-cord}
+The andon principle won't fix everything, but it's a powerful tool for catching problems early and building a culture of collaboration on your team. :quote[Next time you spot a problem, pull the cord.]{#next-time-pull-the-cord}

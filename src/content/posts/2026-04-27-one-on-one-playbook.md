@@ -23,7 +23,7 @@ Great 1\:1s focus on topics that only work synchronously. Five keep coming up:
 - **Human connection.** "How are you *actually* doing?" And then sitting through the silence that follows. Remote work strips out the hallway read on whether someone's thriving or quietly burning out. The 1\:1 is where you get it back.
 - **Clearing the air.** The passive-aggressive thread that's been simmering all week gets defused in four minutes of talking, or festers for another month in writing. Pick up the phone.
 
-What *doesn't* belong: [status updates](/2023/04/20/meetings-are-a-point-of-escalation/), information transfer, and approval requests. :quote[If you're listing what you shipped last week, you're wasting the meeting.]{#q-if-youre-listing-what-you} Your manager should see your work before the 1\:1, not hear about it during. Approvals create bottlenecks. Ask async. Information sharing belongs in a doc sent beforehand. Use synchronous time to discuss implications, not convey facts.
+What *doesn't* belong: [status updates](/2023/04/20/meetings-are-a-point-of-escalation/#default-to-transferring-context-asynchronously), information transfer, and approval requests. :quote[If you're listing what you shipped last week, you're wasting the meeting.]{#q-if-youre-listing-what-you} Your manager should see your work before the 1\:1, not hear about it during. Approvals create bottlenecks. Ask async. Information sharing belongs in a doc sent beforehand. Use synchronous time to discuss implications, not convey facts.
 
 ## How to prepare
 

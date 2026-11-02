@@ -11,7 +11,7 @@ That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 ## From async to AI-augmented
 
-The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/), favoring written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) (issues, pull requests, project boards) to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
+The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/), favoring written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/#planning-and-tracking) (issues, pull requests, project boards) to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
 If the shift from synchronous to async was about decoupling communication from presence, and managing like an engineer was about applying developer workflows to leadership, then AI-first program management is the next logical step: using AI to amplify the judgment, pattern recognition, and relationship work that makes program managers effective.
 
@@ -96,4 +96,4 @@ No model was going to catch that. It would have read the same green board I did.
 
 [^1]: Tally up the number of distinct audiences a PM communicates with in a single week and the answer is genuinely depressing. Every additional team or stakeholder doesn't just add one more communication channel. It adds one for every stakeholder you *already* had. This is why PMs' calendars look the way they do.
 
-[^2]: As much as I might like them to be, [human-to-human requests are unlike server-to-server requests](/2021/03/26/nine-things-a-technical-program-manager-does/). A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner, even if it's facially valid. Invest in the relationship before you need the favor.
+[^2]: As much as I might like them to be, [human-to-human requests are unlike server-to-server requests](/2021/03/26/nine-things-a-technical-program-manager-does/#:~:text=properly%20authenticated%20request%20from%20a). A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner, even if it's facially valid. Invest in the relationship before you need the favor.
