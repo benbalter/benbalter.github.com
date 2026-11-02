@@ -5,8 +5,6 @@ image: /assets/img/furby-halloween-porch-1200x630.jpg
 tldr: "Furbies already creep people out, so I leaned in. Two hacked Furby Connects by my front door traded spooky lines all night, an evil pink one and a sweet blue one, cued over Bluetooth by a board hidden on the porch. The code is open source, and you can build your own with a laptop, two Furbies, and a stock Furby DLC."
 ---
 
-<!-- PUBLISH CHECKLIST: rename the file to the real publish date (and update the link to it in 2026-10-29-the-rule-of-no-surprises.md), fill every TK, swap every :::info placeholder for real media, strip metadata from every new photo and video (`exiftool -all=`, or `ffmpeg -map_metadata -1`) and check for house numbers, reflections, and people in frame, then delete this comment. Done so far: the porch photo, the real eyes photo, the remote screenshot, and the `image:` social card, all from the night, plus the FireBeetle and PIR sensor shot, metadata stripped and cropped clear of people. Merging to main publishes the post. -->
-
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 
 One Furby wants you to follow the rules. The other wants all of your candy. They bickered all night.
@@ -14,7 +12,7 @@ One Furby wants you to follow the rules. The other wants all of your candy. They
 <!-- hero-video: simulator stand-in. Swap for porch footage (muted, captioned, no kids in frame) if you get it. -->
 <figure class="not-prose furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-greeting.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. The friendly blue Furby offers candy and the evil pink one dares the trick-or-treater to take two. Each line appears as a caption.">
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-greeting.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. The friendly blue Furby offers candy and the evil pink one dares the trick-or-treater to take two. Each line appears as a caption.">
     <source src="/video/furby-halloween/preview-greeting.webm" type="video/webm" />
     <source src="/video/furby-halloween/preview-greeting.mp4" type="video/mp4" />
   </video>
@@ -57,7 +55,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 <div class="not-prose furby-grid">
 <figure class="furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-door-scream.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. A door creaks, pink screams, and blue giggles that it got you. Each line appears as a caption.">
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-door-scream.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. A door creaks, pink screams, and blue giggles that it got you. Each line appears as a caption.">
     <source src="/video/furby-halloween/preview-door-scream.webm" type="video/webm" />
     <source src="/video/furby-halloween/preview-door-scream.mp4" type="video/mp4" />
   </video>
@@ -65,7 +63,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 </figure>
 <figure class="furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-watching.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink says it's watching you and blue chimes in that it's watching too. Each line appears as a caption.">
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-watching.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink says it's watching you and blue chimes in that it's watching too. Each line appears as a caption.">
     <source src="/video/furby-halloween/preview-watching.webm" type="video/webm" />
     <source src="/video/furby-halloween/preview-watching.mp4" type="video/mp4" />
   </video>
@@ -73,7 +71,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 </figure>
 <figure class="furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-ghostbusters.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Blue asks who you're gonna call, waits a beat for the kids to shout it, then both Furbies play the theme. Each line appears as a caption.">
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-ghostbusters.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Blue asks who you're gonna call, waits a beat for the kids to shout it, then both Furbies play the theme. Each line appears as a caption.">
     <source src="/video/furby-halloween/preview-ghostbusters.webm" type="video/webm" />
     <source src="/video/furby-halloween/preview-ghostbusters.mp4" type="video/mp4" />
   </video>
@@ -81,7 +79,7 @@ They trade lines in short scenes. Some are greetings, which play when someone wa
 </figure>
 <figure class="furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-toccata.jpg" aria-label="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink plays the opening of Bach's Toccata in D minor and blue says it loves this song. Each line appears as a caption.">
+  <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-toccata.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. Pink plays the opening of Bach's Toccata in D minor and blue says it loves this song. Each line appears as a caption.">
     <source src="/video/furby-halloween/preview-toccata.webm" type="video/webm" />
     <source src="/video/furby-halloween/preview-toccata.mp4" type="video/mp4" />
   </video>
@@ -122,7 +120,7 @@ That's still a lot of waiting to find out whether a punchline lands, so I rehear
 
 <figure class="not-prose furby-media">
   <!-- html-validate-disable-next no-autoplay -->
-  <video width="1192" height="370" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/eyes-pink-vs-blue.jpg" aria-label="Two pairs of animated Furby eyes side by side on black: pink's glowing red demon eyes with slit pupils, and blue's flickering yellow jack-o'-lantern triangles.">
+  <video width="1192" height="370" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/eyes-pink-vs-blue.jpg" title="Two pairs of animated Furby eyes side by side on black: pink's glowing red demon eyes with slit pupils, and blue's flickering yellow jack-o'-lantern triangles.">
     <source src="/video/furby-halloween/eyes-pink-vs-blue.webm" type="video/webm" />
     <source src="/video/furby-halloween/eyes-pink-vs-blue.mp4" type="video/mp4" />
   </video>
