@@ -1,7 +1,7 @@
 ---
-title: "From government to GitHub: three lessons"
+title: "Most bureaucratic to least: three lessons"
 description: "Three lessons from moving from the federal government to GitHub: trust, happiness, and treating relationships as assets."
-tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities. Each time, government errs toward minimizing risk, which often creates more of it."
+tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities. Each time, large organizations trade trust, happiness, or information for less risk, and it backfires."
 writtenAtGitHub: true
 ---
 

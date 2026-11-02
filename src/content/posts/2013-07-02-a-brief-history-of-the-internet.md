@@ -24,7 +24,7 @@ We saw this in the early days of the internet when every new service would pick 
 The internet is fundamentally a different animal from the desktop, both culturally and technically. Interoperability reigns supreme. Sure, many complex formats were first-out-the-gate to tackle a problem, and they did it well. Today however, with the abundance of smarter tools, we don't need that complexity at the core. Microsoft Word is great for making paper, but things like Markdown and HTML are quickly becoming the `.doc`s of the web. What lessons can we learn from the "winning" solutions?
 
 - Open > Closed, Simple > Complex, Pragmatic > Perfect
-- Simple formats, smart tools
+- Dumb formats, smart tools
 - Easier to upgrade a tool than a standard, experimentation is key
 - No APIs to learn, no SDKs to install, no licenses to buy
 

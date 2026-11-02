@@ -5,7 +5,7 @@ tldr: "WP Resume is an out-of-the-box solution to get your résumé online and k
 archived: true
 ---
 
-As I began to set up my own site, I was not a fan of the options out there for adding a résumé or CV to a WordPress blog. Many personal sites used lackluster TinyMCE formatting (bold, italic, bullets, nothing else) or stuffed pre-styled HTML into an existing page. I can't even begin to fathom the workflows some people must go through every time they want to update their resume.[^1] A few purpose-built plugins offered a slightly more streamlined approach, but cluttered the backend with unnecessary and unfamiliar menus, and spawned legions of database tables to store the data.
+As I began to set up my own site, I was not a huge fan of the options out there for adding a résumé or CV to a WordPress blog. Many personal sites used lackluster TinyMCE formatting (bold, italic, bullets, nothing else) or stuffed pre-styled HTML into an existing page. I can't even begin to fathom the workflows some people must go through every time they want to update their resume.[^1] A few purpose-built plugins offered a slightly more streamlined approach, but cluttered the backend with unnecessary and unfamiliar menus, and spawned legions of database tables to store the data.
 
 ## Enter WP Resume
 
@@ -27,6 +27,6 @@ WP Resume is an out-of-the-box solution to get your résumé online and keep it 
 
 The hardest part of getting your résumé online should be doing the work listed on it, not wrestling the publishing platform. WP Resume gets out of the way and lets your experience shine.
 
-Interested? You can [see it in action](/resume/), or if you're ready to install it, [download it from the WordPress plugin repository](http://wordpress.org/extend/plugins/wp-resume/), and [try it today](http://wordpress.org/extend/plugins/wp-resume/installation/). There's even a [great walkthrough put together by the good folks at CUNY Graduate School of Journalism.](https://web.archive.org/web/20110514215914/http://tech.journalism.cuny.edu/documentation/wp-resume/) Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
+Interested? You can [see it in action](/resume/), or if you're ready to take the plunge, [download it from the WordPress plugin repository](http://wordpress.org/extend/plugins/wp-resume/), and [try it today](http://wordpress.org/extend/plugins/wp-resume/installation/). There's even a [great walkthrough put together by the good folks at CUNY Graduate School of Journalism.](https://web.archive.org/web/20110514215914/http://tech.journalism.cuny.edu/documentation/wp-resume/) Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
 
 [^1]: I imagine it would resemble a highly digitized [Rube Goldberg Machine](http://www.youtube.com/watch?v=qybUFnY7Y8w)

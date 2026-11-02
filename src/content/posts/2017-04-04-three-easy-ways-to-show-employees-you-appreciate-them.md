@@ -1,7 +1,7 @@
 ---
-title: Three easy ways to appreciate your employees
+title: Three easy ways to show employees you care
 description: Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when there's no water cooler.
-tldr: "Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when your team is remote and there's no water cooler. Put birthdays and work anniversaries on your calendar, and notice the life events your coworkers mention."
+tldr: "Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when your team is remote and there's no water cooler. Put birthdays on your calendar, watch for work anniversaries, and notice the life events your coworkers mention."
 writtenAtGitHub: true
 ---
 

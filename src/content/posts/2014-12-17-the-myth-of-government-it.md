@@ -22,7 +22,7 @@ At each agency the most valuable tool against that FUD (fear, uncertainty, and d
 
 ## Incentivizing the risk-averse
 
-Government is often accused of harboring a CYA culture. Trying what's perceived as new and risky (whether it is or not) may get you in trouble, but absent the profit motive regularly found in the private sector, there's little incentive to offset that risk or do anything other than what's already been done. Put differently, a bureaucracy's primary goal is to ensure its own survival, and through that lens, individual changes are categorically perceived as a threat. As a result, you see two things:
+Government is often accused of harboring a CYA culture. Trying what's perceived as new and risky (whether it is or not) may land you in hot water, but absent the profit motive regularly found in the private sector, there's little incentive to offset that risk or do anything other than what's already been done. Put differently, a bureaucracy's primary goal is to ensure its own survival, and through that lens, individual changes are categorically perceived as a threat. As a result, you see two things:
 
 1. [Bureaucrats with the agency's immune system](/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) have an incentive to create additional hoops for your shiny new app to jump through. After all, there's no harm (we don't have a cost/benefit or return on investment analysis to rely on), and if that hoop isn't jumped through, it can come back to haunt me if things go south.
 

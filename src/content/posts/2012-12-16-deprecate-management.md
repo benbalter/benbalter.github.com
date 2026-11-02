@@ -5,7 +5,7 @@ tldr: "Open source communities ship code across geographies and timezones withou
 published: true
 ---
 
-A lot of "making things" is something [open source just does better](/2012/10/19/we-ve-been-trained-to-make-paper/). Whether you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd end up with a process that's hard to beat. Welcome to the world of open source.
+[Open source just does](/2012/10/19/we-ve-been-trained-to-make-paper/) a lot of "making things" better. Whether you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd have a seriously good process, for sure. Welcome to the world of open source.
 
 ## Management exists to move information
 
@@ -21,7 +21,7 @@ This makes sense if you look at the history of the role. In an age when conveyin
 
 What if, when that problem first arose, Adam could send Becky an email or an IM or post an update to a shared collaboration space? Do you think they'd need Charlie in the first place? :quote[Would management as we see it today have arisen in an age where technology reduces the friction of collaboration to nearly nil?]{#would-management-have-arisen}
 
-## Open source already works without managers
+## Open source solved it without the hierarchy
 
 Take the open source community as a test case. It had just that opportunity. Same problem, same outcome, and (for the most part), no traditional hierarchical structure. How do you overcome the management burden? Transparent, persistent communication (everything from code to decisions happens in the open and is archived for all to see) and pure meritocracy (a bunch of ideas arise, get voted on through opt-in participation, and the best are seen to fruition).
 
@@ -39,10 +39,10 @@ What makes this management-free collaboration possible? Ryan Tomayko [outlines](
 >
 > - **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](https://en.wikipedia.org/wiki/Distributed_revision_control) writ large. We don't have a development manager that grants commit bit to repositories before you can do work, or a release manager that approves deploys, or a product manager that approves work on experimental product ideas. Work toward a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
-## Most office friction is now optional
+## What if we cut the friction?
 
 Granted, this open-source philosophy doesn't apply to every workplace, but how much better would the process of "making things" be if we could eliminate traditional managerial friction entirely: conference calls, status meetings, "sync-ups," and other non-decisional "check-ins"? Work happens in the open, rather than hidden away in one-on-one emails or behind closed doors, and decisions are made by those who show up to do the work.
 
-Straddling the line between arguably the world's most bureaucratic, hierarchical organization (federal government), and its definitional polar opposite (open source), provides a unique perspective. We do so much of the work day just because it's the way things have been done since the dawn of the industrial revolution, and it puzzles me why nobody's stopped to think critically about how these processes could be reimagined in an age of technology. I need to get this (physical) form approved by Joan? Okay, you just took two people away from doing what they're paid to be doing. I have to email someone for the latest version or figure out where we're at on this project? Again, just moved someone from high-level to low-level work.
+Straddling the line between arguably the world's most bureaucratic, hierarchical organization (federal government), and its definitional polar opposite (open source), provides a unique perspective. So much of the work day happens just because it's the way things have been done since the dawn of the industrial revolution, and it puzzles me why nobody's stopped to think critically about how these processes could be reimagined in an age of technology. I need to get this (physical) form approved by Joan? Okay, you just took two people away from doing what they're paid to be doing. I have to email someone for the latest version or figure out where we're at on this project? Again, just moved someone from high-level to low-level work.
 
 Not every workplace is apt for such radical egalitarianism, but the buttoned-up (offline) world of "serious" business could learn a thing or two from open source's collaborative experiment. In many respects, :quote[organizational friction is no longer a sunk cost, and thus, arguably, so too is management.]{#so-too-is-management}

@@ -16,7 +16,7 @@ Markdown isn't just an alternative format. Markdown forces you to write for the 
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors mirrored the dominant workflow of the time: the typewriter. The final output (the sole embodiment) was physical, and all that mattered was what the document looked like.
 
-Over the past three decades, however, how we consume content has changed dramatically, yet how we author it has stood still. Put another way, [the internet is a fundamentally different animal than the desktop](/2013/07/02/a-brief-history-of-the-internet/). You [can't just take a desktop format and put it online](/2013/11/21/thats-not-how-the-internet-works/), and "[converting](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
+Over the past three decades, however, how we consume content has changed dramatically, yet how we author it has barely changed. Put another way, [the internet is a fundamentally different animal than the desktop](/2013/07/02/a-brief-history-of-the-internet/). You [can't just take a desktop format and put it online](/2013/11/21/thats-not-how-the-internet-works/), and "[converting](https://web.archive.org/web/20140422130327/http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
 
 ## Separating content from presentation
 
