@@ -1,11 +1,11 @@
 ---
-title: 'Hacking GitHub: 14 simple tools to help introduce open source to the uninitiated'
+title: 'Hacking GitHub: 14 tools for the uninitiated'
 description: "14 open source apps I built to help non-technical users collaborate on GitHub, from Word-to-Markdown conversion to simplified issue forms."
-tldr: "A collection of 14 small open source apps I built to help non-technical users collaborate on GitHub, from converting Word docs to Markdown to simplified issue forms."
+tldr: "A collection of 14 small open source apps I built to help non-technical users collaborate on GitHub, from converting Word docs to Markdown to simplified issue forms. When someone says GitHub won't fit their workflow, a hundred lines of glue code beats explaining the API."
 writtenAtGitHub: true
 ---
 
-GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It just tracks who made what change when. But sometimes, it's harder to see how simple, general-purpose tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
 
 Often, when I'm [explaining the potential of open source to government agencies](/2014/10/15/what-does-a-government-evangelist-do/) (organizations used to purpose-built processes and bespoke software), this perceived barrier to entry becomes apparent:
 
@@ -13,7 +13,7 @@ Often, when I'm [explaining the potential of open source to government agencies]
 
 Code speaks louder than words. :quote[It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API.]{#glue-code-beats-explaining} And that's exactly what I do most often.
 
-Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and show the power of adding smart tools to the edge of an otherwise dumb platform:
+Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and show the power of adding smart tools to the edge of an otherwise general-purpose platform:
 
 ## Working with legacy formats
 

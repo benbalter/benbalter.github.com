@@ -4,7 +4,7 @@ description: From enterprise FUD to closed-source contractors to a culture of no
 tldr: "From enterprise FUD to closed-source contractors to a culture of no, an entire value chain conspires to keep taxpayer-funded code behind the firewall. It doesn't have to be that way."
 ---
 
-The federal government is the single largest purchaser of code in the world. This code is taxpayer-funded and integral to the day-to-day working of our democracy. So why is it so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
+The federal government is the single largest purchaser of code in the world. This code is taxpayer-funded and integral to the day-to-day working of our democracy. Why, then, is it so often hidden from public view? The answer has two halves: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
 
 ## Using open source
 
@@ -22,7 +22,7 @@ Before that transaction even occurs, the closed-source platform likely has a fla
 
 Last, these closed source platforms are what government contractors know, because it's what's taught in computer science programs, and what they've always been asked to supply. If an experienced development firm has a bunch of ColdFusion developers, when they bid on a contract, they're going to recommend that the thing be built in ColdFusion. Not to mention, the government's RFP may be scoped to favor the legacy technology they already know. All this means that before the first line of code is ever written, the odds are stacked against the project from ever seeing the outside of the agency's firewall.
 
-But even if the agency's using a closed-source platform, there's no reason their custom code can't still be [open sourced](https://github.com/trending?l=cfm&since=monthly).
+Even if the agency's using a closed-source platform, there's no reason their custom code can't still be [open sourced](https://github.com/trending?l=cfm&since=monthly).
 
 ## Contributing to open source
 
@@ -46,9 +46,9 @@ Even if the agency manages to open source the code, the open source community fo
 
 ### Transparency as a liability
 
-Open sourcing code exposes the agency to the potential for criticism from millions of highly-technical, critical eyes, with little perceived upside from the agency's perspective. The non-technical agency team may not have the ability to evaluate the craftsmanship of the code internally, and it's often preferable to sweep things under the rug, rather than potentially air their dirty laundry to some of the internet's most skilled trolls. And the benefits advocates promise often don't materialize to counterbalance that risk. Code built so narrowly for government that nobody outside can use it attracts no outside contributors, and a poorly managed project scares them away.
+Open sourcing code exposes the agency to the potential for criticism from millions of highly technical, critical eyes, with little perceived upside from the agency's perspective. The non-technical agency team may not have the ability to evaluate the craftsmanship of the code internally, and it's often preferable to sweep things under the rug, rather than potentially air their dirty laundry to some of the internet's most skilled trolls. And the benefits advocates promise often don't materialize to counterbalance that risk. Code built so narrowly for government that nobody outside can use it attracts no outside contributors, and a poorly managed project scares them away.
 
-Meanwhile, unreleased source code poses absolutely zero liability in today's political climate. Which one would you choose?
+Meanwhile, unreleased source code poses absolutely zero liability in the current political climate. Which one would you choose?
 
 ## What needs to change
 
@@ -62,4 +62,4 @@ To flip the default, three things need to change:
 
 Why isn't all government software open source? Because you've got an entire value chain designed to produce closed source software, a system at equilibrium, with few incentives to rethink itself. Technology has made collaborating in the open easier in recent years, and as a result, the open source ecosystem has exploded. Yet, like all technology, government is still a few years behind mainstream adopters.
 
-Hopefully, with your help, that can change.
+With your help, I hope that can change.

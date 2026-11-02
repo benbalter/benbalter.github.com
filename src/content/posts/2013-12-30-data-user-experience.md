@@ -4,7 +4,7 @@ description: "Next time you publish a data source, ask one question: how can you
 tldr: "The next time you publish a data source, whether in government or out, ask yourself one simple question. How can you optimize the experience for the data consumer?"
 ---
 
-Publishing government information is about much more than simply throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption. After all, that's the American way.
+Publishing government information is about much more than throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption. After all, that's the American way.
 
 Go to any agency site, and chances are you'll find at least one dataset sitting idly by because the barrier to consume it is *too damn high*. It doesn't matter how hard stakeholders had to fight to get the data out the door or how valuable the dataset is. It's never going to become the next GPS or weather data.
 
@@ -22,6 +22,6 @@ Second, the fact that the documentation is geared not towards developers, but to
 
 The General Services Administration, much to their credit, has begun a "[First Fridays](https://web.archive.org/web/20131224163338/http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, the tangible result of a much larger effort to teach publishers of government information why user experience matters.
 
-But as we increasingly push for government information to be published in machine-readable formats, what becomes of that focus on the consumer's user experience? Is the user experience format agnostic? Here, the immediate consumer of the information is a civic hacker or other developer, and the interface is an API rather than an agency site, but the intention and importance are just the same.
+As we increasingly push for government information to be published in machine-readable formats, what becomes of that focus on the consumer's user experience? Is the user experience format agnostic? Here, the immediate consumer of the information is a civic hacker or other developer, and the interface is an API rather than an agency site, but the intention and importance are just the same.
 
 The next time you publish a data source, whether in government or out, just as you should with any site, ask yourself one simple question: *How can you optimize the experience for the consumer?*

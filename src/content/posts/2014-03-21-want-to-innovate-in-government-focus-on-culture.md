@@ -4,7 +4,7 @@ description: Parachuting technologists into agencies isn't enough. Government in
 tldr: "Parachuting technologists into agencies isn't enough. Bureaucracy has an immune system, and the only vaccine is building a culture where non-technical stakeholders appreciate and understand technology."
 ---
 
-When innovating in government, [the technology's the easy part](/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:
+When innovating in government, [the technology's the easy part](/2013/07/01/technologys-the-easy-part/). Most government innovation does one of two things:
 
 1. They take long-established [technology from the private sector](/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#1-innovative-efforts-in-government-are-standard-practice-in-the-startup-world) and inject it into an agency, or
 
@@ -14,7 +14,7 @@ When innovating in government, [the technology's the easy part](/2013/07/01/tech
 
 To innovate government, 90-day, 120-day, or six-month "fellowships" (read: glorified internships) aren't the way to do it, at least not alone. Talk to any Code for America or Presidential Innovation Fellow and you'll hear a common theme: absent sufficient cultural, administrative, and political support, between 30 and 60 percent of your time will be spent not doing what you were actually brought on to do, but rather convincing others that that's what you should be doing (or that they won't go to jail if they help).
 
-You have to fight for the tools, you have to fight for the workflows, you have to fight for the resources, and you have to fight for the solution itself. Every step is a fight, and that's assuming you don't have to argue things that are long-resolved in the rest of the technology world like the security of PHP or Ruby versus .Net or the need for continuous deployment. And we've only just touched the surface of the technological considerations. There are countless layers of policy, administrative, and bureaucratic hoops to jump through or otherwise route efforts around. :quote[Just whisper the phrase "change review board" and observe a change agent's reaction.]{#whisper-change-review-board}
+You have to fight for the tools, you have to fight for the workflows, you have to fight for the resources, and you have to fight for the solution itself. Every step is a fight, and that's assuming you don't have to argue things that are long-resolved in the rest of the technology world like the security of PHP or Ruby versus .Net or the need for continuous deployment. And we've only just touched the surface of the technological considerations. Then come countless layers of policy, administrative, and bureaucratic hoops to jump through or otherwise route efforts around. :quote[Just whisper the phrase "change review board" and observe a change agent's reaction.]{#whisper-change-review-board}
 
 ## Bureaucracy is an organism
 
@@ -24,9 +24,9 @@ An innovator's primary goal is the exact opposite. An innovator thrives on susta
 
 ## Never take "no" from someone who can't say "yes"
 
-You could have the most innovative idea, perfectly executed, and fully within the letter of the law, but if any one of the ten to fifteen layers of an agency's immune system so much as sniffs an antigen it doesn't recognize, the effort's dead in the water. :quote[Whether the threat's real or perceived, it's perpetual pollen season and the bureaucracy has chronic allergies.]{#perpetual-pollen-season}
+You could have the boldest idea, perfectly executed, and fully within the letter of the law, but if any one of the ten to fifteen layers of an agency's immune system so much as sniffs an antigen it doesn't recognize, the effort's dead in the water. :quote[Whether the threat's real or perceived, it's perpetual pollen season and the bureaucracy has chronic allergies.]{#perpetual-pollen-season}
 
-So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrtec of bureaucracy? In a word: culture. Culture isn't getting a coworker a card for her birthday, or an office-wide March Madness tournament. Culture is the cross-department set of unspoken assumptions that frame any conversation within an organization. Culture defines what's possible, and in the case of government, it is a powerful exclusionary force.
+How do you solve for the vocal naysayer minority? What's the Claritin or Zyrtec of bureaucracy? Culture. Culture isn't getting a coworker a card for her birthday, or an office-wide March Madness tournament. Culture is the cross-department set of unspoken assumptions that frame any conversation within an organization. Culture defines what's possible, and in the case of government, it is a powerful exclusionary force.
 
 ## What if the biggest fight you faced was outside your organization, not inside?
 
@@ -44,16 +44,16 @@ Looking back at some proto-open-data-policy brainstorming emails from summer 201
 
 What if every Wednesday [18F](https://web.archive.org/web/20140323045332/http://18f.gsa.gov/) invited an innovator (a CEO or CIO of a prominent private sector company) to come inspire government employees, both technical and otherwise, to hear how their company works on a day-to-day basis and streamed it to anyone with a government email address? We're not talking about a sales pitch. We're talking about a super-informal, *Inside the Actors Studio*–style "ask me anything." *How do you handle hiring? Customer service? How do you decide which ideas to run with? What's in your stack? How often do you deploy?*
 
-The idea is to pop the Beltway bubble: expose otherwise isolated, non-technical career government employees, not to cutting-edge ideas, but to commonplace practices well established in the private sector, to redefine the norm, to fold the map in half and bring a bit of the West Coast to the East Coast.
+The idea is to pop the Beltway bubble: expose otherwise isolated, non-technical career government employees, not to novel ideas, but to commonplace practices well established in the private sector, to redefine the norm, to fold the map in half and bring a bit of the West Coast to the East Coast.
 
 ## Empowering lawyer linebackers
 
 Those three components (lightning talks, outside conferences, and targeted trainings) could unlock an army of [lawyer linebackers](/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#4-make-friends-with-a-lawyer-on-day-one), non-technical stakeholders who act as a force multiplier for technical talent, and ultimately the change we all desire.
 
-What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack (open source software, APIs, and distributed version control)? What if you could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub," and they simply responded "awesome, how can we help?" What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
+What if when you first approached your general counsel for "approval" of your new idea, you didn't have to justify each layer of the technology stack (open source software, APIs, and distributed version control)? What if you could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub," and they responded "awesome, how can we help?" What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
 
 ## Vaccination through controlled exposure
 
-The common complaint is often that those empowered to truly effect change simply "don't get it". Let's fix that. It doesn't have to be a government-wide or organization-wide effort. Take a day off from coding (or more likely meetings) and spend it building an appreciation of technology among the people you work with every day. Give subordinates a few hours to work through [Rails for Zombies](https://web.archive.org/web/20140321075511/http://railsforzombies.org/). Or attend a technology conference outside the Beltway. Baby steps are what's going to get us there.
+The common complaint is often that those empowered to truly effect change "don't get it". Let's fix that. It doesn't have to be a government-wide or organization-wide effort. Take a day off from coding (or more likely meetings) and spend it building an appreciation of technology among the people you work with every day. Give subordinates a few hours to work through [Rails for Zombies](https://web.archive.org/web/20140321075511/http://railsforzombies.org/). Or attend a technology conference outside the Beltway. Baby steps are what's going to get us there.
 
-We're not going to turn a large, bureaucratic organization into a startup, nor should we, but by helping non-technical stakeholders to gain a broader perspective of the technology landscape, we can take a step towards building a culture where innovative efforts are the honored norm, not an unwelcome fad, and where our innovators can focus on technology, not bureaucracy. Just as in your own immune system, here, vaccination is simply a matter of controlled exposure.
+We're not going to turn a large, bureaucratic organization into a startup, nor should we, but by helping non-technical stakeholders to gain a broader perspective of the technology landscape, we can take a step towards building a culture where new ideas are the honored norm, not an unwelcome fad, and where our innovators can focus on technology, not bureaucracy. Just as in your own immune system, here, vaccination is a matter of controlled exposure.

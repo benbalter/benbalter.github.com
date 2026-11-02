@@ -1,7 +1,7 @@
 ---
 title: Open source as Yelp for software
 description: Open source is like Yelp for software, with the potential to shift the balance of power from publishers to consumers.
-tldr: "Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers."
+tldr: "Open source has become a Yelp for software: any user can call out a bad experience in public, where every future user will see it. That has the potential to shift the balance of power from software publishers to software consumers, and we should hold government services to the same standard."
 ---
 
 Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers. Why do we hold the software that our society increasingly depends on to a standard lesser than that to which we hold fast food?
@@ -12,7 +12,7 @@ A few weeks ago, I was in a restaurant when they lost a guest's carry-out order.
 
 In *ye olde* days before Yelp, restaurants basically had city food inspectors' opinion to care about. Sure, some of the fancier restaurants might get a visit from a food critic, but the long tail of restaurants did not, and even if they did, after the initial review, there's a long window where the risk of a return visit from a food critic is highly unlikely. Not to mention, while high-end restaurants downtown face steep competition, I suspect your neighborhood Italian or Chinese place does not feel the same pressure. As a result, restaurants were incentivized to care about the tangible. *Is the kitchen clean? Is the menu diverse enough? Are the prices right for the market?*
 
-Yelp shifted that equation, by creating an incentive for restaurants to focus on the intangible (and beyond the bare minimum). All of a sudden it became *was the hostess welcoming enough to that guest? Is our staff properly trained? Can our kitchen get food out quickly?* In a pre-Yelp world, individuals' poor experiences weren't enough to motivate action in many markets, especially those with few repeat customers. One customer might be able to influence two, maybe three people, at most. If they're an extremely vocal connector, maybe ten potential customers? In a post-Yelp world, that same, single scorned customer can cause someone they've never met to continue walking right to the place next door instead. In this sense, crowdsourced reviews shift the balance of power from service provider to service consumer, creating an incentive for more than mere box checking. The shift in power applies equally to both soft tacos and soft wares.
+Yelp shifted that equation, by creating an incentive for restaurants to focus on the intangible (and beyond the bare minimum). All of a sudden it became *was the hostess welcoming enough to that guest? Is our staff properly trained? Can our kitchen get food out quickly?* In a pre-Yelp world, individuals' poor experiences weren't enough to motivate action in many markets, especially those with few repeat customers. One customer might be able to influence two, maybe three people, at most. If they're a vocal connector, maybe ten potential customers? In a post-Yelp world, that same, single scorned customer can cause someone they've never met to continue walking right to the place next door instead. In this sense, crowdsourced reviews shift the balance of power from service provider to service consumer, creating an incentive for more than mere box checking. The shift in power applies equally to both soft tacos and soft wares.
 
 ## The internet empowers consumers
 
@@ -26,9 +26,9 @@ Whether a restaurant, a software project, or an open data effort, public, consum
 
 ## Waiter, there's a bug in my software
 
-What if all software had public review forums like most restaurants do today? This is true of just about all open source software, and the same consumer-empowering trends could hold true. As a consumer-moderated discussion forum, open source has several implications for the software consumer:
+What if all software had public review forums like most restaurants do today? This is true of just about all open source software, and the same consumer-empowering trends could hold true. As a consumer-moderated discussion forum, open source has four implications for the software consumer:
 
-- **Perception.** Perception begins to play a role, and becomes a very visible metric to measure the project's success. Are there 100 open issues, all without a single comment? Are users posting frustrated comments due to their lack of attention? Do bug reports start "I love this app, but…"?
+- **Perception.** Perception begins to play a role, and becomes a visible metric to measure the project's success. Are there 100 open issues, all without a single comment? Are users posting frustrated comments due to their lack of attention? Do bug reports start "I love this app, but…"?
 
 - **Follow up.** That perception metric creates a disincentive for software publishers to ignore or minimize consumers' complaints. If you email <support@company.com>, they can ignore your email, and there's not much you can do about it. Worse yet, you have no way to know if they got 100 emails that day with the same request. When that conversation happens in the open, the publisher is all but forced to acknowledge the request for fear of appearing unsympathetic to user needs.
 
