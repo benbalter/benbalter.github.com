@@ -10,8 +10,8 @@ This site is built using Astro and Tailwind CSS. See [humans.txt](https://ben.ba
 
 The Astro setup is configured to:
 
-- Use **Static Site Generation (SSG)** — All pages pre-rendered as static HTML
-- **Zero JavaScript by default** — Ships only necessary JavaScript
+- Use **Static Site Generation (SSG)**: all pages pre-rendered as static HTML
+- **Zero JavaScript by default**: ships only necessary JavaScript
 - Support **TypeScript** for type-safe components
 - Export to `dist-astro/` directory
 - Run development server on port 4321

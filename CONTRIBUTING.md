@@ -218,7 +218,7 @@ The `.github/instructions/` directory contains targeted instructions for specifi
 
 These instructions help Copilot provide better suggestions and maintain code quality standards.
 
-## Questions?
+## Getting help
 
 If you have questions or need help:
 

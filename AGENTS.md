@@ -70,7 +70,7 @@ markdownlint-cli2 --fix src/content/posts/my-post.md
 
 ### Linting Scope
 
-`npm run lint` and `npm run lint-md` run `eslint --fix` and `markdownlint-cli2 --fix` across the whole repo, rewriting every file with a violation, so lint the specific files you changed instead.
+`npm run lint` and `npm run lint-md` run `eslint --fix` and `markdownlint-cli2 --fix` across the whole repository, rewriting every file with a violation, so lint the specific files you changed instead.
 
 ```bash
 # Good
@@ -103,7 +103,7 @@ const { Content } = await render(post);
 
 [`/bookmarklets/`](src/pages/bookmarklets.astro) is the install page for [benbalter/bookmarklets](https://github.com/benbalter/bookmarklets). Their built code is vendored in [`src/data/bookmarklets.json`](src/data/bookmarklets.json) with the bookmarklets commit it came from; metadata is in [`src/data/bookmarklets.ts`](src/data/bookmarklets.ts).
 
-- Renovate (custom manager in [`renovate.json`](renovate.json)) opens a PR bumping `commit` whenever the bookmarklets repo's `main` moves.
+- Renovate (custom manager in [`renovate.json`](renovate.json)) opens a PR bumping `commit` whenever the bookmarklets repository's `main` moves.
 - CI's `script/update-bookmarklets --check` fails if the vendored code doesn't match that commit. When it does, run [`script/update-bookmarklets`](script/update-bookmarklets) on the PR branch and push; `--latest` moves to the tip of `main` by hand.
 - Adding a bookmarklet: add its id to `IDS` in the script, run it with `--latest`, and add an entry to [`bookmarklets.ts`](src/data/bookmarklets.ts).
 
@@ -136,10 +136,10 @@ This is a production website, so be conservative with changes.
 
 Not a formula or a requirement; plenty of good posts skip some of these. These are just observations: posts that resonate tend to share most of these traits, so they're a useful lens when weighing a new idea:
 
-1. **Personal, data-backed sourcing**: a number, a spreadsheet, a lived count, not just an opinion.
-2. **A named professional pain**: speaks to a specific anxiety a reader can name (reorgs, getting promoted remotely, interviewing).
-3. **A copy-pasteable playbook**: an actionable checklist, template, or steps people can bookmark and reuse.
-4. **One punchy, contrarian-but-true thesis**: a single clear claim, not a survey of everything.
+1. **Personal, data-backed sourcing.** A number, a spreadsheet, a lived count, not just an opinion.
+2. **A named professional pain.** It speaks to a specific anxiety a reader can name (reorgs, getting promoted remotely, interviewing).
+3. **A copy-pasteable playbook.** An actionable checklist, template, or steps people can bookmark and reuse.
+4. **One punchy, contrarian-but-true thesis.** A single clear claim, not a survey of everything.
 
 Distribution leans on sharing (social, direct) more than search, so shareability tends to matter more than SEO. The AI angle tends to land best when tied to firsthand management/GitHub experience rather than as a generic tooling take.
 
@@ -171,4 +171,4 @@ Optional: `comments`, `redirect_from`, `image`, `redirect_to`
 - [`.github/agents/`](.github/agents/) holds the `code`, `writing`, and `seo` agents. Copilot reads them there; [`.claude/agents/`](.claude/agents/) symlinks them for Claude Code. Use `writing` for posts and docs, `seo` for meta tags and structured data, and `code` for everything else.
 - [`.github/instructions/`](.github/instructions/) holds path-scoped instructions. Each file carries Copilot's `applyTo:` and Claude Code's `paths:`, and [`.claude/rules/`](.claude/rules/) symlinks them.
 - [`.github/workflows/copilot-setup-steps.yml`](.github/workflows/copilot-setup-steps.yml) installs Node and dependencies for Copilot's cloud agent.
-- [`.claude/settings.json`](.claude/settings.json) registers Claude Code hooks in [`.claude/hooks/`](.claude/hooks/): `lint-guard` denies the repo-wide `npm run lint*` and `remark -o` commands above, and after each edit `emdash-check`, `prose-lint`, and `eslint-check` lint just that file (em dashes on added lines only) and feed failures back. Copilot doesn't run them.
+- [`.claude/settings.json`](.claude/settings.json) registers Claude Code hooks in [`.claude/hooks/`](.claude/hooks/): `lint-guard` denies the repository-wide `npm run lint*` and `remark -o` commands above, and after each edit `emdash-check`, `prose-lint`, and `eslint-check` lint just that file (em dashes on added lines only) and feed failures back. Copilot doesn't run them.
