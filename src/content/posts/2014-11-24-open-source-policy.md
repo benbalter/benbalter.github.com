@@ -1,7 +1,7 @@
 ---
-title: A White House open source policy written by a geek
+title: A White House open source policy by a geek
 description: "The White House Open Source Policy should prefer existing platforms, build real communities, and share code as widely as possible."
-tldr: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
+tldr: "The White House Open Source Policy should prefer existing open source platforms, build real communities instead of just disclosing source, and share code as widely as possible. Project Open Data already showed how: publish policy as a living document anyone can improve."
 archived: true
 ---
 
@@ -11,7 +11,7 @@ The U.S. Federal government is [the single-largest purchaser of code](/2011/11/2
 
 Private-sector firms like Coke and Pepsi may have a valid reason to shy away from open source in some cases. If it's core business logic, a dollar spent on open source is a dollar your competitor doesn't need to spend to solve the same problem. But with government, there's no competitor, at least not in the sense of efficient regulation or delivering citizen services. There's no bottom line to hurt, no competitor to outsmart.
 
-At the same time, the types of challenges faced by agencies don't differ much from agency to agency. A FOIA request is a FOIA request. A blog post is a blog post. When the Department of State creates a mechanism for publishing press releases, and the Department of Education uses it, all of a sudden the taxpayer dollar goes twice as far. We just got a 100% return on investment that we would not have otherwise gotten. We're solving the problem once, and solving it everywhere, rather than solving it multiple times, all at the taxpayer's expense. Why then, is the vast majority of government code, code that could potentially benefit both other agencies and the general public, primarily [built on proprietary platforms](/2014/08/03/why-isnt-all-government-software-open-source/)? Why is such code, by habit, almost always [hidden from other agencies and from American taxpayers](/2014/10/08/why-government-contractors-should-embrace-open-source/)?
+At the same time, the types of challenges faced by agencies don't differ much from agency to agency. A FOIA request is a FOIA request. A blog post is a blog post. When the Department of State creates a mechanism for publishing press releases, and the Department of Education uses it, all of a sudden the taxpayer dollar goes twice as far. We just got a 100% return on investment that we would not have otherwise gotten. We're solving the problem once, and solving it everywhere, rather than solving it multiple times, all at the taxpayer's expense. Why then, is most government code, code that could potentially benefit both other agencies and the general public, primarily [built on proprietary platforms](/2014/08/03/why-isnt-all-government-software-open-source/)? Why is such code, by habit, almost always [hidden from other agencies and from American taxpayers](/2014/10/08/why-government-contractors-should-embrace-open-source/)?
 
 The White House [has committed to creating an open source policy](https://web.archive.org/web/20141101094045/http://e-pluribusunum.com/2014/09/24/usa-to-create-official-open-source-policy/) by year's end, but like most policy-making efforts in the beltway, it's likely to be influenced more by suits keen on the idea of open source than by the geeks who will actually use it.
 
@@ -27,9 +27,9 @@ Still, if there's an overwhelming business case to the contrary, government shou
 
 ## 2. Open source, not source disclosed (*Open source as a design philosophy*)
 
-Open source does not simply mean [government software for which the underlying code has been published](/2014/09/29/source-disclosed-is-not-the-same-as-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
+Open source does not mean [government software for which the underlying code has been published](/2014/09/29/source-disclosed-is-not-the-same-as-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
 
-Agencies must [abstract business logic](/2012/06/26/why-you-should-always-write-software-as-open-source/). There's an insane antipattern in government: software so purpose-built, with application logic so hardcoded into the program itself, that any policy change requires a multimillion-dollar investment in the software. And software so application-specific is of no value to anyone outside the agency. Even if published, that's not open source.
+Agencies must [abstract business logic](/2012/06/26/why-you-should-always-write-software-as-open-source/). There's an absurd antipattern in government: software so purpose-built, with application logic so hardcoded into the program itself, that any policy change requires a multimillion-dollar investment in the software. And software so application-specific is of no value to anyone outside the agency. Even if published, that's not open source.
 
 Instead, software should be modular by design and flexible from the start, with deployment-specific variables and other business logic abstracted to databases or other configuration variables. Put in practice, where there's a common problem, there should be the possibility of a common platform, not the inevitability of two divergent applications, either of which may or may not be published. That benefits no one. Again, open source is not about published code. It's more a design philosophy.
 
@@ -47,7 +47,7 @@ Agencies should license and share code, data, and documentation, to the widest e
 
 ## A community effort
 
-The White House set a high bar with [Project Open Data](https://project-open-data.github.io), the White House Open Data Policy. All too often, especially in the world of government IT, by the time policy goes through the vetting process, it's already outdated at the time of publication, and even worse, it's encased in carbonite, forever memorialized as an unmovable PDF. Project Open Data, by contrast, was published as a living, collaborative document, whereby any government employee or member of the public was (and is) invited to improve the document. Since the document's release, it's been revised more than 500 times, all the result of post-release, public discussions with end users both technical and non-technical.
+The White House set a high bar with [Project Open Data](https://project-open-data.github.io), the White House Open Data Policy. All too often, especially in government IT, by the time policy goes through the vetting process, it's already outdated at the time of publication, and even worse, it's encased in carbonite, forever memorialized as an unmovable PDF. Project Open Data, by contrast, was published as a living, collaborative document, whereby any government employee or member of the public was (and is) invited to improve the document. Since the document's release, it's been revised more than 500 times, all the result of post-release, public discussions with end users both technical and non-technical.
 
 My normal advice to agencies would be to :ship: 0.1, not 1.0, but here, it's more appropriate to ship 0.0.1. The flaw of the White House Open Data Policy was that it shipped as 1.0, a document, admittedly flawed, but still with the force of law on day one. Especially for the White House Open Source Policy, I'd make the medium be the message. I'd push the document outside the firewall, in draft form, as soon as there was a minimum viable product, and once *the community* has developed a 1.0.0, then, and only then, should it be deserving of the president's signature, not the other way around.
 

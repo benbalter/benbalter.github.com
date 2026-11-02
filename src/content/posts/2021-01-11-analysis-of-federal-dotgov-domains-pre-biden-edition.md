@@ -1,5 +1,5 @@
 ---
-title: Analysis of federal .gov domains, pre-Biden edition
+title: Federal .gov domains, pre-Biden edition
 description: A data-driven snapshot of 1,121 federal .gov domains ahead of the Biden administration, covering HTTPS adoption, CMS usage, open source, and more.
 tldr: "Nearly ten years after my first crawl, a fourth scan of federal .gov domains shows security has seen the biggest wins since 2015: more than 95% of live domains support HTTPS, and more than 91% enforce it. Browse the full results or download the raw data, and if you find a mistake, submit a pull request."
 ---
@@ -10,8 +10,8 @@ You can [browse the full results, download the raw data, or see details for an i
 
 ## Highlights
 
-- **Overall.** There are 1,121 federally managed .gov domains. That’s about 250 fewer than there were five years ago after a targeted push to reduce domain sprawl. Of those domains, 926 (82.6%) are live. That’s about the same percentage as we saw in 2014 and 2015, and has gone up about 10% over the past 10 years.
-- **Redirects.** 264 (28.51%) domains simply redirect to another domain.
+- **Overall.** The federal government manages 1,121 .gov domains. That’s about 250 fewer than there were five years ago after a targeted push to reduce domain sprawl. Of those domains, 926 (82.6%) are live. That’s about the same percentage as we saw in 2014 and 2015, and has gone up about 10% over the past 10 years.
+- **Redirects.** 264 (28.51%) domains redirect to another domain.
 - **www.** Of those live domains, 845 (91.25%) are reachable without the `www.` prefix. That’s about 40 fewer than in 2015, but about a 16% increase.
 - **Security.** Security has seen the biggest wins since 2015. 883 (95.36%) domains support [HTTPS](https://en.wikipedia.org/wiki/HTTPS), a 2.5x increase since the last analysis, and an incredible jump from the one in four we last saw. 849 (91.68%) *enforce* HTTPS, up from one in 10 last time. 770 (68.69%) support [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security), with 497 (44.34%) .govs on the HSTS preload list. And 844 (75.29%) domains returned a [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) record.
 - **IPv6.** 669 (72.25%) domains returned an AAAA record, indicating they supported [IPv6](https://en.wikipedia.org/wiki/IPv6) traffic. That represents about 50 fewer than 2015, but a 20% increase overall.
