@@ -12,7 +12,7 @@ This ritual saw no deviation, when I sat down to set up [SharePoint](https://en.
 
 ## WordPress already does the hard parts
 
-WordPress does many things right. It is an incredibly versatile tool, but like a body builder with a heart of gold, it is as friendly and approachable as it is powerful. WordPress has [more than eight years of rock-solid experience](http://core.trac.wordpress.org/browser/trunk?rev=3) storing, organizing, sorting, and searching all sorts of user-generated content. It's got a set of slick attachment functions to allow users to safely and securely upload and store their non-WordPress files in WordPress. For the past three years, it even has a proto-version control system in the form of its much-envied [post revisions](http://codex.wordpress.org/Revision_Management). [^2] And it does all this through an interface so simple that even your grandparents could start their own site. It seems like a no-brainer then, to marry these tools to create a WordPress-based document management system.
+WordPress does many things right. It is an incredibly versatile tool, but like a body builder with a heart of gold, it is as friendly and approachable as it is powerful. WordPress has [more than eight years of rock-solid experience](http://core.trac.wordpress.org/browser/trunk?rev=3) storing, organizing, sorting, and searching all sorts of user-generated content. It's got a set of slick attachment functions to allow users to safely and securely upload and store their non-WordPress files in WordPress. For the past three years, it even has a proto-version control system in the form of its much-envied [post revisions](http://codex.wordpress.org/Revision_Management). [^2] And it does all this through an interface so dead-simple that even your grandparents could start their own site. It seems like a no-brainer then, to marry these tools to create a WordPress-based document management system.
 
 ## Build document management on WordPress's core
 
@@ -20,7 +20,7 @@ Imagine a workflow management and version control system [building on WordPress'
 
 <img src="https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png" alt="Wireframe of the proposed application" title="WP Document Revisions Wireframe" class="float-left mr-3" />
 
-As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why build from scratch when you have the best foundation the world has ever seen, and a passionate global community dedicated to improving it? This approach would not be limited to traditional documents. Images, PDFs, code: anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
+As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not be limited to traditional documents. Images, PDFs, code: anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 
 ## Enterprise bloat is the real golden hammer
 

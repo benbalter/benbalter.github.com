@@ -1,5 +1,5 @@
 ---
-title: Why digital talent won't work at your company
+title: Why digital talent won't join your company
 description: Top tech talent doesn't need perks or a Silicon Valley zip code. They want the chance to change the world, and your bureaucracy is standing in the way.
 tldr: "As Aaron Shapiro argues, the talent you want would be happy to work in an un-air-conditioned garage if it meant the chance to change the world. Layers of bureaucracy, a culture where mediocre is good enough, punishing failed experiments, and a lifetime climb to the top drive them away instead. I think the argument could be extended to hiring 20-somethings more broadly (I'm looking at you, Federal Government)."
 ---
