@@ -106,13 +106,13 @@ A few things I learned about Furby Connects the hard way:
 
 ### Each Furby's whole repertoire fits in 350 KB
 
-Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single text file, [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml), describes the whole show, every clip and every scene, and one command builds both DLCs from it.
+Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single text file, [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml), describes the show, every clip and every scene, and one command builds both DLCs from it.
 
-Each Furby's whole DLC has to fit in about 350 KB.[^budget] That's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
+Each DLC has to squeeze under that 350 KB ceiling.[^budget] It's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
 
 ![Diagram of a Furby DLC file, the package of eyes, sounds, and moves the Furby plays. A bar shows its parts by size: the eyes (color palettes, frame lists, and image tiles) and the audio clips take nearly all of it, and a small remainder wires them together. Below, the diagram follows one action, 75·0·0·2 (the four-part number the show sends over Bluetooth), through the action table to a sequence. The sequence picks an audio playlist (one clip of compressed audio, about 4 seconds), a body movement, and an eye animation, and the Furby stays busy until all of them finish.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. Then a stranger [opened an issue](https://github.com/benbalter/Furby/issues/12) on my fork. A developer who goes by John-K had reverse-engineered the format in the open-source [a1800_codec](https://github.com/John-K/a1800_codec) and thought I might want it. I did. It's why the whole toolchain runs on a Mac, and it's my favorite thing about open source: someone you've never met solves your problem, then goes out of their way to tell you.
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. Then a stranger [opened an issue](https://github.com/benbalter/Furby/issues/12) on my fork. A developer who goes by John-K had reverse-engineered the format in the open-source [a1800_codec](https://github.com/John-K/a1800_codec) and thought I might want it. I did. It's why my toolchain runs on a Mac, and it's my favorite thing about open source: someone you've never met solves your problem, then goes out of their way to tell you.
 
 Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script loads a Furby in about two minutes instead of nearly six, no tongue-pulling required.
 
@@ -130,7 +130,7 @@ That's still a lot of waiting to find out whether a punchline lands, so I rehear
 </figure>
 
 <figure class="not-prose furby-media">
-  <img src="/assets/img/furby-halloween-porch-eyes-1920x880.jpg" width="1920" height="880" loading="lazy" decoding="async" alt="Close-up of the two Furbies on the porch at night: the pink one with glowing orange-red demon eyes and slit pupils, the blue one with glowing jack-o'-lantern triangles for eyes." />
+  <img src="/assets/img/furby-halloween-porch-eyes-1744x880.jpg" width="1744" height="880" loading="lazy" decoding="async" alt="Close-up of the two Furbies on the porch at night: the pink one with glowing orange-red demon eyes and slit pupils, the blue one with glowing jack-o'-lantern triangles for eyes." />
   <figcaption>The same eyes on the real Furbies, on Halloween night.</figcaption>
 </figure>
 
@@ -148,10 +148,10 @@ Powering it took three tries. The board has a plug for a rechargeable lithium (L
 
 <figure class="not-prose furby-media">
   <img src="/assets/img/furby-halloween-esp32-1600x1200.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="A small black DFRobot FireBeetle 2 ESP32-S3 board with a flat stick-on antenna on a thin cable, next to a PIR motion sensor with a faceted white plastic dome, on a plain white table." />
-  <figcaption>The whole porch rig: a FireBeetle 2 ESP32-S3 and a PIR motion sensor. Not pictured: the Halloween-colored wiring (yellow, orange, and brown) and my shoddy soldering, done with a Radio Shack iron that's probably as old as the original Furby.</figcaption>
+  <figcaption>The porch rig: a FireBeetle 2 ESP32-S3 and a PIR motion sensor. Not pictured: the Halloween-colored wiring (yellow, orange, and brown) and my shoddy soldering, done with a Radio Shack iron that's probably as old as the original Furby.</figcaption>
 </figure>
 
-An iPhone app I built works as the remote. It shows what the board is doing and fires a specific scene or line on demand. On the night, that meant I could debug the show from my phone instead of fetching a laptop, and when curious neighbors stopped to ask about the Furbies, I could have them say hello on cue.
+An iPhone app I built works as the remote. It was my first iOS app, and my first time writing Swift, which made it an entirely unnecessary, over-engineered learning opportunity. It shows what the board is doing and fires a specific scene or line on demand. On the night, that meant I could debug the show from my phone instead of fetching a laptop, and when curious neighbors stopped to ask about the Furbies, I could have them say hello on cue.
 
 <figure class="not-prose furby-media furby-phone">
   <img src="/assets/img/furby-halloween-remote-1206x2280.png" width="1206" height="2280" loading="lazy" decoding="async" alt="The Furby Show iPhone app: a green dot reading Connected to the board, both pink and blue Furbies connected, Now: Between scenes, Scenes played: 10, Up: 5 min, Free memory: 75 KB, and a blue Greet button." />
@@ -171,7 +171,7 @@ I taped the motion sensor to the underside of the candy table, pointed at the st
 
 The only real problem was volume. On a porch full of trick-or-treaters, the Furbies were quieter than I wanted. That's first on the list for next year.
 
-As a bonus, most of the rig outlives the holiday. The Furbies were [a work expense](/2026/10/29/the-rule-of-no-surprises/), so the rest of the project cost me less than $30, and I get to keep a spare ESP32 for my next project. The Furbies, meanwhile, go deep, *deep* in the closet with their batteries out, where they can't scare anyone until next Halloween.
+Most of the rig outlives the holiday. The Furbies were [a work expense](/2026/10/29/the-rule-of-no-surprises/), bought for an internal training session that recreated a GitHub Universe keynote demo (the one with [a stage full of "sentient" Furbies](https://x.com/github/status/1984363580746035326)), in which Copilot built an MCP server (a plug-in that lets an AI assistant use a tool) to control a Furby from VS Code. So the rest of this project cost me less than $30, and I get to keep a spare ESP32 for my next project. The Furbies, meanwhile, go deep, *deep* in the closet with their batteries out, where they can't scare anyone until next Halloween.
 
 ## Build your own
 
@@ -195,7 +195,7 @@ If you build one, tell me what your Furbies say. Pink still wants your candy.
 
 *Furby is a trademark of Hasbro. This project isn't affiliated with or endorsed by Hasbro.*
 
-[^voices]: The clips the AI mimics are Hasbro's recordings. I'm a lawyer, and I have no desire to become the test case for whether a voice cloned from a toy's stock audio is a derivative work, so anything built from them stays off the internet. That includes the simulator's audio, which is why the previews in this post are muted. (Hasbro, please don't @ me. Also, this isn't legal advice.) If you want your own Furby threatening your candy, here's the recipe. Start from a stock Furby Connect DLC (the repository doesn't ship one, but [its README](https://github.com/benbalter/Furby#your-stock-dlc) says where to find one), and `uv run audioutils/extract_voice.py` unpacks its clips to WAV. Pick four clips where the Furby is just talking (no music, no giggling), trim the silence, and join them into about ten seconds of sample audio. Then give that sample and each line's text to [Chatterbox](https://github.com/resemble-ai/chatterbox), an open-source text-to-speech model that mimics the voice in a short sample. Generate several takes of each line and keep the best. I had [Whisper](https://github.com/openai/whisper) transcribe every take, kept the ones it heard correctly that sounded most like the Furby, and nudged the pitch up a semitone. Keep the results on your porch, too.
+[^voices]: The clips the AI mimics are Hasbro's recordings. I'm a lawyer, and while copyright law generally lets you imitate a recording's sound, I have no desire to become the test case for an AI voice modeled on a toy, so anything built from them stays off the internet. That includes the simulator's audio, which is why the previews in this post are muted. (Hasbro, please don't @ me. Also, this isn't legal advice.) If you want your own Furby threatening your candy, here's the recipe. Start from a stock Furby Connect DLC (the repository doesn't ship one, but [its README](https://github.com/benbalter/Furby#your-stock-dlc) says where to find one), and `uv run audioutils/extract_voice.py` unpacks its clips to WAV. Pick four clips where the Furby is just talking (no music, no giggling), trim the silence, and join them into about ten seconds of sample audio. Then give that sample and each line's text to [Chatterbox](https://github.com/resemble-ai/chatterbox), an open-source text-to-speech model that mimics the voice in a short sample. Generate several takes of each line and keep the best. I had [Whisper](https://github.com/openai/whisper) transcribe every take, kept the ones it heard correctly that sounded most like the Furby, and nudged the pitch up a semitone. Keep the results on your porch, too.
 
 [^reset]: To reset a Furby Connect, you hold it upside down, hold its tongue, and pull its tail until its eyes go dark. It looks exactly as undignified as it sounds, for both of you. The browser tool needed a fresh reset for every DLC. The terminal script skips it by telling the Furby to delete the DLCs it already has, which clears the way for the new one. It takes 139 seconds, against 340 for the same file in the browser.
 
