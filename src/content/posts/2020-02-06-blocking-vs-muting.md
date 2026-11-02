@@ -1,7 +1,7 @@
 ---
 title: User blocking vs. user muting
 description: Why GitHub's approach to user blocking diverges from other social networks, and what's different about moderating a code collaboration platform.
-tldr: "On GitHub, blocking keeps someone from interacting with you, but you still see their contributions in shared conversations, because collaborating on code isn't scrolling a feed. Muting is for content you don't want to see; blocking is for behavior you don't want aimed at you."
+tldr: "GitHub doesn't offer muting at all, and blocking someone doesn't hide their contributions from shared conversations, because collaborating on code isn't scrolling a feed. On GitHub, blocking is about behavior you don't want aimed at you, not content you'd rather not see."
 writtenAtGitHub: true
 ---
 
@@ -73,7 +73,7 @@ We've seen that even well-intentioned replies can escalate otherwise volatile si
 
 ## Different platforms need different blocking models
 
-GitHub has taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the result is a [federated moderation system](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations constructive to grow healthy and productive communities around their code.
+GitHub has taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the result has largely allowed for a [federated moderation system](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations constructive to grow healthy and productive communities around their code.
 
 It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub in hopes that it could help other platforms facing similar challenges to plot their own path. As always, [these views are my own](/2015/01/26/the-fine-print-nobody-reads/).
 

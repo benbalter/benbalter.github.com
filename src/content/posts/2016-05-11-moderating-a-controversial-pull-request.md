@@ -46,4 +46,4 @@ Let everyone involved know how long you're going to allow for discussion (and ma
 
 Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. Lay out ground rules up front, assign roles, and set expectations, and you'll set yourself up for success.
 
-*A big hat tip to my former colleague @cameronmcefee, whose skillful handling of a potentially controversial discussion inspired me to write this post.*
+*A big hat tip to my former colleague @cameronmcefee, whose most excellent execution of a potentially controversial discussion inspired me to write this post.*

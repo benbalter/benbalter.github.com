@@ -26,7 +26,7 @@ The same process should work for KML files as well, replacing `[name].shp` with 
 
 ## Why this is important
 
-For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a simple point, click, zoom interface that anyone can use. For another, once you put the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code (forking, merging, diffing, tracking changes over time), and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
+For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dead simple point, click, zoom interface that anyone can use. For another, once you put the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code (forking, merging, diffing, tracking changes over time), and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
 
 ## See the finished map on GitHub
 

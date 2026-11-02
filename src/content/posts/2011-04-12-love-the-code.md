@@ -1,5 +1,5 @@
 ---
-title: How I Learned to Stop Worrying and Love Code
+title: How I Learned to Stop Worrying and Love the Code
 description: 'Slides from a WordPress DC Meetup lightning talk on HTML and PHP basics for non-developers who don''t want to break their sites.'
 tldr: "I gave a brief lightning talk at April's WordPress DC Meetup on the basics of HTML and PHP (\"coding for dummies\"). The goal was to help you edit your website without breaking it. Below are the slides."
 archived: true
