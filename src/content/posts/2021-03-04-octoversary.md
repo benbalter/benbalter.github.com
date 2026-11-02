@@ -1,5 +1,5 @@
 ---
-title: "Octoversary: 8 years of developer happiness"
+title: "Octoversary: eight years at GitHub"
 bookRelation: inspired
 description: Reflecting on eight years at GitHub, from GeoJSON rendering and GitHub Pages to trust and safety, open source licensing, and 200,000 words of blogging.
 tldr: "Eight years at GitHub, told through eight of my favorite ships: GeoJSON rendering, government outreach, GitHub Pages, blogging, open source licensing, Trust and Safety, removing non-essential cookies, and PhotoDNA. GitHub has changed a lot since I first joined a quirky startup, but a lot of what makes it special has stayed the same."

@@ -1,5 +1,5 @@
 ---
-title: Government data developers will actually use
+title: Government data that developers actually use
 description: Publishing government data isn't as simple as pressing publish. Ten steps to building APIs and ecosystems developers actually use.
 tldr: "Publishing government data isn't as simple as pressing the publish button. Ten steps to building APIs and developer ecosystems that turn raw data into citizen services."
 ---
@@ -8,11 +8,11 @@ Despite increasing public support (as well as a number of executive mandates), p
 
 ## 1. Garbage in, garbage out
 
-Good, clean data can be hard to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.
+Good, clean data can be surprisingly hard to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.
 
 ## 2. Eat your own dog food
 
-When organizations consume the products they create, they empirically deliver better, more reliable products. You'd never seek to buy a car from a dealer that's never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces, how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
+When organizations consume the products they create, they empirically deliver better, more reliable, and more innovative products. You'd never seek to buy a car from a dealer that's never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces, how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
 
 ## 3. Data as a citizen service
 

@@ -1,5 +1,5 @@
 ---
-title: Zoolander and the California Supreme Court
+title: 'Files "in" the phone: Zoolander and the law'
 description: The California Supreme Court ruled police can search your phone during a routine traffic stop, accessing your entire digital life without a warrant.
 tldr: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact you've ever met, or financial transaction you've ever completed. The California Supreme Court ruled in favor of just that."
 archived: true
@@ -23,7 +23,7 @@ Today, and even more so tomorrow, information will not be "carried on" a phone, 
 
 In a world where in reality, nearly every email I have ever sent or received can be accessed by opening a folder on my phone virtually indistinguishable [^2] from any neighboring folder that contains locally stored information, the majority's interpretation grants the state access to nearly everything one says or does on a daily basis. Put another way, how much information do you think *won't* be accessible from your phone in 5 years? 10 years? 20? Just scroll through your home screen.[^3]
 
-## The majority is thinking about storage, not servers
+## The majority was thinking about storage, not servers
 
 The majority's decision was well argued by legal minds much wiser than my own, but even reading through the verbiage of the opinion, discussing the nature of containers and cavities as they relate to what is "in" the phone, it leads one to believe that their analysis is hampered by [outdated concepts of storage and space](https://www.youtube.com/watch?v=H2uHBhKTSe0).[^4]
 

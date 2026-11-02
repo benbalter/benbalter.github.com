@@ -5,7 +5,7 @@ description: "Async communication is like gzip compression for humans: more proc
 tldr: "Async communication is gzip compression for humans. It takes more processing up front, but moves more information in fewer packets. Less time talking about the work, more time doing it."
 ---
 
-Remote work is more than replicating the office environment online. Remote workers need to communicate *more*, less *often*. Instead of relying on constant, synchronous, and often interrupt-driven interactions, remote workers embrace asynchronous, and often higher-fidelity, forms of communication, such as long-form writing or thoughtful videos.
+Remote work isn't about replicating the office online. Remote workers need to communicate *more*, less *often*. Instead of relying on constant, synchronous, and often interrupt-driven interactions, remote workers embrace asynchronous, and often higher-fidelity, forms of communication, such as long-form writing or thoughtful videos.
 
 I've [written before](/2022/03/17/why-async/#benefits-of-working-asynchronously) about the benefits of working asynchronously, but there's a less obvious one: it changes the *way* we think and work. Async work leaves room for reflection, research, and synthesis. Those working async can and should take the time to think, learn, and synthesize before sharing their ideas, opinions, or solutions, distilling them down to the most critical. This improves the quality and clarity of the communication, and most importantly, the overall throughput of the communications channel.
 

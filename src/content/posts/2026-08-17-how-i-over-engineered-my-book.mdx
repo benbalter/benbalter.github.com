@@ -15,7 +15,7 @@ I didn't set out to do this. Most people start a writing project by firing up Wo
 I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps,[^latex] but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way.
 
 :::info[Updated October 2026]
-The tooling is now open source. [book-kit](https://github.com/benbalter/book-kit) is the build pipeline from this post, pulled out of the book's repository. It turns one Markdown source into EPUB, Kindle, print PDF, PDF/X-1a, HTML, and DOCX, and comes with the core validators and linters (not every check below). It's an early alpha, but it's the same code that builds the published editions of *Open and Async*.
+The tooling is now open source. [book-kit](https://github.com/benbalter/book-kit) is the build pipeline from this post, pulled out of the book's repo. It turns one Markdown source into EPUB, Kindle, print PDF, PDF/X-1a, HTML, and DOCX, and comes with the core validators and linters (not every check below). It's an early alpha, but it's the same code that builds the published editions of *Open and Async*.
 :::
 
 ## Content
@@ -243,7 +243,7 @@ A few things kept even that part honest:
 
 - **I'm my own publisher.** I formed an LLC and bought my own ISBNs (one per format) so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it. That also means none of the vendor lock-in that comes with one, since a free ISBN only publishes through the platform that handed it out.
 - **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could be available everywhere at once.
-- **The metadata is versioned too.** The description, categories, and keywords live in the repository (a single source of truth I can diff), and an ONIX feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
+- **The metadata is versioned too.** The description, categories, and keywords live in the repo (a single source of truth I can diff), and an ONIX feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
 
 ## Looking forward
 
@@ -296,7 +296,7 @@ What would you over-engineer, if you pointed your own tools at it?
 [^visual]: The rest, in the same spirit: the copyright page is present and bottom-aligned on screen; H2 is larger than body text and H3 smaller than H2; links are underlined, code blocks have a dark background and inline code a visible one, and blockquotes carry a left border; and body text uses the Tailwind Typography `prose` class.
 [^pagecount]: Locking the length isn't fussiness. The whole physical book is built around that number. A page count sets the book's thickness, so the spine width, and the cover art wrapped around it, is computed from it. Drift off 576 pages and the cover no longer fits the spine: fixing it means a round trip back to the human designer to re-render the wrap, not a one-line code change. [More on that gate below](#rendering--post-processing-per-format).
 [^cover]: AI could have generated something competent, and that was exactly the problem: competent and generic is the failure mode I spent 5,500 checks scrubbing out of the *text*. The cover is the one thing a reader judges before reading a word, so it was the last place I wanted a machine's default taste. A human designer got the brief; the algorithm didn't.
-[^emoji]: I spent years at GitHub, where emoji are practically part of the syntax (reactions, `:shipit:`, an emoji picker in every comment box) and they turned up a fresh encoding edge case every time. Emoji, uh, find a way.
+[^emoji]: I spent years at GitHub, where emoji are practically part of the syntax (reactions, `:shipit:`, an emoji picker in every comment box) and they turned up a fresh encoding edge case like clockwork. Emoji, uh, find a way.
 [^deterministic]: `audit-chapter-lengths.js` / `audit-paragraph-lengths.js` flag outlier chapters and walls of text; `reading-time.js` clocks each chapter and the whole book at 238 wpm (average adult non-fiction speed); `check-epub-size.js` enforces the size budget; `consistency-check.js` settles "open source" vs "open-source" and "async" vs "asynchronous" book-wide; and `writing-dashboard.js` renders it all to HTML. Plus a handful of advisory local checkers (`proselint`, GNU `diction`, and GNU `style`) for wordiness and readability stats.
 [^preprocess]: `update-revision.js` stamps the build SHA and version onto the title page, so every copy traces to its commit; `links-to-footnotes.js` does the print link-to-footnote rewrite; and a per-format manifest handles the reshuffle. Same source, subtly different books.
 [^dry]: jscpd is not prose-specific. It's a great way to DRY up code.

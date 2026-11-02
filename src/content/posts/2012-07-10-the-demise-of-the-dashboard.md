@@ -1,6 +1,6 @@
 ---
 title: The Demise of the Personal Dashboard
-description: Google retired iGoogle, and startups favor activity feeds and minimal interfaces. The drag-and-drop dashboard era is over. Simplicity is the default.
+description: Google retired iGoogle, and startups favor feeds and minimal interfaces. The drag-and-drop dashboard era is over. Simplicity is the new default.
 tldr: "A virtual dashboard can hold as much information as the most ambitious engineer can dream, and that's exactly the problem: customers come to solve one problem, not 10. Startups point to what's next instead: activity feeds, minimal interfaces, and immediate actions. Options are a crutch, so push back on the urge to over-engineer and make decisions, not options."
 ---
 
@@ -18,9 +18,9 @@ Dashboards were a fun user interface experiment. They really were, especially co
 
 Think about it this way: when customers come to a site, they're not looking to solve 10 problems. They're looking to solve one. They don't want all the potentially relevant information thrown at them all at once; they just want what they need. And they want computers to make that determination for them. But hey, this isn't the first time those who predict our user experience needs have erred on the side of moar is better.
 
-Is that it? The end of simultaneous streams? [Far from it](http://www.informationweek.com/news/software/productivity_apps/240003296). This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.
+So that's it? That's the end of simultaneous streams? [Far from it](http://www.informationweek.com/news/software/productivity_apps/240003296). This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.
 
-## Startups already know what comes next
+## Look to startups for what comes next
 
 Don't get me wrong. I'm sure I'm guilty of building [a dashboard](http://my.fcc.gov/) or [two](http://codex.wordpress.org/Dashboard_Screen) in my day. I'm not saying that they've never had a place. What I'm saying is that today, not even the most complex dashboard could give you an accurate snapshot of its genus's future. If not dashes, then what? Beyond turning everything into a ubiquitous search box (*a la* [gov.uk](https://www.gov.uk)), I'm far from a UI/UX expert, but I tend to think that startups generally have a pretty good sense of what's next. They have to. If they don't get it right the first time around, they tend not to have a second try. What do we see?
 

@@ -11,7 +11,7 @@ We often think of pull requests purely as a code review mechanism, but they are 
 
 ## Write every pull request for the outsider
 
-:quote[When I write a PR, I write it not just for the immediate reviewers, but for outsiders who might land on it later from search results or a cross reference.]{#write-prs-for-outsiders} Beyond documentation, PRs are a great place for your colleagues to ask the type of "obvious questions" that gives you the confidence to ship.
+:quote[When I write a PR, I write it not just for the immediate reviewers, but for outsiders who might land on it later from search results or a cross reference.]{#write-prs-for-outsiders} Beyond documentation, PRs are a great place for your colleagues to ask the type of "dumb questions" that gives you the confidence to ship.
 
 To that end, here are a few practices I follow when authoring pull requests to ensure I'm capturing sufficient context for myself and future contributors:
 

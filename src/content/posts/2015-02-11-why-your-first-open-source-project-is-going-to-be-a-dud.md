@@ -1,5 +1,5 @@
 ---
-title: Why your first open source project will flop
+title: Why agencies' first open source projects flop
 description: "Your agency's first open source project is set up to fail. Start small and build organizational muscle memory before going public."
 tldr: "Your agency's first open source project is set up to fail. Start small, go through the motions privately, and build organizational muscle memory before going public."
 ---

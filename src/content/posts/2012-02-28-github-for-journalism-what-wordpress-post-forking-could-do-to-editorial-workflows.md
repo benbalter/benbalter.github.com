@@ -14,9 +14,9 @@ Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief 
 
 ## WordPress could bring fork-and-merge to newsrooms
 
-**The Pitch:** *What if we could re-imagine WordPress's ease-of-use and intuitive, simple workflow to introduce a layer of GitHub's collaborative fork-and-merge horsepower under the hood?*
+**The Pitch:** *What if we could re-imagine WordPress's ease-of-use and intuitive, dead-simple workflow to introduce a layer of GitHub's collaborative fork-and-merge horsepower under the hood?*
 
-Users would have the ability to "clone" an existing post, make any changes they want, and then merge those changes back into the original before publishing. This feature would help in four distinct cases:
+Users would have the ability to "clone" an existing post, make any changes they want, and then merge those changes back into the original before publishing. This feature could help in four distinct cases:
 
 - Collaborative editing (by resolving two users' conflicted saves – Wired's example)
 - Saving draft changes of already-published content
@@ -54,7 +54,7 @@ Post forking may make for a killer plugin [^2] or piece of core functionality…
 
 Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](/contact/).
 
-## What happened next
+## It shipped as a plugin
 
 **Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the meantime, the continued thoughts/feedback is greatly appreciated.
 
