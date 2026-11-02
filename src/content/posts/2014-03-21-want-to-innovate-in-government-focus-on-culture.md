@@ -4,7 +4,7 @@ description: Parachuting technologists into agencies isn't enough. Government in
 tldr: "Parachuting technologists into agencies isn't enough. Bureaucracy has an immune system, and the only vaccine is building a culture where non-technical stakeholders appreciate and understand technology."
 ---
 
-When innovating in government, [the technology's the easy part](/2013/07/01/technologys-the-easy-part/). Most government innovation does one of two things:
+When innovating in government, [the technology's the easy part](/2013/07/01/technologys-the-easy-part/). Innovative efforts in government often do one of two things:
 
 1. They take long-established [technology from the private sector](/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#1-innovative-efforts-in-government-are-standard-practice-in-the-startup-world) and inject it into an agency, or
 

@@ -1,5 +1,5 @@
 ---
-title: The Internet's Series of Tubes Gets Tollgates
+title: 'The Internet: Series of Tubes, Now With Tolls'
 description: "Comcast demanded Level 3 pay extra fees for Netflix access, erecting tollbooths on the information superhighway and raising net neutrality alarms."
 tldr: "Level 3, the backbone provider that carries Netflix's streaming video, revealed that Comcast demanded an extra fee to keep letting Comcast customers reach Netflix. That's a tollbooth on the information superhighway, and because Comcast also sells content that competes with Netflix, it's a net neutrality problem for every consumer."
 archived: true
@@ -19,7 +19,7 @@ True, this may just be [another petty dispute](https://web.archive.org/web/20100
 
 > Comcast is putting up a tollbooth at the borders of its broadband internet-access network, enabling it to unilaterally decide how much to charge for content which competes with its own cable TV and Xfinity-delivered content.
 
-The Level-3/Comcast arrangement spells bleak hope for any future in which the internet's information democratization ethos continues. Perhaps the result is a commercialized future [not too dissimilar from today's tiered broadcast/cable TV system](http://io9.com/5610328/how-the-googleverizon-proposal-could-kill-the-internet-in-5-years), one unequivocally bad for consumers, regardless of what the FCC may or may not decide [later this month](http://voices.washingtonpost.com/posttech/2010/11/lawmakers_push_fcc_to_vote_on.html).
+The Level-3/Comcast arrangement spells bleak hope for any future in which the internet's information democratization ethos continues. It's a commercialized future [not too dissimilar from today's tiered broadcast/cable TV system](http://io9.com/5610328/how-the-googleverizon-proposal-could-kill-the-internet-in-5-years), and one unequivocally bad for consumers, regardless of what the FCC may or may not decide [later this month](http://voices.washingtonpost.com/posttech/2010/11/lawmakers_push_fcc_to_vote_on.html).
 
 Consider this: as Comcast's customers increasingly [look to their computers for video content](http://lifehacker.com/5667680/ditching-cable-for-the-web-how-much-can-you-save-buying-renting-or-streaming-tv) rather than their cable box, Comcast can either squeeze that lost revenue out of its customers by bringing an [end to all-you-can-eat internet](https://www.businessinsider.com/comcast-internet-access-2010-11), in which case we'll see an increase in our cable bill, or they can make up that lost revenue on the other end, by charging content providers (like Level 3) a surcharge, forcing those services to offset their increased overhead by passing along the cost in the form of monthly fees, in which case we'll see it on our Netflix/iTunes/Facebook bill instead. Either way, the decision forecasts an inevitable flow of money from our pockets to Comcast's.
 

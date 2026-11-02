@@ -8,7 +8,7 @@ Not all open source projects are created equally. Plenty of open source projects
 
 While there's no litmus test for "good" open source, a handful of common, language-agnostic indicators point to a healthy project.
 
-## Activity shows whether anyone's home
+## Check activity and popularity
 
 - **Update frequency.** The most commonly cited metric, when was it last updated? A year ago? A week ago? An hour ago? You don't want to inherit a stale codebase. The last update isn't the only thing you should be looking at, though. How often is it updated? Is development occasional or continuous? Do commits occur on the weekends (suggesting a hobby) or during the week (suggesting a business)? On GitHub, most of this is surfaced as [graphs](https://github.com/jekyll/jekyll/graphs).
 
@@ -18,21 +18,21 @@ While there's no litmus test for "good" open source, a handful of common, langua
 
 ## Look at who's behind it and who's using it
 
-- **Documentation.** How is the project documented? Is it just a readme, or a dedicated documentation site? Documentation that glosses over technical assumptions (for example, how to install, requirements, dependencies) often indicates more casually developed software. Dedicated marketing sites (for example, [jekyllrb.com](http://jekyllrb.com)) show that the project maintainers are serious about getting their code into the hands of users (and thus are more likely to support it).
-
 - **Organization or user.** Who's behind the project? If it's an individual, what's their day job? Are they an expert at whatever the thing does? Do they have a stake in maintaining it over time? Being backed by a company or organization can be a good indicator of quality and stability, but take a look at the author's other work. Do they understand open source or is this just an effort to generate good will towards their brand? On GitHub, the owner's name precedes the project name in the URL. Drop the project name to see what else they're working on.
 
 - **Number of contributors.** Is the project a solo act or a team effort? Having a long tail of contributors minimizes [bus factor](https://en.wikipedia.org/wiki/Bus_factor) and indicates that there's a community of users who rely on and care about improving the software. Contributors need not be only technical. Look to those contributing to documentation, posting in the support forums, or filing issues and feature requests. Look closely at the community's values and how it makes decisions.
 
 - **Who else uses it?** Lots of open source projects can meet the above criteria, but if none of your peers are using the project (or haven't even heard of it), that could be a major red flag. Many companies [proudly showcase](https://github.com/showcases/projects-that-power-GitHub) the open source projects they're built on, and Google searches can often reveal those that don't.
 
-## Read the license and the code
+## Read the docs, the license, and the code
+
+- **Documentation.** How is the project documented? Is it just a readme, or a dedicated documentation site? Documentation that glosses over technical assumptions (for example, how to install, requirements, dependencies) often indicates more casually developed software. Dedicated marketing sites (for example, [jekyllrb.com](http://jekyllrb.com)) show that the project maintainers are serious about getting their code into the hands of users (and thus are more likely to support it).
 
 - **License.** Is the project properly licensed? Does it contain a license file or just a reference to a license in the readme? Do files contain the proper headings, where required? The strictness with which the software is licensed, as well as the type of license used can indicate how familiar the publisher is with open source, and how serious they are about ensuring they're providing you with unburdened intellectual property. Most importantly, make sure the license is compatible with your own project and goals.
 
 - **The code itself.** Nothing beats a technical expert opening the hood and poking around. Did the developer follow the language's common conventions and design patterns? Did they use a framework or build everything from scratch? Did they use a package manager? Even if you're not a developer, ensure that everything's commented, comments are clear and free of misspellings, and that the project includes extensive tests. Bonus points for continuous integration like Travis CI which shows a commitment to releasing quality software.
 
-## When in doubt, ask
+## Ask the maintainers
 
 :quote[Software is written by humans, for humans.]{#written-by-humans-for-humans} When in doubt, ask. Open an issue requesting information on the project purpose and status. Is it a fun hobby or will it be around in a year? Who else is using this? Should I base my business on this? Developers want you to use their software and will be glad to help.
 

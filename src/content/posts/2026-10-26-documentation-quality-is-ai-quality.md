@@ -1,5 +1,5 @@
 ---
-title: Your docs quality is your AI quality now
+title: Your documentation quality is your AI quality now
 description: "AI tools are only as good as the docs you feed them. Bold text isn't a heading to a model. Here's the fix, plus two free converters."
 tldr: "AI tools need to know what your content is, not what it looks like. Use real headings and lists, keep one living copy, convert legacy Word files in with word2md.com, and export to Word only at the end with md2word.app."
 ---
