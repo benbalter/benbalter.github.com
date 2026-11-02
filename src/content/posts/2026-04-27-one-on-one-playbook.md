@@ -9,7 +9,7 @@ It's Thursday afternoon. Your direct report sits down and reads from a list: "Cl
 
 Most 1\:1s fail in one of three ways:
 
-- The most common: you spend your team's only protected synchronous time on information that belongs in writing.
+- Most commonly, you spend your team's only protected synchronous time on information that belongs in writing.
 - You sugarcoat hard feedback until nobody walks away clear on what actually needs to change.
 - Or, quieter, the 1\:1 keeps getting canceled because "something came up," until the relationship slowly starves.
 

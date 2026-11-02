@@ -1,5 +1,5 @@
 ---
-title: 'The fine print nobody reads: what to do so government can use your service'
+title: Terms of service the government can agree to
 description: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS."
 tldr: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS so 2.7 million government employees can use your product."
 ---
@@ -8,7 +8,7 @@ tldr: "Government agencies can't agree to your standard terms of service. Here's
 
 ## Why federal agencies can't agree to your terms of service
 
-Terms of service agreements are often called clickwrap or browserwrap agreements, meaning that by either clicking an "I agree" checkbox when they sign up, or simply by using a service with a terms of service (TOS) linked in the footer of each page, the user is said to agree to be bound by the document, essentially a contract between the service provider and the user. However, terms of service agreements, often written by large companies and agreed to mostly by individuals, contain several unfavorable clauses that government agencies cannot agree to by force of law. Even if not illegal, the government may be able to pursue their own organizational preference by virtue of their superior bargaining position. Here are a few of the most commonly negotiated clauses:
+Terms of service agreements are often called clickwrap or browserwrap agreements, meaning that by either clicking an "I agree" checkbox when they sign up, or by using a service with a terms of service (TOS) linked in the footer of each page, the user is said to agree to be bound by the document, essentially a contract between the service provider and the user. However, terms of service agreements, often written by large companies and agreed to mostly by individuals, contain unfavorable clauses that government agencies cannot agree to by force of law. Even if not illegal, the government may be able to pursue their own organizational preference by virtue of their superior bargaining position. Here are a few of the most commonly negotiated clauses:
 
 - **The contracting parties.** Most terms of service agreements are written to bind an individual user, not their employer. Most government employees are not in a position to bind the federal government. Even if so, a service provider should prefer the agreement be executed on behalf of the employer (who presumably has deeper pockets if the relationship goes wrong), not the individual.
 
@@ -48,7 +48,7 @@ Instead, there are two things you can do to streamline the process:
 
 Even if you're using a common template, the time required to execute one-off agreements with each agency can quickly add up, especially as [government users head into the thousands](https://government.github.com/community/#us-federal). Instead, as the government's use of your service grows, you can use the [GSA Standard TOS Amendment Template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc) as a starting point, to create a standard terms of service amendment, applicable to all government users.
 
-Unlike the negotiated amendment which is executed by each agency, the idea here is to [post this fed-friendly TOS alongside your standard TOS](https://docs.github.com/en/site-policy/site-policy-deprecated/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users), and to incorporate it into your standard TOS by reference, meaning a government agency could simply sign up and use your service, under the same clickwrap/browserwrap logic that would prevent them from using the service normally. Under this arrangement, a standard agency sign up flow might look like:
+Unlike the negotiated amendment which is executed by each agency, the idea here is to [post this fed-friendly TOS alongside your standard TOS](https://docs.github.com/en/site-policy/site-policy-deprecated/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users), and to incorporate it into your standard TOS by reference, meaning a government agency could sign up and use your service, under the same clickwrap/browserwrap logic that would prevent them from using the service normally. Under this arrangement, a standard agency sign up flow might look like:
 
 1. A staffer decides a service will further the agency's mission
 2. Staffer sends the fed-friendly TOS amendment to their general counsel for review
@@ -70,4 +70,4 @@ Last, I've purposely avoided discussing procurement, which is a much larger issu
 - [Model TOS template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc)
 - [OMB Memorandum M-13-10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf)
 
-*As always, as they say on the internet, [I am not your lawyer](/fine-print/) (IANYL). The above is clearly a general discussion on the topic of federal terms of service agreements, and it should not be mistaken for legal advice. Heck, I don't even know what your startup does. Even if I did, I probably wouldn't understand it (but I'll take a beta invite if you've got one). If you're a social media provider heading down this route, be sure to retain your own legal counsel before talking to the government.*
+*As always, as they say on the internet, [I am not your lawyer](/fine-print/) (IANYL). The above is a general discussion on the topic of federal terms of service agreements, and it should not be mistaken for legal advice. Heck, I don't even know what your startup does. Even if I did, I probably wouldn't understand it (but I'll take a beta invite if you've got one). If you're a social media provider heading down this route, be sure to retain your own legal counsel before talking to the government.*

@@ -1,12 +1,12 @@
 ---
-title: Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format
+title: Regex to parse Word footnotes for WordPress
 description: Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin
 archived: true
 ---
 
 I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.
 
-The process is surprisingly simple given WordPress's extensive filter API. First, to grab the footnotes from Word's `ftnref` format:
+The process is simple, thanks to WordPress's extensive filter API. First, to grab the footnotes from Word's `ftnref` format:
 
 ```php
 <?php
@@ -50,7 +50,7 @@ You can find the full plugin code in the [GitHub repository](https://github.com/
 
 To use, you can [download the plugin file](https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes)[^1] and activate (be sure you already have [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) installed). Copy the content from Word, and Paste into the "Paste from Word" box (may need to toggle the "[*Kitchen Sink*](https://www.youtube.com/watch?v=fQ6cXXlLczU)".[^2]
 
-Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code.
+Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and I hope it can do the same for you. Feel free to use/improve the above code.
 
 [^1]: Licensed under [GPLv2](https://web.archive.org/web/20110224192520/http://wordpress.org/about/gpl/)
 

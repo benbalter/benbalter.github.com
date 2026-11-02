@@ -1,16 +1,16 @@
 ---
-title: Your project's README is your project's constitution
-description: Your README covers more than the "what" and "how." It communicates the "why," and that makes it your best defense against scope creep and technical debt.
-tldr: "Your project README covers more than the \"what\" and \"how.\" It communicates the \"why,\" and that makes it your most effective tool to combat open source scope creep and technical debt."
+title: Your README is your project's constitution
+description: Your README covers more than the "what" and "how." It communicates the "why," your best defense against scope creep and technical debt.
+tldr: "Write your project's goals at the top of the README before you write much code. When a pull request pushes beyond that scope, point back to the README instead of debating the feature, and move any debate about the goals to a pull request against the README itself."
 ---
 
 Most open source project maintainers treat readmes as mere marketing material or technical documentation. Yes, your project readme can and should tell others what your project does and how they can use it, but at its most fundamental level, the readme is your project's foundational document, memorializing and communicating the project's core goals, philosophies, and underlying assumptions.
 
-:quote[[Well-focused projects are healthy projects](/2016/07/21/removing-a-feature-is-a-feature/).]{#well-focused-projects-are-healthy} Among the first things I do when I start a new project is to write a one- or two-line description of what problem(s) I intend the project to solve (the project's goals) as the first line of the readme (immediately after the project name). For complex projects, maybe it grows to a few bullets. One of my favorite examples of this is [the `choosealicense.com` goals](https://github.com/github/choosealicense.com#immediate-goals). As you continue to write new features, refactor old ones, and gain contributors, those goals will sit there unchanged, and often slip into the back of your mind. And that's just fine.
+:quote[[Well-focused projects are healthy projects](/2016/07/21/removing-a-feature-is-a-feature/).]{#well-focused-projects-are-healthy} Among the first things I do when I start a new project is to write a one- or two-line description of what problems I intend the project to solve (the project's goals) as the first line of the readme (immediately after the project name). For complex projects, maybe it grows to a few bullets. One of my favorite examples of this is [the `choosealicense.com` goals](https://github.com/github/choosealicense.com#immediate-goals). As you continue to write new features, refactor old ones, and gain contributors, those goals will sit there unchanged, and often slip into the back of your mind. And that's just fine.
 
 ## It begins with a well-intentioned pull request
 
-About six months will go by while your project (hopefully) gains popularity. One day, a well-intentioned user will submit a pull request to expand the project beyond its original scope, trying to solve a problem you have no personal interest in solving, a solution that will be difficult for you to maintain, or one that complicates solving the problems you really care about solving. At this point you have two options:
+About six months will go by while your project gains popularity (if you're lucky). One day, a well-intentioned user will submit a pull request to expand the project beyond its original scope, trying to solve a problem you have no personal interest in solving, a solution that will be difficult for you to maintain, or one that complicates solving the problems you really care about solving. At this point you have two options:
 
 1. You engage the contributor on the merits of the pull request they painstakingly hand crafted ("is this a valid problem to be solving?"), or
 2. You engage the contributor on whether the problem they're trying to solve furthers one of the project's goals ("is this part of the problem we're trying to solve?").
