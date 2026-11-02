@@ -1,15 +1,14 @@
 ---
 title: How I over-engineered Halloween with two hacked Furbies
-description: "Two hacked Furby Connects by my front door bickered at trick-or-treaters all night: an evil pink one with demon eyes and a sweet blue one, cued by a Bluetooth board hidden on the porch."
+description: "Two hacked Furby Connects by my front door bickered at trick-or-treaters all night: an evil pink one with demon eyes and a sweet blue one, cued by a Bluetooth board hidden under the candy bowl."
 image: /assets/img/furby-halloween-porch-1200x630.jpg
-tldr: "Furbies already creep people out, so I leaned in. Two hacked Furby Connects by my front door traded spooky lines all night, an evil pink one and a sweet blue one, cued over Bluetooth by a board hidden on the porch. The code is open source, and you can build your own with a laptop, two Furbies, and a stock Furby DLC."
+tldr: "Furbies already creep people out, so I leaned in. Two hacked Furby Connects by my front door traded spooky lines all night, an evil pink one and a sweet blue one, cued over Bluetooth by a board hidden under the candy bowl. The code is open source, and you can build your own with a laptop, two Furbies, and a stock Furby DLC."
 ---
 
 "Happy Halloween! Take one!" chirped the blue Furby by my front door. Then the pink one, eyes glowing red, answered: "Take two... if you DARE."
 
 One Furby wants you to follow the rules. The other wants all of your candy. They bickered all night.
 
-<!-- hero-video: simulator stand-in. Swap for porch footage (muted, captioned, no kids in frame) if you get it. -->
 <figure class="not-prose furby-media">
   <!-- html-validate-disable-next no-autoplay -->
   <video width="960" height="462" autoplay muted loop playsinline preload="metadata" poster="/video/furby-halloween/preview-greeting.jpg" title="Simulated preview, not porch footage: two cartoon Furbies on a dark background, pink with red demon eyes and blue with orange jack-o'-lantern eyes. The friendly blue Furby offers candy and the evil pink one dares the trick-or-treater to take two. Each line appears as a caption.">
@@ -35,9 +34,9 @@ Over-engineering things is a pattern for me: see my [home network](/2020/12/04/o
 
 ## Furbies were creepy before I touched them
 
-Furbies already have a reputation as the creepiest toy of the '90s. The Furby Connect is the 2016 version, with LCD screens for eyes, a light-up antenna, and an app.[^connect] That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. Better yet, the Furby downloads DLC packs from the app, files of sounds, eye animations, and movements that it keeps in memory.
+Furbies already have a reputation as the creepiest toy of the '90s. The Furby Connect is the 2016 version, with LCD screens for eyes, a light-up antenna, and an app.[^connect] That app talks to the Furby over Bluetooth, which means anything that speaks Bluetooth can talk to it too. The Furby also downloads DLC packs from the app, files of sounds, eye animations, and movements that it keeps in memory.
 
-A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor (a laptop, or a small board hidden on the porch) to tell each Furby when to deliver its next line.
+A DLC holds what a Furby *can* do, but the Furby only does it when something sends a cue over Bluetooth. A show needs a conductor (a laptop, or a small board hidden under the candy bowl) to tell each Furby when to deliver its next line.
 
 A UK security firm called Context did the hard part back in 2017, when it [reverse-engineered the DLC format](https://web.archive.org/web/20180917194149/https://www.contextis.com/blog/dont-feed-them-after-midnight-reverse-engineering-the-furby-connect).[^credits] All I had to do was build on it and make a pink Furby say "Trick." with a menacing pause.
 
@@ -106,11 +105,11 @@ A few things I learned about Furby Connects the hard way:
 
 Each Furby gets its own DLC with that Furby's lines, eyes, and antenna colors. A single text file, [`show.toml`](https://github.com/benbalter/Furby/blob/master/halloween/show.toml), describes the show, every clip and every scene, and one command builds both DLCs from it.
 
-Each DLC has to squeeze under that 350 KB ceiling.[^budget] It's why pink's Toccata gets five seconds. It's enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
+Each DLC has to squeeze under that 350 KB ceiling.[^budget] That's why pink's Toccata gets five seconds, enough to recognize, and :quote[a Furby's speaker doesn't do Bach any favors.]{#furby-speaker-bach}
 
 ![Diagram of a Furby DLC file, the package of eyes, sounds, and moves the Furby plays. A bar shows its parts by size: the eyes (color palettes, frame lists, and image tiles) and the audio clips take nearly all of it, and a small remainder wires them together. Below, the diagram follows one action, 75·0·0·2 (the four-part number the show sends over Bluetooth), through the action table to a sequence. The sequence picks an audio playlist (one clip of compressed audio, about 4 seconds), a body movement, and an eye animation, and the Furby stays busy until all of them finish.](/assets/img/furby-halloween-dlc-anatomy-1600x900.svg "Following one action through Hasbro's stock DLC, which comes from the app at 1.1 MB. Ours have to fit in about 350 KB to upload.")
 
-The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. Then a stranger [opened an issue](https://github.com/benbalter/Furby/issues/12) on my fork. A developer who goes by John-K had reverse-engineered the format in the open-source [a1800_codec](https://github.com/John-K/a1800_codec) and thought I might want it. I did. It's why my toolchain runs on a Mac, and it's my favorite thing about open source: someone you've never met solves your problem, then goes out of their way to tell you.
+The voices are an AI mimic of the Furby's own, modeled on clips from the stock DLC, and they stay on my porch.[^voices] Every clip, real or stand-in, also has to be converted to the Furby's own compressed audio format, which used to mean a Windows-only tool. Then a stranger [opened an issue](https://github.com/benbalter/Furby/issues/12) on my fork. A developer who goes by John-K had reverse-engineered the format in the open-source [a1800_codec](https://github.com/John-K/a1800_codec) and thought I might want it. I did. It's why my toolchain runs on a Mac, and it's my favorite thing about [open source](/2015/11/23/why-open-source/): someone you've never met solves your problem, then goes out of their way to tell you.
 
 Loading it all used to mean a browser tool and a tongue-and-tail reset before every upload.[^reset] Now a terminal script loads a Furby in about two minutes instead of nearly six, no tongue-pulling required.
 
@@ -140,13 +139,15 @@ The antenna lights join in. While a Furby talks, its antenna glows in a color th
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, that board is an ESP32, running the same show engine in MicroPython. I went with DFRobot's [FireBeetle 2 ESP32-S3](https://wiki.dfrobot.com/SKU_DFR0975_FireBeetle_2_Board_ESP32_S3) because it takes an external Bluetooth antenna. (Another one opens and closes my office shades based on the sun's azimuth, its compass direction, but that's a post for another day.) The board connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats. If the board ever freezes, it reboots itself.
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, that board is an ESP32, running the same show engine in MicroPython. I went with DFRobot's [FireBeetle 2 ESP32-S3](https://wiki.dfrobot.com/SKU_DFR0975_FireBeetle_2_Board_ESP32_S3) because it takes an external Bluetooth antenna. (Another one opens and closes my office shades based on the sun's azimuth, its compass direction. That's another post.)
 
-Powering it took three tries. The board has a plug for a rechargeable lithium (LiPo) battery, but a LiPo puts out 3.7 volts, and the motion sensor is rated for at least 4.5. So I switched to a USB power bank, and the first two shut themselves off after a few seconds. The ESP32 is built to sip from a battery, and it drew so little that each power bank decided nothing was plugged in. The third one stayed on all night.
+The board connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats. If the board ever freezes, it reboots itself.
+
+Powering it took three tries. The board has a plug for a rechargeable lithium (LiPo) battery, but a LiPo puts out 3.7 volts, and the motion sensor is rated for at least 4.5. I switched to a USB power bank instead, and the first two shut themselves off after a few seconds. The ESP32 is built to sip from a battery, and it drew so little that each power bank decided nothing was plugged in. The third one stayed on all night.
 
 <figure class="not-prose furby-media">
   <img src="/assets/img/furby-halloween-esp32-1600x1200.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="A small black DFRobot FireBeetle 2 ESP32-S3 board with a flat stick-on antenna on a thin cable, next to a PIR motion sensor with a faceted white plastic dome, on a plain white table." />
-  <figcaption>The porch rig: a FireBeetle 2 ESP32-S3 and a PIR motion sensor. Not pictured: the Halloween-colored wiring (yellow, orange, and brown) and my shoddy soldering, done with a Radio Shack iron that's probably as old as the original Furby.</figcaption>
+  <figcaption>The porch rig is a FireBeetle 2 ESP32-S3 and a passive infrared (PIR) motion sensor. Not pictured: the Halloween-colored wiring (yellow, orange, and brown) and my shoddy soldering, done with a Radio Shack iron that's probably as old as the original Furby.</figcaption>
 </figure>
 
 An iPhone app I built works as the remote. It was my first iOS app, and my first time writing Swift, which made it an entirely unnecessary, over-engineered learning opportunity. It shows what the board is doing and fires a specific scene or line on demand. On the night, that meant I could debug the show from my phone instead of fetching a laptop, and when curious neighbors stopped to ask about the Furbies, I could have them say hello on cue.
@@ -169,7 +170,7 @@ I taped the motion sensor to the underside of the candy table, pointed at the st
 
 The only real problem was volume. On a porch full of trick-or-treaters, the Furbies were quieter than I wanted. That's first on the list for next year.
 
-Most of the rig outlives the holiday. The Furbies were [a work expense](/2026/10/29/the-rule-of-no-surprises/), bought for an internal training session that recreated a GitHub Universe keynote demo (the one with [a stage full of "sentient" Furbies](https://x.com/github/status/1984363580746035326)), in which Copilot built an MCP server (a plug-in that lets an AI assistant use a tool) to control a Furby from VS Code. So the rest of this project cost me less than $30, and I get to keep a spare ESP32 for my next project. The Furbies, meanwhile, go deep, *deep* in the closet with their batteries out, where they can't scare anyone until next Halloween.
+Most of the rig outlives the holiday. The Furbies were [a work expense](/2026/10/29/the-rule-of-no-surprises/#:~:text=I%20just%20expensed%20two%20Furbies), bought while I was at GitHub for an internal training session. It recreated a keynote demo from GitHub Universe, GitHub's annual conference, which that year featured [a stage full of "sentient" Furbies](https://x.com/github/status/1984363580746035326). In the demo, GitHub Copilot built an MCP server (a plug-in that lets an AI assistant use a tool) to control a Furby from Visual Studio Code. That left the rest of this project under $30, and I get to keep a spare ESP32 for my next project. The Furbies, meanwhile, go deep, *deep* in the closet with their batteries out, where they can't scare anyone until next Halloween.
 
 ## Build your own
 
