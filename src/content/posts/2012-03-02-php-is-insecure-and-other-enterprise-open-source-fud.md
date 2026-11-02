@@ -1,14 +1,14 @@
 ---
-title: PHP is Insecure (and Other Open Source FUD)
+title: PHP is Insecure (and Other Enterprise FUD)
 description: PHP's bad security reputation in government and enterprise comes from FUD, outdated assumptions, and confusing popularity with vulnerability.
-tldr: "PHP's bad security reputation in government and enterprise circles comes from FUD, a default setting fixed a decade ago, and confusing popularity with vulnerability. Bad code is bad code in any language, so judge the code, not the language it's written in."
+tldr: "PHP's bad security reputation in government and enterprise circles comes largely from FUD, a default setting fixed a decade ago, and confusing popularity with vulnerability. Bad code is bad code in any language, so judge the code, not the language it's written in."
 ---
 
 PHP (and the open-source software it powers) often gets a bad rap in many government and enterprise circles, the brunt of such anecdotal cries as "it's inherently insecure" or "X proprietary product is much safer." The truth is, much of this unfortunate stereotype is the result of carefully crafted [fear, uncertainty, and doubt (FUD)](https://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt). It's an established disinformation tactic big names in software have used for decades. One of the most notorious examples is the leaked Microsoft "[Halloween Documents](https://en.wikipedia.org/wiki/Halloween_documents)," which outlined the company's strategy to paint open source as more costly or under-supported.
 
-## The bad reputation has three causes
+## Blame history, popularity, and beginners
 
-Is PHP secure? **Yes**. I'd trace PHP's ill-deserved reputation to three causes (beyond mere proprietary propaganda):
+Is PHP secure? In a word: **yes**. I'd trace PHP's ill-deserved reputation to three causes (beyond mere proprietary propaganda):
 
 1. **It was.** More than a decade ago, there was a legitimate argument to be made for PHP being insecure. It used to be that PHP shipped with a poorly thought out setting toggled on by default (that any coder worth their weight in Mountain Dew would toggle off) called `register_globals`. The setting allowed poorly written code to be short-circuited by passing certain parameters in the URL. [^1] The default was flipped to off in 2002, deprecated in 2009, and removed in PHP 5.4. End. Of. Story.
 2. **It's ubiquitous.** Combine the traffic of Facebook, Wikipedia, and the White House, and you'll have a good chunk of the Web's traffic, not to mention probably a good chunk of the web's attacks as a result. Saying that makes PHP insecure would logically render Microsoft Windows, the target of most viruses, equally insecure and unusable. It's just a matter of numbers.
@@ -28,7 +28,7 @@ It's next to impossible to say a given language is "insecure." That'd be like sa
 
 Put another way, unlike many of its commercial counterparts for which obfuscation is a security staple, open source relies on inherently sound security practices to ensure that whatever you want to remain private, remains private.
 
-## Open source gets patched in hours, not months
+## Open source often gets patched in hours
 
 Last, because open-source projects like PHP are almost always monitored around the clock by the prying eyes of countless developers scattered around the globe, if a vulnerability does arise, [it's often addressed in hours](https://twitter.com/#!/nacin/status/9753986051604480), and you're not left waiting days or [months as in some commercial products](https://web.archive.org/web/20111217100556/http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/) for a patch from on high.
 

@@ -64,7 +64,7 @@ I've been on the receiving end of one. Someone on my team was green for weeks, a
 
 Watermelons are usually a rational response to an environment where "at risk" hurts more than silence. If every status you see is green, don't congratulate yourself. Ask what it would cost someone to tell you otherwise, and what's been cut to keep it green.
 
-## When you're making the call
+### When you're making the call
 
 Surprises come in tiers. Not everyone needs to hear at the same time, but the order matters. A team shouldn't find out they're being [reorged](/2026/06/07/reorgs-happen/) at the same moment as the rest of the company, in a town hall. :quote[The people most directly affected by a decision should be among the first to learn it.]{#most-affected-first} Give them time to process it and ask questions before they have to react in front of everyone else. Then their partners and the teams who depend on them. Then the broad announcement.
 

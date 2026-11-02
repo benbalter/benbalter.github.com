@@ -1,6 +1,6 @@
 ---
-title: "Accessible by default: a book built like code"
-description: "My ebook meets the Web Content Accessibility Guidelines (WCAG) because Markdown won't let me fake a heading and a browser audits every build. axe-core under Playwright catches what Markdown can't check, like color contrast, and nobody had to schedule a week for it."
+title: "Accessible by default: writing a book like software"
+description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA): Markdown won't let me fake a heading, and a browser audits every build. axe-core under Playwright catches what Markdown can't check, like color contrast, and nobody had to schedule a week for it."
 tldr: "Accessibility is mostly setup: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and every build checks conformance for you. The structure that passes the check is the same one a screen reader and an LLM both read."
 published: true
 ---
@@ -31,7 +31,7 @@ That's what makes the contrast rule possible. For every text node, axe reads the
 
 Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette. Both have to come back with no critical or serious violations, or `validate-playwright` goes red alongside the build jobs.[^gate]
 
-## What the checks can't see
+### What the checks can't see
 
 What none of it can see is markup that never announced what it was. Every axe rule that fires on an unnamed image keys off either an `<img>` element or an explicit role: `image-alt` matches `img`, `svg-img-alt` matches `svg[role="graphics-document"]` and its neighbors. A `<svg>` with no role matches nothing at all, and EPUBCheck has no opinion about accessible names in the first place. :quote[The QR didn't fail a check. There was no check for it to fail.]{#no-check-to-fail} Whatever you're building, your checks work the same way: they cover the categories somebody thought to name, and generated markup rarely fits one. Tagging this one decorative was my own postprocessing step's job, and my rule was too specific.[^qr]
 
@@ -61,7 +61,7 @@ That same TL;DR annotation feeds the book's MCP server ([about the protocol](htt
 
 That overlap isn't limited to my build script. Alt text is the only description a model has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
 
-## The file has to open first
+### The file has to open first
 
 The accessible file and the machine-readable file are only the same file if a reader can open it, which is why the book ships DRM-free everywhere it's sold. DRM encrypts the EPUB so only an approved app can open it, and every tool downstream of that lock is on the wrong side of it: a screen reader the vendor doesn't support, a text-to-speech engine, a braille conversion, an agent the reader points at a book they paid for. :quote[DRM is the one accessibility bug a reader can't file.]{#drm-cant-file} The structure only counts if the file is one they can open with whatever they read with.[^drm]
 

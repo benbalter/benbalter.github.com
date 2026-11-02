@@ -1,7 +1,7 @@
 ---
-title: Why technologists avoid your government agency
+title: 19 reasons technologists avoid your agency
 description: "Government agencies struggle to attract developers because of outdated tools, distrusted employees, and a culture that values process over shipping."
-tldr: "Government agencies struggle to hire technologists because the culture fights them at every step, from locked-down laptops to change control boards to months-long hiring. Optimize your tools and workflows for developers, value shipping above all else, and they'll come."
+tldr: "Government agencies struggle to hire technologists because the culture fights them at every step, from locked-down laptops to change control boards to months-long hiring. Optimize your tools and workflows for developers and value shipping above all else, and you'll meet them halfway."
 ---
 
 If you're a government agency trying to attract technical talent to your innovation efforts, posting job descriptions for positions named "Technology Specialist: Internet"[^1] may not be enough. The type of private-sector technologists you're after are used to a workplace culture that looks nothing like yours.
@@ -26,11 +26,11 @@ At most government agencies Wi-Fi is the exception, not the norm. Many governmen
 
 If you go into a technical interview in San Francisco, they're going to ask you if you're familiar with services like Heroku, AWS, Travis, or GitHub. The thinking is that since there is a small set of industry standard tools that most companies use, when hiring, they'd prefer you know how to use their existing toolchain, rather than have to teach what the industry's already settled on. In government, most of those tools are almost unheard of, being replaced by government-specific imitations that often pale in comparison in features, in quality, and in documentation and support. As a developer, I'd likely either have to unlearn what the rest of the world uses, or spend time making the case myself for why the agency should use the industry standard cloud services.
 
-## 5. Temporary integration
+## 5. Your integration is temporary, not continuous
 
 In most companies (let alone open source projects) it's sacrilege to commit a change without an accompanying test that verifies the intended functionality. As software projects get increasingly complex, standard QA in the form of "open up the browser and see if it works" isn't sufficient to prevent regressions in the long run. Even if it is, developers need to be confident that when they make a change, they can do so knowing they didn't break existing functionality. For many this function is accomplished by a process known as continuous integration. Every time a change is proposed, a server runs thousands of tests to give the developer instant feedback well before the change is merged. Yet in government, continuous integration is still a "we'd like to be there" development concept, with services like Jenkins or Travis being rarely used within government agencies. There's no test-centric culture to lean on, and without it, shaking things up becomes all the more precarious.
 
-## 6. Sparse delivery
+## 6. Your delivery is sparse, not continuous
 
 Continuous delivery is the idea that you should be constantly deploying small iterations of code, lines at a time, to test discrete changes individually. Unlike, say, software that's distributed as a CD or installed by end users, sites and other service-based offerings aren't versioned in the same way, and thus the cost of an update is negligible. Rather than wait for an all-or-nothing update from 1.0 to 2.0, continuous delivery lets you incrementally test each change one-by-one, lessening the risk of catastrophic failure (as an example, what version of Gmail are you using today?). A private sector firm might measure deploys per day or even deploys per hour, and still be unsatisfied. In government, there's no need to measure deploys as they are scheduled well ahead of time, by day or by week, as each change must be reviewed by stringent change control boards which hold standing meetings for just such a purpose. Developers want to ship code (it's how we innovate), and the more bureaucratic barriers you place between them and the ability to deploy, the harder that becomes.
 

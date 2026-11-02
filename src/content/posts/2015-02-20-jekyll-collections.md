@@ -30,7 +30,7 @@ What if one day you decided to expand your offerings and sell cookies in additio
 
 At this stage, you could choose to have a more generic collection `products`, which you could develop liquid layouts for, so that you and other developers could get the basic functionality needed to display all products, with specific includes for `cupcakes` and `cookies`.
 
-Abstractly, because they're not outputted by default, you can think of collections somewhat like [Jekyll's `_data` folder support](http://jekyllrb.com/docs/datafiles/), but with the potential to generate content, and be placed into their own specific part of your Jekyll site, so a lot more flexible. Like `_data` files, they can support arbitrary key/values through frontmatter, but they also support a full content body (like posts and pages), and can be broken out into separate files. If I wanted to break out my bakery's hours, I might have a `_data/hours.yml` file that looked something like this:
+Abstractly, because they're not outputted by default, you can think of collections somewhat like [Jekyll's `_data` folder support](http://jekyllrb.com/docs/datafiles/), but with the potential to generate content, and be placed into their own specific part of your Jekyll site, so a lot more robust. Like `_data` files, they can support arbitrary key/values through frontmatter, but they also support a full content body (like posts and pages), and can be broken out into separate files. If I wanted to break out my bakery's hours, I might have a `_data/hours.yml` file that looked something like this:
 
 ```yaml
 monday: 9-5

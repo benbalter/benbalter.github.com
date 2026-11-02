@@ -28,7 +28,7 @@ The value of version control extends beyond being able to `CTRL-Z` a given chang
 
 It used to be that vendor lock in meant a particular format or platform. In many ways the procurement process prefers large, generalist contracting firms that supply everything from tanks and aircraft carriers to sites and mobile apps because the government knows they're going to be around in a decade (and thus can support the government's purchase).
 
-With open source, when done right, that threat's a moot point. Ruby is Ruby. WordPress is WordPress. Given shared frameworks, shared design patterns, and shared practices, if properly documented, swapping contractor A for contractor B becomes trivial because both are working from the same shared playbook. The competitive edge is now in their approach to difficult challenges, not in the code itself or the additional context they withhold.
+With open source, when done right, that threat's a moot point. Ruby is Ruby. WordPress is WordPress. Given shared frameworks, shared design patterns, and shared practices, if properly documented, swapping contractor A for contractor B becomes trivial because both are working from the same shared playbook. The magic is now in their approach to difficult challenges, not in the code itself or the additional context they withhold.
 
 ## Forcing contractors to show their work
 
