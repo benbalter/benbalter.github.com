@@ -60,11 +60,9 @@ The first version also started closing around 2 PM, while the sun was still high
 
 ## The forecast isn't the window
 
-Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days. It worked for the dining room. In the office, a sunny break under a cloudy forecast opened the shades straight into my eyes, because a forecast covers a whole region and I was right next to one window.
+Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days.
 
-### The home office stopped trusting the forecast
-
-The office ignores the clouds now and tracks the sun as if the sky were always clear. The dining room has no screens facing its window, so it kept the cloud discount. The cost is a darker home office on gray afternoons, and I'll take that over squinting at a slide deck. The real fix is a light sensor in the window, which I don't have yet.
+It worked for the dining room. In the office, a sunny break under a cloudy forecast opened the shades straight into my eyes, because a forecast covers a whole region and I was right next to one window. Now the office ignores the forecast and tracks the sun as if the sky were always clear, which costs a little light on gray afternoons.
 
 ### Every move explains itself
 
