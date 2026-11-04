@@ -139,7 +139,7 @@ The antenna lights join in. While a Furby talks, its antenna glows in a color th
 
 ### No laptop on the porch
 
-You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, that board is an ESP32, running the same show engine in MicroPython. I went with DFRobot's [FireBeetle 2 ESP32-S3](https://wiki.dfrobot.com/SKU_DFR0975_FireBeetle_2_Board_ESP32_S3) because it takes an external Bluetooth antenna. (Another one opens and closes my office shades based on the sun's azimuth, its compass direction. That's another post.)
+You can run the show from a laptop, but I didn't want one sitting by the door all night. On the porch, that board is an ESP32, running the same show engine in MicroPython. I went with DFRobot's [FireBeetle 2 ESP32-S3](https://wiki.dfrobot.com/SKU_DFR0975_FireBeetle_2_Board_ESP32_S3) because it takes an external Bluetooth antenna. (Another one opens and closes my office shades based on the sun's azimuth, its compass direction. That's [another post](/2026/11/03/over-engineered-office-shades/).)
 
 The board connects to both Furbies and picks one back up if it drops. A motion sensor plays a greeting when someone walks up, then ignores everyone for 20 seconds so a crowd doesn't get the same bit three times. Scenes are dealt like a shuffled deck, so every one plays before any repeats. If the board ever freezes, it reboots itself.
 
