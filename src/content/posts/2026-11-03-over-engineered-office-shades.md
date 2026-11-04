@@ -32,7 +32,7 @@ That conclusion was right about the cryptography and wrong about the work, becau
 
 What I built is the plumbing around it. [`smartblinds-ble`](https://github.com/benbalter/smartblinds-ble) is a Python library that talks to the shades directly and exports every pairing key from the vendor's cloud while it still answers.[^auth0] [`ha-smartblinds-ble`](https://github.com/benbalter/ha-smartblinds-ble) turns each shade into a regular cover (Home Assistant's word for a shade, blind, or garage door) in Home Assistant, the open source home automation hub that runs my house.
 
-The house's server sits out of Bluetooth range of the shades, so a small ESP32 board in the office relays Bluetooth over Wi-Fi. It's a FireBeetle 2 ESP32-S3, the same kind of board that [cued the Furbies on my porch](/2026/11/02/hacking-furbies-for-halloween/#one-board-runs-the-show) on Halloween. In mid-September, all four shades moved on a command from Home Assistant with no cloud, hub, or phone anywhere in the path. That same night, the board froze and took every shade offline for 16 hours.[^slots]
+The house's server sits out of Bluetooth range of the shades, so a small ESP32 board in the office relays Bluetooth over Wi-Fi. It's a FireBeetle 2 ESP32-S3, the same kind of board that [cued the Furbies on my porch](/2026/11/02/hacking-furbies-for-halloween/#one-board-runs-the-show) on Halloween. In mid-September, all four shades moved on a command from Home Assistant with no cloud, hub, or phone anywhere in the path.
 
 ### The relay isn't just for shades
 
@@ -138,8 +138,6 @@ Next time your house does something baffling, check whether it can tell you why 
 [^sniff]: iOS can log every Bluetooth packet a phone sends, so I captured the app moving a shade and parsed the log into a readable transcript. The two sides trade a 16-byte challenge and response, and everything after that is ciphertext. I tested that exchange against all four pairing keys with every AES mode, key length, and padding scheme I could think of, and got zero hits. The session key was derived from the pairing key somehow, and a capture alone couldn't say how.
 
 [^auth0]: The key export turned out to be one parameter. The Tilt app logs in through the same login service (Auth0) as the older MySmartBlinds cloud. That's why logging in with the old tools succeeds and then returns zero shades: the login is for the wrong service. Asking for the Tilt storage service instead returns a login the key store accepts, with nothing but your email and password in most cases. If your account uses two-factor login or the login gets blocked, [the README](https://github.com/benbalter/smartblinds-ble#tilt-roller-shades) has a fallback.
-
-[^slots]: The board now reports its uptime, so Home Assistant notices when it stops responding and tells me, instead of four shades quietly reading "unavailable" the next morning. Running it taught me a second failure, too. An ESPHome Bluetooth proxy offers three connection slots by default, and a *failed* connection attempt was leaking one. Leak three and the proxy stops accepting connections while it otherwise looks healthy, so every shade behind it goes dark. The library now connects in a way that hands the slot back on failure.
 
 [^desk-proxy]: The Upsy Desky's maker ships a Bluetooth proxy add-on for its firmware, so turning the desk into a second relay was a firmware update, not new hardware. It adds three more connection slots and a second path to two of the shades, and Home Assistant routes each device through whichever relay hears it best.
 
