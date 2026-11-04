@@ -62,8 +62,6 @@ The first version also started closing around 2 PM, while the sun was still high
 
 Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days.
 
-### It opened the shades into the sun twice in a week
-
 For the dining room, that works. For the office, it opened the shades into the sun on September 24, when the forecast said 100% cloudy, and again on September 30 at 3:30 PM, when it said 51%. The status line from that afternoon read `cloud 51% · pen 0.39 → resp 0.06 → glare 100`, where `glare 100` is the position the glare math asked for: 100, fully open. Translated:
 
 - The sun was well off the window's centerline, so penetration was about 0.60, comfortably past the 0.35 glare threshold. On a clear day, that's a response of about 0.38, which rounds to a position of 50, half closed.[^ramp]
