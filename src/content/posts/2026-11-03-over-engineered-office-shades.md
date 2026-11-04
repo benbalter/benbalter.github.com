@@ -86,7 +86,7 @@ When the meeting ends, the light goes back to normal, and nothing else moves.[^m
 
 Once the office worked, I gave the living room shades the same treatment. Their job there isn't a meeting. It's a weekend afternoon in front of the TV. Like the monitor in my office, the TV shares a wall with the window, so a low afternoon sun sits right behind the screen and lands in your eyes.
 
-The living room wants different things than the office. The room still wants daylight, so its shades never close more than halfway during the day. And the cloud forecast is fine there: if it guesses wrong, the cost is a little glare on the TV, not the sun in my eyes mid-call.
+The living room wants different things than the office. The room still wants daylight, so its shades never close more than halfway during the day. And the cloud forecast is fine there: if it guesses wrong, the cost is some squinting during a movie, not the sun in my eyes mid-call.
 
 ### Winter sun is free heat
 
