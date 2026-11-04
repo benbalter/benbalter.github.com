@@ -1,14 +1,14 @@
 ---
 title: How I over-engineered my home office shades
 description: "A schedule left the sun in my eyes mid-meeting, so my home office's Tilt shades now track the sun in Home Assistant and know when I'm on a call."
-tldr: "My west-facing home office shades ran on a schedule, so as the seasons changed, the sun kept landing in my eyes mid-meeting. I rescued the shades before their maker's cloud goes dark, moved them to Home Assistant, and taught them to account for the sun, the season, and whether I'm on a call. If you own Tilt or MySmartBlinds shades, [export your keys today](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark)."
+tldr: "My west-facing home office shades ran on a schedule, so as the seasons changed, the sun kept landing in my eyes mid-meeting. I rescued the shades before their maker's cloud goes dark, moved them to Home Assistant, and taught them to account for the sun and whether I'm on a call. Then I gave the living room the same treatment for weekend TV. If you own Tilt or MySmartBlinds shades, [export your keys today](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark)."
 ---
 
 I had a standing afternoon meeting with Evan,[^evan] my engineering counterpart, and despite endless tinkering with my shades, every time the seasons changed it went the same way. Halfway through, right on *its own* schedule, the sun would drop into my office window and land in my eyes.
 
 My home office windows face west, and their motorized shades ran on the Tilt app's built-in schedule, which can close them relative to sunset. That sounds smart, but sunset is one number a day. Whether the sun is in my eyes depends on where it sits in the sky right now, and its path shifts with the seasons, so an offset from sunset that worked one month was wrong the next. Every time it was wrong, I found out on that call.
 
-I taught the shades to track the sun instead. The sun's azimuth (its compass direction) and elevation (its height in the sky), cloud cover, the thermostat's mode, whether I'm on a video call. Now they follow the sun instead of the clock, in every season.
+I taught the shades to track the sun instead. The sun's azimuth (its compass direction) and elevation (its height in the sky), cloud cover, whether I'm on a video call. Now they follow the sun instead of the clock, in every season.
 
 I've worked from home for well over a decade, and my home office has picked up a long list of (unnecessary) optimizations along the way. Over-engineering isn't limited to the office, either. See my [home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)), [my book](/2026/08/17/how-i-over-engineered-my-book/), and [two Furbies](/2026/11/02/hacking-furbies-for-halloween/). Most people would have bought blackout curtains.
 
@@ -62,7 +62,7 @@ There's also a dead zone. Penetration below 0.35 doesn't count as glare at all, 
 
 Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days.
 
-It worked for the dining room. In the office, a sunny break under a cloudy forecast opened the shades straight into my eyes, because a forecast covers a whole region and I was right next to one window. Now the office ignores the forecast and tracks the sun as if the sky were always clear, which costs a little light on gray afternoons.
+In the office, it backfired. A sunny break under a cloudy forecast opened the shades straight into my eyes, because a forecast covers a whole region and I was right next to one window. Now the office ignores the forecast and tracks the sun as if the sky were always clear, which costs a little light on gray afternoons.
 
 ### Every move explains itself
 
@@ -74,7 +74,7 @@ The right position depends less on the sun than on where the person is.
 
 ### Measure from your eyes, not the window
 
-Each room has a floor, the lowest its shades go during the day, because the rooms still want light. The dining room stops at 50, since nobody sits there staring at the window. In the home office, a strong low sun can clear a half-closed shade and land right at my eye line, so the office goes down to 25.[^standing]
+The shades have a floor, the lowest they go during the day, because the room still wants light. A strong low sun can clear a half-closed shade and land right at my eye line, so the office floor sits low, at 25.[^standing]
 
 ### Meeting mode takes over
 
@@ -82,15 +82,23 @@ Since Home Assistant can move my desk, a "meeting mode" button on my Stream Deck
 
 When the meeting ends, the light goes back to normal, and nothing else moves.[^meeting-off] The shades wait for the next 30-minute check instead of snapping open mid-sentence. The desk stays up, because you might still be standing, and lowering furniture under someone is rude.
 
-## The shades know what season it is
+## The living room gets the weekend shift
+
+Once the office worked, I gave the living room shades the same treatment. Their job there isn't a meeting. It's a weekend afternoon in front of the TV, without the low sun washing out the screen.
+
+The living room wants different things than the office. Nobody stares at the window from the couch, so its shades never close more than halfway during the day. And the cloud forecast is fine there: if it guesses wrong, the cost is a little glare on the TV, not the sun in my eyes mid-call.
 
 ### Winter sun is free heat
 
-I also taught the model about seasons. When the thermostat is heating, the dining room flipped from blocking the afternoon sun to letting it in.[^season] The office keeps blocking it year-round, because the monitors care more about glare than the furnace does about heat.
+When the house is heating, the living room flips from blocking the afternoon sun to letting it in.[^season] The office keeps blocking it year-round, because the monitors care more about glare than the furnace does about heat.
 
 ### The fabric can't hold heat in
 
 Writing things down also stopped me from inventing features. The fabric is a sheer solar screen. It cuts heat from the sun, but it has no insulating value at all, so closing the shades at sunset does nothing to hold heat in overnight. The sunset close is for privacy, and only privacy, and a comment in the config says so.[^ai]
+
+### The living room runs on someone else's code
+
+The living room is also where I'm trying [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store) that does most of what my model does. The office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
 
 :::objection[Why not just buy shades that already follow the sun?]
 Some do. Wirecutter's current blinds pick, Lutron's Caséta Smart Wood Blinds, can tilt its slats with the sun's position through Lutron's hub. But I already owned shades, and they were about to become expensive fabric.
@@ -100,7 +108,7 @@ The rescue had to happen either way. Once the shades took local commands, the mo
 
 ## Steal the dials for sun-tracking shades
 
-If you want to point your own shades at the sun, don't rebuild it like I did. [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store), already does most of this. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and a glare zone you set, lets winter sun in, checks the weather or a light sensor, limits how often and how little it moves, and backs off when you move a shade by hand. Yes, I should have searched first. Again. The dining room now runs on it as a trial, while my home office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
+If you want to point your own shades at the sun, don't rebuild it like I did. Start with Adaptive Cover. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and a glare zone you set, lets winter sun in, checks the weather or a light sensor, limits how often and how little it moves, and backs off when you move a shade by hand. Yes, I should have searched first. Again.
 
 Whatever runs your shades, these are the lessons that survived contact with an actual afternoon:
 
@@ -131,12 +139,12 @@ Next time your house does something baffling, check whether it can tell you why 
 
 [^profile]: Strictly, this measures how squarely the sun hits the glass, not how deep it reaches. Depth depends on the sun's height too: a low sun off to the side scores lower here but still reaches deep into the room. For my office's west window and an afternoon of glare, the simpler number worked well enough, and the dead zone below absorbs most of the difference.
 
-[^adaptive]: Adaptive Cover keeps its settings in Home Assistant's UI, which I don't love, so a small script keeps them in my repository instead: it compares the live settings to the ones I chose, writes them back through Home Assistant's own setup forms, and won't hand Adaptive Cover the dining shades until my own automation has let go of them. Two systems moving the same shade over a flaky Bluetooth link is how a shade ends up somewhere neither one asked for.
+[^adaptive]: Adaptive Cover keeps its settings in Home Assistant's UI, which I don't love, so a small script keeps them in my repository instead: it compares the live settings to the ones I chose, writes them back through Home Assistant's own setup forms, and won't hand Adaptive Cover the living room shades until my own automation has let go of them. Two systems moving the same shade over a flaky Bluetooth link is how a shade ends up somewhere neither one asked for.
 
 [^standing]: Still on my to-do list: that floor assumes I'm sitting. The desk already reports its height, so the math could follow my actual eye line, sitting or standing, instead of only knowing whether I'm in a meeting.
 
 [^meeting-off]: The music doesn't resume either. Meeting mode also turns itself off after three hours in case I forget, and music starting by itself in an empty office is creepier than a Furby.
 
-[^season]: The thermostat's own mode decides the season: if it's heating, it's winter. When the system is idle, the outdoor temperature breaks the tie, with below 55°F (13°C) counting as heating season and above 78°F (26°C) as cooling.
+[^season]: Adaptive Cover calls it winter when the indoor temperature drops below a comfort threshold, which I set just above the thermostat's heating setpoint. A house holding at its setpoint counts as winter, and the shades open for the sun.
 
 [^ai]: Most of this config was written with Claude Code. The comments explaining *why* each rule exists turned out to [matter as much for the AI as for me](/2026/10/26/documentation-quality-is-ai-quality/). An agent that reads "this close is privacy, not heat" doesn't propose a heat-saving feature that the fabric can't deliver.
