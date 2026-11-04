@@ -1,12 +1,12 @@
 ---
 title: How I over-engineered my home office shades
 description: "A schedule left the sun in my eyes mid-meeting, so my Tilt shades now track the sun's azimuth in Home Assistant and know when I'm on a call."
-tldr: "My west-facing home office shades ran on a schedule, so as the seasons changed, the sun kept landing in my eyes mid-meeting. I rescued the shades from their dying cloud, moved them to Home Assistant, and taught them to account for the sun, the season, and whether I'm on a call. If you own Tilt or MySmartBlinds shades, [export your keys today](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark)."
+tldr: "My west-facing home office shades ran on a schedule, so as the seasons changed, the sun kept landing in my eyes mid-meeting. I rescued the shades before their maker's cloud goes dark, moved them to Home Assistant, and taught them to account for the sun, the season, and whether I'm on a call. If you own Tilt or MySmartBlinds shades, [export your keys today](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark)."
 ---
 
-I had a standing afternoon meeting with Evan,[^evan] my engineering counterpart, and despite endless tinkering, every fall it went the same way. Halfway through, right on *its own* schedule, the sun would drop into my office window and land in my eyes.
+I had a standing afternoon meeting with Evan,[^evan] my engineering counterpart, and despite endless tinkering with my shades, every time the seasons changed it went the same way. Halfway through, right on *its own* schedule, the sun would drop into my office window and land in my eyes.
 
-My office windows face west, and the shades ran on the Tilt app's built-in schedule, which can close them relative to sunset. That sounds smart, but sunset is one number a day. Whether the sun is in my eyes depends on where it sits in the sky right now, and its path shifts with the seasons, so an offset from sunset that worked one month was wrong the next. Every time it was wrong, I found out on that call.
+My office windows face west, and their motorized shades ran on the Tilt app's built-in schedule, which can close them relative to sunset. That sounds smart, but sunset is one number a day. Whether the sun is in my eyes depends on where it sits in the sky right now, and its path shifts with the seasons, so an offset from sunset that worked one month was wrong the next. Every time it was wrong, I found out on that call.
 
 I taught the shades to track the sun instead. The sun's azimuth (its compass direction) and elevation (its height in the sky), cloud cover, the thermostat's mode, whether I'm on a video call. Now they follow the sun instead of the clock, in every season.
 
@@ -18,7 +18,7 @@ Before I could teach the shades anything, I had to keep them alive.
 
 ### I bought the safe pick
 
-They're Tilt roller shades, from the company that also sold MySmartBlinds, and I bought them because [Wirecutter](https://www.nytimes.com/wirecutter/reviews/best-smart-blinds/), The New York Times' product-review site, recommended them. Buying the reviewed pick is supposed to be the low-risk choice. Then the company started winding down. I emailed it and never heard back, and every command to my shades still ran through its cloud.[^chain]
+They're Tilt roller shades, from the company that also sold MySmartBlinds, and I bought them because [Wirecutter](https://www.nytimes.com/wirecutter/reviews/best-smart-blinds/), The New York Times' product-review site, recommended them. Buying the reviewed pick is supposed to be the low-risk choice. Then the company started shutting down. I emailed it and never heard back, and every command to my shades still ran through its cloud.[^chain]
 
 The motors themselves don't need the cloud. They're ordinary BLE devices. But each one only accepts commands encrypted with a key derived from its own 32-byte pairing key, and the only copy of that key you can get at lives on the vendor's servers. Once those servers shut down, any key you didn't export is gone for good.[^keys] If you own these shades, [export your keys](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark) before you read the rest of this.
 
@@ -131,7 +131,7 @@ Next time your house does something baffling, check whether it can tell you why 
 
 [^evan]: Name changed to protect the innocent, who had to watch me squint.
 
-[^chain]: The motors are solar-charged and talk Bluetooth Low Energy to the phone app directly, or to a little hub that connects them to the vendor's cloud. As of early November, parts are unavailable, and the company's online store just says "This store is unavailable." Wirecutter's guide has since moved on to other picks.
+[^chain]: The motors are solar-charged and talk Bluetooth Low Energy to the phone app directly, or to a little hub that connects them to the vendor's cloud. As of early November, parts are unavailable, the company's online stores just say "This store is unavailable," and its older [MySmartBlinds app](https://apps.apple.com/us/app/mysmartblinds/id1042778784) has already switched to offline-only mode "in preparation for shutdown of Cloud services." The Tilt cloud still answers, for now. Wirecutter's guide has since moved on to other picks.
 
 [^keys]: A 32-byte key has a 78-digit number of possible values, so guessing is out. In normal use, the key also never crosses the air: the shade and the app use it to derive a session key, and only the session traffic shows up in a capture. Treat an exported key file like a password, since anyone with it and Bluetooth range controls the shades.
 
