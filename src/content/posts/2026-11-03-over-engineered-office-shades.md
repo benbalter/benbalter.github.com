@@ -32,7 +32,7 @@ That conclusion was right about the cryptography and wrong about the work, becau
 
 What I built is the plumbing around it. [`smartblinds-ble`](https://github.com/benbalter/smartblinds-ble) is a Python library that talks to the shades directly and exports every pairing key from the vendor's cloud while it still answers.[^auth0] [`ha-smartblinds-ble`](https://github.com/benbalter/ha-smartblinds-ble) turns each shade into a regular cover (Home Assistant's word for a shade, blind, or garage door) in Home Assistant, the open source home automation hub that runs my house.
 
-The house's server sits out of Bluetooth range of the shades, so a small ESP32 board in the office relays Bluetooth over Wi-Fi. It's a FireBeetle 2 ESP32-S3, the same kind of board that [cued the Furbies on my porch](/2026/11/02/hacking-furbies-for-halloween/#one-board-runs-the-show) on Halloween. In mid-September, all four shades moved on a command from Home Assistant with no cloud, hub, or phone anywhere in the path.
+The house's server sits out of Bluetooth range of the shades, so a small ESP32 board in the office relays Bluetooth over Wi-Fi. It's a FireBeetle 2 ESP32-S3, the same kind of board that [cued the Furbies on my porch](/2026/11/02/hacking-furbies-for-halloween/#one-board-runs-the-show) on Halloween. Now all four shades move on a command from Home Assistant, with no cloud, hub, or phone anywhere in the path.
 
 ### The relay isn't just for shades
 
@@ -56,7 +56,7 @@ Straight out the window and on the horizon gives you 1.0, the worst glare there 
 
 The math took an afternoon. Fitting it to the hardware took longer. The model runs every 30 minutes, snaps to 25% steps, and skips any move smaller than 20 points, so the shades make a handful of moves a day instead of a few hundred.[^cadence]
 
-The first version also started closing around 2 PM, while the sun was still high and nowhere near anyone's eyes. A dead zone fixed that. Penetration below 0.35 doesn't count as glare at all. Above it, the response climbs in a straight line, from 0 at 0.35 to full at 1.0. On a clear day around the equinox, the shades now stay fully open until 3 PM, then ease down to half closed by 4 PM.
+There's also a dead zone. Penetration below 0.35 doesn't count as glare at all, because the sun is still too high to reach anyone's eyes. Above it, the response climbs in a straight line, from 0 at 0.35 to full at 1.0. On a clear day around the equinox, the shades now stay fully open until 3 PM, then ease down to half closed by 4 PM.
 
 ## The forecast isn't the window
 
@@ -74,15 +74,13 @@ The right position depends less on the sun than on where the person is.
 
 ### Measure from your eyes, not the window
 
-At first, the whole house had one floor: no shade below 50% during the day, because the rooms still want light. On September 24, a strong low sun cleared the half-closed shade and landed right at my seated eye line. The dining room is fine at 50, because nobody sits there staring at the window. The home office needed its own floor, so it now goes down to 25.[^standing]
+Each room has a floor, the lowest its shades go during the day, because the rooms still want light. The dining room stops at 50, since nobody sits there staring at the window. In the home office, a strong low sun can clear a half-closed shade and land right at my eye line, so the office goes down to 25.[^standing]
 
 ### Meeting mode takes over
 
 Since Home Assistant can move my desk, a "meeting mode" button on my Stream Deck (a small panel of programmable keys) raises the desk to standing height and pauses the music. It turns on the key light, the main light aimed at my face for video calls. It also pulls the shades down far enough that the bright west window doesn't wash out the camera. Sun tracking leaves the office alone until the call ends.
 
 When the meeting ends, the light goes back to normal, and nothing else moves.[^meeting-off] The shades wait for the next 30-minute check instead of snapping open mid-sentence. The desk stays up, because you might still be standing, and lowering furniture under someone is rude.
-
-The desk had its own blind spot. Until I fixed one threshold, the house was convinced I never stood up.[^desk-height]
 
 ## The shades know what season it is
 
@@ -119,7 +117,7 @@ Next time your house does something baffling, check whether it can tell you why 
 
 [^evan]: Name changed to protect the innocent, who had to watch me squint.
 
-[^chain]: The motors are solar-charged and talk Bluetooth Low Energy to the phone app directly, or to a little hub that connects them to the vendor's cloud. As of early November, parts are unavailable, the company's online stores just say "This store is unavailable," and its older [MySmartBlinds app](https://apps.apple.com/us/app/mysmartblinds/id1042778784) has already switched to offline-only mode "in preparation for shutdown of Cloud services." The Tilt cloud still answers, for now. Wirecutter's guide has since moved on to other picks.
+[^chain]: The motors are solar-charged and talk Bluetooth Low Energy to the phone app directly, or to a little hub that connects them to the vendor's cloud. As I write this, parts are unavailable, the company's online stores just say "This store is unavailable," and its older [MySmartBlinds app](https://apps.apple.com/us/app/mysmartblinds/id1042778784) has already switched to offline-only mode "in preparation for shutdown of Cloud services." The Tilt cloud still answers, for now. Wirecutter's guide has since moved on to other picks.
 
 [^keys]: A 32-byte key has a 78-digit number of possible values, so guessing is out. In normal use, the key also never crosses the air: the shade and the app use it to derive a session key, and only the session traffic shows up in a capture. Treat an exported key file like a password, since anyone with it and Bluetooth range controls the shades.
 
@@ -138,8 +136,6 @@ Next time your house does something baffling, check whether it can tell you why 
 [^standing]: Still on my to-do list: that floor assumes I'm sitting. The desk already reports its height, so the math could follow my actual eye line, sitting or standing, instead of only knowing whether I'm in a meeting.
 
 [^meeting-off]: The music doesn't resume either. Meeting mode also turns itself off after three hours in case I forget, and music starting by itself in an empty office is creepier than a Furby.
-
-[^desk-height]: My first pass guessed the sitting and standing heights from a week of history and put the line between them at 34 inches (86 cm). My actual standing preset is 33.5 inches, so standing at my own desk counted as sitting. The line now sits at 30.5 inches (77 cm), halfway between the desk's two presets.
 
 [^season]: The thermostat's own mode decides the season: if it's heating, it's winter. When the system is idle, the outdoor temperature breaks the tie, with below 55°F (13°C) counting as heating season and above 78°F (26°C) as cooling.
 
