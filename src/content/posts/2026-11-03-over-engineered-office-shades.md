@@ -60,15 +60,7 @@ The first version also started closing around 2 PM, while the sun was still high
 
 ## The forecast isn't the window
 
-Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days.
-
-For the dining room, that works. For the office, it opened the shades into the sun on September 24, when the forecast said 100% cloudy, and again on September 30 at 3:30 PM, when it said 51%. The status line from that afternoon read `cloud 51% · pen 0.39 → resp 0.06 → glare 100`, where `glare 100` is the position the glare math asked for: 100, fully open. Translated:
-
-- The sun was well off the window's centerline, so penetration was about 0.60, comfortably past the 0.35 glare threshold. On a clear day, that's a response of about 0.38, which rounds to a position of 50, half closed.[^ramp]
-- The 51% forecast cut that by about a third, to 0.39.[^cap]
-- On the same ramp, 0.39 is a response of 0.06, which rounds to 100, fully open.
-
-My eye is next to one window, and a sunny break in a cloudy afternoon looks exactly like a clear day from my desk.
+Then I got clever. The model assumes a clear sky, so on a gray afternoon it still computes a low, head-on sun and closes the shades against glare that isn't there. Home Assistant already pulls a weather forecast with a cloud-cover percentage. Discount the glare by the clouds, I figured, and the shades stop closing on overcast days. It worked for the dining room. In the office, a sunny break under a cloudy forecast opened the shades straight into my eyes, because a forecast covers a whole region and I was right next to one window.
 
 ### The home office stopped trusting the forecast
 
@@ -76,7 +68,7 @@ The office ignores the clouds now and tracks the sun as if the sky were always c
 
 ### Every move explains itself
 
-The most useful thing I added was a status line. Every run writes down the numbers it used next to the sun's angles, which is how I could explain September 30 without recomputing a single sun angle. :quote[If you can't answer "why are my shades half closed?" from one line on a dashboard, you'll end up doing the trigonometry yourself.]{#shades-why}
+The most useful thing I added was a status line. Every run writes down the numbers it used next to the sun's angles, which is how I figured out why the shades opened into my eyes without recomputing a single sun angle. :quote[If you can't answer "why are my shades half closed?" from one line on a dashboard, you'll end up doing the trigonometry yourself.]{#shades-why}
 
 ## My desk decides how far down the shades go
 
@@ -84,7 +76,7 @@ The right position depends less on the sun than on where the person is.
 
 ### Measure from your eyes, not the window
 
-At first, the whole house had one floor: no shade below 50% during the day, because the rooms still want light. September 24 was a bad day for my eyes all around. Separately from the forecast episode, a strong low sun cleared the half-closed shade and landed right at my seated eye line. The dining room is fine at 50, because nobody sits there staring at the window. The home office needed its own floor, so it now goes down to 25.[^standing]
+At first, the whole house had one floor: no shade below 50% during the day, because the rooms still want light. On September 24, a strong low sun cleared the half-closed shade and landed right at my seated eye line. The dining room is fine at 50, because nobody sits there staring at the window. The home office needed its own floor, so it now goes down to 25.[^standing]
 
 ### Meeting mode takes over
 
@@ -144,10 +136,6 @@ Next time your house does something baffling, check whether it can tell you why 
 [^profile]: Strictly, this measures how squarely the sun hits the glass, not how deep it reaches. Depth depends on the sun's height too: a low sun off to the side scores lower here but still reaches deep into the room. For my office's west window and an afternoon of glare, the simpler number worked well enough, and the dead zone below absorbs most of the difference.
 
 [^adaptive]: Adaptive Cover keeps its settings in Home Assistant's UI, which I don't love, so a small script keeps them in my repository instead: it compares the live settings to the ones I chose, writes them back through Home Assistant's own setup forms, and won't hand Adaptive Cover the dining shades until my own automation has let go of them. Two systems moving the same shade over a flaky Bluetooth link is how a shade ends up somewhere neither one asked for.
-
-[^ramp]: The response is (penetration − 0.35) ÷ (1 − 0.35), and the shade position is 100 minus the response as a percentage, rounded to the nearest 25. For 0.60, that's (0.60 − 0.35) ÷ 0.65 ≈ 0.38, so 100 − 38 = 62, which rounds to 50. For 0.39, it's (0.39 − 0.35) ÷ 0.65 ≈ 0.06, so 94, which rounds to 100.
-
-[^cap]: I'd scaled the cloud discount to 70% of the cloud cover, so even a 100% forecast keeps 30% of the penetration. A bright overcast sky still glares, and cloud cover is a regional forecast, not a reading at my window. The discount is 70% of the cloud cover, so a 51% forecast removed 0.7 × 0.51 ≈ 36% of the penetration, leaving about 0.64 of it: 0.60 × 0.64 ≈ 0.39. That also explains September 24: under a 100% forecast, even head-on sun tops out at 1.0 × 0.30 = 0.30, below the 0.35 dead zone, so the office could never close at all.
 
 [^standing]: Still on my to-do list: that floor assumes I'm sitting. The desk already reports its height, so the math could follow my actual eye line, sitting or standing, instead of only knowing whether I'm in a meeting.
 
