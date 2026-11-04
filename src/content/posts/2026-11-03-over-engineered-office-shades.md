@@ -36,7 +36,7 @@ The house's server sits out of Bluetooth range of the shades, so a small ESP32 b
 
 ### The relay isn't just for shades
 
-The relay turned out to be the best part of the project. Home Assistant treats any ESP32 running [ESPHome's Bluetooth proxy firmware](https://esphome.io/components/bluetooth_proxy/) as an extra antenna for every Bluetooth device in range, so other Bluetooth gadgets around the house now run through it too, locally, with no vendor bridge.
+The relay turned out to be the best part of the project. Home Assistant treats any ESP32 running [ESPHome's Bluetooth proxy firmware](https://esphome.io/components/bluetooth_proxy/) as an extra antenna for every Bluetooth device in range, so other Bluetooth gadgets around the house (smart locks, etc.) now run through it too, locally, with no vendor bridge.
 
 That also made one small board a single point of failure. My standing desk already has an ESP32 in it, an [Upsy Desky](https://upsy-desky.tjhorner.dev) that lets Home Assistant raise and lower the desk, so it now runs as a second proxy.[^desk-proxy]
 
