@@ -26,7 +26,7 @@ The motors themselves don't need the cloud. They're ordinary BLE devices. But ea
 
 I did the "obvious" thing and recorded the Bluetooth traffic between my phone and a shade. I got a clean transcript of an encrypted session and nothing I could do with it.[^sniff] My notes concluded that cracking it would take pulling apart the firmware.
 
-That conclusion was right about the cryptography and wrong about the work, because someone had already done it. A project called [`tilt-local-bridge`](https://github.com/Sunrise-Labs-Dot-AI/tilt-local-bridge) had published the encrypted handshake and the status and position commands under an MIT license. :quote[I spent a day reverse engineering something that was already on GitHub.]{#shades-prior-art} Search first. Then reach for the disassembler.
+That conclusion was right about the cryptography and wrong about the work, because someone had already done it. A project called [`tilt-local-bridge`](https://github.com/Sunrise-Labs-Dot-AI/tilt-local-bridge) had published the encrypted handshake and the status and position commands under an MIT license. :quote[I spent a day reverse engineering something that was already on GitHub.]{#shades-prior-art} I've long said the hardest part of open source is remembering to search for an existing project before you [nerd-snipe](https://xkcd.com/356/) yourself.
 
 ### One small board replaced the hub
 
