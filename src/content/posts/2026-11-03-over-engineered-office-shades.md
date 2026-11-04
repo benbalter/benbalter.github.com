@@ -1,16 +1,16 @@
 ---
 title: How I over-engineered my home office shades
-description: "A schedule left the sun in my eyes mid-meeting, so my Tilt shades now track the sun's azimuth in Home Assistant and know when I'm on a call."
+description: "A schedule left the sun in my eyes mid-meeting, so my home office's Tilt shades now track the sun in Home Assistant and know when I'm on a call."
 tldr: "My west-facing home office shades ran on a schedule, so as the seasons changed, the sun kept landing in my eyes mid-meeting. I rescued the shades before their maker's cloud goes dark, moved them to Home Assistant, and taught them to account for the sun, the season, and whether I'm on a call. If you own Tilt or MySmartBlinds shades, [export your keys today](https://github.com/benbalter/smartblinds-ble#-rescue-your-keys-now-do-this-before-the-cloud-goes-dark)."
 ---
 
 I had a standing afternoon meeting with Evan,[^evan] my engineering counterpart, and despite endless tinkering with my shades, every time the seasons changed it went the same way. Halfway through, right on *its own* schedule, the sun would drop into my office window and land in my eyes.
 
-My office windows face west, and their motorized shades ran on the Tilt app's built-in schedule, which can close them relative to sunset. That sounds smart, but sunset is one number a day. Whether the sun is in my eyes depends on where it sits in the sky right now, and its path shifts with the seasons, so an offset from sunset that worked one month was wrong the next. Every time it was wrong, I found out on that call.
+My home office windows face west, and their motorized shades ran on the Tilt app's built-in schedule, which can close them relative to sunset. That sounds smart, but sunset is one number a day. Whether the sun is in my eyes depends on where it sits in the sky right now, and its path shifts with the seasons, so an offset from sunset that worked one month was wrong the next. Every time it was wrong, I found out on that call.
 
 I taught the shades to track the sun instead. The sun's azimuth (its compass direction) and elevation (its height in the sky), cloud cover, the thermostat's mode, whether I'm on a video call. Now they follow the sun instead of the clock, in every season.
 
-I've worked from home for well over a decade, and my office has picked up a long list of (unnecessary) optimizations along the way. Over-engineering isn't limited to the office, either. See my [home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)), [my book](/2026/08/17/how-i-over-engineered-my-book/), and [two Furbies](/2026/11/02/hacking-furbies-for-halloween/). Most people would have bought blackout curtains.
+I've worked from home for well over a decade, and my home office has picked up a long list of (unnecessary) optimizations along the way. Over-engineering isn't limited to the office, either. See my [home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) ([twice](/2021/09/01/how-i-re-over-engineered-my-home-network/)), [my book](/2026/08/17/how-i-over-engineered-my-book/), and [two Furbies](/2026/11/02/hacking-furbies-for-halloween/). Most people would have bought blackout curtains.
 
 ## The shades almost died with the company that made them
 
@@ -72,9 +72,9 @@ For the dining room, that works. For the office, it opened the shades into the s
 
 My eye is next to one window, and a sunny break in a cloudy afternoon looks exactly like a clear day from my desk.
 
-### The office stopped trusting the forecast
+### The home office stopped trusting the forecast
 
-The office ignores the clouds now and tracks the sun as if the sky were always clear. The dining room has no screens facing its window, so it kept the cloud discount. The cost is a darker office on gray afternoons, and I'll take that over squinting at a slide deck. The real fix is a light sensor in the window, which I don't have yet.
+The office ignores the clouds now and tracks the sun as if the sky were always clear. The dining room has no screens facing its window, so it kept the cloud discount. The cost is a darker home office on gray afternoons, and I'll take that over squinting at a slide deck. The real fix is a light sensor in the window, which I don't have yet.
 
 ### Every move explains itself
 
@@ -86,7 +86,7 @@ The right position depends less on the sun than on where the person is.
 
 ### Measure from your eyes, not the window
 
-At first, the whole house had one floor: no shade below 50% during the day, because the rooms still want light. September 24 was a bad day for my eyes all around. Separately from the forecast episode, a strong low sun cleared the half-closed shade and landed right at my seated eye line. The dining room is fine at 50, because nobody sits there staring at the window. The office needed its own floor, so it now goes down to 25.[^standing]
+At first, the whole house had one floor: no shade below 50% during the day, because the rooms still want light. September 24 was a bad day for my eyes all around. Separately from the forecast episode, a strong low sun cleared the half-closed shade and landed right at my seated eye line. The dining room is fine at 50, because nobody sits there staring at the window. The home office needed its own floor, so it now goes down to 25.[^standing]
 
 ### Meeting mode takes over
 
@@ -109,12 +109,12 @@ Writing things down also stopped me from inventing features. The fabric is a she
 :::objection[Why not just buy shades that already follow the sun?]
 Some do. Wirecutter's current blinds pick, Lutron's Caséta Smart Wood Blinds, can tilt its slats with the sun's position through Lutron's hub. But I already owned shades, and they were about to become expensive fabric.
 
-The rescue had to happen either way. Once the shades took local commands, the model cost an afternoon, and tuning it cost a few weeks of watching them misbehave. A light sensor in the office window is still the right fix for the cloud problem. A sensor tells you how bright the window is. It still won't know you're on a call.
+The rescue had to happen either way. Once the shades took local commands, the model cost an afternoon, and tuning it cost a few weeks of watching them misbehave. A light sensor in the home office window is still the right fix for the cloud problem. A sensor tells you how bright the window is. It still won't know you're on a call.
 :::
 
 ## Steal the dials for sun-tracking shades
 
-If you want to point your own shades at the sun, don't rebuild it like I did. [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store), already does most of this. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and a glare zone you set, lets winter sun in, checks the weather or a light sensor, limits how often and how little it moves, and backs off when you move a shade by hand. Yes, I should have searched first. Again. The dining room now runs on it as a trial, while the office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
+If you want to point your own shades at the sun, don't rebuild it like I did. [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store), already does most of this. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and a glare zone you set, lets winter sun in, checks the weather or a light sensor, limits how often and how little it moves, and backs off when you move a shade by hand. Yes, I should have searched first. Again. The dining room now runs on it as a trial, while my home office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
 
 Whatever runs your shades, these are the lessons that survived contact with an actual afternoon:
 
