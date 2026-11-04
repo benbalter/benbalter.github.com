@@ -92,10 +92,6 @@ The living room wants different things than the office. Nobody stares at the win
 
 When the house is heating, the living room flips from blocking the afternoon sun to letting it in.[^season] The office keeps blocking it year-round, because the monitors care more about glare than the furnace does about heat.
 
-### The fabric can't hold heat in
-
-Writing things down also stopped me from inventing features. The fabric is a sheer solar screen. It cuts heat from the sun, but it has no insulating value at all, so closing the shades at sunset does nothing to hold heat in overnight. The sunset close is for privacy, and only privacy, and a comment in the config says so.[^ai]
-
 ### The living room runs on someone else's code
 
 The living room is also where I'm trying [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store) that does most of what my model does. The office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
@@ -146,5 +142,3 @@ Next time your house does something baffling, check whether it can tell you why 
 [^meeting-off]: The music doesn't resume either. Meeting mode also turns itself off after three hours in case I forget, and music starting by itself in an empty office is creepier than a Furby.
 
 [^season]: Adaptive Cover calls it winter when the indoor temperature drops below a comfort threshold, which I set just above the thermostat's heating setpoint. A house holding at its setpoint counts as winter, and the shades open for the sun.
-
-[^ai]: Most of this config was written with Claude Code. The comments explaining *why* each rule exists turned out to [matter as much for the AI as for me](/2026/10/26/documentation-quality-is-ai-quality/). An agent that reads "this close is privacy, not heat" doesn't propose a heat-saving feature that the fabric can't deliver.
