@@ -92,9 +92,15 @@ The living room wants different things than the office. The room still wants day
 
 When the house is heating, the living room flips from blocking the afternoon sun to letting it in.[^season] The office keeps blocking it year-round, because the monitors care more about glare than the furnace does about heat.
 
-### The living room runs on someone else's code
+### My code in the office, someone else's in the living room
 
-The living room is also where I'm trying [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store) that does most of what my model does. The office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
+After building all of this, I found [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store) that already does most of it. Yes, I should have searched first. Again. The living room now runs on Adaptive Cover, and the office keeps my code. Having both in one house makes the tradeoffs easy to name.
+
+Adaptive Cover is the better default. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and how deep you'll tolerate it, lets winter sun in, checks the weather or a light sensor, limits how often it moves, and backs off when you move a shade by hand. Someone else maintains it, and you set it up in Home Assistant's settings without writing a line of code.[^adaptive]
+
+My code earns its keep where a mistake costs more. It holds the shades still during a call, ignores the forecast for the one window I sit next to, and writes down why it did what it did. It's also mine to maintain, which is the real cost of custom anything.
+
+If you're not as concerned about glare as I am, start with Adaptive Cover. If a wrong move puts the sun in your eyes on camera, you'll want the control.
 
 :::objection[Why not just buy shades that already follow the sun?]
 You're asking the wrong question. For someone like me, it's never "why not just buy it?" It's "can I build it?"
@@ -106,9 +112,7 @@ The rescue had to happen either way. Once the shades took local commands, the mo
 
 ## Steal the dials for sun-tracking shades
 
-If you want to point your own shades at the sun, don't rebuild it like I did. Start with Adaptive Cover. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and a glare zone you set, lets winter sun in, checks the weather or a light sensor, limits how often and how little it moves, and backs off when you move a shade by hand. Yes, I should have searched first. Again.
-
-Whatever runs your shades, these are the lessons that survived contact with an actual afternoon:
+Whether you start with Adaptive Cover or roll your own, these are the lessons that survived contact with an actual afternoon:
 
 1. **Use penetration, not a schedule.** cos(the gap between the sun's azimuth and the window's) × cos(the sun's elevation), clamped to 0 when the sun is behind the wall or below the horizon. Your home automation hub probably already exposes both angles, and a compass app gives you the window's azimuth.
 1. **Add a glare dead zone.** Below some penetration (0.35 for me), there's no glare worth reacting to. Without it, the shades close hours early.
