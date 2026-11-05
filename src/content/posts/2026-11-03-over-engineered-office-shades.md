@@ -97,7 +97,9 @@ When the house is heating, the living room flips from blocking the afternoon sun
 The living room is also where I'm trying [Adaptive Cover](https://github.com/basbruss/adaptive-cover), a custom integration you install through HACS (the Home Assistant Community Store) that does most of what my model does. The office keeps my model, with its meeting mode and its distrust of the forecast.[^adaptive]
 
 :::objection[Why not just buy shades that already follow the sun?]
-Some do. Wirecutter's current blinds pick, Lutron's Caséta Smart Wood Blinds, can tilt its slats with the sun's position through Lutron's hub. But I already owned shades, and they were about to become expensive fabric.
+You're asking the wrong question. For someone like me, it's never "why not just buy it?" It's "can I build it?"
+
+For the record, you can buy shades that follow the sun. Wirecutter's current blinds pick, Lutron's Caséta Smart Wood Blinds, can tilt its slats with the sun's position through Lutron's hub. But I already owned shades, and they were about to become expensive fabric.
 
 The rescue had to happen either way. Once the shades took local commands, the model cost an afternoon, and tuning it cost a few weeks of watching them misbehave. A light sensor in the home office window is still the right fix for the cloud problem. A sensor tells you how bright the window is. It still won't know you're on a call.
 :::
