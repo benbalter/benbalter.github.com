@@ -98,7 +98,7 @@ After building all of this, I found [Adaptive Cover](https://github.com/basbruss
 
 Adaptive Cover is the better default. It tracks the sun across a window, works out how far into the room the sun reaches from the window's height and how deep you'll tolerate it, lets winter sun in, checks the weather or a light sensor, limits how often it moves, and backs off when you move a shade by hand. Someone else maintains it, and you set it up in Home Assistant's settings without writing a line of code.[^adaptive]
 
-My code earns its keep where a mistake costs more. It holds the shades still during a call, ignores the forecast for the one window I sit next to, and writes down why it did what it did. It's also mine to maintain, which is the real cost of custom anything.
+My code earns its keep where a mistake costs more. It holds the shades still during a call, ignores the forecast for the one window I sit next to, and puts a one-line reason for every move on my dashboard. It's also mine to maintain, which is the real cost of custom anything.
 
 If you're not as concerned about glare as I am, start with Adaptive Cover. If a wrong move puts the sun in your eyes on camera, you'll want the control.
 
