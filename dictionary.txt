@@ -49,6 +49,11 @@
 8x
 90s
 9x
+changelogs
+Dependabot
+reviewable
+v4
+v5
 à
 A's
 AAAA
