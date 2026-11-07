@@ -74,10 +74,10 @@ None of that is glamorous, and none of it would have happened if each item cost 
 
 ## Review is still the job
 
-:::objection[Isn't this just flooding an old codebase with AI slop?]
-It would be if nobody read the pull requests.
+:::objection[Isn't this the same AI slop other maintainers are drowning in?]
+The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, I know the code, and I own whatever merges. The agent works for the person accountable for the project, not around them.
 
-Agents are logical to a fault, but they lack taste and product judgment. :quote[AI can generate the right solution to the wrong problem.]{#right-solution-wrong-problem} 
+That's also why review still matters. Agents are logical to a fault, but they lack taste and product judgment. :quote[AI can generate the right solution to the wrong problem.]{#right-solution-wrong-problem}
 
 The agents write a draft. The plugin's existing tests, CI, and code review decide whether it ships, the same way they would for a human contributor I'd never met. [Pull requests are the right interface for agents](/2026/03/18/agentic-workflows/) for exactly this reason. A 756-commit year is only possible because there's a decade of process underneath it. That process is the part I'd keep if the agents disappeared tomorrow.
 :::
