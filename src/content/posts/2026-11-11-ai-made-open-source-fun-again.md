@@ -68,7 +68,9 @@ Review doesn't catch everything, either. In 2025, someone reported a bug in [jek
 
 ## What's left is the fun part
 
-Agents made the work cheap. They didn't make it free, and they didn't make it theirs. Someone still has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's the maintainer's job. TK: one sentence on what the fun part is for you now, in your words.
+Agents made the work cheap. They didn't make it free, and they didn't make it theirs. Someone still has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's the maintainer's job, and it turns out to be the fun part.
+
+The toil is mostly gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own now, and a trivial bug fix takes a few minutes of review instead of an evening. An idea can go from issue to release in hours instead of days, and I keep learning along the way. I also don't have to write tests anymore. Aaron Jorbin, one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
 
 :quote[The scarcest thing in open source is a maintainer with enough time left over to care.]{#scarcest-thing-in-open-source} Agents gave me some of that time back, and the work rose to fill it.
 
