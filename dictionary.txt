@@ -54,6 +54,7 @@ changelogs
 CoffeeScript
 Davey
 Dependabot
+ES6
 reviewable
 v4
 v5

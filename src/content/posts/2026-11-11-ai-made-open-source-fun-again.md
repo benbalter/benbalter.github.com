@@ -34,17 +34,17 @@ The plugin shipped two releases in 2024, and both went out the same day [Davey](
 
 ## It took five tries to escape CoffeeScript
 
-What pulled me back in was CoffeeScript. In 2013, I [moved the plugin's JavaScript to CoffeeScript](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] A decade later, I wanted out, so I [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to convert it back to modern JavaScript. Then nothing happened for a year and a half.
+What pulled me back in was a decision I'd made in 2013. That year, I [moved the plugin's JavaScript to CoffeeScript](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] A decade later, I wanted out. I [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to convert it back to modern JavaScript, and then didn't touch it for a year and a half. It was the kind of tedious, risky rewrite that never feels urgent.
 
-It took five tries. Copilot's coding agent [took](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) [three](https://github.com/wp-document-revisions/wp-document-revisions/pull/407) [swings](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) at it in 2025, and I drove [a fourth](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) from my own account (a 21,000-line diff).
+In May 2025, I handed the issue to Copilot's new coding agent. Its [first attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) didn't replace the old code at all. It added a "modern" copy next to it, and then it stalled. I typed "@copilot try again?" and, a month later, "@copilot are you still working on this?" Neil pushed a commit to help.
 
-None of them merged, and for good reason. Each was a big change I had low confidence in, on code more than 2,000 sites run. The first added a "modern" copy of the code next to the old one instead of replacing it. The second, which I drove myself, ballooned into 96 files, from the development container to the deploy workflow.
+That August, I [drove the second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) myself. It ballooned into 96 files and 21,000 lines, rewriting everything from the development container to the deploy workflow. It never merged.
 
-The third passed CI, but when I asked how I could be confident nothing would break, the agent answered with reassurance instead of evidence. The fourth converted one file and declared the rest already modern. They weren't.
+In October, the [third attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/407) passed CI and had my approval. Then, just after midnight, I asked the question I should have asked first: how could I be confident there were no breaking changes? Three minutes later, the agent replied, "You can be confident there are no breaking changes," followed by a bulleted list of reasons. That's reassurance, not evidence. A minute before asking, I'd [filed an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/409) for the evidence I actually wanted: a JavaScript test suite, which the plugin had never had. The agent [delivered 181 tests](https://github.com/wp-document-revisions/wp-document-revisions/pull/410) that night. I closed the third attempt without merging it.
 
-That third question turned out to be the useful part. The answer to it was a [JavaScript test suite](https://github.com/wp-document-revisions/wp-document-revisions/pull/410) the plugin had never had. In April 2026, the [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/464) deleted the last `.coffee` file with every test passing.[^tests]
+In December, the [fourth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) converted one file. When I asked whether it had gotten the rest, it said they were "already written in modern ES6+." They weren't.
 
-What changed by the fifth try? The models got better, and the agent had more ways to check its own work. That same evening, it [added end-to-end tests](https://github.com/wp-document-revisions/wp-document-revisions/commit/a2a019a1) that drive a real WordPress install in a browser, and they [promptly caught breakage](https://github.com/wp-document-revisions/wp-document-revisions/commit/97145e35) in the modernized blocks that the unit tests had missed.
+The [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/464), in April 2026, converted all five files, deleted the last `.coffee` file, and passed every one of those tests.[^tests] What changed? The models got better, and this time the agent had a way to check its own work. That same evening, it [added end-to-end tests](https://github.com/wp-document-revisions/wp-document-revisions/commit/a2a019a1) that drive a real WordPress install in a browser, and they [promptly caught breakage](https://github.com/wp-document-revisions/wp-document-revisions/commit/97145e35) in the modernized blocks that the unit tests had missed.
 
 ## Agents took the toil out of maintenance
 
@@ -123,7 +123,7 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^coffeescript]: [CoffeeScript](https://coffeescript.org/) added classes, arrow functions, and a cleaner syntax years before JavaScript had them. JavaScript added most of those features in 2015, which took away most of the reason to use it.
 
-[^tests]: 181 unit tests, 113 of them written in that pull request.
+[^tests]: All 181 tests from that October night passed, and the fifth attempt added 113 more.
 
 [^setup]: Until May 2026, I worked at GitHub, and my agent was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. That was a time when the company encouraged employees to get fluent with AI tools by using them as much as possible. When that job ended in May, I switched to [Claude Code](https://claude.com/claude-code). The workflow is the same either way: the agent opens a pull request, and I review it.
 
