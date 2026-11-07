@@ -24,7 +24,7 @@ TK: confirm how Neil wants to be credited (his GitHub profile has no display nam
 
 He kept it alive, but one volunteer can only do so much. By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
 
-Most abandoned open source looks like this. Nobody decides to walk away. The maintainer's attention goes somewhere else, the issue queue gets a little longer every month, and eventually the cost of catching up looks bigger than the cost of ignoring it.
+Most abandoned open source looks like this. :quote[Nobody decides to walk away. The maintainer's attention goes somewhere else, the issue queue gets a little longer every month, and eventually the cost of catching up looks bigger than the cost of ignoring it.]{#nobody-decides-to-walk-away}
 
 ## A government department was waiting on me
 
