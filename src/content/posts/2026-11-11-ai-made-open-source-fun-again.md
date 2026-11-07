@@ -28,7 +28,7 @@ I was a law and business student at the time. WordPress [picked it as one of its
 
 After that, I came back in bursts, in 2017 and again in 2021, and drifted off in between.
 
-Life happened, and the plugin never broke badly enough to force my hand. The closest it came was an email in April 2019 from a student editor at my old law journal. Someone had tampered with the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed. By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
+Life happened, and the plugin never broke badly enough to force my hand. The closest it came was an email in April 2019 from a student editor at my old law journal. Someone had tampered with the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability] By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
 
 It survived because of [Neil James](https://github.com/NeilWJames), who started contributing in 2017 and has made nearly 1,200 commits since, more than half my own lifetime count. In the chart above, he's most of the plugin from 2019 through 2024. When a user [needed it to work with WPML](https://github.com/wp-document-revisions/wp-document-revisions/issues/324), a closed-source translation plugin, Neil talked WPML into giving him a sandbox and spent six months building an integration. TK: confirm how Neil wants to be credited (his GitHub profile has no display name) and how you'd describe his role. If you've used the plugin in the last few years, thank him.
 
@@ -82,6 +82,8 @@ If you've got a project in the same state mine was in, here's roughly what worke
 1. **Thank the people who kept it alive.** If someone held the project together while you were gone, say so publicly. Mine is Neil.
 
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
+
+[^maintainability]: A student journal replaces its whole board every year or two, so anything you build for one is really built for strangers who'll inherit it without you. Building on WordPress was the right call there: it's boring, well documented, and someone nearby always knows it. Two years later, I undercut that by moving the plugin's JavaScript to CoffeeScript, a language fewer people could read with every year that passed. If I were starting today, I'd pick the boring option every time and write the handoff doc before the first commit, because whoever inherits the thing won't know who to email. Or worse, they will.
 
 [^coffeescript]: [CoffeeScript](https://coffeescript.org/) added classes, arrow functions, and a cleaner syntax years before JavaScript had them. JavaScript added most of those features in 2015, which took away most of the reason to use it.
 
