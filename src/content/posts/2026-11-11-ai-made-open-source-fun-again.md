@@ -12,19 +12,17 @@ The plugin also just passed 200,000 downloads (TK: confirm the count on the [plu
 
 ## Side projects starve before they die
 
-I built WP Document Revisions because I was trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow and [found it baffling](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks, so I pitched bolting document management onto it as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/).
+In 2011, I was a law and business student trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow, and [losing](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks. All it was missing was documents, so I pitched bolting them on as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/), and WordPress [picked it](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/). My entire public reaction was "[W00t I can haz Google Summer of Code](https://ben.balter.com/tweets/status/62596492455723008/)."
 
-I was a law and business student at the time. WordPress [picked it as one of its 12 student projects that year](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/), news I took [about as calmly as you'd expect](https://ben.balter.com/tweets/status/62596492455723008/). Three WordPress developers mentored me through the summer,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). In 2011 and 2012, I made 343 commits.
+I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
-After that, I came back in bursts, in 2017 and again in 2021, and drifted off in between.
+The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. Someone had tampered with the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
 
-Life happened, and the plugin never broke badly enough to force my hand. The closest it came was an email in April 2019 from a student editor at my old law journal. Someone had tampered with the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
-
-By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
-
-It survived because of [Neil James](https://github.com/NeilWJames), who started contributing in 2017 and has made more than 950 commits since, more than half my own lifetime count. In the chart above, he's most of the plugin from 2019 through 2024.[^wpml]
+While I was drifting, someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [shipping whole releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). By the time I'd stopped paying attention, he'd made more than 950 commits, and from 2019 through 2024, he's most of the chart above.[^wpml]
 
 TK: confirm how Neil wants to be credited (his GitHub profile has no display name) and how you'd describe his role. If you've used the plugin in the last few years, thank him.
+
+He kept it alive, but one volunteer can only do so much. By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
 
 Most abandoned open source looks like this. Nobody decides to walk away. The maintainer's attention goes somewhere else, the issue queue gets a little longer every month, and eventually the cost of catching up looks bigger than the cost of ignoring it.
 
