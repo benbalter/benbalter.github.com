@@ -58,6 +58,8 @@ Here's what that looks like in practice.[^setup] On the morning of September 28,
 
 Over a year, that adds up: 180 merged pull requests from me and my agents, plus 117 dependency updates from [Dependabot](https://docs.github.com/en/code-security/dependabot) and [Renovate](https://docs.renovatebot.com/), and 33 releases between v4.0.0 in April and v5.8.3 on November 7. Twenty-three of those releases were small patch releases. The previous record for releases in a year was 11, set the year the plugin launched.
 
+I should be upfront about the cost, too. Until May 2026, a lot of this happened on my employer's dime, while I worked at GitHub. Since then, it's been on mine.
+
 ![Bar chart of releases per year of WP Document Revisions, 2011 to 2026. 11 in 2011 and 9 in 2012, then between zero and five a year from 2013 through 2025. 2026 has 33.](/assets/img/wp-document-revisions-releases-by-year-1600x900.svg "Releases per year, counted from release tags. 2026 is through November 7.")
 
 ## Agents are best at the chores maintainers skip
@@ -94,7 +96,7 @@ Agents made the work cheap, but someone still has to decide what the plugin is f
 
 Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own now, and a trivial bug fix takes a few minutes of review instead of an evening. An idea can go from issue to release in hours instead of days, and I keep learning along the way.
 
-And every pull request now arrives with its own tests, so I don't have to write them. Aaron Jorbin, one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
+And every pull request now arrives with its own tests, so I don't have to write them. Aaron Jorbin, one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Since May, it's been a hobby again, the way it was in 2011. Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
 
 ## It wasn't just one plugin
 
@@ -125,7 +127,7 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^tests]: 181 unit tests, 113 of them written in that pull request.
 
-[^setup]: Until May 2026, that was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. Since then, it's been [Claude Code](https://claude.com/claude-code). Neither company pays me, and the workflow is the same either way: the agent opens a pull request, and I review it.
+[^setup]: Until May 2026, I worked at GitHub, and my agent was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. That was a time when the company encouraged employees to get fluent with AI tools by using them as much as possible. When that job ended in May, I switched to [Claude Code](https://claude.com/claude-code). The workflow is the same either way: the agent opens a pull request, and I review it.
 
 [^abilities]: The Abilities API is WordPress's way of describing what a plugin can do, so that AI agents and the command palette can call it. The plugin's abilities are read-only, and the [WordPress MCP Adapter](https://github.com/WordPress/mcp-adapter) exposes them over the Model Context Protocol, so an assistant can look up documents without being able to change them.
 
