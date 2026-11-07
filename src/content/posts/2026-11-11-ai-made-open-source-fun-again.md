@@ -58,7 +58,7 @@ Here's what that looks like in practice.[^setup] On the morning of September 28,
 
 Over a year, that adds up: 180 merged pull requests from me and my agents, plus 117 dependency updates from [Dependabot](https://docs.github.com/en/code-security/dependabot) and [Renovate](https://docs.renovatebot.com/), and 33 releases between v4.0.0 in April and v5.8.3 on November 7. Twenty-three of those releases were small patch releases. The previous record for releases in a year was 11, set the year the plugin launched.
 
-I should be upfront about the cost, too. Until May 2026, a lot of this happened on my employer's dime, while I worked at GitHub. Since then, it's been on mine.
+I should be upfront about the cost, too. Until May 2026, a lot of this happened on my employer's dime, while I worked at GitHub. Since then, it's been on my own time.
 
 ![Bar chart of releases per year of WP Document Revisions, 2011 to 2026. 11 in 2011 and 9 in 2012, then between zero and five a year from 2013 through 2025. 2026 has 33.](/assets/img/wp-document-revisions-releases-by-year-1600x900.svg "Releases per year, counted from release tags. 2026 is through November 7.")
 
