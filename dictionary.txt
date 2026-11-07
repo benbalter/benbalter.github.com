@@ -49,12 +49,15 @@
 8x
 90s
 9x
+benchmarking
 changelogs
 CoffeeScript
+Davey
 Dependabot
 reviewable
 v4
 v5
+WPML
 à
 A's
 AAAA
