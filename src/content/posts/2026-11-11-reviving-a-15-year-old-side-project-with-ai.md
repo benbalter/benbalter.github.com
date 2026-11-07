@@ -12,7 +12,7 @@ TK: one or two sentences on what got you back in. Your first commit after 11 mon
 
 ## Side projects starve before they die
 
-I built WP Document Revisions because I was trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow and [found it baffling](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks, so I pitched bolting document management onto it as a [Google Summer of Code](https://summerofcode.withgoogle.com/) project. Google funded it, WordPress's lead developers mentored it, and [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) shipped that summer. In 2011 and 2012, I made 343 commits.
+I built WP Document Revisions because I was trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow and [found it baffling](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks, so I pitched bolting document management onto it as a [Google Summer of Code](https://summerofcode.withgoogle.com/) project. Google funded it, WordPress's lead developers mentored it, and [WP Document Revisions](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) launched that August. In 2011 and 2012, I made 343 commits.
 
 TK: in your words, why you drifted away (the draft guessed "life happened, and the plugin never broke badly enough to force my hand"). Between June 2024 and August 2025, it went 14 months without a release.
 
