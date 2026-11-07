@@ -38,9 +38,9 @@ Most abandoned open source looks like this. Nobody decides to walk away. The mai
 
 The expensive part of maintaining an old project is the context switch, not the typing: remembering how the upload path works, rebuilding the test environment, reading a three-year-old issue to figure out what the reporter meant. On a side project you touch twice a year, that ramp-up eats the whole evening before you change a line. It's also the least fun part of open source.
 
-Agents eat most of that ramp-up. I can point one at an issue and come back to a pull request with a diagnosis, a fix, and a failing test that now passes. My job becomes reading it and deciding whether it's right. That's a short task. TK: how long a typical review takes you, and when you fit them in.
+Agents eat most of that ramp-up. I can point one at an issue and come back to a pull request with a diagnosis, a fix, and a failing test that now passes. My job becomes reading it and deciding whether it's right. That's a short task. Of the 180 pull requests I merged on the plugin this year, half merged within 10 minutes of being opened, and four in five within an hour.
 
-TK: name your actual setup. Of the 599 AI commits since May 2025, 108 came from Copilot's coding agent and the rest from your account. Which tool drove those (Copilot in the editor, Claude Code)? Add one concrete example: a specific issue an agent turned around, and roughly how long your review took.
+Until May 2026, my agent was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. Since then, it's been [Claude Code](https://claude.com/claude-code). Here's what that looks like in practice. On the morning of September 28, Davey filed two bug reports from the Ministry of Justice: a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726) on older documents. Both fixes merged that night, and they shipped in a release the next day.
 
 Multiply that by a year and you get the 2026 numbers: 33 releases between v4.0.0 in April and v5.8.3 on November 7, 173 merged pull requests from my account, and another 117 dependency updates from [Dependabot](https://docs.github.com/en/code-security/dependabot) and [Renovate](https://docs.renovatebot.com/) that nobody had to think about. The previous record for releases in a year was 11, set the year the plugin launched.
 
@@ -74,6 +74,12 @@ Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many 
 
 :quote[The scarcest thing in open source is a maintainer with enough time left over to care.]{#scarcest-thing-in-open-source} Agents gave me some of that time back, and the work rose to fill it.
 
+## It wasn't just one plugin
+
+WP Document Revisions wasn't the only thing I'd let go quiet. I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. Three hadn't had a release since 2019. This year, they've had 274 commits and 29 releases.[^pages-versions]
+
+Same story with [word2md](https://word2md.com), the Word-to-Markdown converter that started as [a little Heroku app](/2026/10/26/documentation-quality-is-ai-quality/) twelve years ago. I started rewriting it in JavaScript in 2024 so it could run entirely in your browser, and it's had 449 commits this year, compared with 52 that first year. Its mirror image, [md2word](https://md2word.app), didn't exist until March. It has 197 commits now.
+
 ## How to revive your own side project
 
 If you've got a project in the same state mine was in, here's roughly what worked. TK: confirm each step matches what you did (the plugin repository has CI, `renovate.json`, and a `CLAUDE.md`, so steps 1–3 check out).
@@ -88,6 +94,8 @@ If you've got a project in the same state mine was in, here's roughly what worke
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
 
 [^maintainability]: A student journal replaces its whole board every year or two, so anything you build for one is really built for strangers who'll inherit it without you. The lesson I took is about product decisions. Assume whatever you ship will still be running in ten years, long after anyone remembers why it works the way it does. Ask what will break first, and who will support it when you're not around. Cut the features and settings that each need care and feeding forever. Make it obvious to the next person, who never saw the issue thread or the launch post, what the thing does and what to do when it stops doing it. Whoever inherits it won't know who to email. Or worse, they will.
+
+[^pages-versions]: GitHub Pages pins its own versions of these plugins and updates them on its own schedule, so most of those fixes reach sites that build with Jekyll directly, for example through GitHub Actions. Pages picked up a security fix for one of them [this month](https://github.com/github/pages-gem/pull/965).
 
 [^coffeescript]: [CoffeeScript](https://coffeescript.org/) added classes, arrow functions, and a cleaner syntax years before JavaScript had them. JavaScript added most of those features in 2015, which took away most of the reason to use it.
 
