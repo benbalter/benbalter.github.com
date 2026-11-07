@@ -56,6 +56,7 @@ export const siteConfig = {
     '2022-03-17-why-async',
     '2022-02-16-leaders-show-their-work',
     '2014-11-06-rules-of-communicating-at-github',
+    '2026-10-29-the-rule-of-no-surprises',
     '2021-02-01-what-to-read-before-starting-or-interviewing-at-github',
     '2020-08-25-how-i-manage-github-notifications',
     '2015-08-12-the-zen-of-github',
@@ -199,7 +200,7 @@ export const popularPostSlugs: string[] = [
   '2015-08-12-the-zen-of-github',
   '2014-11-06-rules-of-communicating-at-github',
   '2023-03-02-github-for-non-technical-roles',
-  '2021-09-01-how-i-re-over-engineered-my-home-network',
+  '2026-10-29-the-rule-of-no-surprises',
   '2015-11-12-why-urls',
   '2022-03-17-why-async',
 ];
