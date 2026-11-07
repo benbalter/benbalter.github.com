@@ -50,6 +50,7 @@
 90s
 9x
 changelogs
+CoffeeScript
 Dependabot
 reviewable
 v4
