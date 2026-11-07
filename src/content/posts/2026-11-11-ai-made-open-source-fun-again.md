@@ -12,11 +12,15 @@ The plugin also just passed 200,000 downloads (TK: confirm the count on the [plu
 
 ## Side projects starve before they die
 
+### It worked too well
+
 In 2011, I was a law and business student trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow, and [losing](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks. All it was missing was documents, so I pitched bolting them on as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/), and WordPress [picked it](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/). My entire public reaction was "[W00t I can haz Google Summer of Code](https://ben.balter.com/tweets/status/62596492455723008/)."
 
 I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
 The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. Someone had tampered with the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
+
+### Someone else showed up
 
 While I was drifting, someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [shipping whole releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). By the time I'd stopped paying attention, he'd made more than 950 commits, and from 2019 through 2024, he's most of the chart above.[^wpml]
 
@@ -26,13 +30,17 @@ He kept it alive, but one volunteer can only do so much. By 2023, I was down to 
 
 Most abandoned open source looks like this. :quote[Nobody decides to walk away. The maintainer's attention goes somewhere else, the issue queue gets a little longer every month, and eventually the cost of catching up looks bigger than the cost of ignoring it.]{#nobody-decides-to-walk-away}
 
-## A government department was waiting on me
+## What brought me back
+
+### A government department was waiting on me
 
 What brought me back was a number. WordPress.org says the plugin runs on [more than 2,000 sites](https://wordpress.org/plugins/wp-document-revisions/). One of them is the UK Ministry of Justice, whose [intranet](https://github.com/ministryofjustice/intranet) and [WordPress hosting platform](https://github.com/ministryofjustice/hale-platform) both build on it.
 
+TK: the moment it clicked that 2,000+ sites relied on it. When was it, and how did you find out?
+
 The plugin shipped two releases in 2024, and both went out the same day [Davey](https://github.com/EarthlingDavey), a developer on the Ministry's intranet, opened an issue [asking for one](https://github.com/wp-document-revisions/wp-document-revisions/issues/344), [politely, twice](https://github.com/wp-document-revisions/wp-document-revisions/issues/349). All four of my commits that year were on the second of those days. A plugin I wrote as a law student was holding up a government department's documents, and its maintainer needed reminders to ship.
 
-## It took five tries to escape CoffeeScript
+### It took five tries to escape CoffeeScript
 
 What pulled me back in was a decision I'd made in 2013. That year, I [moved the plugin's JavaScript to CoffeeScript](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] A decade later, I wanted out. I [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to convert it back to modern JavaScript, and then didn't touch it for a year and a half. It was the kind of tedious, risky rewrite that never feels urgent.
 
@@ -50,9 +58,11 @@ The [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisio
 
 The expensive part of maintaining an old project is the context switch, not the typing: remembering how the upload path works, rebuilding the test environment, reading a three-year-old issue to figure out what the reporter meant. On a side project you touch twice a year, that ramp-up eats the whole evening before you change a line. It's also the least fun part of open source.
 
+### Review takes minutes, not evenings
+
 Agents handle most of that ramp-up. I can point one at an issue and come back to a pull request with a diagnosis, a fix, and a failing test that now passes. My job becomes reading it and deciding whether it's right. That's a short task, as long as the pull request is small and the tests are real. Of the 180 pull requests I merged on the plugin this year, half merged within 10 minutes of being opened. Those were small: a median of about 60 changed lines, and none could merge until the unit tests, the end-to-end tests, and WordPress's own plugin checks passed.[^checks]
 
-Here's what that looks like in practice.[^setup] On the morning of September 28, Davey filed two bug reports from the Ministry of Justice: a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726) on older documents. Both fixes merged that night, and they shipped in a release the next day.
+Here's what that looks like in practice.[^setup] On the morning of September 28, Davey filed two bug reports from the Ministry of Justice: a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726) on older documents. His site has about 27,000 documents among 120,000 attachments, each page of the Media Library took 3–4 seconds to load, and he'd already traced it to the query. Both fixes merged that night and shipped in a release the next day. Then he and Neil spent two weeks benchmarking query variants against his database, just to see if it could go faster.
 
 Over a year, that adds up: 180 merged pull requests from me and my agents, plus 117 dependency updates from [Dependabot](https://docs.github.com/en/code-security/dependabot) and [Renovate](https://docs.renovatebot.com/), and 33 releases between v4.0.0 in April and v5.8.3 on November 7. Twenty-three of those releases were small patch releases. The previous record for releases in a year was 11, set the year the plugin launched.
 
@@ -60,17 +70,22 @@ I should be upfront about the cost, too. Until May 2026, a lot of this happened 
 
 ![Bar chart of releases per year of WP Document Revisions, 2011 to 2026. 11 in 2011 and 9 in 2012, then between zero and five a year from 2013 through 2025. 2026 has 33.](/assets/img/wp-document-revisions-releases-by-year-1600x900.svg "Releases per year, counted from release tags. 2026 is through November 7.")
 
-## Agents are best at the chores maintainers skip
+### Agents do the chores maintainers skip
 
-The most valuable work wasn't the big features, though there were some: opt-in block editor support, a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/) that lets you try the plugin in your browser without installing it, and support for AI agents to look up documents through the WordPress Abilities API.[^abilities] The real change was all the work that a solo maintainer rationally skips. TK: confirm which of these were agent-driven; all four PRs came from your account, so the repository can't tell.
+The most valuable work wasn't the big features, though there were some: opt-in block editor support and support for AI agents to look up documents through the WordPress Abilities API.[^abilities] The real change was all the work that a solo maintainer rationally skips. TK: confirm which of these were agent-driven; all four PRs came from your account, so the repository can't tell.
 
 - **Changelogs a human can read.** The [5.8.3 changelog](https://github.com/wp-document-revisions/wp-document-revisions/releases) explains what broke, who saw it, and what to do about it, instead of "misc fixes."
 - **Translations.** The plugin moved its bundled translations to WordPress.org language packs, so translators get their work in front of users without waiting on me to cut a release.
 - **The weird edge cases.** One recent fix covers the case where a PHP upgrade changes which account PHP runs as, so the server can't read a document's file anymore. Before, people got a blank error page. Now they get a message that says what's wrong.
-- **Problems that only show up at scale.** Davey's [Media Library report](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) came with his site's numbers (about 27,000 documents among 120,000 attachments, and 3–4 seconds to load each page) and a diagnosis of the query. After the fix shipped, he and Neil spent two weeks benchmarking query variants against his database.
 - **Security advisories.** The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. Seven covered code that predates the agents, some of it by years. Four covered code the agents wrote this year, including private documents uploaded through the new block editor panel landing in an unprotected folder. That's the cost of moving this fast.
 
 None of that is glamorous, and none of it would have happened if each item cost me an evening. Once each one took a short review instead, they all fit.
+
+### It wasn't just one plugin
+
+WP Document Revisions wasn't the only thing I'd let go quiet. I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. Three hadn't had a release since 2019. This year, they've had 274 commits and 29 releases.[^pages-versions]
+
+Same story with [word2md](https://word2md.com), the Word-to-Markdown converter that started as [a little Heroku app](/2026/10/26/documentation-quality-is-ai-quality/) twelve years ago. I started rewriting it in JavaScript in 2024 so it could run entirely in your browser, and it's had 449 commits this year, compared with 52 that first year. Its mirror image, [md2word](https://md2word.app), didn't exist until March. It has 197 commits now.
 
 ## Review is still the job
 
@@ -84,6 +99,8 @@ The agents write a draft. The plugin's existing tests, CI, and code review decid
 
 The CoffeeScript migration is the receipt: four attempts I closed without merging, because I didn't trust them on code more than 2,000 sites run.
 
+### Review doesn't catch everything
+
 Review doesn't catch everything, either. In 2025, someone reported a bug in [jekyll-optional-front-matter](https://github.com/benbalter/jekyll-optional-front-matter), another plugin of mine, and [traced it](https://github.com/benbalter/jekyll-optional-front-matter/issues/42) to the order Jekyll sorts pages in. Copilot's [fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/43) ignored that diagnosis and patched the symptom, and I merged it.
 
 Two days later, the reporter found it had emptied their site's search index and navigation. Their own [smaller fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/44), which re-sorted the pages, replaced it a month later. The person who'd read the code closely got it right, and the agent didn't, and my quick review let it through. TK: what you changed after this, if anything (for example, the end-to-end tests that now gate every merge on WP Document Revisions).
@@ -92,15 +109,13 @@ Two days later, the reporter found it had emptied their site's search index and 
 
 Agents made the work cheap, but someone still has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's the maintainer's job, and it turns out to be the fun part.
 
-Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own now, and a trivial bug fix takes a few minutes of review instead of an evening. An idea can go from issue to release in hours instead of days, and I keep learning along the way.
+Here's what the fun part looks like. On the evening of April 28, I added a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/) to the plugin's WordPress.org page, so anyone can try it in their browser without installing anything.[^playground] The agent's [first commit](https://github.com/wp-document-revisions/wp-document-revisions/commit/22f4fc5e) for it landed at 6:09 PM Eastern, and it was in a release three minutes later. The file had the wrong path, so the [fix](https://github.com/wp-document-revisions/wp-document-revisions/commit/6fd9d349) shipped six minutes after that, one of four releases that day. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
 
-And every pull request now arrives with its own tests, so I don't have to write them. Aaron Jorbin, one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Since May, it's been a hobby again, the way it was in 2011. Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
+Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own now, and a trivial bug fix takes a few minutes of review instead of an evening. I keep learning along the way, too.
 
-## It wasn't just one plugin
+And every pull request now arrives with its own tests, so I don't have to write them. [Aaron Jorbin](https://aaron.jorb.in/), one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Since May, it's been a hobby again, the way it was in 2011. Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
 
-WP Document Revisions wasn't the only thing I'd let go quiet. I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. Three hadn't had a release since 2019. This year, they've had 274 commits and 29 releases.[^pages-versions]
-
-Same story with [word2md](https://word2md.com), the Word-to-Markdown converter that started as [a little Heroku app](/2026/10/26/documentation-quality-is-ai-quality/) twelve years ago. I started rewriting it in JavaScript in 2024 so it could run entirely in your browser, and it's had 449 commits this year, compared with 52 that first year. Its mirror image, [md2word](https://md2word.app), didn't exist until March. It has 197 commits now.
+In 2024, a government department had to ask me twice for a release. This year, it got 33, and nobody had to ask.
 
 ## How to revive your own side project
 
@@ -115,7 +130,7 @@ If you've got a project in the same state mine was in, here's roughly what worke
 
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
 
-[^mentors]: [Mitcho Erlewine](https://mitcho.com/), Aaron Jorbin, and [Jon Cave](https://joncave.co.uk/). Andrew Nacin, then one of WordPress's lead developers, kept a close eye on it too.
+[^mentors]: [Mitcho Erlewine](https://mitcho.com/), [Aaron Jorbin](https://aaron.jorb.in/), and [Jon Cave](https://joncave.co.uk/). Andrew Nacin, then one of WordPress's lead developers, kept a close eye on it too.
 
 [^maintainability]: A student journal replaces its whole board every year or two, so anything you build for one is really built for strangers who'll inherit it without you. The lesson I took is about product decisions. Assume whatever you ship will still be running in ten years, long after anyone remembers why it works the way it does. Ask what will break first, and who will support it when you're not around. Cut the features and settings that each need care and feeding forever. Make it obvious to the next person, who never saw the issue thread or the launch post, what the thing does and what to do when it stops doing it. Whoever inherits it won't know who to email. Or worse, they will.
 
@@ -132,3 +147,5 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 [^pages-versions]: GitHub Pages pins its own versions of these plugins and updates them on its own schedule, so most of those fixes reach sites that build with Jekyll directly, for example through GitHub Actions. Pages picked up a security fix for one of them [this month](https://github.com/github/pages-gem/pull/965).
 
 [^checks]: The repository's branch rules require the unit tests, the end-to-end tests, the WordPress.org Plugin Check, and a few build checks to pass before anything merges, including Renovate's automatic merges.
+
+[^playground]: WordPress.org can launch any plugin in [WordPress Playground](https://wordpress.org/playground/), a full WordPress that runs entirely in the browser, if the plugin ships a small configuration file describing how to set it up.
