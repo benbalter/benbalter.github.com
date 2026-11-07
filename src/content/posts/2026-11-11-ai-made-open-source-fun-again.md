@@ -59,7 +59,7 @@ The most valuable work wasn't the big features, though there were some: opt-in b
 None of that is glamorous, and none of it would have happened if each item cost me an evening. Once each one took a short review instead, they all fit.
 
 :::objection[Isn't this just flooding an old codebase with AI slop?]
-It would be if nobody read the pull requests. TK: confirm, in your words, how you review agent pull requests and how often you reject or rework one. The agents write a draft. The plugin's existing tests, CI, and code review decide whether it ships, the same way they would for a human contributor I'd never met. [Pull requests are the right interface for agents](/2026/03/18/agentic-workflows/) for exactly this reason. A 756-commit year is only possible because there's a decade of process underneath it. That process is the part I'd keep if the agents disappeared tomorrow.
+It would be if nobody read the pull requests. Agents are logical to a fault, but they lack taste and product judgment. :quote[AI can generate the right solution to the wrong problem.]{#right-solution-wrong-problem} The agents write a draft. The plugin's existing tests, CI, and code review decide whether it ships, the same way they would for a human contributor I'd never met. [Pull requests are the right interface for agents](/2026/03/18/agentic-workflows/) for exactly this reason. A 756-commit year is only possible because there's a decade of process underneath it. That process is the part I'd keep if the agents disappeared tomorrow.
 :::
 
 The CoffeeScript migration is the receipt: three agent attempts that didn't meet the bar, closed without merging. TK: optional, a line on what was wrong with them, in your words.
