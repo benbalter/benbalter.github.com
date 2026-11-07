@@ -64,6 +64,8 @@ It would be if nobody read the pull requests. TK: confirm, in your words, how yo
 
 The CoffeeScript migration is the receipt: three agent attempts that didn't meet the bar, closed without merging. TK: optional, a line on what was wrong with them, in your words.
 
+Review doesn't catch everything, either. In 2025, someone reported a bug in [jekyll-optional-front-matter](https://github.com/benbalter/jekyll-optional-front-matter), another plugin of mine, and [traced it](https://github.com/benbalter/jekyll-optional-front-matter/issues/42) to the order Jekyll sorts pages in. Copilot's [fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/43) ignored that diagnosis and patched the symptom, and I merged it. Two days later, the reporter found it had emptied their site's search index and navigation. Their own [smaller fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/44), which re-sorted the pages, replaced it a month later. The person who'd read the code closely got it right, and the agent didn't. (Fittingly, an agent [deleted the last of Copilot's leftover code](https://github.com/benbalter/jekyll-optional-front-matter/pull/55) in 2026.)
+
 ## What's left is the fun part
 
 Agents made the work cheap. They didn't make it free, and they didn't make it theirs. Someone still has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's the maintainer's job. TK: one sentence on what the fun part is for you now, in your words.
