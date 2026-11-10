@@ -52,7 +52,7 @@
     "dictionary-en": "^4.0.0",
     "es-module-lexer": "3.0.4",
     "eslint": "^10.13.0",
-    "exifreader": "4.53.0",
+    "exifreader": "4.54.0",
     "glob": "^14.0.0",
     "gray-matter": "^4.0.3",
     "happy-dom": "^21.0.4",
