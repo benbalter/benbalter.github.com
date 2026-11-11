@@ -2,6 +2,8 @@
 employer: Open & Async
 title: Author
 start_date: '2026-05-01'
+end_date: '2026-11-13'
+employer_url: https://open-and-async.com
 print_bullets: 2
 ---
 

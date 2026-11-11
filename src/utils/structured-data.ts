@@ -61,9 +61,14 @@ function personFields(overrides?: Partial<PersonLeaf>): PersonLeaf {
     name: siteConfig.author,
     url: siteConfig.url,
     email: siteConfig.email,
-    // Currently between full-time roles: no worksFor/jobTitle is asserted.
-    // GitHub is represented as a former affiliation. (On the resume page,
-    // generateResumeSchema overrides worksFor/alumniOf from résumé data.)
+    // The current role, plus GitHub as the former affiliation. (On the résumé
+    // page, generateResumeSchema overrides worksFor/alumniOf from résumé data.)
+    jobTitle: siteConfig.jobTitle,
+    worksFor: {
+      '@type': 'Organization',
+      name: siteConfig.employer,
+      url: siteConfig.employerUrl,
+    },
     alumniOf: {
       '@type': 'Organization',
       name: siteConfig.formerEmployer,
@@ -295,6 +300,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
 interface ResumeSchemaProps {
   positions: Array<{
     employer: string;
+    /** Employer homepage, for the current role's worksFor.url. */
+    employerUrl?: string;
     title: string;
     startDate: string;
     endDate?: string;
@@ -332,9 +339,9 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
     };
   });
 
-  // Unlike the sitewide Person (which stays employer-neutral during transitions),
-  // the résumé asserts the current role — the page already renders it as the
-  // present position. The current role is the one with no end date.
+  // The résumé asserts its own current role, the one with no end date, since
+  // the page already renders it as the present position. Positions are sorted
+  // most-recent-first, so a newer role wins over an ongoing older one.
   const currentRole = positions.find(position => !position.endDate);
 
   const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
@@ -361,7 +368,7 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
           worksFor: {
             '@type': 'Organization',
             name: currentRole.employer,
-            url: 'https://open-and-async.com',
+            ...(currentRole.employerUrl && { url: currentRole.employerUrl }),
           },
         }
       : {}),
@@ -374,6 +381,12 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   // inherited default so it doesn't shadow the résumé's work history.
   if (alumniOf === undefined) {
     delete schema.alumniOf;
+  }
+  // Likewise, the résumé's work history is the authority on the current role:
+  // with every position ended, don't let the sitewide worksFor/jobTitle leak in.
+  if (!currentRole) {
+    delete schema.worksFor;
+    delete schema.jobTitle;
   }
 
   return schema;

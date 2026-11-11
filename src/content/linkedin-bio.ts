@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Product leader for developer platforms and open source | 10+ years at GitHub: trust and safety, account security, developer tooling | Author of Open and Async | Lawyer who ships code';
+  'Principal Product Manager, API Experience at Cloudflare | Open source | 10+ years at GitHub: trust and safety, developer tooling | Author of Open and Async | Lawyer who ships code';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
@@ -18,9 +18,9 @@ export const linkedinHeadline =
  * Empty strings produce blank lines (paragraph breaks).
  */
 const linkedinAboutLines: readonly string[] = [
-  "I'm a product leader for developer platforms and open source. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ developers and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) and wrote Licensee, the open source library behind GitHub's license detection. My open source projects have hundreds of millions of downloads.",
+  "I'm a principal product manager for API experience at Cloudflare. Before that, I spent over a decade at GitHub. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ developers and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) and wrote Licensee, the open source library behind GitHub's license detection. My open source projects have hundreds of millions of downloads.",
   '',
-  "Most recently I owned the internal platform 4,000+ GitHub employees used to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. At GitHub I was also Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving GitHub adoption across nearly 2,000 government organizations in 75+ countries.",
+  "In my last role at GitHub, I owned the internal platform 4,000+ GitHub employees used to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. At GitHub I was also Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving GitHub adoption across nearly 2,000 government organizations in 75+ countries.",
   '',
   "I wrote Open and Async, the collaborative software development playbook for remote and distributed teams. It ships with a Model Context Protocol server, so agents can query its practices directly.",
   '',

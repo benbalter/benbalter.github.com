@@ -146,6 +146,9 @@ const resumePositionsCollection = defineCollection({
     
     // Optional fields
     end_date: z.string().optional(),
+    // Employer homepage. The résumé's structured data uses it as worksFor.url
+    // for the current role (the one with no end_date).
+    employer_url: z.url().optional(),
     // The PDF résumé (/resume/print/) shows only this role's first N bullets,
     // to hold the sheet to two pages. Every other surface shows them all, so
     // order a role's bullets strongest first.

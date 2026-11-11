@@ -4,6 +4,7 @@ import {
   FNProperty,
   NProperty,
   NicknameProperty,
+  OrgProperty,
   EmailProperty,
   KeyProperty,
   PhotoProperty,
@@ -85,10 +86,9 @@ export const GET: APIRoute = () => {
     // SOURCE
     new SourceProperty([], new URIType(`${siteConfig.url}/vcard.vcf`)),
 
-    // TITLE
-    // Currently between full-time roles; present GitHub as a former role
-    // rather than asserting a current employer via ORG.
-    new TitleProperty([], new TextType(`Formerly ${siteConfig.formerJobTitle} at ${siteConfig.formerEmployer}`)),
+    // ORG + TITLE (the current role)
+    new OrgProperty([], new SpecialValueType('orgproperty', [new TextType(siteConfig.employer)])),
+    new TitleProperty([], new TextType(siteConfig.jobTitle)),
 
     // TZ (Timezone)
     new TzProperty([], new TextType(siteConfig.timezone)),

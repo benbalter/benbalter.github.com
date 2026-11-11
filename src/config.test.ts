@@ -47,6 +47,9 @@ describe('siteConfig', () => {
   });
 
   it('should have former employment information', () => {
+    expect(siteConfig.jobTitle).toBeDefined();
+    expect(siteConfig.employer).toBeDefined();
+    expect(siteConfig.employerUrl).toMatch(/^https:\/\//);
     expect(siteConfig.formerJobTitle).toBeDefined();
     expect(siteConfig.formerEmployer).toBe('GitHub');
     expect(siteConfig.formerEmployerUrl).toBeDefined();
@@ -62,6 +65,8 @@ describe('siteConfig', () => {
   it('should have about page description', () => {
     expect(siteConfig.aboutDescription).toBeDefined();
     expect(siteConfig.aboutDescription.length).toBeGreaterThan(0);
+    // Meta description budget, matching e2e/seo-astro.spec.ts.
+    expect(siteConfig.aboutDescription.length).toBeLessThanOrEqual(192);
   });
 
   it('should have PGP key', () => {

@@ -3,6 +3,7 @@ employer: GitHub
 title: Director of Engineering Operations and Culture
 start_date: '2023-02-21'
 end_date: '2024-07-08'
+print_bullets: 2
 ---
 
 - **Team leadership.** Built and led a team of seven business technologists supporting Engineering executives, improving department-level and org-wide operations through internal communication, data-driven decision-making, escalation-based initiative management, and workforce planning.

@@ -3,6 +3,7 @@ employer: GitHub
 title: Director of Hubber (Employee) Enablement, Office of the COO
 start_date: '2024-07-08'
 end_date: '2026-07-03'
+print_bullets: 2
 expanded: true
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: Resume
 description: >-
-  Resume for Ben Balter: product leader for developer platforms and open
-  source; over a decade at GitHub in trust and safety and developer tooling;
-  attorney and author of Open and Async.
+  Resume for Ben Balter: principal product manager for API experience at
+  Cloudflare; over a decade at GitHub in trust and safety and developer
+  tooling; attorney and author.
 permalink: /resume/
 redirect_from: 
   - /cv/
@@ -11,11 +11,11 @@ published: true
 seo:
   type: person
 summary: >-
-  Product leader for developer platforms. Over a decade at GitHub: shipped 500+
-  features and the API endpoints behind them to 50M+ developers, rewrote
-  GitHub Pages bottom-up, and most recently was a director owning the
-  internal platform its employees run on. A lawyer who ships code, and the
-  author of Open and Async.
+  Product leader for developer platforms, now principal product manager for
+  API experience at Cloudflare. Over a decade at GitHub: shipped 500+ features
+  and the API endpoints behind them to 50M+ developers, rewrote GitHub Pages
+  bottom-up, and finished as a director owning the internal platform its
+  employees run on. A lawyer who ships code, and the author of Open and Async.
 highlights:
   - >-
     Shipped 500+ features and policies to a developer platform with 50M+ developers

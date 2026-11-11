@@ -42,6 +42,7 @@ export const GET: APIRoute = async () => {
   // --- At a glance ---------------------------------------------------------
   lines.push('## At a glance');
   lines.push('');
+  lines.push(`- **Currently:** ${siteConfig.jobTitle}, ${siteConfig.employer}`);
   lines.push(`- **Previously:** ${siteConfig.formerJobTitle}, ${siteConfig.formerEmployer}`);
   lines.push('- **Location:** Washington, DC');
   lines.push('- **Education:** JD & MBA, George Washington University');

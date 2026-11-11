@@ -71,9 +71,14 @@ export const siteConfig = {
   email: 'ben@balter.com',
   
   // Employment information.
-  // Currently between full-time roles, so the site asserts no current employer
-  // (no worksFor in the Person schema). GitHub is the most recent/notable
-  // employer, presented as a former affiliation ("Formerly … at GitHub").
+  // The current role feeds the sitewide Person schema (jobTitle + worksFor),
+  // the vCard TITLE/ORG, about.md, and llms.txt. GitHub, the longest-running
+  // and most-cited employer, stays as the former affiliation (alumniOf and the
+  // "Previously" line). The résumé's current role comes from the position
+  // with no end_date in src/content/resume-positions/, so keep the two in step.
+  jobTitle: 'Principal Product Manager, API Experience',
+  employer: 'Cloudflare',
+  employerUrl: 'https://www.cloudflare.com',
   formerJobTitle: 'Director of Hubber Enablement',
   formerEmployer: 'GitHub',
   formerEmployerUrl: 'https://github.com/about',
@@ -92,7 +97,7 @@ export const siteConfig = {
   pgpKey: '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4',
   
   // Default SEO keywords
-  keywords: ['Ben Balter', 'GitHub', 'developer platforms', 'open source', 'product management'],
+  keywords: ['Ben Balter', 'Cloudflare', 'GitHub', 'developer platforms', 'APIs', 'open source', 'product management'],
   
   // Kit (ConvertKit) form ID for inline email subscribe form.
   // Leave empty to hide email row in SubscribeCta.
@@ -128,8 +133,9 @@ export const siteConfig = {
   bookPrice: '$9.99',
   bookPricePaperback: '$29.99',
 
-  // About page metadata
-  aboutDescription: 'Ben Balter is a product leader, open source developer, and attorney who spent over a decade on developer platforms at GitHub. His open source projects have hundreds of millions of downloads.',
+  // About page meta description. e2e/seo-astro.spec.ts caps meta
+  // descriptions at 192 characters; src/config.test.ts checks it here too.
+  aboutDescription: 'Ben Balter is a principal product manager for API experience at Cloudflare, and an attorney and open source developer who spent over a decade on developer platforms at GitHub.',
 
   // standard.site (https://standard.site/) — AT Protocol long-form publishing.
   // The publication and each post become records in the author's own PDS, and

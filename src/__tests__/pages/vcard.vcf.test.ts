@@ -79,14 +79,15 @@ describe('vcard.vcf', () => {
       expect(text).toContain(`EMAIL:${siteConfig.email}`);
     });
 
-    it('should not assert a current organization (between full-time roles)', async () => {
+    it('should contain the current organization', async () => {
       const text = await response.clone().text();
-      expect(text).not.toContain('ORG:');
+      expect(text).toContain(`ORG:${siteConfig.employer}`);
     });
 
-    it('should contain the former job title', async () => {
+    it('should contain the current job title', async () => {
       const text = await response.clone().text();
-      expect(text).toContain(`TITLE:Formerly ${siteConfig.formerJobTitle} at ${siteConfig.formerEmployer}`);
+      // vCard TEXT values escape commas (RFC 6350 §3.4).
+      expect(text).toContain(`TITLE:${siteConfig.jobTitle.replace(/,/g, '\\,')}`);
     });
 
     it('should contain the site URL', async () => {

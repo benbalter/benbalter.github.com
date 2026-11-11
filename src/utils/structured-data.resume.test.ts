@@ -64,13 +64,41 @@ describe('generateResumeSchema', () => {
 
   it('should assert the current role (no end date) as jobTitle + worksFor', () => {
     // The current position — the one with no end date — drives jobTitle and
-    // worksFor. (The sitewide Person stays employer-neutral; the résumé does not.)
-    const schema = generateResumeSchema({ positions: samplePositions });
+    // worksFor, with the position's employer URL.
+    const positions = [
+      { ...samplePositions[0]!, employerUrl: 'https://github.com/about' },
+      ...samplePositions.slice(1),
+    ];
+    const schema = generateResumeSchema({ positions });
     const view = schema as unknown as ResumeView;
 
     expect(view.jobTitle).toBe('Director of Engineering');
-    expect(view.worksFor['@type']).toBe('Organization');
+    expect(view.worksFor).toEqual({
+      '@type': 'Organization',
+      name: 'GitHub',
+      url: 'https://github.com/about',
+    });
+  });
+
+  it('should pick the most recent open role when two have no end date', () => {
+    // Positions arrive sorted most-recent-first, so a new job outranks an
+    // ongoing side project that started earlier.
+    const positions = [
+      { employer: 'Newco', title: 'Product Manager', startDate: '2026-11-01', employerUrl: 'https://newco.example' },
+      { employer: 'Side Project', title: 'Author', startDate: '2026-05-01', employerUrl: 'https://side.example' },
+    ];
+    const view = generateResumeSchema({ positions }) as unknown as ResumeView;
+
+    expect(view.jobTitle).toBe('Product Manager');
+    expect(view.worksFor.name).toBe('Newco');
+    expect(view.worksFor.url).toBe('https://newco.example');
+  });
+
+  it('should omit worksFor.url when the position has none', () => {
+    const view = generateResumeSchema({ positions: samplePositions }) as unknown as ResumeView;
+
     expect(view.worksFor.name).toBe('GitHub');
+    expect(view.worksFor).not.toHaveProperty('url');
   });
 
   it('should not assert a current employer when every position has ended', () => {

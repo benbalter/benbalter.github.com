@@ -32,12 +32,16 @@ describe('generatePersonSchema', () => {
     expect(schema).toHaveProperty('email', siteConfig.email);
   });
 
-  it('should not assert a current employer (between full-time roles)', () => {
+  it('should assert the current role as jobTitle and worksFor', () => {
     const schema = generatePersonSchema();
     const view = schema as unknown as PersonView;
 
-    expect(view.worksFor).toBeUndefined();
-    expect(view.jobTitle).toBeUndefined();
+    expect(view.jobTitle).toBe(siteConfig.jobTitle);
+    expect(view.worksFor).toEqual({
+      '@type': 'Organization',
+      name: siteConfig.employer,
+      url: siteConfig.employerUrl,
+    });
   });
 
   it('should include the former employer as alumniOf', () => {
