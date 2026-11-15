@@ -8,7 +8,7 @@ Here's the commit history for [WP Document Revisions](https://github.com/wp-docu
 
 ![Stacked bar chart of commits per year to WP Document Revisions, 2011 to 2026. My handwritten commits spike in 2011 to 2012, 2017, and 2021, then nearly vanish in 2023 and 2024 while Neil James carries the plugin, and stop entirely after that. From 2025, AI agents take over: 121 commits in 2025 and 478 in 2026. 2026 is the tallest bar by far, with 756 commits: 478 from AI agents, 138 from Neil, and 140 from everyone else, including dependency bots. The previous high was 467 in 2021.](/assets/img/wp-document-revisions-commits-by-year-1600x900.svg "Commits per year, by who made them. Every commit from my account since May 2025 counts as AI. Merges excluded; 2026 is through November 7.")
 
-The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), which feels like a good excuse to look at what changed. I didn't find more free time, and nobody started paying me.
+The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), which feels like a good excuse to look at what changed. I didn't find more free time, and nobody started paying me to maintain it.
 
 :quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
 
