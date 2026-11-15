@@ -126,7 +126,7 @@ If you've got a project where catching up looks more expensive than ignoring it,
 
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
 
-[^business-school]: Like Nathan Fielder, who opens every episode of his Comedy Central show [*Nathan for You*](https://en.wikipedia.org/wiki/Nathan_for_You) with the line, I graduated from one of ~~Canada's~~ Washington, DC's top business schools with really good grades.
+[^business-school]: Like Nathan Fielder, who opens every episode of his Comedy Central show [*Nathan for You*](https://en.wikipedia.org/wiki/Nathan_for_You) with the line, I graduated from one of ~~Canada's~~ Washington, DC's top business schools with "really good grades."
 
 [^mentors]: [Mitcho Erlewine](https://mitcho.com/), [Aaron Jorbin](https://aaron.jorb.in/), and [Jon Cave](https://joncave.co.uk/). Andrew Nacin, then one of WordPress's lead developers, kept a close eye on it too.
 
