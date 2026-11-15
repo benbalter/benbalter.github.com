@@ -12,6 +12,7 @@
 
 import { copyToClipboard } from '../utils/copy-to-clipboard';
 import { isTypingTarget } from '../utils/is-typing-target';
+import { setSingleKeyShortcutsEnabled, singleKeyShortcutsEnabled } from '../utils/single-key-shortcuts';
 import { onPageLoad } from './on-page-load';
 
 /** How long a `g` stays armed waiting for its second key (ms). */
@@ -50,6 +51,9 @@ function disarmChord() {
 function openCheatsheet() {
   const dialog = getDialog();
   if (!dialog || dialog.open) return;
+  // Reflect the current setting each time, in case another tab changed it.
+  const toggle = dialog.querySelector<HTMLInputElement>('[data-single-key-toggle]');
+  if (toggle) toggle.checked = singleKeyShortcutsEnabled();
   dialog.showModal();
 }
 
@@ -94,6 +98,13 @@ async function copyPageLink() {
 
 function handleShortcut(e: KeyboardEvent) {
   if (e.metaKey || e.ctrlKey || e.altKey || isTypingTarget(e)) {
+    disarmChord();
+    return;
+  }
+
+  // Every shortcut below is a bare key, so all of them honor the off switch
+  // (WCAG 2.1.4). The cheatsheet stays reachable from the footer button.
+  if (!singleKeyShortcutsEnabled()) {
     disarmChord();
     return;
   }
@@ -152,6 +163,14 @@ function init() {
 
   dialog.querySelectorAll('[data-shortcuts-close]').forEach((el) => {
     el.addEventListener('click', () => closeCheatsheet());
+  });
+
+  document.querySelectorAll('[data-shortcuts-open]').forEach((el) => {
+    el.addEventListener('click', () => openCheatsheet());
+  });
+
+  dialog.querySelector<HTMLInputElement>('[data-single-key-toggle]')?.addEventListener('change', (e) => {
+    setSingleKeyShortcutsEnabled((e.currentTarget as HTMLInputElement).checked);
   });
 
   // Click outside the panel closes it. A <dialog> stretches its backdrop over
