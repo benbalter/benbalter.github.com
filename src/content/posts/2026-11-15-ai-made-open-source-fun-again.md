@@ -24,7 +24,7 @@ The closest it came to forcing my hand was an email in April 2019 from a student
 
 ### Someone else showed up
 
-While I was drifting, someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [shipping whole releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). By the time I'd stopped paying attention, he'd made more than 950 commits, and from 2019 through 2024, in every year but 2022, he's most of the chart above.[^wpml] If you've used the plugin in the last few years, thank him.
+While I was drifting, someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [shipping whole releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). He's essentially co-maintained the plugin ever since, with more than a thousand commits to show for it. From 2019 through 2024, in every year but 2022, he's most of the chart above.[^wpml] If you've used the plugin in the last few years, thank him.
 
 He kept it alive, but one volunteer can only do so much. By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
 
