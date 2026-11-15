@@ -1,7 +1,7 @@
 ---
 title: AI made open source fun again
 description: "My 15-year-old WordPress plugin passed 200,000 downloads. Open source projects die when catching up costs more than ignoring them. AI flipped that math."
-tldr: "Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them. That math kept me away from WP Document Revisions for years, until AI agents made catching up cheap and 2026 became its busiest year. Point agents at the work you've been skipping, read every diff, and keep the decisions for yourself."
+tldr: "Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them. That math kept me away from WP Document Revisions for years, until AI agents made catching up cheap and 2026 became its busiest year. Point agents at the work you've been dreading, read every diff, and keep the decisions for yourself."
 ---
 
 Here's the commit history for [WP Document Revisions](https://github.com/wp-document-revisions/wp-document-revisions), the WordPress plugin I started in 2011. In 2023, I made seven commits to it. In 2024, four. This year, the plugin had its busiest year ever, 756 commits, and AI agents working for me made 478 of them. I didn't type that code, but I read every diff.
