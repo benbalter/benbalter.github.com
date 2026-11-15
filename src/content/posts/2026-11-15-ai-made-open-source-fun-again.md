@@ -10,7 +10,7 @@ Here's the commit history for [WP Document Revisions](https://github.com/wp-docu
 
 The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), which feels like a good excuse to look at what changed. I didn't find more free time, and nobody started paying me to maintain it.
 
-:quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
+:quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project, my first "real" open source project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
 
 ## Nobody decides to walk away
 
