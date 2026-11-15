@@ -1,5 +1,5 @@
 {
-  "_comment": "csp-xss flipped to warn: a comprehensive CSP is set in public/_headers (default-src 'self', frame-ancestors 'none', base-uri 'self', form-action 'self'). Note Lighthouse only sees CSP when delivered as an HTTP header, so this assertion may still fail when collecting against the static dist (no server). Other rules remain off because: unused-javascript/unused-css-rules report false positives on Astro/Tailwind output that's already purged; lcp-lazy-loaded/prioritize-lcp-image are noisy because the LCP element varies per page; non-composited-animations flags utility CSS transitions on hover; uses-long-cache-ttl can't be evaluated against a static dist (Cloudflare _headers sets immutable 1y on /assets/* in production). robots-txt is still off: Lighthouse 12.6.1 (bundled with @lhci/cli 0.15.1) still only safelists user-agent, allow, disallow, sitemap, crawl-delay, clean-param, host, request-rate, visit-time, and noindex, so it flags our intentional Content-Signal directive (contentsignals.org) as an 'Unknown directive' and scores the file 0. The robots.txt is valid; this is a false positive from the validator. The no-pwa preset in @lhci/cli 0.15.x asserts the Lighthouse 12.6 insight audits at error. network-dependency-tree-insight is set to warn because the trace engine marks it failed for any critical chain of 2+ requests (document then any subresource), so every page scores 0. cls-culprits-insight is set to warn to match cumulative-layout-shift, which is already warn (the /about headshot shifts the intro paragraph). image-delivery-insight is set to warn so a single oversized image surfaces without blocking CI; uses-responsive-images stays at error. forced-reflow-insight is set to warn because it is pass/fail on any forced reflow, and on CI runners /about shows ~30ms of reflow Lighthouse can't attribute to a script (ReadingProgress's attributable startup reflow was fixed). Re-evaluate these after a successful real-environment lighthouse run.",
+  "_comment": "Assertions are at error unless listed here. Off: unused-javascript/unused-css-rules report false positives on Astro/Tailwind output that's already purged; lcp-lazy-loaded/prioritize-lcp-image are noisy because the LCP element varies per page; non-composited-animations flags utility CSS transitions on hover; uses-long-cache-ttl can't be evaluated against a static dist (Cloudflare _headers sets immutable 1y on /assets/* in production); robots-txt flags the intentional Content-Signal directive (contentsignals.org) as an 'Unknown directive' because Lighthouse's validator only safelists the classic directives, a false positive. Warn: network-dependency-tree-insight, because the trace engine marks any critical chain of 2+ requests (document then any subresource) as failed, so every page scores 0. On 2026-11-15 the other warn-level waivers (csp-xss, canonical, offscreen-images, dom-size, modern-image-formats, cumulative-layout-shift, identical-links-same-purpose, total-byte-weight, image-delivery-insight, cls-culprits-insight, forced-reflow-insight) had not fired in the last 10 green runs on main, so they went back to error. If one starts failing, fix the page or move it back to warn here with the reason.",
   "ci": {
     "collect": {
       "staticDistDir": "./dist-astro",
@@ -12,26 +12,26 @@
     "assert": {
       "preset": "lighthouse:no-pwa",
       "assertions": {
-        "csp-xss": "warn",
+        "csp-xss": "error",
         "unused-javascript": "off",
         "unused-css-rules": "off",
-        "canonical": "warn",
+        "canonical": "error",
         "uses-responsive-images": "error",
-        "offscreen-images": "warn",
+        "offscreen-images": "error",
         "lcp-lazy-loaded": "off",
         "non-composited-animations": "off",
         "prioritize-lcp-image": "off",
-        "dom-size": "warn",
-        "modern-image-formats": "warn",
+        "dom-size": "error",
+        "modern-image-formats": "error",
         "uses-long-cache-ttl": "off",
-        "cumulative-layout-shift": "warn",
-        "identical-links-same-purpose": "warn",
-        "total-byte-weight": "warn",
+        "cumulative-layout-shift": "error",
+        "identical-links-same-purpose": "error",
+        "total-byte-weight": "error",
         "robots-txt": "off",
         "network-dependency-tree-insight": "warn",
-        "image-delivery-insight": "warn",
-        "cls-culprits-insight": "warn",
-        "forced-reflow-insight": "warn"
+        "image-delivery-insight": "error",
+        "cls-culprits-insight": "error",
+        "forced-reflow-insight": "error"
       }
     },
     "upload": {
