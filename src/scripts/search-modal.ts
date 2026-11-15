@@ -1,5 +1,6 @@
 import { escapeHtml } from '../utils/html-escape';
 import { isTypingTarget } from '../utils/is-typing-target';
+import { singleKeyShortcutsEnabled } from '../utils/single-key-shortcuts';
 import { getPagefind, type Pagefind, type PagefindResultData } from './pagefind';
 
 let pagefind: Pagefind | null = null;
@@ -285,7 +286,8 @@ function initSearch() {
     // typed inside the query box stays a literal slash (`and/or`). Not gated
     // on shiftKey: `/` is a shifted key on AZERTY and other layouts, and
     // e.key already reports the produced character.
-    if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && !isTypingTarget(e)) {
+    // Honors the single-key shortcut off switch (WCAG 2.1.4); ⌘K doesn't need to.
+    if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && !isTypingTarget(e) && singleKeyShortcutsEnabled()) {
       if (!getModal()?.open) {
         // Firefox binds `/` to quick-find; claim it before that happens.
         e.preventDefault();
