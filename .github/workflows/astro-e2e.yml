@@ -59,6 +59,7 @@ jobs:
               - 'package*.json'
               - 'assets/**'
               - 'script/inject-*'
+              - 'script/check-internal-links'
               - 'script/remote-image-dimensions.json'
               - 'worker/**'
               - 'wrangler.json'
@@ -97,10 +98,19 @@ jobs:
       - name: Validate built _redirects
         run: script/validate-redirects dist-astro/_redirects
 
-      # html-validate only: it's deterministic and takes seconds. The lychee
-      # link check stays in links.yml, which is disabled.
+      # Deterministic, offline checks that take seconds. External links stay
+      # in links.yml, which is disabled.
       - name: Validate HTML (html-validate)
         run: npm run lint-html
+
+      - name: Install lychee
+        uses: taiki-e/install-action@v2
+        with:
+          tool: lychee
+
+      # Every internal link and #fragment against the build, no network.
+      - name: Check internal links and anchors
+        run: script/check-internal-links dist-astro
 
       - name: Upload Astro build artifacts
         uses: actions/upload-artifact@v7
