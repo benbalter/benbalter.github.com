@@ -122,7 +122,7 @@ If you've got a project where catching up looks more expensive than ignoring it,
 1. **Write down how the project works.** A short `AGENTS.md` (or `CLAUDE.md`) with the build, test, and lint commands saves every future session from rediscovering them. [Good documentation makes AI tools better](/2026/10/26/documentation-quality-is-ai-quality/), and it helps the next human contributor too.
 1. **Start with the issue queue.** Hand the agent your oldest open bugs, one at a time. Each fix is a small, reviewable pull request, and the queue shrinks visibly.
 1. **Review everything, merge nothing blind.** Read the diff. Run it. :quote[If you wouldn't merge it from a stranger, don't merge it from an agent.]{#merge-from-a-stranger}
-1. **Thank the people who kept it alive.** If someone held the project together while you were gone, say so publicly. Mine is Neil.
+1. **Thank the people who kept it alive.** If someone held the project together while you were gone, say so publicly. Mine is Neil, along with [more than 50 other people](https://github.com/wp-document-revisions/wp-document-revisions/discussions/913).
 
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
 
