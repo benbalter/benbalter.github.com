@@ -20,7 +20,7 @@ import { ogImagePath } from '../utils/og-image-path';
 import { formatPostDate } from '../utils/post-urls';
 import { viewTransitionName } from '../utils/view-transition-name';
 import { getDocumentUri } from '../utils/standard-site';
-import { getGitHubTenure, writtenAtGitHubExplainer } from '../utils/github-tenure';
+import { getGitHubTenure, writtenAtGitHubExplainer, type TenurePosition } from '../utils/github-tenure';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -90,7 +90,7 @@ const {
 // second, native tooltip on desktop. The ::before pseudo-element grows the
 // tap target to ~45px tall without moving the meta line.
 const writtenAtGitHubText = writtenAtGitHub
-  ? writtenAtGitHubExplainer(getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data)))
+  ? writtenAtGitHubExplainer(getGitHubTenure((await getCollection('resume-positions')).map((entry: { data: TenurePosition }) => entry.data)))
   : undefined;
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
