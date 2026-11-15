@@ -187,16 +187,10 @@
   "version": "1.0.0",
   "overrides": {
     "typescript": "$typescript",
-    "yaml-language-server": {
-      "yaml": "^2.8.3"
-    },
     "deepmerge-ts": "^8.0.0",
     "sharp": "$sharp",
     "@tailwindcss/typography": {
       "postcss-selector-parser": "^7.1.6"
-    },
-    "@expressive-code/core": {
-      "postcss-nested": "^7.0.2"
     },
     "@playform/compress": {
       "svgo": "^4.1.0"
