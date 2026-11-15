@@ -20,11 +20,11 @@ In 2011, I was a law and business student[^business-school] trying to set up [Sh
 
 I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
-The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. Someone's well-intentioned changes had broken the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
+The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal in years, and I'd assumed they'd moved on to something better. Someone's well-intentioned changes had broken the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. I was surprised, flattered, and a little humbled. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
 
 ### Someone else showed up
 
-While I was drifting, someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [contributing features that became major releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). He's essentially co-maintained the plugin ever since, with more than a thousand commits to show for it. From 2019 through 2024, in every year but 2022, he's most of the chart above.[^wpml] If you've used the plugin in the last few years, thank him.
+While I was drifting,[^drifting] someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [contributing features that became major releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). He's essentially co-maintained the plugin ever since, with more than a thousand commits to show for it. From 2019 through 2024, in every year but 2022, he's most of the chart above.[^wpml] If you've used the plugin in the last few years, thank him.
 
 He kept it alive, but one volunteer can only do so much. By 2023, I was down to seven commits a year, and between June 2024 and August 2025, the plugin went 14 months without a release.
 
@@ -128,11 +128,13 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^business-school]: Like Nathan Fielder, who opens every episode of his Comedy Central show [*Nathan for You*](https://en.wikipedia.org/wiki/Nathan_for_You) with the line, I graduated from one of ~~Canada's~~ Washington, DC's top business schools with "really good grades."
 
-[^w00t]: For the record, I'd like to think my few social media posts have improved since then.
+[^w00t]: For the record, I'd like to think the few social media posts I still write have improved since then.
 
 [^mentors]: [Mitcho Erlewine](https://mitcho.com/), [Aaron Jorbin](https://aaron.jorb.in/), and [Jon Cave](https://joncave.co.uk/). Andrew Nacin, then one of WordPress's lead developers, kept a close eye on it too.
 
 [^maintainability]: A student journal replaces its whole board every year or two, so anything you build for one is really built for strangers who'll inherit it without you. The lesson I took is about product decisions. Assume whatever you ship will still be running in ten years, long after anyone remembers why it works the way it does. Ask what will break first, and who will support it when you're not around. Cut the features and settings that each need care and feeding forever. Make it obvious to the next person, who never saw the issue thread or the launch post, what the thing does and what to do when it stops doing it. Whoever inherits it won't know who to email. Or worse, they will.
+
+[^drifting]: Mostly toward Ruby. In 2012, I [moved this site from WordPress to Jekyll](/2012/10/01/welcome-to-the-post-cms-world/), a static site generator written in Ruby, and for the next decade, I wrote Jekyll plugins instead of WordPress ones.
 
 [^wpml]: When a user [needed the plugin to work with WPML](https://github.com/wp-document-revisions/wp-document-revisions/issues/324), a closed-source translation plugin, Neil talked WPML into giving him a sandbox and spent six months building an integration. That's the kind of maintainer he is.
 
