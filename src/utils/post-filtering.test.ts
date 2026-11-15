@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { isPublished, isBuildablePost, isListablePost, pickPostsBySlug } from './post-filtering';
+import { isPublished, isBuildablePost, isListablePost, isInternalPost, pickPostsBySlug } from './post-filtering';
 
 /** Helper to create a minimal post-like object for testing */
 function makePost(data: { published?: boolean; archived?: boolean }) {
@@ -69,6 +69,23 @@ describe('isListablePost', () => {
 
   it('returns true when archived is explicitly false', () => {
     expect(isListablePost(makePost({ archived: false }) as any)).toBe(true);
+  });
+});
+
+describe('isInternalPost', () => {
+  const post = (data: { published?: boolean; archived?: boolean; redirect_to?: string }) => ({ data }) as any;
+
+  it('returns true for normal posts', () => {
+    expect(isInternalPost(post({}))).toBe(true);
+  });
+
+  it('returns false for posts that redirect off-site', () => {
+    expect(isInternalPost(post({ redirect_to: 'https://github.blog/example/' }))).toBe(false);
+  });
+
+  it('returns false for posts that are not listable', () => {
+    expect(isInternalPost(post({ archived: true }))).toBe(false);
+    expect(isInternalPost(post({ published: false }))).toBe(false);
   });
 });
 
