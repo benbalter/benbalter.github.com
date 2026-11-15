@@ -39,7 +39,7 @@ const LASTMOD_SOURCE_DIRS = [
  * (each merged pull request is one commit), and `--diff-merges=first-parent`
  * lists every file a merge brought in, which plain `--first-parent` omits.
  */
-export const LASTMOD_LOG_ARGS = [
+const LASTMOD_LOG_ARGS = [
   'log',
   '--first-parent',
   '--diff-merges=first-parent',
