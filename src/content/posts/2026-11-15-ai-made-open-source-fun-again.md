@@ -20,7 +20,7 @@ In 2011, I was a law and business student[^business-school] trying to set up [Sh
 
 I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
-The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal in years, and I'd assumed they'd moved on to something better. Someone's well-intentioned changes had broken the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. I was surprised, flattered, and a little humbled. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
+The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal since I graduated, nearly six years earlier, and I'd assumed they'd moved on to something better. Someone's well-intentioned changes had broken the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. I was surprised, flattered, and a little humbled. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
 
 ### Someone else showed up
 
