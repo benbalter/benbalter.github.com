@@ -53,6 +53,14 @@ const {
 const fullTitle = title === siteConfig.name
   ? `${title}: ${siteConfig.description}`
   : title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+// Share cards (og:title, twitter:title) use the bare title: platforms already
+// show og:site_name or the domain beside it, so the suffix just eats the space
+// a card has for the headline. The homepage keeps its "name: tagline" title.
+const shareTitle = title === siteConfig.name ? fullTitle : title;
+// Mastodon credits the author on link previews from fediverse:creator, in
+// @user@instance form, derived from the profile URL so there's one source.
+const mastodon = new URL(siteConfig.mastodonUrl);
+const fediverseCreator = `${mastodon.pathname.slice(1)}@${mastodon.host}`;
 // Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
 // trailingSlash="always" config is consistently reflected in <link rel="canonical">.
 const rawPath = Astro.url.pathname || '/';
@@ -148,7 +156,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
       charset="UTF-8"
       openGraph={{
         basic: {
-          title: fullTitle,
+          title: shareTitle,
           type: type,
           image: ogImage,
           url: canonicalUrl,
@@ -174,7 +182,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
         card: 'summary_large_image',
         site: siteConfig.twitterHandle,
         creator: siteConfig.twitterHandle,
-        title: fullTitle,
+        title: shareTitle,
         description: description,
         image: ogImage,
         imageAlt: title,
@@ -186,6 +194,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           // Generator and Author
           { name: 'generator', content: Astro.generator },
           { name: 'author', content: author },
+          { name: 'fediverse:creator', content: fediverseCreator },
           // Keywords
           ...(keywords.length > 0 ? [{ name: 'keywords', content: keywords.join(', ') }] : []),
           // Color Scheme and Theme. Match the browser chrome to the page

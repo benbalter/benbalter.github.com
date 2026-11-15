@@ -113,6 +113,12 @@ test.describe('Open Graph Tags', () => {
         
         const content = await ogTitle.getAttribute('content');
         expect(content).toBeTruthy();
+        // Share cards drop the " | Ben Balter" suffix; og:site_name carries it
+        expect(content).not.toMatch(/ \| Ben Balter$/);
+      });
+
+      test('should have fediverse:creator', async ({ page }) => {
+        await expect(page.locator('meta[name="fediverse:creator"]')).toHaveAttribute('content', /^@[^@]+@[^@]+$/);
       });
 
       test('should have og:description', async ({ page }) => {
