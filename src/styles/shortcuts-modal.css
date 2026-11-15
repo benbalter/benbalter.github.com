@@ -123,8 +123,12 @@
   align-items: center;
   gap: 0.5rem;
   min-height: 44px;
-  cursor: pointer;
   @apply text-sm font-semibold text-gray-900 dark:text-gray-100;
+}
+
+.shortcuts-toggle label,
+.shortcuts-toggle input {
+  cursor: pointer;
 }
 
 .shortcuts-toggle input {

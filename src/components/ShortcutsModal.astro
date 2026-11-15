@@ -53,10 +53,10 @@ import { shortcutGroups } from '../data/shortcuts';
   </div>
 
   <div class="shortcuts-settings">
-    <label class="shortcuts-toggle">
-      <input type="checkbox" data-single-key-toggle aria-describedby="shortcuts-toggle-hint" />
-      Single-key shortcuts
-    </label>
+    <div class="shortcuts-toggle">
+      <input type="checkbox" id="single-key-shortcuts-toggle" data-single-key-toggle aria-describedby="shortcuts-toggle-hint" />
+      <label for="single-key-shortcuts-toggle">Single-key shortcuts</label>
+    </div>
     <p id="shortcuts-toggle-hint" class="shortcuts-toggle-hint">
       Turn off if you use voice control or keep triggering them by accident. ⌘ K still opens search, and this list stays under "Keyboard shortcuts" in the footer.
     </p>
