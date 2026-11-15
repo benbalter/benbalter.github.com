@@ -11,11 +11,11 @@ import YearSections from '../components/YearSections.astro';
 import { groupPostsByYear } from '../utils/posts-by-year';
 import { getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
-import { getGitHubTenure } from '../utils/github-tenure';
+import { getGitHubTenure, type TenurePosition } from '../utils/github-tenure';
 import { siteConfig } from '../config';
 import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
 
-const tenure = getGitHubTenure((await getCollection('resume-positions')).map((entry) => entry.data));
+const tenure = getGitHubTenure((await getCollection('resume-positions')).map((entry: { data: TenurePosition }) => entry.data));
 // agentic-workflows is flagged (written while at GitHub) but is Copilot's
 // output posted as an exhibit, not Ben's first-hand account, so it stays off
 // this page.
