@@ -1,7 +1,7 @@
 ---
 title: AI made open source fun again
-description: "My 15-year-old WordPress plugin passed 200,000 downloads. Open source dies when catching up costs more than ignoring it. AI flipped that math."
-tldr: "Open source doesn't die because maintainers quit. It dies when catching up costs more than ignoring it. That math kept me away from WP Document Revisions for years, until AI agents made catching up cheap and 2026 became its busiest year. Point agents at the work you've been skipping, read every diff, and keep the decisions for yourself."
+description: "My 15-year-old WordPress plugin passed 200,000 downloads. Open source projects die when catching up costs more than ignoring them. AI flipped that math."
+tldr: "Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them. That math kept me away from WP Document Revisions for years, until AI agents made catching up cheap and 2026 became its busiest year. Point agents at the work you've been skipping, read every diff, and keep the decisions for yourself."
 ---
 
 Here's the commit history for [WP Document Revisions](https://github.com/wp-document-revisions/wp-document-revisions), the WordPress plugin I started in 2011. In 2023, I made seven commits to it. In 2024, four. This year, the plugin had its busiest year ever, 756 commits, and AI agents working for me made 478 of them. I didn't type that code, but I read every diff.
@@ -10,7 +10,7 @@ Here's the commit history for [WP Document Revisions](https://github.com/wp-docu
 
 The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), which feels like a good excuse to look at what changed. I didn't find more free time, and nobody started paying me.
 
-:quote[Open source doesn't die because maintainers quit. It dies when catching up costs more than ignoring it.]{#catching-up-costs-more} For years, that math kept me away from my own project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
+:quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
 
 ## Nobody decides to walk away
 
