@@ -12,6 +12,7 @@ import { unified } from '@astrojs/markdown-remark';
 import { siteConfig } from '../config';
 import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
+import { isInternalPost } from '../utils/post-filtering';
 import {
   sharedRemarkPlugins,
   syndicationRehypePlugins,
@@ -36,8 +37,9 @@ const markdownProcessor = unified({
 });
 
 export async function GET(context: APIContext) {
-  // Published posts, newest first
-  const sortedPosts = await getPublishedPosts({ sorted: true });
+  // Published posts, newest first, minus redirect_to stubs (no body, so the
+  // item would arrive empty)
+  const sortedPosts = (await getPublishedPosts({ sorted: true })).filter(isInternalPost);
 
   // Await the markdown processor initialization
   const processor = await markdownProcessor;

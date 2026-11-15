@@ -9,6 +9,7 @@
 
 import type { APIRoute } from 'astro';
 import { getPublishedPosts } from '../utils/posts';
+import { isInternalPost } from '../utils/post-filtering';
 import { getPostUrl } from '../utils/post-urls';
 import { siteConfig } from '../config';
 
@@ -22,7 +23,7 @@ const PRIMARY_PAGES: Array<{ title: string; path: string }> = [
 const RECENT_POST_COUNT = 20;
 
 export const GET: APIRoute = async () => {
-  const posts = await getPublishedPosts({ sorted: true });
+  const posts = (await getPublishedPosts({ sorted: true })).filter(isInternalPost);
   const recent = posts.slice(0, RECENT_POST_COUNT);
 
   const lines: string[] = [
