@@ -16,7 +16,7 @@ The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpre
 
 ### It worked too well
 
-In 2011, I was a law and business student trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow, and [losing](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks. All it was missing was documents, so I pitched bolting them on as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/), and WordPress [picked it](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/). My entire public reaction was "[W00t I can haz Google Summer of Code](https://ben.balter.com/tweets/status/62596492455723008/)."
+In 2011, I was a law and business student[^business-school] trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow, and [losing](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks. All it was missing was documents, so I pitched bolting them on as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/), and WordPress [picked it](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/). My entire public reaction was "[W00t I can haz Google Summer of Code](https://ben.balter.com/tweets/status/62596492455723008/)."
 
 I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
@@ -125,6 +125,8 @@ If you've got a project where catching up looks more expensive than ignoring it,
 1. **Thank the people who kept it alive.** If someone held the project together while you were gone, say so publicly. Mine is Neil, along with [more than 50 other people](https://github.com/wp-document-revisions/wp-document-revisions/discussions/913).
 
 Open the oldest issue in your side project's queue tonight and ask an agent to take a pass at it. If the pull request it opens takes less time to review than the issue took to ignore, you've got your answer.
+
+[^business-school]: He Graduated from One of ~~Canada's~~ Washington, DC's Top Business Schools with Really Good Grades.
 
 [^mentors]: [Mitcho Erlewine](https://mitcho.com/), [Aaron Jorbin](https://aaron.jorb.in/), and [Jon Cave](https://joncave.co.uk/). Andrew Nacin, then one of WordPress's lead developers, kept a close eye on it too.
 
