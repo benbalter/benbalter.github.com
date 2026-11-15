@@ -20,7 +20,7 @@ We should focus our efforts on the 99% of the process that happens before the co
 
 ## Empowering internal stakeholders
 
-We should be opening the eyes of public servants. Let them realize that their workflow may as well involve a typewriter and a fax machine (if it doesn't already). To inspire people on the inside (the people coding the software, collecting the data, and writing the policies) that there are much, much easier ways to do things, and then to [show them how](/open-sourcing-government/). To break the bad habits sub-par software has unfortunately ingrained.
+We should be opening the eyes of public servants. Let them realize that their workflow may as well involve a typewriter and a fax machine (if it doesn't already). To inspire people on the inside (the people coding the software, collecting the data, and writing the policies) that there are much, much easier ways to do things, and then to [show them how](https://speakerdeck.com/benbalter). To break the bad habits sub-par software has unfortunately ingrained.
 
 Whether public or within an organization, open source is about open collaboration. It's about realizing that creating stuff is a team sport. That it's not a zero-sum game. That erecting technical and administrative constraints to hinder the free flow of information only introduces friction and decreases the overall efficiency of the system. That for every dollar spent locking things down or defining rigid procedures, you also spend a dollar shooting yourself in the foot. It's almost as if government employees haven't heard the story of Encyclopedia Britannica v. the entire internet.
 
