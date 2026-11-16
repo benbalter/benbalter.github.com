@@ -135,7 +135,7 @@ export const siteConfig = {
 
   // About page meta description. e2e/seo-astro.spec.ts caps meta
   // descriptions at 192 characters; src/config.test.ts checks it here too.
-  aboutDescription: 'Ben Balter is a principal product manager for API experience at Cloudflare, and an attorney and open source developer who spent over a decade on developer platforms at GitHub.',
+  aboutDescription: 'Ben Balter is a principal product manager for API (developer) experience at Cloudflare, and an attorney and open source developer who spent over a decade on developer platforms at GitHub.',
 
   // standard.site (https://standard.site/) — AT Protocol long-form publishing.
   // The publication and each post become records in the author's own PDS, and
