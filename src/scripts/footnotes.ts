@@ -32,12 +32,20 @@ export function revealTarget(hash: string): HTMLElement | null {
   const target = document.getElementById(id);
   const toggle = target?.closest<HTMLDetailsElement>(TOGGLE_SELECTOR);
   if (!target || !toggle || toggle.open) return null;
+  // Skip the slide-open animation (global.css) for this one opening: the
+  // browser scrolls to the target right away, and until the list has its full
+  // height the page isn't tall enough to scroll that far.
+  toggle.dataset.instant = '';
+  toggle.addEventListener('toggle', () => delete toggle.dataset.instant, { once: true });
   toggle.open = true;
   return target;
 }
 
 /** Same-page link clicks: open the list before the browser scrolls to the target */
 function onClick(e: MouseEvent) {
+  // On touch screens a tap on a footnote number opens its card instead of
+  // navigating (link-previews.ts cancels the click), so the list stays folded.
+  if (e.defaultPrevented) return;
   const anchor = (e.target as Element | null)?.closest?.('a[href]');
   if (!(anchor instanceof HTMLAnchorElement) || !anchor.hash) return;
   if (anchor.pathname !== location.pathname || anchor.host !== location.host) return;
@@ -57,10 +65,11 @@ function openAll() {
 
 export function initFootnotes() {
   if (!document.querySelector(TOGGLE_SELECTOR)) return;
-  // Capture phase, on the document: runs before the default scroll, and sees
-  // the touch card's "Go to footnote" link, which lives at the end of <body>.
-  // Re-adding the same listeners is a no-op.
-  document.addEventListener('click', onClick, true);
+  // On the document, in the bubble phase: after any handler that cancels the
+  // click, before the browser's default scroll, and it sees the touch card's
+  // "Go to footnote" link, which lives at the end of <body>. Re-adding the
+  // same listeners is a no-op.
+  document.addEventListener('click', onClick);
   window.addEventListener('hashchange', revealCurrentHash);
   window.addEventListener('beforeprint', openAll);
   revealCurrentHash();

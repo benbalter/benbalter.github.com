@@ -160,6 +160,13 @@ const shareLinks = networks.map((n) => linkDefs[n]);
     @apply mt-12 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-gray-200 pt-8 font-sans;
   }
 
+  /* After a post with footnotes, sit flush under the folded "Footnotes · N"
+     row, so this bar's top rule closes that row instead of leaving an empty
+     band between two rules. */
+  :global(.post-content:has(> .footnotes)) ~ .post-share {
+    @apply mt-0;
+  }
+
   .post-share-primary {
     @apply inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-base font-semibold;
     @apply bg-primary text-white transition-colors duration-200 hover:bg-primary-600;
