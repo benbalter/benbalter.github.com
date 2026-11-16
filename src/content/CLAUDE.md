@@ -2,6 +2,8 @@
 
 Writing for ben.balter.com. Match Ben's voice: direct, irreverent, opinionated, conversational, like a smart colleague over coffee, not a corporate memo.
 
+This is the site's summary of Ben's `writing-style` skill, plus what's specific to this site. The skill is the full guide and wins where the two disagree, so load it when you have it (Claude Code does). This file is what agents without it work from, such as GitHub Copilot, and it's the only place in the repository for voice rules: the [`writing` agent](../../.github/agents/writing.md) points here instead of keeping its own copy. [`agent-guidance.test.ts`](agent-guidance.test.ts) checks both.
+
 ## Voice
 
 - **Professional, not formal**: clarity and craft over strict convention
@@ -32,6 +34,8 @@ These make writing feel machine-generated:
 - **Setup phrases**: "When it comes to...", "In terms of...", "In the context of...": get to the point
 - **Numbered lists for everything**: use prose when it flows better
 - **Identical paragraph lengths**: vary short (1–2 sentences) with longer (4–6 sentences)
+- **Structural tells**: the shapes a linter can't catch. A steady rhythm of three parallel items, "It's not X, it's Y" where the contrast isn't earned, a colon signpost every few sentences ("The real problem: nobody owns it"), and labeling your own facts ("Here's what matters", "What surprised me most"). Once is fine. As a pattern, restructure.
+- **Summary closers**: end on a test the reader can run, a callback to the opening, or one next step, then stop
 
 **The coffee test**: read aloud. Does it sound like something you'd actually say to a colleague?
 **The "anyone test"**: could this have been written by literally anyone? If there's no personality, rewrite it.
@@ -73,7 +77,15 @@ Cut ruthlessly: "It is important to note that" → delete. "in order to" → "to
 3. **Main argument**: thesis with examples, lists, evidence
 4. **Counterpoints**: answer the strongest objection once, in the reader's own words, in an `:::objection[...]` callout, with a stance rather than a survey of both sides
 5. **Practical advice**: concrete, actionable recommendations
-6. **Conclusion**: memorable takeaway; connect back to the opening
+6. **Conclusion**: one closing line that connects back to the opening or gives a next step, not a summary
+
+### Headings, bold, and pull quotes
+
+[`src/lib/post-structure.ts`](../lib/post-structure.ts) warns on these when `npm run validate-seo` runs:
+
+- **Headings make a claim.** Write each H2 so someone who reads only the headings gets the advice. "Background", "Overview", and "Conclusion" are labels, not claims.
+- **Never use bold as a heading.** A bold line standing in for a section title carries no structure, and screen readers can't navigate to it. Use a real `##` or `###`. Bold belongs on list lead-ins and the rare word that needs emphasis.
+- **Pull quotes.** Mark three to five sentences that stand alone, the ones worth screenshotting, with the `:quote[...]` directive, at most one per section.
 
 ### TK placeholders
 
@@ -100,10 +112,10 @@ Use footnotes for asides, definitions, and tangential context that would break t
 
 ## SEO
 
-- **Title**: under about 47 characters, keyword-rich, no Markdown formatting. The layout appends " | Ben Balter" (13 characters) to the `<title>` and `og:title`, and search results show roughly 60.
+- **Title**: under about 47 characters, keyword-rich, no Markdown formatting. The layout appends " | Ben Balter" (13 characters) to the `<title>`, and search results show roughly 60. Share cards (`og:title`, `twitter:title`) use the bare title.
 - **Description**: any length, but optimize the first 150 characters after stripping Markdown. Keep Markdown links in the content; never remove them to hit a length target. Rewrite the plain text instead.
 - **Headings**: H2 for main sections, H3 for subsections, never skip levels
-- **Internal links**: use descriptive anchor text; link to related posts generously
+- **Internal links**: use descriptive anchor text; link to related posts generously, as relative paths in a post (`/2022/03/17/why-async/`), with the link on the phrase it explains, not "as I wrote in…"
 
 Key concepts to reference and link to when relevant:
 

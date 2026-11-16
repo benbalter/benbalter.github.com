@@ -15,6 +15,13 @@
       "enabled": false
     },
     {
+      "description": "Leave package.json overrides to hand edits. Renovate's lockfile update drops packages pinned through a nested override, so npm ci fails (\"Missing katex@0.19.1 from lock file\") and the PR churns through CI on every push to main. The overrides are hand-set security floors (caret ranges), so in-range patches still arrive through lock-file maintenance; bump a range by hand when a new major is needed.",
+      "matchDepTypes": [
+        "overrides"
+      ],
+      "enabled": false
+    },
+    {
       "description": "Merge bookmarklets bumps as soon as CI passes. git-refs digests have no release timestamp, so skip the shared preset's minimumReleaseAge, which would otherwise hold them.",
       "matchDepNames": [
         "benbalter/bookmarklets"

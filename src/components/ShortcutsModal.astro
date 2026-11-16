@@ -2,7 +2,9 @@
 /**
  * Keyboard Shortcuts Cheatsheet
  *
- * Opened with `?`, the convention GitHub, Gmail, and Slack all train. Uses a
+ * Opened with `?`, the convention GitHub, Gmail, and Slack all train, or from
+ * the footer's "Keyboard shortcuts" button, which still works when single-key
+ * shortcuts are turned off here. Uses a
  * native <dialog> so focus containment, Esc-to-close, and the backdrop come
  * from the browser rather than from hand-rolled JS.
  *
@@ -48,6 +50,16 @@ import { shortcutGroups } from '../data/shortcuts';
         </ul>
       </section>
     ))}
+  </div>
+
+  <div class="shortcuts-settings">
+    <div class="shortcuts-toggle">
+      <input type="checkbox" id="single-key-shortcuts-toggle" data-single-key-toggle aria-describedby="shortcuts-toggle-hint" />
+      <label for="single-key-shortcuts-toggle">Single-key shortcuts</label>
+    </div>
+    <p id="shortcuts-toggle-hint" class="shortcuts-toggle-hint">
+      Turn off if you use voice control or keep triggering them by accident. ⌘ K still opens search, and this list stays under "Keyboard shortcuts" in the footer.
+    </p>
   </div>
 </dialog>
 

@@ -52,7 +52,7 @@ export const DEFAULT_SEARCH_LIMIT = 5;
 export const MAX_SEARCH_LIMIT = 10;
 
 /** One search hit, as handed to the agent. */
-export interface SearchHit {
+interface SearchHit {
   url: string;
   title: string;
   date?: string;
@@ -64,7 +64,7 @@ export interface SearchHit {
 let bookInfo: Promise<BookInfo | null> | null = null;
 
 /** /book.json, fetched once per page. Null if it can't be had; the book note is optional. */
-export function getBookInfo(): Promise<BookInfo | null> {
+function getBookInfo(): Promise<BookInfo | null> {
   bookInfo ??= fetch('/book.json')
     .then((r) => (r.ok ? (r.json() as Promise<BookInfo>) : null))
     .catch(() => null);
@@ -77,7 +77,7 @@ export function resetBookInfo(): void {
 }
 
 /** The book note for a post URL (any origin; matched on path), if the post is tied to the book. */
-export function bookNoteFor(book: BookInfo | null, url: string): string | undefined {
+function bookNoteFor(book: BookInfo | null, url: string): string | undefined {
   if (!book) return undefined;
   const path = new URL(url, location.origin).pathname;
   return book.posts.find((p) => new URL(p.url).pathname === path)?.note;

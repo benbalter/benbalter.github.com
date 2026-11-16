@@ -14,6 +14,13 @@
  * (a callout, a pull quote, a copy fix); 6+ is always tooling or a sweep. A
  * post with no qualifying edit falls back to its publish date from the URL.
  *
+ * History is read along main's first-parent chain, with each merge commit
+ * diffed against main as it was before the merge. A sweep that lands as a pull
+ * request of many small commits (each under the threshold) then counts as one
+ * commit touching all of its posts, and is skipped like any other sweep.
+ * Without this, the 2026-10 and 2026-11 wording sweeps dated dozens of posts to
+ * the same two days.
+ *
  * A shallow clone has no history (every file would date to the checkout
  * commit), so in that case the index is empty and the sitemap omits `lastmod`.
  * CI checks out full history for this; see build-and-deploy.yml.
@@ -25,6 +32,21 @@ const LASTMOD_SOURCE_DIRS = [
   'src/content/posts',
   'src/content/pages',
   'src/content/resume-positions',
+];
+
+/**
+ * `git log` arguments for the index. `--first-parent` walks main's own history
+ * (each merged pull request is one commit), and `--diff-merges=first-parent`
+ * lists every file a merge brought in, which plain `--first-parent` omits.
+ */
+const LASTMOD_LOG_ARGS = [
+  'log',
+  '--first-parent',
+  '--diff-merges=first-parent',
+  '--format=%x00%cI',
+  '--name-only',
+  '--',
+  ...LASTMOD_SOURCE_DIRS,
 ];
 
 /** A commit touching more posts than this is an archive-wide sweep. */
@@ -67,7 +89,7 @@ export function buildLastmodIndex(cwd: string = process.cwd()): Map<string, stri
       console.warn('[sitemap] Shallow git clone; omitting <lastmod> rather than emitting wrong dates');
       return new Map();
     }
-    return parseGitLog(git(['log', '--format=%x00%cI', '--name-only', '--', ...LASTMOD_SOURCE_DIRS]));
+    return parseGitLog(git(LASTMOD_LOG_ARGS));
   } catch {
     console.warn('[sitemap] git history unavailable; omitting <lastmod>');
     return new Map();

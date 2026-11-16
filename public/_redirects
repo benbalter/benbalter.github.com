@@ -2,8 +2,13 @@
 # https://developers.cloudflare.com/workers/static-assets/redirects/
 # Processed at the edge before serving static files (faster than HTML meta refresh)
 
-# Feed redirect
+# Feed redirects. /feed.xml is the real feed; the rest are WordPress-era and
+# common guesses that feed readers and old subscriptions still request.
 /feed/index.xml /feed.xml 301
+/feed/ /feed.xml 301
+/feed /feed.xml 301
+/rss.xml /feed.xml 301
+/atom.xml /feed.xml 301
 
 # Sitemap. /sitemap.xml is a real file (the sitemap-xml-alias integration in
 # astro.config.mjs), so don't redirect it. Only the WordPress-era underscore
@@ -174,6 +179,47 @@
 /2021/03/26/n-things-a-technicalp-program-manager-does /2021/03/26/nine-things-a-technical-program-manager-does/ 301
 /2023/12/07/cathedral-bazaar-management/ /2023/12/08/cathedral-bazaar-management/ 301
 /2023/12/07/cathedral-bazaar-management /2023/12/08/cathedral-bazaar-management/ 301
+
+# Year archives. Post URLs start with /YYYY/, so readers trim them back to the
+# year expecting an archive; send them to that year's section on /posts/.
+# 2010 has no listed posts, so it gets the top of the page. These are static
+# rather than a /:year/ placeholder, which would also catch every other
+# top-level path. src/utils/year-redirects.test.ts fails when a new year of
+# posts has no rule here.
+/2010/ /posts/ 301
+/2010 /posts/ 301
+/2011/ /posts/#2011 301
+/2011 /posts/#2011 301
+/2012/ /posts/#2012 301
+/2012 /posts/#2012 301
+/2013/ /posts/#2013 301
+/2013 /posts/#2013 301
+/2014/ /posts/#2014 301
+/2014 /posts/#2014 301
+/2015/ /posts/#2015 301
+/2015 /posts/#2015 301
+/2016/ /posts/#2016 301
+/2016 /posts/#2016 301
+/2017/ /posts/#2017 301
+/2017 /posts/#2017 301
+/2018/ /posts/#2018 301
+/2018 /posts/#2018 301
+/2019/ /posts/#2019 301
+/2019 /posts/#2019 301
+/2020/ /posts/#2020 301
+/2020 /posts/#2020 301
+/2021/ /posts/#2021 301
+/2021 /posts/#2021 301
+/2022/ /posts/#2022 301
+/2022 /posts/#2022 301
+/2023/ /posts/#2023 301
+/2023 /posts/#2023 301
+/2024/ /posts/#2024 301
+/2024 /posts/#2024 301
+/2025/ /posts/#2025 301
+/2025 /posts/#2025 301
+/2026/ /posts/#2026 301
+/2026 /posts/#2026 301
 
 # Dynamic (splat/placeholder) rules go last. Cloudflare counts every rule after
 # the first dynamic one as dynamic, and caps dynamic rules at 100, so a splat

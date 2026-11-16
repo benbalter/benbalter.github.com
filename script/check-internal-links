@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Checks every internal link and #fragment in the built site, offline.
+#
+# lychee resolves root-relative and https://ben.balter.com/ links against the
+# build instead of the network, so this takes seconds and can't flake on a
+# third-party site. External links are skipped (--offline); they're
+# links.yml's job. markdownlint's MD051 stays off because this covers it.
+#
+# Usage: script/check-internal-links [dist-dir]   (default: dist-astro)
+# Needs lychee on PATH (brew install lychee).
+
+set -euo pipefail
+
+DIST="${1:-dist-astro}"
+if [[ ! -d "$DIST" ]]; then
+  echo "No build at $DIST; run npm run build first." >&2
+  exit 1
+fi
+
+# Work on a copy: the standard.site <link rel="site.standard.*" href="at://…">
+# tags carry AT Protocol URIs that lychee can't parse (the colons in did:plc:…
+# read as an invalid port), and no --exclude applies before parsing. They're
+# verification metadata, not links, so strip them from the copy only.
+WORK="$(mktemp -d)"
+trap 'rm -rf "$WORK"' EXIT
+cp -R "$DIST/." "$WORK/"
+find "$WORK" -name '*.html' -print0 \
+  | xargs -0 perl -pi -e 's#<link[^>]*rel="site\.standard\.(document|publication)"[^>]*>##g'
+
+excludes=(
+  # The Twitter archive is served from ben.balter.com/tweets/ by a separate
+  # deployment, so it's never in this build.
+  --exclude '/tweets/'
+  # The 404 page's own canonical/og:url. It's built as 404.html and is
+  # noindex, so nothing follows that URL.
+  --exclude '/404/$'
+)
+# Local builds can skip the PDF résumé (SKIP_PDF=1); CI builds it.
+if [[ ! -f "$DIST/resume.pdf" ]]; then
+  excludes+=(--exclude '/resume\.pdf$')
+fi
+
+lychee \
+  --offline \
+  --include-fragments \
+  --no-progress \
+  --root-dir "$WORK" \
+  --index-files index.html \
+  --remap "^https://ben\.balter\.com/ file://$WORK/" \
+  "${excludes[@]}" \
+  "$WORK/**/*.html"

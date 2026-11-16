@@ -13,4 +13,4 @@ With a little find-and-replace magic, I converted the PDF into a stand-alone web
 
 Please browse the list, and if you find any additions, corrections, or improvements, [fork the page on GitHub](https://github.com/benbalter/open-source-alternatives) and [submit a pull request](https://web.archive.org/web/20120225141642/http://help.github.com/send-pull-requests/).
 
-Live Site: **[Open-Source Alternatives to Proprietary Enterprise Software](/open-source-alternatives/)**
+Live Site: **[Open-Source Alternatives to Proprietary Enterprise Software](https://github.com/benbalter/open-source-alternatives)**

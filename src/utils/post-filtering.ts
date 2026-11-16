@@ -36,6 +36,21 @@ export function isListablePost(post: CollectionEntry<'posts'>): boolean {
 }
 
 /**
+ * Whether a listable post's content lives on this site.
+ *
+ * Posts with `redirect_to` are stubs for something published elsewhere (a
+ * GitHub blog or TechCrunch piece): their URL 301s off-site and they have no
+ * body. They stay on /posts/ (where PostCard marks them external) and in
+ * /posts-meta.json (so in-body links to them still get a preview), but feeds,
+ * Markdown indexes, and "keep reading" suggestions should skip them: a feed
+ * item would arrive empty, and a related-post card would bounce the reader
+ * off-site without warning.
+ */
+export function isInternalPost(post: CollectionEntry<'posts'>): boolean {
+  return isListablePost(post) && post.data.redirect_to === undefined;
+}
+
+/**
  * The posts matching `slugs`, in `slugs` order, skipping any slug with no
  * matching post (e.g. a popular post that was since archived or unpublished).
  * Use for config-driven lists like `popularPostSlugs`.
