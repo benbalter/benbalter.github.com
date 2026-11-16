@@ -66,6 +66,12 @@
 - acronym: IDE
   meaning: Integrated Development Environment
   tooltip: 'Integrated Development Environment: the editor where developers write, run, and debug code (here, VS Code)'
+- acronym: PHP
+  meaning: 'PHP: Hypertext Preprocessor'
+  tooltip: 'PHP: Hypertext Preprocessor, the programming language WordPress and its plugins are written in'
+- acronym: WordPress
+  meaning: an open source publishing platform for websites and blogs
+  tooltip: An open source publishing platform that runs a large share of the web's sites and blogs, and that plugins can extend
 - acronym: linter
   meaning: a tool that automatically flags errors, style issues, and risky patterns in code
   tooltip: A tool that automatically flags errors, style problems, and bad patterns, usually in code, here in prose too
