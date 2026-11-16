@@ -22,11 +22,11 @@ I spent that summer writing PHP with three WordPress developers looking over my 
 
 The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal since I graduated, nearly six years earlier, and I'd assumed they'd moved on to something better. They hadn't. Eight years after I'd built it, the journal still ran its publishing workflow on it, someone's well-intentioned changes had broken it, and I was still the person they emailed. I was surprised, flattered, and a little humbled.[^maintainability]
 
-### Someone else showed up
+### A stranger kept it alive
 
-While I was drifting,[^drifting] someone else showed up. In October 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about the plugin's sidebar widget. Four years later, he was [contributing features that became major releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265). He's essentially co-maintained the plugin ever since, with more than a thousand contributions to show for it. From 2019 through 2024, in every year but 2022, he's most of the chart above.[^wpml] If you've used the plugin in the last few years, thank him.
+While I was drifting,[^drifting] the plugin got lucky. In 2017, a stranger named [Neil James](https://github.com/NeilWJames) [filed a bug](https://github.com/wp-document-revisions/wp-document-revisions/issues/98) about its sidebar widget, and then he never left. He went from bug reports to [features that became major releases](https://github.com/wp-document-revisions/wp-document-revisions/pull/265), and he's essentially co-maintained the plugin ever since, with more than a thousand contributions to show for it. From 2019 through 2024, he's most of the chart above in every year but one.[^wpml] If you've used the plugin in the last few years, thank him.
 
-He kept it alive, but one volunteer can only do so much. By 2023, I'd nearly stopped committing, and between June 2024 and August 2025, the plugin went 14 months without a release.
+But one volunteer can only do so much. By 2023, I'd nearly stopped committing, and the plugin went 14 months without a release.
 
 Most abandoned open source looks like this. :quote[Nobody decides to walk away. The maintainer's attention goes somewhere else, and the issue queue gets a little longer every month.]{#nobody-decides-to-walk-away}
 
@@ -42,14 +42,16 @@ The plugin shipped two releases in 2024. Each went out the day [Davey](https://g
 
 ### Four failed attempts taught me how to work with an agent
 
-In 2013, I [moved the plugin's JavaScript to CoffeeScript](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] A decade later, I [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to convert it back, and then didn't touch it for a year and a half. It was a tedious, risky rewrite.
+Every old project has a rewrite nobody wants to do. Mine was [CoffeeScript](https://coffeescript.org/), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] I [adopted it in 2013](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to get rid of it a decade later, and then didn't touch that issue for a year and a half.
 
-Starting in May 2025, I handed it to AI agents. It took five attempts over eleven months, and I closed the first four without merging them. Each one taught me something.
+So I handed it to an AI agent, and it failed. So did the next three. I closed all four attempts without merging them, and each one taught me something about working with agents.
 
-- **Check the work, not the summary.** The [first attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) added a "modern" copy beside the old code instead of replacing it. The [fourth](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) converted one file and told me the rest were "already written in modern ES6+." They weren't.
-- **Keep the change small enough to read.** The [second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) ballooned into 96 files and 21,000 lines. I couldn't review that, so I didn't merge it.
-- **Ask for evidence.** When I asked the [third attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/407) how I could be confident nothing would break, it replied, "You can be confident there are no breaking changes." The plugin had never had JavaScript tests, so I [asked for those](https://github.com/wp-document-revisions/wp-document-revisions/issues/409) instead, and got [181 of them](https://github.com/wp-document-revisions/wp-document-revisions/pull/410) that night.
-- **Give the agent a way to check itself.** With tests to check its work against, the [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/464), in April 2026, converted all five files and passed every one.[^tests] The same evening, it [added end-to-end tests](https://github.com/wp-document-revisions/wp-document-revisions/commit/a2a019a1) that drive a real WordPress install in a browser, and they [caught breakage](https://github.com/wp-document-revisions/wp-document-revisions/commit/97145e35) the unit tests had missed.
+- **Check the work, not the summary.** An agent will say it's finished when it isn't. The [first attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) added a "modern" copy beside the old code instead of replacing it. The [fourth](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) converted one file and told me the rest were "already written in modern ES6+." They weren't.
+- **Keep the change small enough to read.** The [second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) ballooned into 96 files and 21,000 lines. If you can't review it, you can't merge it.
+- **Ask for evidence.** When I asked the [third attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/407) how I could be confident nothing would break, it replied, "You can be confident there are no breaking changes." So I [asked for tests](https://github.com/wp-document-revisions/wp-document-revisions/issues/409) instead, which the plugin's JavaScript had never had, and got [181 of them](https://github.com/wp-document-revisions/wp-document-revisions/pull/410) that night.
+- **Give the agent a way to check itself.** With those tests to check its work against, the [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/464) converted all five files and passed every one.[^tests] It then [added end-to-end tests](https://github.com/wp-document-revisions/wp-document-revisions/commit/a2a019a1) that drive a real WordPress install in a browser, and they [caught breakage](https://github.com/wp-document-revisions/wp-document-revisions/commit/97145e35) the unit tests had missed.
+
+Eleven months after the first try, the last `.coffee` file was gone.
 
 ### Review takes minutes, not evenings
 
@@ -126,7 +128,7 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^wpml]: When a user [needed the plugin to work with WPML](https://github.com/wp-document-revisions/wp-document-revisions/issues/324), a closed-source translation plugin, Neil talked WPML into giving him a sandbox and spent six months building an integration. That's the kind of maintainer he is.
 
-[^coffeescript]: [CoffeeScript](https://coffeescript.org/) added classes, arrow functions, and a cleaner syntax years before JavaScript had them. JavaScript added most of those features in 2015, which took away most of the reason to use it.
+[^coffeescript]: CoffeeScript added classes, arrow functions, and a cleaner syntax years before JavaScript had them. JavaScript added most of those features in 2015, which took away most of the reason to use it.
 
 [^tests]: All 181 tests passed, and the fifth attempt added 113 more.
 
