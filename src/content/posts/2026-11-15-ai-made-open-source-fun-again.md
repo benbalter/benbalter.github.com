@@ -77,7 +77,7 @@ None of that is glamorous, and none of it happens when each item costs you an ev
 
 The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. That sounds like bad news. Most of it isn't. Seven fixed holes, some of them years old, that otherwise wouldn't have been found.
 
-The other four are the cost of moving fast. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel landed in an unprotected folder. The agent wrote that bug, but I'm the one who merged it. Humans still make mistakes, too. With more than 2,000 sites running this code, reading every diff is the job.
+The other four are also on me. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel landed in an unprotected folder. The agent wrote that bug, but I'm the one who merged it. Humans still make mistakes, too. With more than 2,000 sites running this code, reading every diff is on me. I take responsibility for everything I ship.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
 The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges. The agent works for the person accountable for the project, not around them.
@@ -91,11 +91,13 @@ The math flipped on my other projects, too. I maintain [sev](https://github.com/
 
 ## What's left is the fun part
 
-Even when the work is cheap, someone still has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's your job as the maintainer, and it's the fun part.
+The fun part of maintaining a project is adding new features, and going from an idea to a release, safely.
 
-Ideas stop dying of neglect, too. One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that night, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
+One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that night, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
 
 Every pull request arrives with its own tests, so I don't have to write them. [Aaron Jorbin](https://aaron.jorb.in/), one of my Summer of Code mentors, taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.)
+
+The decisions are still yours. Even when the work is cheap, someone has to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong.
 
 Since my role at GitHub ended in July, open source has been a hobby again, the way it was in 2011. :quote[Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.]{#volunteering}
 
