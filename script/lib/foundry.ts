@@ -80,7 +80,7 @@ export function requireCreds(endpoint: string, apiKey: string, dryRun: boolean):
  *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
  *  the whole string, or a ```code``` block quoted inside a string value gets
  *  mis-extracted and truncates the JSON. Only match a fence anchored to the ends. */
-export function parseJson<T = any>(text: string): T {
+export function parseJson<T = unknown>(text: string): T {
   const t = (text ?? '').trim();
   if (!t) throw new Error('model returned empty content (no JSON to parse)');
   try {
@@ -111,6 +111,15 @@ export interface Usage {
   promptTokens: number;
   completionTokens: number;
   apiCalls: number;
+}
+
+/** The fields this client reads from an Azure chat-completions response. */
+interface ChatCompletionResponse {
+  usage?: { prompt_tokens?: number; completion_tokens?: number };
+  choices?: {
+    finish_reason?: string;
+    message?: { content?: string | null };
+  }[];
 }
 
 export interface ChatOpts {
@@ -187,7 +196,7 @@ export function createFoundryClient(cfg: FoundryClientOpts): {
       if (!res.ok) {
         throw new Error(`Azure API ${res.status} ${res.statusText}: ${await res.text()}`);
       }
-      const data: any = await res.json();
+      const data = (await res.json()) as ChatCompletionResponse;
       usage.apiCalls++;
       if (data.usage) {
         usage.promptTokens += data.usage.prompt_tokens ?? 0;
@@ -231,15 +240,15 @@ export function loadPosts(root: string, opts: { skipEmpty?: boolean } = {}): Bas
   const posts: BasePost[] = [];
   for (const file of files) {
     const parsed = matter(fs.readFileSync(file, 'utf-8'));
-    const fm = parsed.data as Record<string, any>;
+    const fm = parsed.data as Record<string, unknown>;
     if (fm.published === false || fm.archived === true || fm.redirect_to) continue;
     if (opts.skipEmpty && !parsed.content.trim()) continue;
     const id = path.basename(file).replace(/\.(md|mdx)$/, '');
     posts.push({
       id,
       date: id.slice(0, 10),
-      title: fm.title ?? id,
-      description: fm.description ?? '',
+      title: typeof fm.title === 'string' ? fm.title : id,
+      description: typeof fm.description === 'string' ? fm.description : '',
       body: parsed.content,
     });
   }

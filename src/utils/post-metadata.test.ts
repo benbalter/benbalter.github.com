@@ -16,6 +16,7 @@ vi.mock('./reading-time', () => ({
   calculateReadingTime: vi.fn(() => 5),
 }));
 
+import type { CollectionEntry } from 'astro:content';
 import { getPostMetadata } from './post-metadata';
 
 describe('getPostMetadata', () => {
@@ -24,7 +25,7 @@ describe('getPostMetadata', () => {
       id: '2024-01-15-test-post',
       body: 'Some content here',
       data: { title: 'Test Post' },
-    } as any;
+    } as unknown as CollectionEntry<'posts'>;
 
     const result = getPostMetadata(mockPost);
 
@@ -42,7 +43,7 @@ describe('getPostMetadata', () => {
       id: '2024-01-15-external-post',
       body: '',
       data: { title: 'External Post', redirect_to: 'https://example.com/' },
-    } as any;
+    } as unknown as CollectionEntry<'posts'>;
 
     expect(getPostMetadata(mockPost).isExternal).toBe(true);
   });
@@ -52,7 +53,7 @@ describe('getPostMetadata', () => {
       id: '2023-06-01-another-post',
       body: 'More content',
       data: { title: 'Another Post' },
-    } as any;
+    } as unknown as CollectionEntry<'posts'>;
 
     const result = getPostMetadata(mockPost);
 

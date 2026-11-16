@@ -30,10 +30,10 @@ import { leadInHtml, bookCtaHtml } from '../lib/email-framing';
 // (remarkGfm, remarkSmartypants) already in sharedRemarkPlugins; both are
 // idempotent, so the overlap has no visible effect on the rendered HTML.
 const markdownProcessor = unified({
-  remarkPlugins: sharedRemarkPlugins as any,
-  rehypePlugins: syndicationRehypePlugins(siteConfig.url) as any,
+  remarkPlugins: sharedRemarkPlugins,
+  rehypePlugins: syndicationRehypePlugins(siteConfig.url),
 }).createRenderer({
-  shikiConfig: sharedShikiConfig as any,
+  shikiConfig: sharedShikiConfig,
 });
 
 export async function GET(context: APIContext) {

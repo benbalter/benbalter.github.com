@@ -18,15 +18,16 @@ vi.mock('../config', () => ({
   ],
 }));
 
+import type { CollectionEntry } from 'astro:content';
 import { resolveResumeWriting } from './resume-writing';
 
-function makePost(id: string, title: string) {
+function makePost(id: string, title: string): CollectionEntry<'posts'> {
   return {
     id,
     collection: 'posts' as const,
     data: { title, description: 'desc', published: true, archived: false },
     body: '',
-  } as any;
+  } as unknown as CollectionEntry<'posts'>;
 }
 
 describe('resolveResumeWriting', () => {

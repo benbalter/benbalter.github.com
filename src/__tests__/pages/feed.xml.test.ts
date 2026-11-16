@@ -7,13 +7,16 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import type { RSSOptions, RSSFeedItem } from '@astrojs/rss';
+import type { APIContext } from 'astro';
+import type { CollectionEntry } from 'astro:content';
 
 // Hoist mock functions so they can be referenced in vi.mock factories
 const mockRender = vi.hoisted(() =>
   vi.fn().mockResolvedValue({ code: '<p>Rendered HTML</p>' }),
 );
 const mockRss = vi.hoisted(() =>
-  vi.fn((..._args: any[]) => new Response('<?xml version="1.0" encoding="UTF-8"?><rss></rss>')),
+  vi.fn((_options: RSSOptions) => new Response('<?xml version="1.0" encoding="UTF-8"?><rss></rss>')),
 );
 
 vi.mock('astro:content', () => ({
@@ -50,13 +53,13 @@ function createMockPost(
   title: string,
   description: string,
   body = 'Post body',
-) {
+): CollectionEntry<'posts'> {
   return {
     id,
     collection: 'posts' as const,
     data: { title, description, published: true },
     body,
-  };
+  } as unknown as CollectionEntry<'posts'>;
 }
 
 /** Build a minimal APIContext stub */
@@ -66,7 +69,16 @@ function createContext(siteUrl = 'https://ben.balter.com/') {
     request: new Request(`${siteUrl}feed.xml`),
     url: new URL(`${siteUrl}feed.xml`),
     params: {},
-  } as any;
+  } as unknown as APIContext;
+}
+
+/** The options object passed to rss() on the given call, with items resolved */
+function rssOptions(call = 0): RSSOptions & { items: RSSFeedItem[] } {
+  const options = mockRss.mock.calls[call][0];
+  if (!Array.isArray(options.items)) {
+    throw new Error('Expected rss() to receive an items array');
+  }
+  return { ...options, items: options.items };
 }
 
 describe('feed.xml', () => {
@@ -78,52 +90,52 @@ describe('feed.xml', () => {
   });
 
   it('should call getCollection with a published filter', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
+    mockGetCollection.mockResolvedValue([]);
     await GET(createContext());
 
     expect(mockGetCollection).toHaveBeenCalledWith('posts', expect.any(Function));
 
-    const filterFn = mockGetCollection.mock.calls[0][1] as (entry: any) => boolean;
+    const filterFn = mockGetCollection.mock.calls[0][1] as unknown as (entry: { data: { published?: boolean } }) => boolean;
     expect(filterFn({ data: { published: true } })).toBe(true);
     expect(filterFn({ data: { published: false } })).toBe(false);
     expect(filterFn({ data: {} })).toBe(true); // undefined !== false
   });
 
   it('should pass correct site metadata to rss()', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
+    mockGetCollection.mockResolvedValue([]);
     await GET(createContext());
 
     expect(mockRss).toHaveBeenCalledTimes(1);
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.title).toBe(siteConfig.name);
     expect(options.description).toBe(siteConfig.description);
     expect(options.site).toBe('https://ben.balter.com');
   });
 
   it('should use context.site for the base URL', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
+    mockGetCollection.mockResolvedValue([]);
     await GET(createContext('https://custom.example.com/'));
 
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.site).toBe('https://custom.example.com');
   });
 
   it('should fall back to siteConfig.url when context.site is undefined', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
-    await GET({ site: undefined } as any);
+    mockGetCollection.mockResolvedValue([]);
+    await GET({ site: undefined } as unknown as APIContext);
 
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.site).toBe(siteConfig.url);
   });
 
   it('should build items with correct fields', async () => {
     mockGetCollection.mockResolvedValue([
       createMockPost('2024-06-15-my-post', 'My Post', 'Post description', '# Hello'),
-    ] as any);
+    ]);
 
     await GET(createContext());
 
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.items).toHaveLength(1);
 
     const item = options.items[0];
@@ -133,11 +145,12 @@ describe('feed.xml', () => {
     expect(item.content).toContain('<p>Rendered HTML</p>');
     expect(item.content).toContain('A new post from');
     expect(item.content).toContain(siteConfig.bookUrlEmail);
-    expect(item.content.indexOf('A new post from')).toBeLessThan(
-      item.content.indexOf('<p>Rendered HTML</p>'),
+    const content = item.content ?? '';
+    expect(content.indexOf('A new post from')).toBeLessThan(
+      content.indexOf('<p>Rendered HTML</p>'),
     );
-    expect(item.content.indexOf('<p>Rendered HTML</p>')).toBeLessThan(
-      item.content.indexOf(siteConfig.bookUrlEmail),
+    expect(content.indexOf('<p>Rendered HTML</p>')).toBeLessThan(
+      content.indexOf(siteConfig.bookUrlEmail),
     );
     expect(item.link).toBe('https://ben.balter.com/2024/06/15/my-post/');
     expect(item.author).toBe(`${siteConfig.email} (${siteConfig.author})`);
@@ -149,12 +162,12 @@ describe('feed.xml', () => {
       createMockPost('2024-01-01-old', 'Old', 'Old post'),
       createMockPost('2024-06-15-new', 'New', 'New post'),
       createMockPost('2024-03-10-mid', 'Mid', 'Mid post'),
-    ] as any);
+    ]);
 
     await GET(createContext());
 
-    const options = mockRss.mock.calls[0][0] as any;
-    const titles = options.items.map((i: any) => i.title);
+    const options = rssOptions();
+    const titles = options.items.map((i) => i.title);
     expect(titles).toEqual(['New', 'Mid', 'Old']);
   });
 
@@ -163,11 +176,11 @@ describe('feed.xml', () => {
       const day = String(i + 1).padStart(2, '0');
       return createMockPost(`2024-01-${day}-post-${i}`, `Post ${i}`, `Desc ${i}`);
     });
-    mockGetCollection.mockResolvedValue(posts as any);
+    mockGetCollection.mockResolvedValue(posts);
 
     await GET(createContext());
 
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.items).toHaveLength(20);
   });
 
@@ -175,7 +188,7 @@ describe('feed.xml', () => {
     mockGetCollection.mockResolvedValue([
       createMockPost('2024-01-01-a', 'A', 'Desc A', 'Body A'),
       createMockPost('2024-01-02-b', 'B', 'Desc B', 'Body B'),
-    ] as any);
+    ]);
 
     await GET(createContext());
 
@@ -186,10 +199,10 @@ describe('feed.xml', () => {
   });
 
   it('should handle empty collection', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
+    mockGetCollection.mockResolvedValue([]);
     await GET(createContext());
 
-    const options = mockRss.mock.calls[0][0] as any;
+    const options = rssOptions();
     expect(options.items).toEqual([]);
   });
 });

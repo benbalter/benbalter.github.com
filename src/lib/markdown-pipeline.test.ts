@@ -18,15 +18,17 @@ import { restoreIdentifierHyphens, syndicationRehypePlugins } from './markdown-p
 const SITE = 'https://ben.balter.com';
 
 function render(markdown: string) {
-  let processor = unified()
+  return unified()
     .use(remarkParse)
     .use(remarkDirective)
     .use(remarkQuoteDirective)
-    .use(remarkRehype, { allowDangerousHtml: true }) as any;
-  for (const plugin of syndicationRehypePlugins(SITE)) {
-    processor = Array.isArray(plugin) ? processor.use(plugin[0], plugin[1]) : processor.use(plugin);
-  }
-  return processor.use(rehypeStringify).process(markdown).then(String);
+    .use(remarkRehype, { allowDangerousHtml: true })
+    // use() accepts a plugin list and applies each entry in order, unpacking
+    // [plugin, options] tuples, the same as the old per-plugin loop did
+    .use(syndicationRehypePlugins(SITE))
+    .use(rehypeStringify)
+    .process(markdown)
+    .then(String);
 }
 
 describe('syndicationRehypePlugins', () => {

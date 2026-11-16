@@ -8,8 +8,8 @@ import { markdownToText, stripMarkdown } from './strip-markdown';
 describe('stripMarkdown', () => {
   describe('basic functionality', () => {
     it('should return empty string for null or undefined', () => {
-      expect(stripMarkdown(null as any)).toBe('');
-      expect(stripMarkdown(undefined as any)).toBe('');
+      expect(stripMarkdown(null as unknown as string)).toBe('');
+      expect(stripMarkdown(undefined as unknown as string)).toBe('');
     });
 
     it('should return empty string for empty input', () => {

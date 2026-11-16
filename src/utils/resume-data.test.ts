@@ -13,19 +13,19 @@ vi.mock('astro:content', () => ({
   render: vi.fn(),
 }));
 
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { getResumePositions, typographicApostrophes } from './resume-data';
 
 const mockGetCollection = vi.mocked(getCollection);
 const mockRender = vi.mocked(render);
 
-function makePosition(id: string, employer: string, start_date: string) {
+function makePosition(id: string, employer: string, start_date: string): CollectionEntry<'resume-positions'> {
   return {
     id,
     collection: 'resume-positions' as const,
     data: { employer, title: `${employer} role`, start_date },
     body: '',
-  } as any;
+  } as unknown as CollectionEntry<'resume-positions'>;
 }
 
 describe('getResumePositions', () => {
@@ -33,9 +33,9 @@ describe('getResumePositions', () => {
     mockGetCollection.mockReset();
     mockRender.mockReset();
     // Tag each rendered Content with its source id so we can assert attachment.
-    mockRender.mockImplementation(async (entry: { id: string }) => ({
-      Content: `Content:${entry.id}` as any,
-    }));
+    mockRender.mockImplementation((async (entry: { id: string }) => ({
+      Content: `Content:${entry.id}`,
+    })) as unknown as typeof render);
   });
 
   it('sorts all positions most-recent-first', async () => {
@@ -43,7 +43,7 @@ describe('getResumePositions', () => {
       makePosition('a', 'Acme', '2018-01-01'),
       makePosition('c', 'Corp', '2023-01-01'),
       makePosition('b', 'Beta', '2020-01-01'),
-    ] as any);
+    ]);
 
     const { sorted } = await getResumePositions();
 
@@ -55,7 +55,7 @@ describe('getResumePositions', () => {
       makePosition('gh-old', 'GitHub', '2020-01-01'),
       makePosition('acme', 'Acme', '2018-01-01'),
       makePosition('gh-new', 'GitHub', '2023-01-01'),
-    ] as any);
+    ]);
 
     const { grouped } = await getResumePositions();
 
@@ -68,7 +68,7 @@ describe('getResumePositions', () => {
   it('attaches a rendered Content component to each grouped position', async () => {
     mockGetCollection.mockResolvedValue([
       makePosition('gh', 'GitHub', '2023-01-01'),
-    ] as any);
+    ]);
 
     const { grouped } = await getResumePositions();
 
@@ -76,7 +76,7 @@ describe('getResumePositions', () => {
   });
 
   it('returns empty sorted and grouped for an empty collection', async () => {
-    mockGetCollection.mockResolvedValue([] as any);
+    mockGetCollection.mockResolvedValue([]);
 
     const { sorted, grouped } = await getResumePositions();
 

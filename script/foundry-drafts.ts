@@ -290,8 +290,13 @@ function lint(file: string): { clean: boolean; report: string } {
     try {
       const out = execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'] });
       return { code: 0, out };
-    } catch (e: any) {
-      return { code: typeof e.status === 'number' ? e.status : 1, out: `${e.stdout ?? ''}${e.stderr ?? ''}` };
+    } catch (e) {
+      // execFileSync throws an Error carrying the child's exit status and output
+      const err = e instanceof Error ? (e as Error & { status?: unknown; stdout?: string; stderr?: string }) : undefined;
+      return {
+        code: typeof err?.status === 'number' ? err.status : 1,
+        out: `${err?.stdout ?? ''}${err?.stderr ?? ''}`,
+      };
     }
   };
   const vale = capture('vale', [file, '--minAlertLevel=error']);
@@ -370,7 +375,7 @@ async function draftIdea(idea: Idea, exemplars: Post[]): Promise<DraftResult> {
       ],
       { json: true, maxTokens: 3000, temperature: 0.5, stub: reviseStub }
     );
-    draft = parseJson(text);
+    draft = parseJson<typeof draft>(text);
     fs.writeFileSync(file, assembleMarkdown(draft.title, draft.description, draft.body));
     result = lint(file);
   }
