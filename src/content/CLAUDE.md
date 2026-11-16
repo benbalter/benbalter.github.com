@@ -2,7 +2,7 @@
 
 Writing for ben.balter.com. Match Ben's voice: direct, irreverent, opinionated, conversational, like a smart colleague over coffee, not a corporate memo.
 
-This is the site's summary of Ben's `writing-style` skill, plus what's specific to this site. The skill is the full guide and wins where the two disagree, so load it when you have it (Claude Code does). This file is what agents without it work from, such as GitHub Copilot, and it's the only place in the repository for voice rules: the [`writing` agent](../../.github/agents/writing.md) points here instead of keeping its own copy. [`agent-guidance.test.ts`](agent-guidance.test.ts) checks both.
+This is the site's summary of Ben's `writing-style` skill, plus what's specific to this site. The skill is the full guide. Load it when you have it (Claude Code does), and follow it where the two disagree. This file is what agents without it work from, such as GitHub Copilot, and it's the only place in the repository for voice rules: the [`writing` agent](../../.github/agents/writing.md) points here and has no copy. [`agent-guidance.test.ts`](agent-guidance.test.ts) checks both.
 
 ## Voice
 
