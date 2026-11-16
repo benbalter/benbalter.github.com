@@ -77,7 +77,7 @@ None of that is glamorous, and none of it happens when each item costs you an ev
 
 The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. That sounds like bad news. Most of it isn't. Seven fixed holes, some of them years old, that otherwise wouldn't have been found.
 
-The other four are the cost of moving fast. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel landed in an unprotected folder. More than 2,000 sites run this code, which is why I read every diff.
+The other four are the cost of moving fast. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel landed in an unprotected folder. The agent wrote that bug, but I'm the one who merged it. With more than 2,000 sites running this code, reading every diff is the job.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
 The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges. The agent works for the person accountable for the project, not around them.
