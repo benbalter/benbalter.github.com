@@ -1,16 +1,16 @@
 ---
 title: AI made open source fun again
 description: "My 15-year-old WordPress plugin passed 200,000 downloads. Open source projects die when catching up costs more than ignoring them. AI flipped that math."
-tldr: "Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them. That math kept me away from WP Document Revisions for years, until AI agents made catching up cheap and 2026 became its busiest year. Point agents at the work you've been dreading, read every diff, and keep the decisions for yourself."
+tldr: "Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them. That math kept me away from WP Document Revisions for years. Then AI agents took over the toil, 2026 became its busiest year, and maintaining it got fun again. Point agents at the work you've been dreading, read every diff, and keep the decisions for yourself."
 ---
 
 Here's the commit history for [WP Document Revisions](https://github.com/wp-document-revisions/wp-document-revisions), the WordPress plugin I started in 2011. In 2023, I made seven commits to it. In 2024, four. This year, the plugin had its busiest year ever, 756 commits, and AI agents working for me made 478 of them. I didn't type that code, but I carefully read every diff.
 
 ![Stacked bar chart of commits per year to WP Document Revisions, 2011 to 2026. My handwritten commits spike in 2011 to 2012, 2017, and 2021, then nearly vanish in 2023 and 2024 while Neil James carries the plugin, and stop entirely after that. From 2025, AI agents take over: 121 commits in 2025 and 478 in 2026. 2026 is the tallest bar by far, with 756 commits: 478 from AI agents, 138 from Neil, and 140 from everyone else, including dependency bots. The previous high was 467 in 2021.](/assets/img/wp-document-revisions-commits-by-year-1600x900.svg "Commits per year, by who made them. Every commit from my account since May 2025 counts as AI. Merges excluded; 2026 is through November 7.")
 
-The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), which feels like a good excuse to look at what changed. I didn't find more free time, and nobody started paying me to maintain it.
+The plugin also just passed 200,000 downloads on [WordPress.org](https://wordpress.org/plugins/wp-document-revisions/), so it's a good time to look at what changed. I didn't find more free time, and nobody started paying me to maintain it.
 
-:quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project, my first "real" open source project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again.
+:quote[Open source projects don't die because maintainers quit. They die when catching up costs more than ignoring them.]{#catching-up-costs-more} For years, that math kept me away from my own project, my first "real" open source project. This year, AI agents flipped it, and once the toil was gone, maintaining it was fun again. If there's a repository you feel a little guilty about every time it crosses your mind, it can be fun again for you, too.
 
 ## Nobody decides to walk away
 
@@ -20,7 +20,9 @@ In 2011, I was a law and business student[^business-school] trying to set up [Sh
 
 I spent that summer writing PHP with three WordPress developers looking over my shoulder,[^mentors] and [WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/). Then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
 
-The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal since I graduated, nearly six years earlier, and I'd assumed they'd moved on to something better. Someone's well-intentioned changes had broken the journal's workspace, members couldn't log in, and nobody on the board knew how to fix it. I was surprised, flattered, and a little humbled. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
+The closest it came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal since I graduated, nearly six years earlier, and I'd assumed they'd moved on to something better. They hadn't. Someone's well-intentioned changes had broken the journal's workspace, and nobody on the board knew how to fix it.
+
+I was surprised, flattered, and a little humbled. Eight years after I'd built it, the journal was still running its publishing workflow on it, and I was still the person they emailed.[^maintainability]
 
 ### Someone else showed up
 
@@ -34,7 +36,7 @@ Most abandoned open source looks like this. :quote[Nobody decides to walk away. 
 
 The first thing that changed was the cost of ignoring it. WordPress.org says the plugin runs on [more than 2,000 sites](https://wordpress.org/plugins/wp-document-revisions/). One of them is the UK Ministry of Justice, whose [intranet](https://github.com/ministryofjustice/intranet) and [WordPress hosting platform](https://github.com/ministryofjustice/hale-platform) both build on it.
 
-The plugin shipped two releases in 2024, each on the day [Davey](https://github.com/EarthlingDavey), a developer on the Ministry's intranet, politely opened an issue asking for one, [in March](https://github.com/wp-document-revisions/wp-document-revisions/issues/344) and [again in June](https://github.com/wp-document-revisions/wp-document-revisions/issues/349). Those requests were how I found out the Ministry depended on it. All four of my commits that year were on the second of those days. A plugin I wrote as a law student was holding a government department's documents, and its maintainer needed reminders to ship.
+The plugin shipped two releases in 2024, each on the day [Davey](https://github.com/EarthlingDavey), a developer on the Ministry's intranet, politely opened an issue asking for one, [in March](https://github.com/wp-document-revisions/wp-document-revisions/issues/344) and [again in June](https://github.com/wp-document-revisions/wp-document-revisions/issues/349). Those requests were how I found out the Ministry depended on it. A plugin I wrote as a law student was holding a government department's documents, and its maintainer needed reminders to ship.
 
 ## The cost of catching up came down
 
@@ -53,11 +55,13 @@ Starting in May 2025, I handed it to AI agents. It took five attempts over eleve
 
 The expensive part of maintaining an old project is the context switch, not the typing: remembering how the upload path works, rebuilding the test environment, reading a three-year-old issue to figure out what the reporter meant. On a side project you touch twice a year, that ramp-up eats the whole evening before you change a line.
 
-Agents handle most of that ramp-up. I can point one at an issue and come back to a pull request with a diagnosis, a fix, and a failing test that now passes. My job becomes reading it and deciding whether it's right. That's a short task, as long as the pull request is small and the tests are real. Of the 180 pull requests I merged on the plugin this year, half merged within 10 minutes of being opened. Those were small: a median of about 60 changed lines, and none could merge until the unit tests, the end-to-end tests, and WordPress's own plugin checks passed.[^checks]
+Agents do the ramp-up.[^setup] I point one at an issue and come back to a pull request with a diagnosis, a fix, and a failing test that now passes. My job is to read it and decide whether it's right.
 
-Here's what that looks like in practice.[^setup] On the morning of September 28, Davey filed two bug reports from the Ministry of Justice: a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726) on older documents. His site has about 27,000 documents among 120,000 attachments, each page of the Media Library took 3–4 seconds to load, and he'd already traced it to the query. Both fixes merged that night and shipped in a release the next day. Then he and Neil spent two weeks benchmarking query variants against his database, just to see if it could go faster.
+That's a short job as long as the pull request is small and the tests are real. Half of the 180 pull requests I merged this year merged within 10 minutes of being opened. Those had a median of about 60 changed lines, and none could merge until the unit tests, the end-to-end tests, and WordPress's own plugin checks passed.[^checks] It helps to write down how the project works, too, because [an agent is only as good as the docs you feed it](/2026/10/26/documentation-quality-is-ai-quality/).
 
-Over a year, that adds up: 180 merged pull requests from me and my agents, plus 117 dependency updates from [Dependabot](https://docs.github.com/en/code-security/dependabot) and [Renovate](https://docs.renovatebot.com/), and 33 releases between v4.0.0 in April and v5.8.3 on November 7. Twenty-three of those releases were small patch releases. The previous record for releases in a year was 11, set the year the plugin launched.
+Quick reviews turn into quick releases. One morning in September, Davey reported two bugs from the Ministry of Justice, a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726). Both fixes merged that night and shipped the next day. Then he and Neil spent two weeks benchmarking queries against his database, just to see if it could go faster.
+
+The plugin shipped 33 releases this year, 23 of them small patches. The previous record was 11, set the year it launched.
 
 ![Bar chart of releases per year of WP Document Revisions, 2011 to 2026. 11 in 2011 and 9 in 2012, then between zero and five a year from 2013 through 2025. 2026 has 33.](/assets/img/wp-document-revisions-releases-by-year-1600x900.svg "Releases per year, counted from release tags. 2026 is through November 7.")
 
@@ -68,19 +72,19 @@ The most valuable work wasn't the big features, though there were some: opt-in b
 - **Changelogs a human can read.** The [5.8.3 changelog](https://github.com/wp-document-revisions/wp-document-revisions/releases/tag/v5.8.3) explains what broke, who saw it, and what to do about it, instead of "misc fixes."
 - **The weird edge cases.** One recent fix covers the case where a PHP upgrade changes which account PHP runs as, so the server can't read a document's file anymore. Before, people got a blank error page. Now they get a message that says what's wrong.
 
-None of that is glamorous, and none of it would have happened if each item cost me an evening. Once each one took a short review instead, they all fit.
+None of that is glamorous, and none of it would have happened if each item cost me an evening. Once each took a short review instead, there was room for all of it.
 
-### The same math, on other projects
+### The math flipped on my other projects, too
 
-The math flipped for my other neglected projects, too. I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. Three hadn't had a release since 2019. This year, they've had 274 commits and 29 releases.[^pages-versions]
+I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. Three hadn't had a release since 2019. This year, they've had 274 commits and 29 releases.[^pages-versions]
 
 Same story with [word2md](https://word2md.com), the Word-to-Markdown converter that started as [a little Heroku app](/2026/10/26/documentation-quality-is-ai-quality/) twelve years ago. I started rewriting it in JavaScript in 2024 so it could run entirely in your browser, and it's had 449 commits this year, compared with 52 that first year. Its mirror image, [md2word](https://md2word.app), didn't exist until March. It has 197 commits now.
 
 ## Cheap isn't free
 
-Some of the cost was money. Until May 2026, a lot of this happened on my employer's dime, while I worked at GitHub. Since then, it's been on my own time.
+Moving this fast has a cost, and the cost is risk. The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. Seven covered code that predates the agents, some of it by years. Four covered code the agents wrote this year, including private documents uploaded through the new block editor panel landing in an unprotected folder.
 
-The bigger cost was risk. The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. Seven covered code that predates the agents, some of it by years. Four covered code the agents wrote this year, including private documents uploaded through the new block editor panel landing in an unprotected folder. That's the cost of moving this fast, and it's the strongest argument for reading every diff.
+That's the strongest argument for reading every diff. It's also why I closed four CoffeeScript attempts without merging them: more than 2,000 sites run this code.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
 The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, I know the code, and I own whatever merges. The agent works for the person accountable for the project, not around them.
@@ -90,23 +94,17 @@ That's also why review still matters. Agents are logical to a fault, but they la
 The agents write a draft. The plugin's existing tests, CI, and code review decide whether it ships, the same way they would for a human contributor I'd never met. [Pull requests are the right interface for agents](/2026/03/18/agentic-workflows/) for exactly this reason. A 756-commit year is only possible because there's a decade of process underneath it. That process is the part I'd keep if the agents disappeared tomorrow.
 :::
 
-The CoffeeScript migration is the receipt: four attempts I closed without merging, because I didn't trust them on code more than 2,000 sites run.
-
-### Review doesn't catch everything
-
-In 2025, someone reported a bug in [jekyll-optional-front-matter](https://github.com/benbalter/jekyll-optional-front-matter), another plugin of mine, and [traced it](https://github.com/benbalter/jekyll-optional-front-matter/issues/42) to the order Jekyll sorts pages in. Copilot's [fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/43) ignored that diagnosis and patched the symptom, and I merged it.
-
-Three days later, the reporter found it had emptied their site's search index and navigation. Their own [smaller fix](https://github.com/benbalter/jekyll-optional-front-matter/pull/44), which re-sorted the pages, replaced it a month later. The person who'd read the code closely got it right, and the agent didn't, and my quick review let it through. That's part of why end-to-end tests now gate every merge on WP Document Revisions.
-
 ## What's left is the fun part
 
 Cheap work still needs someone to decide what the plugin is for, which feature requests to turn down, when a fix is risky enough to hold for a minor release, and what to tell users when something went wrong. That's the maintainer's job, and it turns out to be the fun part.
 
-Here's what the fun part looks like. On the evening of April 28, I added a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/) to the plugin's WordPress.org page, so anyone can try it in their browser without installing anything.[^playground] The agent's [first commit](https://github.com/wp-document-revisions/wp-document-revisions/commit/22f4fc5e) for it landed at 6:09 PM Eastern, and it was in a release three minutes later. The file had the wrong path, so the [fix](https://github.com/wp-document-revisions/wp-document-revisions/commit/6fd9d349) shipped six minutes after that, one of four releases that day. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
+It's also where ideas stop dying of neglect. One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that evening, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
 
-Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own now, and a trivial bug fix takes a few minutes of review instead of an evening. I keep learning along the way, too.
+Most of the toil is gone. [Renovate](https://docs.renovatebot.com/) merges many dependency updates on its own, a trivial bug fix takes a few minutes of review instead of an evening, and every pull request arrives with its own tests, so I don't have to write them. [Aaron Jorbin](https://aaron.jorb.in/), one of my Summer of Code mentors, taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.)
 
-And every pull request now arrives with its own tests, so I don't have to write them. [Aaron Jorbin](https://aaron.jorb.in/), one of my Summer of Code mentors, is the person who taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.) Since I left GitHub in May, open source has been a hobby again, the way it was in 2011. Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.
+Since my role at GitHub ended in July, open source has been a hobby again, the way it was in 2011. :quote[Contributing to open source has always been a kind of volunteering. It's a lot easier to keep showing up when the shift is fun.]{#volunteering}
+
+If you've got a neglected project and a guilty conscience, that's worth hearing. You didn't stop caring. You're a volunteer, and the shift stopped being fun, because every visit cost an evening of catching up before you got to the part you liked. Take the toil away, and what's left is the reason you started.
 
 In 2024, the plugin shipped two releases, and a government department had to ask for both. This year, it shipped 33, and nobody had to ask.
 
@@ -139,12 +137,12 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^tests]: All 181 tests passed, and the fifth attempt added 113 more.
 
-[^setup]: Until May 2026, I worked at GitHub, and my agent was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. That was a time when the company encouraged employees to get fluent with AI tools by using them as much as possible. When that job ended in May, I switched to [Claude Code](https://claude.com/claude-code). The workflow is the same either way: the agent opens a pull request, and I review it.
+[^setup]: Until my role at GitHub ended in July 2026, my agent was GitHub Copilot, both in VS Code and as its cloud coding agent, which has 108 commits of its own. The company encouraged employees to get fluent with AI tools by using them as much as possible. Since then, I've used [Claude Code](https://claude.com/claude-code). The workflow is the same either way: the agent opens a pull request, and I review it.
+
+[^checks]: The repository's branch rules require the unit tests, the end-to-end tests, the WordPress.org Plugin Check, and a few build checks to pass before anything merges, including Renovate's automatic merges.
 
 [^abilities]: The Abilities API is WordPress's way of describing what a plugin can do, so that AI agents and the command palette can call it. The plugin's abilities are read-only, and the [WordPress MCP Adapter](https://github.com/WordPress/mcp-adapter) exposes them over the Model Context Protocol, so an assistant can look up documents without being able to change them.
 
 [^pages-versions]: GitHub Pages pins its own versions of these plugins and updates them on its own schedule, so most of those fixes reach sites that build with Jekyll directly, for example through GitHub Actions. Pages picked up a security fix for one of them [this month](https://github.com/github/pages-gem/pull/965).
-
-[^checks]: The repository's branch rules require the unit tests, the end-to-end tests, the WordPress.org Plugin Check, and a few build checks to pass before anything merges, including Renovate's automatic merges.
 
 [^playground]: WordPress.org can launch any plugin in [WordPress Playground](https://wordpress.org/playground/), a full WordPress that runs entirely in the browser, if the plugin ships a small configuration file describing how to set it up.
