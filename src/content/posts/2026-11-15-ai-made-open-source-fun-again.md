@@ -20,11 +20,11 @@ The maintainer's attention goes somewhere else, and the issue queue gets longer 
 
 In 2011, I was a law and business student[^business-school] trying to set up [SharePoint](https://en.wikipedia.org/wiki/SharePoint) for my law journal's publishing workflow, and [losing](/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/). WordPress already had revisions, permissions, and permalinks. All it was missing was documents, so I pitched bolting them on as a [Google Summer of Code project](https://gsoc2011.wordpress.com/document-revisions/), and WordPress [picked it](https://make.wordpress.org/core/2011/04/25/2011-gsoc-students-announced/). My entire public reaction was "[W00t I can haz Google Summer of Code](https://ben.balter.com/tweets/status/62596492455723008/)."[^w00t]
 
-[WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/),[^mentors] and then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, and then I'd drift off again.
+[WP Document Revisions launched that August](/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/),[^mentors] and then it did something side projects rarely do: it worked. Sites installed it and kept running it, and nothing broke badly enough to drag me back. Every few years, something would pull me in for a burst of work, like the August 2017 weekend I shipped version 3.0, and then I'd drift off again.
 
 The closest the plugin came to forcing my hand was an email in April 2019 from a student editor at my old law journal. I hadn't heard from the journal since I graduated, nearly six years earlier, and I'd assumed they'd moved on to something better. They hadn't. Eight years after I'd built it, the journal still ran its publishing workflow on it.
 
-Someone's well-intentioned changes had broken it, and I was still the person they emailed. I was surprised, flattered, and a little humbled. Assume whatever you ship will still be running in ten years, long after anyone remembers why it works the way it does.[^maintainability]
+Someone's well-intentioned changes had broken it, and I was still the person they emailed.[^maintainability] I was surprised, and a little flattered.
 
 ### A stranger kept it alive
 
@@ -44,7 +44,7 @@ The plugin shipped two releases in 2024. Each went out the day [Davey](https://g
 
 Most old projects have a rewrite nobody wants to do. Mine was [CoffeeScript](https://coffeescript.org/), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] I [adopted it in 2013](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to get rid of it a decade later, and then didn't touch that issue for a year and a half.
 
-I handed it to an AI agent,[^setup] and it failed. So did the next three. I closed all four without merging them. They left me four rules.
+I handed it to an AI agent,[^setup] and it failed. The next three failed too. I closed all four without merging them. They left me four rules.
 
 - **Check the work, not the summary.** An agent will say it's finished when it isn't. The [first attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) added a "modern" copy beside the old code instead of replacing it. The [fourth](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) converted one file and told me the rest were "already written in modern ES6+." They weren't.
 - **Ask for changes small enough to read.** The [second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) ballooned into 96 files and 21,000 lines. If you can't review it, you can't merge it.
@@ -84,16 +84,14 @@ The plugin published [11 security advisories](https://github.com/wp-document-rev
 The other four are also on me. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel were saved to an unprotected folder. The agent wrote that bug, but I'm the one who merged it. Humans still make mistakes, too. With more than 2,000 sites running this code, reading every diff is on me. I take responsibility for everything I ship.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
-The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges. The agent works for the person accountable for the project, not around them.
+The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges.
 
-That's also why review still matters. Agents are logical to a fault, but they lack taste and product judgment. :quote[AI can generate the right solution to the wrong problem.]{#right-solution-wrong-problem}
+That's also why review still matters. :quote[AI can generate the right solution to the wrong problem.]{#right-solution-wrong-problem}
 
 The agents write a draft. The plugin's tests and my review decide whether it ships, the same way they would for a human contributor I'd never met. It's what makes [pull requests the right interface for agents](/2026/03/18/agentic-workflows/).
 :::
 
 ## What's left is the fun part
-
-The fun part of maintaining a project is adding new features, and going from an idea to a release, safely.
 
 One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that night, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have stayed in my head until some free weekend that never came.
 
