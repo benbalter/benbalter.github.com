@@ -9,6 +9,18 @@ import {
 } from './structured-data';
 import { siteConfig } from '../config';
 
+/**
+ * The Person fields these tests read. schema-dts types every property as a
+ * wide union, so tests read through this narrower view
+ */
+interface PersonView {
+  worksFor?: unknown;
+  jobTitle?: unknown;
+  alumniOf: { '@type': string; name: string; url: string };
+  sameAs: unknown;
+  image: unknown;
+}
+
 describe('generatePersonSchema', () => {
   it('should generate valid Person schema', () => {
     const schema = generatePersonSchema();
@@ -22,20 +34,20 @@ describe('generatePersonSchema', () => {
 
   it('should not assert a current employer (between full-time roles)', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
 
-    expect(schemaAny.worksFor).toBeUndefined();
-    expect(schemaAny.jobTitle).toBeUndefined();
+    expect(view.worksFor).toBeUndefined();
+    expect(view.jobTitle).toBeUndefined();
   });
 
   it('should include the former employer as alumniOf', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
 
-    expect(schemaAny.alumniOf).toBeDefined();
-    expect(schemaAny.alumniOf['@type']).toBe('Organization');
-    expect(schemaAny.alumniOf.name).toBe(siteConfig.formerEmployer);
-    expect(schemaAny.alumniOf.url).toBe(siteConfig.formerEmployerUrl);
+    expect(view.alumniOf).toBeDefined();
+    expect(view.alumniOf['@type']).toBe('Organization');
+    expect(view.alumniOf.name).toBe(siteConfig.formerEmployer);
+    expect(view.alumniOf.url).toBe(siteConfig.formerEmployerUrl);
   });
 
   it('should include @id', () => {
@@ -46,72 +58,72 @@ describe('generatePersonSchema', () => {
 
   it('should include social media links', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    expect(Array.isArray(schemaAny.sameAs)).toBe(true);
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs.length).toBeGreaterThan(0);
+    expect(Array.isArray(view.sameAs)).toBe(true);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs.length).toBeGreaterThan(0);
     }
   });
 
   it('should include GitHub profile in sameAs', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(`https://github.com/${siteConfig.githubUsername}`);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs).toContain(`https://github.com/${siteConfig.githubUsername}`);
     }
   });
 
   it('should include Twitter profile in sameAs', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(`https://twitter.com/${siteConfig.socialUsername}`);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs).toContain(`https://twitter.com/${siteConfig.socialUsername}`);
     }
   });
 
   it('should include LinkedIn profile in sameAs', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(siteConfig.linkedinUrl);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs).toContain(siteConfig.linkedinUrl);
     }
   });
 
   it('should include Mastodon profile in sameAs', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(siteConfig.mastodonUrl);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs).toContain(siteConfig.mastodonUrl);
     }
   });
 
   it('should include Bluesky profile in sameAs', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(siteConfig.blueskyUrl);
+    if (Array.isArray(view.sameAs)) {
+      expect(view.sameAs).toContain(siteConfig.blueskyUrl);
     }
   });
 
   it('should include profile image', () => {
     const schema = generatePersonSchema();
-    const schemaAny = schema as any;
+    const view = schema as unknown as PersonView;
     
     expect(schema).toHaveProperty('image', `${siteConfig.url}/assets/img/headshot.jpg`);
-    if (typeof schemaAny.image === 'string') {
-      expect(schemaAny.image).toMatch(/^https:\/\//);
+    if (typeof view.image === 'string') {
+      expect(view.image).toMatch(/^https:\/\//);
     }
   });
 

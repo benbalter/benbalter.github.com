@@ -6,6 +6,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import type { APIContext } from 'astro';
 import { GET, sanitizeFilename } from '../../pages/vcard.vcf';
 import { siteConfig } from '../../config';
 
@@ -39,7 +40,7 @@ describe('vcard.vcf', () => {
   describe('GET', () => {
     // GET ignores its context argument, so pass a minimal stub
     // Cast to Response since the implementation returns synchronously
-    const response = GET({} as any) as Response;
+    const response = GET({} as unknown as APIContext) as Response;
 
     it('should return a 200 response', () => {
       expect(response.status).toBe(200);

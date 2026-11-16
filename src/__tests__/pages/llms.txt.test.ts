@@ -12,6 +12,7 @@ vi.mock('astro:content', () => ({
 }));
 
 import { getCollection } from 'astro:content';
+import type { APIContext } from 'astro';
 import { siteConfig } from '../../config';
 
 const mockGetCollection = vi.mocked(getCollection);
@@ -63,14 +64,14 @@ describe('llms.txt', () => {
     posts: ReturnType<typeof createMockPost>[] = [],
     pages: ReturnType<typeof createMockPage>[] = [],
   ) {
-    mockGetCollection.mockImplementation(async (collection: any) => {
-      if (collection === 'posts') return posts as any;
-      if (collection === 'pages') return pages as any;
-      return [] as any;
-    });
+    mockGetCollection.mockImplementation((async (collection: string) => {
+      if (collection === 'posts') return posts;
+      if (collection === 'pages') return pages;
+      return [];
+    }) as unknown as typeof getCollection);
 
     const GET = await importGET();
-    return GET({} as any);
+    return GET({} as unknown as APIContext);
   }
 
   it('should return a 200 response', async () => {

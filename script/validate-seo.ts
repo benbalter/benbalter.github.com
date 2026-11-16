@@ -44,7 +44,7 @@ async function validatePosts() {
     const relativePath = path.relative(process.cwd(), filePath);
     const content = fs.readFileSync(filePath, 'utf-8');
     
-    let frontmatter: any;
+    let frontmatter: { title?: string; description?: string };
     try {
       const parsed = matter(content);
       frontmatter = parsed.data;
@@ -175,7 +175,7 @@ async function validatePages() {
     const relativePath = path.relative(process.cwd(), filePath);
     const content = fs.readFileSync(filePath, 'utf-8');
     
-    let frontmatter: any;
+    let frontmatter: { title?: string; description?: string };
     try {
       const parsed = matter(content);
       frontmatter = parsed.data;

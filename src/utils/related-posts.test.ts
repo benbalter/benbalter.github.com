@@ -24,8 +24,8 @@ function createMockPost(
       description,
       published,
       archived,
-    } as any,
-  } as CollectionEntry<'posts'>;
+    },
+  } as unknown as CollectionEntry<'posts'>;
 }
 
 describe('findRelatedPosts', () => {

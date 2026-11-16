@@ -8,16 +8,17 @@
  * Keeping the configuration in one place ensures consistency and prevents drift.
  */
 
+import type { RehypePlugin, RehypePlugins, RemarkPlugin, RemarkPlugins, ShikiConfig } from '@astrojs/markdown-remark';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
-import remarkSmartypants from 'remark-smartypants';
+import remarkSmartypantsPlugin from 'remark-smartypants';
 import remarkTextr from 'remark-textr';
 import remarkDirective from 'remark-directive';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeRaw from 'rehype-raw';
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
+import { rehypeAccessibleEmojis as rehypeAccessibleEmojisPlugin } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
 import { remarkCalloutDirectives } from './remark-callout-directives';
 import { remarkObjectionDirectives } from './remark-objection-directives';
@@ -44,6 +45,13 @@ import typographicRegisteredTrademark from 'typographic-registered-trademark';
 import typographicSingleSpaces from 'typographic-single-spaces';
 import typographicTrademark from 'typographic-trademark';
 
+// These two packages declare their transformers over a generic unist tree
+// (`Node` / `NodeWithChildren`) instead of mdast/hast `Root`, so their
+// published types don't line up with Astro's plugin types even though they
+// run fine on real trees. Assert the plugin type once here, not at every use.
+const remarkSmartypants = remarkSmartypantsPlugin as RemarkPlugin;
+const rehypeAccessibleEmojis = rehypeAccessibleEmojisPlugin as RehypePlugin;
+
 // Shared rehype plugin configurations
 // No `noreferrer`: the site-wide Referrer-Policy (strict-origin-when-cross-origin)
 // already limits other sites to the bare origin, and keeping it lets word2md,
@@ -51,7 +59,7 @@ import typographicTrademark from 'typographic-trademark';
 const rehypeExternalLinksConfig = [rehypeExternalLinks, {
   target: '_blank',
   rel: ['noopener'],
-}];
+}] satisfies [RehypePlugin, unknown];
 
 const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   behavior: 'append',
@@ -70,7 +78,7 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
     properties: { className: ['anchor-icon'] },
     children: [{ type: 'text', value: '#' }]
   }
-}];
+}] satisfies [RehypePlugin, unknown];
 
 // typographic-en-dashes turns any digit-hyphen-digit into a range ("10-22" →
 // "10–22"), which corrupts document identifiers like OMB memo "M-10-22".
@@ -96,7 +104,7 @@ const remarkTextrConfig = [remarkTextr, {
     typographicSingleSpaces,
     typographicTrademark,
   ],
-}];
+}] satisfies [RemarkPlugin, unknown];
 
 // Shared remark plugins list
 export const sharedRemarkPlugins = [
@@ -114,7 +122,7 @@ export const sharedRemarkPlugins = [
   // Revert stray text/leaf directives (e.g. "1:1", "3:00") back to literal text
   remarkDirectiveFallback,
   remarkTextrConfig,
-];
+] satisfies RemarkPlugins;
 
 // Shared rehype plugins list
 export const sharedRehypePlugins = [
@@ -135,7 +143,7 @@ export const sharedRehypePlugins = [
   // Highlight "TK" (to come) placeholders in bright yellow. Dev server only:
   // a no-op in production builds, and absent from the syndication pipeline.
   rehypeTkHighlight,
-];
+] satisfies RehypePlugins;
 
 /**
  * Rehype plugins for off-site rendering (RSS feed and email broadcasts).
@@ -167,7 +175,7 @@ export function syndicationRehypePlugins(siteUrl: string) {
     // links and images break. Must follow rehypeExternalLinks, which treats any
     // http(s) URL as external and would open internal links in a new tab.
     [rehypeAbsoluteUrls, { siteUrl }],
-  ];
+  ] satisfies RehypePlugins;
 }
 
 // Shared Shiki configuration for syntax highlighting
@@ -177,4 +185,4 @@ export const sharedShikiConfig = {
     dark: 'github-dark',
   },
   wrap: true,
-};
+} satisfies ShikiConfig;

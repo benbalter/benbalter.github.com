@@ -14,7 +14,22 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
+import type { Root } from 'hast';
 import { rehypeAcronyms } from './rehype-acronyms';
+
+/**
+ * A hand-built tree node. hast's types don't include MDX JSX nodes
+ * (mdxJsxFlowElement, mdxJsxTextElement), so tests build trees from this
+ * looser shape and hand them to the transformer as a hast Root
+ */
+interface TestNode {
+  type: string;
+  name?: string;
+  tagName?: string;
+  value?: string;
+  attributes?: unknown[];
+  children?: TestNode[];
+}
 
 const processor = unified()
   .use(remarkParse)
@@ -114,7 +129,7 @@ describe('rehypeAcronyms', () => {
   // silently go unwrapped. Run the transformer directly on a hand-built tree
   // since remark's rehype-raw can't produce MDX JSX nodes.
   it('descends into MDX JSX blocks (mdxJsxFlowElement)', () => {
-    const tree: any = {
+    const tree: TestNode = {
       type: 'root',
       children: [
         {
@@ -125,15 +140,15 @@ describe('rehypeAcronyms', () => {
         },
       ],
     };
-    rehypeAcronyms()(tree);
-    const aside = tree.children[0];
-    const abbr = aside.children.find((c: any) => c.type === 'element' && c.tagName === 'abbr');
+    rehypeAcronyms()(tree as unknown as Root);
+    const aside = tree.children?.[0];
+    const abbr = aside?.children?.find((c) => c.type === 'element' && c.tagName === 'abbr');
     expect(abbr).toBeTruthy();
-    expect(abbr.children[0].value).toBe('WIP');
+    expect(abbr?.children?.[0]?.value).toBe('WIP');
   });
 
   it('skips acronyms inside a skippable MDX JSX tag (e.g. <a>)', () => {
-    const tree: any = {
+    const tree: TestNode = {
       type: 'root',
       children: [
         {
@@ -144,8 +159,8 @@ describe('rehypeAcronyms', () => {
         },
       ],
     };
-    rehypeAcronyms()(tree);
-    const link = tree.children[0];
-    expect(link.children.every((c: any) => c.type !== 'element')).toBe(true);
+    rehypeAcronyms()(tree as unknown as Root);
+    const link = tree.children?.[0];
+    expect(link?.children?.every((c) => c.type !== 'element')).toBe(true);
   });
 });

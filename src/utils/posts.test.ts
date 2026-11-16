@@ -8,7 +8,7 @@ vi.mock('astro:content', () => ({
   getCollection: vi.fn(),
 }));
 
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPublishedPosts } from './posts';
 
 const mockGetCollection = vi.mocked(getCollection);
@@ -19,7 +19,9 @@ interface MockData {
   archived?: boolean;
 }
 
-function makePost(id: string, data: MockData) {
+type PostFilter = (entry: CollectionEntry<'posts'>) => unknown;
+
+function makePost(id: string, data: MockData): CollectionEntry<'posts'> {
   return {
     id,
     collection: 'posts' as const,
@@ -30,7 +32,17 @@ function makePost(id: string, data: MockData) {
       archived: data.archived ?? false,
     },
     body: '',
-  };
+  } as unknown as CollectionEntry<'posts'>;
+}
+
+/**
+ * Stand-in for Astro's getCollection that applies the filter it's given,
+ * typed loosely because getCollection's overloads are generic over every
+ * collection
+ */
+function mockCollection(all: CollectionEntry<'posts'>[]) {
+  mockGetCollection.mockImplementation((async (_collection: string, filter?: PostFilter) =>
+    filter ? all.filter(filter) : all) as unknown as typeof getCollection);
 }
 
 describe('getPublishedPosts', () => {
@@ -40,15 +52,12 @@ describe('getPublishedPosts', () => {
 
   it('forwards the isListablePost filter to getCollection', async () => {
     // Simulate Astro's getCollection applying the filter we pass in.
-    mockGetCollection.mockImplementation(async (_collection: any, filter?: any) => {
-      const all = [
-        makePost('2024-01-01-published', { title: 'Published' }),
-        makePost('2024-02-01-draft', { title: 'Draft', published: false }),
-        makePost('2024-03-01-archived', { title: 'Archived', archived: true }),
-        makePost('2024-04-01-also-published', { title: 'Also Published' }),
-      ];
-      return filter ? all.filter(filter) : all;
-    });
+    mockCollection([
+      makePost('2024-01-01-published', { title: 'Published' }),
+      makePost('2024-02-01-draft', { title: 'Draft', published: false }),
+      makePost('2024-03-01-archived', { title: 'Archived', archived: true }),
+      makePost('2024-04-01-also-published', { title: 'Also Published' }),
+    ]);
 
     const posts = await getPublishedPosts();
 
@@ -61,40 +70,31 @@ describe('getPublishedPosts', () => {
   });
 
   it('excludes posts where published is false (drafts)', async () => {
-    mockGetCollection.mockImplementation(async (_c: any, filter?: any) => {
-      const all = [
-        makePost('2024-01-01-a', { title: 'A' }),
-        makePost('2024-02-01-b', { title: 'B', published: false }),
-      ];
-      return filter ? all.filter(filter) : all;
-    });
+    mockCollection([
+      makePost('2024-01-01-a', { title: 'A' }),
+      makePost('2024-02-01-b', { title: 'B', published: false }),
+    ]);
 
     const posts = await getPublishedPosts();
     expect(posts.map((p) => p.id)).toEqual(['2024-01-01-a']);
   });
 
   it('excludes archived posts', async () => {
-    mockGetCollection.mockImplementation(async (_c: any, filter?: any) => {
-      const all = [
-        makePost('2024-01-01-a', { title: 'A' }),
-        makePost('2024-02-01-b', { title: 'B', archived: true }),
-      ];
-      return filter ? all.filter(filter) : all;
-    });
+    mockCollection([
+      makePost('2024-01-01-a', { title: 'A' }),
+      makePost('2024-02-01-b', { title: 'B', archived: true }),
+    ]);
 
     const posts = await getPublishedPosts();
     expect(posts.map((p) => p.id)).toEqual(['2024-01-01-a']);
   });
 
   it('returns posts unsorted by default (preserving collection order)', async () => {
-    mockGetCollection.mockImplementation(async (_c: any, filter?: any) => {
-      const all = [
-        makePost('2024-01-01-old', { title: 'Old' }),
-        makePost('2024-12-01-new', { title: 'New' }),
-        makePost('2024-06-01-mid', { title: 'Mid' }),
-      ];
-      return filter ? all.filter(filter) : all;
-    });
+    mockCollection([
+      makePost('2024-01-01-old', { title: 'Old' }),
+      makePost('2024-12-01-new', { title: 'New' }),
+      makePost('2024-06-01-mid', { title: 'Mid' }),
+    ]);
 
     const posts = await getPublishedPosts();
     expect(posts.map((p) => p.id)).toEqual([
@@ -105,14 +105,11 @@ describe('getPublishedPosts', () => {
   });
 
   it('returns posts sorted by id descending when sorted: true', async () => {
-    mockGetCollection.mockImplementation(async (_c: any, filter?: any) => {
-      const all = [
-        makePost('2024-01-01-old', { title: 'Old' }),
-        makePost('2024-12-01-new', { title: 'New' }),
-        makePost('2024-06-01-mid', { title: 'Mid' }),
-      ];
-      return filter ? all.filter(filter) : all;
-    });
+    mockCollection([
+      makePost('2024-01-01-old', { title: 'Old' }),
+      makePost('2024-12-01-new', { title: 'New' }),
+      makePost('2024-06-01-mid', { title: 'Mid' }),
+    ]);
 
     const posts = await getPublishedPosts({ sorted: true });
     expect(posts.map((p) => p.id)).toEqual([

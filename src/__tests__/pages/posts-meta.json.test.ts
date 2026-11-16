@@ -16,7 +16,7 @@ vi.mock('astro:content', () => ({
   render: vi.fn(async (entry: { id: string }) => ({ headings: headingsById[entry.id] ?? [] })),
 }));
 
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { GET, toPreviewHeadings } from '../../pages/posts-meta.json';
 
 const mockGetCollection = vi.mocked(getCollection);
@@ -28,13 +28,13 @@ function createMockPost(
   description: string,
   headings: MarkdownHeading[] = [],
   published = true,
-) {
+): CollectionEntry<'posts'> {
   headingsById[id] = headings;
   return {
     id,
     collection: 'posts' as const,
     data: { title, description, published },
-  };
+  } as unknown as CollectionEntry<'posts'>;
 }
 
 describe('posts-meta.json', () => {
@@ -65,20 +65,20 @@ describe('posts-meta.json', () => {
     });
 
     it('should return a JSON response with correct content type', async () => {
-      mockGetCollection.mockResolvedValue([] as any);
+      mockGetCollection.mockResolvedValue([]);
       const response = await GET();
       expect(response.headers.get('Content-Type')).toBe('application/json');
     });
 
     it('should return valid JSON', async () => {
-      mockGetCollection.mockResolvedValue([] as any);
+      mockGetCollection.mockResolvedValue([]);
       const response = await GET();
       const text = await response.text();
       expect(() => JSON.parse(text)).not.toThrow();
     });
 
     it('should return empty object for empty collection', async () => {
-      mockGetCollection.mockResolvedValue([] as any);
+      mockGetCollection.mockResolvedValue([]);
       const response = await GET();
       const data = JSON.parse(await response.text());
       expect(data).toEqual({});
@@ -90,7 +90,7 @@ describe('posts-meta.json', () => {
           { depth: 2, slug: 'first-heading', text: 'First Heading#' },
           { depth: 2, slug: 'second-heading', text: 'Second Heading#' },
         ]),
-      ] as any);
+      ]);
 
       const response = await GET();
       const data = JSON.parse(await response.text());
@@ -107,7 +107,7 @@ describe('posts-meta.json', () => {
     it('should handle posts with no headings', async () => {
       mockGetCollection.mockResolvedValue([
         createMockPost('2024-01-15-no-headings', 'No Headings', 'Description'),
-      ] as any);
+      ]);
 
       const response = await GET();
       const data = JSON.parse(await response.text());
@@ -118,7 +118,7 @@ describe('posts-meta.json', () => {
       mockGetCollection.mockResolvedValue([
         createMockPost('2024-01-15-first', 'First', 'Desc 1'),
         createMockPost('2024-02-20-second', 'Second', 'Desc 2'),
-      ] as any);
+      ]);
 
       const response = await GET();
       const data = JSON.parse(await response.text());
@@ -128,13 +128,13 @@ describe('posts-meta.json', () => {
     });
 
     it('should pass the published filter to getCollection', async () => {
-      mockGetCollection.mockResolvedValue([] as any);
+      mockGetCollection.mockResolvedValue([]);
       await GET();
 
       expect(mockGetCollection).toHaveBeenCalledWith('posts', expect.any(Function));
 
       // Verify the filter function
-      const filterFn = mockGetCollection.mock.calls[0][1] as (entry: any) => boolean;
+      const filterFn = mockGetCollection.mock.calls[0][1] as unknown as (entry: { data: { published?: boolean } }) => boolean;
       expect(filterFn({ data: { published: true } })).toBe(true);
       expect(filterFn({ data: { published: false } })).toBe(false);
       expect(filterFn({ data: {} })).toBe(true); // undefined !== false
