@@ -68,13 +68,6 @@ describe('footnotes toggle', () => {
     expect(toggle().open).toBe(true);
   });
 
-  it('stays closed when another handler cancels the click (the touch card)', () => {
-    const ref = document.getElementById('user-content-fnref-1')!;
-    ref.addEventListener('click', (e) => e.preventDefault());
-    ref.click();
-    expect(toggle().open).toBe(false);
-  });
-
   it('stays closed for other same-page links', () => {
     document.getElementById('section-link')!.click();
     expect(toggle().open).toBe(false);

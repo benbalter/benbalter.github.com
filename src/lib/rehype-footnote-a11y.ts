@@ -21,7 +21,7 @@ import { visit } from 'unist-util-visit';
 import type { Root, Element } from 'hast';
 
 /** Class on the <details> that folds the list; footnotes.ts and global.css key on it */
-export const FOOTNOTES_TOGGLE_CLASS = 'footnotes-toggle';
+const FOOTNOTES_TOGGLE_CLASS = 'footnotes-toggle';
 
 const span = (properties: Element['properties'], text: string): Element => ({
   type: 'element',

@@ -1218,8 +1218,6 @@ mark.tk-marker {
 
   /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {
-    /* No bottom rule or margin: the share bar's top rule closes the row
-       (ShareButtons.astro drops its top margin after footnotes). */
     @apply text-sm border-t border-gray-200 mt-10;
     font-family: var(--font-sans);
     color: var(--color-gray-600);
@@ -1323,12 +1321,6 @@ mark.tk-marker {
 
     .footnotes-toggle[open]::details-content {
       height: auto;
-    }
-
-    /* Opened by a jump to a footnote (footnotes.ts): no slide, so the page
-       is already full height when the browser scrolls to the target. */
-    .footnotes-toggle[data-instant]::details-content {
-      transition: none;
     }
   }
 
