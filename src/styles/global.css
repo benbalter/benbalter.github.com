@@ -319,6 +319,17 @@ mark.tk-marker {
   .post-content > p:is(:last-child, :has(+ .footnotes))::after {
     content: none;
   }
+
+  /* Paper has no toggle: footnotes.ts opens the list before printing, and
+     this covers browsers that can reveal it from CSS alone. */
+  .footnotes-toggle > summary {
+    display: none;
+  }
+
+  .footnotes-toggle::details-content {
+    content-visibility: visible;
+    height: auto;
+  }
 }
 
 /* List item spacing — slightly more room between items for readability */
@@ -1207,7 +1218,9 @@ mark.tk-marker {
 
   /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {
-    @apply text-sm border-t border-gray-200 pt-6 mt-12 mb-8;
+    /* No bottom rule or margin: the share bar's top rule closes the row
+       (ShareButtons.astro drops its top margin after footnotes). */
+    @apply text-sm border-t border-gray-200 mt-10;
     font-family: var(--font-sans);
     color: var(--color-gray-600);
   }
@@ -1221,6 +1234,108 @@ mark.tk-marker {
 
   .footnotes h2 {
     @apply mb-3 text-sm font-semibold uppercase tracking-wide;
+  }
+
+  /* The list is folded into a closed <details> (rehype-footnote-a11y.ts), so
+     a long list doesn't push the share bar and the book down the page: one
+     "Footnotes · N" row between two rules. Each footnote is already a hover
+     or tap away from its number (link-previews.ts), and footnotes.ts opens
+     the list whenever a link jumps into it. */
+  .footnotes-toggle > summary {
+    @apply flex items-center gap-2 min-h-[44px] cursor-pointer select-none list-none;
+    @apply text-sm font-semibold uppercase tracking-wide;
+    @apply transition-colors duration-200;
+  }
+
+  .footnotes-toggle > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Chevron: points right when closed, down when open */
+  .footnotes-toggle > summary::before {
+    content: "";
+    flex: none;
+    width: 0.45em;
+    height: 0.45em;
+    margin-inline: 0.15em 0.2em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+  }
+
+  .footnotes-toggle[open] > summary::before {
+    transform: translateY(-0.12em) rotate(45deg);
+  }
+
+  .footnotes-toggle > summary:hover {
+    color: var(--color-primary);
+  }
+
+  .footnotes-count {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .footnotes-toggle > ol {
+    @apply pb-5;
+  }
+
+  /* The footnote a link just jumped to: a tint that fades, so it's easy to
+     find in a long list. The negative margin lets the tint breathe without
+     moving the text. */
+  .footnotes li:target {
+    scroll-margin-top: 6rem;
+    margin-inline: -0.5rem;
+    padding-inline: 0.5rem;
+    border-radius: 0.35rem;
+    background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .footnotes-toggle > summary:hover {
+      color: var(--color-primary-300);
+    }
+
+    .footnotes li:target {
+      background-color: color-mix(in srgb, var(--color-primary-300) 16%, transparent);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .footnotes-toggle > summary::before {
+      transition: transform 0.2s ease;
+    }
+
+    .footnotes li:target {
+      animation: footnote-target 2.5s ease-out 1s both;
+    }
+
+    /* Slide open where the browser can animate to height:auto; elsewhere the
+       list just appears. */
+    .footnotes-toggle {
+      interpolate-size: allow-keywords;
+    }
+
+    .footnotes-toggle::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 0.25s ease, content-visibility 0.25s allow-discrete;
+    }
+
+    .footnotes-toggle[open]::details-content {
+      height: auto;
+    }
+
+    /* Opened by a jump to a footnote (footnotes.ts): no slide, so the page
+       is already full height when the browser scrolls to the target. */
+    .footnotes-toggle[data-instant]::details-content {
+      transition: none;
+    }
+  }
+
+  @keyframes footnote-target {
+    to {
+      background-color: transparent;
+    }
   }
 
   /* Same fix as .footnotes ol below, for numbered lists in post bodies: with

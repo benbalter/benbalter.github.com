@@ -287,6 +287,8 @@ A Mist (`gray-100` at 95% with backdrop blur) bar with a 1px border, 8px corners
 
 Posts carry no byline: every post has the same author, and the name is already in the site title and the footer bio. The order is fixed and follows PRODUCT.md's success metrics: the share bar, the book CTA (featured for posts adapted from or inspiring a chapter, inline otherwise), "Keep reading" (one prominent card plus up to three compact list items under a single visible heading, no eyebrow labels), the subscribe card, and a footer with the bio, publish date, revision history, and the open source link.
 
+Footnotes don't get to push that order down the page. A post with footnotes ends on one folded row in the Label style, "Footnotes · 7" with a chevron, between the post's closing rule and the share bar's top rule, the same height whether there's one note or twenty. It's a native `<details>`, so it opens by hand without JavaScript. Readers rarely need to: each note is already a hover or a tap away from its number (see Link-preview card). Anything that jumps to a footnote (a click on its number, a deep link, back and forward) unfolds the list first and tints the target so it's easy to find in a long list; "↩" returns to the text and the list stays open. Opening by hand slides; opening for a jump doesn't, so the page is already full height when the browser scrolls. Printing unfolds the list and drops the row. Feeds and email keep the plain list.
+
 ### Book CTA (signature component)
 
 A navy card (`brand-950`) with a 12px corner, a 1px `brand-600` border, and a faint commit-graph SVG along its bottom edge. It holds the 3D book cover, a mono "> Out now" badge, the title with a lime-to-pink gradient ampersand, and the gradient buy button. The featured variant fades up on load. It's the only place the site shows color beyond blue.
@@ -314,7 +316,7 @@ A 320px floating card (8px corners, `shadow-card-hover`, fading up 4px over 150m
 
 Every card except the book's has the same anatomy: title, description, then a facts line in `gray-600` (`gray-400` in dark mode) that names the source ("Wikipedia", "GitHub · Ruby · 1.6k stars"). There's no label above the title; the facts line says what kind of thing it is.
 
-Cards are `aria-hidden`: everything in them is also at the destination or in the footnotes section, so assistive tech isn't read the same facts twice on every link. On touch-only screens there are no hover cards, but tapping a footnote number opens its card in place, with a "Go to footnote" link. That card is exposed to assistive tech, sits right after the paragraph in reading order, and the footnote number reports it as expanded. A second tap, a tap elsewhere, or Escape closes it.
+Cards are `aria-hidden`: everything in them is also at the destination or in the footnotes section, so assistive tech isn't read the same facts twice on every link. On touch-only screens there are no hover cards, but tapping a footnote number opens its card in place, with a "Go to footnote" link that unfolds the footnotes list and jumps to the note. That card is exposed to assistive tech, sits right after the paragraph in reading order, and the footnote number reports it as expanded. A second tap, a tap elsewhere, or Escape closes it.
 
 ## Do's and Don'ts
 
