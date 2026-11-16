@@ -12,13 +12,12 @@ const title = 'About Ben Balter';
 const description = siteConfig.aboutDescription;
 
 // The shared bio (also the post-footer mini-bio, about.md, and llms.txt)
-// restates things this page already shows: the book (the facts list and the
-// closing card), the degrees (the facts list), and the résumé (the "View
-// résumé" button). Cut those sentences here only. Each cut throws if its
-// sentence is gone, so a bio edit can't silently bring the repetition back.
+// links the résumé, which this page already offers as the "View résumé"
+// button, so cut that sentence here only. The cut throws if its sentence is
+// gone, so a bio edit can't silently bring the repetition back. The book and
+// degree sentences stay: the facts list leaves education out so it reads
+// lower on the page, and the book belongs in the bio itself.
 const pageOnlyCuts = [
-  ' I wrote [Open and Async](https://open-and-async.com/?utm_source=benbalter-bio), the playbook for remote and distributed teams, and shipped a Model Context Protocol (MCP) server alongside it so agents can query it directly.',
-  'I hold a JD and MBA from the George Washington University and am a member of the DC Bar. ',
   ' [Full résumé](/resume/).',
 ];
 const aboutPageBio = pageOnlyCuts.reduce((bio, sentence) => {
@@ -53,14 +52,6 @@ const headshotUrl = '/assets/img/headshot.jpg';
         <dd class="m-0 text-gray-900 dark:text-gray-100">
           <a href={siteConfig.bookUrl} class="text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary"><cite class="not-italic">Open and Async</cite></a>, the playbook for remote and distributed teams
         </dd>
-      </div>
-      <div>
-        <dt class="font-medium text-gray-600 dark:text-gray-400">Education</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">JD and MBA, George Washington University; DC Bar member</dd>
-      </div>
-      <div>
-        <dt class="font-medium text-gray-600 dark:text-gray-400">Based in</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
       </div>
     </dl>
 
@@ -98,6 +89,7 @@ const headshotUrl = '/assets/img/headshot.jpg';
       I'm also on {networkLinks.map((link, i) => (
         <>{i > 0 && (i === networkLinks.length - 1 ? ', and ' : ', ')}<a href={link.url} rel="me" class="font-medium text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary">{link.name}</a></>
       ))}.
+      I'm based in Washington, DC.
     </p>
     <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 list-none p-0 m-0 text-sm [&>li]:p-0">
       <li><a href="/vcard.vcf" class="inline-flex min-h-[44px] items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300">Add to contacts</a></li>
