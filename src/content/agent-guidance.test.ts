@@ -51,6 +51,9 @@ const SUMMARY_RULES: [string, RegExp][] = [
 
 describe('writing agent', () => {
   it('sends Claude Code to the writing-style skill and everyone to the summary', () => {
+    // Preloaded through the frontmatter, with the body as the fallback when
+    // Claude Code skips a skill that isn't installed.
+    expect(agent).toMatch(/^skills:\n\s+- writing-style$/m);
     expect(agent).toMatch(/load the `writing-style` skill/);
     expect(agent).toContain('](../../src/content/CLAUDE.md)');
   });
