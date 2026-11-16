@@ -45,9 +45,11 @@ const headshotUrl = '/assets/img/headshot.jpg';
       </div>
       <div>
         <dt class="font-medium text-gray-600 dark:text-gray-400">GitHub</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">Over a decade as a product manager, chief of staff, and director</dd>
+        <dd class="m-0 text-gray-900 dark:text-gray-100">Over a decade as a product manager, chief of staff, and operations director</dd>
       </div>
-      <div>
+      {/* Three facts, so the last spans both columns rather than leaving an
+          empty cell. Location lives in Get in touch: it isn't brand. */}
+      <div class="sm:col-span-2">
         <dt class="font-medium text-gray-600 dark:text-gray-400">Book</dt>
         <dd class="m-0 text-gray-900 dark:text-gray-100">
           <a href={siteConfig.bookUrl} class="text-primary dark:text-primary-300 underline decoration-primary/40 underline-offset-2 hover:decoration-primary"><cite class="not-italic">Open and Async</cite></a>, the playbook for remote and distributed teams
