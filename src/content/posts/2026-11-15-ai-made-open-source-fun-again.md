@@ -73,7 +73,7 @@ None of that is glamorous, and none of it would have happened if each item cost 
 
 ### The math flipped on my other projects, too
 
-I maintain seven Jekyll plugins, and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. This year, they've had 274 commits and 29 releases.[^pages-versions] [word2md](https://word2md.com), my twelve-year-old Word-to-Markdown converter, has had 449 commits this year.
+I maintain [sev](https://github.com/benbalter/jekyll-optional-front-matter "jekyll-optional-front-matter")[en](https://github.com/benbalter/jekyll-readme-index "jekyll-readme-index") [Jek](https://github.com/benbalter/jekyll-default-layout "jekyll-default-layout")[yll](https://github.com/benbalter/jekyll-titles-from-headings "jekyll-titles-from-headings") [plu](https://github.com/benbalter/jekyll-relative-links "jekyll-relative-links")[gi](https://github.com/benbalter/jekyll-remote-theme "jekyll-remote-theme")[ns](https://github.com/benbalter/jekyll-include-cache "jekyll-include-cache"), and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. This year, they've had 274 commits and 29 releases.[^pages-versions] [word2md](https://word2md.com), my twelve-year-old Word-to-Markdown converter, has had 449 commits this year.
 
 ### Cheap isn't free
 
