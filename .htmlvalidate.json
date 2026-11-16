@@ -21,7 +21,7 @@
     "no-deprecated-attr": "warn",
     "prefer-native-element": "off",
     "no-implicit-button-type": "off",
-    "long-title": "warn",
+    "long-title": ["warn", { "maxlength": 101 }],
     "unique-landmark": "error",
     "heading-level": "error",
     "text-content": "warn",

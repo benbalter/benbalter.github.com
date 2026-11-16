@@ -35,6 +35,34 @@ describe('rehypeTailwindTables', () => {
     expect(html).toContain('<table');
   });
 
+  it('should replace GFM align attributes with inline text-align', async () => {
+    const markdown = `
+| Left | Center | Right |
+| :--- | :----: | ----: |
+| a    | b      | c     |
+`;
+    const html = String(await processor.process(markdown));
+
+    expect(html).not.toContain('align=');
+    expect(html).toContain('<th style="text-align: left" scope="col">Left</th>');
+    expect(html).toContain('<td style="text-align: center">b</td>');
+    expect(html).toContain('<td style="text-align: right">c</td>');
+  });
+
+  it('should keep an existing inline style when converting align', async () => {
+    const html = String(
+      await unified()
+        .use(remarkParse)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypeTailwindTables)
+        .use(rehypeStringify)
+        .process('<table><tbody><tr><td align="right" style="color: red">x</td></tr></tbody></table>'),
+    );
+
+    expect(html).toContain('<td style="color: red; text-align: right">x</td>');
+  });
+
   it('should handle table with multiple rows', async () => {
     const markdown = `
 | Name  | Age | City    |

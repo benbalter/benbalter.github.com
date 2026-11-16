@@ -1,5 +1,6 @@
 /**
- * Rehype plugin to add Tailwind classes and accessible header scopes to tables.
+ * Rehype plugin to add Tailwind classes and accessible header scopes to tables,
+ * and to swap GFM's obsolete `align` attribute for an inline text-align.
  *
  * This plugin adds Tailwind utility classes to table elements in the HTML,
  * ensuring consistent styling for markdown tables rendered in blog posts.
@@ -40,6 +41,17 @@ export function rehypeTailwindTables() {
 
         if (node.tagName === 'thead' || node.tagName === 'tbody') {
           currentSection = node.tagName;
+        }
+
+        // GFM column alignment (`:--`, `:-:`, `--:`) comes out as the
+        // obsolete `align` attribute, which html-validate flags on every
+        // cell. Carry it as an inline text-align instead, which renders the
+        // same and also survives into email clients.
+        if ((node.tagName === 'th' || node.tagName === 'td') && node.properties?.align) {
+          const align = String(node.properties.align);
+          delete node.properties.align;
+          const existing = node.properties.style ? String(node.properties.style).trim().replace(/;?$/, '; ') : '';
+          node.properties.style = `${existing}text-align: ${align}`;
         }
 
         if (node.tagName === 'th' && currentSection && !node.properties?.scope) {
