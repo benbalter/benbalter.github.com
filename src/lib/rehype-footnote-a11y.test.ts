@@ -62,6 +62,26 @@ First point[^1] and second point[^2].
     expect(String(result)).toContain('\u21A9\uFE0E</a>');
   });
 
+  it('should fold the list into a closed <details> labelled with the count', async () => {
+    const markdown = `
+One[^1], two[^2], three[^3].
+
+[^1]: First.
+[^2]: Second.
+[^3]: Third.
+`;
+    const html = String(await processor.process(markdown));
+
+    expect(html).toMatch(
+      /<details class="footnotes-toggle"><summary>Footnotes <span aria-hidden="true">·<\/span> <span class="footnotes-count">3<\/span><\/summary><ol>/,
+    );
+    expect(html).not.toMatch(/<details[^>]*\bopen\b/);
+    // Every footnote stays in the HTML (search, hover cards, no-JS readers)
+    expect((html.match(/<li id="user-content-fn-/g) || []).length).toBe(3);
+    // The heading footnote numbers point at (aria-describedby) stays outside the fold
+    expect(html).toMatch(/<h2[^>]*id="footnote-label"[^>]*>Footnotes<\/h2>\s*<details/);
+  });
+
   it('should not affect content without footnotes', async () => {
     const markdown = 'Just a regular paragraph with no footnotes.';
     const result = await processor.process(markdown);
