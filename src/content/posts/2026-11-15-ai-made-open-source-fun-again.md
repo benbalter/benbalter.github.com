@@ -75,9 +75,11 @@ None of that is glamorous, and none of it would have happened if each item cost 
 
 I maintain [sev](https://github.com/benbalter/jekyll-optional-front-matter "jekyll-optional-front-matter")[en](https://github.com/benbalter/jekyll-readme-index "jekyll-readme-index") [Jek](https://github.com/benbalter/jekyll-default-layout "jekyll-default-layout")[yll](https://github.com/benbalter/jekyll-titles-from-headings "jekyll-titles-from-headings") [plu](https://github.com/benbalter/jekyll-relative-links "jekyll-relative-links")[gi](https://github.com/benbalter/jekyll-remote-theme "jekyll-remote-theme")[ns](https://github.com/benbalter/jekyll-include-cache "jekyll-include-cache"), and [GitHub Pages](https://pages.github.com/) turns five of them on by default for every site it builds. Across all seven, I made five commits from 2022 through 2024. This year, they've had 274 commits and 29 releases.[^pages-versions] [word2md](https://word2md.com), my twelve-year-old Word-to-Markdown converter, has had 449 commits this year.
 
-### Cheap isn't free
+### Moving fast made the plugin safer, mostly
 
-Moving this fast has a cost, and the cost is risk. The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. Seven covered code that predates the agents, some of it by years. Four covered code the agents wrote this year, including private documents uploaded through the new block editor panel landing in an unprotected folder. More than 2,000 sites run this code, which is why I read every diff.
+The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. That sounds like bad news, and mostly it isn't. Seven fixed long-standing holes, some of them years old, that otherwise wouldn't have been found.
+
+The other four are the cost of moving fast. They covered code the agents wrote this year, including private documents uploaded through the new block editor panel landing in an unprotected folder. More than 2,000 sites run this code, which is why I read every diff.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
 The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges. The agent works for the person accountable for the project, not around them.
