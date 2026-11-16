@@ -263,4 +263,8 @@ jobs:
         with:
           name: test-results
           path: test-results/
+          # Playwright only writes here for a failure or a retried test, so a
+          # clean run has nothing to upload. Keep the step (a flaky test that
+          # passed on retry still leaves its trace) but don't warn on empty.
+          if-no-files-found: ignore
           retention-days: 14
