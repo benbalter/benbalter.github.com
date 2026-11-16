@@ -42,12 +42,12 @@ The plugin shipped two releases in 2024. Each went out the day [Davey](https://g
 
 ### Four failed attempts taught me how to work with an agent
 
-Every old project has a rewrite nobody wants to do. Mine was [CoffeeScript](https://coffeescript.org/), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] I [adopted it in 2013](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to get rid of it a decade later, and then didn't touch that issue for a year and a half.
+Most old projects have a rewrite nobody wants to do. Mine was [CoffeeScript](https://coffeescript.org/), a language that compiles to JavaScript and was briefly the cool way to write it.[^coffeescript] I [adopted it in 2013](https://github.com/wp-document-revisions/wp-document-revisions/commit/d94eb54a), [opened an issue](https://github.com/wp-document-revisions/wp-document-revisions/issues/327) to get rid of it a decade later, and then didn't touch that issue for a year and a half.
 
 I handed it to an AI agent,[^setup] and it failed. So did the next three. I closed all four without merging them. They left me four rules.
 
 - **Check the work, not the summary.** An agent will say it's finished when it isn't. The [first attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/362) added a "modern" copy beside the old code instead of replacing it. The [fourth](https://github.com/wp-document-revisions/wp-document-revisions/pull/438) converted one file and told me the rest were "already written in modern ES6+." They weren't.
-- **Keep the change small enough to read.** The [second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) ballooned into 96 files and 21,000 lines. If you can't review it, you can't merge it.
+- **Ask for changes small enough to read.** The [second attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/387) ballooned into 96 files and 21,000 lines. If you can't review it, you can't merge it.
 - **Ask for evidence.** When I asked the [third attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/407) how I could be confident nothing would break, it replied, "You can be confident there are no breaking changes." I [asked for tests](https://github.com/wp-document-revisions/wp-document-revisions/issues/409) instead, which the plugin's JavaScript had never had, and got [181 of them](https://github.com/wp-document-revisions/wp-document-revisions/pull/410) that night.
 - **Give the agent a way to check itself.** With those tests to check its work against, the [fifth attempt](https://github.com/wp-document-revisions/wp-document-revisions/pull/464) converted all five files and passed every test.[^tests]
 
@@ -59,7 +59,7 @@ The expensive part of maintaining an old project is catching up. You have to rem
 
 Agents do the catching up. I point one at an issue and come back to a pull request with a fix and a failing test that now passes. My job is to read it and decide whether it's right.
 
-That's a short job if you keep the pull requests small and the tests real. Half of the 180 pull requests I merged this year landed within 10 minutes of opening. Those had a median of about 60 changed lines, and none could merge until every required check passed.[^checks] Write down how the project works, too, because [an agent is only as good as the docs you feed it](/2026/10/26/documentation-quality-is-ai-quality/).
+That's a short job when the pull requests are small and the tests are real. Half of the 180 pull requests I merged this year landed within 10 minutes of opening. Those had a median of about 60 changed lines, and none could merge until every required check passed.[^checks] Write down how the project works, too, because [an agent is only as good as the docs you feed it](/2026/10/26/documentation-quality-is-ai-quality/).
 
 Quick reviews turn into quick releases. One morning in September, Davey reported two bugs from the Ministry of Justice, a [slow Media Library](https://github.com/wp-document-revisions/wp-document-revisions/issues/725) and a [missing revision log](https://github.com/wp-document-revisions/wp-document-revisions/issues/726). Both fixes merged that night and shipped the next day.[^benchmark]
 
@@ -71,7 +71,7 @@ The plugin shipped 33 releases this year, 23 of them small patches. The previous
 
 The work you rationally skip as a solo maintainer gets done now. Changelogs are written for humans. The [5.8.3 changelog](https://github.com/wp-document-revisions/wp-document-revisions/releases/tag/v5.8.3) explains what broke, who saw it, and what to do about it, instead of "misc fixes." Weird edge cases get handled. One recent fix replaced a blank error page with a message that says what's wrong.[^php-user]
 
-None of that is glamorous, and none of it happens when each item costs you an evening.
+That work isn't glamorous, and it doesn't happen when each item costs you an evening.
 
 ### The math flipped on my other projects, too
 
@@ -81,7 +81,7 @@ I maintain [sev](https://github.com/benbalter/jekyll-optional-front-matter "jeky
 
 The plugin published [11 security advisories](https://github.com/wp-document-revisions/wp-document-revisions/security/advisories) this year, each explaining in plain language who was affected and what to do. That sounds like bad news. Most of it isn't. Seven fixed holes, some of them years old, that otherwise wouldn't have been found.
 
-The other four are also on me. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel landed in an unprotected folder. The agent wrote that bug, but I'm the one who merged it. Humans still make mistakes, too. With more than 2,000 sites running this code, reading every diff is on me. I take responsibility for everything I ship.
+The other four are also on me. They covered code the agents wrote this year. In one, private documents uploaded through the new block editor panel were saved to an unprotected folder. The agent wrote that bug, but I'm the one who merged it. Humans still make mistakes, too. With more than 2,000 sites running this code, reading every diff is on me. I take responsibility for everything I ship.
 
 :::objection[Isn't this the same AI slop other maintainers are drowning in?]
 The difference is who's driving. The slop that buries maintainers is the drive-by: a stranger points an agent at someone else's project, opens a pull request they haven't read, and leaves the maintainer to review it. Here, I'm the maintainer. I asked for the change, and I own whatever merges. The agent works for the person accountable for the project, not around them.
@@ -95,7 +95,7 @@ The agents write a draft. The plugin's tests and my review decide whether it shi
 
 The fun part of maintaining a project is adding new features, and going from an idea to a release, safely.
 
-One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that night, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have sat in my head until some free weekend that never came.
+One evening in April, I decided the plugin's WordPress.org page should have a [Live Preview](https://wordpress.org/plugins/wp-document-revisions/), so anyone can try it in their browser without installing anything.[^playground] It shipped that night, and so did the fix for the file path the agent got wrong. For most of the plugin's life, an idea like that would have stayed in my head until some free weekend that never came.
 
 Every pull request arrives with its own tests, so I don't have to write them. [Aaron Jorbin](https://aaron.jorb.in/), one of my Summer of Code mentors, taught me what a unit test was, and I've loathed writing them ever since. (Sorry, Aaron.)
 
@@ -142,6 +142,6 @@ Open the oldest issue in your side project's queue tonight and ask an agent to t
 
 [^php-user]: That one covers a PHP upgrade that changes which account PHP runs as, so the server can't read a document's file anymore.
 
-[^pages-versions]: GitHub Pages pins its own versions of these plugins and updates them on its own schedule, so most of those fixes reach sites that build with Jekyll directly, for example through GitHub Actions. Pages picked up a security fix for one of them [in November 2026](https://github.com/github/pages-gem/pull/965).
+[^pages-versions]: GitHub Pages pins its own versions of these plugins and updates them on its own schedule, so for now, most of those fixes only help sites that build with Jekyll directly, for example through GitHub Actions. Pages picked up a security fix for one of them [in November 2026](https://github.com/github/pages-gem/pull/965).
 
 [^playground]: WordPress.org can launch any plugin in [WordPress Playground](https://wordpress.org/playground/), a full WordPress that runs entirely in the browser, if the plugin ships a small configuration file describing how to set it up.
