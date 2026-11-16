@@ -12,9 +12,9 @@ seo:
   type: person
 summary: >-
   Product leader for developer platforms, now principal product manager for API
-  (developer) experience at Cloudflare. Over a decade at GitHub: shipped 500+ features
-  and the API endpoints behind them to 50M+ developers, rewrote GitHub Pages
-  bottom-up, and, as a director, owned the internal platform its employees
+  (developer) experience at Cloudflare. Over a decade at GitHub: shipped 500+
+  features and policies (plus the API endpoints behind them) to 50M+ developers,
+  rewrote GitHub Pages bottom-up, and, as a director, owned the internal platform its employees
   ran on. A lawyer who ships code, and the author of Open and Async.
 highlights:
   - >-

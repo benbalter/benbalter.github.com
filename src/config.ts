@@ -79,7 +79,10 @@ export const siteConfig = {
   jobTitle: 'Principal Product Manager, API Experience',
   employer: 'Cloudflare',
   employerUrl: 'https://www.cloudflare.com',
-  formerJobTitle: 'Director of Hubber Enablement',
+  // Roles held at the former employer, as one phrase. The About page facts
+  // list and about.md both show it, so a director-to-principal move reads as
+  // range rather than a step down.
+  formerRoles: 'product manager, chief of staff, and operations director',
   formerEmployer: 'GitHub',
   formerEmployerUrl: 'https://github.com/about',
   timezone: 'America/New_York',

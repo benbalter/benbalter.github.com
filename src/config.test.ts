@@ -50,7 +50,7 @@ describe('siteConfig', () => {
     expect(siteConfig.jobTitle).toBeDefined();
     expect(siteConfig.employer).toBeDefined();
     expect(siteConfig.employerUrl).toMatch(/^https:\/\//);
-    expect(siteConfig.formerJobTitle).toBeDefined();
+    expect(siteConfig.formerRoles).toBeDefined();
     expect(siteConfig.formerEmployer).toBe('GitHub');
     expect(siteConfig.formerEmployerUrl).toBeDefined();
     expect(siteConfig.timezone).toBe('America/New_York');

@@ -43,7 +43,7 @@ export const GET: APIRoute = async () => {
   lines.push('## At a glance');
   lines.push('');
   lines.push(`- **Currently:** ${siteConfig.jobTitle}, ${siteConfig.employer}`);
-  lines.push(`- **Previously:** ${siteConfig.formerJobTitle}, ${siteConfig.formerEmployer}`);
+  lines.push(`- **Previously:** Over a decade at ${siteConfig.formerEmployer} as a ${siteConfig.formerRoles}`);
   lines.push('- **Location:** Washington, DC');
   lines.push('- **Education:** JD & MBA, George Washington University');
   lines.push(`- **Résumé:** [Full résumé](${siteConfig.url}/resume/)`);
