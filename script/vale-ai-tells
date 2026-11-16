@@ -41,7 +41,22 @@ fi
 
 echo "Running ai-tells (advisory — WARN only, does not fail the build) on:"
 echo "$FILES" | sed 's/^/  /'
-# shellcheck disable=SC2086
-vale --config=.vale-ai-tells.ini $FILES --minAlertLevel=error || true
+if [ -n "$GITHUB_ACTIONS" ]; then
+	# Vale's default output looks like ESLint's, so the problem matcher that
+	# actions/setup-node registers turns each `error` row into a red "failure"
+	# annotation on the pull request, on a check that passes. Emit the findings
+	# as explicit warning annotations instead, so they read as advisory.
+	# shellcheck disable=SC2086
+	vale --config=.vale-ai-tells.ini $FILES --minAlertLevel=error --output=line |
+		awk -F: '{
+			msg = $5
+			for (i = 6; i <= NF; i++) msg = msg ":" $i
+			gsub(/%/, "%25", msg)
+			printf "::warning file=%s,line=%s,col=%s,title=%s (advisory)::%s\n", $1, $2, $3, $4, msg
+		}'
+else
+	# shellcheck disable=SC2086
+	vale --config=.vale-ai-tells.ini $FILES --minAlertLevel=error || true
+fi
 echo "^ ai-tells findings are advisory; the build is unaffected."
 exit 0
