@@ -73,7 +73,7 @@ degrees:
     date: '2009-05-01'
 certifications:
   - authority: District of Columbia Bar
-    name: Active member, Bar No. 1021576
+    name: Active member
     category: professional
   - authority: International Information System Security Certification Consortium (ISC)²
     name: Certified Information Systems Security Professional (CISSP)

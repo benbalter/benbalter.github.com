@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Principal Product Manager, API Experience at Cloudflare | Open source | 10+ years at GitHub: trust and safety, developer tooling | Author of Open and Async | Lawyer who ships code';
+  'Principal Product Manager, API Experience at Cloudflare | 10+ years at GitHub: APIs, open source, trust and safety | Wrote Licensee | Author of Open and Async | Lawyer who ships code';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
@@ -20,11 +20,11 @@ export const linkedinHeadline =
 const linkedinAboutLines: readonly string[] = [
   "I'm a principal product manager for API (developer) experience at Cloudflare. Before that, I spent over a decade at GitHub. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ developers and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) and wrote Licensee, the open source library behind GitHub's license detection. My open source projects have hundreds of millions of downloads.",
   '',
-  "Mostly, I've spent the last decade trying to figure out how large engineering organizations actually work, and why the obvious answers are usually wrong. In my last role at GitHub, I owned the internal platform 4,000+ GitHub employees used to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. At GitHub I was also Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving GitHub adoption across nearly 2,000 government organizations in 75+ countries.",
+  "I've also spent the last decade trying to figure out how large engineering organizations actually work, and why the obvious answers are usually wrong. In my last role at GitHub, I owned the internal platform 4,000+ GitHub employees used to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. At GitHub I was also Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving GitHub adoption across nearly 2,000 government organizations in 75+ countries.",
   '',
   "I wrote Open and Async, the collaborative software development playbook for remote and distributed teams. It ships with a Model Context Protocol server, so agents can query its practices directly.",
   '',
-  'Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House\'s first agile development team. As a Fellow in the Office of the US CIO, I helped draft parts of President Obama\'s Digital Government Strategy and Open Data Policy. The US CTO once called me one of "the baddest of the badass innovators," the single nicest thing anyone\'s ever put in print about me. I\'m also a lawyer who ships code. I\'m a member of the DC Bar, and I argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.',
+  'Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House\'s first agile development team. As a Fellow in the Office of the US CIO, I helped draft parts of President Obama\'s Digital Government Strategy and Open Data Policy. I\'m also a lawyer who ships code. I\'m a member of the DC Bar, and I argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.',
   '',
   'What I care about:',
   '• Developer platforms: APIs, open source libraries, and developer experience',
