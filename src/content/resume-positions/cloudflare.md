@@ -6,4 +6,4 @@ start_date: '2026-11-16'
 expanded: true
 ---
 
-Product manager for the experience of building on Cloudflare's APIs, including the SDKs developers use to call them.
+Product manager for how developers and their agents build on Cloudflare's APIs, including the SDKs they use to call them.
