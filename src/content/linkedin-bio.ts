@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Principal Product Manager, API Experience at Cloudflare | 10+ years at GitHub: APIs, open source, trust and safety | Former Jekyll maintainer | Author of Open and Async | Lawyer who ships code';
+  'Principal Product Manager, API Experience at Cloudflare | 10+ years at GitHub: APIs, open source, trust and safety | Author of Open and Async | Lawyer who ships code';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
