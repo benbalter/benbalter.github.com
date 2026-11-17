@@ -18,7 +18,7 @@ export const linkedinHeadline =
  * Empty strings produce blank lines (paragraph breaks).
  */
 const linkedinAboutLines: readonly string[] = [
-  "I'm a principal product manager for API (developer) experience at Cloudflare. Before that, I spent over a decade at GitHub. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ developers and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) maintained Jekyll, and wrote the plugins most GitHub Pages sites run on. I also built Word to Markdown (word2md.com). My open source projects have hundreds of millions of downloads.",
+  "I'm a principal product manager for API (developer) experience at Cloudflare, where I work on making it an even better place to build, for developers and their agents. Before that, I spent over a decade at GitHub. For five years I was a GitHub product manager for trust and safety, shipping 500+ features and policies, plus the github.com API endpoints behind them, on a platform with 50M+ developers and 100M+ projects. Before that, I led a bottom-up rewrite of GitHub Pages (250,000+ pages a minute) maintained Jekyll, and wrote the plugins most GitHub Pages sites run on. I also built Word to Markdown (word2md.com). My open source projects have hundreds of millions of downloads.",
   '',
   "I've also spent the last decade trying to figure out how large engineering organizations actually work, and why the obvious answers are usually wrong. In my last role at GitHub, I owned the internal platform 4,000+ GitHub employees used to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and self-serve publishing for non-technical teams. I led a team of six and merged 700+ pull requests with Copilot. At GitHub I was also Chief of Staff for Security, Director of Engineering Operations and Culture, and the company's first Government Evangelist, driving GitHub adoption across nearly 2,000 government organizations in 75+ countries.",
   '',
@@ -27,7 +27,7 @@ const linkedinAboutLines: readonly string[] = [
   'Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House\'s first agile development team. As a Fellow in the Office of the US CIO, I helped draft parts of President Obama\'s Digital Government Strategy and Open Data Policy. I\'m also a lawyer who ships code. I\'m a member of the DC Bar, and I argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.',
   '',
   'What I care about:',
-  '• Developer platforms: APIs, open source libraries, and developer experience',
+  '• Developer platforms: APIs, config as code, and developer experience',
   '• Building for agents: MCP, Markdown, and making platforms legible to AI tools as well as people',
   '• Open source: sustaining communities, licensing, and making collaboration the default',
   '• Remote and async work: clear writing, strong defaults, and showing your work',
