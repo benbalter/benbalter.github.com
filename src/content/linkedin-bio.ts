@@ -27,7 +27,7 @@ const linkedinAboutLines: readonly string[] = [
   'Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House\'s first agile development team. As a Fellow in the Office of the US CIO, I helped draft parts of President Obama\'s Digital Government Strategy and Open Data Policy. I\'m also a lawyer who ships code. I\'m a member of the DC Bar, and I argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.',
   '',
   'What I care about:',
-  '• Developer platforms: APIs, config as code, and developer experience',
+  '• Developer platforms: APIs, open source libraries, config as code, and developer experience',
   '• Building for agents: MCP, Markdown, and making platforms legible to AI tools as well as people',
   '• Open source: sustaining communities, licensing, and making collaboration the default',
   '• Remote and async work: clear writing, strong defaults, and showing your work',
