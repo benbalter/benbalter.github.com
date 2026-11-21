@@ -1,11 +1,20 @@
 ---
 /**
  * Other Recommended Reading Page
- * 
- * Displays a curated list of book recommendations organized by category.
- * Books are loaded from src/data/books.yml and displayed in a responsive grid.
+ *
+ * A curated list of book recommendations organized by category, loaded from
+ * src/data/books.yml. Each book is a row with its cover beside the blurb: the
+ * blurbs are the content, and a three-up card grid squeezed them to about 25
+ * characters a line. On phones the cover sits beside the title and the blurb
+ * runs full width beneath both, for the same reason.
+ *
+ * Covers are vendored in assets/img/books/<asin>.jpg by
+ * script/fetch-book-covers (Amazon blocks build-time fetches), so the build
+ * fails loudly on a missing cover instead of shipping a blank gap.
  */
 
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import PageLayout from '../layouts/PageLayout.astro';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
@@ -36,23 +45,46 @@ try {
   throw new Error(`Failed to load books data from ${booksPath}: ${error instanceof Error ? error.message : String(error)}`);
 }
 
-// Amazon affiliate tag
+const covers = import.meta.glob<ImageMetadata>('../../assets/img/books/*.jpg', { eager: true, import: 'default' });
+
+function coverFor(book: Book): ImageMetadata {
+  // An unquoted all-digit ASIN like 0465007856 loads as a number and loses its
+  // leading zero, which silently points at a different book.
+  if (typeof book.asin !== 'string') {
+    throw new Error(`Quote the ASIN for "${book.title}" in books.yml so YAML keeps it a string.`);
+  }
+  const cover = covers[`../../assets/img/books/${book.asin}.jpg`];
+  if (!cover) {
+    throw new Error(`No cover for "${book.title}" (${book.asin}). Run script/fetch-book-covers.`);
+  }
+  return cover;
+}
+
+// Amazon affiliate tag (disclosed on the fine print page)
 const amazonAffiliatesTag = 'benbalter07-20';
 
-// Convert object to array of [category, books] entries
-const bookGroups = Object.entries(booksData);
+const bookGroups = Object.entries(booksData).map(([category, books]) => ({
+  category,
+  id: slugify(category),
+  books: books.map((book) => ({ ...book, cover: coverFor(book) })),
+}));
 ---
 
 <PageLayout title={title} description={description}>
+  <Fragment slot="lede">
+    Books that shaped my career and how I manage, and the ones I hand to anyone who asks about leadership, open source, product, security, or government.
+  </Fragment>
 
-  {/* Category navigation pills */}
-  <nav class="not-prose mb-10" aria-label="Book categories">
-    <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
-      {bookGroups.map(([category]) => (
-        <li>
+  {/* On phones the pills are one native horizontal-scroll row that bleeds to
+      the screen edge (the cut-off pill signals there's more); wrapped, ten
+      44px pills pushed the first book below the fold. */}
+  <nav class="not-prose mb-12" aria-label="Book categories">
+    <ul class="m-0 flex list-none gap-2 p-0 max-sm:-mx-4 max-sm:snap-x max-sm:overflow-x-auto max-sm:px-4 max-sm:pb-1 sm:flex-wrap">
+      {bookGroups.map(({ category, id }) => (
+        <li class="shrink-0 snap-start scroll-ml-4">
           <a
-            href={`#${slugify(category)}`}
-            class="inline-block rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-sm font-medium text-gray-700 no-underline transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-white dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary-400 dark:hover:bg-primary-400 dark:hover:text-gray-900"
+            href={`#${id}`}
+            class="inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-gray-200 bg-gray-50 px-4 font-sans text-sm font-medium text-gray-700 no-underline transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-white dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary-400 dark:hover:bg-primary-400 dark:hover:text-gray-900"
           >
             {category}
           </a>
@@ -61,53 +93,45 @@ const bookGroups = Object.entries(booksData);
     </ul>
   </nav>
 
-  {bookGroups.map(([category, books]) => (
-    <section class="not-prose mb-12">
-      <div class="mb-6 flex items-baseline gap-3 border-l-4 border-primary pl-4">
-        <h2
-          id={slugify(category)}
-          class="m-0 text-2xl font-semibold text-gray-900 dark:text-gray-100"
-        >
+  {bookGroups.map(({ category, id, books }) => (
+    <section class="not-prose mb-16" aria-labelledby={id}>
+      <div class="mb-2 flex items-baseline justify-between gap-4 border-b border-gray-200 pb-3 dark:border-gray-700">
+        <h2 id={id} class="m-0 font-sans text-2xl font-semibold text-balance text-gray-900 dark:text-gray-100">
           {category}
         </h2>
-        <span class="text-sm text-gray-600 dark:text-gray-300">
-          · {books.length} {books.length === 1 ? 'book' : 'books'}
+        <span class="shrink-0 font-sans text-sm text-gray-600 tabular-nums dark:text-gray-400">
+          {books.length} {books.length === 1 ? 'book' : 'books'}
         </span>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul class="m-0 list-none divide-y divide-gray-200 p-0 dark:divide-gray-700/60">
         {books.map((book) => (
-          <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white p-5 transition-all duration-200 hover:border-primary/40 hover:shadow-[0_6px_16px_rgba(0,0,0,0.12)] motion-safe:hover:-translate-y-0.5 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-primary-400/40 dark:hover:shadow-[0_6px_16px_rgba(0,0,0,0.4)]">
-            <div class="mb-4 flex items-center justify-center">
-              <img
-                src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
-                alt={`${book.title} book cover`}
-                width="160"
-                height="240"
-                loading="lazy"
-                class="max-h-52 w-auto rounded shadow-card"
-              />
-            </div>
-
-            <h3 class="mb-2 text-center text-[0.95rem] font-semibold leading-snug">
+          <li class="group relative grid grid-cols-[4rem_minmax(0,1fr)] items-center gap-x-4 gap-y-3 py-6 sm:grid-cols-[7rem_minmax(0,1fr)] sm:grid-rows-[auto_1fr] sm:items-start sm:gap-x-7 sm:gap-y-2">
+            <Image
+              src={book.cover}
+              alt=""
+              width={112}
+              loading="lazy"
+              class="h-auto w-16 self-start rounded-sm shadow-card transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-1 sm:row-span-2 sm:w-28 dark:shadow-card-dark"
+            />
+            <h3 class="m-0 font-sans text-lg leading-snug font-semibold text-balance">
               <a
                 href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${book.title} on Amazon`}
-                class="text-gray-900 no-underline transition-colors duration-200 before:absolute before:inset-0 group-hover:text-primary dark:text-gray-100 dark:group-hover:text-primary-300"
+                aria-label={`${book.title} on Amazon (opens in a new tab)`}
+                class="text-gray-900 no-underline decoration-primary/50 decoration-2 underline-offset-4 transition-colors duration-200 before:absolute before:inset-0 group-hover:text-primary group-hover:underline dark:text-gray-100 dark:decoration-primary-300/50 dark:group-hover:text-primary-300"
               >
                 {book.title}
               </a>
             </h3>
-
             <p
-              class="m-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300"
+              class="col-span-2 m-0 text-base leading-relaxed text-pretty text-gray-700 sm:col-span-1 sm:col-start-2 dark:text-gray-300"
               set:html={renderInlineMarkdown(book.tldr)}
             />
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   ))}
 </PageLayout>

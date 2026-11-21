@@ -209,8 +209,6 @@ export default defineConfig({
       },
     },
     domains: [
-      // Amazon book covers (used in other-recommended-reading page)
-      'images.amazon.com',
       // Post header images from various sources
       'ben.balter.com',
       'user-images.githubusercontent.com',

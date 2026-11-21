@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+/**
+ * Downloads a cover for every book in src/data/books.yml into
+ * assets/img/books/<asin>.jpg, where Astro's image pipeline resizes it and
+ * builds the srcset for /other-recommended-reading/.
+ *
+ * Why vendor them: the page used to hotlink Amazon's 160px covers, which were
+ * blurry on high-density screens, cost every visitor 37 third-party requests,
+ * and failed silently (one ASIN came back as a 1×1 GIF, so the card showed a
+ * blank gap). Amazon refuses non-browser requests, so Astro can't fetch them
+ * at build time either; downloading once and committing the files keeps the
+ * build deterministic.
+ *
+ * Covers that already exist are skipped. A response smaller than MIN_HEIGHT
+ * (Amazon's placeholder for an unknown ASIN) is an error, not a cover.
+ * sharp re-encodes each file, which drops any metadata.
+ *
+ * Usage: node script/fetch-book-covers [--force]
+ */
+
+import { readFileSync, existsSync, mkdirSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { load } from 'js-yaml';
+import sharp from 'sharp';
+
+const ROOT = resolve(import.meta.dirname, '..');
+const OUT_DIR = join(ROOT, 'assets', 'img', 'books');
+const MIN_HEIGHT = 300;
+// Amazon's image host answers 403 without a browser user agent.
+const USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36';
+
+const force = process.argv.includes('--force');
+const books = Object.values(load(readFileSync(join(ROOT, 'src', 'data', 'books.yml'), 'utf8'))).flat();
+
+mkdirSync(OUT_DIR, { recursive: true });
+
+let failed = 0;
+for (const { asin, title } of books) {
+  // An unquoted all-digit ASIN like 0465007856 loads as a number and loses
+  // its leading zero, which points at a different (nonexistent) book.
+  if (typeof asin !== 'string') {
+    failed++;
+    console.error(`✗ ${asin} ${title}: quote the ASIN in books.yml so YAML keeps it a string`);
+    continue;
+  }
+  const out = join(OUT_DIR, `${asin}.jpg`);
+  if (existsSync(out) && !force) continue;
+
+  // "LZZZZZZZ" is the large (500px) size; the medium size is the one that
+  // returns a 1×1 placeholder for some ISBN-based ASINs.
+  const url = `https://images.amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const image = sharp(Buffer.from(await res.arrayBuffer()));
+    const { height = 0 } = await image.metadata();
+    if (height < MIN_HEIGHT) throw new Error(`placeholder image (${height}px tall)`);
+    await image.jpeg({ quality: 90, mozjpeg: true }).toFile(out);
+    console.log(`✓ ${asin} ${title}`);
+  } catch (error) {
+    failed++;
+    console.error(`✗ ${asin} ${title}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+if (failed) {
+  console.error(`${failed} cover(s) failed. Add them to ${OUT_DIR} by hand, or fix the ASIN.`);
+  process.exit(1);
+}
