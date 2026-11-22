@@ -155,19 +155,18 @@ const { title, description } = Astro.props;
 ---
 // src/pages/[year]/[month]/[day]/[slug].astro
 import { getCollection } from 'astro:content';
+import { isBuildablePost } from '../../../../utils/post-filtering';
+import { parsePostId } from '../../../../utils/post-urls';
 
+// A post's date and slug come from its filename (`YYYY-MM-DD-slug.md`), which
+// is its id. There is no `date` field in front matter.
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  
-  return posts.map(post => ({
-    params: {
-      year: post.data.date.getFullYear().toString(),
-      month: String(post.data.date.getMonth() + 1).padStart(2, '0'),
-      day: String(post.data.date.getDate()).padStart(2, '0'),
-      slug: post.id
-    },
-    props: { post }
-  }));
+  const posts = await getCollection('posts', isBuildablePost);
+
+  return posts.flatMap(post => {
+    const parts = parsePostId(post.id);
+    return parts ? [{ params: parts, props: { post } }] : [];
+  });
 }
 
 const { post } = Astro.props;
@@ -328,16 +327,12 @@ npm run test:e2e          # Run E2E tests
 
 ```astro
 ---
-import { getCollection } from 'astro:content';
 import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../utils/posts';
 
-const posts = await getCollection('posts', ({ data }) => {
-  return data.published !== false;
-});
-
-const sortedPosts = posts.sort((a, b) => 
-  b.data.date.getTime() - a.data.date.getTime()
-);
+// Published, non-archived posts, newest first. Post ids start with the date,
+// so the helper sorts by id; there is no `date` field to sort on.
+const sortedPosts = await getPublishedPosts({ sorted: true });
 ---
 
 <div class="post-list">
