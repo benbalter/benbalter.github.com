@@ -48,12 +48,12 @@
     },
     {
       "customType": "regex",
-      "description": "Track benbalter/vale-styles release zips (BenBalter, AIPatterns) pinned by URL in .vale.ini.",
+      "description": "Track every Vale style package pinned by release URL in .vale.ini: the house styles (benbalter/vale-styles), the vale-cli packages (Microsoft, alex, proselint, write-good), and ai-tells. None may be listed by bare name, which Vale reads as \"latest\".",
       "managerFilePatterns": [
         "/^\\.vale\\.ini$/"
       ],
       "matchStrings": [
-        "https://github\\.com/(?<depName>benbalter/vale-styles)/releases/download/(?<currentValue>[^/]+)/"
+        "https://github\\.com/(?<depName>[^/\\s]+/[^/\\s]+)/releases/download/(?<currentValue>[^/]+)/"
       ],
       "datasourceTemplate": "github-releases"
     },
