@@ -73,7 +73,7 @@ Some settings live on the `balter.com` zone in the Cloudflare dashboard. Zone re
 - **WAF custom rule**: blocks WordPress and PHP probe paths (`*.php`, `/wp-admin`, `/wp-includes`, `/xmlrpc.php`) at the edge; `/wp-content/` stays served.
 - **Rate limiting rule**: `/api/event` is capped per IP (Free plan: path-only match, 10-second window).
 - **Speed and TLS**: HTTP/3, 0-RTT, Early Hints, Speed Brain, Brotli, tiered cache, DNSSEC, strict SSL, and HSTS are all on.
-- **No response header Transform Rules.** If a header in `_headers` isn't showing up live, check Rules → Transform Rules and Settings → Managed Transforms first.
+- If a header in `_headers` isn't showing up live, check Rules → Transform Rules and Settings → Managed Transforms first.
 
 ## Security Best Practices
 

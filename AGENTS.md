@@ -164,7 +164,7 @@ description: Brief description for SEO (first 150 chars after stripping Markdown
 ---
 ```
 
-Optional: `comments`, `redirect_from`, `image`, `redirect_to`
+Optional: `tldr`, `image`, `archived`, `redirect_from`, `redirect_to` (the full schema is in [`src/content.config.ts`](src/content.config.ts))
 
 Don't use `published: false` to hold a draft. A draft lives on its own branch, and merging it to `main` is what publishes it, so leave `published` out. A preview build of the branch then shows the post exactly as it will ship.
 

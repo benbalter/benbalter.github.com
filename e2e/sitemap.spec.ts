@@ -13,7 +13,7 @@ test.describe('Sitemap Generation', () => {
   
   // File-based tests - only run if dist-astro directory exists (after Astro build)
   test.describe('File System Tests (Astro build)', () => {
-    test.skip(!distAstroDirExists, 'Skipping Astro tests - dist-astro directory does not exist. Run `npm run astro:build` first.');
+    test.skip(!distAstroDirExists, 'Skipping Astro tests - dist-astro directory does not exist. Run `npm run build` first.');
     
     test('sitemap-index.xml should exist in dist-astro directory', () => {
       const sitemapPath = path.join(distAstroDir, 'sitemap-index.xml');

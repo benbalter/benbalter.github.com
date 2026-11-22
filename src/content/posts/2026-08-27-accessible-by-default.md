@@ -2,7 +2,6 @@
 title: "Accessible by default: writing a book like software"
 description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA): Markdown won't let me fake a heading, and a browser audits every build. axe-core under Playwright catches what Markdown can't check, like color contrast, and nobody had to schedule a week for it."
 tldr: "Accessibility is mostly setup: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and every build checks conformance for you. The structure that passes the check is the same one a screen reader and an LLM both read."
-published: true
 ---
 
 The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/): five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard (or, more honestly, as an exercise in [structured procrastination](https://www.structuredprocrastination.com/): elaborate tooling is a great way to not write the book it's for). Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.

@@ -2,7 +2,6 @@
 title: Deprecate Management
 description: Open source communities ship code across geographies and timezones without managers. Their collaborative practices have lessons for all of us.
 tldr: "Open source communities ship code across geographies and timezones without traditional managers. Those collaborative practices have lessons for how we all organize work."
-published: true
 ---
 
 [Open source just does](/2012/10/19/we-ve-been-trained-to-make-paper/) a lot of "making things" better. Whether you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd have a seriously good process, for sure. Welcome to the world of open source.

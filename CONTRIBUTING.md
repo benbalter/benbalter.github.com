@@ -86,10 +86,11 @@ Your content here...
 
 ### Code Style
 
-- Run linters before committing:
+- Lint the files you changed before committing. `npm run lint` rewrites every file in the repository with a violation, so point the linters at specific paths:
 
   ```bash
-  npm run lint
+  npx eslint src/utils/my-util.ts
+  npx markdownlint-cli2 src/content/posts/my-post.md
   ```
 
 - Follow existing code patterns
@@ -104,8 +105,8 @@ Your content here...
 # All tests
 npm test
 
-# Linting
-npm run lint
+# Linting (check only, changes nothing)
+npm run lint-check
 
 # TypeScript check
 npm run check
@@ -147,7 +148,7 @@ npm run test:e2e:headed  # Watch tests run in browser
 2. **Lint your code:**
 
    ```bash
-   npm run lint
+   npx eslint path/to/changed-file.ts
    ```
 
 3. **Check TypeScript:**

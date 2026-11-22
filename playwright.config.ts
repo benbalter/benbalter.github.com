@@ -73,8 +73,8 @@ export default defineConfig({
    * so the default run stays fast and needs no extra browser binaries installed.
    * The site is zero-JS by default, but the handful of client scripts
    * (search modal, link previews, quote-share, view transitions) are exactly
-   * where Safari/WebKit and Gecko quirks surface — run the full matrix on a
-   * nightly job or locally: `CROSS_BROWSER=1 npm run test:e2e`
+   * where Safari/WebKit and Gecko quirks surface. No workflow sets it, so run
+   * the full matrix locally: `CROSS_BROWSER=1 npm run test:e2e`
    * (first time: `npx playwright install webkit firefox`). */
   projects: [
     {
@@ -98,7 +98,7 @@ export default defineConfig({
   /* Serve the built site through the production Worker before the tests.
    * `wrangler dev --local` runs worker/index.js on workerd with dist-astro/ as
    * its assets, so tests exercise what production serves: the Worker's
-   * routing (Markdown content negotiation, POST /api/event), public/_headers,
+   * routing (POST /api/event), public/_headers,
    * the built _redirects, trailing-slash redirects, and the 404 page.
    * `astro preview` applies none of those. Local mode needs no Cloudflare
    * login; the ENGAGEMENT Analytics Engine binding is simulated locally.

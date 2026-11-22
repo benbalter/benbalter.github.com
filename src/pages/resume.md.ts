@@ -15,7 +15,7 @@ import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -50,11 +50,9 @@ export const GET: APIRoute = async () => {
   lines.push('');
   lines.push(RESUME_HEADLINE);
   lines.push('');
+  const { location, email, site, github, linkedin } = RESUME_CONTACT;
   lines.push(
-    `Washington, DC · [${siteConfig.email}](mailto:${siteConfig.email}) · ` +
-      `[ben.balter.com](${siteConfig.url}) · ` +
-      `[github.com/benbalter](https://github.com/${siteConfig.githubUsername}) · ` +
-      `[linkedin.com/in/benbalter](${siteConfig.linkedinUrl})`
+    [location, ...[email, site, github, linkedin].map(({ label, href }) => `[${label}](${href})`)].join(' · ')
   );
   lines.push('');
 

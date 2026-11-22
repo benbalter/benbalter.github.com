@@ -149,7 +149,7 @@ The migration from Jekyll to Astro is complete. The following have been migrated
 - [x] Blog posts from Jekyll `_posts/` to `src/content/posts/`
 - [x] Configure Markdown and MDX support with @astrojs/mdx integration
 - [x] Define content collections with frontmatter schemas
-- [x] Add reusable MDX components (Callout, CodeBlock, YouTube)
+- [x] Add a reusable MDX component (YouTube); callouts are a remark directive (`:::note`), and code blocks use Expressive Code
 - [x] Resume data from `_resume_positions/`
 - [x] Data files from `_data/` to `src/data/`
 - [x] Static assets in `public/`
@@ -169,4 +169,4 @@ See [docs/ASTRO_CONTENT.md](ASTRO_CONTENT.md) for detailed documentation on work
 
 ## Contributing
 
-This is an experimental implementation. Feedback and contributions welcome!
+Feedback and contributions welcome! See [CONTRIBUTING.md](../CONTRIBUTING.md).

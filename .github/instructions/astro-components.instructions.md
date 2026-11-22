@@ -107,7 +107,7 @@ const post = await getEntry('posts', 'my-post-slug');
 
 // Filter and sort
 const publishedPosts = await getCollection('posts', ({ data }) => {
-  return data.draft !== true;
+  return data.published !== false;
 });
 ---
 ```
@@ -332,7 +332,7 @@ import { getCollection } from 'astro:content';
 import PostCard from '../components/PostCard.astro';
 
 const posts = await getCollection('posts', ({ data }) => {
-  return data.draft !== true;
+  return data.published !== false;
 });
 
 const sortedPosts = posts.sort((a, b) => 

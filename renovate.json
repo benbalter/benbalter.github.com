@@ -69,6 +69,40 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "errata-ai/vale",
       "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "description": "Harper CLI version installed in CI (HARPER_VERSION in workflow env). Release tags carry the v prefix, so the value is tracked as written.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "HARPER_VERSION: (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "Automattic/harper"
+    },
+    {
+      "description": "Lighthouse CI runs through npx with an inline version, so it isn't in package.json for the npm manager to see.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "npx --yes (?<depName>@lhci/cli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "npm"
+    },
+    {
+      "description": "zizmor is installed with pip inline in the supply-chain workflow.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "pip install (?<depName>zizmor)==(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "pypi"
     }
   ]
 }
