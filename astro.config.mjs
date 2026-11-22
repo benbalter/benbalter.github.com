@@ -177,9 +177,23 @@ export default defineConfig({
     format: 'directory',
     // Assets directory
     assets: 'assets',
-    // Inline all stylesheets into HTML to eliminate render-blocking CSS requests
-    // This improves Speed Index by allowing content to paint faster
-    // Trade-off: Larger HTML files but faster initial paint
+    // Inline all stylesheets into HTML so no CSS request blocks first paint.
+    // The cost is about 24 KB (gzipped) of CSS re-sent with every page.
+    //
+    // Measured 2026-11-22 against 'auto' (one cached, external global.css),
+    // through `npm run preview:worker` with Chrome throttled to slow 4G and a
+    // 4x slower CPU, median of 7 cold loads:
+    //
+    //   first contentful paint   'always'   'auto'
+    //   /                         376 ms    744 ms
+    //   /about/                   332 ms    548 ms
+    //   a post                    344 ms    628 ms
+    //
+    // 'auto' saved about 20 KB on each later page view. Most readers arrive on
+    // one shared link, so the first paint wins. 'auto' would also emit CSS files
+    // with '@' in their names (`resume@_@astro.*.css`). Asset URLs containing
+    // '@' have been redirected by Cloudflare on this site before, so rename
+    // them in assetFileNames below before trying 'auto' again.
     inlineStylesheets: 'always',
   },
   
