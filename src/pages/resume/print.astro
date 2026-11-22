@@ -20,7 +20,7 @@
 
 import { getEntry } from 'astro:content';
 import { Font } from 'astro:assets';
-import { RESUME_CONTACT, RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, getResumePositions, resumeYear as year, shortResumeDate as shortDate, typographicApostrophes } from '../../utils/resume-data';
 import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
@@ -40,11 +40,6 @@ const professionalCerts = certifications.filter(
   (c: { category?: string; expired?: boolean }) =>
     (c.category ?? 'professional') === 'professional' && !c.expired,
 );
-
-// "Jul 2021": short months keep long role titles on one line beside the date.
-const shortDate = (value: string) =>
-  new Date(value).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-const year = (value: string) => String(new Date(value).getUTCFullYear());
 
 // Date range for a position, e.g. "Jul 2021 – Feb 2023" / "May 2026 – Present".
 const dateRange = (start: string, end?: string) =>

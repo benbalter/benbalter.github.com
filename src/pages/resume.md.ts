@@ -12,10 +12,9 @@
 
 import type { APIRoute } from 'astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
-import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, resumeYear, shortResumeDate, sortPositions, typographicApostrophes } from '../utils/resume-data';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -62,7 +61,7 @@ export const GET: APIRoute = async () => {
   if (summary) {
     lines.push('## Summary');
     lines.push('');
-    lines.push(summary);
+    lines.push(typographicApostrophes(summary));
     lines.push('');
   }
 
@@ -74,7 +73,7 @@ export const GET: APIRoute = async () => {
   if (highlights && highlights.length > 0) {
     lines.push('## Highlights');
     lines.push('');
-    for (const item of highlights as string[]) lines.push(`- ${item}`);
+    for (const item of highlights as string[]) lines.push(`- ${typographicApostrophes(item)}`);
     lines.push('');
   }
 
@@ -85,8 +84,8 @@ export const GET: APIRoute = async () => {
     lines.push(`### ${employer}`);
     lines.push('');
     for (const position of positions) {
-      const start = formatResumeDate(position.data.start_date) ?? 'Unknown';
-      const end = position.data.end_date ? formatResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
+      const start = shortResumeDate(position.data.start_date) ?? 'Unknown';
+      const end = position.data.end_date ? shortResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
       lines.push(`#### ${position.data.title}`);
       lines.push('');
       lines.push(`_${start} – ${end}_`);
@@ -134,7 +133,7 @@ export const GET: APIRoute = async () => {
     for (const degree of degrees) {
       lines.push(`### ${degree.school}`);
       lines.push('');
-      lines.push(`${degree.degree} · _${formatResumeDate(degree.date) ?? ''}_`);
+      lines.push(`${degree.degree} · _${resumeYear(degree.date)}_`);
       lines.push('');
     }
   }

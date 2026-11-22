@@ -64,6 +64,23 @@ export function typographicApostrophes(text: string): string {
   return text.replace(/(\w)'(\w)/g, '$1\u2019$2');
 }
 
+/**
+ * "Jul 2021": the month-and-year form every résumé surface prints for a role.
+ * Short months keep a long role title on one line beside its dates. Returns
+ * null for an unparseable date so each surface can choose its own fallback.
+ */
+export function shortResumeDate(value: string): string | null {
+  const date = new Date(value);
+  return isNaN(date.getTime())
+    ? null
+    : date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+}
+
+/** "2011": degrees show the year alone on every surface. */
+export function resumeYear(value: string): string {
+  return String(new Date(value).getUTCFullYear());
+}
+
 type PositionLike = { data: { start_date: string; employer: string } };
 
 const byStartDateDesc = (a: PositionLike, b: PositionLike) =>

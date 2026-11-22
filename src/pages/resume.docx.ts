@@ -24,10 +24,9 @@ import {
   TabStopType,
   BorderStyle,
 } from 'docx';
-import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, resumeYear, shortResumeDate, sortPositions, typographicApostrophes } from '../utils/resume-data';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -269,7 +268,7 @@ export const GET: APIRoute = async () => {
     children.push(
       new Paragraph({
         spacing: { after: 80 },
-        children: [new TextRun({ text: summary, italics: true, size: 21 })],
+        children: [new TextRun({ text: typographicApostrophes(summary), italics: true, size: 21 })],
       })
     );
   }
@@ -284,7 +283,7 @@ export const GET: APIRoute = async () => {
         new Paragraph({
           bullet: { level: 0 },
           spacing: { after: 40 },
-          children: [new TextRun({ text: item, size: 19 })],
+          children: [new TextRun({ text: typographicApostrophes(item), size: 19 })],
         })
       );
     }
@@ -300,8 +299,8 @@ export const GET: APIRoute = async () => {
       })
     );
     for (const position of positions) {
-      const start = formatResumeDate(position.data.start_date) ?? 'Unknown';
-      const end = position.data.end_date ? formatResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
+      const start = shortResumeDate(position.data.start_date) ?? 'Unknown';
+      const end = position.data.end_date ? shortResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
       children.push(titleWithDate(position.data.title, `${start}–${end}`));
       children.push(...renderMarkdownBody(position.body ?? ''));
     }
@@ -350,7 +349,7 @@ export const GET: APIRoute = async () => {
   if (degrees && degrees.length > 0) {
     children.push(sectionHeading('Education'));
     for (const degree of degrees) {
-      children.push(titleWithDate(degree.school, formatResumeDate(degree.date) ?? '', { titleSize: 22 }));
+      children.push(titleWithDate(degree.school, resumeYear(degree.date), { titleSize: 22 }));
       children.push(new Paragraph({ spacing: { after: 120 }, children: [new TextRun({ text: degree.degree, size: 20 })] }));
     }
   }

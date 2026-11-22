@@ -16,7 +16,7 @@ import { getEntry, type CollectionEntry } from 'astro:content';
 import { siteConfig, resumeNetworkLinks } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../utils/resume-data';
+import { RESUME_HEADLINE, getResumePositions, shortResumeDate, typographicApostrophes } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 import bookCover from '../../assets/img/open-and-async-cover-left.webp';
 
@@ -41,10 +41,7 @@ const { sorted: sortedPositions, grouped: groupedPositions } = await getResumePo
 // "Feb 2016": short enough to sit on the same line as a role title on a phone.
 const shortDate = (value: string | undefined) => {
   if (!value) return 'Present';
-  const date = new Date(value);
-  return isNaN(date.getTime())
-    ? 'Unknown'
-    : date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+  return shortResumeDate(value) ?? 'Unknown';
 };
 const year = (value: string) => new Date(value).getUTCFullYear();
 
