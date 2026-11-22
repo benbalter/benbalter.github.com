@@ -1,6 +1,35 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
+/** The fields these tests read from a parsed JSON-LD node. */
+interface JsonLdNode {
+  '@type'?: string;
+  '@graph'?: JsonLdNode[];
+  name?: string;
+  url?: string;
+  mainEntity?: JsonLdNode;
+  headline?: string;
+  datePublished?: string;
+  author?: unknown;
+  itemListElement?: unknown[];
+  jobTitle?: string;
+  worksFor?: JsonLdNode;
+  hasOccupation?: unknown[];
+  alumniOf?: unknown[];
+  hasCredential?: unknown[];
+}
+
+/**
+ * Parse a JSON-LD script body into its nodes. The site emits one
+ * `{ @context, @graph: [...] }` envelope per page, so unwrap `@graph` to make
+ * individual `@type` entries findable.
+ */
+function jsonLdNodes(content: string): JsonLdNode[] {
+  const parsed: JsonLdNode | JsonLdNode[] = JSON.parse(content);
+  if (Array.isArray(parsed)) return parsed;
+  return parsed['@graph'] ?? [parsed];
+}
+
 /**
  * SEO Tests for Astro Build
  * 
@@ -248,20 +277,13 @@ test.describe('Structured Data (JSON-LD)', () => {
     const content = await jsonLd.first().textContent();
     expect(content).toBeTruthy();
     
-    const schemas = JSON.parse(content!);
-    // Structured data is emitted as a single { @context, @graph: [...] } envelope;
-    // unwrap @graph so individual @type entries are findable.
-    const schemaArray = Array.isArray(schemas)
-      ? schemas
-      : Array.isArray((schemas as any)['@graph'])
-        ? (schemas as any)['@graph']
-        : [schemas];
+    const schemaArray = jsonLdNodes(content!);
     
     // Check for Person schema - on homepage it's nested in ProfilePage's mainEntity
-    const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person') ||
-      schemaArray.find((s: any) => s['@type'] === 'ProfilePage')?.mainEntity;
+    const personSchema = schemaArray.find((s) => s['@type'] === 'Person') ||
+      schemaArray.find((s) => s['@type'] === 'ProfilePage')?.mainEntity;
     expect(personSchema).toBeTruthy();
-    expect(personSchema.name).toBe('Ben Balter');
+    expect(personSchema?.name).toBe('Ben Balter');
   });
 
   test('homepage should have WebSite schema', async ({ page }) => {
@@ -270,17 +292,12 @@ test.describe('Structured Data (JSON-LD)', () => {
     
     const jsonLd = page.locator('script[type="application/ld+json"]');
     const content = await jsonLd.first().textContent();
-    const schemas = JSON.parse(content!);
-    const schemaArray = Array.isArray(schemas)
-      ? schemas
-      : Array.isArray((schemas as any)['@graph'])
-        ? (schemas as any)['@graph']
-        : [schemas];
+    const schemaArray = jsonLdNodes(content!);
     
     // Check for WebSite schema
-    const websiteSchema = schemaArray.find((s: any) => s['@type'] === 'WebSite');
+    const websiteSchema = schemaArray.find((s) => s['@type'] === 'WebSite');
     expect(websiteSchema).toBeTruthy();
-    expect(websiteSchema.url).toBe('https://ben.balter.com');
+    expect(websiteSchema?.url).toBe('https://ben.balter.com');
   });
 
   test('blog post should have BlogPosting schema', async ({ page }) => {
@@ -308,10 +325,9 @@ test.describe('Structured Data (JSON-LD)', () => {
     for (const element of allElements) {
       const content = await element.textContent();
       if (content) {
-        const schema = JSON.parse(content);
-        const schemaArray = Array.isArray(schema) ? schema : [schema];
+        const schemaArray = jsonLdNodes(content);
         
-        const blogPosting = schemaArray.find((s: any) => s['@type'] === 'BlogPosting');
+        const blogPosting = schemaArray.find((s) => s['@type'] === 'BlogPosting');
         if (blogPosting) {
           foundBlogPosting = true;
           expect(blogPosting.headline).toBeTruthy();
@@ -331,18 +347,13 @@ test.describe('Structured Data (JSON-LD)', () => {
     
     const jsonLd = page.locator('script[type="application/ld+json"]');
     const content = await jsonLd.first().textContent();
-    const schemas = JSON.parse(content!);
-    const schemaArray = Array.isArray(schemas)
-      ? schemas
-      : Array.isArray((schemas as any)['@graph'])
-        ? (schemas as any)['@graph']
-        : [schemas];
+    const schemaArray = jsonLdNodes(content!);
     
     // Check for BreadcrumbList schema
-    const breadcrumbSchema = schemaArray.find((s: any) => s['@type'] === 'BreadcrumbList');
+    const breadcrumbSchema = schemaArray.find((s) => s['@type'] === 'BreadcrumbList');
     expect(breadcrumbSchema).toBeTruthy();
-    expect(breadcrumbSchema.itemListElement).toBeTruthy();
-    expect(breadcrumbSchema.itemListElement.length).toBeGreaterThan(0);
+    expect(breadcrumbSchema?.itemListElement).toBeTruthy();
+    expect(breadcrumbSchema?.itemListElement?.length).toBeGreaterThan(0);
   });
 
   test('resume should have enriched Person schema', async ({ page }) => {
@@ -352,13 +363,12 @@ test.describe('Structured Data (JSON-LD)', () => {
     const jsonLdElements = page.locator('script[type="application/ld+json"]');
     const allElements = await jsonLdElements.all();
 
-    let resumePerson: any = null;
+    let resumePerson: JsonLdNode | undefined;
     for (const element of allElements) {
       const content = await element.textContent();
       if (content) {
-        const schema = JSON.parse(content);
-        const schemaArray = Array.isArray(schema) ? schema : [schema];
-        const person = schemaArray.find((s: any) => s['@type'] === 'Person' && s.hasOccupation);
+        const schemaArray = jsonLdNodes(content);
+        const person = schemaArray.find((s) => s['@type'] === 'Person' && s.hasOccupation);
         if (person) {
           resumePerson = person;
           break;
@@ -371,12 +381,12 @@ test.describe('Structured Data (JSON-LD)', () => {
     // position with no end date — unlike the sitewide Person, which stays
     // employer-neutral. Past roles ride under hasOccupation, education under
     // alumniOf.
-    expect(resumePerson.jobTitle).toBeTruthy();
-    expect(resumePerson.worksFor).toBeTruthy();
-    expect(resumePerson.worksFor['@type']).toBe('Organization');
-    expect(resumePerson.hasOccupation.length).toBeGreaterThan(0);
-    expect(resumePerson.alumniOf.length).toBeGreaterThan(0);
-    expect(resumePerson.hasCredential.length).toBeGreaterThan(0);
+    expect(resumePerson?.jobTitle).toBeTruthy();
+    expect(resumePerson?.worksFor).toBeTruthy();
+    expect(resumePerson?.worksFor?.['@type']).toBe('Organization');
+    expect(resumePerson?.hasOccupation?.length).toBeGreaterThan(0);
+    expect(resumePerson?.alumniOf?.length).toBeGreaterThan(0);
+    expect(resumePerson?.hasCredential?.length).toBeGreaterThan(0);
   });
 });
 

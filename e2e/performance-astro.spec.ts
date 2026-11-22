@@ -1,5 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+/** A layout-shift performance entry. The DOM library has no type for it yet. */
+interface LayoutShiftEntry extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
+/** Resource timing with Chromium's render-blocking flag, also missing from the DOM library. */
+interface RenderBlockingResource extends PerformanceResourceTiming {
+  renderBlockingStatus?: 'blocking' | 'non-blocking';
+}
+
 /**
  * Performance Tests for Astro Build
  * 
@@ -15,7 +26,7 @@ test.describe('Core Web Vitals', () => {
       return new Promise<number>((resolve) => {
         const observer = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          const lastEntry = entries[entries.length - 1] as any;
+          const lastEntry = entries[entries.length - 1] as LargestContentfulPaint;
           resolve(lastEntry.renderTime || lastEntry.loadTime);
         });
         
@@ -44,7 +55,7 @@ test.describe('Core Web Vitals', () => {
         const observer = new PerformanceObserver((list) => {
           const entries = list.getEntries();
           if (entries.length > 0) {
-            const entry = entries[0] as any;
+            const entry = entries[0] as PerformanceEventTiming;
             resolve(entry.processingStart - entry.startTime);
           }
         });
@@ -75,7 +86,7 @@ test.describe('Core Web Vitals', () => {
         let clsValue = 0;
         
         const observer = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries() as any[]) {
+          for (const entry of list.getEntries() as LayoutShiftEntry[]) {
             if (!entry.hadRecentInput) {
               clsValue += entry.value;
             }
@@ -114,7 +125,7 @@ test.describe('Core Web Vitals', () => {
       return new Promise<number>((resolve) => {
         const observer = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          const lastEntry = entries[entries.length - 1] as any;
+          const lastEntry = entries[entries.length - 1] as LargestContentfulPaint;
           resolve(lastEntry.renderTime || lastEntry.loadTime);
         });
         
@@ -175,9 +186,9 @@ test.describe('Resource Performance', () => {
     await page.goto('/');
     
     const jsResources = await page.evaluate(() => {
-      return performance.getEntriesByType('resource')
-        .filter((r: any) => r.name.endsWith('.js'))
-        .map((r: any) => ({
+      return (performance.getEntriesByType('resource') as PerformanceResourceTiming[])
+        .filter((r) => r.name.endsWith('.js'))
+        .map((r) => ({
           name: r.name,
           size: r.transferSize,
           duration: r.duration,
@@ -197,9 +208,9 @@ test.describe('Resource Performance', () => {
     await page.goto('/');
     
     const cssResources = await page.evaluate(() => {
-      return performance.getEntriesByType('resource')
-        .filter((r: any) => r.name.endsWith('.css'))
-        .map((r: any) => ({
+      return (performance.getEntriesByType('resource') as PerformanceResourceTiming[])
+        .filter((r) => r.name.endsWith('.css'))
+        .map((r) => ({
           name: r.name,
           size: r.transferSize,
           duration: r.duration,
@@ -293,12 +304,12 @@ test.describe('Rendering Performance', () => {
     await page.goto('/');
     
     const renderBlockingResources = await page.evaluate(() => {
-      return performance.getEntriesByType('resource')
-        .filter((r: any) => {
+      return (performance.getEntriesByType('resource') as RenderBlockingResource[])
+        .filter((r) => {
           return (r.name.endsWith('.css') || r.name.endsWith('.js')) && 
                  r.renderBlockingStatus === 'blocking';
         })
-        .map((r: any) => r.name);
+        .map((r) => r.name);
     });
     
     console.log('Render-blocking resources:', renderBlockingResources);
@@ -331,7 +342,7 @@ test.describe('Mobile Performance', () => {
       return new Promise<number>((resolve) => {
         const observer = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          const lastEntry = entries[entries.length - 1] as any;
+          const lastEntry = entries[entries.length - 1] as LargestContentfulPaint;
           resolve(lastEntry.renderTime || lastEntry.loadTime);
         });
         
