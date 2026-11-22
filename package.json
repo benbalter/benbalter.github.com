@@ -105,7 +105,7 @@
     "schema-dts": "^2.1.0",
     "sharp": "0.35.5",
     "tailwindcss": "^4.3.3",
-    "textlint": "^15.8.0",
+    "textlint": "^16.0.0",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^2.1.4",
     "textlint-rule-doubled-spaces": "^1.0.2",
