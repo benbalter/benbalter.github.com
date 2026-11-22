@@ -97,7 +97,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install zizmor
-        run: pip install zizmor==1.30.1
+        run: pip install zizmor==1.32.0
 
       # Advisory for now — surfaces findings in the Security tab without gating
       # the build while existing workflows are triaged.
