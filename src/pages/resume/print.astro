@@ -20,7 +20,7 @@
 
 import { getEntry } from 'astro:content';
 import { Font } from 'astro:assets';
-import { RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, getResumePositions, typographicApostrophes } from '../../utils/resume-data';
 import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
@@ -62,11 +62,11 @@ const skillParts = (items: string[]) =>
     .map((part, i) => ({ text: part, nowrap: i % 2 === 1 }));
 
 const contact = [
-  { label: 'Washington, DC', href: null, icon: 'pin' },
-  { label: 'ben@balter.com', href: 'mailto:ben@balter.com', icon: 'mail' },
-  { label: 'ben.balter.com', href: 'https://ben.balter.com', icon: 'globe' },
-  { label: 'github.com/benbalter', href: 'https://github.com/benbalter', icon: 'github' },
-  { label: 'linkedin.com/in/benbalter', href: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin' },
+  { label: RESUME_CONTACT.location, href: null, icon: 'pin' },
+  { ...RESUME_CONTACT.email, icon: 'mail' },
+  { ...RESUME_CONTACT.site, icon: 'globe' },
+  { ...RESUME_CONTACT.github, icon: 'github' },
+  { ...RESUME_CONTACT.linkedin, icon: 'linkedin' },
 ];
 ---
 

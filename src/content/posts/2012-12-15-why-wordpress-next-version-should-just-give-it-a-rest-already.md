@@ -2,7 +2,6 @@
 title: WordPress should give it a REST already
 description: The internet naturally converges on elegant standards. For WordPress to keep up with modern CMSs, it needs to expose all content through a RESTful API.
 tldr: "The internet naturally converges on elegant standards. For WordPress to keep up with next-generation CMSs, it needs to expose all content through a RESTful API."
-published: true
 archived: true
 ---
 

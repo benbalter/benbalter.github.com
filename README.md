@@ -56,7 +56,7 @@ The container will automatically install all dependencies via `npm install` and 
 ### Running Tests Locally
 
 ```bash
-npm test             # Run type check and linters
+npm test             # Run type checks, lint checks, and unit tests
 npm run test:vitest  # Run unit tests
 npm run test:e2e     # Run E2E tests
 ```
@@ -94,6 +94,7 @@ This repository includes specialized GitHub Copilot custom agents to assist with
 
 - **Code Agent**: For JavaScript/TypeScript, HTML, and CSS development
 - **Writing Agent**: For blog posts and documentation
+- **SEO Agent**: For meta tags, structured data, and search visibility
 
 See `.github/agents/` for their configurations.
 

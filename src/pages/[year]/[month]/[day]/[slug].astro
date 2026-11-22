@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl, parsePostId } from '../../../../utils/post-urls';
+import { ogImagePath } from '../../../../utils/og-image-path';
 import { isBuildablePost, isInternalPost, isListablePost } from '../../../../utils/post-filtering';
 import { buildLastmodIndex, lastmodForUrl } from '../../../../utils/sitemap-lastmod';
 import { siteConfig } from '../../../../config';
@@ -50,7 +51,7 @@ const { post, allPosts, lastmod } = Astro.props;
 const { Content, headings } = await render(post);
 
 // Extract date from params for display (use URL params to ensure consistency with the route)
-const { year, month, day, slug } = Astro.params;
+const { year, month, day } = Astro.params;
 const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 
 // Only report a modification when it lands on a later day than publication;
@@ -62,7 +63,7 @@ const updatedDate = lastmodDate && lastmodDate.getTime() - pubDate.getTime() >= 
 
 // Generate OG image URL for this post
 // If post has a custom image, use that, otherwise use the dynamically generated one
-const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
+const ogImageUrl = post.data.image || (ogImagePath(post.id) ?? undefined);
 
 // Related posts and sequential navigation only consider listable (non-archived)
 // posts, so archived posts stay reachable but are never surfaced as suggestions

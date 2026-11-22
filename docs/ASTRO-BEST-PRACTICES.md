@@ -464,13 +464,13 @@ npm run test:e2e:accessibility
 
 ### 1. Build Caching ✅
 
-**Status:** NOT APPLICABLE (Astro 6.x)
+**Status:** NOT APPLICABLE (Astro 6 and later)
 
 **Note:** The `experimental.contentCollectionCache` feature was removed in Astro 6.x. The Content Layer API (with `glob()` loaders) provides efficient build performance by default.
 
 **Why no explicit caching config needed:**
 
-- Astro 6.x Content Layer handles caching internally
+- The Content Layer (Astro 6 and later; this site runs Astro 7) handles caching internally
 - Build times are already optimized (~15-20 seconds for full rebuild)
 - The deprecated `contentCollectionCache` experimental flag was removed in Astro 6.x
 
@@ -760,7 +760,7 @@ npm run test:e2e      # E2E SEO tests
 
 ### Medium Priority (Build)
 
-- [x] Build caching (Astro 6.x Content Layer - automatic)
+- [x] Build caching (Content Layer, automatic)
 - [x] Chunk splitting optimization
 - [x] Bundle size analysis (E2E performance tests)
 - [x] Build performance metrics (build completes in ~20s)

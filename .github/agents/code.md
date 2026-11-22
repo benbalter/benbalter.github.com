@@ -83,7 +83,7 @@ const { Content } = await render(post);
 
 // Filter with callback
 const published = await getCollection('posts', ({ data }) => {
-  return data.draft !== true;
+  return data.published !== false;
 });
 ```
 

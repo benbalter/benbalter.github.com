@@ -27,7 +27,7 @@ import {
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
-import { RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
+import { RESUME_CONTACT, RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -255,14 +255,11 @@ export const GET: APIRoute = async () => {
       border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: ACCENT, space: 4 } },
       spacing: { after: 160 },
       children: [
-        new TextRun({ text: 'Washington, DC  ·  ', color: MUTED, size: 18 }),
-        new ExternalHyperlink({ link: `mailto:${siteConfig.email}`, children: [new TextRun({ text: siteConfig.email, color: HYPERLINK, size: 18 })] }),
-        new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
-        new ExternalHyperlink({ link: siteConfig.url, children: [new TextRun({ text: 'ben.balter.com', color: HYPERLINK, size: 18 })] }),
-        new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
-        new ExternalHyperlink({ link: `https://github.com/${siteConfig.githubUsername}`, children: [new TextRun({ text: 'github.com/benbalter', color: HYPERLINK, size: 18 })] }),
-        new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
-        new ExternalHyperlink({ link: siteConfig.linkedinUrl, children: [new TextRun({ text: 'linkedin.com/in/benbalter', color: HYPERLINK, size: 18 })] }),
+        new TextRun({ text: RESUME_CONTACT.location, color: MUTED, size: 18 }),
+        ...[RESUME_CONTACT.email, RESUME_CONTACT.site, RESUME_CONTACT.github, RESUME_CONTACT.linkedin].flatMap(({ label, href }) => [
+          new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
+          new ExternalHyperlink({ link: href, children: [new TextRun({ text: label, color: HYPERLINK, size: 18 })] }),
+        ]),
       ],
     })
   );

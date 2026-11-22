@@ -2,7 +2,6 @@
 title: The next big thing is already here
 description: Want to predict the next technology trend? Look at how open source developers work. The tools they build for themselves today go mainstream tomorrow.
 tldr: "Chances are the next big thing is already here, and the open source community is already using it. Centralized version control reached consumers as Dropbox, Twitter's @ replies first emerged on IRC, and today developers are moving to distributed version control, APIs, and crowdsourced geospatial data. If the open source community as a whole is backing an effort, there's a good chance it's a winner."
-published: true
 ---
 
 Looking for *the next big thing*? Chances are it's already here, and chances are the open source community is using it. If you wanted to know the next trend in medicine, it makes sense to look at how doctors take care of themselves. The same is true for geeks. It's about looking to the early adopters.

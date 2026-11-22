@@ -86,6 +86,8 @@ export const siteConfig = {
   formerEmployer: 'GitHub',
   formerEmployerUrl: 'https://github.com/about',
   timezone: 'America/New_York',
+  // City shown in the résumé contact strip and the About page facts.
+  location: 'Washington, DC',
   
   // Social media handles
   twitterHandle: '@benbalter',
@@ -163,9 +165,9 @@ export const siteConfig = {
 export const contactLinks: ContactLink[] = [
   { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'envelope' },
   { name: 'Add to contacts', url: '/vcard.vcf', icon: 'address-card' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky', handle: '@ben.balter.com' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin', handle: 'in/benbalter' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github', handle: '@benbalter' },
+  { name: 'Bluesky', url: siteConfig.blueskyUrl, icon: 'bluesky', handle: '@ben.balter.com' },
+  { name: 'LinkedIn', url: siteConfig.linkedinUrl, icon: 'linkedin', handle: 'in/benbalter' },
+  { name: 'GitHub', url: `https://github.com/${siteConfig.githubUsername}`, icon: 'github', handle: '@benbalter' },
 ];
 
 // The networks (the contact links with a public handle), in contactLinks order.
@@ -173,7 +175,8 @@ export const contactLinks: ContactLink[] = [
 export const networkLinks: ContactLink[] = contactLinks.filter((link) => link.handle);
 
 // The résumé lists only the professional networks, LinkedIn first for
-// recruiters. The PDF, Word, and Markdown exports hard-code the same pair.
+// recruiters. The PDF, Word, and Markdown exports show the same pair as bare
+// URLs, from RESUME_CONTACT in src/utils/resume-data.ts.
 export const resumeNetworkLinks: ContactLink[] = ['LinkedIn', 'GitHub']
   .map((name) => networkLinks.find((link) => link.name === name))
   .filter((link): link is ContactLink => Boolean(link));
@@ -184,8 +187,8 @@ export const socialLinks: SocialLink[] = [
   { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'twitter' },
   { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'linkedin' },
   { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
-  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'mastodon' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
+  { name: 'Mastodon', url: siteConfig.mastodonUrl, icon: 'mastodon' },
+  { name: 'Bluesky', url: siteConfig.blueskyUrl, icon: 'bluesky' },
 ];
 
 // Footer navigation links

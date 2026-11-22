@@ -12,6 +12,7 @@
  */
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { siteConfig } from '../config';
 
 type PositionEntry = CollectionEntry<'resume-positions'> & {
   Content: Awaited<ReturnType<typeof render>>['Content'];
@@ -35,6 +36,24 @@ export interface ResumePositions {
  * of them can drift.
  */
 export const RESUME_HEADLINE = 'Product leader for developer platforms and open source';
+
+/** A URL as printed on paper: no scheme, no `www.`, no trailing slash. */
+const bareUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+
+const link = (href: string) => ({ label: bareUrl(href), href });
+
+/**
+ * The contact strip for the exports a recruiter prints or parses (PDF, Word,
+ * Markdown): links are spelled out as bare URLs because they have to survive
+ * paper. The web résumé shows network names instead, from `resumeNetworkLinks`.
+ */
+export const RESUME_CONTACT = {
+  location: siteConfig.location,
+  email: { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
+  site: link(siteConfig.url),
+  github: link(`https://github.com/${siteConfig.githubUsername}`),
+  linkedin: link(siteConfig.linkedinUrl),
+} as const;
 
 /**
  * Curl apostrophes in plain front-matter strings (summary, highlights). Position

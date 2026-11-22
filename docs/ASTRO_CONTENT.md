@@ -159,9 +159,7 @@ The frontmatter schema is designed to be compatible with Jekyll:
 - `published` - Publication status
 - `redirect_from` - Array of old URLs
 - `redirect_to` - Redirect destination
-- `tags` - Post tags
 - `categories` - Post categories
-- `comments` - Enable/disable comments
 - `image` - Open Graph image
 
 ### Date Extraction

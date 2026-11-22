@@ -67,7 +67,6 @@ docker run \
   -e VALIDATE_XML=false \
   -e VALIDATE_NATURAL_LANGUAGE=false \
   -e VALIDATE_GITLEAKS=false \
-  -e RUBY_CONFIG_FILE=.rubocop.yml \
   -e LINTER_RULES_PATH=. \
   -e LOG_LEVEL=NOTICE \
   -v "${REPO_PATH}":/tmp/lint \

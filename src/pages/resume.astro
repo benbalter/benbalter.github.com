@@ -87,7 +87,7 @@ const resumeSchema = generateResumeSchema({
   <Fragment slot="lede">{RESUME_HEADLINE}</Fragment>
   <div slot="header-extra">
     <p class="resume-contact">
-      <span>Washington, DC</span>
+      <span>{siteConfig.location}</span>
       <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
       {resumeNetworkLinks.map((link) => (
         <a href={link.url} rel="me">{link.name}</a>

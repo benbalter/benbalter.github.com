@@ -45,26 +45,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 
 ### Lighthouse CI
 
-**Configuration (.lighthouserc.json):**
-
-```json
-{
-  "ci": {
-    "collect": {
-      "url": ["http://localhost:4321"],
-      "numberOfRuns": 3
-    },
-    "assert": {
-      "assertions": {
-        "categories:accessibility": ["error", { "minScore": 0.95 }],
-        "categories:best-practices": ["error", { "minScore": 0.9 }],
-        "categories:seo": ["error", { "minScore": 0.95 }],
-        "categories:performance": ["warn", { "minScore": 0.9 }]
-      }
-    }
-  }
-}
-```
+**Configuration:** [`.lighthouserc.json`](../.lighthouserc.json). Lighthouse audits the built site in `dist-astro/` (`staticDistDir`) on three pages, starting from the `lighthouse:no-pwa` preset; the file's `_comment` explains each assertion that's turned off or down.
 
 ---
 
@@ -418,38 +399,7 @@ test('ARIA attributes should be valid', async ({ page }) => {
 
 ### GitHub Actions Workflow
 
-```yaml
-name: Accessibility Tests
-
-on: [push, pull_request]
-
-jobs:
-  a11y-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build site
-        run: npm run build
-      
-      - name: Run accessibility tests
-        run: npm run test:e2e -- e2e/accessibility*.spec.ts
-      
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: accessibility-test-results
-          path: playwright-report/
-```
+[`.github/workflows/astro-e2e.yml`](../.github/workflows/astro-e2e.yml) builds the site once, then runs the Playwright suite (including `e2e/accessibility-astro.spec.ts` and its axe-core checks) and Lighthouse CI against that build, on every push to `main` and every pull request.
 
 ---
 
