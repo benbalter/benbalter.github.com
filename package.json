@@ -50,7 +50,7 @@
     "astro-favicons": "^3.1.8",
     "astro-pdf": "^2.0.0",
     "dictionary-en": "^4.0.0",
-    "es-module-lexer": "3.0.4",
+    "es-module-lexer": "3.0.5",
     "eslint": "^10.13.0",
     "exifreader": "4.54.0",
     "glob": "^14.0.0",
