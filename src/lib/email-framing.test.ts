@@ -1,6 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import { leadInHtml, bookCtaHtml } from './email-framing';
 import { siteConfig } from '../config';
+import { BOOK_RELATIONS, bookCtaHeadline } from './book-cta';
+import { escapeHtml } from '../utils/html-escape';
 
 describe('leadInHtml', () => {
   it('links to the site and the canonical post URL', () => {
@@ -18,7 +20,14 @@ describe('bookCtaHtml', () => {
     ['inspired', 'inspired a chapter in my book'],
     [undefined, "It's now a book"],
   ] as const)('uses the %s headline', (relation, expected) => {
-    expect(bookCtaHtml(relation)).toContain(expected);
+    // The headline is HTML-escaped, so "It's" arrives as "It&#39;s".
+    expect(bookCtaHtml(relation)).toContain(escapeHtml(expected));
+  });
+
+  it('uses the same headline as the on-site card', () => {
+    for (const relation of [...BOOK_RELATIONS, undefined]) {
+      expect(bookCtaHtml(relation)).toContain(escapeHtml(bookCtaHeadline(relation)));
+    }
   });
 
   it('links to the email book URL with the price', () => {

@@ -12,7 +12,7 @@
 
 import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
-import { bookTitleHtml, commitGraphPaths, type BookRelation } from '../lib/book-cta';
+import { bookCtaHeadline, bookTitleHtml, commitGraphPaths, type BookRelation } from '../lib/book-cta';
 import coverImage from '../../assets/img/open-and-async-cover.webp';
 
 interface Props {
@@ -26,20 +26,11 @@ interface Props {
 
 const { variant = 'inline', relation } = Astro.props;
 
-// Explicit, launch-safe headline. The inline variant always shows it; the
-// featured variant shows it only for posts tied to the book (`relation`). Stating the book
-// lineage is itself the marketing win: "adapted" signals depth, "cut" signals
-// there's more where this came from.
-const inlineHeadline =
-  relation === 'adapted'
-    ? 'This post is adapted from the book.'
-    : relation === 'cut'
-      ? "There's a whole book's worth more where this came from."
-      : relation === 'inspired'
-        ? 'This post inspired a chapter in the book.'
-        : relation === 'collected'
-          ? 'Most of these posts are in the book.'
-          : "Liked this post? It's now a book.";
+// Explicit, launch-safe headline, shared with the email card. The inline
+// variant always shows it; the featured variant shows it only for posts tied to
+// the book (`relation`). Stating the book lineage is itself the marketing win:
+// "adapted" signals depth, "cut" signals there's more where this came from.
+const inlineHeadline = bookCtaHeadline(relation);
 
 // bookTitleHtml + commitGraphPaths shared with BookLaunchCta (see lib/book-cta).
 ---
