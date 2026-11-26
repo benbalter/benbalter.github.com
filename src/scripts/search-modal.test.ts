@@ -1,12 +1,33 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import type { PagefindResultData } from './pagefind';
 import {
   handleResultNavigation,
   moveSelection,
   noResultsMessage,
+  performSearch,
   renderResults,
   resultCountLabel,
   searchQueryFromUrl,
 } from './search-modal';
+
+// Each query's search stays pending until the test resolves it, so tests can
+// finish searches out of order.
+const pendingSearches = new Map<string, (titles: string[]) => void>();
+vi.mock('./pagefind', () => ({
+  getPagefind: async () => ({
+    init: async () => {},
+    search: (query: string) =>
+      new Promise((resolve) => {
+        pendingSearches.set(query, (titles) =>
+          resolve({
+            results: titles.map((title) => ({
+              data: async (): Promise<PagefindResultData> => ({ url: `/${title}/`, meta: { title }, excerpt: '' }),
+            })),
+          }),
+        );
+      }),
+  }),
+}));
 
 function mountModal() {
   document.body.innerHTML = `
@@ -155,5 +176,28 @@ describe('searchQueryFromUrl', () => {
     expect(searchQueryFromUrl('https://ben.balter.com/')).toBeNull();
     expect(searchQueryFromUrl('https://ben.balter.com/?q=')).toBeNull();
     expect(searchQueryFromUrl('https://ben.balter.com/?q=%20%20')).toBeNull();
+  });
+});
+
+describe('performSearch', () => {
+  beforeEach(() => {
+    pendingSearches.clear();
+  });
+
+  it('ignores an older search that finishes after a newer one', async () => {
+    const { results } = mountModal();
+    const older = performSearch('ab');
+    await vi.waitFor(() => expect(pendingSearches.has('ab')).toBe(true));
+    const newer = performSearch('abc');
+    await vi.waitFor(() => expect(pendingSearches.has('abc')).toBe(true));
+
+    pendingSearches.get('abc')?.(['abc-result']);
+    await newer;
+    pendingSearches.get('ab')?.(['ab-result']);
+    await older;
+
+    expect(results.textContent).toContain('abc-result');
+    expect(results.textContent).not.toContain('ab-result');
+    expect(results.dataset.query).toBe('abc');
   });
 });

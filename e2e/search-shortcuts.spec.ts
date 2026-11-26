@@ -48,6 +48,14 @@ test.describe('Search keyboard shortcuts', () => {
     await expect(field).toHaveValue('a/b');
   });
 
+  test('a failed result fetch says search is unavailable', async ({ page }) => {
+    await page.route('**/pagefind/fragment/**', (route) => route.abort());
+    await page.keyboard.press('/');
+    await page.locator('#search-input').fill('open source');
+
+    await expect(page.locator('#search-results')).toContainText('Search unavailable');
+  });
+
   test('escape closes the modal', async ({ page }) => {
     await page.keyboard.press('/');
     await expect(page.locator('#search-modal')).toBeVisible();
@@ -173,6 +181,20 @@ test.describe('Site-wide keyboard shortcuts', () => {
 
     await expect(page.locator('#shortcuts-modal')).toBeHidden();
     await expect(page.locator('#search-input')).toHaveValue('?');
+  });
+
+  test('opening search from the cheatsheet closes the cheatsheet', async ({ page }) => {
+    await page.keyboard.press('?');
+    await expect(page.locator('#shortcuts-modal')).toBeVisible();
+
+    await page.keyboard.press('/');
+    await expect(page.locator('#search-modal')).toBeVisible();
+    await expect(page.locator('#shortcuts-modal')).toBeHidden();
+
+    // One Esc closes search and leaves nothing open underneath.
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#search-modal')).toBeHidden();
+    await expect(page.locator('#shortcuts-modal')).toBeHidden();
   });
 
   test('g p goes to the posts archive and g h returns home', async ({ page }) => {

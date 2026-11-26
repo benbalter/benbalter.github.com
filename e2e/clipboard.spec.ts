@@ -177,6 +177,24 @@ test.describe('clipboard copy buttons', () => {
     await expectClipboard(page, expected);
   });
 
+  test('post share button copies the link when the share sheet fails', async ({ page, context }) => {
+    // Safari rejects share() with NotAllowedError once the click's activation
+    // expires; that must fall back to copying, not fail silently.
+    await context.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', {
+        value: () => Promise.reject(new DOMException('activation expired', 'NotAllowedError')),
+        configurable: true,
+      });
+    });
+    await page.goto(POST);
+    const btn = page.locator('[data-share-primary]').first();
+    const expected = (await btn.getAttribute('data-share-url')) ?? '';
+
+    await btn.click();
+    await expect(btn).toHaveText('Link copied');
+    await expectClipboard(page, expected);
+  });
+
   test('inline quote copies its deep link when there is no share sheet', async ({ page, context }) => {
     // WebKit exposes navigator.share, which would open the OS sheet instead of
     // copying. Remove it so every engine exercises the copy fallback.
