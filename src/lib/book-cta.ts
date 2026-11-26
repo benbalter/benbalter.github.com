@@ -49,6 +49,22 @@ export const BOOK_RELATION_NOTES: Record<BookRelation, string> = {
 };
 
 /**
+ * The relation-aware CTA headline, shared by the on-site <BookCta> and the
+ * email card (email-framing.ts) so a post pitches the book the same way in
+ * both. Plain text: callers escape it for their medium. Names the book because
+ * the email card has no cover image to do it.
+ */
+export function bookCtaHeadline(relation?: BookRelation): string {
+  switch (relation) {
+    case 'adapted': return `This post is adapted from my book, ${siteConfig.bookTitle}.`;
+    case 'cut': return "There's a whole book's worth more where this came from.";
+    case 'inspired': return `This post inspired a chapter in my book, ${siteConfig.bookTitle}.`;
+    case 'collected': return `Most of these posts are in my book, ${siteConfig.bookTitle}.`;
+    default: return "Liked this post? It's now a book.";
+  }
+}
+
+/**
  * Book title with its conjunction colorized via the site's signature lime→pink
  * gradient. Surrounding spaces are consumed so `mx-1` controls the total gap
  * (natural spaces + margin would read as an uncomfortably wide space in prose).

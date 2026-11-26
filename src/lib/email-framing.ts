@@ -11,12 +11,9 @@
  */
 
 import { siteConfig } from '../config';
-import type { BookRelation } from './book-cta';
+import { bookCtaHeadline, type BookRelation } from './book-cta';
 import { escapeHtml } from '../utils/html-escape';
 
-// This content is delivered as HTML (e.g. rendered by Kit into email), so
-// escape the title fully rather than just its ampersand.
-const bookTitle = escapeHtml(siteConfig.bookTitle);
 
 /**
  * A short framing line prepended to each post so email subscribers (and RSS
@@ -34,23 +31,16 @@ export function leadInHtml(link: string): string {
 }
 
 /**
- * A plain, inline-styled book callout appended to each post. Mirrors the
- * relation-aware headline of the on-site <BookCta>.
+ * A plain, inline-styled book callout appended to each post. Its headline
+ * comes from bookCtaHeadline, the same one the on-site <BookCta> uses.
  *
  * Now that the book has launched, the label and CTA below sell ("Out now" /
  * "Buy it") rather than capture emails — kept in sync with <BookCta>.
  */
 export function bookCtaHtml(relation?: BookRelation): string {
-  const headline =
-    relation === 'adapted'
-      ? `This post is adapted from my book, ${bookTitle}.`
-      : relation === 'cut'
-        ? `There's a whole book's worth more where this came from.`
-        : relation === 'inspired'
-          ? `This post inspired a chapter in my book, ${bookTitle}.`
-          : relation === 'collected'
-            ? `Most of these posts are in my book, ${bookTitle}.`
-            : `Liked this post? It's now a book.`;
+  // Delivered as HTML (Kit renders it into email), so escape the whole
+  // headline, title included, not just its ampersand.
+  const headline = escapeHtml(bookCtaHeadline(relation));
 
   return (
     `<hr style="margin:2.5em 0 1.5em;border:none;border-top:1px solid #d0d7de;" />` +
