@@ -50,6 +50,7 @@ jobs:
           POST_PATH: ${{ inputs.post_path }}
           EVENT_NAME: ${{ github.event_name }}
           HEAD_COMMIT_ID: ${{ github.event.workflow_run.head_commit.id }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
           REPO: ${{ github.repository }}
           GH_TOKEN: ${{ github.token }}
         run: script/detect-new-posts
