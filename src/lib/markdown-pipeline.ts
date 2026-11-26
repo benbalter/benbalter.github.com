@@ -82,9 +82,12 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 
 // typographic-en-dashes turns any digit-hyphen-digit into a range ("10-22" →
 // "10–22"), which corrupts document identifiers like OMB memo "M-10-22".
-// Restore the hyphens when the run is a letter-prefixed identifier.
+// Restore the hyphens when the run is a letter-prefixed identifier, or a
+// FAR/DFARS clause number ("52.227-14"). Decimal ranges ("1.5\u20132") stay ranges.
 export const restoreIdentifierHyphens = (text: string): string =>
-  text.replace(/\b([A-Z]+-\d+)\u2013(\d+)\b/g, '$1-$2');
+  text
+    .replace(/\b([A-Z]+-\d+)\u2013(\d+)\b/g, '$1-$2')
+    .replace(/\b(\d{2,3}\.\d{3})\u2013(\d+)\b/g, '$1-$2');
 
 // Typography plugin configuration for remark-textr
 const remarkTextrConfig = [remarkTextr, {
@@ -129,8 +132,11 @@ export const sharedRehypePlugins = [
   rehypeSlug,
   rehypeAutolinkHeadingsConfig,
   rehypeAccessibleEmojis,
-  rehypeRelativeUrls,
   rehypeRaw,
+  // After rehypeRaw, so raw HTML links and images (old posts have plenty) are
+  // real elements by now; otherwise they stay absolute and rehypeExternalLinks
+  // opens the site's own pages in a new tab.
+  rehypeRelativeUrls,
   rehypeTailwindTables,
   rehypeFigure,
   rehypeFootnoteA11y,

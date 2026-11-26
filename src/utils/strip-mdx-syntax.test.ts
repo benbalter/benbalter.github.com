@@ -27,6 +27,12 @@ describe('stripMdxSyntax', () => {
     expect(stripMdxSyntax(body)).toBe('Some words.\n\n\nMore words.');
   });
 
+  it('keeps the FossAtScale series note as a sentence instead of dropping it', () => {
+    expect(stripMdxSyntax('<FossAtScale nth="third" />\n\nBody')).toBe(
+      'This is the third post in [a series](/2021/06/15/managing-open-source-communities-at-scale/) on successfully managing open source communities at scale.\n\nBody',
+    );
+  });
+
   it('turns a standalone YouTube embed into a link instead of dropping it', () => {
     expect(stripMdxSyntax('Intro\n\n<YouTube id="abc123" title="My talk" />\n\nOutro')).toBe(
       'Intro\n\n[Watch "My talk" on YouTube](https://www.youtube.com/watch?v=abc123)\n\nOutro',

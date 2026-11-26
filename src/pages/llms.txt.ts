@@ -15,6 +15,7 @@ import { getPostUrlOrNull } from '../utils/post-urls';
 import { markdownAlternatePath } from '../utils/markdown-alternate';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
 import { getPublishedPosts } from '../utils/posts';
+import { isInternalPost } from '../utils/post-filtering';
 import { stripHtmlTags } from '../utils/strip-html';
 
 // Constants
@@ -33,8 +34,8 @@ function postLine(post: CollectionEntry<'posts'>): string {
 }
 
 export const GET: APIRoute = async () => {
-  // Listable (published, non-archived) posts, newest first
-  const allPosts = await getPublishedPosts({ sorted: true });
+  // Listable posts whose content lives here (no redirect_to stubs), newest first
+  const allPosts = (await getPublishedPosts({ sorted: true })).filter(isInternalPost);
   const recentPosts = allPosts.slice(0, 10);
 
   // Fetch pages from content collection (only has some pages like resume)

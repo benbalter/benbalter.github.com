@@ -19,6 +19,17 @@ describe('absolutizeMarkdownLinks', () => {
     expect(absolutizeMarkdownLinks(body, origin)).toBe(body);
   });
 
+  it('prefixes root-relative raw HTML href, src, and poster attributes', () => {
+    expect(absolutizeMarkdownLinks('<a href="/a/"><img src="/b.png"></a> <video poster="/c.jpg">', origin)).toBe(
+      '<a href="https://ben.balter.com/a/"><img src="https://ben.balter.com/b.png"></a> <video poster="https://ben.balter.com/c.jpg">',
+    );
+  });
+
+  it('leaves raw HTML inside inline code and protocol-relative attributes alone', () => {
+    const body = 'Write `<a href="/x/">` like this. <img src="//cdn.example.com/a.png">';
+    expect(absolutizeMarkdownLinks(body, origin)).toBe(body);
+  });
+
   it('leaves fenced code blocks untouched, including nested shorter fences', () => {
     const body = ['````md', '```', '[a](/x/)', '```', '````', '[b](/y/)'].join('\n');
     expect(absolutizeMarkdownLinks(body, origin).split('\n')).toEqual([
