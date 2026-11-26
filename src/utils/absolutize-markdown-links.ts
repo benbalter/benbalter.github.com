@@ -1,10 +1,13 @@
+import { outsideCodeSpans } from './strip-mdx-syntax';
+
 /**
  * Rewrite root-relative Markdown link and image targets to absolute URLs.
  *
  * The per-post `.md` agent siblings emit the source body verbatim, so a link
  * like `[post](/2014/01/01/slug/)` reaches an agent with no host to resolve it
  * against. This prefixes inline targets (`](/…)`) and reference definitions
- * (`[id]: /…`) with the site origin. Protocol-relative (`//host`) targets and
+ * (`[id]: /…`) with the site origin, plus raw HTML `href`, `src`, and `poster`
+ * attributes outside inline code. Protocol-relative (`//host`) targets and
  * fenced code blocks are left alone.
  *
  * @param body - Markdown body
@@ -26,7 +29,9 @@ export function absolutizeMarkdownLinks(body: string, origin: string): string {
       }
       if (fence !== null) return line;
 
-      return line
+      return outsideCodeSpans(line, (text) => text
+        // Raw HTML in a post (`<a href="/…">`, `<img src="/…">`, `<video poster="/…">`).
+        .replace(/\b(href|src|poster)="\/(?!\/)/g, `$1="${origin}/`))
         .replace(/\]\(\/(?!\/)/g, `](${origin}/`)
         .replace(/^(\s{0,3}\[[^\]]+\]:\s*)\/(?!\/)/, `$1${origin}/`);
     })

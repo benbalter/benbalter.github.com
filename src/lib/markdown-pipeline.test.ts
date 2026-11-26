@@ -77,7 +77,15 @@ describe('restoreIdentifierHyphens', () => {
     );
   });
 
-  it('leaves plain numeric ranges as en dashes', () => {
-    expect(restoreIdentifierHyphens('8–10x growth, 2013–2016')).toBe('8–10x growth, 2013–2016');
+  it('restores hyphens in FAR and DFARS clause numbers', () => {
+    expect(restoreIdentifierHyphens('FAR 52.227–14 and DFARS 252.227–7014')).toBe(
+      'FAR 52.227-14 and DFARS 252.227-7014',
+    );
+  });
+
+  it('leaves plain numeric and decimal ranges as en dashes', () => {
+    expect(restoreIdentifierHyphens('8–10x growth, 2013–2016, 1.5–2 hours')).toBe(
+      '8–10x growth, 2013–2016, 1.5–2 hours',
+    );
   });
 });

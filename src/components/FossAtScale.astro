@@ -6,6 +6,7 @@
  * Replaces {% include foss-at-scale.html nth="..." %}
  * Uses Tailwind CSS for styling.
  */
+import { FOSS_AT_SCALE } from '../lib/foss-at-scale';
 
 interface Props {
   nth?: string;
@@ -15,5 +16,5 @@ const { nth = "first" } = Astro.props;
 ---
 
 <div class="p-4 rounded-lg border border-primary-200 dark:border-primary-800 bg-primary-50 dark:bg-primary-900/20 text-primary-800 dark:text-primary-200 text-center mb-6 font-sans shadow-sm" role="note">
-  This is the {nth} post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="font-semibold underline text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100">a series</a> on successfully managing open source communities at scale.
+  This is the {nth} post in <a href={FOSS_AT_SCALE.url} class="font-semibold underline text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100">{FOSS_AT_SCALE.linkText}</a> {FOSS_AT_SCALE.rest}
 </div>

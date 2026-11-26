@@ -1,3 +1,5 @@
+import { fossAtScaleMarkdown } from '../lib/foss-at-scale';
+
 /**
  * Strip MDX-only syntax from a raw post body.
  *
@@ -26,7 +28,7 @@
  * @returns The body with MDX-only syntax removed
  */
 /** Apply `fn` to the parts of a line outside `inline code` spans. */
-function outsideCodeSpans(line: string, fn: (text: string) => string): string {
+export function outsideCodeSpans(line: string, fn: (text: string) => string): string {
   return line
     .split(/(`+[^`]*`+)/)
     .map((part, i) => (i % 2 === 1 ? part : fn(part)))
@@ -93,6 +95,14 @@ export function stripMdxSyntax(body: string): string {
       const title = trimmed.match(/\btitle="([^"]+)"/)?.[1];
       const url = `https://www.youtube.com/watch?v=${youtube[1]}`;
       out.push(title ? `[Watch "${title}" on YouTube](${url})` : `[Watch on YouTube](${url})`);
+      continue;
+    }
+
+    // The <FossAtScale nth="…" /> series note is prose, not decoration, so
+    // keep it as a sentence with its link.
+    const foss = trimmed.match(/^<FossAtScale\b[^>]*?\/>\s*$/);
+    if (foss) {
+      out.push(fossAtScaleMarkdown(trimmed.match(/\bnth="([^"]+)"/)?.[1]));
       continue;
     }
 
