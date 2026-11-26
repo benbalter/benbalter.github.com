@@ -311,6 +311,9 @@ const itemListSchema = curatedUrls.length > 0
     zoomLoaded = true;
     import('medium-zoom').then(({ default: mediumZoom }) => {
       mediumZoom(ZOOM_SELECTOR, { margin: 24, background: 'rgba(0, 0, 0, 0.85)' });
+    }).catch(() => {
+      // e.g. a deploy replaced the hashed chunk; let the next hover retry.
+      zoomLoaded = false;
     });
   };
 

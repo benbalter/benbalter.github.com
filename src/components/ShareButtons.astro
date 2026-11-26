@@ -116,25 +116,41 @@ const shareLinks = networks.map((n) => linkDefs[n]);
     const url = button.dataset.shareUrl ?? location.href;
     const canShare = typeof navigator.share === 'function';
 
+    const idleLabel = canShare ? 'Share this post' : 'Copy link';
+    const idleIcon = canShare ? 'share' : 'link';
     if (!canShare) {
-      if (label) label.textContent = 'Copy link';
-      showIcon(button, 'link');
+      if (label) label.textContent = idleLabel;
+      showIcon(button, idleIcon);
+    }
+
+    // Fetch the share image when the button scrolls into view, not on click:
+    // awaiting a fetch inside the click can outlast Safari's user activation,
+    // and then share() (and the clipboard fallback) are refused. A click before
+    // the image arrives shares text + URL only.
+    let files: File[] = [];
+    if (canShare && button.dataset.shareImage) {
+      new IntersectionObserver((entries, observer) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        void shareImageFiles(button.dataset.shareImage).then((f) => { files = f; });
+      }).observe(button);
     }
 
     button.addEventListener('click', async () => {
       if (canShare) {
         const text = button.dataset.shareText ?? '';
-        const files = await shareImageFiles(button.dataset.shareImage);
         try {
           if (files.length && navigator.canShare?.({ files })) {
             await navigator.share({ text, url, files });
           } else {
             await navigator.share({ text, url });
           }
-        } catch {
-          /* user dismissed the sheet, or share failed; nothing to do */
+          return;
+        } catch (err) {
+          // Dismissed: done. A real failure (e.g. NotAllowedError) falls back
+          // to copying the link, as quote-share.ts does.
+          if (err instanceof DOMException && err.name === 'AbortError') return;
         }
-        return;
       }
 
       const ok = await copyToClipboard(url, button);
@@ -143,8 +159,8 @@ const shareLinks = networks.map((n) => linkDefs[n]);
       label.textContent = 'Link copied';
       showIcon(button, 'check');
       window.setTimeout(() => {
-        label.textContent = 'Copy link';
-        showIcon(button, 'link');
+        label.textContent = idleLabel;
+        showIcon(button, idleIcon);
         if (live) live.textContent = '';
       }, 2000);
     });

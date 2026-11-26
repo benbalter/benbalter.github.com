@@ -64,13 +64,26 @@ export function noResultsMessage(query: string): string {
   return `<div class="search-empty">No results for "<strong>${escapeHtml(query)}</strong>"</div>`;
 }
 
+function showUnavailable(container: HTMLElement) {
+  container.innerHTML = '<div class="search-empty">Search unavailable</div>';
+  announce('Search unavailable');
+}
+
 async function loadPagefind() {
   pagefind ??= await getPagefind();
 }
 
-async function performSearch(query: string) {
+/**
+ * Bumped by each search and by closing the modal. A search that finds it
+ * changed after an `await` is stale (a newer query, or a closed modal) and
+ * stops, so a slow "ab" can't overwrite the results for "abc".
+ */
+let searchSeq = 0;
+
+export async function performSearch(query: string) {
   const resultsContainer = document.getElementById('search-results');
   if (!resultsContainer) return;
+  const seq = ++searchSeq;
 
   // Stamp of the query the visible results were rendered for. Cleared up
   // front so that, during the input debounce, the list is marked stale and
@@ -86,11 +99,11 @@ async function performSearch(query: string) {
   if (!pagefind) {
     resultsContainer.innerHTML = '<div class="search-empty">Loading search…</div>';
     await loadPagefind();
+    if (seq !== searchSeq) return;
   }
 
   if (!pagefind) {
-    resultsContainer.innerHTML = '<div class="search-empty">Search unavailable</div>';
-    announce('Search unavailable');
+    showUnavailable(resultsContainer);
     return;
   }
 
@@ -101,18 +114,28 @@ async function performSearch(query: string) {
   // to the input, where the user can keep typing or arrow down again.
   const focusWasInResults = resultsContainer.contains(document.activeElement);
 
-  const search = await pagefind.search(query);
+  let results: PagefindResultData[];
+  try {
+    const search = await pagefind.search(query);
+    if (seq !== searchSeq) return;
 
-  if (search.results.length === 0) {
-    resultsContainer.innerHTML = noResultsMessage(query);
-    announce(resultCountLabel(0));
-    if (focusWasInResults) getInput()?.focus();
+    if (search.results.length === 0) {
+      resultsContainer.innerHTML = noResultsMessage(query);
+      announce(resultCountLabel(0));
+      if (focusWasInResults) getInput()?.focus();
+      return;
+    }
+
+    results = await Promise.all(
+      search.results.slice(0, 8).map((r) => r.data())
+    );
+    if (seq !== searchSeq) return;
+  } catch {
+    // A fragment fetch failed (offline, a 5xx): say so instead of leaving
+    // "Loading search…" or stale results on screen.
+    if (seq === searchSeq) showUnavailable(resultsContainer);
     return;
   }
-
-  const results = await Promise.all(
-    search.results.slice(0, 8).map((r) => r.data())
-  );
 
   renderResults(resultsContainer, results);
   announce(resultCountLabel(results.length));
@@ -206,6 +229,11 @@ function openSearch() {
   const modal = getModal();
   if (!modal || modal.open) return;
 
+  // Don't stack on the shortcuts cheatsheet (`?` then `/` or ⌘K); shortcuts.ts
+  // does the same for search. Close it first so Esc doesn't leave it behind.
+  const shortcuts = document.getElementById('shortcuts-modal') as HTMLDialogElement | null;
+  if (shortcuts?.open) shortcuts.close();
+
   previouslyFocusedElement = document.activeElement as HTMLElement | null;
   document.body.style.overflow = 'hidden';
   loadPagefind();
@@ -225,6 +253,7 @@ function closeSearch() {
  * button, a backdrop click, or a result click.
  */
 function handleClose() {
+  searchSeq++; // drop any search still in flight
   const input = getInput();
   document.body.style.overflow = '';
   if (input) input.value = '';
@@ -395,7 +424,8 @@ function highlightSearchTerms() {
     proseContainer.insertBefore(banner, proseContainer.firstChild);
 
     // Scroll to first match
-    firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    firstMark.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
   }
 }
 
