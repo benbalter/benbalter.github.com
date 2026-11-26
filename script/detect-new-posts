@@ -7,6 +7,7 @@
 #   POST_PATH       Manual dispatch: sync just this file (optional)
 #   EVENT_NAME      github.event_name
 #   HEAD_COMMIT_ID  The deployed commit (github.event.workflow_run.head_commit.id)
+#   RUN_ID          The deploy run that triggered this (github.event.workflow_run.id)
 #   REPO            owner/name, for the deploy-runs lookup
 #   GH_TOKEN        Token with actions: read
 #   GITHUB_OUTPUT   Set by Actions; gets has_posts=true|false
@@ -47,14 +48,28 @@ fi
 # filter can return a stale, months-old page instead of the newest runs,
 # which picked a July base commit on 2026-09-30 and re-broadcast an old post
 # to every subscriber.
+#
+# Skip only the deploy run that triggered this one (RUN_ID). An earlier
+# successful deploy of this same commit (a manual redeploy) is a valid base: it
+# gives an empty diff, so its posts aren't detected as new a second time.
+#
+# The lookup is its own statement so `set -e` fails the step on an API error,
+# rather than silently falling back to HEAD~1 and skipping posts.
 AFTER="$HEAD_COMMIT_ID"
-BEFORE="${HEAD_COMMIT_ID}~1"
-for sha in $(gh api "repos/${REPO}/actions/workflows/build-and-deploy.yml/runs?branch=main&status=completed&per_page=20" --jq '.workflow_runs[] | select(.conclusion == "success") | .head_sha' 2>/dev/null); do
-  if [ "$sha" != "$AFTER" ] && git merge-base --is-ancestor "$sha" "$AFTER" 2>/dev/null; then
+BEFORE=""
+[[ "${RUN_ID:-0}" =~ ^[0-9]+$ ]] || { echo "❌ RUN_ID must be numeric: ${RUN_ID}"; exit 1; }
+RUNS=$(gh api "repos/${REPO}/actions/workflows/build-and-deploy.yml/runs?branch=main&status=completed&per_page=100" \
+  --jq ".workflow_runs[] | select(.conclusion == \"success\" and .id != ${RUN_ID:-0}) | .head_sha")
+for sha in $RUNS; do
+  if git merge-base --is-ancestor "$sha" "$AFTER" 2>/dev/null; then
     BEFORE="$sha"
     break
   fi
 done
+if [ -z "$BEFORE" ]; then
+  BEFORE="${AFTER}~1"
+  echo "::warning title=New-post detection::No earlier successful deploy found in the last 100 runs; checking only ${BEFORE}..${AFTER}, so posts from older failed deploys may be missed."
+fi
 echo "Checking for new posts in ${BEFORE}..${AFTER}"
 
 NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")

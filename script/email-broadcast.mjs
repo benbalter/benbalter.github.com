@@ -28,9 +28,9 @@ import {
 import { stripMdxSyntax } from '../src/utils/strip-mdx-syntax.ts';
 import { leadInHtml, bookCtaHtml } from '../src/lib/email-framing.ts';
 import { getPostUrl } from '../src/utils/post-urls.ts';
-import { isListablePost } from '../src/utils/post-filtering.ts';
+import { isInternalPost } from '../src/utils/post-filtering.ts';
+import { KIT_API_URL, getExistingBroadcastSubjects } from './lib/kit.ts';
 
-const KIT_API_URL = 'https://api.kit.com/v4/broadcasts';
 const SITE_URL = process.env.SITE_URL || 'https://ben.balter.com';
 const DRY_RUN = process.env.DRY_RUN === 'true';
 // A manual workflow_dispatch with an explicit post_path is an intentional
@@ -46,36 +46,6 @@ const emailRehypePlugins = syndicationRehypePlugins(SITE_URL);
 function getSlugFromPath(filePath) {
   const filename = filePath.split('/').pop();
   return filename.replace(/\.(md|mdx)$/, '');
-}
-
-/**
- * Fetch existing broadcasts from Kit to check for duplicates.
- * Returns a Set of subjects that have ALREADY BEEN SENT.
- *
- * Drafts are deliberately excluded: Kit "saves as draft" when a POST fails
- * (transient/capacity/rate-limit 422s), so a failed attempt leaves a draft with
- * this subject behind. Counting drafts here would make the very next run skip
- * the post as "already broadcast" and it would never actually send.
- */
-async function getExistingBroadcastSubjects(apiKey) {
-  const subjects = new Set();
-  try {
-    const response = await fetch(KIT_API_URL, {
-      headers: { 'X-Kit-Api-Key': apiKey },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      for (const broadcast of data.broadcasts || []) {
-        // Only a sent/sending broadcast means "already broadcast" — never a draft.
-        if (broadcast.subject && broadcast.status && broadcast.status !== 'draft') {
-          subjects.add(broadcast.subject);
-        }
-      }
-    }
-  } catch {
-    console.warn('  ⚠️  Could not fetch existing broadcasts for dedupe check');
-  }
-  return subjects;
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -162,7 +132,19 @@ async function main() {
 
   // Fetch existing broadcasts for idempotency check
   console.log('Checking for existing broadcasts...');
-  const existingSubjects = await getExistingBroadcastSubjects(apiKey);
+  let existingSubjects;
+  try {
+    existingSubjects = await getExistingBroadcastSubjects(apiKey);
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    if (!FORCE_SEND) {
+      console.error(`::error title=Email broadcast held::Couldn't check Kit for posts already sent (${detail}), so nothing was sent. Re-run once Kit responds.`);
+      process.exit(1);
+    }
+    // An explicit manual send skips the dedupe check anyway.
+    console.warn(`  ⚠️  Couldn't check Kit for posts already sent (${detail}); sending anyway (FORCE_SEND)`);
+    existingSubjects = new Set();
+  }
   if (existingSubjects.size > 0) {
     console.log(`  Found ${existingSubjects.size} existing broadcasts`);
   }
@@ -187,8 +169,9 @@ async function main() {
     const raw = readFileSync(postPath, 'utf-8');
     const { data: frontmatter, content: markdownBody } = matter(raw);
 
-    // Skip unpublished/archived posts
-    if (!isListablePost({ data: frontmatter })) {
+    // Skip unpublished/archived posts and redirect_to stubs, which have no
+    // body to send (the same rule the feed uses).
+    if (!isInternalPost({ data: frontmatter })) {
       console.log(`  Skipping (not published): ${frontmatter.title || slug}`);
       skipped++;
       continue;
